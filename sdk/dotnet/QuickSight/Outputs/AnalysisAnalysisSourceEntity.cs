@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourceentity.html
+    /// &lt;p&gt;The source entity of an analysis.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class AnalysisAnalysisSourceEntity
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourceentity.html#cfn-quicksight-analysis-analysissourceentity-sourcetemplate
-        /// </summary>
         public readonly Outputs.AnalysisAnalysisSourceTemplate? SourceTemplate;
 
         [OutputConstructor]

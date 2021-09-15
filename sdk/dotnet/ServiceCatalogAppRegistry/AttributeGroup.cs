@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroup.html
+    /// Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
     /// </summary>
     [AwsNativeResourceType("aws-native:servicecatalogappregistry:AttributeGroup")]
     public partial class AttributeGroup : Pulumi.CustomResource
@@ -18,32 +18,23 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroup.html#cfn-servicecatalogappregistry-attributegroup-attributes
-        /// </summary>
         [Output("attributes")]
-        public Output<Union<System.Text.Json.JsonElement, string>> Attributes { get; private set; } = null!;
+        public Output<object> Attributes { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroup.html#cfn-servicecatalogappregistry-attributegroup-description
+        /// The description of the attribute group. 
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroup.html#cfn-servicecatalogappregistry-attributegroup-name
+        /// The name of the attribute group. 
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroup.html#cfn-servicecatalogappregistry-attributegroup-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<Outputs.AttributeGroupTags?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -90,35 +81,23 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
     public sealed class AttributeGroupArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroup.html#cfn-servicecatalogappregistry-attributegroup-attributes
-        /// </summary>
         [Input("attributes", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> Attributes { get; set; } = null!;
+        public Input<object> Attributes { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroup.html#cfn-servicecatalogappregistry-attributegroup-description
+        /// The description of the attribute group. 
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroup.html#cfn-servicecatalogappregistry-attributegroup-name
+        /// The name of the attribute group. 
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroup.html#cfn-servicecatalogappregistry-attributegroup-tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
+        public Input<Inputs.AttributeGroupTagsArgs>? Tags { get; set; }
 
         public AttributeGroupArgs()
         {

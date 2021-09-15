@@ -11,43 +11,40 @@ namespace Pulumi.AwsNative.S3Outposts.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html
+    /// Specifies lifecycle rules for an Amazon S3Outposts bucket. You must specify at least one of the following: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays.
     /// </summary>
     public sealed class BucketRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-abortincompletemultipartupload
+        /// Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3Outposts bucket.
         /// </summary>
         [Input("abortIncompleteMultipartUpload")]
         public Input<Inputs.BucketAbortIncompleteMultipartUploadArgs>? AbortIncompleteMultipartUpload { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-expirationdate
+        /// Indicates when objects are deleted from Amazon S3Outposts. The date value must be in ISO 8601 format. The time is always midnight UTC.
         /// </summary>
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-expirationindays
+        /// Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.
         /// </summary>
         [Input("expirationInDays")]
         public Input<int>? ExpirationInDays { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-filter
+        /// The container for the filter of the lifecycle rule.
         /// </summary>
         [Input("filter")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Filter { get; set; }
+        public Input<object>? Filter { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-id
+        /// Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-status
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

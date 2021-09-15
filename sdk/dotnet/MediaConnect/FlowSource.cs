@@ -10,85 +10,91 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaConnect
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html
+    /// Resource schema for AWS::MediaConnect::FlowSource
     /// </summary>
     [AwsNativeResourceType("aws-native:mediaconnect:FlowSource")]
     public partial class FlowSource : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-decryption
+        /// The type of encryption that is used on the content ingested from this source.
         /// </summary>
         [Output("decryption")]
         public Output<Outputs.FlowSourceEncryption?> Decryption { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-description
+        /// A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-entitlementarn
+        /// The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
         /// </summary>
         [Output("entitlementArn")]
         public Output<string?> EntitlementArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-flowarn
+        /// The ARN of the flow.
         /// </summary>
         [Output("flowArn")]
         public Output<string?> FlowArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The IP address that the flow will be listening on for incoming content.
+        /// </summary>
         [Output("ingestIp")]
         public Output<string> IngestIp { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-ingestport
+        /// The port that the flow will be listening on for incoming content.
         /// </summary>
         [Output("ingestPort")]
         public Output<int?> IngestPort { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxbitrate
+        /// The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         /// </summary>
         [Output("maxBitrate")]
         public Output<int?> MaxBitrate { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxlatency
+        /// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         /// </summary>
         [Output("maxLatency")]
         public Output<int?> MaxLatency { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-name
+        /// The name of the source.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-protocol
+        /// The protocol that is used by the source.
         /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the source.
+        /// </summary>
         [Output("sourceArn")]
         public Output<string> SourceArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-streamid
+        /// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         /// </summary>
         [Output("streamId")]
         public Output<string?> StreamId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-vpcinterfacename
+        /// The name of the VPC Interface this Source is configured with.
         /// </summary>
         [Output("vpcInterfaceName")]
         public Output<string?> VpcInterfaceName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-whitelistcidr
+        /// The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         /// </summary>
         [Output("whitelistCidr")]
         public Output<string?> WhitelistCidr { get; private set; } = null!;
@@ -139,73 +145,73 @@ namespace Pulumi.AwsNative.MediaConnect
     public sealed class FlowSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-decryption
+        /// The type of encryption that is used on the content ingested from this source.
         /// </summary>
         [Input("decryption")]
         public Input<Inputs.FlowSourceEncryptionArgs>? Decryption { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-description
+        /// A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
         /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-entitlementarn
+        /// The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
         /// </summary>
         [Input("entitlementArn")]
         public Input<string>? EntitlementArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-flowarn
+        /// The ARN of the flow.
         /// </summary>
         [Input("flowArn")]
         public Input<string>? FlowArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-ingestport
+        /// The port that the flow will be listening on for incoming content.
         /// </summary>
         [Input("ingestPort")]
         public Input<int>? IngestPort { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxbitrate
+        /// The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         /// </summary>
         [Input("maxBitrate")]
         public Input<int>? MaxBitrate { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxlatency
+        /// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         /// </summary>
         [Input("maxLatency")]
         public Input<int>? MaxLatency { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-name
+        /// The name of the source.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-protocol
+        /// The protocol that is used by the source.
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-streamid
+        /// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         /// </summary>
         [Input("streamId")]
         public Input<string>? StreamId { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-vpcinterfacename
+        /// The name of the VPC Interface this Source is configured with.
         /// </summary>
         [Input("vpcInterfaceName")]
         public Input<string>? VpcInterfaceName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-whitelistcidr
+        /// The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         /// </summary>
         [Input("whitelistCidr")]
         public Input<string>? WhitelistCidr { get; set; }

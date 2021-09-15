@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html
 type CapacityProviderAutoScalingGroupProvider struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-autoscalinggrouparn
-	AutoScalingGroupArn string `pulumi:"autoScalingGroupArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedscaling
-	ManagedScaling *CapacityProviderManagedScaling `pulumi:"managedScaling"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedterminationprotection
-	ManagedTerminationProtection *string `pulumi:"managedTerminationProtection"`
+	AutoScalingGroupArn          string                          `pulumi:"autoScalingGroupArn"`
+	ManagedScaling               *CapacityProviderManagedScaling `pulumi:"managedScaling"`
+	ManagedTerminationProtection *string                         `pulumi:"managedTerminationProtection"`
 }
 
 // CapacityProviderAutoScalingGroupProviderInput is an input type that accepts CapacityProviderAutoScalingGroupProviderArgs and CapacityProviderAutoScalingGroupProviderOutput values.
@@ -31,14 +27,10 @@ type CapacityProviderAutoScalingGroupProviderInput interface {
 	ToCapacityProviderAutoScalingGroupProviderOutputWithContext(context.Context) CapacityProviderAutoScalingGroupProviderOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html
 type CapacityProviderAutoScalingGroupProviderArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-autoscalinggrouparn
-	AutoScalingGroupArn pulumi.StringInput `pulumi:"autoScalingGroupArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedscaling
-	ManagedScaling CapacityProviderManagedScalingPtrInput `pulumi:"managedScaling"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedterminationprotection
-	ManagedTerminationProtection pulumi.StringPtrInput `pulumi:"managedTerminationProtection"`
+	AutoScalingGroupArn          pulumi.StringInput                     `pulumi:"autoScalingGroupArn"`
+	ManagedScaling               CapacityProviderManagedScalingPtrInput `pulumi:"managedScaling"`
+	ManagedTerminationProtection pulumi.StringPtrInput                  `pulumi:"managedTerminationProtection"`
 }
 
 func (CapacityProviderAutoScalingGroupProviderArgs) ElementType() reflect.Type {
@@ -94,7 +86,6 @@ func (i *capacityProviderAutoScalingGroupProviderPtrType) ToCapacityProviderAuto
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderAutoScalingGroupProviderPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html
 type CapacityProviderAutoScalingGroupProviderOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderAutoScalingGroupProviderOutput) ElementType() reflect.Type {
@@ -119,19 +110,16 @@ func (o CapacityProviderAutoScalingGroupProviderOutput) ToCapacityProviderAutoSc
 	}).(CapacityProviderAutoScalingGroupProviderPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-autoscalinggrouparn
 func (o CapacityProviderAutoScalingGroupProviderOutput) AutoScalingGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) string { return v.AutoScalingGroupArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedscaling
 func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedScaling() CapacityProviderManagedScalingPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *CapacityProviderManagedScaling {
 		return v.ManagedScaling
 	}).(CapacityProviderManagedScalingPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedterminationprotection
 func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedTerminationProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *string { return v.ManagedTerminationProtection }).(pulumi.StringPtrOutput)
 }
@@ -160,7 +148,6 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) Elem() CapacityProvid
 	}).(CapacityProviderAutoScalingGroupProviderOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-autoscalinggrouparn
 func (o CapacityProviderAutoScalingGroupProviderPtrOutput) AutoScalingGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *string {
 		if v == nil {
@@ -170,7 +157,6 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) AutoScalingGroupArn()
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedscaling
 func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedScaling() CapacityProviderManagedScalingPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *CapacityProviderManagedScaling {
 		if v == nil {
@@ -180,7 +166,6 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedScaling() Capa
 	}).(CapacityProviderManagedScalingPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-autoscalinggroupprovider.html#cfn-ecs-capacityprovider-autoscalinggroupprovider-managedterminationprotection
 func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedTerminationProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *string {
 		if v == nil {
@@ -190,18 +175,13 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedTerminationPro
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html
+// The managed scaling settings for the Auto Scaling group capacity provider.
 type CapacityProviderManagedScaling struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-instancewarmupperiod
-	InstanceWarmupPeriod *int `pulumi:"instanceWarmupPeriod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
-	MaximumScalingStepSize *int `pulumi:"maximumScalingStepSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-minimumscalingstepsize
-	MinimumScalingStepSize *int `pulumi:"minimumScalingStepSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-status
-	Status *string `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-targetcapacity
-	TargetCapacity *int `pulumi:"targetCapacity"`
+	InstanceWarmupPeriod   *int    `pulumi:"instanceWarmupPeriod"`
+	MaximumScalingStepSize *int    `pulumi:"maximumScalingStepSize"`
+	MinimumScalingStepSize *int    `pulumi:"minimumScalingStepSize"`
+	Status                 *string `pulumi:"status"`
+	TargetCapacity         *int    `pulumi:"targetCapacity"`
 }
 
 // CapacityProviderManagedScalingInput is an input type that accepts CapacityProviderManagedScalingArgs and CapacityProviderManagedScalingOutput values.
@@ -215,18 +195,13 @@ type CapacityProviderManagedScalingInput interface {
 	ToCapacityProviderManagedScalingOutputWithContext(context.Context) CapacityProviderManagedScalingOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html
+// The managed scaling settings for the Auto Scaling group capacity provider.
 type CapacityProviderManagedScalingArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-instancewarmupperiod
-	InstanceWarmupPeriod pulumi.IntPtrInput `pulumi:"instanceWarmupPeriod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
-	MaximumScalingStepSize pulumi.IntPtrInput `pulumi:"maximumScalingStepSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-minimumscalingstepsize
-	MinimumScalingStepSize pulumi.IntPtrInput `pulumi:"minimumScalingStepSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-status
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-targetcapacity
-	TargetCapacity pulumi.IntPtrInput `pulumi:"targetCapacity"`
+	InstanceWarmupPeriod   pulumi.IntPtrInput    `pulumi:"instanceWarmupPeriod"`
+	MaximumScalingStepSize pulumi.IntPtrInput    `pulumi:"maximumScalingStepSize"`
+	MinimumScalingStepSize pulumi.IntPtrInput    `pulumi:"minimumScalingStepSize"`
+	Status                 pulumi.StringPtrInput `pulumi:"status"`
+	TargetCapacity         pulumi.IntPtrInput    `pulumi:"targetCapacity"`
 }
 
 func (CapacityProviderManagedScalingArgs) ElementType() reflect.Type {
@@ -282,7 +257,7 @@ func (i *capacityProviderManagedScalingPtrType) ToCapacityProviderManagedScaling
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderManagedScalingPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html
+// The managed scaling settings for the Auto Scaling group capacity provider.
 type CapacityProviderManagedScalingOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderManagedScalingOutput) ElementType() reflect.Type {
@@ -307,27 +282,22 @@ func (o CapacityProviderManagedScalingOutput) ToCapacityProviderManagedScalingPt
 	}).(CapacityProviderManagedScalingPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-instancewarmupperiod
 func (o CapacityProviderManagedScalingOutput) InstanceWarmupPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedScaling) *int { return v.InstanceWarmupPeriod }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
 func (o CapacityProviderManagedScalingOutput) MaximumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedScaling) *int { return v.MaximumScalingStepSize }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-minimumscalingstepsize
 func (o CapacityProviderManagedScalingOutput) MinimumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedScaling) *int { return v.MinimumScalingStepSize }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-status
 func (o CapacityProviderManagedScalingOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedScaling) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-targetcapacity
 func (o CapacityProviderManagedScalingOutput) TargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CapacityProviderManagedScaling) *int { return v.TargetCapacity }).(pulumi.IntPtrOutput)
 }
@@ -356,7 +326,6 @@ func (o CapacityProviderManagedScalingPtrOutput) Elem() CapacityProviderManagedS
 	}).(CapacityProviderManagedScalingOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-instancewarmupperiod
 func (o CapacityProviderManagedScalingPtrOutput) InstanceWarmupPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedScaling) *int {
 		if v == nil {
@@ -366,7 +335,6 @@ func (o CapacityProviderManagedScalingPtrOutput) InstanceWarmupPeriod() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-maximumscalingstepsize
 func (o CapacityProviderManagedScalingPtrOutput) MaximumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedScaling) *int {
 		if v == nil {
@@ -376,7 +344,6 @@ func (o CapacityProviderManagedScalingPtrOutput) MaximumScalingStepSize() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-minimumscalingstepsize
 func (o CapacityProviderManagedScalingPtrOutput) MinimumScalingStepSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedScaling) *int {
 		if v == nil {
@@ -386,7 +353,6 @@ func (o CapacityProviderManagedScalingPtrOutput) MinimumScalingStepSize() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-status
 func (o CapacityProviderManagedScalingPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedScaling) *string {
 		if v == nil {
@@ -396,7 +362,6 @@ func (o CapacityProviderManagedScalingPtrOutput) Status() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-capacityprovider-managedscaling.html#cfn-ecs-capacityprovider-managedscaling-targetcapacity
 func (o CapacityProviderManagedScalingPtrOutput) TargetCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderManagedScaling) *int {
 		if v == nil {
@@ -406,14 +371,110 @@ func (o CapacityProviderManagedScalingPtrOutput) TargetCapacity() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html
+type CapacityProviderTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// CapacityProviderTagInput is an input type that accepts CapacityProviderTagArgs and CapacityProviderTagOutput values.
+// You can construct a concrete instance of `CapacityProviderTagInput` via:
+//
+//          CapacityProviderTagArgs{...}
+type CapacityProviderTagInput interface {
+	pulumi.Input
+
+	ToCapacityProviderTagOutput() CapacityProviderTagOutput
+	ToCapacityProviderTagOutputWithContext(context.Context) CapacityProviderTagOutput
+}
+
+type CapacityProviderTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (CapacityProviderTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderTag)(nil)).Elem()
+}
+
+func (i CapacityProviderTagArgs) ToCapacityProviderTagOutput() CapacityProviderTagOutput {
+	return i.ToCapacityProviderTagOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderTagArgs) ToCapacityProviderTagOutputWithContext(ctx context.Context) CapacityProviderTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTagOutput)
+}
+
+// CapacityProviderTagArrayInput is an input type that accepts CapacityProviderTagArray and CapacityProviderTagArrayOutput values.
+// You can construct a concrete instance of `CapacityProviderTagArrayInput` via:
+//
+//          CapacityProviderTagArray{ CapacityProviderTagArgs{...} }
+type CapacityProviderTagArrayInput interface {
+	pulumi.Input
+
+	ToCapacityProviderTagArrayOutput() CapacityProviderTagArrayOutput
+	ToCapacityProviderTagArrayOutputWithContext(context.Context) CapacityProviderTagArrayOutput
+}
+
+type CapacityProviderTagArray []CapacityProviderTagInput
+
+func (CapacityProviderTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderTag)(nil)).Elem()
+}
+
+func (i CapacityProviderTagArray) ToCapacityProviderTagArrayOutput() CapacityProviderTagArrayOutput {
+	return i.ToCapacityProviderTagArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityProviderTagArray) ToCapacityProviderTagArrayOutputWithContext(ctx context.Context) CapacityProviderTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderTagArrayOutput)
+}
+
+type CapacityProviderTagOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderTag)(nil)).Elem()
+}
+
+func (o CapacityProviderTagOutput) ToCapacityProviderTagOutput() CapacityProviderTagOutput {
+	return o
+}
+
+func (o CapacityProviderTagOutput) ToCapacityProviderTagOutputWithContext(ctx context.Context) CapacityProviderTagOutput {
+	return o
+}
+
+func (o CapacityProviderTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityProviderTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CapacityProviderTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityProviderTag)(nil)).Elem()
+}
+
+func (o CapacityProviderTagArrayOutput) ToCapacityProviderTagArrayOutput() CapacityProviderTagArrayOutput {
+	return o
+}
+
+func (o CapacityProviderTagArrayOutput) ToCapacityProviderTagArrayOutputWithContext(ctx context.Context) CapacityProviderTagArrayOutput {
+	return o
+}
+
+func (o CapacityProviderTagArrayOutput) Index(i pulumi.IntInput) CapacityProviderTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityProviderTag {
+		return vs[0].([]CapacityProviderTag)[vs[1].(int)]
+	}).(CapacityProviderTagOutput)
+}
+
 type ClusterCapacityProviderAssociationsCapacityProviderStrategy struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-base
-	Base *int `pulumi:"base"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-capacityprovider
-	CapacityProvider string `pulumi:"capacityProvider"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-weight
-	Weight *int `pulumi:"weight"`
+	Base             *int        `pulumi:"base"`
+	CapacityProvider interface{} `pulumi:"capacityProvider"`
+	Weight           *int        `pulumi:"weight"`
 }
 
 // ClusterCapacityProviderAssociationsCapacityProviderStrategyInput is an input type that accepts ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs and ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput values.
@@ -427,14 +488,10 @@ type ClusterCapacityProviderAssociationsCapacityProviderStrategyInput interface 
 	ToClusterCapacityProviderAssociationsCapacityProviderStrategyOutputWithContext(context.Context) ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html
 type ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-base
-	Base pulumi.IntPtrInput `pulumi:"base"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-capacityprovider
-	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-weight
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	Base             pulumi.IntPtrInput `pulumi:"base"`
+	CapacityProvider pulumi.Input       `pulumi:"capacityProvider"`
+	Weight           pulumi.IntPtrInput `pulumi:"weight"`
 }
 
 func (ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs) ElementType() reflect.Type {
@@ -474,7 +531,6 @@ func (i ClusterCapacityProviderAssociationsCapacityProviderStrategyArray) ToClus
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html
 type ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput struct{ *pulumi.OutputState }
 
 func (ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput) ElementType() reflect.Type {
@@ -489,17 +545,16 @@ func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput) ToClu
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-base
 func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCapacityProviderAssociationsCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-capacityprovider
-func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterCapacityProviderAssociationsCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
+func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput) CapacityProvider() pulumi.AnyOutput {
+	return o.ApplyT(func(v ClusterCapacityProviderAssociationsCapacityProviderStrategy) interface{} {
+		return v.CapacityProvider
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-clustercapacityproviderassociations-capacityproviderstrategy.html#cfn-ecs-clustercapacityproviderassociations-capacityproviderstrategy-weight
 func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCapacityProviderAssociationsCapacityProviderStrategy) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -524,14 +579,11 @@ func (o ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput) 
 	}).(ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html
+// A capacity provider strategy consists of one or more capacity providers along with the `base` and `weight` to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The PutClusterCapacityProviders API is used to associate a capacity provider with a cluster. Only capacity providers with an `ACTIVE` or `UPDATING` status can be used.
 type ClusterCapacityProviderStrategyItem struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html#cfn-ecs-cluster-capacityproviderstrategyitem-base
-	Base *int `pulumi:"base"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html#cfn-ecs-cluster-capacityproviderstrategyitem-capacityprovider
+	Base             *int    `pulumi:"base"`
 	CapacityProvider *string `pulumi:"capacityProvider"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html#cfn-ecs-cluster-capacityproviderstrategyitem-weight
-	Weight *int `pulumi:"weight"`
+	Weight           *int    `pulumi:"weight"`
 }
 
 // ClusterCapacityProviderStrategyItemInput is an input type that accepts ClusterCapacityProviderStrategyItemArgs and ClusterCapacityProviderStrategyItemOutput values.
@@ -545,14 +597,11 @@ type ClusterCapacityProviderStrategyItemInput interface {
 	ToClusterCapacityProviderStrategyItemOutputWithContext(context.Context) ClusterCapacityProviderStrategyItemOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html
+// A capacity provider strategy consists of one or more capacity providers along with the `base` and `weight` to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The PutClusterCapacityProviders API is used to associate a capacity provider with a cluster. Only capacity providers with an `ACTIVE` or `UPDATING` status can be used.
 type ClusterCapacityProviderStrategyItemArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html#cfn-ecs-cluster-capacityproviderstrategyitem-base
-	Base pulumi.IntPtrInput `pulumi:"base"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html#cfn-ecs-cluster-capacityproviderstrategyitem-capacityprovider
+	Base             pulumi.IntPtrInput    `pulumi:"base"`
 	CapacityProvider pulumi.StringPtrInput `pulumi:"capacityProvider"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html#cfn-ecs-cluster-capacityproviderstrategyitem-weight
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	Weight           pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (ClusterCapacityProviderStrategyItemArgs) ElementType() reflect.Type {
@@ -592,7 +641,7 @@ func (i ClusterCapacityProviderStrategyItemArray) ToClusterCapacityProviderStrat
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCapacityProviderStrategyItemArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html
+// A capacity provider strategy consists of one or more capacity providers along with the `base` and `weight` to assign to them. A capacity provider must be associated with the cluster to be used in a capacity provider strategy. The PutClusterCapacityProviders API is used to associate a capacity provider with a cluster. Only capacity providers with an `ACTIVE` or `UPDATING` status can be used.
 type ClusterCapacityProviderStrategyItemOutput struct{ *pulumi.OutputState }
 
 func (ClusterCapacityProviderStrategyItemOutput) ElementType() reflect.Type {
@@ -607,17 +656,14 @@ func (o ClusterCapacityProviderStrategyItemOutput) ToClusterCapacityProviderStra
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html#cfn-ecs-cluster-capacityproviderstrategyitem-base
 func (o ClusterCapacityProviderStrategyItemOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCapacityProviderStrategyItem) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html#cfn-ecs-cluster-capacityproviderstrategyitem-capacityprovider
 func (o ClusterCapacityProviderStrategyItemOutput) CapacityProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCapacityProviderStrategyItem) *string { return v.CapacityProvider }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-capacityproviderstrategyitem.html#cfn-ecs-cluster-capacityproviderstrategyitem-weight
 func (o ClusterCapacityProviderStrategyItemOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterCapacityProviderStrategyItem) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -642,9 +688,8 @@ func (o ClusterCapacityProviderStrategyItemArrayOutput) Index(i pulumi.IntInput)
 	}).(ClusterCapacityProviderStrategyItemOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html
+// The configurations to be set at cluster level.
 type ClusterClusterConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
 	ExecuteCommandConfiguration *ClusterExecuteCommandConfiguration `pulumi:"executeCommandConfiguration"`
 }
 
@@ -659,9 +704,8 @@ type ClusterClusterConfigurationInput interface {
 	ToClusterClusterConfigurationOutputWithContext(context.Context) ClusterClusterConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html
+// The configurations to be set at cluster level.
 type ClusterClusterConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
 	ExecuteCommandConfiguration ClusterExecuteCommandConfigurationPtrInput `pulumi:"executeCommandConfiguration"`
 }
 
@@ -718,7 +762,7 @@ func (i *clusterClusterConfigurationPtrType) ToClusterClusterConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html
+// The configurations to be set at cluster level.
 type ClusterClusterConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterClusterConfigurationOutput) ElementType() reflect.Type {
@@ -743,7 +787,6 @@ func (o ClusterClusterConfigurationOutput) ToClusterClusterConfigurationPtrOutpu
 	}).(ClusterClusterConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
 func (o ClusterClusterConfigurationOutput) ExecuteCommandConfiguration() ClusterExecuteCommandConfigurationPtrOutput {
 	return o.ApplyT(func(v ClusterClusterConfiguration) *ClusterExecuteCommandConfiguration {
 		return v.ExecuteCommandConfiguration
@@ -774,7 +817,6 @@ func (o ClusterClusterConfigurationPtrOutput) Elem() ClusterClusterConfiguration
 	}).(ClusterClusterConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
 func (o ClusterClusterConfigurationPtrOutput) ExecuteCommandConfiguration() ClusterExecuteCommandConfigurationPtrOutput {
 	return o.ApplyT(func(v *ClusterClusterConfiguration) *ClusterExecuteCommandConfiguration {
 		if v == nil {
@@ -784,11 +826,9 @@ func (o ClusterClusterConfigurationPtrOutput) ExecuteCommandConfiguration() Clus
 	}).(ClusterExecuteCommandConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html
+// The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
 type ClusterClusterSettings struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html#cfn-ecs-cluster-clustersettings-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html#cfn-ecs-cluster-clustersettings-value
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -803,11 +843,9 @@ type ClusterClusterSettingsInput interface {
 	ToClusterClusterSettingsOutputWithContext(context.Context) ClusterClusterSettingsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html
+// The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
 type ClusterClusterSettingsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html#cfn-ecs-cluster-clustersettings-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html#cfn-ecs-cluster-clustersettings-value
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -848,7 +886,7 @@ func (i ClusterClusterSettingsArray) ToClusterClusterSettingsArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterSettingsArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html
+// The setting to use when creating a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the containerInsights value set with PutAccountSetting or PutAccountSettingDefault.
 type ClusterClusterSettingsOutput struct{ *pulumi.OutputState }
 
 func (ClusterClusterSettingsOutput) ElementType() reflect.Type {
@@ -863,12 +901,10 @@ func (o ClusterClusterSettingsOutput) ToClusterClusterSettingsOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html#cfn-ecs-cluster-clustersettings-name
 func (o ClusterClusterSettingsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterSettings) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clustersettings.html#cfn-ecs-cluster-clustersettings-value
 func (o ClusterClusterSettingsOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterSettings) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -893,14 +929,11 @@ func (o ClusterClusterSettingsArrayOutput) Index(i pulumi.IntInput) ClusterClust
 	}).(ClusterClusterSettingsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html
+// The configuration for ExecuteCommand.
 type ClusterExecuteCommandConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-kmskeyid
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logconfiguration
+	KmsKeyId         *string                                `pulumi:"kmsKeyId"`
 	LogConfiguration *ClusterExecuteCommandLogConfiguration `pulumi:"logConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging
-	Logging *string `pulumi:"logging"`
+	Logging          *string                                `pulumi:"logging"`
 }
 
 // ClusterExecuteCommandConfigurationInput is an input type that accepts ClusterExecuteCommandConfigurationArgs and ClusterExecuteCommandConfigurationOutput values.
@@ -914,14 +947,11 @@ type ClusterExecuteCommandConfigurationInput interface {
 	ToClusterExecuteCommandConfigurationOutputWithContext(context.Context) ClusterExecuteCommandConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html
+// The configuration for ExecuteCommand.
 type ClusterExecuteCommandConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-kmskeyid
-	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logconfiguration
+	KmsKeyId         pulumi.StringPtrInput                         `pulumi:"kmsKeyId"`
 	LogConfiguration ClusterExecuteCommandLogConfigurationPtrInput `pulumi:"logConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging
-	Logging pulumi.StringPtrInput `pulumi:"logging"`
+	Logging          pulumi.StringPtrInput                         `pulumi:"logging"`
 }
 
 func (ClusterExecuteCommandConfigurationArgs) ElementType() reflect.Type {
@@ -977,7 +1007,7 @@ func (i *clusterExecuteCommandConfigurationPtrType) ToClusterExecuteCommandConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterExecuteCommandConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html
+// The configuration for ExecuteCommand.
 type ClusterExecuteCommandConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterExecuteCommandConfigurationOutput) ElementType() reflect.Type {
@@ -1002,19 +1032,16 @@ func (o ClusterExecuteCommandConfigurationOutput) ToClusterExecuteCommandConfigu
 	}).(ClusterExecuteCommandConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-kmskeyid
 func (o ClusterExecuteCommandConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterExecuteCommandConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logconfiguration
 func (o ClusterExecuteCommandConfigurationOutput) LogConfiguration() ClusterExecuteCommandLogConfigurationPtrOutput {
 	return o.ApplyT(func(v ClusterExecuteCommandConfiguration) *ClusterExecuteCommandLogConfiguration {
 		return v.LogConfiguration
 	}).(ClusterExecuteCommandLogConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging
 func (o ClusterExecuteCommandConfigurationOutput) Logging() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterExecuteCommandConfiguration) *string { return v.Logging }).(pulumi.StringPtrOutput)
 }
@@ -1043,7 +1070,6 @@ func (o ClusterExecuteCommandConfigurationPtrOutput) Elem() ClusterExecuteComman
 	}).(ClusterExecuteCommandConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-kmskeyid
 func (o ClusterExecuteCommandConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterExecuteCommandConfiguration) *string {
 		if v == nil {
@@ -1053,7 +1079,6 @@ func (o ClusterExecuteCommandConfigurationPtrOutput) KmsKeyId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logconfiguration
 func (o ClusterExecuteCommandConfigurationPtrOutput) LogConfiguration() ClusterExecuteCommandLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ClusterExecuteCommandConfiguration) *ClusterExecuteCommandLogConfiguration {
 		if v == nil {
@@ -1063,7 +1088,6 @@ func (o ClusterExecuteCommandConfigurationPtrOutput) LogConfiguration() ClusterE
 	}).(ClusterExecuteCommandLogConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandconfiguration.html#cfn-ecs-cluster-executecommandconfiguration-logging
 func (o ClusterExecuteCommandConfigurationPtrOutput) Logging() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterExecuteCommandConfiguration) *string {
 		if v == nil {
@@ -1073,18 +1097,13 @@ func (o ClusterExecuteCommandConfigurationPtrOutput) Logging() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html
+// The session logging configuration for ExecuteCommand.
 type ClusterExecuteCommandLogConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchencryptionenabled
-	CloudWatchEncryptionEnabled *bool `pulumi:"cloudWatchEncryptionEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchloggroupname
-	CloudWatchLogGroupName *string `pulumi:"cloudWatchLogGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3bucketname
-	S3BucketName *string `pulumi:"s3BucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3encryptionenabled
-	S3EncryptionEnabled *bool `pulumi:"s3EncryptionEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3keyprefix
-	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
+	CloudWatchEncryptionEnabled *bool   `pulumi:"cloudWatchEncryptionEnabled"`
+	CloudWatchLogGroupName      *string `pulumi:"cloudWatchLogGroupName"`
+	S3BucketName                *string `pulumi:"s3BucketName"`
+	S3EncryptionEnabled         *bool   `pulumi:"s3EncryptionEnabled"`
+	S3KeyPrefix                 *string `pulumi:"s3KeyPrefix"`
 }
 
 // ClusterExecuteCommandLogConfigurationInput is an input type that accepts ClusterExecuteCommandLogConfigurationArgs and ClusterExecuteCommandLogConfigurationOutput values.
@@ -1098,18 +1117,13 @@ type ClusterExecuteCommandLogConfigurationInput interface {
 	ToClusterExecuteCommandLogConfigurationOutputWithContext(context.Context) ClusterExecuteCommandLogConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html
+// The session logging configuration for ExecuteCommand.
 type ClusterExecuteCommandLogConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchencryptionenabled
-	CloudWatchEncryptionEnabled pulumi.BoolPtrInput `pulumi:"cloudWatchEncryptionEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchloggroupname
-	CloudWatchLogGroupName pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3bucketname
-	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3encryptionenabled
-	S3EncryptionEnabled pulumi.BoolPtrInput `pulumi:"s3EncryptionEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3keyprefix
-	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
+	CloudWatchEncryptionEnabled pulumi.BoolPtrInput   `pulumi:"cloudWatchEncryptionEnabled"`
+	CloudWatchLogGroupName      pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupName"`
+	S3BucketName                pulumi.StringPtrInput `pulumi:"s3BucketName"`
+	S3EncryptionEnabled         pulumi.BoolPtrInput   `pulumi:"s3EncryptionEnabled"`
+	S3KeyPrefix                 pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
 }
 
 func (ClusterExecuteCommandLogConfigurationArgs) ElementType() reflect.Type {
@@ -1165,7 +1179,7 @@ func (i *clusterExecuteCommandLogConfigurationPtrType) ToClusterExecuteCommandLo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterExecuteCommandLogConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html
+// The session logging configuration for ExecuteCommand.
 type ClusterExecuteCommandLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ClusterExecuteCommandLogConfigurationOutput) ElementType() reflect.Type {
@@ -1190,27 +1204,22 @@ func (o ClusterExecuteCommandLogConfigurationOutput) ToClusterExecuteCommandLogC
 	}).(ClusterExecuteCommandLogConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchencryptionenabled
 func (o ClusterExecuteCommandLogConfigurationOutput) CloudWatchEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterExecuteCommandLogConfiguration) *bool { return v.CloudWatchEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchloggroupname
 func (o ClusterExecuteCommandLogConfigurationOutput) CloudWatchLogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterExecuteCommandLogConfiguration) *string { return v.CloudWatchLogGroupName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3bucketname
 func (o ClusterExecuteCommandLogConfigurationOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterExecuteCommandLogConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3encryptionenabled
 func (o ClusterExecuteCommandLogConfigurationOutput) S3EncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterExecuteCommandLogConfiguration) *bool { return v.S3EncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3keyprefix
 func (o ClusterExecuteCommandLogConfigurationOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterExecuteCommandLogConfiguration) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
@@ -1239,7 +1248,6 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) Elem() ClusterExecuteCom
 	}).(ClusterExecuteCommandLogConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchencryptionenabled
 func (o ClusterExecuteCommandLogConfigurationPtrOutput) CloudWatchEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterExecuteCommandLogConfiguration) *bool {
 		if v == nil {
@@ -1249,7 +1257,6 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) CloudWatchEncryptionEnab
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-cloudwatchloggroupname
 func (o ClusterExecuteCommandLogConfigurationPtrOutput) CloudWatchLogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterExecuteCommandLogConfiguration) *string {
 		if v == nil {
@@ -1259,7 +1266,6 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) CloudWatchLogGroupName()
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3bucketname
 func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterExecuteCommandLogConfiguration) *string {
 		if v == nil {
@@ -1269,7 +1275,6 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3BucketName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3encryptionenabled
 func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3EncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterExecuteCommandLogConfiguration) *bool {
 		if v == nil {
@@ -1279,7 +1284,6 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3EncryptionEnabled() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-executecommandlogconfiguration.html#cfn-ecs-cluster-executecommandlogconfiguration-s3keyprefix
 func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterExecuteCommandLogConfiguration) *string {
 		if v == nil {
@@ -1289,14 +1293,113 @@ func (o ClusterExecuteCommandLogConfigurationPtrOutput) S3KeyPrefix() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html
+// The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+type ClusterTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// ClusterTagInput is an input type that accepts ClusterTagArgs and ClusterTagOutput values.
+// You can construct a concrete instance of `ClusterTagInput` via:
+//
+//          ClusterTagArgs{...}
+type ClusterTagInput interface {
+	pulumi.Input
+
+	ToClusterTagOutput() ClusterTagOutput
+	ToClusterTagOutputWithContext(context.Context) ClusterTagOutput
+}
+
+// The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+type ClusterTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ClusterTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterTag)(nil)).Elem()
+}
+
+func (i ClusterTagArgs) ToClusterTagOutput() ClusterTagOutput {
+	return i.ToClusterTagOutputWithContext(context.Background())
+}
+
+func (i ClusterTagArgs) ToClusterTagOutputWithContext(ctx context.Context) ClusterTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagOutput)
+}
+
+// ClusterTagArrayInput is an input type that accepts ClusterTagArray and ClusterTagArrayOutput values.
+// You can construct a concrete instance of `ClusterTagArrayInput` via:
+//
+//          ClusterTagArray{ ClusterTagArgs{...} }
+type ClusterTagArrayInput interface {
+	pulumi.Input
+
+	ToClusterTagArrayOutput() ClusterTagArrayOutput
+	ToClusterTagArrayOutputWithContext(context.Context) ClusterTagArrayOutput
+}
+
+type ClusterTagArray []ClusterTagInput
+
+func (ClusterTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterTag)(nil)).Elem()
+}
+
+func (i ClusterTagArray) ToClusterTagArrayOutput() ClusterTagArrayOutput {
+	return i.ToClusterTagArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterTagArray) ToClusterTagArrayOutputWithContext(ctx context.Context) ClusterTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagArrayOutput)
+}
+
+// The metadata that you apply to the cluster to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+type ClusterTagOutput struct{ *pulumi.OutputState }
+
+func (ClusterTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterTag)(nil)).Elem()
+}
+
+func (o ClusterTagOutput) ToClusterTagOutput() ClusterTagOutput {
+	return o
+}
+
+func (o ClusterTagOutput) ToClusterTagOutputWithContext(ctx context.Context) ClusterTagOutput {
+	return o
+}
+
+func (o ClusterTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ClusterTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterTag)(nil)).Elem()
+}
+
+func (o ClusterTagArrayOutput) ToClusterTagArrayOutput() ClusterTagArrayOutput {
+	return o
+}
+
+func (o ClusterTagArrayOutput) ToClusterTagArrayOutputWithContext(ctx context.Context) ClusterTagArrayOutput {
+	return o
+}
+
+func (o ClusterTagArrayOutput) Index(i pulumi.IntInput) ClusterTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterTag {
+		return vs[0].([]ClusterTag)[vs[1].(int)]
+	}).(ClusterTagOutput)
+}
+
 type ServiceAwsVpcConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-assignpublicip
-	AssignPublicIp *string `pulumi:"assignPublicIp"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-securitygroups
+	AssignPublicIp *string  `pulumi:"assignPublicIp"`
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-subnets
-	Subnets []string `pulumi:"subnets"`
+	Subnets        []string `pulumi:"subnets"`
 }
 
 // ServiceAwsVpcConfigurationInput is an input type that accepts ServiceAwsVpcConfigurationArgs and ServiceAwsVpcConfigurationOutput values.
@@ -1310,14 +1413,10 @@ type ServiceAwsVpcConfigurationInput interface {
 	ToServiceAwsVpcConfigurationOutputWithContext(context.Context) ServiceAwsVpcConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html
 type ServiceAwsVpcConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-assignpublicip
-	AssignPublicIp pulumi.StringPtrInput `pulumi:"assignPublicIp"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-securitygroups
+	AssignPublicIp pulumi.StringPtrInput   `pulumi:"assignPublicIp"`
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-subnets
-	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+	Subnets        pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
 func (ServiceAwsVpcConfigurationArgs) ElementType() reflect.Type {
@@ -1373,7 +1472,6 @@ func (i *serviceAwsVpcConfigurationPtrType) ToServiceAwsVpcConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAwsVpcConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html
 type ServiceAwsVpcConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceAwsVpcConfigurationOutput) ElementType() reflect.Type {
@@ -1398,17 +1496,14 @@ func (o ServiceAwsVpcConfigurationOutput) ToServiceAwsVpcConfigurationPtrOutputW
 	}).(ServiceAwsVpcConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-assignpublicip
 func (o ServiceAwsVpcConfigurationOutput) AssignPublicIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceAwsVpcConfiguration) *string { return v.AssignPublicIp }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-securitygroups
 func (o ServiceAwsVpcConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceAwsVpcConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-subnets
 func (o ServiceAwsVpcConfigurationOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceAwsVpcConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -1437,7 +1532,6 @@ func (o ServiceAwsVpcConfigurationPtrOutput) Elem() ServiceAwsVpcConfigurationOu
 	}).(ServiceAwsVpcConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-assignpublicip
 func (o ServiceAwsVpcConfigurationPtrOutput) AssignPublicIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceAwsVpcConfiguration) *string {
 		if v == nil {
@@ -1447,7 +1541,6 @@ func (o ServiceAwsVpcConfigurationPtrOutput) AssignPublicIp() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-securitygroups
 func (o ServiceAwsVpcConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceAwsVpcConfiguration) []string {
 		if v == nil {
@@ -1457,7 +1550,6 @@ func (o ServiceAwsVpcConfigurationPtrOutput) SecurityGroups() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-subnets
 func (o ServiceAwsVpcConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceAwsVpcConfiguration) []string {
 		if v == nil {
@@ -1467,14 +1559,10 @@ func (o ServiceAwsVpcConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html
 type ServiceCapacityProviderStrategyItem struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html#cfn-ecs-service-capacityproviderstrategyitem-base
-	Base *int `pulumi:"base"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html#cfn-ecs-service-capacityproviderstrategyitem-capacityprovider
+	Base             *int    `pulumi:"base"`
 	CapacityProvider *string `pulumi:"capacityProvider"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html#cfn-ecs-service-capacityproviderstrategyitem-weight
-	Weight *int `pulumi:"weight"`
+	Weight           *int    `pulumi:"weight"`
 }
 
 // ServiceCapacityProviderStrategyItemInput is an input type that accepts ServiceCapacityProviderStrategyItemArgs and ServiceCapacityProviderStrategyItemOutput values.
@@ -1488,14 +1576,10 @@ type ServiceCapacityProviderStrategyItemInput interface {
 	ToServiceCapacityProviderStrategyItemOutputWithContext(context.Context) ServiceCapacityProviderStrategyItemOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html
 type ServiceCapacityProviderStrategyItemArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html#cfn-ecs-service-capacityproviderstrategyitem-base
-	Base pulumi.IntPtrInput `pulumi:"base"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html#cfn-ecs-service-capacityproviderstrategyitem-capacityprovider
+	Base             pulumi.IntPtrInput    `pulumi:"base"`
 	CapacityProvider pulumi.StringPtrInput `pulumi:"capacityProvider"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html#cfn-ecs-service-capacityproviderstrategyitem-weight
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
+	Weight           pulumi.IntPtrInput    `pulumi:"weight"`
 }
 
 func (ServiceCapacityProviderStrategyItemArgs) ElementType() reflect.Type {
@@ -1535,7 +1619,6 @@ func (i ServiceCapacityProviderStrategyItemArray) ToServiceCapacityProviderStrat
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCapacityProviderStrategyItemArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html
 type ServiceCapacityProviderStrategyItemOutput struct{ *pulumi.OutputState }
 
 func (ServiceCapacityProviderStrategyItemOutput) ElementType() reflect.Type {
@@ -1550,17 +1633,14 @@ func (o ServiceCapacityProviderStrategyItemOutput) ToServiceCapacityProviderStra
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html#cfn-ecs-service-capacityproviderstrategyitem-base
 func (o ServiceCapacityProviderStrategyItemOutput) Base() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceCapacityProviderStrategyItem) *int { return v.Base }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html#cfn-ecs-service-capacityproviderstrategyitem-capacityprovider
 func (o ServiceCapacityProviderStrategyItemOutput) CapacityProvider() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceCapacityProviderStrategyItem) *string { return v.CapacityProvider }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html#cfn-ecs-service-capacityproviderstrategyitem-weight
 func (o ServiceCapacityProviderStrategyItemOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceCapacityProviderStrategyItem) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -1585,11 +1665,8 @@ func (o ServiceCapacityProviderStrategyItemArrayOutput) Index(i pulumi.IntInput)
 	}).(ServiceCapacityProviderStrategyItemOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html
 type ServiceDeploymentCircuitBreaker struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-enable
-	Enable bool `pulumi:"enable"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-rollback
+	Enable   bool `pulumi:"enable"`
 	Rollback bool `pulumi:"rollback"`
 }
 
@@ -1604,11 +1681,8 @@ type ServiceDeploymentCircuitBreakerInput interface {
 	ToServiceDeploymentCircuitBreakerOutputWithContext(context.Context) ServiceDeploymentCircuitBreakerOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html
 type ServiceDeploymentCircuitBreakerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-enable
-	Enable pulumi.BoolInput `pulumi:"enable"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-rollback
+	Enable   pulumi.BoolInput `pulumi:"enable"`
 	Rollback pulumi.BoolInput `pulumi:"rollback"`
 }
 
@@ -1665,7 +1739,6 @@ func (i *serviceDeploymentCircuitBreakerPtrType) ToServiceDeploymentCircuitBreak
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentCircuitBreakerPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html
 type ServiceDeploymentCircuitBreakerOutput struct{ *pulumi.OutputState }
 
 func (ServiceDeploymentCircuitBreakerOutput) ElementType() reflect.Type {
@@ -1690,12 +1763,10 @@ func (o ServiceDeploymentCircuitBreakerOutput) ToServiceDeploymentCircuitBreaker
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-enable
 func (o ServiceDeploymentCircuitBreakerOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceDeploymentCircuitBreaker) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-rollback
 func (o ServiceDeploymentCircuitBreakerOutput) Rollback() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceDeploymentCircuitBreaker) bool { return v.Rollback }).(pulumi.BoolOutput)
 }
@@ -1724,7 +1795,6 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Elem() ServiceDeploymentCircui
 	}).(ServiceDeploymentCircuitBreakerOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-enable
 func (o ServiceDeploymentCircuitBreakerPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentCircuitBreaker) *bool {
 		if v == nil {
@@ -1734,7 +1804,6 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Enable() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html#cfn-ecs-service-deploymentcircuitbreaker-rollback
 func (o ServiceDeploymentCircuitBreakerPtrOutput) Rollback() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentCircuitBreaker) *bool {
 		if v == nil {
@@ -1744,14 +1813,10 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Rollback() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html
 type ServiceDeploymentConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-deploymentcircuitbreaker
 	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreaker"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-maximumpercent
-	MaximumPercent *int `pulumi:"maximumPercent"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-minimumhealthypercent
-	MinimumHealthyPercent *int `pulumi:"minimumHealthyPercent"`
+	MaximumPercent           *int                             `pulumi:"maximumPercent"`
+	MinimumHealthyPercent    *int                             `pulumi:"minimumHealthyPercent"`
 }
 
 // ServiceDeploymentConfigurationInput is an input type that accepts ServiceDeploymentConfigurationArgs and ServiceDeploymentConfigurationOutput values.
@@ -1765,14 +1830,10 @@ type ServiceDeploymentConfigurationInput interface {
 	ToServiceDeploymentConfigurationOutputWithContext(context.Context) ServiceDeploymentConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html
 type ServiceDeploymentConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-deploymentcircuitbreaker
 	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput `pulumi:"deploymentCircuitBreaker"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-maximumpercent
-	MaximumPercent pulumi.IntPtrInput `pulumi:"maximumPercent"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-minimumhealthypercent
-	MinimumHealthyPercent pulumi.IntPtrInput `pulumi:"minimumHealthyPercent"`
+	MaximumPercent           pulumi.IntPtrInput                      `pulumi:"maximumPercent"`
+	MinimumHealthyPercent    pulumi.IntPtrInput                      `pulumi:"minimumHealthyPercent"`
 }
 
 func (ServiceDeploymentConfigurationArgs) ElementType() reflect.Type {
@@ -1828,7 +1889,6 @@ func (i *serviceDeploymentConfigurationPtrType) ToServiceDeploymentConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html
 type ServiceDeploymentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceDeploymentConfigurationOutput) ElementType() reflect.Type {
@@ -1853,19 +1913,16 @@ func (o ServiceDeploymentConfigurationOutput) ToServiceDeploymentConfigurationPt
 	}).(ServiceDeploymentConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-deploymentcircuitbreaker
 func (o ServiceDeploymentConfigurationOutput) DeploymentCircuitBreaker() ServiceDeploymentCircuitBreakerPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceDeploymentCircuitBreaker {
 		return v.DeploymentCircuitBreaker
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-maximumpercent
 func (o ServiceDeploymentConfigurationOutput) MaximumPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *int { return v.MaximumPercent }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-minimumhealthypercent
 func (o ServiceDeploymentConfigurationOutput) MinimumHealthyPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) *int { return v.MinimumHealthyPercent }).(pulumi.IntPtrOutput)
 }
@@ -1894,7 +1951,6 @@ func (o ServiceDeploymentConfigurationPtrOutput) Elem() ServiceDeploymentConfigu
 	}).(ServiceDeploymentConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-deploymentcircuitbreaker
 func (o ServiceDeploymentConfigurationPtrOutput) DeploymentCircuitBreaker() ServiceDeploymentCircuitBreakerPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *ServiceDeploymentCircuitBreaker {
 		if v == nil {
@@ -1904,7 +1960,6 @@ func (o ServiceDeploymentConfigurationPtrOutput) DeploymentCircuitBreaker() Serv
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-maximumpercent
 func (o ServiceDeploymentConfigurationPtrOutput) MaximumPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *int {
 		if v == nil {
@@ -1914,7 +1969,6 @@ func (o ServiceDeploymentConfigurationPtrOutput) MaximumPercent() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-minimumhealthypercent
 func (o ServiceDeploymentConfigurationPtrOutput) MinimumHealthyPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *int {
 		if v == nil {
@@ -1924,9 +1978,7 @@ func (o ServiceDeploymentConfigurationPtrOutput) MinimumHealthyPercent() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html
 type ServiceDeploymentController struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html#cfn-ecs-service-deploymentcontroller-type
 	Type *string `pulumi:"type"`
 }
 
@@ -1941,9 +1993,7 @@ type ServiceDeploymentControllerInput interface {
 	ToServiceDeploymentControllerOutputWithContext(context.Context) ServiceDeploymentControllerOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html
 type ServiceDeploymentControllerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html#cfn-ecs-service-deploymentcontroller-type
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -2000,7 +2050,6 @@ func (i *serviceDeploymentControllerPtrType) ToServiceDeploymentControllerPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentControllerPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html
 type ServiceDeploymentControllerOutput struct{ *pulumi.OutputState }
 
 func (ServiceDeploymentControllerOutput) ElementType() reflect.Type {
@@ -2025,7 +2074,6 @@ func (o ServiceDeploymentControllerOutput) ToServiceDeploymentControllerPtrOutpu
 	}).(ServiceDeploymentControllerPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html#cfn-ecs-service-deploymentcontroller-type
 func (o ServiceDeploymentControllerOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceDeploymentController) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2054,7 +2102,6 @@ func (o ServiceDeploymentControllerPtrOutput) Elem() ServiceDeploymentController
 	}).(ServiceDeploymentControllerOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html#cfn-ecs-service-deploymentcontroller-type
 func (o ServiceDeploymentControllerPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceDeploymentController) *string {
 		if v == nil {
@@ -2064,16 +2111,11 @@ func (o ServiceDeploymentControllerPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html
 type ServiceLoadBalancer struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containername
-	ContainerName *string `pulumi:"containerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containerport
-	ContainerPort *int `pulumi:"containerPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-loadbalancername
+	ContainerName    *string `pulumi:"containerName"`
+	ContainerPort    *int    `pulumi:"containerPort"`
 	LoadBalancerName *string `pulumi:"loadBalancerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-targetgrouparn
-	TargetGroupArn *string `pulumi:"targetGroupArn"`
+	TargetGroupArn   *string `pulumi:"targetGroupArn"`
 }
 
 // ServiceLoadBalancerInput is an input type that accepts ServiceLoadBalancerArgs and ServiceLoadBalancerOutput values.
@@ -2087,16 +2129,11 @@ type ServiceLoadBalancerInput interface {
 	ToServiceLoadBalancerOutputWithContext(context.Context) ServiceLoadBalancerOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html
 type ServiceLoadBalancerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containername
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containerport
-	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-loadbalancername
+	ContainerName    pulumi.StringPtrInput `pulumi:"containerName"`
+	ContainerPort    pulumi.IntPtrInput    `pulumi:"containerPort"`
 	LoadBalancerName pulumi.StringPtrInput `pulumi:"loadBalancerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-targetgrouparn
-	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
+	TargetGroupArn   pulumi.StringPtrInput `pulumi:"targetGroupArn"`
 }
 
 func (ServiceLoadBalancerArgs) ElementType() reflect.Type {
@@ -2136,7 +2173,6 @@ func (i ServiceLoadBalancerArray) ToServiceLoadBalancerArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadBalancerArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html
 type ServiceLoadBalancerOutput struct{ *pulumi.OutputState }
 
 func (ServiceLoadBalancerOutput) ElementType() reflect.Type {
@@ -2151,22 +2187,18 @@ func (o ServiceLoadBalancerOutput) ToServiceLoadBalancerOutputWithContext(ctx co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containername
 func (o ServiceLoadBalancerOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-containerport
 func (o ServiceLoadBalancerOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-loadbalancername
 func (o ServiceLoadBalancerOutput) LoadBalancerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *string { return v.LoadBalancerName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-targetgrouparn
 func (o ServiceLoadBalancerOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -2191,9 +2223,7 @@ func (o ServiceLoadBalancerArrayOutput) Index(i pulumi.IntInput) ServiceLoadBala
 	}).(ServiceLoadBalancerOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html
 type ServiceNetworkConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html#cfn-ecs-service-networkconfiguration-awsvpcconfiguration
 	AwsvpcConfiguration *ServiceAwsVpcConfiguration `pulumi:"awsvpcConfiguration"`
 }
 
@@ -2208,9 +2238,7 @@ type ServiceNetworkConfigurationInput interface {
 	ToServiceNetworkConfigurationOutputWithContext(context.Context) ServiceNetworkConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html
 type ServiceNetworkConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html#cfn-ecs-service-networkconfiguration-awsvpcconfiguration
 	AwsvpcConfiguration ServiceAwsVpcConfigurationPtrInput `pulumi:"awsvpcConfiguration"`
 }
 
@@ -2267,7 +2295,6 @@ func (i *serviceNetworkConfigurationPtrType) ToServiceNetworkConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html
 type ServiceNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -2292,7 +2319,6 @@ func (o ServiceNetworkConfigurationOutput) ToServiceNetworkConfigurationPtrOutpu
 	}).(ServiceNetworkConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html#cfn-ecs-service-networkconfiguration-awsvpcconfiguration
 func (o ServiceNetworkConfigurationOutput) AwsvpcConfiguration() ServiceAwsVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceNetworkConfiguration) *ServiceAwsVpcConfiguration { return v.AwsvpcConfiguration }).(ServiceAwsVpcConfigurationPtrOutput)
 }
@@ -2321,7 +2347,6 @@ func (o ServiceNetworkConfigurationPtrOutput) Elem() ServiceNetworkConfiguration
 	}).(ServiceNetworkConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html#cfn-ecs-service-networkconfiguration-awsvpcconfiguration
 func (o ServiceNetworkConfigurationPtrOutput) AwsvpcConfiguration() ServiceAwsVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfiguration) *ServiceAwsVpcConfiguration {
 		if v == nil {
@@ -2331,12 +2356,9 @@ func (o ServiceNetworkConfigurationPtrOutput) AwsvpcConfiguration() ServiceAwsVp
 	}).(ServiceAwsVpcConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html
 type ServicePlacementConstraint struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html#cfn-ecs-service-placementconstraint-expression
 	Expression *string `pulumi:"expression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html#cfn-ecs-service-placementconstraint-type
-	Type string `pulumi:"type"`
+	Type       string  `pulumi:"type"`
 }
 
 // ServicePlacementConstraintInput is an input type that accepts ServicePlacementConstraintArgs and ServicePlacementConstraintOutput values.
@@ -2350,12 +2372,9 @@ type ServicePlacementConstraintInput interface {
 	ToServicePlacementConstraintOutputWithContext(context.Context) ServicePlacementConstraintOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html
 type ServicePlacementConstraintArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html#cfn-ecs-service-placementconstraint-expression
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html#cfn-ecs-service-placementconstraint-type
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput    `pulumi:"type"`
 }
 
 func (ServicePlacementConstraintArgs) ElementType() reflect.Type {
@@ -2395,7 +2414,6 @@ func (i ServicePlacementConstraintArray) ToServicePlacementConstraintArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementConstraintArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html
 type ServicePlacementConstraintOutput struct{ *pulumi.OutputState }
 
 func (ServicePlacementConstraintOutput) ElementType() reflect.Type {
@@ -2410,12 +2428,10 @@ func (o ServicePlacementConstraintOutput) ToServicePlacementConstraintOutputWith
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html#cfn-ecs-service-placementconstraint-expression
 func (o ServicePlacementConstraintOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html#cfn-ecs-service-placementconstraint-type
 func (o ServicePlacementConstraintOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServicePlacementConstraint) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2440,12 +2456,9 @@ func (o ServicePlacementConstraintArrayOutput) Index(i pulumi.IntInput) ServiceP
 	}).(ServicePlacementConstraintOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementstrategy.html
 type ServicePlacementStrategy struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementstrategy.html#cfn-ecs-service-placementstrategy-field
 	Field *string `pulumi:"field"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementstrategy.html#cfn-ecs-service-placementstrategy-type
-	Type string `pulumi:"type"`
+	Type  string  `pulumi:"type"`
 }
 
 // ServicePlacementStrategyInput is an input type that accepts ServicePlacementStrategyArgs and ServicePlacementStrategyOutput values.
@@ -2459,12 +2472,9 @@ type ServicePlacementStrategyInput interface {
 	ToServicePlacementStrategyOutputWithContext(context.Context) ServicePlacementStrategyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementstrategy.html
 type ServicePlacementStrategyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementstrategy.html#cfn-ecs-service-placementstrategy-field
 	Field pulumi.StringPtrInput `pulumi:"field"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementstrategy.html#cfn-ecs-service-placementstrategy-type
-	Type pulumi.StringInput `pulumi:"type"`
+	Type  pulumi.StringInput    `pulumi:"type"`
 }
 
 func (ServicePlacementStrategyArgs) ElementType() reflect.Type {
@@ -2504,7 +2514,6 @@ func (i ServicePlacementStrategyArray) ToServicePlacementStrategyArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementStrategyArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementstrategy.html
 type ServicePlacementStrategyOutput struct{ *pulumi.OutputState }
 
 func (ServicePlacementStrategyOutput) ElementType() reflect.Type {
@@ -2519,12 +2528,10 @@ func (o ServicePlacementStrategyOutput) ToServicePlacementStrategyOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementstrategy.html#cfn-ecs-service-placementstrategy-field
 func (o ServicePlacementStrategyOutput) Field() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePlacementStrategy) *string { return v.Field }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementstrategy.html#cfn-ecs-service-placementstrategy-type
 func (o ServicePlacementStrategyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServicePlacementStrategy) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2549,16 +2556,11 @@ func (o ServicePlacementStrategyArrayOutput) Index(i pulumi.IntInput) ServicePla
 	}).(ServicePlacementStrategyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html
 type ServiceServiceRegistry struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-containername
 	ContainerName *string `pulumi:"containerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-containerport
-	ContainerPort *int `pulumi:"containerPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-port
-	Port *int `pulumi:"port"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-registryarn
-	RegistryArn *string `pulumi:"registryArn"`
+	ContainerPort *int    `pulumi:"containerPort"`
+	Port          *int    `pulumi:"port"`
+	RegistryArn   *string `pulumi:"registryArn"`
 }
 
 // ServiceServiceRegistryInput is an input type that accepts ServiceServiceRegistryArgs and ServiceServiceRegistryOutput values.
@@ -2572,16 +2574,11 @@ type ServiceServiceRegistryInput interface {
 	ToServiceServiceRegistryOutputWithContext(context.Context) ServiceServiceRegistryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html
 type ServiceServiceRegistryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-containername
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-containerport
-	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-port
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-registryarn
-	RegistryArn pulumi.StringPtrInput `pulumi:"registryArn"`
+	ContainerPort pulumi.IntPtrInput    `pulumi:"containerPort"`
+	Port          pulumi.IntPtrInput    `pulumi:"port"`
+	RegistryArn   pulumi.StringPtrInput `pulumi:"registryArn"`
 }
 
 func (ServiceServiceRegistryArgs) ElementType() reflect.Type {
@@ -2621,7 +2618,6 @@ func (i ServiceServiceRegistryArray) ToServiceServiceRegistryArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceServiceRegistryArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html
 type ServiceServiceRegistryOutput struct{ *pulumi.OutputState }
 
 func (ServiceServiceRegistryOutput) ElementType() reflect.Type {
@@ -2636,22 +2632,18 @@ func (o ServiceServiceRegistryOutput) ToServiceServiceRegistryOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-containername
 func (o ServiceServiceRegistryOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceServiceRegistry) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-containerport
 func (o ServiceServiceRegistryOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceServiceRegistry) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-port
 func (o ServiceServiceRegistryOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceServiceRegistry) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-registryarn
 func (o ServiceServiceRegistryOutput) RegistryArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceServiceRegistry) *string { return v.RegistryArn }).(pulumi.StringPtrOutput)
 }
@@ -2676,12 +2668,109 @@ func (o ServiceServiceRegistryArrayOutput) Index(i pulumi.IntInput) ServiceServi
 	}).(ServiceServiceRegistryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html
+type ServiceTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// ServiceTagInput is an input type that accepts ServiceTagArgs and ServiceTagOutput values.
+// You can construct a concrete instance of `ServiceTagInput` via:
+//
+//          ServiceTagArgs{...}
+type ServiceTagInput interface {
+	pulumi.Input
+
+	ToServiceTagOutput() ServiceTagOutput
+	ToServiceTagOutputWithContext(context.Context) ServiceTagOutput
+}
+
+type ServiceTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ServiceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTag)(nil)).Elem()
+}
+
+func (i ServiceTagArgs) ToServiceTagOutput() ServiceTagOutput {
+	return i.ToServiceTagOutputWithContext(context.Background())
+}
+
+func (i ServiceTagArgs) ToServiceTagOutputWithContext(ctx context.Context) ServiceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTagOutput)
+}
+
+// ServiceTagArrayInput is an input type that accepts ServiceTagArray and ServiceTagArrayOutput values.
+// You can construct a concrete instance of `ServiceTagArrayInput` via:
+//
+//          ServiceTagArray{ ServiceTagArgs{...} }
+type ServiceTagArrayInput interface {
+	pulumi.Input
+
+	ToServiceTagArrayOutput() ServiceTagArrayOutput
+	ToServiceTagArrayOutputWithContext(context.Context) ServiceTagArrayOutput
+}
+
+type ServiceTagArray []ServiceTagInput
+
+func (ServiceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceTag)(nil)).Elem()
+}
+
+func (i ServiceTagArray) ToServiceTagArrayOutput() ServiceTagArrayOutput {
+	return i.ToServiceTagArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceTagArray) ToServiceTagArrayOutputWithContext(ctx context.Context) ServiceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTagArrayOutput)
+}
+
+type ServiceTagOutput struct{ *pulumi.OutputState }
+
+func (ServiceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTag)(nil)).Elem()
+}
+
+func (o ServiceTagOutput) ToServiceTagOutput() ServiceTagOutput {
+	return o
+}
+
+func (o ServiceTagOutput) ToServiceTagOutputWithContext(ctx context.Context) ServiceTagOutput {
+	return o
+}
+
+func (o ServiceTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ServiceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceTag)(nil)).Elem()
+}
+
+func (o ServiceTagArrayOutput) ToServiceTagArrayOutput() ServiceTagArrayOutput {
+	return o
+}
+
+func (o ServiceTagArrayOutput) ToServiceTagArrayOutputWithContext(ctx context.Context) ServiceTagArrayOutput {
+	return o
+}
+
+func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceTag {
+		return vs[0].([]ServiceTag)[vs[1].(int)]
+	}).(ServiceTagOutput)
+}
+
 type TaskDefinitionAuthorizationConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html#cfn-ecs-taskdefinition-authorizationconfig-accesspointid
 	AccessPointId *string `pulumi:"accessPointId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html#cfn-ecs-taskdefinition-authorizationconfig-iam
-	IAM *string `pulumi:"iAM"`
+	IAM           *string `pulumi:"iAM"`
 }
 
 // TaskDefinitionAuthorizationConfigInput is an input type that accepts TaskDefinitionAuthorizationConfigArgs and TaskDefinitionAuthorizationConfigOutput values.
@@ -2695,12 +2784,9 @@ type TaskDefinitionAuthorizationConfigInput interface {
 	ToTaskDefinitionAuthorizationConfigOutputWithContext(context.Context) TaskDefinitionAuthorizationConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html
 type TaskDefinitionAuthorizationConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html#cfn-ecs-taskdefinition-authorizationconfig-accesspointid
 	AccessPointId pulumi.StringPtrInput `pulumi:"accessPointId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html#cfn-ecs-taskdefinition-authorizationconfig-iam
-	IAM pulumi.StringPtrInput `pulumi:"iAM"`
+	IAM           pulumi.StringPtrInput `pulumi:"iAM"`
 }
 
 func (TaskDefinitionAuthorizationConfigArgs) ElementType() reflect.Type {
@@ -2715,7 +2801,47 @@ func (i TaskDefinitionAuthorizationConfigArgs) ToTaskDefinitionAuthorizationConf
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionAuthorizationConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html
+func (i TaskDefinitionAuthorizationConfigArgs) ToTaskDefinitionAuthorizationConfigPtrOutput() TaskDefinitionAuthorizationConfigPtrOutput {
+	return i.ToTaskDefinitionAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionAuthorizationConfigArgs) ToTaskDefinitionAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionAuthorizationConfigOutput).ToTaskDefinitionAuthorizationConfigPtrOutputWithContext(ctx)
+}
+
+// TaskDefinitionAuthorizationConfigPtrInput is an input type that accepts TaskDefinitionAuthorizationConfigArgs, TaskDefinitionAuthorizationConfigPtr and TaskDefinitionAuthorizationConfigPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionAuthorizationConfigPtrInput` via:
+//
+//          TaskDefinitionAuthorizationConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type TaskDefinitionAuthorizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionAuthorizationConfigPtrOutput() TaskDefinitionAuthorizationConfigPtrOutput
+	ToTaskDefinitionAuthorizationConfigPtrOutputWithContext(context.Context) TaskDefinitionAuthorizationConfigPtrOutput
+}
+
+type taskDefinitionAuthorizationConfigPtrType TaskDefinitionAuthorizationConfigArgs
+
+func TaskDefinitionAuthorizationConfigPtr(v *TaskDefinitionAuthorizationConfigArgs) TaskDefinitionAuthorizationConfigPtrInput {
+	return (*taskDefinitionAuthorizationConfigPtrType)(v)
+}
+
+func (*taskDefinitionAuthorizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionAuthorizationConfig)(nil)).Elem()
+}
+
+func (i *taskDefinitionAuthorizationConfigPtrType) ToTaskDefinitionAuthorizationConfigPtrOutput() TaskDefinitionAuthorizationConfigPtrOutput {
+	return i.ToTaskDefinitionAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *taskDefinitionAuthorizationConfigPtrType) ToTaskDefinitionAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionAuthorizationConfigPtrOutput)
+}
+
 type TaskDefinitionAuthorizationConfigOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionAuthorizationConfigOutput) ElementType() reflect.Type {
@@ -2730,96 +2856,113 @@ func (o TaskDefinitionAuthorizationConfigOutput) ToTaskDefinitionAuthorizationCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html#cfn-ecs-taskdefinition-authorizationconfig-accesspointid
+func (o TaskDefinitionAuthorizationConfigOutput) ToTaskDefinitionAuthorizationConfigPtrOutput() TaskDefinitionAuthorizationConfigPtrOutput {
+	return o.ToTaskDefinitionAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionAuthorizationConfigOutput) ToTaskDefinitionAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionAuthorizationConfig) *TaskDefinitionAuthorizationConfig {
+		return &v
+	}).(TaskDefinitionAuthorizationConfigPtrOutput)
+}
+
 func (o TaskDefinitionAuthorizationConfigOutput) AccessPointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionAuthorizationConfig) *string { return v.AccessPointId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html#cfn-ecs-taskdefinition-authorizationconfig-iam
 func (o TaskDefinitionAuthorizationConfigOutput) IAM() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionAuthorizationConfig) *string { return v.IAM }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html
+type TaskDefinitionAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionAuthorizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionAuthorizationConfig)(nil)).Elem()
+}
+
+func (o TaskDefinitionAuthorizationConfigPtrOutput) ToTaskDefinitionAuthorizationConfigPtrOutput() TaskDefinitionAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionAuthorizationConfigPtrOutput) ToTaskDefinitionAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionAuthorizationConfigPtrOutput) Elem() TaskDefinitionAuthorizationConfigOutput {
+	return o.ApplyT(func(v *TaskDefinitionAuthorizationConfig) TaskDefinitionAuthorizationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionAuthorizationConfig
+		return ret
+	}).(TaskDefinitionAuthorizationConfigOutput)
+}
+
+func (o TaskDefinitionAuthorizationConfigPtrOutput) AccessPointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionAuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessPointId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionAuthorizationConfigPtrOutput) IAM() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionAuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IAM
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of container definitions that are passed to the Docker daemon on a container instance
 type TaskDefinitionContainerDefinition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-command
-	Command []string `pulumi:"command"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-cpu
-	Cpu *int `pulumi:"cpu"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dependson
-	DependsOn []TaskDefinitionContainerDependency `pulumi:"dependsOn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-disablenetworking
-	DisableNetworking *bool `pulumi:"disableNetworking"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnssearchdomains
-	DnsSearchDomains []string `pulumi:"dnsSearchDomains"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnsservers
-	DnsServers []string `pulumi:"dnsServers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockerlabels
-	DockerLabels map[string]string `pulumi:"dockerLabels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockersecurityoptions
-	DockerSecurityOptions []string `pulumi:"dockerSecurityOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-entrypoint
-	EntryPoint []string `pulumi:"entryPoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environment
+	Command               []string                            `pulumi:"command"`
+	Cpu                   *int                                `pulumi:"cpu"`
+	DependsOn             []TaskDefinitionContainerDependency `pulumi:"dependsOn"`
+	DisableNetworking     *bool                               `pulumi:"disableNetworking"`
+	DnsSearchDomains      []string                            `pulumi:"dnsSearchDomains"`
+	DnsServers            []string                            `pulumi:"dnsServers"`
+	DockerLabels          interface{}                         `pulumi:"dockerLabels"`
+	DockerSecurityOptions []string                            `pulumi:"dockerSecurityOptions"`
+	EntryPoint            []string                            `pulumi:"entryPoint"`
+	// The environment variables to pass to a container
 	Environment []TaskDefinitionKeyValuePair `pulumi:"environment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environmentfiles
-	EnvironmentFiles []TaskDefinitionEnvironmentFile `pulumi:"environmentFiles"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-essential
-	Essential *bool `pulumi:"essential"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts
-	ExtraHosts []TaskDefinitionHostEntry `pulumi:"extraHosts"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-firelensconfiguration
+	// The list of one or more files that contain the environment variables to pass to a container
+	EnvironmentFiles      []TaskDefinitionEnvironmentFile      `pulumi:"environmentFiles"`
+	Essential             *bool                                `pulumi:"essential"`
+	ExtraHosts            []TaskDefinitionHostEntry            `pulumi:"extraHosts"`
 	FirelensConfiguration *TaskDefinitionFirelensConfiguration `pulumi:"firelensConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-healthcheck
-	HealthCheck *TaskDefinitionHealthCheck `pulumi:"healthCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-hostname
-	Hostname *string `pulumi:"hostname"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-image
-	Image *string `pulumi:"image"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-interactive
-	Interactive *bool `pulumi:"interactive"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-links
-	Links []string `pulumi:"links"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-linuxparameters
-	LinuxParameters *TaskDefinitionLinuxParameters `pulumi:"linuxParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration
+	HealthCheck           *TaskDefinitionHealthCheck           `pulumi:"healthCheck"`
+	Hostname              *string                              `pulumi:"hostname"`
+	// The image used to start a container. This string is passed directly to the Docker daemon.
+	Image            *string                         `pulumi:"image"`
+	Interactive      *bool                           `pulumi:"interactive"`
+	Links            []string                        `pulumi:"links"`
+	LinuxParameters  *TaskDefinitionLinuxParameters  `pulumi:"linuxParameters"`
 	LogConfiguration *TaskDefinitionLogConfiguration `pulumi:"logConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memory
-	Memory *int `pulumi:"memory"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memoryreservation
-	MemoryReservation *int `pulumi:"memoryReservation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints
-	MountPoints []TaskDefinitionMountPoint `pulumi:"mountPoints"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-name
+	// The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed.
+	Memory            *int                       `pulumi:"memory"`
+	MemoryReservation *int                       `pulumi:"memoryReservation"`
+	MountPoints       []TaskDefinitionMountPoint `pulumi:"mountPoints"`
+	// The name of a container. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-portmappings
-	PortMappings []TaskDefinitionPortMapping `pulumi:"portMappings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-privileged
-	Privileged *bool `pulumi:"privileged"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-pseudoterminal
-	PseudoTerminal *bool `pulumi:"pseudoTerminal"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-readonlyrootfilesystem
-	ReadonlyRootFilesystem *bool `pulumi:"readonlyRootFilesystem"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials
-	RepositoryCredentials *TaskDefinitionRepositoryCredentials `pulumi:"repositoryCredentials"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements
-	ResourceRequirements []TaskDefinitionResourceRequirement `pulumi:"resourceRequirements"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-secrets
-	Secrets []TaskDefinitionSecret `pulumi:"secrets"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-starttimeout
-	StartTimeout *int `pulumi:"startTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-stoptimeout
-	StopTimeout *int `pulumi:"stopTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-systemcontrols
-	SystemControls []TaskDefinitionSystemControl `pulumi:"systemControls"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-ulimits
-	Ulimits []TaskDefinitionUlimit `pulumi:"ulimits"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-user
-	User *string `pulumi:"user"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom
-	VolumesFrom []TaskDefinitionVolumeFrom `pulumi:"volumesFrom"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-workingdirectory
-	WorkingDirectory *string `pulumi:"workingDirectory"`
+	// Port mappings allow containers to access ports on the host container instance to send or receive traffic.
+	PortMappings           []TaskDefinitionPortMapping          `pulumi:"portMappings"`
+	Privileged             *bool                                `pulumi:"privileged"`
+	PseudoTerminal         *bool                                `pulumi:"pseudoTerminal"`
+	ReadonlyRootFilesystem *bool                                `pulumi:"readonlyRootFilesystem"`
+	RepositoryCredentials  *TaskDefinitionRepositoryCredentials `pulumi:"repositoryCredentials"`
+	ResourceRequirements   []TaskDefinitionResourceRequirement  `pulumi:"resourceRequirements"`
+	Secrets                []TaskDefinitionSecret               `pulumi:"secrets"`
+	StartTimeout           *int                                 `pulumi:"startTimeout"`
+	StopTimeout            *int                                 `pulumi:"stopTimeout"`
+	SystemControls         []TaskDefinitionSystemControl        `pulumi:"systemControls"`
+	Ulimits                []TaskDefinitionUlimit               `pulumi:"ulimits"`
+	User                   *string                              `pulumi:"user"`
+	VolumesFrom            []TaskDefinitionVolumeFrom           `pulumi:"volumesFrom"`
+	WorkingDirectory       *string                              `pulumi:"workingDirectory"`
 }
 
 // TaskDefinitionContainerDefinitionInput is an input type that accepts TaskDefinitionContainerDefinitionArgs and TaskDefinitionContainerDefinitionOutput values.
@@ -2833,86 +2976,53 @@ type TaskDefinitionContainerDefinitionInput interface {
 	ToTaskDefinitionContainerDefinitionOutputWithContext(context.Context) TaskDefinitionContainerDefinitionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html
+// List of container definitions that are passed to the Docker daemon on a container instance
 type TaskDefinitionContainerDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-command
-	Command pulumi.StringArrayInput `pulumi:"command"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-cpu
-	Cpu pulumi.IntPtrInput `pulumi:"cpu"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dependson
-	DependsOn TaskDefinitionContainerDependencyArrayInput `pulumi:"dependsOn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-disablenetworking
-	DisableNetworking pulumi.BoolPtrInput `pulumi:"disableNetworking"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnssearchdomains
-	DnsSearchDomains pulumi.StringArrayInput `pulumi:"dnsSearchDomains"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnsservers
-	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockerlabels
-	DockerLabels pulumi.StringMapInput `pulumi:"dockerLabels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockersecurityoptions
-	DockerSecurityOptions pulumi.StringArrayInput `pulumi:"dockerSecurityOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-entrypoint
-	EntryPoint pulumi.StringArrayInput `pulumi:"entryPoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environment
+	Command               pulumi.StringArrayInput                     `pulumi:"command"`
+	Cpu                   pulumi.IntPtrInput                          `pulumi:"cpu"`
+	DependsOn             TaskDefinitionContainerDependencyArrayInput `pulumi:"dependsOn"`
+	DisableNetworking     pulumi.BoolPtrInput                         `pulumi:"disableNetworking"`
+	DnsSearchDomains      pulumi.StringArrayInput                     `pulumi:"dnsSearchDomains"`
+	DnsServers            pulumi.StringArrayInput                     `pulumi:"dnsServers"`
+	DockerLabels          pulumi.Input                                `pulumi:"dockerLabels"`
+	DockerSecurityOptions pulumi.StringArrayInput                     `pulumi:"dockerSecurityOptions"`
+	EntryPoint            pulumi.StringArrayInput                     `pulumi:"entryPoint"`
+	// The environment variables to pass to a container
 	Environment TaskDefinitionKeyValuePairArrayInput `pulumi:"environment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environmentfiles
-	EnvironmentFiles TaskDefinitionEnvironmentFileArrayInput `pulumi:"environmentFiles"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-essential
-	Essential pulumi.BoolPtrInput `pulumi:"essential"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts
-	ExtraHosts TaskDefinitionHostEntryArrayInput `pulumi:"extraHosts"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-firelensconfiguration
+	// The list of one or more files that contain the environment variables to pass to a container
+	EnvironmentFiles      TaskDefinitionEnvironmentFileArrayInput     `pulumi:"environmentFiles"`
+	Essential             pulumi.BoolPtrInput                         `pulumi:"essential"`
+	ExtraHosts            TaskDefinitionHostEntryArrayInput           `pulumi:"extraHosts"`
 	FirelensConfiguration TaskDefinitionFirelensConfigurationPtrInput `pulumi:"firelensConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-healthcheck
-	HealthCheck TaskDefinitionHealthCheckPtrInput `pulumi:"healthCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-hostname
-	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-image
-	Image pulumi.StringPtrInput `pulumi:"image"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-interactive
-	Interactive pulumi.BoolPtrInput `pulumi:"interactive"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-links
-	Links pulumi.StringArrayInput `pulumi:"links"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-linuxparameters
-	LinuxParameters TaskDefinitionLinuxParametersPtrInput `pulumi:"linuxParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration
+	HealthCheck           TaskDefinitionHealthCheckPtrInput           `pulumi:"healthCheck"`
+	Hostname              pulumi.StringPtrInput                       `pulumi:"hostname"`
+	// The image used to start a container. This string is passed directly to the Docker daemon.
+	Image            pulumi.StringPtrInput                  `pulumi:"image"`
+	Interactive      pulumi.BoolPtrInput                    `pulumi:"interactive"`
+	Links            pulumi.StringArrayInput                `pulumi:"links"`
+	LinuxParameters  TaskDefinitionLinuxParametersPtrInput  `pulumi:"linuxParameters"`
 	LogConfiguration TaskDefinitionLogConfigurationPtrInput `pulumi:"logConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memory
-	Memory pulumi.IntPtrInput `pulumi:"memory"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memoryreservation
-	MemoryReservation pulumi.IntPtrInput `pulumi:"memoryReservation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints
-	MountPoints TaskDefinitionMountPointArrayInput `pulumi:"mountPoints"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-name
+	// The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed.
+	Memory            pulumi.IntPtrInput                 `pulumi:"memory"`
+	MemoryReservation pulumi.IntPtrInput                 `pulumi:"memoryReservation"`
+	MountPoints       TaskDefinitionMountPointArrayInput `pulumi:"mountPoints"`
+	// The name of a container. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-portmappings
-	PortMappings TaskDefinitionPortMappingArrayInput `pulumi:"portMappings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-privileged
-	Privileged pulumi.BoolPtrInput `pulumi:"privileged"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-pseudoterminal
-	PseudoTerminal pulumi.BoolPtrInput `pulumi:"pseudoTerminal"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-readonlyrootfilesystem
-	ReadonlyRootFilesystem pulumi.BoolPtrInput `pulumi:"readonlyRootFilesystem"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials
-	RepositoryCredentials TaskDefinitionRepositoryCredentialsPtrInput `pulumi:"repositoryCredentials"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements
-	ResourceRequirements TaskDefinitionResourceRequirementArrayInput `pulumi:"resourceRequirements"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-secrets
-	Secrets TaskDefinitionSecretArrayInput `pulumi:"secrets"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-starttimeout
-	StartTimeout pulumi.IntPtrInput `pulumi:"startTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-stoptimeout
-	StopTimeout pulumi.IntPtrInput `pulumi:"stopTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-systemcontrols
-	SystemControls TaskDefinitionSystemControlArrayInput `pulumi:"systemControls"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-ulimits
-	Ulimits TaskDefinitionUlimitArrayInput `pulumi:"ulimits"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-user
-	User pulumi.StringPtrInput `pulumi:"user"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom
-	VolumesFrom TaskDefinitionVolumeFromArrayInput `pulumi:"volumesFrom"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-workingdirectory
-	WorkingDirectory pulumi.StringPtrInput `pulumi:"workingDirectory"`
+	// Port mappings allow containers to access ports on the host container instance to send or receive traffic.
+	PortMappings           TaskDefinitionPortMappingArrayInput         `pulumi:"portMappings"`
+	Privileged             pulumi.BoolPtrInput                         `pulumi:"privileged"`
+	PseudoTerminal         pulumi.BoolPtrInput                         `pulumi:"pseudoTerminal"`
+	ReadonlyRootFilesystem pulumi.BoolPtrInput                         `pulumi:"readonlyRootFilesystem"`
+	RepositoryCredentials  TaskDefinitionRepositoryCredentialsPtrInput `pulumi:"repositoryCredentials"`
+	ResourceRequirements   TaskDefinitionResourceRequirementArrayInput `pulumi:"resourceRequirements"`
+	Secrets                TaskDefinitionSecretArrayInput              `pulumi:"secrets"`
+	StartTimeout           pulumi.IntPtrInput                          `pulumi:"startTimeout"`
+	StopTimeout            pulumi.IntPtrInput                          `pulumi:"stopTimeout"`
+	SystemControls         TaskDefinitionSystemControlArrayInput       `pulumi:"systemControls"`
+	Ulimits                TaskDefinitionUlimitArrayInput              `pulumi:"ulimits"`
+	User                   pulumi.StringPtrInput                       `pulumi:"user"`
+	VolumesFrom            TaskDefinitionVolumeFromArrayInput          `pulumi:"volumesFrom"`
+	WorkingDirectory       pulumi.StringPtrInput                       `pulumi:"workingDirectory"`
 }
 
 func (TaskDefinitionContainerDefinitionArgs) ElementType() reflect.Type {
@@ -2952,7 +3062,7 @@ func (i TaskDefinitionContainerDefinitionArray) ToTaskDefinitionContainerDefinit
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionContainerDefinitionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html
+// List of container definitions that are passed to the Docker daemon on a container instance
 type TaskDefinitionContainerDefinitionOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionContainerDefinitionOutput) ElementType() reflect.Type {
@@ -2967,203 +3077,170 @@ func (o TaskDefinitionContainerDefinitionOutput) ToTaskDefinitionContainerDefini
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-command
 func (o TaskDefinitionContainerDefinitionOutput) Command() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []string { return v.Command }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-cpu
 func (o TaskDefinitionContainerDefinitionOutput) Cpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *int { return v.Cpu }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dependson
 func (o TaskDefinitionContainerDefinitionOutput) DependsOn() TaskDefinitionContainerDependencyArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []TaskDefinitionContainerDependency { return v.DependsOn }).(TaskDefinitionContainerDependencyArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-disablenetworking
 func (o TaskDefinitionContainerDefinitionOutput) DisableNetworking() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *bool { return v.DisableNetworking }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnssearchdomains
 func (o TaskDefinitionContainerDefinitionOutput) DnsSearchDomains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []string { return v.DnsSearchDomains }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnsservers
 func (o TaskDefinitionContainerDefinitionOutput) DnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockerlabels
-func (o TaskDefinitionContainerDefinitionOutput) DockerLabels() pulumi.StringMapOutput {
-	return o.ApplyT(func(v TaskDefinitionContainerDefinition) map[string]string { return v.DockerLabels }).(pulumi.StringMapOutput)
+func (o TaskDefinitionContainerDefinitionOutput) DockerLabels() pulumi.AnyOutput {
+	return o.ApplyT(func(v TaskDefinitionContainerDefinition) interface{} { return v.DockerLabels }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockersecurityoptions
 func (o TaskDefinitionContainerDefinitionOutput) DockerSecurityOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []string { return v.DockerSecurityOptions }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-entrypoint
 func (o TaskDefinitionContainerDefinitionOutput) EntryPoint() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []string { return v.EntryPoint }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environment
+// The environment variables to pass to a container
 func (o TaskDefinitionContainerDefinitionOutput) Environment() TaskDefinitionKeyValuePairArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []TaskDefinitionKeyValuePair { return v.Environment }).(TaskDefinitionKeyValuePairArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environmentfiles
+// The list of one or more files that contain the environment variables to pass to a container
 func (o TaskDefinitionContainerDefinitionOutput) EnvironmentFiles() TaskDefinitionEnvironmentFileArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []TaskDefinitionEnvironmentFile { return v.EnvironmentFiles }).(TaskDefinitionEnvironmentFileArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-essential
 func (o TaskDefinitionContainerDefinitionOutput) Essential() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *bool { return v.Essential }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts
 func (o TaskDefinitionContainerDefinitionOutput) ExtraHosts() TaskDefinitionHostEntryArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []TaskDefinitionHostEntry { return v.ExtraHosts }).(TaskDefinitionHostEntryArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-firelensconfiguration
 func (o TaskDefinitionContainerDefinitionOutput) FirelensConfiguration() TaskDefinitionFirelensConfigurationPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *TaskDefinitionFirelensConfiguration {
 		return v.FirelensConfiguration
 	}).(TaskDefinitionFirelensConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-healthcheck
 func (o TaskDefinitionContainerDefinitionOutput) HealthCheck() TaskDefinitionHealthCheckPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *TaskDefinitionHealthCheck { return v.HealthCheck }).(TaskDefinitionHealthCheckPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-hostname
 func (o TaskDefinitionContainerDefinitionOutput) Hostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *string { return v.Hostname }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-image
+// The image used to start a container. This string is passed directly to the Docker daemon.
 func (o TaskDefinitionContainerDefinitionOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-interactive
 func (o TaskDefinitionContainerDefinitionOutput) Interactive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *bool { return v.Interactive }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-links
 func (o TaskDefinitionContainerDefinitionOutput) Links() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []string { return v.Links }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-linuxparameters
 func (o TaskDefinitionContainerDefinitionOutput) LinuxParameters() TaskDefinitionLinuxParametersPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *TaskDefinitionLinuxParameters { return v.LinuxParameters }).(TaskDefinitionLinuxParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration
 func (o TaskDefinitionContainerDefinitionOutput) LogConfiguration() TaskDefinitionLogConfigurationPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *TaskDefinitionLogConfiguration { return v.LogConfiguration }).(TaskDefinitionLogConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memory
+// The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed.
 func (o TaskDefinitionContainerDefinitionOutput) Memory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *int { return v.Memory }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memoryreservation
 func (o TaskDefinitionContainerDefinitionOutput) MemoryReservation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *int { return v.MemoryReservation }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints
 func (o TaskDefinitionContainerDefinitionOutput) MountPoints() TaskDefinitionMountPointArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []TaskDefinitionMountPoint { return v.MountPoints }).(TaskDefinitionMountPointArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-name
+// The name of a container. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed
 func (o TaskDefinitionContainerDefinitionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-portmappings
+// Port mappings allow containers to access ports on the host container instance to send or receive traffic.
 func (o TaskDefinitionContainerDefinitionOutput) PortMappings() TaskDefinitionPortMappingArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []TaskDefinitionPortMapping { return v.PortMappings }).(TaskDefinitionPortMappingArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-privileged
 func (o TaskDefinitionContainerDefinitionOutput) Privileged() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *bool { return v.Privileged }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-pseudoterminal
 func (o TaskDefinitionContainerDefinitionOutput) PseudoTerminal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *bool { return v.PseudoTerminal }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-readonlyrootfilesystem
 func (o TaskDefinitionContainerDefinitionOutput) ReadonlyRootFilesystem() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *bool { return v.ReadonlyRootFilesystem }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials
 func (o TaskDefinitionContainerDefinitionOutput) RepositoryCredentials() TaskDefinitionRepositoryCredentialsPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *TaskDefinitionRepositoryCredentials {
 		return v.RepositoryCredentials
 	}).(TaskDefinitionRepositoryCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements
 func (o TaskDefinitionContainerDefinitionOutput) ResourceRequirements() TaskDefinitionResourceRequirementArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []TaskDefinitionResourceRequirement {
 		return v.ResourceRequirements
 	}).(TaskDefinitionResourceRequirementArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-secrets
 func (o TaskDefinitionContainerDefinitionOutput) Secrets() TaskDefinitionSecretArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []TaskDefinitionSecret { return v.Secrets }).(TaskDefinitionSecretArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-starttimeout
 func (o TaskDefinitionContainerDefinitionOutput) StartTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *int { return v.StartTimeout }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-stoptimeout
 func (o TaskDefinitionContainerDefinitionOutput) StopTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *int { return v.StopTimeout }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-systemcontrols
 func (o TaskDefinitionContainerDefinitionOutput) SystemControls() TaskDefinitionSystemControlArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []TaskDefinitionSystemControl { return v.SystemControls }).(TaskDefinitionSystemControlArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-ulimits
 func (o TaskDefinitionContainerDefinitionOutput) Ulimits() TaskDefinitionUlimitArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []TaskDefinitionUlimit { return v.Ulimits }).(TaskDefinitionUlimitArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-user
 func (o TaskDefinitionContainerDefinitionOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *string { return v.User }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom
 func (o TaskDefinitionContainerDefinitionOutput) VolumesFrom() TaskDefinitionVolumeFromArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) []TaskDefinitionVolumeFrom { return v.VolumesFrom }).(TaskDefinitionVolumeFromArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-workingdirectory
 func (o TaskDefinitionContainerDefinitionOutput) WorkingDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *string { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
 }
@@ -3188,11 +3265,8 @@ func (o TaskDefinitionContainerDefinitionArrayOutput) Index(i pulumi.IntInput) T
 	}).(TaskDefinitionContainerDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html
 type TaskDefinitionContainerDependency struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-condition
-	Condition *string `pulumi:"condition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-containername
+	Condition     *string `pulumi:"condition"`
 	ContainerName *string `pulumi:"containerName"`
 }
 
@@ -3207,11 +3281,8 @@ type TaskDefinitionContainerDependencyInput interface {
 	ToTaskDefinitionContainerDependencyOutputWithContext(context.Context) TaskDefinitionContainerDependencyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html
 type TaskDefinitionContainerDependencyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-condition
-	Condition pulumi.StringPtrInput `pulumi:"condition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-containername
+	Condition     pulumi.StringPtrInput `pulumi:"condition"`
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
 }
 
@@ -3252,7 +3323,6 @@ func (i TaskDefinitionContainerDependencyArray) ToTaskDefinitionContainerDepende
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionContainerDependencyArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html
 type TaskDefinitionContainerDependencyOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionContainerDependencyOutput) ElementType() reflect.Type {
@@ -3267,12 +3337,10 @@ func (o TaskDefinitionContainerDependencyOutput) ToTaskDefinitionContainerDepend
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-condition
 func (o TaskDefinitionContainerDependencyOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDependency) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-containername
 func (o TaskDefinitionContainerDependencyOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDependency) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
@@ -3297,14 +3365,10 @@ func (o TaskDefinitionContainerDependencyArrayOutput) Index(i pulumi.IntInput) T
 	}).(TaskDefinitionContainerDependencyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html
 type TaskDefinitionDevice struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-containerpath
-	ContainerPath *string `pulumi:"containerPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-hostpath
-	HostPath *string `pulumi:"hostPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-permissions
-	Permissions []string `pulumi:"permissions"`
+	ContainerPath *string  `pulumi:"containerPath"`
+	HostPath      *string  `pulumi:"hostPath"`
+	Permissions   []string `pulumi:"permissions"`
 }
 
 // TaskDefinitionDeviceInput is an input type that accepts TaskDefinitionDeviceArgs and TaskDefinitionDeviceOutput values.
@@ -3318,14 +3382,10 @@ type TaskDefinitionDeviceInput interface {
 	ToTaskDefinitionDeviceOutputWithContext(context.Context) TaskDefinitionDeviceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html
 type TaskDefinitionDeviceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-containerpath
-	ContainerPath pulumi.StringPtrInput `pulumi:"containerPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-hostpath
-	HostPath pulumi.StringPtrInput `pulumi:"hostPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-permissions
-	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
+	ContainerPath pulumi.StringPtrInput   `pulumi:"containerPath"`
+	HostPath      pulumi.StringPtrInput   `pulumi:"hostPath"`
+	Permissions   pulumi.StringArrayInput `pulumi:"permissions"`
 }
 
 func (TaskDefinitionDeviceArgs) ElementType() reflect.Type {
@@ -3365,7 +3425,6 @@ func (i TaskDefinitionDeviceArray) ToTaskDefinitionDeviceArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionDeviceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html
 type TaskDefinitionDeviceOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionDeviceOutput) ElementType() reflect.Type {
@@ -3380,17 +3439,14 @@ func (o TaskDefinitionDeviceOutput) ToTaskDefinitionDeviceOutputWithContext(ctx 
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-containerpath
 func (o TaskDefinitionDeviceOutput) ContainerPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionDevice) *string { return v.ContainerPath }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-hostpath
 func (o TaskDefinitionDeviceOutput) HostPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionDevice) *string { return v.HostPath }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-permissions
 func (o TaskDefinitionDeviceOutput) Permissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionDevice) []string { return v.Permissions }).(pulumi.StringArrayOutput)
 }
@@ -3415,18 +3471,12 @@ func (o TaskDefinitionDeviceArrayOutput) Index(i pulumi.IntInput) TaskDefinition
 	}).(TaskDefinitionDeviceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html
 type TaskDefinitionDockerVolumeConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-autoprovision
-	Autoprovision *bool `pulumi:"autoprovision"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driver
-	Driver *string `pulumi:"driver"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driveropts
-	DriverOpts map[string]string `pulumi:"driverOpts"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-labels
-	Labels map[string]string `pulumi:"labels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-scope
-	Scope *string `pulumi:"scope"`
+	Autoprovision *bool       `pulumi:"autoprovision"`
+	Driver        *string     `pulumi:"driver"`
+	DriverOpts    interface{} `pulumi:"driverOpts"`
+	Labels        interface{} `pulumi:"labels"`
+	Scope         *string     `pulumi:"scope"`
 }
 
 // TaskDefinitionDockerVolumeConfigurationInput is an input type that accepts TaskDefinitionDockerVolumeConfigurationArgs and TaskDefinitionDockerVolumeConfigurationOutput values.
@@ -3440,18 +3490,12 @@ type TaskDefinitionDockerVolumeConfigurationInput interface {
 	ToTaskDefinitionDockerVolumeConfigurationOutputWithContext(context.Context) TaskDefinitionDockerVolumeConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html
 type TaskDefinitionDockerVolumeConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-autoprovision
-	Autoprovision pulumi.BoolPtrInput `pulumi:"autoprovision"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driver
-	Driver pulumi.StringPtrInput `pulumi:"driver"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driveropts
-	DriverOpts pulumi.StringMapInput `pulumi:"driverOpts"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-labels
-	Labels pulumi.StringMapInput `pulumi:"labels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-scope
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Autoprovision pulumi.BoolPtrInput   `pulumi:"autoprovision"`
+	Driver        pulumi.StringPtrInput `pulumi:"driver"`
+	DriverOpts    pulumi.Input          `pulumi:"driverOpts"`
+	Labels        pulumi.Input          `pulumi:"labels"`
+	Scope         pulumi.StringPtrInput `pulumi:"scope"`
 }
 
 func (TaskDefinitionDockerVolumeConfigurationArgs) ElementType() reflect.Type {
@@ -3507,7 +3551,6 @@ func (i *taskDefinitionDockerVolumeConfigurationPtrType) ToTaskDefinitionDockerV
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionDockerVolumeConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html
 type TaskDefinitionDockerVolumeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionDockerVolumeConfigurationOutput) ElementType() reflect.Type {
@@ -3532,27 +3575,22 @@ func (o TaskDefinitionDockerVolumeConfigurationOutput) ToTaskDefinitionDockerVol
 	}).(TaskDefinitionDockerVolumeConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-autoprovision
 func (o TaskDefinitionDockerVolumeConfigurationOutput) Autoprovision() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionDockerVolumeConfiguration) *bool { return v.Autoprovision }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driver
 func (o TaskDefinitionDockerVolumeConfigurationOutput) Driver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionDockerVolumeConfiguration) *string { return v.Driver }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driveropts
-func (o TaskDefinitionDockerVolumeConfigurationOutput) DriverOpts() pulumi.StringMapOutput {
-	return o.ApplyT(func(v TaskDefinitionDockerVolumeConfiguration) map[string]string { return v.DriverOpts }).(pulumi.StringMapOutput)
+func (o TaskDefinitionDockerVolumeConfigurationOutput) DriverOpts() pulumi.AnyOutput {
+	return o.ApplyT(func(v TaskDefinitionDockerVolumeConfiguration) interface{} { return v.DriverOpts }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-labels
-func (o TaskDefinitionDockerVolumeConfigurationOutput) Labels() pulumi.StringMapOutput {
-	return o.ApplyT(func(v TaskDefinitionDockerVolumeConfiguration) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+func (o TaskDefinitionDockerVolumeConfigurationOutput) Labels() pulumi.AnyOutput {
+	return o.ApplyT(func(v TaskDefinitionDockerVolumeConfiguration) interface{} { return v.Labels }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-scope
 func (o TaskDefinitionDockerVolumeConfigurationOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionDockerVolumeConfiguration) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
@@ -3581,7 +3619,6 @@ func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) Elem() TaskDefinitionD
 	}).(TaskDefinitionDockerVolumeConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-autoprovision
 func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) Autoprovision() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionDockerVolumeConfiguration) *bool {
 		if v == nil {
@@ -3591,7 +3628,6 @@ func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) Autoprovision() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driver
 func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) Driver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionDockerVolumeConfiguration) *string {
 		if v == nil {
@@ -3601,27 +3637,24 @@ func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) Driver() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driveropts
-func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) DriverOpts() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *TaskDefinitionDockerVolumeConfiguration) map[string]string {
+func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) DriverOpts() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TaskDefinitionDockerVolumeConfiguration) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.DriverOpts
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-labels
-func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) Labels() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *TaskDefinitionDockerVolumeConfiguration) map[string]string {
+func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) Labels() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TaskDefinitionDockerVolumeConfiguration) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Labels
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-scope
 func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionDockerVolumeConfiguration) *string {
 		if v == nil {
@@ -3631,18 +3664,12 @@ func (o TaskDefinitionDockerVolumeConfigurationPtrOutput) Scope() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html
 type TaskDefinitionEFSVolumeConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-authorizationconfig
-	AuthorizationConfig interface{} `pulumi:"authorizationConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-filesystemid
-	FilesystemId string `pulumi:"filesystemId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-rootdirectory
-	RootDirectory *string `pulumi:"rootDirectory"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryption
-	TransitEncryption *string `pulumi:"transitEncryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryptionport
-	TransitEncryptionPort *int `pulumi:"transitEncryptionPort"`
+	AuthorizationConfig   *TaskDefinitionAuthorizationConfig `pulumi:"authorizationConfig"`
+	FilesystemId          string                             `pulumi:"filesystemId"`
+	RootDirectory         *string                            `pulumi:"rootDirectory"`
+	TransitEncryption     *string                            `pulumi:"transitEncryption"`
+	TransitEncryptionPort *int                               `pulumi:"transitEncryptionPort"`
 }
 
 // TaskDefinitionEFSVolumeConfigurationInput is an input type that accepts TaskDefinitionEFSVolumeConfigurationArgs and TaskDefinitionEFSVolumeConfigurationOutput values.
@@ -3656,18 +3683,12 @@ type TaskDefinitionEFSVolumeConfigurationInput interface {
 	ToTaskDefinitionEFSVolumeConfigurationOutputWithContext(context.Context) TaskDefinitionEFSVolumeConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html
 type TaskDefinitionEFSVolumeConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-authorizationconfig
-	AuthorizationConfig pulumi.Input `pulumi:"authorizationConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-filesystemid
-	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-rootdirectory
-	RootDirectory pulumi.StringPtrInput `pulumi:"rootDirectory"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryption
-	TransitEncryption pulumi.StringPtrInput `pulumi:"transitEncryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryptionport
-	TransitEncryptionPort pulumi.IntPtrInput `pulumi:"transitEncryptionPort"`
+	AuthorizationConfig   TaskDefinitionAuthorizationConfigPtrInput `pulumi:"authorizationConfig"`
+	FilesystemId          pulumi.StringInput                        `pulumi:"filesystemId"`
+	RootDirectory         pulumi.StringPtrInput                     `pulumi:"rootDirectory"`
+	TransitEncryption     pulumi.StringPtrInput                     `pulumi:"transitEncryption"`
+	TransitEncryptionPort pulumi.IntPtrInput                        `pulumi:"transitEncryptionPort"`
 }
 
 func (TaskDefinitionEFSVolumeConfigurationArgs) ElementType() reflect.Type {
@@ -3723,7 +3744,6 @@ func (i *taskDefinitionEFSVolumeConfigurationPtrType) ToTaskDefinitionEFSVolumeC
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionEFSVolumeConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html
 type TaskDefinitionEFSVolumeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionEFSVolumeConfigurationOutput) ElementType() reflect.Type {
@@ -3748,27 +3768,24 @@ func (o TaskDefinitionEFSVolumeConfigurationOutput) ToTaskDefinitionEFSVolumeCon
 	}).(TaskDefinitionEFSVolumeConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-authorizationconfig
-func (o TaskDefinitionEFSVolumeConfigurationOutput) AuthorizationConfig() pulumi.AnyOutput {
-	return o.ApplyT(func(v TaskDefinitionEFSVolumeConfiguration) interface{} { return v.AuthorizationConfig }).(pulumi.AnyOutput)
+func (o TaskDefinitionEFSVolumeConfigurationOutput) AuthorizationConfig() TaskDefinitionAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionEFSVolumeConfiguration) *TaskDefinitionAuthorizationConfig {
+		return v.AuthorizationConfig
+	}).(TaskDefinitionAuthorizationConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-filesystemid
 func (o TaskDefinitionEFSVolumeConfigurationOutput) FilesystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionEFSVolumeConfiguration) string { return v.FilesystemId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-rootdirectory
 func (o TaskDefinitionEFSVolumeConfigurationOutput) RootDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionEFSVolumeConfiguration) *string { return v.RootDirectory }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryption
 func (o TaskDefinitionEFSVolumeConfigurationOutput) TransitEncryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionEFSVolumeConfiguration) *string { return v.TransitEncryption }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryptionport
 func (o TaskDefinitionEFSVolumeConfigurationOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionEFSVolumeConfiguration) *int { return v.TransitEncryptionPort }).(pulumi.IntPtrOutput)
 }
@@ -3797,17 +3814,15 @@ func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) Elem() TaskDefinitionEFSV
 	}).(TaskDefinitionEFSVolumeConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-authorizationconfig
-func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) AuthorizationConfig() pulumi.AnyOutput {
-	return o.ApplyT(func(v *TaskDefinitionEFSVolumeConfiguration) interface{} {
+func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) AuthorizationConfig() TaskDefinitionAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionEFSVolumeConfiguration) *TaskDefinitionAuthorizationConfig {
 		if v == nil {
 			return nil
 		}
 		return v.AuthorizationConfig
-	}).(pulumi.AnyOutput)
+	}).(TaskDefinitionAuthorizationConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-filesystemid
 func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) FilesystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionEFSVolumeConfiguration) *string {
 		if v == nil {
@@ -3817,7 +3832,6 @@ func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) FilesystemId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-rootdirectory
 func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) RootDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionEFSVolumeConfiguration) *string {
 		if v == nil {
@@ -3827,7 +3841,6 @@ func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) RootDirectory() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryption
 func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) TransitEncryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionEFSVolumeConfiguration) *string {
 		if v == nil {
@@ -3837,7 +3850,6 @@ func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) TransitEncryption() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryptionport
 func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) TransitEncryptionPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionEFSVolumeConfiguration) *int {
 		if v == nil {
@@ -3847,11 +3859,8 @@ func (o TaskDefinitionEFSVolumeConfigurationPtrOutput) TransitEncryptionPort() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html
 type TaskDefinitionEnvironmentFile struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html#cfn-ecs-taskdefinition-environmentfile-type
-	Type *string `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html#cfn-ecs-taskdefinition-environmentfile-value
+	Type  *string `pulumi:"type"`
 	Value *string `pulumi:"value"`
 }
 
@@ -3866,11 +3875,8 @@ type TaskDefinitionEnvironmentFileInput interface {
 	ToTaskDefinitionEnvironmentFileOutputWithContext(context.Context) TaskDefinitionEnvironmentFileOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html
 type TaskDefinitionEnvironmentFileArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html#cfn-ecs-taskdefinition-environmentfile-type
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html#cfn-ecs-taskdefinition-environmentfile-value
+	Type  pulumi.StringPtrInput `pulumi:"type"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -3911,7 +3917,6 @@ func (i TaskDefinitionEnvironmentFileArray) ToTaskDefinitionEnvironmentFileArray
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionEnvironmentFileArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html
 type TaskDefinitionEnvironmentFileOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionEnvironmentFileOutput) ElementType() reflect.Type {
@@ -3926,12 +3931,10 @@ func (o TaskDefinitionEnvironmentFileOutput) ToTaskDefinitionEnvironmentFileOutp
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html#cfn-ecs-taskdefinition-environmentfile-type
 func (o TaskDefinitionEnvironmentFileOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionEnvironmentFile) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-environmentfile.html#cfn-ecs-taskdefinition-environmentfile-value
 func (o TaskDefinitionEnvironmentFileOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionEnvironmentFile) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -3956,9 +3959,7 @@ func (o TaskDefinitionEnvironmentFileArrayOutput) Index(i pulumi.IntInput) TaskD
 	}).(TaskDefinitionEnvironmentFileOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html
 type TaskDefinitionEphemeralStorage struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html#cfn-ecs-taskdefinition-ephemeralstorage-sizeingib
 	SizeInGiB *int `pulumi:"sizeInGiB"`
 }
 
@@ -3973,9 +3974,7 @@ type TaskDefinitionEphemeralStorageInput interface {
 	ToTaskDefinitionEphemeralStorageOutputWithContext(context.Context) TaskDefinitionEphemeralStorageOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html
 type TaskDefinitionEphemeralStorageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html#cfn-ecs-taskdefinition-ephemeralstorage-sizeingib
 	SizeInGiB pulumi.IntPtrInput `pulumi:"sizeInGiB"`
 }
 
@@ -4032,7 +4031,6 @@ func (i *taskDefinitionEphemeralStoragePtrType) ToTaskDefinitionEphemeralStorage
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionEphemeralStoragePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html
 type TaskDefinitionEphemeralStorageOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionEphemeralStorageOutput) ElementType() reflect.Type {
@@ -4057,7 +4055,6 @@ func (o TaskDefinitionEphemeralStorageOutput) ToTaskDefinitionEphemeralStoragePt
 	}).(TaskDefinitionEphemeralStoragePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html#cfn-ecs-taskdefinition-ephemeralstorage-sizeingib
 func (o TaskDefinitionEphemeralStorageOutput) SizeInGiB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionEphemeralStorage) *int { return v.SizeInGiB }).(pulumi.IntPtrOutput)
 }
@@ -4086,7 +4083,6 @@ func (o TaskDefinitionEphemeralStoragePtrOutput) Elem() TaskDefinitionEphemeralS
 	}).(TaskDefinitionEphemeralStorageOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ephemeralstorage.html#cfn-ecs-taskdefinition-ephemeralstorage-sizeingib
 func (o TaskDefinitionEphemeralStoragePtrOutput) SizeInGiB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionEphemeralStorage) *int {
 		if v == nil {
@@ -4096,12 +4092,9 @@ func (o TaskDefinitionEphemeralStoragePtrOutput) SizeInGiB() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html
 type TaskDefinitionFirelensConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-options
-	Options map[string]string `pulumi:"options"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-type
-	Type *string `pulumi:"type"`
+	Options interface{} `pulumi:"options"`
+	Type    *string     `pulumi:"type"`
 }
 
 // TaskDefinitionFirelensConfigurationInput is an input type that accepts TaskDefinitionFirelensConfigurationArgs and TaskDefinitionFirelensConfigurationOutput values.
@@ -4115,12 +4108,9 @@ type TaskDefinitionFirelensConfigurationInput interface {
 	ToTaskDefinitionFirelensConfigurationOutputWithContext(context.Context) TaskDefinitionFirelensConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html
 type TaskDefinitionFirelensConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-options
-	Options pulumi.StringMapInput `pulumi:"options"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Options pulumi.Input          `pulumi:"options"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (TaskDefinitionFirelensConfigurationArgs) ElementType() reflect.Type {
@@ -4176,7 +4166,6 @@ func (i *taskDefinitionFirelensConfigurationPtrType) ToTaskDefinitionFirelensCon
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionFirelensConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html
 type TaskDefinitionFirelensConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionFirelensConfigurationOutput) ElementType() reflect.Type {
@@ -4201,12 +4190,10 @@ func (o TaskDefinitionFirelensConfigurationOutput) ToTaskDefinitionFirelensConfi
 	}).(TaskDefinitionFirelensConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-options
-func (o TaskDefinitionFirelensConfigurationOutput) Options() pulumi.StringMapOutput {
-	return o.ApplyT(func(v TaskDefinitionFirelensConfiguration) map[string]string { return v.Options }).(pulumi.StringMapOutput)
+func (o TaskDefinitionFirelensConfigurationOutput) Options() pulumi.AnyOutput {
+	return o.ApplyT(func(v TaskDefinitionFirelensConfiguration) interface{} { return v.Options }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-type
 func (o TaskDefinitionFirelensConfigurationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionFirelensConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -4235,17 +4222,15 @@ func (o TaskDefinitionFirelensConfigurationPtrOutput) Elem() TaskDefinitionFirel
 	}).(TaskDefinitionFirelensConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-options
-func (o TaskDefinitionFirelensConfigurationPtrOutput) Options() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *TaskDefinitionFirelensConfiguration) map[string]string {
+func (o TaskDefinitionFirelensConfigurationPtrOutput) Options() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TaskDefinitionFirelensConfiguration) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-type
 func (o TaskDefinitionFirelensConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionFirelensConfiguration) *string {
 		if v == nil {
@@ -4255,17 +4240,17 @@ func (o TaskDefinitionFirelensConfigurationPtrOutput) Type() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html
+// The health check command and associated configuration parameters for the container.
 type TaskDefinitionHealthCheck struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-command
+	// A string array representing the command that the container runs to determine if it is healthy.
 	Command []string `pulumi:"command"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-interval
+	// The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
 	Interval *int `pulumi:"interval"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-retries
+	// The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is three retries.
 	Retries *int `pulumi:"retries"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-startperiod
+	// The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The startPeriod is disabled by default.
 	StartPeriod *int `pulumi:"startPeriod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-timeout
+	// The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5 seconds.
 	Timeout *int `pulumi:"timeout"`
 }
 
@@ -4280,17 +4265,17 @@ type TaskDefinitionHealthCheckInput interface {
 	ToTaskDefinitionHealthCheckOutputWithContext(context.Context) TaskDefinitionHealthCheckOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html
+// The health check command and associated configuration parameters for the container.
 type TaskDefinitionHealthCheckArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-command
+	// A string array representing the command that the container runs to determine if it is healthy.
 	Command pulumi.StringArrayInput `pulumi:"command"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-interval
+	// The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-retries
+	// The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is three retries.
 	Retries pulumi.IntPtrInput `pulumi:"retries"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-startperiod
+	// The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The startPeriod is disabled by default.
 	StartPeriod pulumi.IntPtrInput `pulumi:"startPeriod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-timeout
+	// The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5 seconds.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 }
 
@@ -4347,7 +4332,7 @@ func (i *taskDefinitionHealthCheckPtrType) ToTaskDefinitionHealthCheckPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionHealthCheckPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html
+// The health check command and associated configuration parameters for the container.
 type TaskDefinitionHealthCheckOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionHealthCheckOutput) ElementType() reflect.Type {
@@ -4372,27 +4357,27 @@ func (o TaskDefinitionHealthCheckOutput) ToTaskDefinitionHealthCheckPtrOutputWit
 	}).(TaskDefinitionHealthCheckPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-command
+// A string array representing the command that the container runs to determine if it is healthy.
 func (o TaskDefinitionHealthCheckOutput) Command() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionHealthCheck) []string { return v.Command }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-interval
+// The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
 func (o TaskDefinitionHealthCheckOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionHealthCheck) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-retries
+// The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is three retries.
 func (o TaskDefinitionHealthCheckOutput) Retries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionHealthCheck) *int { return v.Retries }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-startperiod
+// The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The startPeriod is disabled by default.
 func (o TaskDefinitionHealthCheckOutput) StartPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionHealthCheck) *int { return v.StartPeriod }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-timeout
+// The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5 seconds.
 func (o TaskDefinitionHealthCheckOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionHealthCheck) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
@@ -4421,7 +4406,7 @@ func (o TaskDefinitionHealthCheckPtrOutput) Elem() TaskDefinitionHealthCheckOutp
 	}).(TaskDefinitionHealthCheckOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-command
+// A string array representing the command that the container runs to determine if it is healthy.
 func (o TaskDefinitionHealthCheckPtrOutput) Command() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TaskDefinitionHealthCheck) []string {
 		if v == nil {
@@ -4431,7 +4416,7 @@ func (o TaskDefinitionHealthCheckPtrOutput) Command() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-interval
+// The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
 func (o TaskDefinitionHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionHealthCheck) *int {
 		if v == nil {
@@ -4441,7 +4426,7 @@ func (o TaskDefinitionHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-retries
+// The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is three retries.
 func (o TaskDefinitionHealthCheckPtrOutput) Retries() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionHealthCheck) *int {
 		if v == nil {
@@ -4451,7 +4436,7 @@ func (o TaskDefinitionHealthCheckPtrOutput) Retries() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-startperiod
+// The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The startPeriod is disabled by default.
 func (o TaskDefinitionHealthCheckPtrOutput) StartPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionHealthCheck) *int {
 		if v == nil {
@@ -4461,7 +4446,7 @@ func (o TaskDefinitionHealthCheckPtrOutput) StartPeriod() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-timeout
+// The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5 seconds.
 func (o TaskDefinitionHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionHealthCheck) *int {
 		if v == nil {
@@ -4471,11 +4456,8 @@ func (o TaskDefinitionHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html
 type TaskDefinitionHostEntry struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html#cfn-ecs-taskdefinition-containerdefinition-hostentry-hostname
-	Hostname *string `pulumi:"hostname"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html#cfn-ecs-taskdefinition-containerdefinition-hostentry-ipaddress
+	Hostname  *string `pulumi:"hostname"`
 	IpAddress *string `pulumi:"ipAddress"`
 }
 
@@ -4490,11 +4472,8 @@ type TaskDefinitionHostEntryInput interface {
 	ToTaskDefinitionHostEntryOutputWithContext(context.Context) TaskDefinitionHostEntryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html
 type TaskDefinitionHostEntryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html#cfn-ecs-taskdefinition-containerdefinition-hostentry-hostname
-	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html#cfn-ecs-taskdefinition-containerdefinition-hostentry-ipaddress
+	Hostname  pulumi.StringPtrInput `pulumi:"hostname"`
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 }
 
@@ -4535,7 +4514,6 @@ func (i TaskDefinitionHostEntryArray) ToTaskDefinitionHostEntryArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionHostEntryArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html
 type TaskDefinitionHostEntryOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionHostEntryOutput) ElementType() reflect.Type {
@@ -4550,12 +4528,10 @@ func (o TaskDefinitionHostEntryOutput) ToTaskDefinitionHostEntryOutputWithContex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html#cfn-ecs-taskdefinition-containerdefinition-hostentry-hostname
 func (o TaskDefinitionHostEntryOutput) Hostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionHostEntry) *string { return v.Hostname }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html#cfn-ecs-taskdefinition-containerdefinition-hostentry-ipaddress
 func (o TaskDefinitionHostEntryOutput) IpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionHostEntry) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
@@ -4580,9 +4556,7 @@ func (o TaskDefinitionHostEntryArrayOutput) Index(i pulumi.IntInput) TaskDefinit
 	}).(TaskDefinitionHostEntryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html
 type TaskDefinitionHostVolumeProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html#cfn-ecs-taskdefinition-volumes-host-sourcepath
 	SourcePath *string `pulumi:"sourcePath"`
 }
 
@@ -4597,9 +4571,7 @@ type TaskDefinitionHostVolumePropertiesInput interface {
 	ToTaskDefinitionHostVolumePropertiesOutputWithContext(context.Context) TaskDefinitionHostVolumePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html
 type TaskDefinitionHostVolumePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html#cfn-ecs-taskdefinition-volumes-host-sourcepath
 	SourcePath pulumi.StringPtrInput `pulumi:"sourcePath"`
 }
 
@@ -4656,7 +4628,6 @@ func (i *taskDefinitionHostVolumePropertiesPtrType) ToTaskDefinitionHostVolumePr
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionHostVolumePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html
 type TaskDefinitionHostVolumePropertiesOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionHostVolumePropertiesOutput) ElementType() reflect.Type {
@@ -4681,7 +4652,6 @@ func (o TaskDefinitionHostVolumePropertiesOutput) ToTaskDefinitionHostVolumeProp
 	}).(TaskDefinitionHostVolumePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html#cfn-ecs-taskdefinition-volumes-host-sourcepath
 func (o TaskDefinitionHostVolumePropertiesOutput) SourcePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionHostVolumeProperties) *string { return v.SourcePath }).(pulumi.StringPtrOutput)
 }
@@ -4710,7 +4680,6 @@ func (o TaskDefinitionHostVolumePropertiesPtrOutput) Elem() TaskDefinitionHostVo
 	}).(TaskDefinitionHostVolumePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html#cfn-ecs-taskdefinition-volumes-host-sourcepath
 func (o TaskDefinitionHostVolumePropertiesPtrOutput) SourcePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionHostVolumeProperties) *string {
 		if v == nil {
@@ -4720,11 +4689,8 @@ func (o TaskDefinitionHostVolumePropertiesPtrOutput) SourcePath() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html
 type TaskDefinitionInferenceAccelerator struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicename
 	DeviceName *string `pulumi:"deviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicetype
 	DeviceType *string `pulumi:"deviceType"`
 }
 
@@ -4739,11 +4705,8 @@ type TaskDefinitionInferenceAcceleratorInput interface {
 	ToTaskDefinitionInferenceAcceleratorOutputWithContext(context.Context) TaskDefinitionInferenceAcceleratorOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html
 type TaskDefinitionInferenceAcceleratorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicename
 	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicetype
 	DeviceType pulumi.StringPtrInput `pulumi:"deviceType"`
 }
 
@@ -4784,7 +4747,6 @@ func (i TaskDefinitionInferenceAcceleratorArray) ToTaskDefinitionInferenceAccele
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionInferenceAcceleratorArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html
 type TaskDefinitionInferenceAcceleratorOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionInferenceAcceleratorOutput) ElementType() reflect.Type {
@@ -4799,12 +4761,10 @@ func (o TaskDefinitionInferenceAcceleratorOutput) ToTaskDefinitionInferenceAccel
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicename
 func (o TaskDefinitionInferenceAcceleratorOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionInferenceAccelerator) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicetype
 func (o TaskDefinitionInferenceAcceleratorOutput) DeviceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionInferenceAccelerator) *string { return v.DeviceType }).(pulumi.StringPtrOutput)
 }
@@ -4829,11 +4789,8 @@ func (o TaskDefinitionInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) 
 	}).(TaskDefinitionInferenceAcceleratorOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html
 type TaskDefinitionKernelCapabilities struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-add
-	Add []string `pulumi:"add"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-drop
+	Add  []string `pulumi:"add"`
 	Drop []string `pulumi:"drop"`
 }
 
@@ -4848,11 +4805,8 @@ type TaskDefinitionKernelCapabilitiesInput interface {
 	ToTaskDefinitionKernelCapabilitiesOutputWithContext(context.Context) TaskDefinitionKernelCapabilitiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html
 type TaskDefinitionKernelCapabilitiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-add
-	Add pulumi.StringArrayInput `pulumi:"add"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-drop
+	Add  pulumi.StringArrayInput `pulumi:"add"`
 	Drop pulumi.StringArrayInput `pulumi:"drop"`
 }
 
@@ -4909,7 +4863,6 @@ func (i *taskDefinitionKernelCapabilitiesPtrType) ToTaskDefinitionKernelCapabili
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionKernelCapabilitiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html
 type TaskDefinitionKernelCapabilitiesOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionKernelCapabilitiesOutput) ElementType() reflect.Type {
@@ -4934,12 +4887,10 @@ func (o TaskDefinitionKernelCapabilitiesOutput) ToTaskDefinitionKernelCapabiliti
 	}).(TaskDefinitionKernelCapabilitiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-add
 func (o TaskDefinitionKernelCapabilitiesOutput) Add() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionKernelCapabilities) []string { return v.Add }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-drop
 func (o TaskDefinitionKernelCapabilitiesOutput) Drop() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionKernelCapabilities) []string { return v.Drop }).(pulumi.StringArrayOutput)
 }
@@ -4968,7 +4919,6 @@ func (o TaskDefinitionKernelCapabilitiesPtrOutput) Elem() TaskDefinitionKernelCa
 	}).(TaskDefinitionKernelCapabilitiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-add
 func (o TaskDefinitionKernelCapabilitiesPtrOutput) Add() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TaskDefinitionKernelCapabilities) []string {
 		if v == nil {
@@ -4978,7 +4928,6 @@ func (o TaskDefinitionKernelCapabilitiesPtrOutput) Add() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-drop
 func (o TaskDefinitionKernelCapabilitiesPtrOutput) Drop() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TaskDefinitionKernelCapabilities) []string {
 		if v == nil {
@@ -4988,11 +4937,8 @@ func (o TaskDefinitionKernelCapabilitiesPtrOutput) Drop() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html
 type TaskDefinitionKeyValuePair struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html#cfn-ecs-taskdefinition-containerdefinition-environment-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html#cfn-ecs-taskdefinition-containerdefinition-environment-value
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -5007,11 +4953,8 @@ type TaskDefinitionKeyValuePairInput interface {
 	ToTaskDefinitionKeyValuePairOutputWithContext(context.Context) TaskDefinitionKeyValuePairOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html
 type TaskDefinitionKeyValuePairArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html#cfn-ecs-taskdefinition-containerdefinition-environment-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html#cfn-ecs-taskdefinition-containerdefinition-environment-value
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -5052,7 +4995,6 @@ func (i TaskDefinitionKeyValuePairArray) ToTaskDefinitionKeyValuePairArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionKeyValuePairArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html
 type TaskDefinitionKeyValuePairOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionKeyValuePairOutput) ElementType() reflect.Type {
@@ -5067,12 +5009,10 @@ func (o TaskDefinitionKeyValuePairOutput) ToTaskDefinitionKeyValuePairOutputWith
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html#cfn-ecs-taskdefinition-containerdefinition-environment-name
 func (o TaskDefinitionKeyValuePairOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionKeyValuePair) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html#cfn-ecs-taskdefinition-containerdefinition-environment-value
 func (o TaskDefinitionKeyValuePairOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionKeyValuePair) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -5097,22 +5037,14 @@ func (o TaskDefinitionKeyValuePairArrayOutput) Index(i pulumi.IntInput) TaskDefi
 	}).(TaskDefinitionKeyValuePairOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html
 type TaskDefinitionLinuxParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-capabilities
-	Capabilities *TaskDefinitionKernelCapabilities `pulumi:"capabilities"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-devices
-	Devices []TaskDefinitionDevice `pulumi:"devices"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-initprocessenabled
-	InitProcessEnabled *bool `pulumi:"initProcessEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-maxswap
-	MaxSwap *int `pulumi:"maxSwap"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-sharedmemorysize
-	SharedMemorySize *int `pulumi:"sharedMemorySize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-swappiness
-	Swappiness *int `pulumi:"swappiness"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs
-	Tmpfs []TaskDefinitionTmpfs `pulumi:"tmpfs"`
+	Capabilities       *TaskDefinitionKernelCapabilities `pulumi:"capabilities"`
+	Devices            []TaskDefinitionDevice            `pulumi:"devices"`
+	InitProcessEnabled *bool                             `pulumi:"initProcessEnabled"`
+	MaxSwap            *int                              `pulumi:"maxSwap"`
+	SharedMemorySize   *int                              `pulumi:"sharedMemorySize"`
+	Swappiness         *int                              `pulumi:"swappiness"`
+	Tmpfs              []TaskDefinitionTmpfs             `pulumi:"tmpfs"`
 }
 
 // TaskDefinitionLinuxParametersInput is an input type that accepts TaskDefinitionLinuxParametersArgs and TaskDefinitionLinuxParametersOutput values.
@@ -5126,22 +5058,14 @@ type TaskDefinitionLinuxParametersInput interface {
 	ToTaskDefinitionLinuxParametersOutputWithContext(context.Context) TaskDefinitionLinuxParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html
 type TaskDefinitionLinuxParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-capabilities
-	Capabilities TaskDefinitionKernelCapabilitiesPtrInput `pulumi:"capabilities"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-devices
-	Devices TaskDefinitionDeviceArrayInput `pulumi:"devices"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-initprocessenabled
-	InitProcessEnabled pulumi.BoolPtrInput `pulumi:"initProcessEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-maxswap
-	MaxSwap pulumi.IntPtrInput `pulumi:"maxSwap"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-sharedmemorysize
-	SharedMemorySize pulumi.IntPtrInput `pulumi:"sharedMemorySize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-swappiness
-	Swappiness pulumi.IntPtrInput `pulumi:"swappiness"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs
-	Tmpfs TaskDefinitionTmpfsArrayInput `pulumi:"tmpfs"`
+	Capabilities       TaskDefinitionKernelCapabilitiesPtrInput `pulumi:"capabilities"`
+	Devices            TaskDefinitionDeviceArrayInput           `pulumi:"devices"`
+	InitProcessEnabled pulumi.BoolPtrInput                      `pulumi:"initProcessEnabled"`
+	MaxSwap            pulumi.IntPtrInput                       `pulumi:"maxSwap"`
+	SharedMemorySize   pulumi.IntPtrInput                       `pulumi:"sharedMemorySize"`
+	Swappiness         pulumi.IntPtrInput                       `pulumi:"swappiness"`
+	Tmpfs              TaskDefinitionTmpfsArrayInput            `pulumi:"tmpfs"`
 }
 
 func (TaskDefinitionLinuxParametersArgs) ElementType() reflect.Type {
@@ -5197,7 +5121,6 @@ func (i *taskDefinitionLinuxParametersPtrType) ToTaskDefinitionLinuxParametersPt
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLinuxParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html
 type TaskDefinitionLinuxParametersOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionLinuxParametersOutput) ElementType() reflect.Type {
@@ -5222,37 +5145,30 @@ func (o TaskDefinitionLinuxParametersOutput) ToTaskDefinitionLinuxParametersPtrO
 	}).(TaskDefinitionLinuxParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-capabilities
 func (o TaskDefinitionLinuxParametersOutput) Capabilities() TaskDefinitionKernelCapabilitiesPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLinuxParameters) *TaskDefinitionKernelCapabilities { return v.Capabilities }).(TaskDefinitionKernelCapabilitiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-devices
 func (o TaskDefinitionLinuxParametersOutput) Devices() TaskDefinitionDeviceArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionLinuxParameters) []TaskDefinitionDevice { return v.Devices }).(TaskDefinitionDeviceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-initprocessenabled
 func (o TaskDefinitionLinuxParametersOutput) InitProcessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLinuxParameters) *bool { return v.InitProcessEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-maxswap
 func (o TaskDefinitionLinuxParametersOutput) MaxSwap() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLinuxParameters) *int { return v.MaxSwap }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-sharedmemorysize
 func (o TaskDefinitionLinuxParametersOutput) SharedMemorySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLinuxParameters) *int { return v.SharedMemorySize }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-swappiness
 func (o TaskDefinitionLinuxParametersOutput) Swappiness() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLinuxParameters) *int { return v.Swappiness }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs
 func (o TaskDefinitionLinuxParametersOutput) Tmpfs() TaskDefinitionTmpfsArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionLinuxParameters) []TaskDefinitionTmpfs { return v.Tmpfs }).(TaskDefinitionTmpfsArrayOutput)
 }
@@ -5281,7 +5197,6 @@ func (o TaskDefinitionLinuxParametersPtrOutput) Elem() TaskDefinitionLinuxParame
 	}).(TaskDefinitionLinuxParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-capabilities
 func (o TaskDefinitionLinuxParametersPtrOutput) Capabilities() TaskDefinitionKernelCapabilitiesPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLinuxParameters) *TaskDefinitionKernelCapabilities {
 		if v == nil {
@@ -5291,7 +5206,6 @@ func (o TaskDefinitionLinuxParametersPtrOutput) Capabilities() TaskDefinitionKer
 	}).(TaskDefinitionKernelCapabilitiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-devices
 func (o TaskDefinitionLinuxParametersPtrOutput) Devices() TaskDefinitionDeviceArrayOutput {
 	return o.ApplyT(func(v *TaskDefinitionLinuxParameters) []TaskDefinitionDevice {
 		if v == nil {
@@ -5301,7 +5215,6 @@ func (o TaskDefinitionLinuxParametersPtrOutput) Devices() TaskDefinitionDeviceAr
 	}).(TaskDefinitionDeviceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-initprocessenabled
 func (o TaskDefinitionLinuxParametersPtrOutput) InitProcessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLinuxParameters) *bool {
 		if v == nil {
@@ -5311,7 +5224,6 @@ func (o TaskDefinitionLinuxParametersPtrOutput) InitProcessEnabled() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-maxswap
 func (o TaskDefinitionLinuxParametersPtrOutput) MaxSwap() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLinuxParameters) *int {
 		if v == nil {
@@ -5321,7 +5233,6 @@ func (o TaskDefinitionLinuxParametersPtrOutput) MaxSwap() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-sharedmemorysize
 func (o TaskDefinitionLinuxParametersPtrOutput) SharedMemorySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLinuxParameters) *int {
 		if v == nil {
@@ -5331,7 +5242,6 @@ func (o TaskDefinitionLinuxParametersPtrOutput) SharedMemorySize() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-swappiness
 func (o TaskDefinitionLinuxParametersPtrOutput) Swappiness() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLinuxParameters) *int {
 		if v == nil {
@@ -5341,7 +5251,6 @@ func (o TaskDefinitionLinuxParametersPtrOutput) Swappiness() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs
 func (o TaskDefinitionLinuxParametersPtrOutput) Tmpfs() TaskDefinitionTmpfsArrayOutput {
 	return o.ApplyT(func(v *TaskDefinitionLinuxParameters) []TaskDefinitionTmpfs {
 		if v == nil {
@@ -5351,13 +5260,9 @@ func (o TaskDefinitionLinuxParametersPtrOutput) Tmpfs() TaskDefinitionTmpfsArray
 	}).(TaskDefinitionTmpfsArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html
 type TaskDefinitionLogConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-logdriver
-	LogDriver string `pulumi:"logDriver"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-options
-	Options map[string]string `pulumi:"options"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-secretoptions
+	LogDriver     string                 `pulumi:"logDriver"`
+	Options       interface{}            `pulumi:"options"`
 	SecretOptions []TaskDefinitionSecret `pulumi:"secretOptions"`
 }
 
@@ -5372,13 +5277,9 @@ type TaskDefinitionLogConfigurationInput interface {
 	ToTaskDefinitionLogConfigurationOutputWithContext(context.Context) TaskDefinitionLogConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html
 type TaskDefinitionLogConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-logdriver
-	LogDriver pulumi.StringInput `pulumi:"logDriver"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-options
-	Options pulumi.StringMapInput `pulumi:"options"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-secretoptions
+	LogDriver     pulumi.StringInput             `pulumi:"logDriver"`
+	Options       pulumi.Input                   `pulumi:"options"`
 	SecretOptions TaskDefinitionSecretArrayInput `pulumi:"secretOptions"`
 }
 
@@ -5435,7 +5336,6 @@ func (i *taskDefinitionLogConfigurationPtrType) ToTaskDefinitionLogConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLogConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html
 type TaskDefinitionLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionLogConfigurationOutput) ElementType() reflect.Type {
@@ -5460,17 +5360,14 @@ func (o TaskDefinitionLogConfigurationOutput) ToTaskDefinitionLogConfigurationPt
 	}).(TaskDefinitionLogConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-logdriver
 func (o TaskDefinitionLogConfigurationOutput) LogDriver() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionLogConfiguration) string { return v.LogDriver }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-options
-func (o TaskDefinitionLogConfigurationOutput) Options() pulumi.StringMapOutput {
-	return o.ApplyT(func(v TaskDefinitionLogConfiguration) map[string]string { return v.Options }).(pulumi.StringMapOutput)
+func (o TaskDefinitionLogConfigurationOutput) Options() pulumi.AnyOutput {
+	return o.ApplyT(func(v TaskDefinitionLogConfiguration) interface{} { return v.Options }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-secretoptions
 func (o TaskDefinitionLogConfigurationOutput) SecretOptions() TaskDefinitionSecretArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionLogConfiguration) []TaskDefinitionSecret { return v.SecretOptions }).(TaskDefinitionSecretArrayOutput)
 }
@@ -5499,7 +5396,6 @@ func (o TaskDefinitionLogConfigurationPtrOutput) Elem() TaskDefinitionLogConfigu
 	}).(TaskDefinitionLogConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-logdriver
 func (o TaskDefinitionLogConfigurationPtrOutput) LogDriver() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLogConfiguration) *string {
 		if v == nil {
@@ -5509,17 +5405,15 @@ func (o TaskDefinitionLogConfigurationPtrOutput) LogDriver() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-options
-func (o TaskDefinitionLogConfigurationPtrOutput) Options() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *TaskDefinitionLogConfiguration) map[string]string {
+func (o TaskDefinitionLogConfigurationPtrOutput) Options() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TaskDefinitionLogConfiguration) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-secretoptions
 func (o TaskDefinitionLogConfigurationPtrOutput) SecretOptions() TaskDefinitionSecretArrayOutput {
 	return o.ApplyT(func(v *TaskDefinitionLogConfiguration) []TaskDefinitionSecret {
 		if v == nil {
@@ -5529,14 +5423,10 @@ func (o TaskDefinitionLogConfigurationPtrOutput) SecretOptions() TaskDefinitionS
 	}).(TaskDefinitionSecretArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html
 type TaskDefinitionMountPoint struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-containerpath
 	ContainerPath *string `pulumi:"containerPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-readonly
-	ReadOnly *bool `pulumi:"readOnly"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-sourcevolume
-	SourceVolume *string `pulumi:"sourceVolume"`
+	ReadOnly      *bool   `pulumi:"readOnly"`
+	SourceVolume  *string `pulumi:"sourceVolume"`
 }
 
 // TaskDefinitionMountPointInput is an input type that accepts TaskDefinitionMountPointArgs and TaskDefinitionMountPointOutput values.
@@ -5550,14 +5440,10 @@ type TaskDefinitionMountPointInput interface {
 	ToTaskDefinitionMountPointOutputWithContext(context.Context) TaskDefinitionMountPointOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html
 type TaskDefinitionMountPointArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-containerpath
 	ContainerPath pulumi.StringPtrInput `pulumi:"containerPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-readonly
-	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-sourcevolume
-	SourceVolume pulumi.StringPtrInput `pulumi:"sourceVolume"`
+	ReadOnly      pulumi.BoolPtrInput   `pulumi:"readOnly"`
+	SourceVolume  pulumi.StringPtrInput `pulumi:"sourceVolume"`
 }
 
 func (TaskDefinitionMountPointArgs) ElementType() reflect.Type {
@@ -5597,7 +5483,6 @@ func (i TaskDefinitionMountPointArray) ToTaskDefinitionMountPointArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionMountPointArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html
 type TaskDefinitionMountPointOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionMountPointOutput) ElementType() reflect.Type {
@@ -5612,17 +5497,14 @@ func (o TaskDefinitionMountPointOutput) ToTaskDefinitionMountPointOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-containerpath
 func (o TaskDefinitionMountPointOutput) ContainerPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionMountPoint) *string { return v.ContainerPath }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-readonly
 func (o TaskDefinitionMountPointOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionMountPoint) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-sourcevolume
 func (o TaskDefinitionMountPointOutput) SourceVolume() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionMountPoint) *string { return v.SourceVolume }).(pulumi.StringPtrOutput)
 }
@@ -5647,14 +5529,10 @@ func (o TaskDefinitionMountPointArrayOutput) Index(i pulumi.IntInput) TaskDefini
 	}).(TaskDefinitionMountPointOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html
 type TaskDefinitionPortMapping struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-containerport
-	ContainerPort *int `pulumi:"containerPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-readonly
-	HostPort *int `pulumi:"hostPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-sourcevolume
-	Protocol *string `pulumi:"protocol"`
+	ContainerPort *int    `pulumi:"containerPort"`
+	HostPort      *int    `pulumi:"hostPort"`
+	Protocol      *string `pulumi:"protocol"`
 }
 
 // TaskDefinitionPortMappingInput is an input type that accepts TaskDefinitionPortMappingArgs and TaskDefinitionPortMappingOutput values.
@@ -5668,14 +5546,10 @@ type TaskDefinitionPortMappingInput interface {
 	ToTaskDefinitionPortMappingOutputWithContext(context.Context) TaskDefinitionPortMappingOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html
 type TaskDefinitionPortMappingArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-containerport
-	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-readonly
-	HostPort pulumi.IntPtrInput `pulumi:"hostPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-sourcevolume
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+	ContainerPort pulumi.IntPtrInput    `pulumi:"containerPort"`
+	HostPort      pulumi.IntPtrInput    `pulumi:"hostPort"`
+	Protocol      pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
 func (TaskDefinitionPortMappingArgs) ElementType() reflect.Type {
@@ -5715,7 +5589,6 @@ func (i TaskDefinitionPortMappingArray) ToTaskDefinitionPortMappingArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionPortMappingArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html
 type TaskDefinitionPortMappingOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionPortMappingOutput) ElementType() reflect.Type {
@@ -5730,17 +5603,14 @@ func (o TaskDefinitionPortMappingOutput) ToTaskDefinitionPortMappingOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-containerport
 func (o TaskDefinitionPortMappingOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionPortMapping) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-readonly
 func (o TaskDefinitionPortMappingOutput) HostPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionPortMapping) *int { return v.HostPort }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html#cfn-ecs-taskdefinition-containerdefinition-portmappings-sourcevolume
 func (o TaskDefinitionPortMappingOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionPortMapping) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -5765,14 +5635,10 @@ func (o TaskDefinitionPortMappingArrayOutput) Index(i pulumi.IntInput) TaskDefin
 	}).(TaskDefinitionPortMappingOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html
 type TaskDefinitionProxyConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-containername
-	ContainerName string `pulumi:"containerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-proxyconfigurationproperties
+	ContainerName                string                       `pulumi:"containerName"`
 	ProxyConfigurationProperties []TaskDefinitionKeyValuePair `pulumi:"proxyConfigurationProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-type
-	Type *string `pulumi:"type"`
+	Type                         *string                      `pulumi:"type"`
 }
 
 // TaskDefinitionProxyConfigurationInput is an input type that accepts TaskDefinitionProxyConfigurationArgs and TaskDefinitionProxyConfigurationOutput values.
@@ -5786,14 +5652,10 @@ type TaskDefinitionProxyConfigurationInput interface {
 	ToTaskDefinitionProxyConfigurationOutputWithContext(context.Context) TaskDefinitionProxyConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html
 type TaskDefinitionProxyConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-containername
-	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-proxyconfigurationproperties
+	ContainerName                pulumi.StringInput                   `pulumi:"containerName"`
 	ProxyConfigurationProperties TaskDefinitionKeyValuePairArrayInput `pulumi:"proxyConfigurationProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type                         pulumi.StringPtrInput                `pulumi:"type"`
 }
 
 func (TaskDefinitionProxyConfigurationArgs) ElementType() reflect.Type {
@@ -5849,7 +5711,6 @@ func (i *taskDefinitionProxyConfigurationPtrType) ToTaskDefinitionProxyConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionProxyConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html
 type TaskDefinitionProxyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionProxyConfigurationOutput) ElementType() reflect.Type {
@@ -5874,19 +5735,16 @@ func (o TaskDefinitionProxyConfigurationOutput) ToTaskDefinitionProxyConfigurati
 	}).(TaskDefinitionProxyConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-containername
 func (o TaskDefinitionProxyConfigurationOutput) ContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionProxyConfiguration) string { return v.ContainerName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-proxyconfigurationproperties
 func (o TaskDefinitionProxyConfigurationOutput) ProxyConfigurationProperties() TaskDefinitionKeyValuePairArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionProxyConfiguration) []TaskDefinitionKeyValuePair {
 		return v.ProxyConfigurationProperties
 	}).(TaskDefinitionKeyValuePairArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-type
 func (o TaskDefinitionProxyConfigurationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionProxyConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -5915,7 +5773,6 @@ func (o TaskDefinitionProxyConfigurationPtrOutput) Elem() TaskDefinitionProxyCon
 	}).(TaskDefinitionProxyConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-containername
 func (o TaskDefinitionProxyConfigurationPtrOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionProxyConfiguration) *string {
 		if v == nil {
@@ -5925,7 +5782,6 @@ func (o TaskDefinitionProxyConfigurationPtrOutput) ContainerName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-proxyconfigurationproperties
 func (o TaskDefinitionProxyConfigurationPtrOutput) ProxyConfigurationProperties() TaskDefinitionKeyValuePairArrayOutput {
 	return o.ApplyT(func(v *TaskDefinitionProxyConfiguration) []TaskDefinitionKeyValuePair {
 		if v == nil {
@@ -5935,7 +5791,6 @@ func (o TaskDefinitionProxyConfigurationPtrOutput) ProxyConfigurationProperties(
 	}).(TaskDefinitionKeyValuePairArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-type
 func (o TaskDefinitionProxyConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionProxyConfiguration) *string {
 		if v == nil {
@@ -5945,9 +5800,7 @@ func (o TaskDefinitionProxyConfigurationPtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html
 type TaskDefinitionRepositoryCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html#cfn-ecs-taskdefinition-repositorycredentials-credentialsparameter
 	CredentialsParameter *string `pulumi:"credentialsParameter"`
 }
 
@@ -5962,9 +5815,7 @@ type TaskDefinitionRepositoryCredentialsInput interface {
 	ToTaskDefinitionRepositoryCredentialsOutputWithContext(context.Context) TaskDefinitionRepositoryCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html
 type TaskDefinitionRepositoryCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html#cfn-ecs-taskdefinition-repositorycredentials-credentialsparameter
 	CredentialsParameter pulumi.StringPtrInput `pulumi:"credentialsParameter"`
 }
 
@@ -6021,7 +5872,6 @@ func (i *taskDefinitionRepositoryCredentialsPtrType) ToTaskDefinitionRepositoryC
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionRepositoryCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html
 type TaskDefinitionRepositoryCredentialsOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionRepositoryCredentialsOutput) ElementType() reflect.Type {
@@ -6046,7 +5896,6 @@ func (o TaskDefinitionRepositoryCredentialsOutput) ToTaskDefinitionRepositoryCre
 	}).(TaskDefinitionRepositoryCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html#cfn-ecs-taskdefinition-repositorycredentials-credentialsparameter
 func (o TaskDefinitionRepositoryCredentialsOutput) CredentialsParameter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionRepositoryCredentials) *string { return v.CredentialsParameter }).(pulumi.StringPtrOutput)
 }
@@ -6075,7 +5924,6 @@ func (o TaskDefinitionRepositoryCredentialsPtrOutput) Elem() TaskDefinitionRepos
 	}).(TaskDefinitionRepositoryCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html#cfn-ecs-taskdefinition-repositorycredentials-credentialsparameter
 func (o TaskDefinitionRepositoryCredentialsPtrOutput) CredentialsParameter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionRepositoryCredentials) *string {
 		if v == nil {
@@ -6085,11 +5933,8 @@ func (o TaskDefinitionRepositoryCredentialsPtrOutput) CredentialsParameter() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html
 type TaskDefinitionResourceRequirement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html#cfn-ecs-taskdefinition-resourcerequirement-type
-	Type string `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html#cfn-ecs-taskdefinition-resourcerequirement-value
+	Type  string `pulumi:"type"`
 	Value string `pulumi:"value"`
 }
 
@@ -6104,11 +5949,8 @@ type TaskDefinitionResourceRequirementInput interface {
 	ToTaskDefinitionResourceRequirementOutputWithContext(context.Context) TaskDefinitionResourceRequirementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html
 type TaskDefinitionResourceRequirementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html#cfn-ecs-taskdefinition-resourcerequirement-type
-	Type pulumi.StringInput `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html#cfn-ecs-taskdefinition-resourcerequirement-value
+	Type  pulumi.StringInput `pulumi:"type"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -6149,7 +5991,6 @@ func (i TaskDefinitionResourceRequirementArray) ToTaskDefinitionResourceRequirem
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionResourceRequirementArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html
 type TaskDefinitionResourceRequirementOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionResourceRequirementOutput) ElementType() reflect.Type {
@@ -6164,12 +6005,10 @@ func (o TaskDefinitionResourceRequirementOutput) ToTaskDefinitionResourceRequire
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html#cfn-ecs-taskdefinition-resourcerequirement-type
 func (o TaskDefinitionResourceRequirementOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionResourceRequirement) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-resourcerequirement.html#cfn-ecs-taskdefinition-resourcerequirement-value
 func (o TaskDefinitionResourceRequirementOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionResourceRequirement) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6194,11 +6033,8 @@ func (o TaskDefinitionResourceRequirementArrayOutput) Index(i pulumi.IntInput) T
 	}).(TaskDefinitionResourceRequirementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html
 type TaskDefinitionSecret struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html#cfn-ecs-taskdefinition-secret-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html#cfn-ecs-taskdefinition-secret-valuefrom
+	Name      string `pulumi:"name"`
 	ValueFrom string `pulumi:"valueFrom"`
 }
 
@@ -6213,11 +6049,8 @@ type TaskDefinitionSecretInput interface {
 	ToTaskDefinitionSecretOutputWithContext(context.Context) TaskDefinitionSecretOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html
 type TaskDefinitionSecretArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html#cfn-ecs-taskdefinition-secret-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html#cfn-ecs-taskdefinition-secret-valuefrom
+	Name      pulumi.StringInput `pulumi:"name"`
 	ValueFrom pulumi.StringInput `pulumi:"valueFrom"`
 }
 
@@ -6258,7 +6091,6 @@ func (i TaskDefinitionSecretArray) ToTaskDefinitionSecretArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionSecretArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html
 type TaskDefinitionSecretOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionSecretOutput) ElementType() reflect.Type {
@@ -6273,12 +6105,10 @@ func (o TaskDefinitionSecretOutput) ToTaskDefinitionSecretOutputWithContext(ctx 
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html#cfn-ecs-taskdefinition-secret-name
 func (o TaskDefinitionSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionSecret) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html#cfn-ecs-taskdefinition-secret-valuefrom
 func (o TaskDefinitionSecretOutput) ValueFrom() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionSecret) string { return v.ValueFrom }).(pulumi.StringOutput)
 }
@@ -6303,12 +6133,9 @@ func (o TaskDefinitionSecretArrayOutput) Index(i pulumi.IntInput) TaskDefinition
 	}).(TaskDefinitionSecretOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html
 type TaskDefinitionSystemControl struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-namespace
 	Namespace *string `pulumi:"namespace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-value
-	Value *string `pulumi:"value"`
+	Value     *string `pulumi:"value"`
 }
 
 // TaskDefinitionSystemControlInput is an input type that accepts TaskDefinitionSystemControlArgs and TaskDefinitionSystemControlOutput values.
@@ -6322,12 +6149,9 @@ type TaskDefinitionSystemControlInput interface {
 	ToTaskDefinitionSystemControlOutputWithContext(context.Context) TaskDefinitionSystemControlOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html
 type TaskDefinitionSystemControlArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-namespace
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-value
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value     pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (TaskDefinitionSystemControlArgs) ElementType() reflect.Type {
@@ -6367,7 +6191,6 @@ func (i TaskDefinitionSystemControlArray) ToTaskDefinitionSystemControlArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionSystemControlArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html
 type TaskDefinitionSystemControlOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionSystemControlOutput) ElementType() reflect.Type {
@@ -6382,12 +6205,10 @@ func (o TaskDefinitionSystemControlOutput) ToTaskDefinitionSystemControlOutputWi
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-namespace
 func (o TaskDefinitionSystemControlOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionSystemControl) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html#cfn-ecs-taskdefinition-systemcontrol-value
 func (o TaskDefinitionSystemControlOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionSystemControl) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -6412,12 +6233,109 @@ func (o TaskDefinitionSystemControlArrayOutput) Index(i pulumi.IntInput) TaskDef
 	}).(TaskDefinitionSystemControlOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html
+type TaskDefinitionTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// TaskDefinitionTagInput is an input type that accepts TaskDefinitionTagArgs and TaskDefinitionTagOutput values.
+// You can construct a concrete instance of `TaskDefinitionTagInput` via:
+//
+//          TaskDefinitionTagArgs{...}
+type TaskDefinitionTagInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionTagOutput() TaskDefinitionTagOutput
+	ToTaskDefinitionTagOutputWithContext(context.Context) TaskDefinitionTagOutput
+}
+
+type TaskDefinitionTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskDefinitionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionTag)(nil)).Elem()
+}
+
+func (i TaskDefinitionTagArgs) ToTaskDefinitionTagOutput() TaskDefinitionTagOutput {
+	return i.ToTaskDefinitionTagOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionTagArgs) ToTaskDefinitionTagOutputWithContext(ctx context.Context) TaskDefinitionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTagOutput)
+}
+
+// TaskDefinitionTagArrayInput is an input type that accepts TaskDefinitionTagArray and TaskDefinitionTagArrayOutput values.
+// You can construct a concrete instance of `TaskDefinitionTagArrayInput` via:
+//
+//          TaskDefinitionTagArray{ TaskDefinitionTagArgs{...} }
+type TaskDefinitionTagArrayInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionTagArrayOutput() TaskDefinitionTagArrayOutput
+	ToTaskDefinitionTagArrayOutputWithContext(context.Context) TaskDefinitionTagArrayOutput
+}
+
+type TaskDefinitionTagArray []TaskDefinitionTagInput
+
+func (TaskDefinitionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskDefinitionTag)(nil)).Elem()
+}
+
+func (i TaskDefinitionTagArray) ToTaskDefinitionTagArrayOutput() TaskDefinitionTagArrayOutput {
+	return i.ToTaskDefinitionTagArrayOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionTagArray) ToTaskDefinitionTagArrayOutputWithContext(ctx context.Context) TaskDefinitionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTagArrayOutput)
+}
+
+type TaskDefinitionTagOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionTag)(nil)).Elem()
+}
+
+func (o TaskDefinitionTagOutput) ToTaskDefinitionTagOutput() TaskDefinitionTagOutput {
+	return o
+}
+
+func (o TaskDefinitionTagOutput) ToTaskDefinitionTagOutputWithContext(ctx context.Context) TaskDefinitionTagOutput {
+	return o
+}
+
+func (o TaskDefinitionTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskDefinitionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskDefinitionTag)(nil)).Elem()
+}
+
+func (o TaskDefinitionTagArrayOutput) ToTaskDefinitionTagArrayOutput() TaskDefinitionTagArrayOutput {
+	return o
+}
+
+func (o TaskDefinitionTagArrayOutput) ToTaskDefinitionTagArrayOutputWithContext(ctx context.Context) TaskDefinitionTagArrayOutput {
+	return o
+}
+
+func (o TaskDefinitionTagArrayOutput) Index(i pulumi.IntInput) TaskDefinitionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskDefinitionTag {
+		return vs[0].([]TaskDefinitionTag)[vs[1].(int)]
+	}).(TaskDefinitionTagOutput)
+}
+
 type TaskDefinitionTaskDefinitionPlacementConstraint struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html#cfn-ecs-taskdefinition-taskdefinitionplacementconstraint-expression
 	Expression *string `pulumi:"expression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html#cfn-ecs-taskdefinition-taskdefinitionplacementconstraint-type
-	Type string `pulumi:"type"`
+	Type       string  `pulumi:"type"`
 }
 
 // TaskDefinitionTaskDefinitionPlacementConstraintInput is an input type that accepts TaskDefinitionTaskDefinitionPlacementConstraintArgs and TaskDefinitionTaskDefinitionPlacementConstraintOutput values.
@@ -6431,12 +6349,9 @@ type TaskDefinitionTaskDefinitionPlacementConstraintInput interface {
 	ToTaskDefinitionTaskDefinitionPlacementConstraintOutputWithContext(context.Context) TaskDefinitionTaskDefinitionPlacementConstraintOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html
 type TaskDefinitionTaskDefinitionPlacementConstraintArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html#cfn-ecs-taskdefinition-taskdefinitionplacementconstraint-expression
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html#cfn-ecs-taskdefinition-taskdefinitionplacementconstraint-type
-	Type pulumi.StringInput `pulumi:"type"`
+	Type       pulumi.StringInput    `pulumi:"type"`
 }
 
 func (TaskDefinitionTaskDefinitionPlacementConstraintArgs) ElementType() reflect.Type {
@@ -6476,7 +6391,6 @@ func (i TaskDefinitionTaskDefinitionPlacementConstraintArray) ToTaskDefinitionTa
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html
 type TaskDefinitionTaskDefinitionPlacementConstraintOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionTaskDefinitionPlacementConstraintOutput) ElementType() reflect.Type {
@@ -6491,12 +6405,10 @@ func (o TaskDefinitionTaskDefinitionPlacementConstraintOutput) ToTaskDefinitionT
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html#cfn-ecs-taskdefinition-taskdefinitionplacementconstraint-expression
 func (o TaskDefinitionTaskDefinitionPlacementConstraintOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionTaskDefinitionPlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html#cfn-ecs-taskdefinition-taskdefinitionplacementconstraint-type
 func (o TaskDefinitionTaskDefinitionPlacementConstraintOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionTaskDefinitionPlacementConstraint) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6521,14 +6433,10 @@ func (o TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput) Index(i pulu
 	}).(TaskDefinitionTaskDefinitionPlacementConstraintOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html
 type TaskDefinitionTmpfs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-containerpath
-	ContainerPath *string `pulumi:"containerPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-mountoptions
-	MountOptions []string `pulumi:"mountOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-size
-	Size int `pulumi:"size"`
+	ContainerPath *string  `pulumi:"containerPath"`
+	MountOptions  []string `pulumi:"mountOptions"`
+	Size          int      `pulumi:"size"`
 }
 
 // TaskDefinitionTmpfsInput is an input type that accepts TaskDefinitionTmpfsArgs and TaskDefinitionTmpfsOutput values.
@@ -6542,14 +6450,10 @@ type TaskDefinitionTmpfsInput interface {
 	ToTaskDefinitionTmpfsOutputWithContext(context.Context) TaskDefinitionTmpfsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html
 type TaskDefinitionTmpfsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-containerpath
-	ContainerPath pulumi.StringPtrInput `pulumi:"containerPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-mountoptions
-	MountOptions pulumi.StringArrayInput `pulumi:"mountOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-size
-	Size pulumi.IntInput `pulumi:"size"`
+	ContainerPath pulumi.StringPtrInput   `pulumi:"containerPath"`
+	MountOptions  pulumi.StringArrayInput `pulumi:"mountOptions"`
+	Size          pulumi.IntInput         `pulumi:"size"`
 }
 
 func (TaskDefinitionTmpfsArgs) ElementType() reflect.Type {
@@ -6589,7 +6493,6 @@ func (i TaskDefinitionTmpfsArray) ToTaskDefinitionTmpfsArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTmpfsArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html
 type TaskDefinitionTmpfsOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionTmpfsOutput) ElementType() reflect.Type {
@@ -6604,17 +6507,14 @@ func (o TaskDefinitionTmpfsOutput) ToTaskDefinitionTmpfsOutputWithContext(ctx co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-containerpath
 func (o TaskDefinitionTmpfsOutput) ContainerPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionTmpfs) *string { return v.ContainerPath }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-mountoptions
 func (o TaskDefinitionTmpfsOutput) MountOptions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionTmpfs) []string { return v.MountOptions }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-size
 func (o TaskDefinitionTmpfsOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v TaskDefinitionTmpfs) int { return v.Size }).(pulumi.IntOutput)
 }
@@ -6639,14 +6539,10 @@ func (o TaskDefinitionTmpfsArrayOutput) Index(i pulumi.IntInput) TaskDefinitionT
 	}).(TaskDefinitionTmpfsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html
 type TaskDefinitionUlimit struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-hardlimit
-	HardLimit int `pulumi:"hardLimit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-softlimit
-	SoftLimit int `pulumi:"softLimit"`
+	HardLimit int    `pulumi:"hardLimit"`
+	Name      string `pulumi:"name"`
+	SoftLimit int    `pulumi:"softLimit"`
 }
 
 // TaskDefinitionUlimitInput is an input type that accepts TaskDefinitionUlimitArgs and TaskDefinitionUlimitOutput values.
@@ -6660,14 +6556,10 @@ type TaskDefinitionUlimitInput interface {
 	ToTaskDefinitionUlimitOutputWithContext(context.Context) TaskDefinitionUlimitOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html
 type TaskDefinitionUlimitArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-hardlimit
-	HardLimit pulumi.IntInput `pulumi:"hardLimit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-softlimit
-	SoftLimit pulumi.IntInput `pulumi:"softLimit"`
+	HardLimit pulumi.IntInput    `pulumi:"hardLimit"`
+	Name      pulumi.StringInput `pulumi:"name"`
+	SoftLimit pulumi.IntInput    `pulumi:"softLimit"`
 }
 
 func (TaskDefinitionUlimitArgs) ElementType() reflect.Type {
@@ -6707,7 +6599,6 @@ func (i TaskDefinitionUlimitArray) ToTaskDefinitionUlimitArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionUlimitArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html
 type TaskDefinitionUlimitOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionUlimitOutput) ElementType() reflect.Type {
@@ -6722,17 +6613,14 @@ func (o TaskDefinitionUlimitOutput) ToTaskDefinitionUlimitOutputWithContext(ctx 
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-hardlimit
 func (o TaskDefinitionUlimitOutput) HardLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v TaskDefinitionUlimit) int { return v.HardLimit }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-name
 func (o TaskDefinitionUlimitOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionUlimit) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-softlimit
 func (o TaskDefinitionUlimitOutput) SoftLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v TaskDefinitionUlimit) int { return v.SoftLimit }).(pulumi.IntOutput)
 }
@@ -6757,16 +6645,11 @@ func (o TaskDefinitionUlimitArrayOutput) Index(i pulumi.IntInput) TaskDefinition
 	}).(TaskDefinitionUlimitOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html
 type TaskDefinitionVolume struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-dockervolumeconfiguration
 	DockerVolumeConfiguration *TaskDefinitionDockerVolumeConfiguration `pulumi:"dockerVolumeConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-efsvolumeconfiguration
-	EFSVolumeConfiguration *TaskDefinitionEFSVolumeConfiguration `pulumi:"eFSVolumeConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-host
-	Host *TaskDefinitionHostVolumeProperties `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-name
-	Name *string `pulumi:"name"`
+	EFSVolumeConfiguration    *TaskDefinitionEFSVolumeConfiguration    `pulumi:"eFSVolumeConfiguration"`
+	Host                      *TaskDefinitionHostVolumeProperties      `pulumi:"host"`
+	Name                      *string                                  `pulumi:"name"`
 }
 
 // TaskDefinitionVolumeInput is an input type that accepts TaskDefinitionVolumeArgs and TaskDefinitionVolumeOutput values.
@@ -6780,16 +6663,11 @@ type TaskDefinitionVolumeInput interface {
 	ToTaskDefinitionVolumeOutputWithContext(context.Context) TaskDefinitionVolumeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html
 type TaskDefinitionVolumeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-dockervolumeconfiguration
 	DockerVolumeConfiguration TaskDefinitionDockerVolumeConfigurationPtrInput `pulumi:"dockerVolumeConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-efsvolumeconfiguration
-	EFSVolumeConfiguration TaskDefinitionEFSVolumeConfigurationPtrInput `pulumi:"eFSVolumeConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-host
-	Host TaskDefinitionHostVolumePropertiesPtrInput `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	EFSVolumeConfiguration    TaskDefinitionEFSVolumeConfigurationPtrInput    `pulumi:"eFSVolumeConfiguration"`
+	Host                      TaskDefinitionHostVolumePropertiesPtrInput      `pulumi:"host"`
+	Name                      pulumi.StringPtrInput                           `pulumi:"name"`
 }
 
 func (TaskDefinitionVolumeArgs) ElementType() reflect.Type {
@@ -6829,7 +6707,6 @@ func (i TaskDefinitionVolumeArray) ToTaskDefinitionVolumeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html
 type TaskDefinitionVolumeOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionVolumeOutput) ElementType() reflect.Type {
@@ -6844,24 +6721,20 @@ func (o TaskDefinitionVolumeOutput) ToTaskDefinitionVolumeOutputWithContext(ctx 
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-dockervolumeconfiguration
 func (o TaskDefinitionVolumeOutput) DockerVolumeConfiguration() TaskDefinitionDockerVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionDockerVolumeConfiguration {
 		return v.DockerVolumeConfiguration
 	}).(TaskDefinitionDockerVolumeConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-efsvolumeconfiguration
 func (o TaskDefinitionVolumeOutput) EFSVolumeConfiguration() TaskDefinitionEFSVolumeConfigurationPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionEFSVolumeConfiguration { return v.EFSVolumeConfiguration }).(TaskDefinitionEFSVolumeConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-host
 func (o TaskDefinitionVolumeOutput) Host() TaskDefinitionHostVolumePropertiesPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionHostVolumeProperties { return v.Host }).(TaskDefinitionHostVolumePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-name
 func (o TaskDefinitionVolumeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolume) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -6886,11 +6759,8 @@ func (o TaskDefinitionVolumeArrayOutput) Index(i pulumi.IntInput) TaskDefinition
 	}).(TaskDefinitionVolumeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html
 type TaskDefinitionVolumeFrom struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-readonly
-	ReadOnly *bool `pulumi:"readOnly"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-sourcecontainer
+	ReadOnly        *bool   `pulumi:"readOnly"`
 	SourceContainer *string `pulumi:"sourceContainer"`
 }
 
@@ -6905,11 +6775,8 @@ type TaskDefinitionVolumeFromInput interface {
 	ToTaskDefinitionVolumeFromOutputWithContext(context.Context) TaskDefinitionVolumeFromOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html
 type TaskDefinitionVolumeFromArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-readonly
-	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-sourcecontainer
+	ReadOnly        pulumi.BoolPtrInput   `pulumi:"readOnly"`
 	SourceContainer pulumi.StringPtrInput `pulumi:"sourceContainer"`
 }
 
@@ -6950,7 +6817,6 @@ func (i TaskDefinitionVolumeFromArray) ToTaskDefinitionVolumeFromArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeFromArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html
 type TaskDefinitionVolumeFromOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionVolumeFromOutput) ElementType() reflect.Type {
@@ -6965,12 +6831,10 @@ func (o TaskDefinitionVolumeFromOutput) ToTaskDefinitionVolumeFromOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-readonly
 func (o TaskDefinitionVolumeFromOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeFrom) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-sourcecontainer
 func (o TaskDefinitionVolumeFromOutput) SourceContainer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeFrom) *string { return v.SourceContainer }).(pulumi.StringPtrOutput)
 }
@@ -6995,13 +6859,13 @@ func (o TaskDefinitionVolumeFromArrayOutput) Index(i pulumi.IntInput) TaskDefini
 	}).(TaskDefinitionVolumeFromOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html
+// The VPC subnets and security groups associated with a task. All specified subnets and security groups must be from the same VPC.
 type TaskSetAwsVpcConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-assignpublicip
+	// Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
 	AssignPublicIp *string `pulumi:"assignPublicIp"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-securitygroups
+	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per AwsVpcConfiguration.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-subnets
+	// The subnets associated with the task or service. There is a limit of 16 subnets that can be specified per AwsVpcConfiguration.
 	Subnets []string `pulumi:"subnets"`
 }
 
@@ -7016,13 +6880,13 @@ type TaskSetAwsVpcConfigurationInput interface {
 	ToTaskSetAwsVpcConfigurationOutputWithContext(context.Context) TaskSetAwsVpcConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html
+// The VPC subnets and security groups associated with a task. All specified subnets and security groups must be from the same VPC.
 type TaskSetAwsVpcConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-assignpublicip
+	// Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
 	AssignPublicIp pulumi.StringPtrInput `pulumi:"assignPublicIp"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-securitygroups
+	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per AwsVpcConfiguration.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-subnets
+	// The subnets associated with the task or service. There is a limit of 16 subnets that can be specified per AwsVpcConfiguration.
 	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
@@ -7079,7 +6943,7 @@ func (i *taskSetAwsVpcConfigurationPtrType) ToTaskSetAwsVpcConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TaskSetAwsVpcConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html
+// The VPC subnets and security groups associated with a task. All specified subnets and security groups must be from the same VPC.
 type TaskSetAwsVpcConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TaskSetAwsVpcConfigurationOutput) ElementType() reflect.Type {
@@ -7104,17 +6968,17 @@ func (o TaskSetAwsVpcConfigurationOutput) ToTaskSetAwsVpcConfigurationPtrOutputW
 	}).(TaskSetAwsVpcConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-assignpublicip
+// Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
 func (o TaskSetAwsVpcConfigurationOutput) AssignPublicIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskSetAwsVpcConfiguration) *string { return v.AssignPublicIp }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-securitygroups
+// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per AwsVpcConfiguration.
 func (o TaskSetAwsVpcConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskSetAwsVpcConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-subnets
+// The subnets associated with the task or service. There is a limit of 16 subnets that can be specified per AwsVpcConfiguration.
 func (o TaskSetAwsVpcConfigurationOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskSetAwsVpcConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -7143,7 +7007,7 @@ func (o TaskSetAwsVpcConfigurationPtrOutput) Elem() TaskSetAwsVpcConfigurationOu
 	}).(TaskSetAwsVpcConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-assignpublicip
+// Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
 func (o TaskSetAwsVpcConfigurationPtrOutput) AssignPublicIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskSetAwsVpcConfiguration) *string {
 		if v == nil {
@@ -7153,7 +7017,7 @@ func (o TaskSetAwsVpcConfigurationPtrOutput) AssignPublicIp() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-securitygroups
+// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per AwsVpcConfiguration.
 func (o TaskSetAwsVpcConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TaskSetAwsVpcConfiguration) []string {
 		if v == nil {
@@ -7163,7 +7027,7 @@ func (o TaskSetAwsVpcConfigurationPtrOutput) SecurityGroups() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-subnets
+// The subnets associated with the task or service. There is a limit of 16 subnets that can be specified per AwsVpcConfiguration.
 func (o TaskSetAwsVpcConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TaskSetAwsVpcConfiguration) []string {
 		if v == nil {
@@ -7173,15 +7037,15 @@ func (o TaskSetAwsVpcConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html
+// A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
 type TaskSetLoadBalancer struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-containername
+	// The name of the container (as it appears in a container definition) to associate with the load balancer.
 	ContainerName *string `pulumi:"containerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-containerport
+	// The port on the container to associate with the load balancer. This port must correspond to a containerPort in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they are launched on must allow ingress traffic on the hostPort of the port mapping.
 	ContainerPort *int `pulumi:"containerPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-loadbalancername
+	// The name of the load balancer to associate with the Amazon ECS service or task set. A load balancer name is only specified when using a Classic Load Balancer. If you are using an Application Load Balancer or a Network Load Balancer this should be omitted.
 	LoadBalancerName *string `pulumi:"loadBalancerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-targetgrouparn
+	// The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set. A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer. If you are using a Classic Load Balancer this should be omitted. For services using the ECS deployment controller, you can specify one or multiple target groups. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html in the Amazon Elastic Container Service Developer Guide. For services using the CODE_DEPLOY deployment controller, you are required to define two target groups for the load balancer. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html in the Amazon Elastic Container Service Developer Guide. If your service's task definition uses the awsvpc network mode (which is required for the Fargate launch type), you must choose ip as the target type, not instance, when creating your target groups because tasks that use the awsvpc network mode are associated with an elastic network interface, not an Amazon EC2 instance.
 	TargetGroupArn *string `pulumi:"targetGroupArn"`
 }
 
@@ -7196,15 +7060,15 @@ type TaskSetLoadBalancerInput interface {
 	ToTaskSetLoadBalancerOutputWithContext(context.Context) TaskSetLoadBalancerOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html
+// A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
 type TaskSetLoadBalancerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-containername
+	// The name of the container (as it appears in a container definition) to associate with the load balancer.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-containerport
+	// The port on the container to associate with the load balancer. This port must correspond to a containerPort in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they are launched on must allow ingress traffic on the hostPort of the port mapping.
 	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-loadbalancername
+	// The name of the load balancer to associate with the Amazon ECS service or task set. A load balancer name is only specified when using a Classic Load Balancer. If you are using an Application Load Balancer or a Network Load Balancer this should be omitted.
 	LoadBalancerName pulumi.StringPtrInput `pulumi:"loadBalancerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-targetgrouparn
+	// The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set. A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer. If you are using a Classic Load Balancer this should be omitted. For services using the ECS deployment controller, you can specify one or multiple target groups. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html in the Amazon Elastic Container Service Developer Guide. For services using the CODE_DEPLOY deployment controller, you are required to define two target groups for the load balancer. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html in the Amazon Elastic Container Service Developer Guide. If your service's task definition uses the awsvpc network mode (which is required for the Fargate launch type), you must choose ip as the target type, not instance, when creating your target groups because tasks that use the awsvpc network mode are associated with an elastic network interface, not an Amazon EC2 instance.
 	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
 }
 
@@ -7245,7 +7109,7 @@ func (i TaskSetLoadBalancerArray) ToTaskSetLoadBalancerArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TaskSetLoadBalancerArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html
+// A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
 type TaskSetLoadBalancerOutput struct{ *pulumi.OutputState }
 
 func (TaskSetLoadBalancerOutput) ElementType() reflect.Type {
@@ -7260,22 +7124,22 @@ func (o TaskSetLoadBalancerOutput) ToTaskSetLoadBalancerOutputWithContext(ctx co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-containername
+// The name of the container (as it appears in a container definition) to associate with the load balancer.
 func (o TaskSetLoadBalancerOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskSetLoadBalancer) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-containerport
+// The port on the container to associate with the load balancer. This port must correspond to a containerPort in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they are launched on must allow ingress traffic on the hostPort of the port mapping.
 func (o TaskSetLoadBalancerOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskSetLoadBalancer) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-loadbalancername
+// The name of the load balancer to associate with the Amazon ECS service or task set. A load balancer name is only specified when using a Classic Load Balancer. If you are using an Application Load Balancer or a Network Load Balancer this should be omitted.
 func (o TaskSetLoadBalancerOutput) LoadBalancerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskSetLoadBalancer) *string { return v.LoadBalancerName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html#cfn-ecs-taskset-loadbalancer-targetgrouparn
+// The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set. A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer. If you are using a Classic Load Balancer this should be omitted. For services using the ECS deployment controller, you can specify one or multiple target groups. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html in the Amazon Elastic Container Service Developer Guide. For services using the CODE_DEPLOY deployment controller, you are required to define two target groups for the load balancer. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html in the Amazon Elastic Container Service Developer Guide. If your service's task definition uses the awsvpc network mode (which is required for the Fargate launch type), you must choose ip as the target type, not instance, when creating your target groups because tasks that use the awsvpc network mode are associated with an elastic network interface, not an Amazon EC2 instance.
 func (o TaskSetLoadBalancerOutput) TargetGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskSetLoadBalancer) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -7300,9 +7164,8 @@ func (o TaskSetLoadBalancerArrayOutput) Index(i pulumi.IntInput) TaskSetLoadBala
 	}).(TaskSetLoadBalancerOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html
+// An object representing the network configuration for a task or service.
 type TaskSetNetworkConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html#cfn-ecs-taskset-networkconfiguration-awsvpcconfiguration
 	AwsVpcConfiguration *TaskSetAwsVpcConfiguration `pulumi:"awsVpcConfiguration"`
 }
 
@@ -7317,9 +7180,8 @@ type TaskSetNetworkConfigurationInput interface {
 	ToTaskSetNetworkConfigurationOutputWithContext(context.Context) TaskSetNetworkConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html
+// An object representing the network configuration for a task or service.
 type TaskSetNetworkConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html#cfn-ecs-taskset-networkconfiguration-awsvpcconfiguration
 	AwsVpcConfiguration TaskSetAwsVpcConfigurationPtrInput `pulumi:"awsVpcConfiguration"`
 }
 
@@ -7376,7 +7238,7 @@ func (i *taskSetNetworkConfigurationPtrType) ToTaskSetNetworkConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TaskSetNetworkConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html
+// An object representing the network configuration for a task or service.
 type TaskSetNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TaskSetNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -7401,7 +7263,6 @@ func (o TaskSetNetworkConfigurationOutput) ToTaskSetNetworkConfigurationPtrOutpu
 	}).(TaskSetNetworkConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html#cfn-ecs-taskset-networkconfiguration-awsvpcconfiguration
 func (o TaskSetNetworkConfigurationOutput) AwsVpcConfiguration() TaskSetAwsVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v TaskSetNetworkConfiguration) *TaskSetAwsVpcConfiguration { return v.AwsVpcConfiguration }).(TaskSetAwsVpcConfigurationPtrOutput)
 }
@@ -7430,7 +7291,6 @@ func (o TaskSetNetworkConfigurationPtrOutput) Elem() TaskSetNetworkConfiguration
 	}).(TaskSetNetworkConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html#cfn-ecs-taskset-networkconfiguration-awsvpcconfiguration
 func (o TaskSetNetworkConfigurationPtrOutput) AwsVpcConfiguration() TaskSetAwsVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *TaskSetNetworkConfiguration) *TaskSetAwsVpcConfiguration {
 		if v == nil {
@@ -7440,11 +7300,10 @@ func (o TaskSetNetworkConfigurationPtrOutput) AwsVpcConfiguration() TaskSetAwsVp
 	}).(TaskSetAwsVpcConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html
 type TaskSetScale struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html#cfn-ecs-taskset-scale-unit
+	// The unit of measure for the scale value.
 	Unit *string `pulumi:"unit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html#cfn-ecs-taskset-scale-value
+	// The value, specified as a percent total of a service's desiredCount, to scale the task set. Accepted values are numbers between 0 and 100.
 	Value *float64 `pulumi:"value"`
 }
 
@@ -7459,11 +7318,10 @@ type TaskSetScaleInput interface {
 	ToTaskSetScaleOutputWithContext(context.Context) TaskSetScaleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html
 type TaskSetScaleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html#cfn-ecs-taskset-scale-unit
+	// The unit of measure for the scale value.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html#cfn-ecs-taskset-scale-value
+	// The value, specified as a percent total of a service's desiredCount, to scale the task set. Accepted values are numbers between 0 and 100.
 	Value pulumi.Float64PtrInput `pulumi:"value"`
 }
 
@@ -7520,7 +7378,6 @@ func (i *taskSetScalePtrType) ToTaskSetScalePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(TaskSetScalePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html
 type TaskSetScaleOutput struct{ *pulumi.OutputState }
 
 func (TaskSetScaleOutput) ElementType() reflect.Type {
@@ -7545,12 +7402,12 @@ func (o TaskSetScaleOutput) ToTaskSetScalePtrOutputWithContext(ctx context.Conte
 	}).(TaskSetScalePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html#cfn-ecs-taskset-scale-unit
+// The unit of measure for the scale value.
 func (o TaskSetScaleOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskSetScale) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html#cfn-ecs-taskset-scale-value
+// The value, specified as a percent total of a service's desiredCount, to scale the task set. Accepted values are numbers between 0 and 100.
 func (o TaskSetScaleOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TaskSetScale) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
@@ -7579,7 +7436,7 @@ func (o TaskSetScalePtrOutput) Elem() TaskSetScaleOutput {
 	}).(TaskSetScaleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html#cfn-ecs-taskset-scale-unit
+// The unit of measure for the scale value.
 func (o TaskSetScalePtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskSetScale) *string {
 		if v == nil {
@@ -7589,7 +7446,7 @@ func (o TaskSetScalePtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-scale.html#cfn-ecs-taskset-scale-value
+// The value, specified as a percent total of a service's desiredCount, to scale the task set. Accepted values are numbers between 0 and 100.
 func (o TaskSetScalePtrOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TaskSetScale) *float64 {
 		if v == nil {
@@ -7599,15 +7456,14 @@ func (o TaskSetScalePtrOutput) Value() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html
 type TaskSetServiceRegistry struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-containername
+	// The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the bridge or host network mode, you must specify a containerName and containerPort combination from the task definition. If the task definition that your service task specifies uses the awsvpc network mode and a type SRV DNS record is used, you must specify either a containerName and containerPort combination or a port value, but not both.
 	ContainerName *string `pulumi:"containerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-containerport
+	// The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the bridge or host network mode, you must specify a containerName and containerPort combination from the task definition. If the task definition your service task specifies uses the awsvpc network mode and a type SRV DNS record is used, you must specify either a containerName and containerPort combination or a port value, but not both.
 	ContainerPort *int `pulumi:"containerPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-port
+	// The port value used if your service discovery service specified an SRV record. This field may be used if both the awsvpc network mode and SRV records are used.
 	Port *int `pulumi:"port"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-registryarn
+	// The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html
 	RegistryArn *string `pulumi:"registryArn"`
 }
 
@@ -7622,15 +7478,14 @@ type TaskSetServiceRegistryInput interface {
 	ToTaskSetServiceRegistryOutputWithContext(context.Context) TaskSetServiceRegistryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html
 type TaskSetServiceRegistryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-containername
+	// The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the bridge or host network mode, you must specify a containerName and containerPort combination from the task definition. If the task definition that your service task specifies uses the awsvpc network mode and a type SRV DNS record is used, you must specify either a containerName and containerPort combination or a port value, but not both.
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-containerport
+	// The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the bridge or host network mode, you must specify a containerName and containerPort combination from the task definition. If the task definition your service task specifies uses the awsvpc network mode and a type SRV DNS record is used, you must specify either a containerName and containerPort combination or a port value, but not both.
 	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-port
+	// The port value used if your service discovery service specified an SRV record. This field may be used if both the awsvpc network mode and SRV records are used.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-registryarn
+	// The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html
 	RegistryArn pulumi.StringPtrInput `pulumi:"registryArn"`
 }
 
@@ -7671,7 +7526,6 @@ func (i TaskSetServiceRegistryArray) ToTaskSetServiceRegistryArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TaskSetServiceRegistryArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html
 type TaskSetServiceRegistryOutput struct{ *pulumi.OutputState }
 
 func (TaskSetServiceRegistryOutput) ElementType() reflect.Type {
@@ -7686,22 +7540,22 @@ func (o TaskSetServiceRegistryOutput) ToTaskSetServiceRegistryOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-containername
+// The container name value, already specified in the task definition, to be used for your service discovery service. If the task definition that your service task specifies uses the bridge or host network mode, you must specify a containerName and containerPort combination from the task definition. If the task definition that your service task specifies uses the awsvpc network mode and a type SRV DNS record is used, you must specify either a containerName and containerPort combination or a port value, but not both.
 func (o TaskSetServiceRegistryOutput) ContainerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskSetServiceRegistry) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-containerport
+// The port value, already specified in the task definition, to be used for your service discovery service. If the task definition your service task specifies uses the bridge or host network mode, you must specify a containerName and containerPort combination from the task definition. If the task definition your service task specifies uses the awsvpc network mode and a type SRV DNS record is used, you must specify either a containerName and containerPort combination or a port value, but not both.
 func (o TaskSetServiceRegistryOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskSetServiceRegistry) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-port
+// The port value used if your service discovery service specified an SRV record. This field may be used if both the awsvpc network mode and SRV records are used.
 func (o TaskSetServiceRegistryOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskSetServiceRegistry) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html#cfn-ecs-taskset-serviceregistry-registryarn
+// The Amazon Resource Name (ARN) of the service registry. The currently supported service registry is AWS Cloud Map. For more information, see https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html
 func (o TaskSetServiceRegistryOutput) RegistryArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskSetServiceRegistry) *string { return v.RegistryArn }).(pulumi.StringPtrOutput)
 }
@@ -7731,6 +7585,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingPtrOutput{})
+	pulumi.RegisterOutputType(CapacityProviderTagOutput{})
+	pulumi.RegisterOutputType(CapacityProviderTagArrayOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderStrategyOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderStrategyArrayOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderStrategyItemOutput{})
@@ -7743,6 +7599,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterExecuteCommandConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterExecuteCommandLogConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterExecuteCommandLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterTagOutput{})
+	pulumi.RegisterOutputType(ClusterTagArrayOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCapacityProviderStrategyItemOutput{})
@@ -7763,7 +7621,10 @@ func init() {
 	pulumi.RegisterOutputType(ServicePlacementStrategyArrayOutput{})
 	pulumi.RegisterOutputType(ServiceServiceRegistryOutput{})
 	pulumi.RegisterOutputType(ServiceServiceRegistryArrayOutput{})
+	pulumi.RegisterOutputType(ServiceTagOutput{})
+	pulumi.RegisterOutputType(ServiceTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionContainerDefinitionOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionContainerDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionContainerDependencyOutput{})
@@ -7810,6 +7671,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionSecretArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionSystemControlOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionSystemControlArrayOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionTagOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTaskDefinitionPlacementConstraintOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTmpfsOutput{})

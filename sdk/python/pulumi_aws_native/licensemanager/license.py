@@ -28,17 +28,11 @@ class LicenseArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a License resource.
-        :param pulumi.Input['LicenseConsumptionConfigurationArgs'] consumption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
-        :param pulumi.Input[Sequence[pulumi.Input['LicenseEntitlementArgs']]] entitlements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
-        :param pulumi.Input[str] home_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
-        :param pulumi.Input['LicenseIssuerDataArgs'] issuer: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
-        :param pulumi.Input[str] license_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
-        :param pulumi.Input[str] product_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
-        :param pulumi.Input['LicenseValidityDateFormatArgs'] validity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
-        :param pulumi.Input[str] beneficiary: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
-        :param pulumi.Input[Sequence[pulumi.Input['LicenseMetadataArgs']]] license_metadata: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
-        :param pulumi.Input[str] product_sku: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
+        :param pulumi.Input[str] home_region: Home region for the created license.
+        :param pulumi.Input[str] license_name: Name for the created license.
+        :param pulumi.Input[str] product_name: Product name for the created license.
+        :param pulumi.Input[str] beneficiary: Beneficiary of the license.
+        :param pulumi.Input[str] product_sku: ProductSKU of the license.
         """
         pulumi.set(__self__, "consumption_configuration", consumption_configuration)
         pulumi.set(__self__, "entitlements", entitlements)
@@ -59,9 +53,6 @@ class LicenseArgs:
     @property
     @pulumi.getter(name="consumptionConfiguration")
     def consumption_configuration(self) -> pulumi.Input['LicenseConsumptionConfigurationArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
-        """
         return pulumi.get(self, "consumption_configuration")
 
     @consumption_configuration.setter
@@ -71,9 +62,6 @@ class LicenseArgs:
     @property
     @pulumi.getter
     def entitlements(self) -> pulumi.Input[Sequence[pulumi.Input['LicenseEntitlementArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
-        """
         return pulumi.get(self, "entitlements")
 
     @entitlements.setter
@@ -84,7 +72,7 @@ class LicenseArgs:
     @pulumi.getter(name="homeRegion")
     def home_region(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
+        Home region for the created license.
         """
         return pulumi.get(self, "home_region")
 
@@ -95,9 +83,6 @@ class LicenseArgs:
     @property
     @pulumi.getter
     def issuer(self) -> pulumi.Input['LicenseIssuerDataArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
-        """
         return pulumi.get(self, "issuer")
 
     @issuer.setter
@@ -108,7 +93,7 @@ class LicenseArgs:
     @pulumi.getter(name="licenseName")
     def license_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
+        Name for the created license.
         """
         return pulumi.get(self, "license_name")
 
@@ -120,7 +105,7 @@ class LicenseArgs:
     @pulumi.getter(name="productName")
     def product_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
+        Product name for the created license.
         """
         return pulumi.get(self, "product_name")
 
@@ -131,9 +116,6 @@ class LicenseArgs:
     @property
     @pulumi.getter
     def validity(self) -> pulumi.Input['LicenseValidityDateFormatArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
-        """
         return pulumi.get(self, "validity")
 
     @validity.setter
@@ -144,7 +126,7 @@ class LicenseArgs:
     @pulumi.getter
     def beneficiary(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
+        Beneficiary of the license.
         """
         return pulumi.get(self, "beneficiary")
 
@@ -155,9 +137,6 @@ class LicenseArgs:
     @property
     @pulumi.getter(name="licenseMetadata")
     def license_metadata(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LicenseMetadataArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
-        """
         return pulumi.get(self, "license_metadata")
 
     @license_metadata.setter
@@ -168,7 +147,7 @@ class LicenseArgs:
     @pulumi.getter(name="productSKU")
     def product_sku(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
+        ProductSKU of the license.
         """
         return pulumi.get(self, "product_sku")
 
@@ -179,9 +158,6 @@ class LicenseArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -207,21 +183,15 @@ class License(pulumi.CustomResource):
                  validity: Optional[pulumi.Input[pulumi.InputType['LicenseValidityDateFormatArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html
+        Resource Type definition for AWS::LicenseManager::License
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] beneficiary: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
-        :param pulumi.Input[pulumi.InputType['LicenseConsumptionConfigurationArgs']] consumption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LicenseEntitlementArgs']]]] entitlements: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
-        :param pulumi.Input[str] home_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
-        :param pulumi.Input[pulumi.InputType['LicenseIssuerDataArgs']] issuer: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LicenseMetadataArgs']]]] license_metadata: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
-        :param pulumi.Input[str] license_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
-        :param pulumi.Input[str] product_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
-        :param pulumi.Input[str] product_sku: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
-        :param pulumi.Input[pulumi.InputType['LicenseValidityDateFormatArgs']] validity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
+        :param pulumi.Input[str] beneficiary: Beneficiary of the license.
+        :param pulumi.Input[str] home_region: Home region for the created license.
+        :param pulumi.Input[str] license_name: Name for the created license.
+        :param pulumi.Input[str] product_name: Product name for the created license.
+        :param pulumi.Input[str] product_sku: ProductSKU of the license.
         """
         ...
     @overload
@@ -230,7 +200,7 @@ class License(pulumi.CustomResource):
                  args: LicenseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html
+        Resource Type definition for AWS::LicenseManager::License
 
         :param str resource_name: The name of the resource.
         :param LicenseArgs args: The arguments to use to populate this resource's properties.
@@ -338,60 +308,51 @@ class License(pulumi.CustomResource):
     @pulumi.getter
     def beneficiary(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
+        Beneficiary of the license.
         """
         return pulumi.get(self, "beneficiary")
 
     @property
     @pulumi.getter(name="consumptionConfiguration")
     def consumption_configuration(self) -> pulumi.Output['outputs.LicenseConsumptionConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
-        """
         return pulumi.get(self, "consumption_configuration")
 
     @property
     @pulumi.getter
     def entitlements(self) -> pulumi.Output[Sequence['outputs.LicenseEntitlement']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
-        """
         return pulumi.get(self, "entitlements")
 
     @property
     @pulumi.getter(name="homeRegion")
     def home_region(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
+        Home region for the created license.
         """
         return pulumi.get(self, "home_region")
 
     @property
     @pulumi.getter
     def issuer(self) -> pulumi.Output['outputs.LicenseIssuerData']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
-        """
         return pulumi.get(self, "issuer")
 
     @property
     @pulumi.getter(name="licenseArn")
     def license_arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name is a unique name for each resource.
+        """
         return pulumi.get(self, "license_arn")
 
     @property
     @pulumi.getter(name="licenseMetadata")
     def license_metadata(self) -> pulumi.Output[Optional[Sequence['outputs.LicenseMetadata']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
-        """
         return pulumi.get(self, "license_metadata")
 
     @property
     @pulumi.getter(name="licenseName")
     def license_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
+        Name for the created license.
         """
         return pulumi.get(self, "license_name")
 
@@ -399,7 +360,7 @@ class License(pulumi.CustomResource):
     @pulumi.getter(name="productName")
     def product_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
+        Product name for the created license.
         """
         return pulumi.get(self, "product_name")
 
@@ -407,28 +368,25 @@ class License(pulumi.CustomResource):
     @pulumi.getter(name="productSKU")
     def product_sku(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
+        ProductSKU of the license.
         """
         return pulumi.get(self, "product_sku")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
-        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
     def validity(self) -> pulumi.Output['outputs.LicenseValidityDateFormat']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
-        """
         return pulumi.get(self, "validity")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
+        """
+        The version of the license.
+        """
         return pulumi.get(self, "version")
 

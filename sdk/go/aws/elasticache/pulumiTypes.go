@@ -10,13 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html
 type GlobalReplicationGroupGlobalReplicationGroupMember struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupid
+	// Regionally unique identifier for the member i.e. ReplicationGroupId.
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupregion
+	// The AWS region of the Global Datastore member.
 	ReplicationGroupRegion *string `pulumi:"replicationGroupRegion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-role
+	// Indicates the role of the member, primary or secondary.
 	Role *string `pulumi:"role"`
 }
 
@@ -31,13 +30,12 @@ type GlobalReplicationGroupGlobalReplicationGroupMemberInput interface {
 	ToGlobalReplicationGroupGlobalReplicationGroupMemberOutputWithContext(context.Context) GlobalReplicationGroupGlobalReplicationGroupMemberOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html
 type GlobalReplicationGroupGlobalReplicationGroupMemberArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupid
+	// Regionally unique identifier for the member i.e. ReplicationGroupId.
 	ReplicationGroupId pulumi.StringPtrInput `pulumi:"replicationGroupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupregion
+	// The AWS region of the Global Datastore member.
 	ReplicationGroupRegion pulumi.StringPtrInput `pulumi:"replicationGroupRegion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-role
+	// Indicates the role of the member, primary or secondary.
 	Role pulumi.StringPtrInput `pulumi:"role"`
 }
 
@@ -78,7 +76,6 @@ func (i GlobalReplicationGroupGlobalReplicationGroupMemberArray) ToGlobalReplica
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html
 type GlobalReplicationGroupGlobalReplicationGroupMemberOutput struct{ *pulumi.OutputState }
 
 func (GlobalReplicationGroupGlobalReplicationGroupMemberOutput) ElementType() reflect.Type {
@@ -93,17 +90,17 @@ func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) ToGlobalReplic
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupid
+// Regionally unique identifier for the member i.e. ReplicationGroupId.
 func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) ReplicationGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalReplicationGroupGlobalReplicationGroupMember) *string { return v.ReplicationGroupId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-replicationgroupregion
+// The AWS region of the Global Datastore member.
 func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) ReplicationGroupRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalReplicationGroupGlobalReplicationGroupMember) *string { return v.ReplicationGroupRegion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-globalreplicationgroupmember.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupmember-role
+// Indicates the role of the member, primary or secondary.
 func (o GlobalReplicationGroupGlobalReplicationGroupMemberOutput) Role() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalReplicationGroupGlobalReplicationGroupMember) *string { return v.Role }).(pulumi.StringPtrOutput)
 }
@@ -128,13 +125,12 @@ func (o GlobalReplicationGroupGlobalReplicationGroupMemberArrayOutput) Index(i p
 	}).(GlobalReplicationGroupGlobalReplicationGroupMemberOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html
 type GlobalReplicationGroupRegionalConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupid
+	// The replication group id of the Global Datastore member.
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupregion
+	// The AWS region of the Global Datastore member.
 	ReplicationGroupRegion *string `pulumi:"replicationGroupRegion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations
+	// A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster.
 	ReshardingConfigurations []GlobalReplicationGroupReshardingConfiguration `pulumi:"reshardingConfigurations"`
 }
 
@@ -149,13 +145,12 @@ type GlobalReplicationGroupRegionalConfigurationInput interface {
 	ToGlobalReplicationGroupRegionalConfigurationOutputWithContext(context.Context) GlobalReplicationGroupRegionalConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html
 type GlobalReplicationGroupRegionalConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupid
+	// The replication group id of the Global Datastore member.
 	ReplicationGroupId pulumi.StringPtrInput `pulumi:"replicationGroupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupregion
+	// The AWS region of the Global Datastore member.
 	ReplicationGroupRegion pulumi.StringPtrInput `pulumi:"replicationGroupRegion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations
+	// A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster.
 	ReshardingConfigurations GlobalReplicationGroupReshardingConfigurationArrayInput `pulumi:"reshardingConfigurations"`
 }
 
@@ -196,7 +191,6 @@ func (i GlobalReplicationGroupRegionalConfigurationArray) ToGlobalReplicationGro
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupRegionalConfigurationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html
 type GlobalReplicationGroupRegionalConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GlobalReplicationGroupRegionalConfigurationOutput) ElementType() reflect.Type {
@@ -211,17 +205,17 @@ func (o GlobalReplicationGroupRegionalConfigurationOutput) ToGlobalReplicationGr
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupid
+// The replication group id of the Global Datastore member.
 func (o GlobalReplicationGroupRegionalConfigurationOutput) ReplicationGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalReplicationGroupRegionalConfiguration) *string { return v.ReplicationGroupId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupregion
+// The AWS region of the Global Datastore member.
 func (o GlobalReplicationGroupRegionalConfigurationOutput) ReplicationGroupRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalReplicationGroupRegionalConfiguration) *string { return v.ReplicationGroupRegion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations
+// A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster.
 func (o GlobalReplicationGroupRegionalConfigurationOutput) ReshardingConfigurations() GlobalReplicationGroupReshardingConfigurationArrayOutput {
 	return o.ApplyT(func(v GlobalReplicationGroupRegionalConfiguration) []GlobalReplicationGroupReshardingConfiguration {
 		return v.ReshardingConfigurations
@@ -248,11 +242,10 @@ func (o GlobalReplicationGroupRegionalConfigurationArrayOutput) Index(i pulumi.I
 	}).(GlobalReplicationGroupRegionalConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html
 type GlobalReplicationGroupReshardingConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-nodegroupid
+	// Unique identifier for the Node Group. This is either auto-generated by ElastiCache (4-digit id) or a user supplied id.
 	NodeGroupId *string `pulumi:"nodeGroupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-preferredavailabilityzones
+	// A list of preferred availability zones for the nodes of new node groups.
 	PreferredAvailabilityZones []string `pulumi:"preferredAvailabilityZones"`
 }
 
@@ -267,11 +260,10 @@ type GlobalReplicationGroupReshardingConfigurationInput interface {
 	ToGlobalReplicationGroupReshardingConfigurationOutputWithContext(context.Context) GlobalReplicationGroupReshardingConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html
 type GlobalReplicationGroupReshardingConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-nodegroupid
+	// Unique identifier for the Node Group. This is either auto-generated by ElastiCache (4-digit id) or a user supplied id.
 	NodeGroupId pulumi.StringPtrInput `pulumi:"nodeGroupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-preferredavailabilityzones
+	// A list of preferred availability zones for the nodes of new node groups.
 	PreferredAvailabilityZones pulumi.StringArrayInput `pulumi:"preferredAvailabilityZones"`
 }
 
@@ -312,7 +304,6 @@ func (i GlobalReplicationGroupReshardingConfigurationArray) ToGlobalReplicationG
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupReshardingConfigurationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html
 type GlobalReplicationGroupReshardingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GlobalReplicationGroupReshardingConfigurationOutput) ElementType() reflect.Type {
@@ -327,12 +318,12 @@ func (o GlobalReplicationGroupReshardingConfigurationOutput) ToGlobalReplication
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-nodegroupid
+// Unique identifier for the Node Group. This is either auto-generated by ElastiCache (4-digit id) or a user supplied id.
 func (o GlobalReplicationGroupReshardingConfigurationOutput) NodeGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalReplicationGroupReshardingConfiguration) *string { return v.NodeGroupId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-reshardingconfiguration.html#cfn-elasticache-globalreplicationgroup-reshardingconfiguration-preferredavailabilityzones
+// A list of preferred availability zones for the nodes of new node groups.
 func (o GlobalReplicationGroupReshardingConfigurationOutput) PreferredAvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GlobalReplicationGroupReshardingConfiguration) []string { return v.PreferredAvailabilityZones }).(pulumi.StringArrayOutput)
 }

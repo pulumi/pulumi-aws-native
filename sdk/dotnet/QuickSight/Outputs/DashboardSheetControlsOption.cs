@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html
+    /// &lt;p&gt;Sheet controls option.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DashboardSheetControlsOption
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html#cfn-quicksight-dashboard-sheetcontrolsoption-visibilitystate
-        /// </summary>
         public readonly string? VisibilityState;
 
         [OutputConstructor]

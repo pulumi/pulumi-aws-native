@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html
+    /// Contains a gateway's platform information.
     /// </summary>
     public sealed class GatewayGatewayPlatformArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass
+        /// A gateway that runs on AWS IoT Greengrass.
         /// </summary>
         [Input("greengrass", required: true)]
         public Input<Inputs.GatewayGreengrassArgs> Greengrass { get; set; } = null!;

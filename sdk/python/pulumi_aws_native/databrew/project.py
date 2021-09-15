@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ProjectArgs', 'Project']
@@ -22,15 +20,14 @@ class ProjectArgs:
                  recipe_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  sample: Optional[pulumi.Input['ProjectSampleArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
-        :param pulumi.Input[str] dataset_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-datasetname
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-name
-        :param pulumi.Input[str] recipe_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-recipename
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-rolearn
-        :param pulumi.Input['ProjectSampleArgs'] sample: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
+        :param pulumi.Input[str] dataset_name: Dataset name
+        :param pulumi.Input[str] name: Project name
+        :param pulumi.Input[str] recipe_name: Recipe name
+        :param pulumi.Input[str] role_arn: Role arn
+        :param pulumi.Input['ProjectSampleArgs'] sample: Sample
         """
         pulumi.set(__self__, "dataset_name", dataset_name)
         pulumi.set(__self__, "name", name)
@@ -45,7 +42,7 @@ class ProjectArgs:
     @pulumi.getter(name="datasetName")
     def dataset_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-datasetname
+        Dataset name
         """
         return pulumi.get(self, "dataset_name")
 
@@ -57,7 +54,7 @@ class ProjectArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-name
+        Project name
         """
         return pulumi.get(self, "name")
 
@@ -69,7 +66,7 @@ class ProjectArgs:
     @pulumi.getter(name="recipeName")
     def recipe_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-recipename
+        Recipe name
         """
         return pulumi.get(self, "recipe_name")
 
@@ -81,7 +78,7 @@ class ProjectArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-rolearn
+        Role arn
         """
         return pulumi.get(self, "role_arn")
 
@@ -93,7 +90,7 @@ class ProjectArgs:
     @pulumi.getter
     def sample(self) -> Optional[pulumi.Input['ProjectSampleArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
+        Sample
         """
         return pulumi.get(self, "sample")
 
@@ -103,14 +100,11 @@ class ProjectArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -124,19 +118,18 @@ class Project(pulumi.CustomResource):
                  recipe_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  sample: Optional[pulumi.Input[pulumi.InputType['ProjectSampleArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html
+        Resource schema for AWS::DataBrew::Project.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] dataset_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-datasetname
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-name
-        :param pulumi.Input[str] recipe_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-recipename
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-rolearn
-        :param pulumi.Input[pulumi.InputType['ProjectSampleArgs']] sample: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
+        :param pulumi.Input[str] dataset_name: Dataset name
+        :param pulumi.Input[str] name: Project name
+        :param pulumi.Input[str] recipe_name: Recipe name
+        :param pulumi.Input[str] role_arn: Role arn
+        :param pulumi.Input[pulumi.InputType['ProjectSampleArgs']] sample: Sample
         """
         ...
     @overload
@@ -145,7 +138,7 @@ class Project(pulumi.CustomResource):
                  args: ProjectArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html
+        Resource schema for AWS::DataBrew::Project.
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.
@@ -167,7 +160,7 @@ class Project(pulumi.CustomResource):
                  recipe_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  sample: Optional[pulumi.Input[pulumi.InputType['ProjectSampleArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -228,7 +221,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="datasetName")
     def dataset_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-datasetname
+        Dataset name
         """
         return pulumi.get(self, "dataset_name")
 
@@ -236,7 +229,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-name
+        Project name
         """
         return pulumi.get(self, "name")
 
@@ -244,7 +237,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="recipeName")
     def recipe_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-recipename
+        Recipe name
         """
         return pulumi.get(self, "recipe_name")
 
@@ -252,7 +245,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-rolearn
+        Role arn
         """
         return pulumi.get(self, "role_arn")
 
@@ -260,15 +253,12 @@ class Project(pulumi.CustomResource):
     @pulumi.getter
     def sample(self) -> pulumi.Output[Optional['outputs.ProjectSample']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-sample
+        Sample
         """
         return pulumi.get(self, "sample")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-project.html#cfn-databrew-project-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectTag']]]:
         return pulumi.get(self, "tags")
 

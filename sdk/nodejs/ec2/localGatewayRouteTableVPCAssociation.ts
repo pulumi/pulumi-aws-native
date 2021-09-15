@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html
+ * Describes an association between a local gateway route table and a VPC.
  */
 export class LocalGatewayRouteTableVPCAssociation extends pulumi.CustomResource {
     /**
@@ -35,19 +35,28 @@ export class LocalGatewayRouteTableVPCAssociation extends pulumi.CustomResource 
         return obj['__pulumiType'] === LocalGatewayRouteTableVPCAssociation.__pulumiType;
     }
 
+    /**
+     * The ID of the local gateway.
+     */
     public /*out*/ readonly localGatewayId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
+     * The ID of the local gateway route table.
      */
     public readonly localGatewayRouteTableId!: pulumi.Output<string>;
+    /**
+     * The ID of the association.
+     */
     public /*out*/ readonly localGatewayRouteTableVpcAssociationId!: pulumi.Output<string>;
+    /**
+     * The state of the association.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
+     * The tags for the association.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.ec2.LocalGatewayRouteTableVPCAssociationTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
+     * The ID of the VPC.
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -94,15 +103,15 @@ export class LocalGatewayRouteTableVPCAssociation extends pulumi.CustomResource 
  */
 export interface LocalGatewayRouteTableVPCAssociationArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
+     * The ID of the local gateway route table.
      */
     localGatewayRouteTableId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
+     * The tags for the association.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ec2.LocalGatewayRouteTableVPCAssociationTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
+     * The ID of the VPC.
      */
     vpcId: pulumi.Input<string>;
 }

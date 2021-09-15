@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html
+ * Definition of AWS::Location::TrackerConsumer Resource Type
  */
 export class TrackerConsumer extends pulumi.CustomResource {
     /**
@@ -34,13 +34,7 @@ export class TrackerConsumer extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrackerConsumer.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-consumerarn
-     */
     public readonly consumerArn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-trackername
-     */
     public readonly trackerName!: pulumi.Output<string>;
 
     /**
@@ -77,12 +71,6 @@ export class TrackerConsumer extends pulumi.CustomResource {
  * The set of arguments for constructing a TrackerConsumer resource.
  */
 export interface TrackerConsumerArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-consumerarn
-     */
     consumerArn: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-trackername
-     */
     trackerName: pulumi.Input<string>;
 }

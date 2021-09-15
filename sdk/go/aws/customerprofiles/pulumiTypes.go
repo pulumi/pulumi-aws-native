@@ -10,18 +10,112 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html
+type DomainTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// DomainTagInput is an input type that accepts DomainTagArgs and DomainTagOutput values.
+// You can construct a concrete instance of `DomainTagInput` via:
+//
+//          DomainTagArgs{...}
+type DomainTagInput interface {
+	pulumi.Input
+
+	ToDomainTagOutput() DomainTagOutput
+	ToDomainTagOutputWithContext(context.Context) DomainTagOutput
+}
+
+type DomainTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DomainTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTag)(nil)).Elem()
+}
+
+func (i DomainTagArgs) ToDomainTagOutput() DomainTagOutput {
+	return i.ToDomainTagOutputWithContext(context.Background())
+}
+
+func (i DomainTagArgs) ToDomainTagOutputWithContext(ctx context.Context) DomainTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTagOutput)
+}
+
+// DomainTagArrayInput is an input type that accepts DomainTagArray and DomainTagArrayOutput values.
+// You can construct a concrete instance of `DomainTagArrayInput` via:
+//
+//          DomainTagArray{ DomainTagArgs{...} }
+type DomainTagArrayInput interface {
+	pulumi.Input
+
+	ToDomainTagArrayOutput() DomainTagArrayOutput
+	ToDomainTagArrayOutputWithContext(context.Context) DomainTagArrayOutput
+}
+
+type DomainTagArray []DomainTagInput
+
+func (DomainTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainTag)(nil)).Elem()
+}
+
+func (i DomainTagArray) ToDomainTagArrayOutput() DomainTagArrayOutput {
+	return i.ToDomainTagArrayOutputWithContext(context.Background())
+}
+
+func (i DomainTagArray) ToDomainTagArrayOutputWithContext(ctx context.Context) DomainTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTagArrayOutput)
+}
+
+type DomainTagOutput struct{ *pulumi.OutputState }
+
+func (DomainTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTag)(nil)).Elem()
+}
+
+func (o DomainTagOutput) ToDomainTagOutput() DomainTagOutput {
+	return o
+}
+
+func (o DomainTagOutput) ToDomainTagOutputWithContext(ctx context.Context) DomainTagOutput {
+	return o
+}
+
+func (o DomainTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o DomainTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DomainTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainTag)(nil)).Elem()
+}
+
+func (o DomainTagArrayOutput) ToDomainTagArrayOutput() DomainTagArrayOutput {
+	return o
+}
+
+func (o DomainTagArrayOutput) ToDomainTagArrayOutputWithContext(ctx context.Context) DomainTagArrayOutput {
+	return o
+}
+
+func (o DomainTagArrayOutput) Index(i pulumi.IntInput) DomainTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainTag {
+		return vs[0].([]DomainTag)[vs[1].(int)]
+	}).(DomainTagOutput)
+}
+
 type IntegrationConnectorOperator struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-marketo
-	Marketo *string `pulumi:"marketo"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-s3
-	S3 *string `pulumi:"s3"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-salesforce
+	Marketo    *string `pulumi:"marketo"`
+	S3         *string `pulumi:"s3"`
 	Salesforce *string `pulumi:"salesforce"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-servicenow
 	ServiceNow *string `pulumi:"serviceNow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-zendesk
-	Zendesk *string `pulumi:"zendesk"`
+	Zendesk    *string `pulumi:"zendesk"`
 }
 
 // IntegrationConnectorOperatorInput is an input type that accepts IntegrationConnectorOperatorArgs and IntegrationConnectorOperatorOutput values.
@@ -35,18 +129,12 @@ type IntegrationConnectorOperatorInput interface {
 	ToIntegrationConnectorOperatorOutputWithContext(context.Context) IntegrationConnectorOperatorOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html
 type IntegrationConnectorOperatorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-marketo
-	Marketo pulumi.StringPtrInput `pulumi:"marketo"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-s3
-	S3 pulumi.StringPtrInput `pulumi:"s3"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-salesforce
+	Marketo    pulumi.StringPtrInput `pulumi:"marketo"`
+	S3         pulumi.StringPtrInput `pulumi:"s3"`
 	Salesforce pulumi.StringPtrInput `pulumi:"salesforce"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-servicenow
 	ServiceNow pulumi.StringPtrInput `pulumi:"serviceNow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-zendesk
-	Zendesk pulumi.StringPtrInput `pulumi:"zendesk"`
+	Zendesk    pulumi.StringPtrInput `pulumi:"zendesk"`
 }
 
 func (IntegrationConnectorOperatorArgs) ElementType() reflect.Type {
@@ -102,7 +190,6 @@ func (i *integrationConnectorOperatorPtrType) ToIntegrationConnectorOperatorPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationConnectorOperatorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html
 type IntegrationConnectorOperatorOutput struct{ *pulumi.OutputState }
 
 func (IntegrationConnectorOperatorOutput) ElementType() reflect.Type {
@@ -127,27 +214,22 @@ func (o IntegrationConnectorOperatorOutput) ToIntegrationConnectorOperatorPtrOut
 	}).(IntegrationConnectorOperatorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-marketo
 func (o IntegrationConnectorOperatorOutput) Marketo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationConnectorOperator) *string { return v.Marketo }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-s3
 func (o IntegrationConnectorOperatorOutput) S3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationConnectorOperator) *string { return v.S3 }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-salesforce
 func (o IntegrationConnectorOperatorOutput) Salesforce() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationConnectorOperator) *string { return v.Salesforce }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-servicenow
 func (o IntegrationConnectorOperatorOutput) ServiceNow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationConnectorOperator) *string { return v.ServiceNow }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-zendesk
 func (o IntegrationConnectorOperatorOutput) Zendesk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationConnectorOperator) *string { return v.Zendesk }).(pulumi.StringPtrOutput)
 }
@@ -176,7 +258,6 @@ func (o IntegrationConnectorOperatorPtrOutput) Elem() IntegrationConnectorOperat
 	}).(IntegrationConnectorOperatorOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-marketo
 func (o IntegrationConnectorOperatorPtrOutput) Marketo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationConnectorOperator) *string {
 		if v == nil {
@@ -186,7 +267,6 @@ func (o IntegrationConnectorOperatorPtrOutput) Marketo() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-s3
 func (o IntegrationConnectorOperatorPtrOutput) S3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationConnectorOperator) *string {
 		if v == nil {
@@ -196,7 +276,6 @@ func (o IntegrationConnectorOperatorPtrOutput) S3() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-salesforce
 func (o IntegrationConnectorOperatorPtrOutput) Salesforce() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationConnectorOperator) *string {
 		if v == nil {
@@ -206,7 +285,6 @@ func (o IntegrationConnectorOperatorPtrOutput) Salesforce() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-servicenow
 func (o IntegrationConnectorOperatorPtrOutput) ServiceNow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationConnectorOperator) *string {
 		if v == nil {
@@ -216,7 +294,6 @@ func (o IntegrationConnectorOperatorPtrOutput) ServiceNow() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-zendesk
 func (o IntegrationConnectorOperatorPtrOutput) Zendesk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationConnectorOperator) *string {
 		if v == nil {
@@ -226,20 +303,13 @@ func (o IntegrationConnectorOperatorPtrOutput) Zendesk() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html
 type IntegrationFlowDefinition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-flowname
-	FlowName string `pulumi:"flowName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-kmsarn
-	KmsArn string `pulumi:"kmsArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-sourceflowconfig
+	Description      *string                     `pulumi:"description"`
+	FlowName         string                      `pulumi:"flowName"`
+	KmsArn           string                      `pulumi:"kmsArn"`
 	SourceFlowConfig IntegrationSourceFlowConfig `pulumi:"sourceFlowConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-tasks
-	Tasks []IntegrationTask `pulumi:"tasks"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-triggerconfig
-	TriggerConfig IntegrationTriggerConfig `pulumi:"triggerConfig"`
+	Tasks            []IntegrationTask           `pulumi:"tasks"`
+	TriggerConfig    IntegrationTriggerConfig    `pulumi:"triggerConfig"`
 }
 
 // IntegrationFlowDefinitionInput is an input type that accepts IntegrationFlowDefinitionArgs and IntegrationFlowDefinitionOutput values.
@@ -253,20 +323,13 @@ type IntegrationFlowDefinitionInput interface {
 	ToIntegrationFlowDefinitionOutputWithContext(context.Context) IntegrationFlowDefinitionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html
 type IntegrationFlowDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-flowname
-	FlowName pulumi.StringInput `pulumi:"flowName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-kmsarn
-	KmsArn pulumi.StringInput `pulumi:"kmsArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-sourceflowconfig
+	Description      pulumi.StringPtrInput            `pulumi:"description"`
+	FlowName         pulumi.StringInput               `pulumi:"flowName"`
+	KmsArn           pulumi.StringInput               `pulumi:"kmsArn"`
 	SourceFlowConfig IntegrationSourceFlowConfigInput `pulumi:"sourceFlowConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-tasks
-	Tasks IntegrationTaskArrayInput `pulumi:"tasks"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-triggerconfig
-	TriggerConfig IntegrationTriggerConfigInput `pulumi:"triggerConfig"`
+	Tasks            IntegrationTaskArrayInput        `pulumi:"tasks"`
+	TriggerConfig    IntegrationTriggerConfigInput    `pulumi:"triggerConfig"`
 }
 
 func (IntegrationFlowDefinitionArgs) ElementType() reflect.Type {
@@ -322,7 +385,6 @@ func (i *integrationFlowDefinitionPtrType) ToIntegrationFlowDefinitionPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationFlowDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html
 type IntegrationFlowDefinitionOutput struct{ *pulumi.OutputState }
 
 func (IntegrationFlowDefinitionOutput) ElementType() reflect.Type {
@@ -347,32 +409,26 @@ func (o IntegrationFlowDefinitionOutput) ToIntegrationFlowDefinitionPtrOutputWit
 	}).(IntegrationFlowDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-description
 func (o IntegrationFlowDefinitionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationFlowDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-flowname
 func (o IntegrationFlowDefinitionOutput) FlowName() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationFlowDefinition) string { return v.FlowName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-kmsarn
 func (o IntegrationFlowDefinitionOutput) KmsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationFlowDefinition) string { return v.KmsArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-sourceflowconfig
 func (o IntegrationFlowDefinitionOutput) SourceFlowConfig() IntegrationSourceFlowConfigOutput {
 	return o.ApplyT(func(v IntegrationFlowDefinition) IntegrationSourceFlowConfig { return v.SourceFlowConfig }).(IntegrationSourceFlowConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-tasks
 func (o IntegrationFlowDefinitionOutput) Tasks() IntegrationTaskArrayOutput {
 	return o.ApplyT(func(v IntegrationFlowDefinition) []IntegrationTask { return v.Tasks }).(IntegrationTaskArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-triggerconfig
 func (o IntegrationFlowDefinitionOutput) TriggerConfig() IntegrationTriggerConfigOutput {
 	return o.ApplyT(func(v IntegrationFlowDefinition) IntegrationTriggerConfig { return v.TriggerConfig }).(IntegrationTriggerConfigOutput)
 }
@@ -401,7 +457,6 @@ func (o IntegrationFlowDefinitionPtrOutput) Elem() IntegrationFlowDefinitionOutp
 	}).(IntegrationFlowDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-description
 func (o IntegrationFlowDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationFlowDefinition) *string {
 		if v == nil {
@@ -411,7 +466,6 @@ func (o IntegrationFlowDefinitionPtrOutput) Description() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-flowname
 func (o IntegrationFlowDefinitionPtrOutput) FlowName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationFlowDefinition) *string {
 		if v == nil {
@@ -421,7 +475,6 @@ func (o IntegrationFlowDefinitionPtrOutput) FlowName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-kmsarn
 func (o IntegrationFlowDefinitionPtrOutput) KmsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationFlowDefinition) *string {
 		if v == nil {
@@ -431,7 +484,6 @@ func (o IntegrationFlowDefinitionPtrOutput) KmsArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-sourceflowconfig
 func (o IntegrationFlowDefinitionPtrOutput) SourceFlowConfig() IntegrationSourceFlowConfigPtrOutput {
 	return o.ApplyT(func(v *IntegrationFlowDefinition) *IntegrationSourceFlowConfig {
 		if v == nil {
@@ -441,7 +493,6 @@ func (o IntegrationFlowDefinitionPtrOutput) SourceFlowConfig() IntegrationSource
 	}).(IntegrationSourceFlowConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-tasks
 func (o IntegrationFlowDefinitionPtrOutput) Tasks() IntegrationTaskArrayOutput {
 	return o.ApplyT(func(v *IntegrationFlowDefinition) []IntegrationTask {
 		if v == nil {
@@ -451,7 +502,6 @@ func (o IntegrationFlowDefinitionPtrOutput) Tasks() IntegrationTaskArrayOutput {
 	}).(IntegrationTaskArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-triggerconfig
 func (o IntegrationFlowDefinitionPtrOutput) TriggerConfig() IntegrationTriggerConfigPtrOutput {
 	return o.ApplyT(func(v *IntegrationFlowDefinition) *IntegrationTriggerConfig {
 		if v == nil {
@@ -461,9 +511,7 @@ func (o IntegrationFlowDefinitionPtrOutput) TriggerConfig() IntegrationTriggerCo
 	}).(IntegrationTriggerConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html
 type IntegrationIncrementalPullConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html#cfn-customerprofiles-integration-incrementalpullconfig-datetimetypefieldname
 	DatetimeTypeFieldName *string `pulumi:"datetimeTypeFieldName"`
 }
 
@@ -478,9 +526,7 @@ type IntegrationIncrementalPullConfigInput interface {
 	ToIntegrationIncrementalPullConfigOutputWithContext(context.Context) IntegrationIncrementalPullConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html
 type IntegrationIncrementalPullConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html#cfn-customerprofiles-integration-incrementalpullconfig-datetimetypefieldname
 	DatetimeTypeFieldName pulumi.StringPtrInput `pulumi:"datetimeTypeFieldName"`
 }
 
@@ -537,7 +583,6 @@ func (i *integrationIncrementalPullConfigPtrType) ToIntegrationIncrementalPullCo
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationIncrementalPullConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html
 type IntegrationIncrementalPullConfigOutput struct{ *pulumi.OutputState }
 
 func (IntegrationIncrementalPullConfigOutput) ElementType() reflect.Type {
@@ -562,7 +607,6 @@ func (o IntegrationIncrementalPullConfigOutput) ToIntegrationIncrementalPullConf
 	}).(IntegrationIncrementalPullConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html#cfn-customerprofiles-integration-incrementalpullconfig-datetimetypefieldname
 func (o IntegrationIncrementalPullConfigOutput) DatetimeTypeFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationIncrementalPullConfig) *string { return v.DatetimeTypeFieldName }).(pulumi.StringPtrOutput)
 }
@@ -591,7 +635,6 @@ func (o IntegrationIncrementalPullConfigPtrOutput) Elem() IntegrationIncremental
 	}).(IntegrationIncrementalPullConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html#cfn-customerprofiles-integration-incrementalpullconfig-datetimetypefieldname
 func (o IntegrationIncrementalPullConfigPtrOutput) DatetimeTypeFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationIncrementalPullConfig) *string {
 		if v == nil {
@@ -601,9 +644,7 @@ func (o IntegrationIncrementalPullConfigPtrOutput) DatetimeTypeFieldName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html
 type IntegrationMarketoSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html#cfn-customerprofiles-integration-marketosourceproperties-object
 	Object string `pulumi:"object"`
 }
 
@@ -618,9 +659,7 @@ type IntegrationMarketoSourcePropertiesInput interface {
 	ToIntegrationMarketoSourcePropertiesOutputWithContext(context.Context) IntegrationMarketoSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html
 type IntegrationMarketoSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html#cfn-customerprofiles-integration-marketosourceproperties-object
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -677,7 +716,6 @@ func (i *integrationMarketoSourcePropertiesPtrType) ToIntegrationMarketoSourcePr
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationMarketoSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html
 type IntegrationMarketoSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (IntegrationMarketoSourcePropertiesOutput) ElementType() reflect.Type {
@@ -702,7 +740,6 @@ func (o IntegrationMarketoSourcePropertiesOutput) ToIntegrationMarketoSourceProp
 	}).(IntegrationMarketoSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html#cfn-customerprofiles-integration-marketosourceproperties-object
 func (o IntegrationMarketoSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationMarketoSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -731,7 +768,6 @@ func (o IntegrationMarketoSourcePropertiesPtrOutput) Elem() IntegrationMarketoSo
 	}).(IntegrationMarketoSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html#cfn-customerprofiles-integration-marketosourceproperties-object
 func (o IntegrationMarketoSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationMarketoSourceProperties) *string {
 		if v == nil {
@@ -741,11 +777,8 @@ func (o IntegrationMarketoSourcePropertiesPtrOutput) Object() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html
 type IntegrationS3SourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html#cfn-customerprofiles-integration-s3sourceproperties-bucketname
-	BucketName string `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html#cfn-customerprofiles-integration-s3sourceproperties-bucketprefix
+	BucketName   string  `pulumi:"bucketName"`
 	BucketPrefix *string `pulumi:"bucketPrefix"`
 }
 
@@ -760,11 +793,8 @@ type IntegrationS3SourcePropertiesInput interface {
 	ToIntegrationS3SourcePropertiesOutputWithContext(context.Context) IntegrationS3SourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html
 type IntegrationS3SourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html#cfn-customerprofiles-integration-s3sourceproperties-bucketname
-	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html#cfn-customerprofiles-integration-s3sourceproperties-bucketprefix
+	BucketName   pulumi.StringInput    `pulumi:"bucketName"`
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
 }
 
@@ -821,7 +851,6 @@ func (i *integrationS3SourcePropertiesPtrType) ToIntegrationS3SourcePropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationS3SourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html
 type IntegrationS3SourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (IntegrationS3SourcePropertiesOutput) ElementType() reflect.Type {
@@ -846,12 +875,10 @@ func (o IntegrationS3SourcePropertiesOutput) ToIntegrationS3SourcePropertiesPtrO
 	}).(IntegrationS3SourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html#cfn-customerprofiles-integration-s3sourceproperties-bucketname
 func (o IntegrationS3SourcePropertiesOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationS3SourceProperties) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html#cfn-customerprofiles-integration-s3sourceproperties-bucketprefix
 func (o IntegrationS3SourcePropertiesOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationS3SourceProperties) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
@@ -880,7 +907,6 @@ func (o IntegrationS3SourcePropertiesPtrOutput) Elem() IntegrationS3SourceProper
 	}).(IntegrationS3SourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html#cfn-customerprofiles-integration-s3sourceproperties-bucketname
 func (o IntegrationS3SourcePropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationS3SourceProperties) *string {
 		if v == nil {
@@ -890,7 +916,6 @@ func (o IntegrationS3SourcePropertiesPtrOutput) BucketName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html#cfn-customerprofiles-integration-s3sourceproperties-bucketprefix
 func (o IntegrationS3SourcePropertiesPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationS3SourceProperties) *string {
 		if v == nil {
@@ -900,14 +925,10 @@ func (o IntegrationS3SourcePropertiesPtrOutput) BucketPrefix() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html
 type IntegrationSalesforceSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-enabledynamicfieldupdate
-	EnableDynamicFieldUpdate *bool `pulumi:"enableDynamicFieldUpdate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-includedeletedrecords
-	IncludeDeletedRecords *bool `pulumi:"includeDeletedRecords"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-object
-	Object string `pulumi:"object"`
+	EnableDynamicFieldUpdate *bool  `pulumi:"enableDynamicFieldUpdate"`
+	IncludeDeletedRecords    *bool  `pulumi:"includeDeletedRecords"`
+	Object                   string `pulumi:"object"`
 }
 
 // IntegrationSalesforceSourcePropertiesInput is an input type that accepts IntegrationSalesforceSourcePropertiesArgs and IntegrationSalesforceSourcePropertiesOutput values.
@@ -921,14 +942,10 @@ type IntegrationSalesforceSourcePropertiesInput interface {
 	ToIntegrationSalesforceSourcePropertiesOutputWithContext(context.Context) IntegrationSalesforceSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html
 type IntegrationSalesforceSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-enabledynamicfieldupdate
 	EnableDynamicFieldUpdate pulumi.BoolPtrInput `pulumi:"enableDynamicFieldUpdate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-includedeletedrecords
-	IncludeDeletedRecords pulumi.BoolPtrInput `pulumi:"includeDeletedRecords"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-object
-	Object pulumi.StringInput `pulumi:"object"`
+	IncludeDeletedRecords    pulumi.BoolPtrInput `pulumi:"includeDeletedRecords"`
+	Object                   pulumi.StringInput  `pulumi:"object"`
 }
 
 func (IntegrationSalesforceSourcePropertiesArgs) ElementType() reflect.Type {
@@ -984,7 +1001,6 @@ func (i *integrationSalesforceSourcePropertiesPtrType) ToIntegrationSalesforceSo
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationSalesforceSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html
 type IntegrationSalesforceSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (IntegrationSalesforceSourcePropertiesOutput) ElementType() reflect.Type {
@@ -1009,17 +1025,14 @@ func (o IntegrationSalesforceSourcePropertiesOutput) ToIntegrationSalesforceSour
 	}).(IntegrationSalesforceSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-enabledynamicfieldupdate
 func (o IntegrationSalesforceSourcePropertiesOutput) EnableDynamicFieldUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IntegrationSalesforceSourceProperties) *bool { return v.EnableDynamicFieldUpdate }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-includedeletedrecords
 func (o IntegrationSalesforceSourcePropertiesOutput) IncludeDeletedRecords() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v IntegrationSalesforceSourceProperties) *bool { return v.IncludeDeletedRecords }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-object
 func (o IntegrationSalesforceSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationSalesforceSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -1048,7 +1061,6 @@ func (o IntegrationSalesforceSourcePropertiesPtrOutput) Elem() IntegrationSalesf
 	}).(IntegrationSalesforceSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-enabledynamicfieldupdate
 func (o IntegrationSalesforceSourcePropertiesPtrOutput) EnableDynamicFieldUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IntegrationSalesforceSourceProperties) *bool {
 		if v == nil {
@@ -1058,7 +1070,6 @@ func (o IntegrationSalesforceSourcePropertiesPtrOutput) EnableDynamicFieldUpdate
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-includedeletedrecords
 func (o IntegrationSalesforceSourcePropertiesPtrOutput) IncludeDeletedRecords() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IntegrationSalesforceSourceProperties) *bool {
 		if v == nil {
@@ -1068,7 +1079,6 @@ func (o IntegrationSalesforceSourcePropertiesPtrOutput) IncludeDeletedRecords() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-object
 func (o IntegrationSalesforceSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationSalesforceSourceProperties) *string {
 		if v == nil {
@@ -1078,22 +1088,14 @@ func (o IntegrationSalesforceSourcePropertiesPtrOutput) Object() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html
 type IntegrationScheduledTriggerProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-datapullmode
-	DataPullMode *string `pulumi:"dataPullMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-firstexecutionfrom
+	DataPullMode       *string  `pulumi:"dataPullMode"`
 	FirstExecutionFrom *float64 `pulumi:"firstExecutionFrom"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleendtime
-	ScheduleEndTime *float64 `pulumi:"scheduleEndTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleexpression
-	ScheduleExpression string `pulumi:"scheduleExpression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleoffset
-	ScheduleOffset *int `pulumi:"scheduleOffset"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-schedulestarttime
-	ScheduleStartTime *float64 `pulumi:"scheduleStartTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-timezone
-	Timezone *string `pulumi:"timezone"`
+	ScheduleEndTime    *float64 `pulumi:"scheduleEndTime"`
+	ScheduleExpression string   `pulumi:"scheduleExpression"`
+	ScheduleOffset     *int     `pulumi:"scheduleOffset"`
+	ScheduleStartTime  *float64 `pulumi:"scheduleStartTime"`
+	Timezone           *string  `pulumi:"timezone"`
 }
 
 // IntegrationScheduledTriggerPropertiesInput is an input type that accepts IntegrationScheduledTriggerPropertiesArgs and IntegrationScheduledTriggerPropertiesOutput values.
@@ -1107,22 +1109,14 @@ type IntegrationScheduledTriggerPropertiesInput interface {
 	ToIntegrationScheduledTriggerPropertiesOutputWithContext(context.Context) IntegrationScheduledTriggerPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html
 type IntegrationScheduledTriggerPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-datapullmode
-	DataPullMode pulumi.StringPtrInput `pulumi:"dataPullMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-firstexecutionfrom
+	DataPullMode       pulumi.StringPtrInput  `pulumi:"dataPullMode"`
 	FirstExecutionFrom pulumi.Float64PtrInput `pulumi:"firstExecutionFrom"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleendtime
-	ScheduleEndTime pulumi.Float64PtrInput `pulumi:"scheduleEndTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleexpression
-	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleoffset
-	ScheduleOffset pulumi.IntPtrInput `pulumi:"scheduleOffset"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-schedulestarttime
-	ScheduleStartTime pulumi.Float64PtrInput `pulumi:"scheduleStartTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-timezone
-	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+	ScheduleEndTime    pulumi.Float64PtrInput `pulumi:"scheduleEndTime"`
+	ScheduleExpression pulumi.StringInput     `pulumi:"scheduleExpression"`
+	ScheduleOffset     pulumi.IntPtrInput     `pulumi:"scheduleOffset"`
+	ScheduleStartTime  pulumi.Float64PtrInput `pulumi:"scheduleStartTime"`
+	Timezone           pulumi.StringPtrInput  `pulumi:"timezone"`
 }
 
 func (IntegrationScheduledTriggerPropertiesArgs) ElementType() reflect.Type {
@@ -1178,7 +1172,6 @@ func (i *integrationScheduledTriggerPropertiesPtrType) ToIntegrationScheduledTri
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationScheduledTriggerPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html
 type IntegrationScheduledTriggerPropertiesOutput struct{ *pulumi.OutputState }
 
 func (IntegrationScheduledTriggerPropertiesOutput) ElementType() reflect.Type {
@@ -1203,37 +1196,30 @@ func (o IntegrationScheduledTriggerPropertiesOutput) ToIntegrationScheduledTrigg
 	}).(IntegrationScheduledTriggerPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-datapullmode
 func (o IntegrationScheduledTriggerPropertiesOutput) DataPullMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) *string { return v.DataPullMode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-firstexecutionfrom
 func (o IntegrationScheduledTriggerPropertiesOutput) FirstExecutionFrom() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) *float64 { return v.FirstExecutionFrom }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleendtime
 func (o IntegrationScheduledTriggerPropertiesOutput) ScheduleEndTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) *float64 { return v.ScheduleEndTime }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleexpression
 func (o IntegrationScheduledTriggerPropertiesOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleoffset
 func (o IntegrationScheduledTriggerPropertiesOutput) ScheduleOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) *int { return v.ScheduleOffset }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-schedulestarttime
 func (o IntegrationScheduledTriggerPropertiesOutput) ScheduleStartTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) *float64 { return v.ScheduleStartTime }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-timezone
 func (o IntegrationScheduledTriggerPropertiesOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -1262,7 +1248,6 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) Elem() IntegrationSchedu
 	}).(IntegrationScheduledTriggerPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-datapullmode
 func (o IntegrationScheduledTriggerPropertiesPtrOutput) DataPullMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *string {
 		if v == nil {
@@ -1272,7 +1257,6 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) DataPullMode() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-firstexecutionfrom
 func (o IntegrationScheduledTriggerPropertiesPtrOutput) FirstExecutionFrom() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *float64 {
 		if v == nil {
@@ -1282,7 +1266,6 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) FirstExecutionFrom() pul
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleendtime
 func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleEndTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *float64 {
 		if v == nil {
@@ -1292,7 +1275,6 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleEndTime() pulumi
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleexpression
 func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *string {
 		if v == nil {
@@ -1302,7 +1284,6 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleExpression() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleoffset
 func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleOffset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *int {
 		if v == nil {
@@ -1312,7 +1293,6 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleOffset() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-schedulestarttime
 func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleStartTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *float64 {
 		if v == nil {
@@ -1322,7 +1302,6 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleStartTime() pulu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-timezone
 func (o IntegrationScheduledTriggerPropertiesPtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *string {
 		if v == nil {
@@ -1332,9 +1311,7 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) Timezone() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html
 type IntegrationServiceNowSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html#cfn-customerprofiles-integration-servicenowsourceproperties-object
 	Object string `pulumi:"object"`
 }
 
@@ -1349,9 +1326,7 @@ type IntegrationServiceNowSourcePropertiesInput interface {
 	ToIntegrationServiceNowSourcePropertiesOutputWithContext(context.Context) IntegrationServiceNowSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html
 type IntegrationServiceNowSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html#cfn-customerprofiles-integration-servicenowsourceproperties-object
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -1408,7 +1383,6 @@ func (i *integrationServiceNowSourcePropertiesPtrType) ToIntegrationServiceNowSo
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceNowSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html
 type IntegrationServiceNowSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (IntegrationServiceNowSourcePropertiesOutput) ElementType() reflect.Type {
@@ -1433,7 +1407,6 @@ func (o IntegrationServiceNowSourcePropertiesOutput) ToIntegrationServiceNowSour
 	}).(IntegrationServiceNowSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html#cfn-customerprofiles-integration-servicenowsourceproperties-object
 func (o IntegrationServiceNowSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationServiceNowSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -1462,7 +1435,6 @@ func (o IntegrationServiceNowSourcePropertiesPtrOutput) Elem() IntegrationServic
 	}).(IntegrationServiceNowSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html#cfn-customerprofiles-integration-servicenowsourceproperties-object
 func (o IntegrationServiceNowSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationServiceNowSourceProperties) *string {
 		if v == nil {
@@ -1472,18 +1444,12 @@ func (o IntegrationServiceNowSourcePropertiesPtrOutput) Object() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html
 type IntegrationSourceConnectorProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-marketo
-	Marketo *IntegrationMarketoSourceProperties `pulumi:"marketo"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-s3
-	S3 *IntegrationS3SourceProperties `pulumi:"s3"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-salesforce
+	Marketo    *IntegrationMarketoSourceProperties    `pulumi:"marketo"`
+	S3         *IntegrationS3SourceProperties         `pulumi:"s3"`
 	Salesforce *IntegrationSalesforceSourceProperties `pulumi:"salesforce"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-servicenow
 	ServiceNow *IntegrationServiceNowSourceProperties `pulumi:"serviceNow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-zendesk
-	Zendesk *IntegrationZendeskSourceProperties `pulumi:"zendesk"`
+	Zendesk    *IntegrationZendeskSourceProperties    `pulumi:"zendesk"`
 }
 
 // IntegrationSourceConnectorPropertiesInput is an input type that accepts IntegrationSourceConnectorPropertiesArgs and IntegrationSourceConnectorPropertiesOutput values.
@@ -1497,18 +1463,12 @@ type IntegrationSourceConnectorPropertiesInput interface {
 	ToIntegrationSourceConnectorPropertiesOutputWithContext(context.Context) IntegrationSourceConnectorPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html
 type IntegrationSourceConnectorPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-marketo
-	Marketo IntegrationMarketoSourcePropertiesPtrInput `pulumi:"marketo"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-s3
-	S3 IntegrationS3SourcePropertiesPtrInput `pulumi:"s3"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-salesforce
+	Marketo    IntegrationMarketoSourcePropertiesPtrInput    `pulumi:"marketo"`
+	S3         IntegrationS3SourcePropertiesPtrInput         `pulumi:"s3"`
 	Salesforce IntegrationSalesforceSourcePropertiesPtrInput `pulumi:"salesforce"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-servicenow
 	ServiceNow IntegrationServiceNowSourcePropertiesPtrInput `pulumi:"serviceNow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-zendesk
-	Zendesk IntegrationZendeskSourcePropertiesPtrInput `pulumi:"zendesk"`
+	Zendesk    IntegrationZendeskSourcePropertiesPtrInput    `pulumi:"zendesk"`
 }
 
 func (IntegrationSourceConnectorPropertiesArgs) ElementType() reflect.Type {
@@ -1564,7 +1524,6 @@ func (i *integrationSourceConnectorPropertiesPtrType) ToIntegrationSourceConnect
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationSourceConnectorPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html
 type IntegrationSourceConnectorPropertiesOutput struct{ *pulumi.OutputState }
 
 func (IntegrationSourceConnectorPropertiesOutput) ElementType() reflect.Type {
@@ -1589,31 +1548,26 @@ func (o IntegrationSourceConnectorPropertiesOutput) ToIntegrationSourceConnector
 	}).(IntegrationSourceConnectorPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-marketo
 func (o IntegrationSourceConnectorPropertiesOutput) Marketo() IntegrationMarketoSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v IntegrationSourceConnectorProperties) *IntegrationMarketoSourceProperties { return v.Marketo }).(IntegrationMarketoSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-s3
 func (o IntegrationSourceConnectorPropertiesOutput) S3() IntegrationS3SourcePropertiesPtrOutput {
 	return o.ApplyT(func(v IntegrationSourceConnectorProperties) *IntegrationS3SourceProperties { return v.S3 }).(IntegrationS3SourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-salesforce
 func (o IntegrationSourceConnectorPropertiesOutput) Salesforce() IntegrationSalesforceSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v IntegrationSourceConnectorProperties) *IntegrationSalesforceSourceProperties {
 		return v.Salesforce
 	}).(IntegrationSalesforceSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-servicenow
 func (o IntegrationSourceConnectorPropertiesOutput) ServiceNow() IntegrationServiceNowSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v IntegrationSourceConnectorProperties) *IntegrationServiceNowSourceProperties {
 		return v.ServiceNow
 	}).(IntegrationServiceNowSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-zendesk
 func (o IntegrationSourceConnectorPropertiesOutput) Zendesk() IntegrationZendeskSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v IntegrationSourceConnectorProperties) *IntegrationZendeskSourceProperties { return v.Zendesk }).(IntegrationZendeskSourcePropertiesPtrOutput)
 }
@@ -1642,7 +1596,6 @@ func (o IntegrationSourceConnectorPropertiesPtrOutput) Elem() IntegrationSourceC
 	}).(IntegrationSourceConnectorPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-marketo
 func (o IntegrationSourceConnectorPropertiesPtrOutput) Marketo() IntegrationMarketoSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceConnectorProperties) *IntegrationMarketoSourceProperties {
 		if v == nil {
@@ -1652,7 +1605,6 @@ func (o IntegrationSourceConnectorPropertiesPtrOutput) Marketo() IntegrationMark
 	}).(IntegrationMarketoSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-s3
 func (o IntegrationSourceConnectorPropertiesPtrOutput) S3() IntegrationS3SourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceConnectorProperties) *IntegrationS3SourceProperties {
 		if v == nil {
@@ -1662,7 +1614,6 @@ func (o IntegrationSourceConnectorPropertiesPtrOutput) S3() IntegrationS3SourceP
 	}).(IntegrationS3SourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-salesforce
 func (o IntegrationSourceConnectorPropertiesPtrOutput) Salesforce() IntegrationSalesforceSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceConnectorProperties) *IntegrationSalesforceSourceProperties {
 		if v == nil {
@@ -1672,7 +1623,6 @@ func (o IntegrationSourceConnectorPropertiesPtrOutput) Salesforce() IntegrationS
 	}).(IntegrationSalesforceSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-servicenow
 func (o IntegrationSourceConnectorPropertiesPtrOutput) ServiceNow() IntegrationServiceNowSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceConnectorProperties) *IntegrationServiceNowSourceProperties {
 		if v == nil {
@@ -1682,7 +1632,6 @@ func (o IntegrationSourceConnectorPropertiesPtrOutput) ServiceNow() IntegrationS
 	}).(IntegrationServiceNowSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-zendesk
 func (o IntegrationSourceConnectorPropertiesPtrOutput) Zendesk() IntegrationZendeskSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceConnectorProperties) *IntegrationZendeskSourceProperties {
 		if v == nil {
@@ -1692,15 +1641,10 @@ func (o IntegrationSourceConnectorPropertiesPtrOutput) Zendesk() IntegrationZend
 	}).(IntegrationZendeskSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html
 type IntegrationSourceFlowConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-connectorprofilename
-	ConnectorProfileName *string `pulumi:"connectorProfileName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-connectortype
-	ConnectorType string `pulumi:"connectorType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-incrementalpullconfig
-	IncrementalPullConfig *IntegrationIncrementalPullConfig `pulumi:"incrementalPullConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-sourceconnectorproperties
+	ConnectorProfileName      *string                              `pulumi:"connectorProfileName"`
+	ConnectorType             string                               `pulumi:"connectorType"`
+	IncrementalPullConfig     *IntegrationIncrementalPullConfig    `pulumi:"incrementalPullConfig"`
 	SourceConnectorProperties IntegrationSourceConnectorProperties `pulumi:"sourceConnectorProperties"`
 }
 
@@ -1715,15 +1659,10 @@ type IntegrationSourceFlowConfigInput interface {
 	ToIntegrationSourceFlowConfigOutputWithContext(context.Context) IntegrationSourceFlowConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html
 type IntegrationSourceFlowConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-connectorprofilename
-	ConnectorProfileName pulumi.StringPtrInput `pulumi:"connectorProfileName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-connectortype
-	ConnectorType pulumi.StringInput `pulumi:"connectorType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-incrementalpullconfig
-	IncrementalPullConfig IntegrationIncrementalPullConfigPtrInput `pulumi:"incrementalPullConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-sourceconnectorproperties
+	ConnectorProfileName      pulumi.StringPtrInput                     `pulumi:"connectorProfileName"`
+	ConnectorType             pulumi.StringInput                        `pulumi:"connectorType"`
+	IncrementalPullConfig     IntegrationIncrementalPullConfigPtrInput  `pulumi:"incrementalPullConfig"`
 	SourceConnectorProperties IntegrationSourceConnectorPropertiesInput `pulumi:"sourceConnectorProperties"`
 }
 
@@ -1780,7 +1719,6 @@ func (i *integrationSourceFlowConfigPtrType) ToIntegrationSourceFlowConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationSourceFlowConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html
 type IntegrationSourceFlowConfigOutput struct{ *pulumi.OutputState }
 
 func (IntegrationSourceFlowConfigOutput) ElementType() reflect.Type {
@@ -1805,22 +1743,18 @@ func (o IntegrationSourceFlowConfigOutput) ToIntegrationSourceFlowConfigPtrOutpu
 	}).(IntegrationSourceFlowConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-connectorprofilename
 func (o IntegrationSourceFlowConfigOutput) ConnectorProfileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationSourceFlowConfig) *string { return v.ConnectorProfileName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-connectortype
 func (o IntegrationSourceFlowConfigOutput) ConnectorType() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationSourceFlowConfig) string { return v.ConnectorType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-incrementalpullconfig
 func (o IntegrationSourceFlowConfigOutput) IncrementalPullConfig() IntegrationIncrementalPullConfigPtrOutput {
 	return o.ApplyT(func(v IntegrationSourceFlowConfig) *IntegrationIncrementalPullConfig { return v.IncrementalPullConfig }).(IntegrationIncrementalPullConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-sourceconnectorproperties
 func (o IntegrationSourceFlowConfigOutput) SourceConnectorProperties() IntegrationSourceConnectorPropertiesOutput {
 	return o.ApplyT(func(v IntegrationSourceFlowConfig) IntegrationSourceConnectorProperties {
 		return v.SourceConnectorProperties
@@ -1851,7 +1785,6 @@ func (o IntegrationSourceFlowConfigPtrOutput) Elem() IntegrationSourceFlowConfig
 	}).(IntegrationSourceFlowConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-connectorprofilename
 func (o IntegrationSourceFlowConfigPtrOutput) ConnectorProfileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceFlowConfig) *string {
 		if v == nil {
@@ -1861,7 +1794,6 @@ func (o IntegrationSourceFlowConfigPtrOutput) ConnectorProfileName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-connectortype
 func (o IntegrationSourceFlowConfigPtrOutput) ConnectorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceFlowConfig) *string {
 		if v == nil {
@@ -1871,7 +1803,6 @@ func (o IntegrationSourceFlowConfigPtrOutput) ConnectorType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-incrementalpullconfig
 func (o IntegrationSourceFlowConfigPtrOutput) IncrementalPullConfig() IntegrationIncrementalPullConfigPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceFlowConfig) *IntegrationIncrementalPullConfig {
 		if v == nil {
@@ -1881,7 +1812,6 @@ func (o IntegrationSourceFlowConfigPtrOutput) IncrementalPullConfig() Integratio
 	}).(IntegrationIncrementalPullConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-sourceconnectorproperties
 func (o IntegrationSourceFlowConfigPtrOutput) SourceConnectorProperties() IntegrationSourceConnectorPropertiesPtrOutput {
 	return o.ApplyT(func(v *IntegrationSourceFlowConfig) *IntegrationSourceConnectorProperties {
 		if v == nil {
@@ -1891,18 +1821,112 @@ func (o IntegrationSourceFlowConfigPtrOutput) SourceConnectorProperties() Integr
 	}).(IntegrationSourceConnectorPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html
+type IntegrationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// IntegrationTagInput is an input type that accepts IntegrationTagArgs and IntegrationTagOutput values.
+// You can construct a concrete instance of `IntegrationTagInput` via:
+//
+//          IntegrationTagArgs{...}
+type IntegrationTagInput interface {
+	pulumi.Input
+
+	ToIntegrationTagOutput() IntegrationTagOutput
+	ToIntegrationTagOutputWithContext(context.Context) IntegrationTagOutput
+}
+
+type IntegrationTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (IntegrationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationTag)(nil)).Elem()
+}
+
+func (i IntegrationTagArgs) ToIntegrationTagOutput() IntegrationTagOutput {
+	return i.ToIntegrationTagOutputWithContext(context.Background())
+}
+
+func (i IntegrationTagArgs) ToIntegrationTagOutputWithContext(ctx context.Context) IntegrationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTagOutput)
+}
+
+// IntegrationTagArrayInput is an input type that accepts IntegrationTagArray and IntegrationTagArrayOutput values.
+// You can construct a concrete instance of `IntegrationTagArrayInput` via:
+//
+//          IntegrationTagArray{ IntegrationTagArgs{...} }
+type IntegrationTagArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationTagArrayOutput() IntegrationTagArrayOutput
+	ToIntegrationTagArrayOutputWithContext(context.Context) IntegrationTagArrayOutput
+}
+
+type IntegrationTagArray []IntegrationTagInput
+
+func (IntegrationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationTag)(nil)).Elem()
+}
+
+func (i IntegrationTagArray) ToIntegrationTagArrayOutput() IntegrationTagArrayOutput {
+	return i.ToIntegrationTagArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationTagArray) ToIntegrationTagArrayOutputWithContext(ctx context.Context) IntegrationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTagArrayOutput)
+}
+
+type IntegrationTagOutput struct{ *pulumi.OutputState }
+
+func (IntegrationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationTag)(nil)).Elem()
+}
+
+func (o IntegrationTagOutput) ToIntegrationTagOutput() IntegrationTagOutput {
+	return o
+}
+
+func (o IntegrationTagOutput) ToIntegrationTagOutputWithContext(ctx context.Context) IntegrationTagOutput {
+	return o
+}
+
+func (o IntegrationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o IntegrationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type IntegrationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationTag)(nil)).Elem()
+}
+
+func (o IntegrationTagArrayOutput) ToIntegrationTagArrayOutput() IntegrationTagArrayOutput {
+	return o
+}
+
+func (o IntegrationTagArrayOutput) ToIntegrationTagArrayOutputWithContext(ctx context.Context) IntegrationTagArrayOutput {
+	return o
+}
+
+func (o IntegrationTagArrayOutput) Index(i pulumi.IntInput) IntegrationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationTag {
+		return vs[0].([]IntegrationTag)[vs[1].(int)]
+	}).(IntegrationTagOutput)
+}
+
 type IntegrationTask struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-connectoroperator
-	ConnectorOperator *IntegrationConnectorOperator `pulumi:"connectorOperator"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-destinationfield
-	DestinationField *string `pulumi:"destinationField"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-sourcefields
-	SourceFields []string `pulumi:"sourceFields"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-taskproperties
-	TaskProperties []IntegrationTaskPropertiesMap `pulumi:"taskProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-tasktype
-	TaskType string `pulumi:"taskType"`
+	ConnectorOperator *IntegrationConnectorOperator  `pulumi:"connectorOperator"`
+	DestinationField  *string                        `pulumi:"destinationField"`
+	SourceFields      []string                       `pulumi:"sourceFields"`
+	TaskProperties    []IntegrationTaskPropertiesMap `pulumi:"taskProperties"`
+	TaskType          string                         `pulumi:"taskType"`
 }
 
 // IntegrationTaskInput is an input type that accepts IntegrationTaskArgs and IntegrationTaskOutput values.
@@ -1916,18 +1940,12 @@ type IntegrationTaskInput interface {
 	ToIntegrationTaskOutputWithContext(context.Context) IntegrationTaskOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html
 type IntegrationTaskArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-connectoroperator
-	ConnectorOperator IntegrationConnectorOperatorPtrInput `pulumi:"connectorOperator"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-destinationfield
-	DestinationField pulumi.StringPtrInput `pulumi:"destinationField"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-sourcefields
-	SourceFields pulumi.StringArrayInput `pulumi:"sourceFields"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-taskproperties
-	TaskProperties IntegrationTaskPropertiesMapArrayInput `pulumi:"taskProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-tasktype
-	TaskType pulumi.StringInput `pulumi:"taskType"`
+	ConnectorOperator IntegrationConnectorOperatorPtrInput   `pulumi:"connectorOperator"`
+	DestinationField  pulumi.StringPtrInput                  `pulumi:"destinationField"`
+	SourceFields      pulumi.StringArrayInput                `pulumi:"sourceFields"`
+	TaskProperties    IntegrationTaskPropertiesMapArrayInput `pulumi:"taskProperties"`
+	TaskType          pulumi.StringInput                     `pulumi:"taskType"`
 }
 
 func (IntegrationTaskArgs) ElementType() reflect.Type {
@@ -1967,7 +1985,6 @@ func (i IntegrationTaskArray) ToIntegrationTaskArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTaskArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html
 type IntegrationTaskOutput struct{ *pulumi.OutputState }
 
 func (IntegrationTaskOutput) ElementType() reflect.Type {
@@ -1982,27 +1999,22 @@ func (o IntegrationTaskOutput) ToIntegrationTaskOutputWithContext(ctx context.Co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-connectoroperator
 func (o IntegrationTaskOutput) ConnectorOperator() IntegrationConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v IntegrationTask) *IntegrationConnectorOperator { return v.ConnectorOperator }).(IntegrationConnectorOperatorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-destinationfield
 func (o IntegrationTaskOutput) DestinationField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationTask) *string { return v.DestinationField }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-sourcefields
 func (o IntegrationTaskOutput) SourceFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IntegrationTask) []string { return v.SourceFields }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-taskproperties
 func (o IntegrationTaskOutput) TaskProperties() IntegrationTaskPropertiesMapArrayOutput {
 	return o.ApplyT(func(v IntegrationTask) []IntegrationTaskPropertiesMap { return v.TaskProperties }).(IntegrationTaskPropertiesMapArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-tasktype
 func (o IntegrationTaskOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationTask) string { return v.TaskType }).(pulumi.StringOutput)
 }
@@ -2027,12 +2039,9 @@ func (o IntegrationTaskArrayOutput) Index(i pulumi.IntInput) IntegrationTaskOutp
 	}).(IntegrationTaskOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html
 type IntegrationTaskPropertiesMap struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html#cfn-customerprofiles-integration-taskpropertiesmap-operatorpropertykey
 	OperatorPropertyKey string `pulumi:"operatorPropertyKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html#cfn-customerprofiles-integration-taskpropertiesmap-property
-	Property string `pulumi:"property"`
+	Property            string `pulumi:"property"`
 }
 
 // IntegrationTaskPropertiesMapInput is an input type that accepts IntegrationTaskPropertiesMap and IntegrationTaskPropertiesMapOutput values.
@@ -2046,12 +2055,9 @@ type IntegrationTaskPropertiesMapInput interface {
 	ToIntegrationTaskPropertiesMapOutputWithContext(context.Context) IntegrationTaskPropertiesMapOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html
 type IntegrationTaskPropertiesMapArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html#cfn-customerprofiles-integration-taskpropertiesmap-operatorpropertykey
 	OperatorPropertyKey pulumi.StringInput `pulumi:"operatorPropertyKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html#cfn-customerprofiles-integration-taskpropertiesmap-property
-	Property pulumi.StringInput `pulumi:"property"`
+	Property            pulumi.StringInput `pulumi:"property"`
 }
 
 func (IntegrationTaskPropertiesMapArgs) ElementType() reflect.Type {
@@ -2091,7 +2097,6 @@ func (i IntegrationTaskPropertiesMapArray) ToIntegrationTaskPropertiesMapArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTaskPropertiesMapArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html
 type IntegrationTaskPropertiesMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationTaskPropertiesMapOutput) ElementType() reflect.Type {
@@ -2106,12 +2111,10 @@ func (o IntegrationTaskPropertiesMapOutput) ToIntegrationTaskPropertiesMapOutput
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html#cfn-customerprofiles-integration-taskpropertiesmap-operatorpropertykey
 func (o IntegrationTaskPropertiesMapOutput) OperatorPropertyKey() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationTaskPropertiesMap) string { return v.OperatorPropertyKey }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html#cfn-customerprofiles-integration-taskpropertiesmap-property
 func (o IntegrationTaskPropertiesMapOutput) Property() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationTaskPropertiesMap) string { return v.Property }).(pulumi.StringOutput)
 }
@@ -2136,12 +2139,9 @@ func (o IntegrationTaskPropertiesMapArrayOutput) Index(i pulumi.IntInput) Integr
 	}).(IntegrationTaskPropertiesMapOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html
 type IntegrationTriggerConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggerproperties
 	TriggerProperties *IntegrationTriggerProperties `pulumi:"triggerProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggertype
-	TriggerType string `pulumi:"triggerType"`
+	TriggerType       string                        `pulumi:"triggerType"`
 }
 
 // IntegrationTriggerConfigInput is an input type that accepts IntegrationTriggerConfigArgs and IntegrationTriggerConfigOutput values.
@@ -2155,12 +2155,9 @@ type IntegrationTriggerConfigInput interface {
 	ToIntegrationTriggerConfigOutputWithContext(context.Context) IntegrationTriggerConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html
 type IntegrationTriggerConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggerproperties
 	TriggerProperties IntegrationTriggerPropertiesPtrInput `pulumi:"triggerProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggertype
-	TriggerType pulumi.StringInput `pulumi:"triggerType"`
+	TriggerType       pulumi.StringInput                   `pulumi:"triggerType"`
 }
 
 func (IntegrationTriggerConfigArgs) ElementType() reflect.Type {
@@ -2216,7 +2213,6 @@ func (i *integrationTriggerConfigPtrType) ToIntegrationTriggerConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTriggerConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html
 type IntegrationTriggerConfigOutput struct{ *pulumi.OutputState }
 
 func (IntegrationTriggerConfigOutput) ElementType() reflect.Type {
@@ -2241,12 +2237,10 @@ func (o IntegrationTriggerConfigOutput) ToIntegrationTriggerConfigPtrOutputWithC
 	}).(IntegrationTriggerConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggerproperties
 func (o IntegrationTriggerConfigOutput) TriggerProperties() IntegrationTriggerPropertiesPtrOutput {
 	return o.ApplyT(func(v IntegrationTriggerConfig) *IntegrationTriggerProperties { return v.TriggerProperties }).(IntegrationTriggerPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggertype
 func (o IntegrationTriggerConfigOutput) TriggerType() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationTriggerConfig) string { return v.TriggerType }).(pulumi.StringOutput)
 }
@@ -2275,7 +2269,6 @@ func (o IntegrationTriggerConfigPtrOutput) Elem() IntegrationTriggerConfigOutput
 	}).(IntegrationTriggerConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggerproperties
 func (o IntegrationTriggerConfigPtrOutput) TriggerProperties() IntegrationTriggerPropertiesPtrOutput {
 	return o.ApplyT(func(v *IntegrationTriggerConfig) *IntegrationTriggerProperties {
 		if v == nil {
@@ -2285,7 +2278,6 @@ func (o IntegrationTriggerConfigPtrOutput) TriggerProperties() IntegrationTrigge
 	}).(IntegrationTriggerPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggertype
 func (o IntegrationTriggerConfigPtrOutput) TriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationTriggerConfig) *string {
 		if v == nil {
@@ -2295,9 +2287,7 @@ func (o IntegrationTriggerConfigPtrOutput) TriggerType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html
 type IntegrationTriggerProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html#cfn-customerprofiles-integration-triggerproperties-scheduled
 	Scheduled *IntegrationScheduledTriggerProperties `pulumi:"scheduled"`
 }
 
@@ -2312,9 +2302,7 @@ type IntegrationTriggerPropertiesInput interface {
 	ToIntegrationTriggerPropertiesOutputWithContext(context.Context) IntegrationTriggerPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html
 type IntegrationTriggerPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html#cfn-customerprofiles-integration-triggerproperties-scheduled
 	Scheduled IntegrationScheduledTriggerPropertiesPtrInput `pulumi:"scheduled"`
 }
 
@@ -2371,7 +2359,6 @@ func (i *integrationTriggerPropertiesPtrType) ToIntegrationTriggerPropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationTriggerPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html
 type IntegrationTriggerPropertiesOutput struct{ *pulumi.OutputState }
 
 func (IntegrationTriggerPropertiesOutput) ElementType() reflect.Type {
@@ -2396,7 +2383,6 @@ func (o IntegrationTriggerPropertiesOutput) ToIntegrationTriggerPropertiesPtrOut
 	}).(IntegrationTriggerPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html#cfn-customerprofiles-integration-triggerproperties-scheduled
 func (o IntegrationTriggerPropertiesOutput) Scheduled() IntegrationScheduledTriggerPropertiesPtrOutput {
 	return o.ApplyT(func(v IntegrationTriggerProperties) *IntegrationScheduledTriggerProperties { return v.Scheduled }).(IntegrationScheduledTriggerPropertiesPtrOutput)
 }
@@ -2425,7 +2411,6 @@ func (o IntegrationTriggerPropertiesPtrOutput) Elem() IntegrationTriggerProperti
 	}).(IntegrationTriggerPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html#cfn-customerprofiles-integration-triggerproperties-scheduled
 func (o IntegrationTriggerPropertiesPtrOutput) Scheduled() IntegrationScheduledTriggerPropertiesPtrOutput {
 	return o.ApplyT(func(v *IntegrationTriggerProperties) *IntegrationScheduledTriggerProperties {
 		if v == nil {
@@ -2435,9 +2420,7 @@ func (o IntegrationTriggerPropertiesPtrOutput) Scheduled() IntegrationScheduledT
 	}).(IntegrationScheduledTriggerPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-zendesksourceproperties.html
 type IntegrationZendeskSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-zendesksourceproperties.html#cfn-customerprofiles-integration-zendesksourceproperties-object
 	Object string `pulumi:"object"`
 }
 
@@ -2452,9 +2435,7 @@ type IntegrationZendeskSourcePropertiesInput interface {
 	ToIntegrationZendeskSourcePropertiesOutputWithContext(context.Context) IntegrationZendeskSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-zendesksourceproperties.html
 type IntegrationZendeskSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-zendesksourceproperties.html#cfn-customerprofiles-integration-zendesksourceproperties-object
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -2511,7 +2492,6 @@ func (i *integrationZendeskSourcePropertiesPtrType) ToIntegrationZendeskSourcePr
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationZendeskSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-zendesksourceproperties.html
 type IntegrationZendeskSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (IntegrationZendeskSourcePropertiesOutput) ElementType() reflect.Type {
@@ -2536,7 +2516,6 @@ func (o IntegrationZendeskSourcePropertiesOutput) ToIntegrationZendeskSourceProp
 	}).(IntegrationZendeskSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-zendesksourceproperties.html#cfn-customerprofiles-integration-zendesksourceproperties-object
 func (o IntegrationZendeskSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v IntegrationZendeskSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -2565,7 +2544,6 @@ func (o IntegrationZendeskSourcePropertiesPtrOutput) Elem() IntegrationZendeskSo
 	}).(IntegrationZendeskSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-zendesksourceproperties.html#cfn-customerprofiles-integration-zendesksourceproperties-object
 func (o IntegrationZendeskSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationZendeskSourceProperties) *string {
 		if v == nil {
@@ -2575,11 +2553,8 @@ func (o IntegrationZendeskSourcePropertiesPtrOutput) Object() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html
 type ObjectTypeFieldMap struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-objecttypefield
+	Name            *string                    `pulumi:"name"`
 	ObjectTypeField *ObjectTypeObjectTypeField `pulumi:"objectTypeField"`
 }
 
@@ -2594,11 +2569,8 @@ type ObjectTypeFieldMapInput interface {
 	ToObjectTypeFieldMapOutputWithContext(context.Context) ObjectTypeFieldMapOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html
 type ObjectTypeFieldMapArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-objecttypefield
+	Name            pulumi.StringPtrInput             `pulumi:"name"`
 	ObjectTypeField ObjectTypeObjectTypeFieldPtrInput `pulumi:"objectTypeField"`
 }
 
@@ -2639,7 +2611,6 @@ func (i ObjectTypeFieldMapArray) ToObjectTypeFieldMapArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeFieldMapArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html
 type ObjectTypeFieldMapOutput struct{ *pulumi.OutputState }
 
 func (ObjectTypeFieldMapOutput) ElementType() reflect.Type {
@@ -2654,12 +2625,10 @@ func (o ObjectTypeFieldMapOutput) ToObjectTypeFieldMapOutputWithContext(ctx cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-name
 func (o ObjectTypeFieldMapOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectTypeFieldMap) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-objecttypefield
 func (o ObjectTypeFieldMapOutput) ObjectTypeField() ObjectTypeObjectTypeFieldPtrOutput {
 	return o.ApplyT(func(v ObjectTypeFieldMap) *ObjectTypeObjectTypeField { return v.ObjectTypeField }).(ObjectTypeObjectTypeFieldPtrOutput)
 }
@@ -2684,11 +2653,8 @@ func (o ObjectTypeFieldMapArrayOutput) Index(i pulumi.IntInput) ObjectTypeFieldM
 	}).(ObjectTypeFieldMapOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html
 type ObjectTypeKeyMap struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-objecttypekeylist
+	Name              *string                   `pulumi:"name"`
 	ObjectTypeKeyList []ObjectTypeObjectTypeKey `pulumi:"objectTypeKeyList"`
 }
 
@@ -2703,11 +2669,8 @@ type ObjectTypeKeyMapInput interface {
 	ToObjectTypeKeyMapOutputWithContext(context.Context) ObjectTypeKeyMapOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html
 type ObjectTypeKeyMapArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-objecttypekeylist
+	Name              pulumi.StringPtrInput             `pulumi:"name"`
 	ObjectTypeKeyList ObjectTypeObjectTypeKeyArrayInput `pulumi:"objectTypeKeyList"`
 }
 
@@ -2748,7 +2711,6 @@ func (i ObjectTypeKeyMapArray) ToObjectTypeKeyMapArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeKeyMapArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html
 type ObjectTypeKeyMapOutput struct{ *pulumi.OutputState }
 
 func (ObjectTypeKeyMapOutput) ElementType() reflect.Type {
@@ -2763,12 +2725,10 @@ func (o ObjectTypeKeyMapOutput) ToObjectTypeKeyMapOutputWithContext(ctx context.
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-name
 func (o ObjectTypeKeyMapOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectTypeKeyMap) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-objecttypekeylist
 func (o ObjectTypeKeyMapOutput) ObjectTypeKeyList() ObjectTypeObjectTypeKeyArrayOutput {
 	return o.ApplyT(func(v ObjectTypeKeyMap) []ObjectTypeObjectTypeKey { return v.ObjectTypeKeyList }).(ObjectTypeObjectTypeKeyArrayOutput)
 }
@@ -2793,13 +2753,13 @@ func (o ObjectTypeKeyMapArrayOutput) Index(i pulumi.IntInput) ObjectTypeKeyMapOu
 	}).(ObjectTypeKeyMapOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html
+// Represents a field in a ProfileObjectType.
 type ObjectTypeObjectTypeField struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-contenttype
+	// The content type of the field. Used for determining equality when searching.
 	ContentType *string `pulumi:"contentType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-source
+	// A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
 	Source *string `pulumi:"source"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-target
+	// The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
 	Target *string `pulumi:"target"`
 }
 
@@ -2814,13 +2774,13 @@ type ObjectTypeObjectTypeFieldInput interface {
 	ToObjectTypeObjectTypeFieldOutputWithContext(context.Context) ObjectTypeObjectTypeFieldOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html
+// Represents a field in a ProfileObjectType.
 type ObjectTypeObjectTypeFieldArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-contenttype
+	// The content type of the field. Used for determining equality when searching.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-source
+	// A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
 	Source pulumi.StringPtrInput `pulumi:"source"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-target
+	// The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
 	Target pulumi.StringPtrInput `pulumi:"target"`
 }
 
@@ -2877,7 +2837,7 @@ func (i *objectTypeObjectTypeFieldPtrType) ToObjectTypeObjectTypeFieldPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeObjectTypeFieldPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html
+// Represents a field in a ProfileObjectType.
 type ObjectTypeObjectTypeFieldOutput struct{ *pulumi.OutputState }
 
 func (ObjectTypeObjectTypeFieldOutput) ElementType() reflect.Type {
@@ -2902,17 +2862,17 @@ func (o ObjectTypeObjectTypeFieldOutput) ToObjectTypeObjectTypeFieldPtrOutputWit
 	}).(ObjectTypeObjectTypeFieldPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-contenttype
+// The content type of the field. Used for determining equality when searching.
 func (o ObjectTypeObjectTypeFieldOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectTypeObjectTypeField) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-source
+// A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
 func (o ObjectTypeObjectTypeFieldOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectTypeObjectTypeField) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-target
+// The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
 func (o ObjectTypeObjectTypeFieldOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ObjectTypeObjectTypeField) *string { return v.Target }).(pulumi.StringPtrOutput)
 }
@@ -2941,7 +2901,7 @@ func (o ObjectTypeObjectTypeFieldPtrOutput) Elem() ObjectTypeObjectTypeFieldOutp
 	}).(ObjectTypeObjectTypeFieldOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-contenttype
+// The content type of the field. Used for determining equality when searching.
 func (o ObjectTypeObjectTypeFieldPtrOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObjectTypeObjectTypeField) *string {
 		if v == nil {
@@ -2951,7 +2911,7 @@ func (o ObjectTypeObjectTypeFieldPtrOutput) ContentType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-source
+// A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
 func (o ObjectTypeObjectTypeFieldPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObjectTypeObjectTypeField) *string {
 		if v == nil {
@@ -2961,7 +2921,7 @@ func (o ObjectTypeObjectTypeFieldPtrOutput) Source() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-target
+// The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
 func (o ObjectTypeObjectTypeFieldPtrOutput) Target() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ObjectTypeObjectTypeField) *string {
 		if v == nil {
@@ -2971,11 +2931,11 @@ func (o ObjectTypeObjectTypeFieldPtrOutput) Target() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html
+// An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
 type ObjectTypeObjectTypeKey struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html#cfn-customerprofiles-objecttype-objecttypekey-fieldnames
+	// The reference for the key name of the fields map.
 	FieldNames []string `pulumi:"fieldNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html#cfn-customerprofiles-objecttype-objecttypekey-standardidentifiers
+	// The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
 	StandardIdentifiers []string `pulumi:"standardIdentifiers"`
 }
 
@@ -2990,11 +2950,11 @@ type ObjectTypeObjectTypeKeyInput interface {
 	ToObjectTypeObjectTypeKeyOutputWithContext(context.Context) ObjectTypeObjectTypeKeyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html
+// An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
 type ObjectTypeObjectTypeKeyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html#cfn-customerprofiles-objecttype-objecttypekey-fieldnames
+	// The reference for the key name of the fields map.
 	FieldNames pulumi.StringArrayInput `pulumi:"fieldNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html#cfn-customerprofiles-objecttype-objecttypekey-standardidentifiers
+	// The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
 	StandardIdentifiers pulumi.StringArrayInput `pulumi:"standardIdentifiers"`
 }
 
@@ -3035,7 +2995,7 @@ func (i ObjectTypeObjectTypeKeyArray) ToObjectTypeObjectTypeKeyArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeObjectTypeKeyArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html
+// An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
 type ObjectTypeObjectTypeKeyOutput struct{ *pulumi.OutputState }
 
 func (ObjectTypeObjectTypeKeyOutput) ElementType() reflect.Type {
@@ -3050,12 +3010,12 @@ func (o ObjectTypeObjectTypeKeyOutput) ToObjectTypeObjectTypeKeyOutputWithContex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html#cfn-customerprofiles-objecttype-objecttypekey-fieldnames
+// The reference for the key name of the fields map.
 func (o ObjectTypeObjectTypeKeyOutput) FieldNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ObjectTypeObjectTypeKey) []string { return v.FieldNames }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html#cfn-customerprofiles-objecttype-objecttypekey-standardidentifiers
+// The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
 func (o ObjectTypeObjectTypeKeyOutput) StandardIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ObjectTypeObjectTypeKey) []string { return v.StandardIdentifiers }).(pulumi.StringArrayOutput)
 }
@@ -3080,7 +3040,109 @@ func (o ObjectTypeObjectTypeKeyArrayOutput) Index(i pulumi.IntInput) ObjectTypeO
 	}).(ObjectTypeObjectTypeKeyOutput)
 }
 
+type ObjectTypeTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ObjectTypeTagInput is an input type that accepts ObjectTypeTagArgs and ObjectTypeTagOutput values.
+// You can construct a concrete instance of `ObjectTypeTagInput` via:
+//
+//          ObjectTypeTagArgs{...}
+type ObjectTypeTagInput interface {
+	pulumi.Input
+
+	ToObjectTypeTagOutput() ObjectTypeTagOutput
+	ToObjectTypeTagOutputWithContext(context.Context) ObjectTypeTagOutput
+}
+
+type ObjectTypeTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ObjectTypeTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectTypeTag)(nil)).Elem()
+}
+
+func (i ObjectTypeTagArgs) ToObjectTypeTagOutput() ObjectTypeTagOutput {
+	return i.ToObjectTypeTagOutputWithContext(context.Background())
+}
+
+func (i ObjectTypeTagArgs) ToObjectTypeTagOutputWithContext(ctx context.Context) ObjectTypeTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeTagOutput)
+}
+
+// ObjectTypeTagArrayInput is an input type that accepts ObjectTypeTagArray and ObjectTypeTagArrayOutput values.
+// You can construct a concrete instance of `ObjectTypeTagArrayInput` via:
+//
+//          ObjectTypeTagArray{ ObjectTypeTagArgs{...} }
+type ObjectTypeTagArrayInput interface {
+	pulumi.Input
+
+	ToObjectTypeTagArrayOutput() ObjectTypeTagArrayOutput
+	ToObjectTypeTagArrayOutputWithContext(context.Context) ObjectTypeTagArrayOutput
+}
+
+type ObjectTypeTagArray []ObjectTypeTagInput
+
+func (ObjectTypeTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObjectTypeTag)(nil)).Elem()
+}
+
+func (i ObjectTypeTagArray) ToObjectTypeTagArrayOutput() ObjectTypeTagArrayOutput {
+	return i.ToObjectTypeTagArrayOutputWithContext(context.Background())
+}
+
+func (i ObjectTypeTagArray) ToObjectTypeTagArrayOutputWithContext(ctx context.Context) ObjectTypeTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeTagArrayOutput)
+}
+
+type ObjectTypeTagOutput struct{ *pulumi.OutputState }
+
+func (ObjectTypeTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectTypeTag)(nil)).Elem()
+}
+
+func (o ObjectTypeTagOutput) ToObjectTypeTagOutput() ObjectTypeTagOutput {
+	return o
+}
+
+func (o ObjectTypeTagOutput) ToObjectTypeTagOutputWithContext(ctx context.Context) ObjectTypeTagOutput {
+	return o
+}
+
+func (o ObjectTypeTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ObjectTypeTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ObjectTypeTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ObjectTypeTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ObjectTypeTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ObjectTypeTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObjectTypeTag)(nil)).Elem()
+}
+
+func (o ObjectTypeTagArrayOutput) ToObjectTypeTagArrayOutput() ObjectTypeTagArrayOutput {
+	return o
+}
+
+func (o ObjectTypeTagArrayOutput) ToObjectTypeTagArrayOutputWithContext(ctx context.Context) ObjectTypeTagArrayOutput {
+	return o
+}
+
+func (o ObjectTypeTagArrayOutput) Index(i pulumi.IntInput) ObjectTypeTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObjectTypeTag {
+		return vs[0].([]ObjectTypeTag)[vs[1].(int)]
+	}).(ObjectTypeTagOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(DomainTagOutput{})
+	pulumi.RegisterOutputType(DomainTagArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationConnectorOperatorOutput{})
 	pulumi.RegisterOutputType(IntegrationConnectorOperatorPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationFlowDefinitionOutput{})
@@ -3101,6 +3163,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationSourceConnectorPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationSourceFlowConfigOutput{})
 	pulumi.RegisterOutputType(IntegrationSourceFlowConfigPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationTagOutput{})
+	pulumi.RegisterOutputType(IntegrationTagArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationTaskOutput{})
 	pulumi.RegisterOutputType(IntegrationTaskArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationTaskPropertiesMapOutput{})
@@ -3119,4 +3183,6 @@ func init() {
 	pulumi.RegisterOutputType(ObjectTypeObjectTypeFieldPtrOutput{})
 	pulumi.RegisterOutputType(ObjectTypeObjectTypeKeyOutput{})
 	pulumi.RegisterOutputType(ObjectTypeObjectTypeKeyArrayOutput{})
+	pulumi.RegisterOutputType(ObjectTypeTagOutput{})
+	pulumi.RegisterOutputType(ObjectTypeTagArrayOutput{})
 }

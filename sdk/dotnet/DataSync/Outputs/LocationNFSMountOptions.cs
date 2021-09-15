@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.DataSync.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-mountoptions.html
+    /// The NFS mount options that DataSync can use to mount your NFS share.
     /// </summary>
     [OutputType]
     public sealed class LocationNFSMountOptions
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-mountoptions.html#cfn-datasync-locationnfs-mountoptions-version
+        /// The specific NFS version that you want DataSync to use to mount your NFS share.
         /// </summary>
         public readonly string? Version;
 

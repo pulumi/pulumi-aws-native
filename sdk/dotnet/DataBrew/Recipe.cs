@@ -10,34 +10,28 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html
+    /// Resource schema for AWS::DataBrew::Recipe.
     /// </summary>
     [AwsNativeResourceType("aws-native:databrew:Recipe")]
     public partial class Recipe : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-description
+        /// Description of the recipe
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-name
+        /// Recipe name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-steps
-        /// </summary>
         [Output("steps")]
         public Output<ImmutableArray<Outputs.RecipeRecipeStep>> Steps { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RecipeTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,23 +79,19 @@ namespace Pulumi.AwsNative.DataBrew
     public sealed class RecipeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-description
+        /// Description of the recipe
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-name
+        /// Recipe name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("steps", required: true)]
         private InputList<Inputs.RecipeRecipeStepArgs>? _steps;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-steps
-        /// </summary>
         public InputList<Inputs.RecipeRecipeStepArgs> Steps
         {
             get => _steps ?? (_steps = new InputList<Inputs.RecipeRecipeStepArgs>());
@@ -109,14 +99,10 @@ namespace Pulumi.AwsNative.DataBrew
         }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.RecipeTagArgs>? _tags;
+        public InputList<Inputs.RecipeTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.RecipeTagArgs>());
             set => _tags = value;
         }
 

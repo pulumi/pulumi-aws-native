@@ -11,13 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html
+// This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
 type NotificationChannel struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
 	Config NotificationChannelNotificationChannelConfigOutput `pulumi:"config"`
-	Id     pulumi.StringOutput                                `pulumi:"id"`
 }
 
 // NewNotificationChannel registers a new resource with the given unique name, arguments, and options.
@@ -62,13 +60,11 @@ func (NotificationChannelState) ElementType() reflect.Type {
 }
 
 type notificationChannelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
 	Config NotificationChannelNotificationChannelConfig `pulumi:"config"`
 }
 
 // The set of arguments for constructing a NotificationChannel resource.
 type NotificationChannelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
 	Config NotificationChannelNotificationChannelConfigInput
 }
 

@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html
+    /// The inputs for a monitoring job.
     /// </summary>
     [OutputType]
     public sealed class DataQualityJobDefinitionDataQualityJobInput
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput-endpointinput
-        /// </summary>
         public readonly Outputs.DataQualityJobDefinitionEndpointInput EndpointInput;
 
         [OutputConstructor]

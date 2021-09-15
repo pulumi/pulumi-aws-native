@@ -14,9 +14,6 @@ __all__ = [
 
 @pulumi.output_type
 class AccountExpiryEventsConfiguration(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -36,19 +33,12 @@ class AccountExpiryEventsConfiguration(dict):
 
     def __init__(__self__, *,
                  days_before_expiry: Optional[int] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html
-        :param int days_before_expiry: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html#cfn-certificatemanager-account-expiryeventsconfiguration-daysbeforeexpiry
-        """
         if days_before_expiry is not None:
             pulumi.set(__self__, "days_before_expiry", days_before_expiry)
 
     @property
     @pulumi.getter(name="daysBeforeExpiry")
     def days_before_expiry(self) -> Optional[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html#cfn-certificatemanager-account-expiryeventsconfiguration-daysbeforeexpiry
-        """
         return pulumi.get(self, "days_before_expiry")
 
 

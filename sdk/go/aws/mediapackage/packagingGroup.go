@@ -7,37 +7,32 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html
+// Resource schema for AWS::MediaPackage::PackagingGroup
 type PackagingGroup struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the PackagingGroup.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
+	// CDN Authorization
 	Authorization PackagingGroupAuthorizationPtrOutput `pulumi:"authorization"`
-	DomainName    pulumi.StringOutput                  `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
+	// The fully qualified domain name for Assets in the PackagingGroup.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The configuration parameters for egress access logging.
 	EgressAccessLogs PackagingGroupLogConfigurationPtrOutput `pulumi:"egressAccessLogs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
-	Id pulumi.StringOutput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A collection of tags associated with a resource
+	Tags PackagingGroupTagArrayOutput `pulumi:"tags"`
 }
 
 // NewPackagingGroup registers a new resource with the given unique name, arguments, and options.
 func NewPackagingGroup(ctx *pulumi.Context,
 	name string, args *PackagingGroupArgs, opts ...pulumi.ResourceOption) (*PackagingGroup, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &PackagingGroupArgs{}
 	}
 
-	if args.Id == nil {
-		return nil, errors.New("invalid value for required argument 'Id'")
-	}
 	var resource PackagingGroup
 	err := ctx.RegisterResource("aws-native:mediapackage:PackagingGroup", name, args, &resource, opts...)
 	if err != nil {
@@ -70,26 +65,22 @@ func (PackagingGroupState) ElementType() reflect.Type {
 }
 
 type packagingGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
+	// CDN Authorization
 	Authorization *PackagingGroupAuthorization `pulumi:"authorization"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
+	// The configuration parameters for egress access logging.
 	EgressAccessLogs *PackagingGroupLogConfiguration `pulumi:"egressAccessLogs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
-	Id string `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A collection of tags associated with a resource
+	Tags []PackagingGroupTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PackagingGroup resource.
 type PackagingGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
+	// CDN Authorization
 	Authorization PackagingGroupAuthorizationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
+	// The configuration parameters for egress access logging.
 	EgressAccessLogs PackagingGroupLogConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
-	Id pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
-	Tags aws.TagArrayInput
+	// A collection of tags associated with a resource
+	Tags PackagingGroupTagArrayInput
 }
 
 func (PackagingGroupArgs) ElementType() reflect.Type {

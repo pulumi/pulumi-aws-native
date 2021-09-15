@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html
+ * AWS Route53 Recovery Control Cluster resource schema
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -35,12 +35,21 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the cluster.
+     */
     public /*out*/ readonly clusterArn!: pulumi.Output<string>;
+    /**
+     * Endpoints for the cluster.
+     */
     public /*out*/ readonly clusterEndpoints!: pulumi.Output<outputs.route53recoverycontrol.ClusterClusterEndpoint[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-name
+     * Name of a Cluster. You can use any non-white space character in the name
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
@@ -76,7 +85,7 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-name
+     * Name of a Cluster. You can use any non-white space character in the name
      */
     name?: pulumi.Input<string>;
 }

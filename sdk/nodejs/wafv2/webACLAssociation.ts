@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html
+ * Associates WebACL to Application Load Balancer, CloudFront or API Gateway.
  */
 export class WebACLAssociation extends pulumi.CustomResource {
     /**
@@ -34,13 +34,7 @@ export class WebACLAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebACLAssociation.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
-     */
     public readonly resourceArn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
-     */
     public readonly webACLArn!: pulumi.Output<string>;
 
     /**
@@ -77,12 +71,6 @@ export class WebACLAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a WebACLAssociation resource.
  */
 export interface WebACLAssociationArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
-     */
     resourceArn: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
-     */
     webACLArn: pulumi.Input<string>;
 }

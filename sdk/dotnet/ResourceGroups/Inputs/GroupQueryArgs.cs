@@ -10,35 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ResourceGroups.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html
-    /// </summary>
     public sealed class GroupQueryArgs : Pulumi.ResourceArgs
     {
         [Input("resourceTypeFilters")]
         private InputList<string>? _resourceTypeFilters;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
-        /// </summary>
         public InputList<string> ResourceTypeFilters
         {
             get => _resourceTypeFilters ?? (_resourceTypeFilters = new InputList<string>());
             set => _resourceTypeFilters = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
-        /// </summary>
         [Input("stackIdentifier")]
         public Input<string>? StackIdentifier { get; set; }
 
         [Input("tagFilters")]
         private InputList<Inputs.GroupTagFilterArgs>? _tagFilters;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
-        /// </summary>
         public InputList<Inputs.GroupTagFilterArgs> TagFilters
         {
             get => _tagFilters ?? (_tagFilters = new InputList<Inputs.GroupTagFilterArgs>());

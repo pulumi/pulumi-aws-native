@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html
+    /// &lt;p&gt;An integer parameter.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class AnalysisIntegerParameter
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html#cfn-quicksight-analysis-integerparameter-name
+        /// &lt;p&gt;The name of the integer parameter.&lt;/p&gt;
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html#cfn-quicksight-analysis-integerparameter-values
+        /// &lt;p&gt;The values for the integer parameter.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<double> Values;
 

@@ -10,55 +10,61 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataSync
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html
+    /// Resource schema for AWS::DataSync::LocationFSxWindows.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:LocationFSxWindows")]
     public partial class LocationFSxWindows : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-domain
+        /// The name of the Windows domain that the FSx for Windows server belongs to.
         /// </summary>
         [Output("domain")]
         public Output<string?> Domain { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-fsxfilesystemarn
+        /// The Amazon Resource Name (ARN) for the FSx for Windows file system.
         /// </summary>
         [Output("fsxFilesystemArn")]
         public Output<string> FsxFilesystemArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
+        /// </summary>
         [Output("locationArn")]
         public Output<string> LocationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The URL of the FSx for Windows location that was described.
+        /// </summary>
         [Output("locationUri")]
         public Output<string> LocationUri { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-password
+        /// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
         /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-securitygrouparns
+        /// The ARNs of the security groups that are to use to configure the FSx for Windows file system.
         /// </summary>
         [Output("securityGroupArns")]
         public Output<ImmutableArray<string>> SecurityGroupArns { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-subdirectory
+        /// A subdirectory in the location's path.
         /// </summary>
         [Output("subdirectory")]
         public Output<string?> Subdirectory { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LocationFSxWindowsTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-user
+        /// The user who has the permissions to access files and folders in the FSx for Windows file system.
         /// </summary>
         [Output("user")]
         public Output<string> User { get; private set; } = null!;
@@ -109,19 +115,19 @@ namespace Pulumi.AwsNative.DataSync
     public sealed class LocationFSxWindowsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-domain
+        /// The name of the Windows domain that the FSx for Windows server belongs to.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-fsxfilesystemarn
+        /// The Amazon Resource Name (ARN) for the FSx for Windows file system.
         /// </summary>
         [Input("fsxFilesystemArn", required: true)]
         public Input<string> FsxFilesystemArn { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-password
+        /// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
         /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
@@ -130,7 +136,7 @@ namespace Pulumi.AwsNative.DataSync
         private InputList<string>? _securityGroupArns;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-securitygrouparns
+        /// The ARNs of the security groups that are to use to configure the FSx for Windows file system.
         /// </summary>
         public InputList<string> SecurityGroupArns
         {
@@ -139,25 +145,25 @@ namespace Pulumi.AwsNative.DataSync
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-subdirectory
+        /// A subdirectory in the location's path.
         /// </summary>
         [Input("subdirectory")]
         public Input<string>? Subdirectory { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.LocationFSxWindowsTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.LocationFSxWindowsTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.LocationFSxWindowsTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html#cfn-datasync-locationfsxwindows-user
+        /// The user who has the permissions to access files and folders in the FSx for Windows file system.
         /// </summary>
         [Input("user", required: true)]
         public Input<string> User { get; set; } = null!;

@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import outputs as _root_outputs
 
 __all__ = [
     'DetectorEntityType',
@@ -18,16 +17,19 @@ __all__ = [
     'DetectorModel',
     'DetectorOutcome',
     'DetectorRule',
+    'DetectorTag',
+    'EntityTypeTag',
     'EventTypeEntityType',
     'EventTypeEventVariable',
     'EventTypeLabel',
+    'EventTypeTag',
+    'LabelTag',
+    'OutcomeTag',
+    'VariableTag',
 ]
 
 @pulumi.output_type
 class DetectorEntityType(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -54,16 +56,12 @@ class DetectorEntityType(dict):
                  inline: Optional[bool] = None,
                  last_updated_time: Optional[str] = None,
                  name: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
+                 tags: Optional[Sequence['outputs.DetectorTag']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-arn
-        :param str created_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-createdtime
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-description
-        :param bool inline: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-inline
-        :param str last_updated_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-lastupdatedtime
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-name
-        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-tags
+        :param str created_time: The time when the entity type was created.
+        :param str description: The description.
+        :param str last_updated_time: The time when the entity type was last updated.
+        :param Sequence['DetectorTag'] tags: Tags associated with this entity type.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -83,16 +81,13 @@ class DetectorEntityType(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-arn
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-createdtime
+        The time when the entity type was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -100,48 +95,39 @@ class DetectorEntityType(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-description
+        The description.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def inline(self) -> Optional[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-inline
-        """
         return pulumi.get(self, "inline")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-lastupdatedtime
+        The time when the entity type was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+    def tags(self) -> Optional[Sequence['outputs.DetectorTag']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-tags
+        Tags associated with this entity type.
         """
         return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
 class DetectorEventType(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -175,19 +161,14 @@ class DetectorEventType(dict):
                  labels: Optional[Sequence['outputs.DetectorLabel']] = None,
                  last_updated_time: Optional[str] = None,
                  name: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
+                 tags: Optional[Sequence['outputs.DetectorTag']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-arn
-        :param str created_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-createdtime
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-description
-        :param Sequence['DetectorEntityType'] entity_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-entitytypes
-        :param Sequence['DetectorEventVariable'] event_variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-eventvariables
-        :param bool inline: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-inline
-        :param Sequence['DetectorLabel'] labels: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-labels
-        :param str last_updated_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-lastupdatedtime
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-name
-        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-tags
+        :param str arn: The ARN of the event type.
+        :param str created_time: The time when the event type was created.
+        :param str description: The description of the event type.
+        :param str last_updated_time: The time when the event type was last updated.
+        :param str name: The name for the event type
+        :param Sequence['DetectorTag'] tags: Tags associated with this event type.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -214,7 +195,7 @@ class DetectorEventType(dict):
     @pulumi.getter
     def arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-arn
+        The ARN of the event type.
         """
         return pulumi.get(self, "arn")
 
@@ -222,7 +203,7 @@ class DetectorEventType(dict):
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-createdtime
+        The time when the event type was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -230,47 +211,35 @@ class DetectorEventType(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-description
+        The description of the event type.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="entityTypes")
     def entity_types(self) -> Optional[Sequence['outputs.DetectorEntityType']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-entitytypes
-        """
         return pulumi.get(self, "entity_types")
 
     @property
     @pulumi.getter(name="eventVariables")
     def event_variables(self) -> Optional[Sequence['outputs.DetectorEventVariable']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-eventvariables
-        """
         return pulumi.get(self, "event_variables")
 
     @property
     @pulumi.getter
     def inline(self) -> Optional[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-inline
-        """
         return pulumi.get(self, "inline")
 
     @property
     @pulumi.getter
     def labels(self) -> Optional[Sequence['outputs.DetectorLabel']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-labels
-        """
         return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-lastupdatedtime
+        The time when the event type was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
@@ -278,24 +247,21 @@ class DetectorEventType(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-name
+        The name for the event type
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+    def tags(self) -> Optional[Sequence['outputs.DetectorTag']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-tags
+        Tags associated with this event type.
         """
         return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
 class DetectorEventVariable(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -333,21 +299,13 @@ class DetectorEventVariable(dict):
                  inline: Optional[bool] = None,
                  last_updated_time: Optional[str] = None,
                  name: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None,
+                 tags: Optional[Sequence['outputs.DetectorTag']] = None,
                  variable_type: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-arn
-        :param str created_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-createdtime
-        :param str data_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-datasource
-        :param str data_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-datatype
-        :param str default_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-defaultvalue
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-description
-        :param bool inline: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-inline
-        :param str last_updated_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-lastupdatedtime
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-name
-        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-tags
-        :param str variable_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-variabletype
+        :param str created_time: The time when the event variable was created.
+        :param str description: The description.
+        :param str last_updated_time: The time when the event variable was last updated.
+        :param Sequence['DetectorTag'] tags: Tags associated with this event variable.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -375,97 +333,73 @@ class DetectorEventVariable(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-arn
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-createdtime
+        The time when the event variable was created.
         """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-datasource
-        """
         return pulumi.get(self, "data_source")
 
     @property
     @pulumi.getter(name="dataType")
     def data_type(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-datatype
-        """
         return pulumi.get(self, "data_type")
 
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-defaultvalue
-        """
         return pulumi.get(self, "default_value")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-description
+        The description.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def inline(self) -> Optional[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-inline
-        """
         return pulumi.get(self, "inline")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-lastupdatedtime
+        The time when the event variable was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+    def tags(self) -> Optional[Sequence['outputs.DetectorTag']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-tags
+        Tags associated with this event variable.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="variableType")
     def variable_type(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-variabletype
-        """
         return pulumi.get(self, "variable_type")
 
 
 @pulumi.output_type
 class DetectorLabel(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -492,16 +426,12 @@ class DetectorLabel(dict):
                  inline: Optional[bool] = None,
                  last_updated_time: Optional[str] = None,
                  name: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
+                 tags: Optional[Sequence['outputs.DetectorTag']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-arn
-        :param str created_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-createdtime
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-description
-        :param bool inline: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-inline
-        :param str last_updated_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-lastupdatedtime
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-name
-        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-tags
+        :param str created_time: The time when the label was created.
+        :param str description: The description.
+        :param str last_updated_time: The time when the label was last updated.
+        :param Sequence['DetectorTag'] tags: Tags associated with this label.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -521,16 +451,13 @@ class DetectorLabel(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-arn
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-createdtime
+        The time when the label was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -538,39 +465,33 @@ class DetectorLabel(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-description
+        The description.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def inline(self) -> Optional[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-inline
-        """
         return pulumi.get(self, "inline")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-lastupdatedtime
+        The time when the label was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+    def tags(self) -> Optional[Sequence['outputs.DetectorTag']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-tags
+        Tags associated with this label.
         """
         return pulumi.get(self, "tags")
 
@@ -578,13 +499,12 @@ class DetectorLabel(dict):
 @pulumi.output_type
 class DetectorModel(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html
+    A model to associate with a detector.
     """
     def __init__(__self__, *,
                  arn: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html#cfn-frauddetector-detector-model-arn
+        A model to associate with a detector.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -592,17 +512,11 @@ class DetectorModel(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html#cfn-frauddetector-detector-model-arn
-        """
         return pulumi.get(self, "arn")
 
 
 @pulumi.output_type
 class DetectorOutcome(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -629,16 +543,12 @@ class DetectorOutcome(dict):
                  inline: Optional[bool] = None,
                  last_updated_time: Optional[str] = None,
                  name: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
+                 tags: Optional[Sequence['outputs.DetectorTag']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-arn
-        :param str created_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-createdtime
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-description
-        :param bool inline: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-inline
-        :param str last_updated_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-lastupdatedtime
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-name
-        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-tags
+        :param str created_time: The time when the outcome was created.
+        :param str description: The description.
+        :param str last_updated_time: The time when the outcome was last updated.
+        :param Sequence['DetectorTag'] tags: Tags associated with this outcome.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -658,16 +568,13 @@ class DetectorOutcome(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-arn
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-createdtime
+        The time when the outcome was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -675,48 +582,39 @@ class DetectorOutcome(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-description
+        The description.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def inline(self) -> Optional[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-inline
-        """
         return pulumi.get(self, "inline")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-lastupdatedtime
+        The time when the outcome was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+    def tags(self) -> Optional[Sequence['outputs.DetectorTag']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-tags
+        Tags associated with this outcome.
         """
         return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
 class DetectorRule(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -753,20 +651,12 @@ class DetectorRule(dict):
                  outcomes: Optional[Sequence['outputs.DetectorOutcome']] = None,
                  rule_id: Optional[str] = None,
                  rule_version: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
+                 tags: Optional[Sequence['outputs.DetectorTag']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-arn
-        :param str created_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-createdtime
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-description
-        :param str detector_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-detectorid
-        :param str expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-expression
-        :param str language: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-language
-        :param str last_updated_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-lastupdatedtime
-        :param Sequence['DetectorOutcome'] outcomes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-outcomes
-        :param str rule_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-ruleid
-        :param str rule_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-ruleversion
-        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-tags
+        :param str created_time: The time when the event type was created.
+        :param str description: The description.
+        :param str last_updated_time: The time when the event type was last updated.
+        :param Sequence['DetectorTag'] tags: Tags associated with this event type.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -794,16 +684,13 @@ class DetectorRule(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-arn
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-createdtime
+        The time when the event type was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -811,80 +698,97 @@ class DetectorRule(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-description
+        The description.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="detectorId")
     def detector_id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-detectorid
-        """
         return pulumi.get(self, "detector_id")
 
     @property
     @pulumi.getter
     def expression(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-expression
-        """
         return pulumi.get(self, "expression")
 
     @property
     @pulumi.getter
     def language(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-language
-        """
         return pulumi.get(self, "language")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-lastupdatedtime
+        The time when the event type was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def outcomes(self) -> Optional[Sequence['outputs.DetectorOutcome']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-outcomes
-        """
         return pulumi.get(self, "outcomes")
 
     @property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-ruleid
-        """
         return pulumi.get(self, "rule_id")
 
     @property
     @pulumi.getter(name="ruleVersion")
     def rule_version(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-ruleversion
-        """
         return pulumi.get(self, "rule_version")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+    def tags(self) -> Optional[Sequence['outputs.DetectorTag']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-tags
+        Tags associated with this event type.
         """
         return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
+class DetectorTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EntityTypeTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class EventTypeEntityType(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -911,16 +815,12 @@ class EventTypeEntityType(dict):
                  inline: Optional[bool] = None,
                  last_updated_time: Optional[str] = None,
                  name: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
+                 tags: Optional[Sequence['outputs.EventTypeTag']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-arn
-        :param str created_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-createdtime
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-description
-        :param bool inline: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-inline
-        :param str last_updated_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-lastupdatedtime
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-name
-        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-tags
+        :param str created_time: The time when the event type was created.
+        :param str description: The description.
+        :param str last_updated_time: The time when the event type was last updated.
+        :param Sequence['EventTypeTag'] tags: Tags associated with this event type.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -940,16 +840,13 @@ class EventTypeEntityType(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-arn
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-createdtime
+        The time when the event type was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -957,48 +854,39 @@ class EventTypeEntityType(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-description
+        The description.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def inline(self) -> Optional[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-inline
-        """
         return pulumi.get(self, "inline")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-lastupdatedtime
+        The time when the event type was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+    def tags(self) -> Optional[Sequence['outputs.EventTypeTag']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-tags
+        Tags associated with this event type.
         """
         return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
 class EventTypeEventVariable(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1036,21 +924,13 @@ class EventTypeEventVariable(dict):
                  inline: Optional[bool] = None,
                  last_updated_time: Optional[str] = None,
                  name: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None,
+                 tags: Optional[Sequence['outputs.EventTypeTag']] = None,
                  variable_type: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-arn
-        :param str created_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-createdtime
-        :param str data_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-datasource
-        :param str data_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-datatype
-        :param str default_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-defaultvalue
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-description
-        :param bool inline: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-inline
-        :param str last_updated_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-lastupdatedtime
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-name
-        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-tags
-        :param str variable_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-variabletype
+        :param str created_time: The time when the event type was created.
+        :param str description: The description.
+        :param str last_updated_time: The time when the event type was last updated.
+        :param Sequence['EventTypeTag'] tags: Tags associated with this event type.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -1078,97 +958,73 @@ class EventTypeEventVariable(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-arn
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-createdtime
+        The time when the event type was created.
         """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="dataSource")
     def data_source(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-datasource
-        """
         return pulumi.get(self, "data_source")
 
     @property
     @pulumi.getter(name="dataType")
     def data_type(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-datatype
-        """
         return pulumi.get(self, "data_type")
 
     @property
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-defaultvalue
-        """
         return pulumi.get(self, "default_value")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-description
+        The description.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def inline(self) -> Optional[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-inline
-        """
         return pulumi.get(self, "inline")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-lastupdatedtime
+        The time when the event type was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+    def tags(self) -> Optional[Sequence['outputs.EventTypeTag']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-tags
+        Tags associated with this event type.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="variableType")
     def variable_type(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-variabletype
-        """
         return pulumi.get(self, "variable_type")
 
 
 @pulumi.output_type
 class EventTypeLabel(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1195,16 +1051,12 @@ class EventTypeLabel(dict):
                  inline: Optional[bool] = None,
                  last_updated_time: Optional[str] = None,
                  name: Optional[str] = None,
-                 tags: Optional[Sequence['_root_outputs.Tag']] = None):
+                 tags: Optional[Sequence['outputs.EventTypeTag']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-arn
-        :param str created_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-createdtime
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-description
-        :param bool inline: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-inline
-        :param str last_updated_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-lastupdatedtime
-        :param str name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-name
-        :param Sequence['_root_inputs.Tag'] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-tags
+        :param str created_time: The time when the event type was created.
+        :param str description: The description.
+        :param str last_updated_time: The time when the event type was last updated.
+        :param Sequence['EventTypeTag'] tags: Tags associated with this event type.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -1224,16 +1076,13 @@ class EventTypeLabel(dict):
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-arn
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-createdtime
+        The time when the event type was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -1241,40 +1090,110 @@ class EventTypeLabel(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-description
+        The description.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def inline(self) -> Optional[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-inline
-        """
         return pulumi.get(self, "inline")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-lastupdatedtime
+        The time when the event type was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+    def tags(self) -> Optional[Sequence['outputs.EventTypeTag']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-tags
+        Tags associated with this event type.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class EventTypeTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class LabelTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class OutcomeTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VariableTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 

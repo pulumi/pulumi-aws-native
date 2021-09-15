@@ -10,19 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Detective
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html
+    /// Resource schema for AWS::Detective::Graph
     /// </summary>
     [AwsNativeResourceType("aws-native:detective:Graph")]
     public partial class Graph : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Detective graph ARN
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html#cfn-detective-graph-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GraphTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -70,14 +70,10 @@ namespace Pulumi.AwsNative.Detective
     public sealed class GraphArgs : Pulumi.ResourceArgs
     {
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html#cfn-detective-graph-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.GraphTagArgs>? _tags;
+        public InputList<Inputs.GraphTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.GraphTagArgs>());
             set => _tags = value;
         }
 

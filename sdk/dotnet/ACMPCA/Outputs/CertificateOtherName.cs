@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html
+    /// Structure that contains X.509 OtherName information.
     /// </summary>
     [OutputType]
     public sealed class CertificateOtherName
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-typeid
-        /// </summary>
         public readonly string TypeId;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-value
-        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

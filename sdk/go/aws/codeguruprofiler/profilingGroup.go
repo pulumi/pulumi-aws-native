@@ -8,25 +8,25 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html
+// This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
 type ProfilingGroup struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
+	// The agent permissions attached to this profiling group.
 	AgentPermissions pulumi.AnyOutput `pulumi:"agentPermissions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
+	// Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
 	AnomalyDetectionNotificationConfiguration ProfilingGroupChannelArrayOutput `pulumi:"anomalyDetectionNotificationConfiguration"`
-	Arn                                       pulumi.StringOutput              `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
+	// The Amazon Resource Name (ARN) of the specified profiling group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The compute platform of the profiling group.
 	ComputePlatform pulumi.StringPtrOutput `pulumi:"computePlatform"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
+	// The name of the profiling group.
 	ProfilingGroupName pulumi.StringOutput `pulumi:"profilingGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The tags associated with a profiling group.
+	Tags ProfilingGroupTagArrayOutput `pulumi:"tags"`
 }
 
 // NewProfilingGroup registers a new resource with the given unique name, arguments, and options.
@@ -71,30 +71,30 @@ func (ProfilingGroupState) ElementType() reflect.Type {
 }
 
 type profilingGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
+	// The agent permissions attached to this profiling group.
 	AgentPermissions interface{} `pulumi:"agentPermissions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
+	// Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
 	AnomalyDetectionNotificationConfiguration []ProfilingGroupChannel `pulumi:"anomalyDetectionNotificationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
+	// The compute platform of the profiling group.
 	ComputePlatform *string `pulumi:"computePlatform"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
+	// The name of the profiling group.
 	ProfilingGroupName string `pulumi:"profilingGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// The tags associated with a profiling group.
+	Tags []ProfilingGroupTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ProfilingGroup resource.
 type ProfilingGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
+	// The agent permissions attached to this profiling group.
 	AgentPermissions pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
+	// Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
 	AnomalyDetectionNotificationConfiguration ProfilingGroupChannelArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
+	// The compute platform of the profiling group.
 	ComputePlatform pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
+	// The name of the profiling group.
 	ProfilingGroupName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
-	Tags aws.TagArrayInput
+	// The tags associated with a profiling group.
+	Tags ProfilingGroupTagArrayInput
 }
 
 func (ProfilingGroupArgs) ElementType() reflect.Type {

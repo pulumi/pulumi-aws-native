@@ -7,21 +7,20 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html
+// Resource schema for AWS::SES::ContactList.
 type ContactList struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-contactlistname
+	// The name of the contact list.
 	ContactListName pulumi.StringPtrOutput `pulumi:"contactListName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-description
+	// The description of the contact list.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-topics
+	// The tags (keys and values) associated with the contact list.
+	Tags ContactListTagArrayOutput `pulumi:"tags"`
+	// The topics associated with the contact list.
 	Topics ContactListTopicArrayOutput `pulumi:"topics"`
 }
 
@@ -64,25 +63,25 @@ func (ContactListState) ElementType() reflect.Type {
 }
 
 type contactListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-contactlistname
+	// The name of the contact list.
 	ContactListName *string `pulumi:"contactListName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-description
+	// The description of the contact list.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-topics
+	// The tags (keys and values) associated with the contact list.
+	Tags []ContactListTag `pulumi:"tags"`
+	// The topics associated with the contact list.
 	Topics []ContactListTopic `pulumi:"topics"`
 }
 
 // The set of arguments for constructing a ContactList resource.
 type ContactListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-contactlistname
+	// The name of the contact list.
 	ContactListName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-description
+	// The description of the contact list.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-topics
+	// The tags (keys and values) associated with the contact list.
+	Tags ContactListTagArrayInput
+	// The topics associated with the contact list.
 	Topics ContactListTopicArrayInput
 }
 

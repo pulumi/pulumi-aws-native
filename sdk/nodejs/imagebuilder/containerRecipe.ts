@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html
+ * Resource schema for AWS::ImageBuilder::ContainerRecipe
  */
 export class ContainerRecipe extends pulumi.CustomResource {
     /**
@@ -35,62 +35,68 @@ export class ContainerRecipe extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContainerRecipe.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the container recipe.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-components
+     * Components for build and test that are included in the container recipe.
      */
-    public readonly components!: pulumi.Output<outputs.imagebuilder.ContainerRecipeComponentConfiguration[]>;
+    public readonly components!: pulumi.Output<outputs.imagebuilder.ContainerRecipeComponentConfiguration[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-containertype
+     * Specifies the type of container, such as Docker.
      */
-    public readonly containerType!: pulumi.Output<string>;
+    public readonly containerType!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-description
+     * The description of the container recipe.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplatedata
+     * Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
      */
     public readonly dockerfileTemplateData!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplateuri
+     * The S3 URI for the Dockerfile that will be used to build your container image.
      */
     public readonly dockerfileTemplateUri!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-imageosversionoverride
+     * Specifies the operating system version for the source image.
      */
     public readonly imageOsVersionOverride!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-instanceconfiguration
+     * A group of options that can be used to configure an instance for building and testing container images.
      */
     public readonly instanceConfiguration!: pulumi.Output<outputs.imagebuilder.ContainerRecipeInstanceConfiguration | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-kmskeyid
+     * Identifies which KMS key is used to encrypt the container image.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
-    public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-parentimage
+     * The name of the container recipe.
      */
-    public readonly parentImage!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-platformoverride
+     * The source image for the container recipe.
+     */
+    public readonly parentImage!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the operating system platform when you use a custom source image.
      */
     public readonly platformOverride!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-tags
+     * Tags that are attached to the container recipe.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<any | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-targetrepository
+     * The destination repository for the container image.
      */
-    public readonly targetRepository!: pulumi.Output<outputs.imagebuilder.ContainerRecipeTargetContainerRepository>;
+    public readonly targetRepository!: pulumi.Output<outputs.imagebuilder.ContainerRecipeTargetContainerRepository | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-version
+     * The semantic version of the container recipe (<major>.<minor>.<patch>).
      */
-    public readonly version!: pulumi.Output<string>;
+    public readonly version!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-workingdirectory
+     * The working directory to be used during build and test workflows.
      */
     public readonly workingDirectory!: pulumi.Output<string | undefined>;
 
@@ -101,28 +107,10 @@ export class ContainerRecipe extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ContainerRecipeArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ContainerRecipeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.components === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'components'");
-            }
-            if ((!args || args.containerType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'containerType'");
-            }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
-            if ((!args || args.parentImage === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'parentImage'");
-            }
-            if ((!args || args.targetRepository === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'targetRepository'");
-            }
-            if ((!args || args.version === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'version'");
-            }
             inputs["components"] = args ? args.components : undefined;
             inputs["containerType"] = args ? args.containerType : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -169,63 +157,63 @@ export class ContainerRecipe extends pulumi.CustomResource {
  */
 export interface ContainerRecipeArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-components
+     * Components for build and test that are included in the container recipe.
      */
-    components: pulumi.Input<pulumi.Input<inputs.imagebuilder.ContainerRecipeComponentConfigurationArgs>[]>;
+    components?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ContainerRecipeComponentConfigurationArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-containertype
+     * Specifies the type of container, such as Docker.
      */
-    containerType: pulumi.Input<string>;
+    containerType?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-description
+     * The description of the container recipe.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplatedata
+     * Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
      */
     dockerfileTemplateData?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplateuri
+     * The S3 URI for the Dockerfile that will be used to build your container image.
      */
     dockerfileTemplateUri?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-imageosversionoverride
+     * Specifies the operating system version for the source image.
      */
     imageOsVersionOverride?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-instanceconfiguration
+     * A group of options that can be used to configure an instance for building and testing container images.
      */
     instanceConfiguration?: pulumi.Input<inputs.imagebuilder.ContainerRecipeInstanceConfigurationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-kmskeyid
+     * Identifies which KMS key is used to encrypt the container image.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-name
+     * The name of the container recipe.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-parentimage
+     * The source image for the container recipe.
      */
-    parentImage: pulumi.Input<string>;
+    parentImage?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-platformoverride
+     * Specifies the operating system platform when you use a custom source image.
      */
     platformOverride?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-tags
+     * Tags that are attached to the container recipe.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: any;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-targetrepository
+     * The destination repository for the container image.
      */
-    targetRepository: pulumi.Input<inputs.imagebuilder.ContainerRecipeTargetContainerRepositoryArgs>;
+    targetRepository?: pulumi.Input<inputs.imagebuilder.ContainerRecipeTargetContainerRepositoryArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-version
+     * The semantic version of the container recipe (<major>.<minor>.<patch>).
      */
-    version: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-workingdirectory
+     * The working directory to be used during build and test workflows.
      */
     workingDirectory?: pulumi.Input<string>;
 }

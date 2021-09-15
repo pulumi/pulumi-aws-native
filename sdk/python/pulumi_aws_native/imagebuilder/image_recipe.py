@@ -22,19 +22,19 @@ class ImageRecipeArgs:
                  additional_instance_configuration: Optional[pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs']] = None,
                  block_device_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  working_directory: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ImageRecipe resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]] components: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
-        :param pulumi.Input[str] parent_image: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
-        :param pulumi.Input[str] version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
-        :param pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs'] additional_instance_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
-        :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]] block_device_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
-        :param pulumi.Input[str] working_directory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+        :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]] components: The components of the image recipe.
+        :param pulumi.Input[str] name: The name of the image recipe.
+        :param pulumi.Input[str] parent_image: The parent image of the image recipe.
+        :param pulumi.Input[str] version: The version of the image recipe.
+        :param pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs'] additional_instance_configuration: Specify additional settings and launch scripts for your build instances.
+        :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]] block_device_mappings: The block device mappings to apply when creating images from this recipe.
+        :param pulumi.Input[str] description: The description of the image recipe.
+        :param Any tags: The tags of the image recipe.
+        :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         pulumi.set(__self__, "components", components)
         pulumi.set(__self__, "name", name)
@@ -55,7 +55,7 @@ class ImageRecipeArgs:
     @pulumi.getter
     def components(self) -> pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentConfigurationArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
+        The components of the image recipe.
         """
         return pulumi.get(self, "components")
 
@@ -67,7 +67,7 @@ class ImageRecipeArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
+        The name of the image recipe.
         """
         return pulumi.get(self, "name")
 
@@ -79,7 +79,7 @@ class ImageRecipeArgs:
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
+        The parent image of the image recipe.
         """
         return pulumi.get(self, "parent_image")
 
@@ -91,7 +91,7 @@ class ImageRecipeArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
+        The version of the image recipe.
         """
         return pulumi.get(self, "version")
 
@@ -103,7 +103,7 @@ class ImageRecipeArgs:
     @pulumi.getter(name="additionalInstanceConfiguration")
     def additional_instance_configuration(self) -> Optional[pulumi.Input['ImageRecipeAdditionalInstanceConfigurationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
+        Specify additional settings and launch scripts for your build instances.
         """
         return pulumi.get(self, "additional_instance_configuration")
 
@@ -115,7 +115,7 @@ class ImageRecipeArgs:
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageRecipeInstanceBlockDeviceMappingArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
+        The block device mappings to apply when creating images from this recipe.
         """
         return pulumi.get(self, "block_device_mappings")
 
@@ -127,7 +127,7 @@ class ImageRecipeArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
+        The description of the image recipe.
         """
         return pulumi.get(self, "description")
 
@@ -137,21 +137,21 @@ class ImageRecipeArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def tags(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
+        The tags of the image recipe.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def tags(self, value: Optional[Any]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+        The working directory to be used during build and test workflows.
         """
         return pulumi.get(self, "working_directory")
 
@@ -171,24 +171,24 @@ class ImageRecipe(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html
+        Resource schema for AWS::ImageBuilder::ImageRecipe
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ImageRecipeAdditionalInstanceConfigurationArgs']] additional_instance_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeInstanceBlockDeviceMappingArgs']]]] block_device_mappings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeComponentConfigurationArgs']]]] components: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
-        :param pulumi.Input[str] parent_image: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
-        :param pulumi.Input[str] version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
-        :param pulumi.Input[str] working_directory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+        :param pulumi.Input[pulumi.InputType['ImageRecipeAdditionalInstanceConfigurationArgs']] additional_instance_configuration: Specify additional settings and launch scripts for your build instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeInstanceBlockDeviceMappingArgs']]]] block_device_mappings: The block device mappings to apply when creating images from this recipe.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageRecipeComponentConfigurationArgs']]]] components: The components of the image recipe.
+        :param pulumi.Input[str] description: The description of the image recipe.
+        :param pulumi.Input[str] name: The name of the image recipe.
+        :param pulumi.Input[str] parent_image: The parent image of the image recipe.
+        :param Any tags: The tags of the image recipe.
+        :param pulumi.Input[str] version: The version of the image recipe.
+        :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         ...
     @overload
@@ -197,7 +197,7 @@ class ImageRecipe(pulumi.CustomResource):
                  args: ImageRecipeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html
+        Resource schema for AWS::ImageBuilder::ImageRecipe
 
         :param str resource_name: The name of the resource.
         :param ImageRecipeArgs args: The arguments to use to populate this resource's properties.
@@ -220,7 +220,7 @@ class ImageRecipe(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -291,20 +291,23 @@ class ImageRecipe(pulumi.CustomResource):
     @pulumi.getter(name="additionalInstanceConfiguration")
     def additional_instance_configuration(self) -> pulumi.Output[Optional['outputs.ImageRecipeAdditionalInstanceConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
+        Specify additional settings and launch scripts for your build instances.
         """
         return pulumi.get(self, "additional_instance_configuration")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the image recipe.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> pulumi.Output[Optional[Sequence['outputs.ImageRecipeInstanceBlockDeviceMapping']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
+        The block device mappings to apply when creating images from this recipe.
         """
         return pulumi.get(self, "block_device_mappings")
 
@@ -312,7 +315,7 @@ class ImageRecipe(pulumi.CustomResource):
     @pulumi.getter
     def components(self) -> pulumi.Output[Sequence['outputs.ImageRecipeComponentConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
+        The components of the image recipe.
         """
         return pulumi.get(self, "components")
 
@@ -320,28 +323,31 @@ class ImageRecipe(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
+        The description of the image recipe.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the image recipe.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="parentImage")
     def parent_image(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
+        The parent image of the image recipe.
         """
         return pulumi.get(self, "parent_image")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def tags(self) -> pulumi.Output[Optional[Any]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
+        The tags of the image recipe.
         """
         return pulumi.get(self, "tags")
 
@@ -349,7 +355,7 @@ class ImageRecipe(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
+        The version of the image recipe.
         """
         return pulumi.get(self, "version")
 
@@ -357,7 +363,7 @@ class ImageRecipe(pulumi.CustomResource):
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+        The working directory to be used during build and test workflows.
         """
         return pulumi.get(self, "working_directory")
 

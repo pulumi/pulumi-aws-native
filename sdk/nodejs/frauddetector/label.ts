@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html
+ * An label for fraud detector.
  */
 export class Label extends pulumi.CustomResource {
     /**
@@ -35,21 +35,30 @@ export class Label extends pulumi.CustomResource {
         return obj['__pulumiType'] === Label.__pulumiType;
     }
 
+    /**
+     * The label ARN.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The timestamp when the label was created.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html#cfn-frauddetector-label-description
+     * The label description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The timestamp when the label was last updated.
+     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html#cfn-frauddetector-label-name
+     * The name of the label.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html#cfn-frauddetector-label-tags
+     * Tags associated with this label.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.frauddetector.LabelTag[] | undefined>;
 
     /**
      * Create a Label resource with the given unique name, arguments, and options.
@@ -91,15 +100,15 @@ export class Label extends pulumi.CustomResource {
  */
 export interface LabelArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html#cfn-frauddetector-label-description
+     * The label description.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html#cfn-frauddetector-label-name
+     * The name of the label.
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html#cfn-frauddetector-label-tags
+     * Tags associated with this label.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.frauddetector.LabelTagArgs>[]>;
 }

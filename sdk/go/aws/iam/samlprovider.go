@@ -8,21 +8,18 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html
+// Resource Type definition for AWS::IAM::SAMLProvider
 type SAMLProvider struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-samlmetadatadocument
-	SamlMetadataDocument pulumi.StringOutput `pulumi:"samlMetadataDocument"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Amazon Resource Name (ARN) of the SAML provider
+	Arn                  pulumi.StringOutput        `pulumi:"arn"`
+	Name                 pulumi.StringPtrOutput     `pulumi:"name"`
+	SamlMetadataDocument pulumi.StringOutput        `pulumi:"samlMetadataDocument"`
+	Tags                 SAMLProviderTagArrayOutput `pulumi:"tags"`
 }
 
 // NewSAMLProvider registers a new resource with the given unique name, arguments, and options.
@@ -67,22 +64,16 @@ func (SAMLProviderState) ElementType() reflect.Type {
 }
 
 type samlproviderArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-samlmetadatadocument
-	SamlMetadataDocument string `pulumi:"samlMetadataDocument"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	Name                 *string           `pulumi:"name"`
+	SamlMetadataDocument string            `pulumi:"samlMetadataDocument"`
+	Tags                 []SAMLProviderTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SAMLProvider resource.
 type SAMLProviderArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-name
-	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-samlmetadatadocument
+	Name                 pulumi.StringPtrInput
 	SamlMetadataDocument pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-tags
-	Tags aws.TagArrayInput
+	Tags                 SAMLProviderTagArrayInput
 }
 
 func (SAMLProviderArgs) ElementType() reflect.Type {

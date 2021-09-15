@@ -10,46 +10,49 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html
+    /// Resource Type definition for AWS::SageMaker::App
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:App")]
     public partial class App : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the app.
+        /// </summary>
         [Output("appArn")]
         public Output<string> AppArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-appname
+        /// The name of the app.
         /// </summary>
         [Output("appName")]
         public Output<string> AppName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-apptype
+        /// The type of app.
         /// </summary>
         [Output("appType")]
         public Output<string> AppType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-domainid
+        /// The domain ID.
         /// </summary>
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-resourcespec
+        /// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         /// </summary>
         [Output("resourceSpec")]
         public Output<Outputs.AppResourceSpec?> ResourceSpec { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-tags
+        /// A list of tags to apply to the app.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AppTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-userprofilename
+        /// The user profile name.
         /// </summary>
         [Output("userProfileName")]
         public Output<string> UserProfileName { get; private set; } = null!;
@@ -100,43 +103,43 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class AppArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-appname
+        /// The name of the app.
         /// </summary>
         [Input("appName", required: true)]
         public Input<string> AppName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-apptype
+        /// The type of app.
         /// </summary>
         [Input("appType", required: true)]
         public Input<string> AppType { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-domainid
+        /// The domain ID.
         /// </summary>
         [Input("domainId", required: true)]
         public Input<string> DomainId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-resourcespec
+        /// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         /// </summary>
         [Input("resourceSpec")]
         public Input<Inputs.AppResourceSpecArgs>? ResourceSpec { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.AppTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-tags
+        /// A list of tags to apply to the app.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.AppTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.AppTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-userprofilename
+        /// The user profile name.
         /// </summary>
         [Input("userProfileName", required: true)]
         public Input<string> UserProfileName { get; set; } = null!;

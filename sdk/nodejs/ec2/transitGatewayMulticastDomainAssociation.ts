@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html
+ * The AWS::EC2::TransitGatewayMulticastDomainAssociation type
  */
 export class TransitGatewayMulticastDomainAssociation extends pulumi.CustomResource {
     /**
@@ -34,19 +34,28 @@ export class TransitGatewayMulticastDomainAssociation extends pulumi.CustomResou
         return obj['__pulumiType'] === TransitGatewayMulticastDomainAssociation.__pulumiType;
     }
 
+    /**
+     * The ID of the resource.
+     */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    /**
+     * The type of resource, for example a VPC attachment.
+     */
     public /*out*/ readonly resourceType!: pulumi.Output<string>;
+    /**
+     * The state of the subnet association.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-subnetid
+     * The IDs of the subnets to associate with the transit gateway multicast domain.
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewayattachmentid
+     * The ID of the transit gateway attachment.
      */
     public readonly transitGatewayAttachmentId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewaymulticastdomainid
+     * The ID of the transit gateway multicast domain.
      */
     public readonly transitGatewayMulticastDomainId!: pulumi.Output<string>;
 
@@ -96,15 +105,15 @@ export class TransitGatewayMulticastDomainAssociation extends pulumi.CustomResou
  */
 export interface TransitGatewayMulticastDomainAssociationArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-subnetid
+     * The IDs of the subnets to associate with the transit gateway multicast domain.
      */
     subnetId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewayattachmentid
+     * The ID of the transit gateway attachment.
      */
     transitGatewayAttachmentId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewaymulticastdomainid
+     * The ID of the transit gateway multicast domain.
      */
     transitGatewayMulticastDomainId: pulumi.Input<string>;
 }

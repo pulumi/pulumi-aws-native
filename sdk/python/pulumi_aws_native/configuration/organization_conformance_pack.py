@@ -24,13 +24,13 @@ class OrganizationConformancePackArgs:
                  template_s3_uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OrganizationConformancePack resource.
-        :param pulumi.Input[str] organization_conformance_pack_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-organizationconformancepackname
-        :param pulumi.Input[Sequence[pulumi.Input['OrganizationConformancePackConformancePackInputParameterArgs']]] conformance_pack_input_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
-        :param pulumi.Input[str] delivery_s3_bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
-        :param pulumi.Input[str] delivery_s3_key_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
-        :param pulumi.Input[str] template_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templatebody
-        :param pulumi.Input[str] template_s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templates3uri
+        :param pulumi.Input[str] organization_conformance_pack_name: The name of the organization conformance pack.
+        :param pulumi.Input[Sequence[pulumi.Input['OrganizationConformancePackConformancePackInputParameterArgs']]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
+        :param pulumi.Input[str] delivery_s3_bucket: AWS Config stores intermediate files while processing conformance pack template.
+        :param pulumi.Input[str] delivery_s3_key_prefix: The prefix for the delivery S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_accounts: A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
+        :param pulumi.Input[str] template_body: A string containing full conformance pack template body.
+        :param pulumi.Input[str] template_s3_uri: Location of file containing the template body.
         """
         pulumi.set(__self__, "organization_conformance_pack_name", organization_conformance_pack_name)
         if conformance_pack_input_parameters is not None:
@@ -50,7 +50,7 @@ class OrganizationConformancePackArgs:
     @pulumi.getter(name="organizationConformancePackName")
     def organization_conformance_pack_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-organizationconformancepackname
+        The name of the organization conformance pack.
         """
         return pulumi.get(self, "organization_conformance_pack_name")
 
@@ -62,7 +62,7 @@ class OrganizationConformancePackArgs:
     @pulumi.getter(name="conformancePackInputParameters")
     def conformance_pack_input_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConformancePackConformancePackInputParameterArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
+        A list of ConformancePackInputParameter objects.
         """
         return pulumi.get(self, "conformance_pack_input_parameters")
 
@@ -74,7 +74,7 @@ class OrganizationConformancePackArgs:
     @pulumi.getter(name="deliveryS3Bucket")
     def delivery_s3_bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
+        AWS Config stores intermediate files while processing conformance pack template.
         """
         return pulumi.get(self, "delivery_s3_bucket")
 
@@ -86,7 +86,7 @@ class OrganizationConformancePackArgs:
     @pulumi.getter(name="deliveryS3KeyPrefix")
     def delivery_s3_key_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
+        The prefix for the delivery S3 bucket.
         """
         return pulumi.get(self, "delivery_s3_key_prefix")
 
@@ -98,7 +98,7 @@ class OrganizationConformancePackArgs:
     @pulumi.getter(name="excludedAccounts")
     def excluded_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
+        A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
         """
         return pulumi.get(self, "excluded_accounts")
 
@@ -110,7 +110,7 @@ class OrganizationConformancePackArgs:
     @pulumi.getter(name="templateBody")
     def template_body(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templatebody
+        A string containing full conformance pack template body.
         """
         return pulumi.get(self, "template_body")
 
@@ -122,7 +122,7 @@ class OrganizationConformancePackArgs:
     @pulumi.getter(name="templateS3Uri")
     def template_s3_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templates3uri
+        Location of file containing the template body.
         """
         return pulumi.get(self, "template_s3_uri")
 
@@ -145,17 +145,17 @@ class OrganizationConformancePack(pulumi.CustomResource):
                  template_s3_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html
+        Resource schema for AWS::Config::OrganizationConformancePack.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConformancePackConformancePackInputParameterArgs']]]] conformance_pack_input_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
-        :param pulumi.Input[str] delivery_s3_bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
-        :param pulumi.Input[str] delivery_s3_key_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_accounts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
-        :param pulumi.Input[str] organization_conformance_pack_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-organizationconformancepackname
-        :param pulumi.Input[str] template_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templatebody
-        :param pulumi.Input[str] template_s3_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templates3uri
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrganizationConformancePackConformancePackInputParameterArgs']]]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
+        :param pulumi.Input[str] delivery_s3_bucket: AWS Config stores intermediate files while processing conformance pack template.
+        :param pulumi.Input[str] delivery_s3_key_prefix: The prefix for the delivery S3 bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_accounts: A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
+        :param pulumi.Input[str] organization_conformance_pack_name: The name of the organization conformance pack.
+        :param pulumi.Input[str] template_body: A string containing full conformance pack template body.
+        :param pulumi.Input[str] template_s3_uri: Location of file containing the template body.
         """
         ...
     @overload
@@ -164,7 +164,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
                  args: OrganizationConformancePackArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html
+        Resource schema for AWS::Config::OrganizationConformancePack.
 
         :param str resource_name: The name of the resource.
         :param OrganizationConformancePackArgs args: The arguments to use to populate this resource's properties.
@@ -244,7 +244,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
     @pulumi.getter(name="conformancePackInputParameters")
     def conformance_pack_input_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.OrganizationConformancePackConformancePackInputParameter']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
+        A list of ConformancePackInputParameter objects.
         """
         return pulumi.get(self, "conformance_pack_input_parameters")
 
@@ -252,7 +252,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
     @pulumi.getter(name="deliveryS3Bucket")
     def delivery_s3_bucket(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
+        AWS Config stores intermediate files while processing conformance pack template.
         """
         return pulumi.get(self, "delivery_s3_bucket")
 
@@ -260,7 +260,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
     @pulumi.getter(name="deliveryS3KeyPrefix")
     def delivery_s3_key_prefix(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
+        The prefix for the delivery S3 bucket.
         """
         return pulumi.get(self, "delivery_s3_key_prefix")
 
@@ -268,7 +268,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
     @pulumi.getter(name="excludedAccounts")
     def excluded_accounts(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
+        A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
         """
         return pulumi.get(self, "excluded_accounts")
 
@@ -276,7 +276,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
     @pulumi.getter(name="organizationConformancePackName")
     def organization_conformance_pack_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-organizationconformancepackname
+        The name of the organization conformance pack.
         """
         return pulumi.get(self, "organization_conformance_pack_name")
 
@@ -284,7 +284,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
     @pulumi.getter(name="templateBody")
     def template_body(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templatebody
+        A string containing full conformance pack template body.
         """
         return pulumi.get(self, "template_body")
 
@@ -292,7 +292,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
     @pulumi.getter(name="templateS3Uri")
     def template_s3_uri(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templates3uri
+        Location of file containing the template body.
         """
         return pulumi.get(self, "template_s3_uri")
 

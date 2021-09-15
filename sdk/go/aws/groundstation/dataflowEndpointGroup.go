@@ -8,20 +8,16 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html
+// AWS Ground Station DataflowEndpointGroup schema for CloudFormation
 type DataflowEndpointGroup struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
+	Arn             pulumi.StringOutput                             `pulumi:"arn"`
 	EndpointDetails DataflowEndpointGroupEndpointDetailsArrayOutput `pulumi:"endpointDetails"`
-	Id              pulumi.StringOutput                             `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags            DataflowEndpointGroupTagArrayOutput             `pulumi:"tags"`
 }
 
 // NewDataflowEndpointGroup registers a new resource with the given unique name, arguments, and options.
@@ -66,18 +62,14 @@ func (DataflowEndpointGroupState) ElementType() reflect.Type {
 }
 
 type dataflowEndpointGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
 	EndpointDetails []DataflowEndpointGroupEndpointDetails `pulumi:"endpointDetails"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags            []DataflowEndpointGroupTag             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataflowEndpointGroup resource.
 type DataflowEndpointGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
 	EndpointDetails DataflowEndpointGroupEndpointDetailsArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
-	Tags aws.TagArrayInput
+	Tags            DataflowEndpointGroupTagArrayInput
 }
 
 func (DataflowEndpointGroupArgs) ElementType() reflect.Type {

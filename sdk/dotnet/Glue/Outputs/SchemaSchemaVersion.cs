@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.Glue.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html
+    /// Specify checkpoint version for update. This is only required to update the Compatibility.
     /// </summary>
     [OutputType]
     public sealed class SchemaSchemaVersion
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-islatest
+        /// Indicates if the latest version needs to be updated.
         /// </summary>
         public readonly bool? IsLatest;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-schemaversion.html#cfn-glue-schema-schemaversion-versionnumber
+        /// Indicates the version number in the schema to update.
         /// </summary>
         public readonly int? VersionNumber;
 

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html
+ * Resource schema for AWS::NimbleStudio::Studio.
  */
 export class Studio extends pulumi.CustomResource {
     /**
@@ -35,33 +35,15 @@ export class Studio extends pulumi.CustomResource {
         return obj['__pulumiType'] === Studio.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-adminrolearn
-     */
     public readonly adminRoleArn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-displayname
-     */
     public readonly displayName!: pulumi.Output<string>;
     public /*out*/ readonly homeRegion!: pulumi.Output<string>;
     public /*out*/ readonly ssoClientId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioencryptionconfiguration
-     */
     public readonly studioEncryptionConfiguration!: pulumi.Output<outputs.nimblestudio.StudioStudioEncryptionConfiguration | undefined>;
     public /*out*/ readonly studioId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioname
-     */
     public readonly studioName!: pulumi.Output<string>;
     public /*out*/ readonly studioUrl!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-tags
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-userrolearn
-     */
+    public readonly tags!: pulumi.Output<any | undefined>;
     public readonly userRoleArn!: pulumi.Output<string>;
 
     /**
@@ -120,28 +102,10 @@ export class Studio extends pulumi.CustomResource {
  * The set of arguments for constructing a Studio resource.
  */
 export interface StudioArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-adminrolearn
-     */
     adminRoleArn: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-displayname
-     */
     displayName: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioencryptionconfiguration
-     */
     studioEncryptionConfiguration?: pulumi.Input<inputs.nimblestudio.StudioStudioEncryptionConfigurationArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioname
-     */
     studioName: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-tags
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-userrolearn
-     */
+    tags?: any;
     userRoleArn: pulumi.Input<string>;
 }

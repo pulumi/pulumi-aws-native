@@ -11,30 +11,24 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html
+    /// Container image configuration object for the monitoring job.
     /// </summary>
     public sealed class ModelBiasJobDefinitionModelBiasAppSpecificationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-configuri
+        /// The S3 URI to an analysis configuration file
         /// </summary>
         [Input("configUri", required: true)]
         public Input<string> ConfigUri { get; set; } = null!;
 
-        [Input("environment")]
-        private InputMap<string>? _environment;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
+        /// Sets the environment variables in the Docker container
         /// </summary>
-        public InputMap<string> Environment
-        {
-            get => _environment ?? (_environment = new InputMap<string>());
-            set => _environment = value;
-        }
+        [Input("environment")]
+        public Input<object>? Environment { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-imageuri
+        /// The container image to be run by the monitoring job.
         /// </summary>
         [Input("imageUri", required: true)]
         public Input<string> ImageUri { get; set; } = null!;

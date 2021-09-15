@@ -10,59 +10,77 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FinSpace
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html
+    /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:finspace:Environment")]
     public partial class Environment : Pulumi.CustomResource
     {
+        /// <summary>
+        /// AWS account ID associated with the Environment
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// ID for FinSpace created account used to store Environment artifacts
+        /// </summary>
         [Output("dedicatedServiceAccountId")]
         public Output<string> DedicatedServiceAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-description
+        /// Description of the Environment
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN of the Environment
+        /// </summary>
         [Output("environmentArn")]
         public Output<string> EnvironmentArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Unique identifier for representing FinSpace Environment
+        /// </summary>
         [Output("environmentId")]
         public Output<string> EnvironmentId { get; private set; } = null!;
 
+        /// <summary>
+        /// URL used to login to the Environment
+        /// </summary>
         [Output("environmentUrl")]
         public Output<string> EnvironmentUrl { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationmode
+        /// Federation mode used with the Environment
         /// </summary>
         [Output("federationMode")]
         public Output<string?> FederationMode { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationparameters
-        /// </summary>
         [Output("federationParameters")]
         public Output<Outputs.EnvironmentFederationParameters?> FederationParameters { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-kmskeyid
+        /// KMS key used to encrypt customer data within FinSpace Environment infrastructure
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-name
+        /// Name of the Environment
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// SageMaker Studio Domain URL associated with the Environment
+        /// </summary>
         [Output("sageMakerStudioDomainUrl")]
         public Output<string> SageMakerStudioDomainUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// State of the Environment
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -112,31 +130,28 @@ namespace Pulumi.AwsNative.FinSpace
     public sealed class EnvironmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-description
+        /// Description of the Environment
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationmode
+        /// Federation mode used with the Environment
         /// </summary>
         [Input("federationMode")]
         public Input<string>? FederationMode { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationparameters
-        /// </summary>
         [Input("federationParameters")]
         public Input<Inputs.EnvironmentFederationParametersArgs>? FederationParameters { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-kmskeyid
+        /// KMS key used to encrypt customer data within FinSpace Environment infrastructure
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-name
+        /// Name of the Environment
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

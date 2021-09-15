@@ -11,22 +11,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html
+    /// &lt;p&gt;Dashboard publish options.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DashboardDashboardPublishOptions
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-adhocfilteringoption
-        /// </summary>
         public readonly Outputs.DashboardAdHocFilteringOption? AdHocFilteringOption;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-exporttocsvoption
-        /// </summary>
         public readonly Outputs.DashboardExportToCSVOption? ExportToCSVOption;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-sheetcontrolsoption
-        /// </summary>
         public readonly Outputs.DashboardSheetControlsOption? SheetControlsOption;
 
         [OutputConstructor]

@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['EventIntegrationArgs', 'EventIntegration']
@@ -21,14 +19,14 @@ class EventIntegrationArgs:
                  event_filter: pulumi.Input['EventIntegrationEventFilterArgs'],
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventIntegrationTagArgs']]]] = None):
         """
         The set of arguments for constructing a EventIntegration resource.
-        :param pulumi.Input[str] event_bridge_bus: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventbridgebus
-        :param pulumi.Input['EventIntegrationEventFilterArgs'] event_filter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventfilter
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-name
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-description
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-tags
+        :param pulumi.Input[str] event_bridge_bus: The Amazon Eventbridge bus for the event integration.
+        :param pulumi.Input['EventIntegrationEventFilterArgs'] event_filter: The EventFilter (source) associated with the event integration.
+        :param pulumi.Input[str] name: The name of the event integration.
+        :param pulumi.Input[str] description: The event integration description.
+        :param pulumi.Input[Sequence[pulumi.Input['EventIntegrationTagArgs']]] tags: The tags (keys and values) associated with the event integration.
         """
         pulumi.set(__self__, "event_bridge_bus", event_bridge_bus)
         pulumi.set(__self__, "event_filter", event_filter)
@@ -42,7 +40,7 @@ class EventIntegrationArgs:
     @pulumi.getter(name="eventBridgeBus")
     def event_bridge_bus(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventbridgebus
+        The Amazon Eventbridge bus for the event integration.
         """
         return pulumi.get(self, "event_bridge_bus")
 
@@ -54,7 +52,7 @@ class EventIntegrationArgs:
     @pulumi.getter(name="eventFilter")
     def event_filter(self) -> pulumi.Input['EventIntegrationEventFilterArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventfilter
+        The EventFilter (source) associated with the event integration.
         """
         return pulumi.get(self, "event_filter")
 
@@ -66,7 +64,7 @@ class EventIntegrationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-name
+        The name of the event integration.
         """
         return pulumi.get(self, "name")
 
@@ -78,7 +76,7 @@ class EventIntegrationArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-description
+        The event integration description.
         """
         return pulumi.get(self, "description")
 
@@ -88,14 +86,14 @@ class EventIntegrationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventIntegrationTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-tags
+        The tags (keys and values) associated with the event integration.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventIntegrationTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -108,18 +106,18 @@ class EventIntegration(pulumi.CustomResource):
                  event_bridge_bus: Optional[pulumi.Input[str]] = None,
                  event_filter: Optional[pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventIntegrationTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html
+        Resource Type definition for AWS::AppIntegrations::EventIntegration
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-description
-        :param pulumi.Input[str] event_bridge_bus: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventbridgebus
-        :param pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']] event_filter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventfilter
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-tags
+        :param pulumi.Input[str] description: The event integration description.
+        :param pulumi.Input[str] event_bridge_bus: The Amazon Eventbridge bus for the event integration.
+        :param pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']] event_filter: The EventFilter (source) associated with the event integration.
+        :param pulumi.Input[str] name: The name of the event integration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventIntegrationTagArgs']]]] tags: The tags (keys and values) associated with the event integration.
         """
         ...
     @overload
@@ -128,7 +126,7 @@ class EventIntegration(pulumi.CustomResource):
                  args: EventIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html
+        Resource Type definition for AWS::AppIntegrations::EventIntegration
 
         :param str resource_name: The name of the resource.
         :param EventIntegrationArgs args: The arguments to use to populate this resource's properties.
@@ -149,7 +147,7 @@ class EventIntegration(pulumi.CustomResource):
                  event_bridge_bus: Optional[pulumi.Input[str]] = None,
                  event_filter: Optional[pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventIntegrationTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -209,13 +207,16 @@ class EventIntegration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def associations(self) -> pulumi.Output[Sequence['outputs.EventIntegrationEventIntegrationAssociation']]:
+        """
+        The associations with the event integration.
+        """
         return pulumi.get(self, "associations")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-description
+        The event integration description.
         """
         return pulumi.get(self, "description")
 
@@ -223,7 +224,7 @@ class EventIntegration(pulumi.CustomResource):
     @pulumi.getter(name="eventBridgeBus")
     def event_bridge_bus(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventbridgebus
+        The Amazon Eventbridge bus for the event integration.
         """
         return pulumi.get(self, "event_bridge_bus")
 
@@ -231,28 +232,31 @@ class EventIntegration(pulumi.CustomResource):
     @pulumi.getter(name="eventFilter")
     def event_filter(self) -> pulumi.Output['outputs.EventIntegrationEventFilter']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventfilter
+        The EventFilter (source) associated with the event integration.
         """
         return pulumi.get(self, "event_filter")
 
     @property
     @pulumi.getter(name="eventIntegrationArn")
     def event_integration_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the event integration.
+        """
         return pulumi.get(self, "event_integration_arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-name
+        The name of the event integration.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EventIntegrationTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-tags
+        The tags (keys and values) associated with the event integration.
         """
         return pulumi.get(self, "tags")
 

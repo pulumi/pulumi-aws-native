@@ -10,46 +10,52 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html
+    /// A domain defined for 3rd party data source in Profile Service
     /// </summary>
     [AwsNativeResourceType("aws-native:customerprofiles:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The time of this integration got created
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-deadletterqueueurl
+        /// The URL of the SQS dead letter queue
         /// </summary>
         [Output("deadLetterQueueUrl")]
         public Output<string?> DeadLetterQueueUrl { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultencryptionkey
+        /// The default encryption key
         /// </summary>
         [Output("defaultEncryptionKey")]
         public Output<string?> DefaultEncryptionKey { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultexpirationdays
+        /// The default number of days until the data within the domain expires.
         /// </summary>
         [Output("defaultExpirationDays")]
         public Output<int?> DefaultExpirationDays { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-domainname
+        /// The unique name of the domain.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// The time of this integration got last updated at
+        /// </summary>
         [Output("lastUpdatedAt")]
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-tags
+        /// The tags (keys and values) associated with the domain
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DomainTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -97,38 +103,38 @@ namespace Pulumi.AwsNative.CustomerProfiles
     public sealed class DomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-deadletterqueueurl
+        /// The URL of the SQS dead letter queue
         /// </summary>
         [Input("deadLetterQueueUrl")]
         public Input<string>? DeadLetterQueueUrl { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultencryptionkey
+        /// The default encryption key
         /// </summary>
         [Input("defaultEncryptionKey")]
         public Input<string>? DefaultEncryptionKey { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultexpirationdays
+        /// The default number of days until the data within the domain expires.
         /// </summary>
         [Input("defaultExpirationDays")]
         public Input<int>? DefaultExpirationDays { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-domainname
+        /// The unique name of the domain.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.DomainTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-tags
+        /// The tags (keys and values) associated with the domain
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.DomainTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.DomainTagArgs>());
             set => _tags = value;
         }
 

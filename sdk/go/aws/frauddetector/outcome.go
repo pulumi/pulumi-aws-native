@@ -8,23 +8,25 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html
+// An outcome for rule evaluation.
 type Outcome struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput `pulumi:"arn"`
+	// The outcome ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The timestamp when the outcome was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-description
-	Description     pulumi.StringPtrOutput `pulumi:"description"`
-	LastUpdatedTime pulumi.StringOutput    `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-name
+	// The outcome description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The timestamp when the outcome was last updated.
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// The name of the outcome.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Tags associated with this outcome.
+	Tags OutcomeTagArrayOutput `pulumi:"tags"`
 }
 
 // NewOutcome registers a new resource with the given unique name, arguments, and options.
@@ -69,22 +71,22 @@ func (OutcomeState) ElementType() reflect.Type {
 }
 
 type outcomeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-description
+	// The outcome description.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-name
+	// The name of the outcome.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// Tags associated with this outcome.
+	Tags []OutcomeTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Outcome resource.
 type OutcomeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-description
+	// The outcome description.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-name
+	// The name of the outcome.
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-tags
-	Tags aws.TagArrayInput
+	// Tags associated with this outcome.
+	Tags OutcomeTagArrayInput
 }
 
 func (OutcomeArgs) ElementType() reflect.Type {

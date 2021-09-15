@@ -10,13 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html
+// The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
 type AppImageConfigFileSystemConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultgid
+	// The default POSIX group ID (GID). If not specified, defaults to 100.
 	DefaultGid *int `pulumi:"defaultGid"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultuid
+	// The default POSIX user ID (UID). If not specified, defaults to 1000.
 	DefaultUid *int `pulumi:"defaultUid"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-mountpath
+	// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /home/sagemaker-user.
 	MountPath *string `pulumi:"mountPath"`
 }
 
@@ -31,13 +31,13 @@ type AppImageConfigFileSystemConfigInput interface {
 	ToAppImageConfigFileSystemConfigOutputWithContext(context.Context) AppImageConfigFileSystemConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html
+// The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
 type AppImageConfigFileSystemConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultgid
+	// The default POSIX group ID (GID). If not specified, defaults to 100.
 	DefaultGid pulumi.IntPtrInput `pulumi:"defaultGid"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultuid
+	// The default POSIX user ID (UID). If not specified, defaults to 1000.
 	DefaultUid pulumi.IntPtrInput `pulumi:"defaultUid"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-mountpath
+	// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /home/sagemaker-user.
 	MountPath pulumi.StringPtrInput `pulumi:"mountPath"`
 }
 
@@ -94,7 +94,7 @@ func (i *appImageConfigFileSystemConfigPtrType) ToAppImageConfigFileSystemConfig
 	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigFileSystemConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html
+// The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
 type AppImageConfigFileSystemConfigOutput struct{ *pulumi.OutputState }
 
 func (AppImageConfigFileSystemConfigOutput) ElementType() reflect.Type {
@@ -119,17 +119,17 @@ func (o AppImageConfigFileSystemConfigOutput) ToAppImageConfigFileSystemConfigPt
 	}).(AppImageConfigFileSystemConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultgid
+// The default POSIX group ID (GID). If not specified, defaults to 100.
 func (o AppImageConfigFileSystemConfigOutput) DefaultGid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppImageConfigFileSystemConfig) *int { return v.DefaultGid }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultuid
+// The default POSIX user ID (UID). If not specified, defaults to 1000.
 func (o AppImageConfigFileSystemConfigOutput) DefaultUid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppImageConfigFileSystemConfig) *int { return v.DefaultUid }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-mountpath
+// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /home/sagemaker-user.
 func (o AppImageConfigFileSystemConfigOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppImageConfigFileSystemConfig) *string { return v.MountPath }).(pulumi.StringPtrOutput)
 }
@@ -158,7 +158,7 @@ func (o AppImageConfigFileSystemConfigPtrOutput) Elem() AppImageConfigFileSystem
 	}).(AppImageConfigFileSystemConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultgid
+// The default POSIX group ID (GID). If not specified, defaults to 100.
 func (o AppImageConfigFileSystemConfigPtrOutput) DefaultGid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppImageConfigFileSystemConfig) *int {
 		if v == nil {
@@ -168,7 +168,7 @@ func (o AppImageConfigFileSystemConfigPtrOutput) DefaultGid() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultuid
+// The default POSIX user ID (UID). If not specified, defaults to 1000.
 func (o AppImageConfigFileSystemConfigPtrOutput) DefaultUid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppImageConfigFileSystemConfig) *int {
 		if v == nil {
@@ -178,7 +178,7 @@ func (o AppImageConfigFileSystemConfigPtrOutput) DefaultUid() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-mountpath
+// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /home/sagemaker-user.
 func (o AppImageConfigFileSystemConfigPtrOutput) MountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppImageConfigFileSystemConfig) *string {
 		if v == nil {
@@ -188,11 +188,11 @@ func (o AppImageConfigFileSystemConfigPtrOutput) MountPath() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html
+// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app.
 type AppImageConfigKernelGatewayImageConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-filesystemconfig
+	// The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
 	FileSystemConfig *AppImageConfigFileSystemConfig `pulumi:"fileSystemConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs
+	// The specification of the Jupyter kernels in the image.
 	KernelSpecs []AppImageConfigKernelSpec `pulumi:"kernelSpecs"`
 }
 
@@ -207,11 +207,11 @@ type AppImageConfigKernelGatewayImageConfigInput interface {
 	ToAppImageConfigKernelGatewayImageConfigOutputWithContext(context.Context) AppImageConfigKernelGatewayImageConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html
+// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app.
 type AppImageConfigKernelGatewayImageConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-filesystemconfig
+	// The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
 	FileSystemConfig AppImageConfigFileSystemConfigPtrInput `pulumi:"fileSystemConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs
+	// The specification of the Jupyter kernels in the image.
 	KernelSpecs AppImageConfigKernelSpecArrayInput `pulumi:"kernelSpecs"`
 }
 
@@ -268,7 +268,7 @@ func (i *appImageConfigKernelGatewayImageConfigPtrType) ToAppImageConfigKernelGa
 	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelGatewayImageConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html
+// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app.
 type AppImageConfigKernelGatewayImageConfigOutput struct{ *pulumi.OutputState }
 
 func (AppImageConfigKernelGatewayImageConfigOutput) ElementType() reflect.Type {
@@ -293,14 +293,14 @@ func (o AppImageConfigKernelGatewayImageConfigOutput) ToAppImageConfigKernelGate
 	}).(AppImageConfigKernelGatewayImageConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-filesystemconfig
+// The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
 func (o AppImageConfigKernelGatewayImageConfigOutput) FileSystemConfig() AppImageConfigFileSystemConfigPtrOutput {
 	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfig) *AppImageConfigFileSystemConfig {
 		return v.FileSystemConfig
 	}).(AppImageConfigFileSystemConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs
+// The specification of the Jupyter kernels in the image.
 func (o AppImageConfigKernelGatewayImageConfigOutput) KernelSpecs() AppImageConfigKernelSpecArrayOutput {
 	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfig) []AppImageConfigKernelSpec { return v.KernelSpecs }).(AppImageConfigKernelSpecArrayOutput)
 }
@@ -329,7 +329,7 @@ func (o AppImageConfigKernelGatewayImageConfigPtrOutput) Elem() AppImageConfigKe
 	}).(AppImageConfigKernelGatewayImageConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-filesystemconfig
+// The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
 func (o AppImageConfigKernelGatewayImageConfigPtrOutput) FileSystemConfig() AppImageConfigFileSystemConfigPtrOutput {
 	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfig) *AppImageConfigFileSystemConfig {
 		if v == nil {
@@ -339,7 +339,7 @@ func (o AppImageConfigKernelGatewayImageConfigPtrOutput) FileSystemConfig() AppI
 	}).(AppImageConfigFileSystemConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs
+// The specification of the Jupyter kernels in the image.
 func (o AppImageConfigKernelGatewayImageConfigPtrOutput) KernelSpecs() AppImageConfigKernelSpecArrayOutput {
 	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfig) []AppImageConfigKernelSpec {
 		if v == nil {
@@ -349,11 +349,10 @@ func (o AppImageConfigKernelGatewayImageConfigPtrOutput) KernelSpecs() AppImageC
 	}).(AppImageConfigKernelSpecArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html
 type AppImageConfigKernelSpec struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-displayname
+	// The display name of the kernel.
 	DisplayName *string `pulumi:"displayName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-name
+	// The name of the kernel.
 	Name string `pulumi:"name"`
 }
 
@@ -368,11 +367,10 @@ type AppImageConfigKernelSpecInput interface {
 	ToAppImageConfigKernelSpecOutputWithContext(context.Context) AppImageConfigKernelSpecOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html
 type AppImageConfigKernelSpecArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-displayname
+	// The display name of the kernel.
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-name
+	// The name of the kernel.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -413,7 +411,6 @@ func (i AppImageConfigKernelSpecArray) ToAppImageConfigKernelSpecArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigKernelSpecArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html
 type AppImageConfigKernelSpecOutput struct{ *pulumi.OutputState }
 
 func (AppImageConfigKernelSpecOutput) ElementType() reflect.Type {
@@ -428,12 +425,12 @@ func (o AppImageConfigKernelSpecOutput) ToAppImageConfigKernelSpecOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-displayname
+// The display name of the kernel.
 func (o AppImageConfigKernelSpecOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppImageConfigKernelSpec) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html#cfn-sagemaker-appimageconfig-kernelspec-name
+// The name of the kernel.
 func (o AppImageConfigKernelSpecOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppImageConfigKernelSpec) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -458,13 +455,112 @@ func (o AppImageConfigKernelSpecArrayOutput) Index(i pulumi.IntInput) AppImageCo
 	}).(AppImageConfigKernelSpecOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html
+type AppImageConfigTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// AppImageConfigTagInput is an input type that accepts AppImageConfigTagArgs and AppImageConfigTagOutput values.
+// You can construct a concrete instance of `AppImageConfigTagInput` via:
+//
+//          AppImageConfigTagArgs{...}
+type AppImageConfigTagInput interface {
+	pulumi.Input
+
+	ToAppImageConfigTagOutput() AppImageConfigTagOutput
+	ToAppImageConfigTagOutputWithContext(context.Context) AppImageConfigTagOutput
+}
+
+type AppImageConfigTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AppImageConfigTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigTag)(nil)).Elem()
+}
+
+func (i AppImageConfigTagArgs) ToAppImageConfigTagOutput() AppImageConfigTagOutput {
+	return i.ToAppImageConfigTagOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigTagArgs) ToAppImageConfigTagOutputWithContext(ctx context.Context) AppImageConfigTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigTagOutput)
+}
+
+// AppImageConfigTagArrayInput is an input type that accepts AppImageConfigTagArray and AppImageConfigTagArrayOutput values.
+// You can construct a concrete instance of `AppImageConfigTagArrayInput` via:
+//
+//          AppImageConfigTagArray{ AppImageConfigTagArgs{...} }
+type AppImageConfigTagArrayInput interface {
+	pulumi.Input
+
+	ToAppImageConfigTagArrayOutput() AppImageConfigTagArrayOutput
+	ToAppImageConfigTagArrayOutputWithContext(context.Context) AppImageConfigTagArrayOutput
+}
+
+type AppImageConfigTagArray []AppImageConfigTagInput
+
+func (AppImageConfigTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppImageConfigTag)(nil)).Elem()
+}
+
+func (i AppImageConfigTagArray) ToAppImageConfigTagArrayOutput() AppImageConfigTagArrayOutput {
+	return i.ToAppImageConfigTagArrayOutputWithContext(context.Background())
+}
+
+func (i AppImageConfigTagArray) ToAppImageConfigTagArrayOutputWithContext(ctx context.Context) AppImageConfigTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigTagArrayOutput)
+}
+
+type AppImageConfigTagOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppImageConfigTag)(nil)).Elem()
+}
+
+func (o AppImageConfigTagOutput) ToAppImageConfigTagOutput() AppImageConfigTagOutput {
+	return o
+}
+
+func (o AppImageConfigTagOutput) ToAppImageConfigTagOutputWithContext(ctx context.Context) AppImageConfigTagOutput {
+	return o
+}
+
+func (o AppImageConfigTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AppImageConfigTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o AppImageConfigTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AppImageConfigTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AppImageConfigTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AppImageConfigTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppImageConfigTag)(nil)).Elem()
+}
+
+func (o AppImageConfigTagArrayOutput) ToAppImageConfigTagArrayOutput() AppImageConfigTagArrayOutput {
+	return o
+}
+
+func (o AppImageConfigTagArrayOutput) ToAppImageConfigTagArrayOutputWithContext(ctx context.Context) AppImageConfigTagArrayOutput {
+	return o
+}
+
+func (o AppImageConfigTagArrayOutput) Index(i pulumi.IntInput) AppImageConfigTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppImageConfigTag {
+		return vs[0].([]AppImageConfigTag)[vs[1].(int)]
+	}).(AppImageConfigTagOutput)
+}
+
 type AppResourceSpec struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-instancetype
+	// The instance type that the image version runs on.
 	InstanceType *string `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimagearn
+	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimageversionarn
+	// The ARN of the image version created on the instance.
 	SageMakerImageVersionArn *string `pulumi:"sageMakerImageVersionArn"`
 }
 
@@ -479,13 +575,12 @@ type AppResourceSpecInput interface {
 	ToAppResourceSpecOutputWithContext(context.Context) AppResourceSpecOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html
 type AppResourceSpecArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-instancetype
+	// The instance type that the image version runs on.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimagearn
+	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimageversionarn
+	// The ARN of the image version created on the instance.
 	SageMakerImageVersionArn pulumi.StringPtrInput `pulumi:"sageMakerImageVersionArn"`
 }
 
@@ -542,7 +637,6 @@ func (i *appResourceSpecPtrType) ToAppResourceSpecPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AppResourceSpecPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html
 type AppResourceSpecOutput struct{ *pulumi.OutputState }
 
 func (AppResourceSpecOutput) ElementType() reflect.Type {
@@ -567,17 +661,17 @@ func (o AppResourceSpecOutput) ToAppResourceSpecPtrOutputWithContext(ctx context
 	}).(AppResourceSpecPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-instancetype
+// The instance type that the image version runs on.
 func (o AppResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimagearn
+// The ARN of the SageMaker image that the image version belongs to.
 func (o AppResourceSpecOutput) SageMakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceSpec) *string { return v.SageMakerImageArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimageversionarn
+// The ARN of the image version created on the instance.
 func (o AppResourceSpecOutput) SageMakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceSpec) *string { return v.SageMakerImageVersionArn }).(pulumi.StringPtrOutput)
 }
@@ -606,7 +700,7 @@ func (o AppResourceSpecPtrOutput) Elem() AppResourceSpecOutput {
 	}).(AppResourceSpecOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-instancetype
+// The instance type that the image version runs on.
 func (o AppResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppResourceSpec) *string {
 		if v == nil {
@@ -616,7 +710,7 @@ func (o AppResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimagearn
+// The ARN of the SageMaker image that the image version belongs to.
 func (o AppResourceSpecPtrOutput) SageMakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppResourceSpec) *string {
 		if v == nil {
@@ -626,7 +720,7 @@ func (o AppResourceSpecPtrOutput) SageMakerImageArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-app-resourcespec.html#cfn-sagemaker-app-resourcespec-sagemakerimageversionarn
+// The ARN of the image version created on the instance.
 func (o AppResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppResourceSpec) *string {
 		if v == nil {
@@ -636,15 +730,115 @@ func (o AppResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html
+type AppTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// AppTagInput is an input type that accepts AppTagArgs and AppTagOutput values.
+// You can construct a concrete instance of `AppTagInput` via:
+//
+//          AppTagArgs{...}
+type AppTagInput interface {
+	pulumi.Input
+
+	ToAppTagOutput() AppTagOutput
+	ToAppTagOutputWithContext(context.Context) AppTagOutput
+}
+
+type AppTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AppTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTag)(nil)).Elem()
+}
+
+func (i AppTagArgs) ToAppTagOutput() AppTagOutput {
+	return i.ToAppTagOutputWithContext(context.Background())
+}
+
+func (i AppTagArgs) ToAppTagOutputWithContext(ctx context.Context) AppTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTagOutput)
+}
+
+// AppTagArrayInput is an input type that accepts AppTagArray and AppTagArrayOutput values.
+// You can construct a concrete instance of `AppTagArrayInput` via:
+//
+//          AppTagArray{ AppTagArgs{...} }
+type AppTagArrayInput interface {
+	pulumi.Input
+
+	ToAppTagArrayOutput() AppTagArrayOutput
+	ToAppTagArrayOutputWithContext(context.Context) AppTagArrayOutput
+}
+
+type AppTagArray []AppTagInput
+
+func (AppTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTag)(nil)).Elem()
+}
+
+func (i AppTagArray) ToAppTagArrayOutput() AppTagArrayOutput {
+	return i.ToAppTagArrayOutputWithContext(context.Background())
+}
+
+func (i AppTagArray) ToAppTagArrayOutputWithContext(ctx context.Context) AppTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTagArrayOutput)
+}
+
+type AppTagOutput struct{ *pulumi.OutputState }
+
+func (AppTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTag)(nil)).Elem()
+}
+
+func (o AppTagOutput) ToAppTagOutput() AppTagOutput {
+	return o
+}
+
+func (o AppTagOutput) ToAppTagOutputWithContext(ctx context.Context) AppTagOutput {
+	return o
+}
+
+func (o AppTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o AppTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AppTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AppTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTag)(nil)).Elem()
+}
+
+func (o AppTagArrayOutput) ToAppTagArrayOutput() AppTagArrayOutput {
+	return o
+}
+
+func (o AppTagArrayOutput) ToAppTagArrayOutputWithContext(ctx context.Context) AppTagArrayOutput {
+	return o
+}
+
+func (o AppTagArrayOutput) Index(i pulumi.IntInput) AppTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTag {
+		return vs[0].([]AppTag)[vs[1].(int)]
+	}).(AppTagOutput)
+}
+
+// Configuration for the cluster used to run model monitoring jobs.
 type DataQualityJobDefinitionClusterConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-instancecount
+	// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 	InstanceCount int `pulumi:"instanceCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-instancetype
+	// The ML compute instance type for the processing job.
 	InstanceType string `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-volumekmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-volumesizeingb
+	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 	VolumeSizeInGB int `pulumi:"volumeSizeInGB"`
 }
 
@@ -659,15 +853,15 @@ type DataQualityJobDefinitionClusterConfigInput interface {
 	ToDataQualityJobDefinitionClusterConfigOutputWithContext(context.Context) DataQualityJobDefinitionClusterConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html
+// Configuration for the cluster used to run model monitoring jobs.
 type DataQualityJobDefinitionClusterConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-instancecount
+	// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-instancetype
+	// The ML compute instance type for the processing job.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-volumekmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-volumesizeingb
+	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 	VolumeSizeInGB pulumi.IntInput `pulumi:"volumeSizeInGB"`
 }
 
@@ -724,7 +918,7 @@ func (i *dataQualityJobDefinitionClusterConfigPtrType) ToDataQualityJobDefinitio
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionClusterConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html
+// Configuration for the cluster used to run model monitoring jobs.
 type DataQualityJobDefinitionClusterConfigOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionClusterConfigOutput) ElementType() reflect.Type {
@@ -749,22 +943,22 @@ func (o DataQualityJobDefinitionClusterConfigOutput) ToDataQualityJobDefinitionC
 	}).(DataQualityJobDefinitionClusterConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-instancecount
+// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 func (o DataQualityJobDefinitionClusterConfigOutput) InstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionClusterConfig) int { return v.InstanceCount }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-instancetype
+// The ML compute instance type for the processing job.
 func (o DataQualityJobDefinitionClusterConfigOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionClusterConfig) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-volumekmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 func (o DataQualityJobDefinitionClusterConfigOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionClusterConfig) *string { return v.VolumeKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-volumesizeingb
+// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 func (o DataQualityJobDefinitionClusterConfigOutput) VolumeSizeInGB() pulumi.IntOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionClusterConfig) int { return v.VolumeSizeInGB }).(pulumi.IntOutput)
 }
@@ -793,7 +987,7 @@ func (o DataQualityJobDefinitionClusterConfigPtrOutput) Elem() DataQualityJobDef
 	}).(DataQualityJobDefinitionClusterConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-instancecount
+// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 func (o DataQualityJobDefinitionClusterConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionClusterConfig) *int {
 		if v == nil {
@@ -803,7 +997,7 @@ func (o DataQualityJobDefinitionClusterConfigPtrOutput) InstanceCount() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-instancetype
+// The ML compute instance type for the processing job.
 func (o DataQualityJobDefinitionClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionClusterConfig) *string {
 		if v == nil {
@@ -813,7 +1007,7 @@ func (o DataQualityJobDefinitionClusterConfigPtrOutput) InstanceType() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-volumekmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 func (o DataQualityJobDefinitionClusterConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionClusterConfig) *string {
 		if v == nil {
@@ -823,7 +1017,7 @@ func (o DataQualityJobDefinitionClusterConfigPtrOutput) VolumeKmsKeyId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-clusterconfig.html#cfn-sagemaker-dataqualityjobdefinition-clusterconfig-volumesizeingb
+// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 func (o DataQualityJobDefinitionClusterConfigPtrOutput) VolumeSizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionClusterConfig) *int {
 		if v == nil {
@@ -833,9 +1027,9 @@ func (o DataQualityJobDefinitionClusterConfigPtrOutput) VolumeSizeInGB() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-constraintsresource.html
+// The baseline constraints resource for a monitoring job.
 type DataQualityJobDefinitionConstraintsResource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-constraintsresource.html#cfn-sagemaker-dataqualityjobdefinition-constraintsresource-s3uri
+	// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 	S3Uri *string `pulumi:"s3Uri"`
 }
 
@@ -850,9 +1044,9 @@ type DataQualityJobDefinitionConstraintsResourceInput interface {
 	ToDataQualityJobDefinitionConstraintsResourceOutputWithContext(context.Context) DataQualityJobDefinitionConstraintsResourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-constraintsresource.html
+// The baseline constraints resource for a monitoring job.
 type DataQualityJobDefinitionConstraintsResourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-constraintsresource.html#cfn-sagemaker-dataqualityjobdefinition-constraintsresource-s3uri
+	// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 	S3Uri pulumi.StringPtrInput `pulumi:"s3Uri"`
 }
 
@@ -909,7 +1103,7 @@ func (i *dataQualityJobDefinitionConstraintsResourcePtrType) ToDataQualityJobDef
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-constraintsresource.html
+// The baseline constraints resource for a monitoring job.
 type DataQualityJobDefinitionConstraintsResourceOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionConstraintsResourceOutput) ElementType() reflect.Type {
@@ -934,7 +1128,7 @@ func (o DataQualityJobDefinitionConstraintsResourceOutput) ToDataQualityJobDefin
 	}).(DataQualityJobDefinitionConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-constraintsresource.html#cfn-sagemaker-dataqualityjobdefinition-constraintsresource-s3uri
+// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 func (o DataQualityJobDefinitionConstraintsResourceOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionConstraintsResource) *string { return v.S3Uri }).(pulumi.StringPtrOutput)
 }
@@ -963,7 +1157,7 @@ func (o DataQualityJobDefinitionConstraintsResourcePtrOutput) Elem() DataQuality
 	}).(DataQualityJobDefinitionConstraintsResourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-constraintsresource.html#cfn-sagemaker-dataqualityjobdefinition-constraintsresource-s3uri
+// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 func (o DataQualityJobDefinitionConstraintsResourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionConstraintsResource) *string {
 		if v == nil {
@@ -973,19 +1167,19 @@ func (o DataQualityJobDefinitionConstraintsResourcePtrOutput) S3Uri() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html
+// Container image configuration object for the monitoring job.
 type DataQualityJobDefinitionDataQualityAppSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerarguments
+	// An array of arguments for the container used to run the monitoring job.
 	ContainerArguments []string `pulumi:"containerArguments"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerentrypoint
+	// Specifies the entrypoint for a container used to run the monitoring job.
 	ContainerEntrypoint []string `pulumi:"containerEntrypoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
-	Environment map[string]string `pulumi:"environment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-imageuri
+	// Sets the environment variables in the Docker container
+	Environment interface{} `pulumi:"environment"`
+	// The container image to be run by the monitoring job.
 	ImageUri string `pulumi:"imageUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-postanalyticsprocessorsourceuri
+	// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
 	PostAnalyticsProcessorSourceUri *string `pulumi:"postAnalyticsProcessorSourceUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-recordpreprocessorsourceuri
+	// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
 	RecordPreprocessorSourceUri *string `pulumi:"recordPreprocessorSourceUri"`
 }
 
@@ -1000,19 +1194,19 @@ type DataQualityJobDefinitionDataQualityAppSpecificationInput interface {
 	ToDataQualityJobDefinitionDataQualityAppSpecificationOutputWithContext(context.Context) DataQualityJobDefinitionDataQualityAppSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html
+// Container image configuration object for the monitoring job.
 type DataQualityJobDefinitionDataQualityAppSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerarguments
+	// An array of arguments for the container used to run the monitoring job.
 	ContainerArguments pulumi.StringArrayInput `pulumi:"containerArguments"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerentrypoint
+	// Specifies the entrypoint for a container used to run the monitoring job.
 	ContainerEntrypoint pulumi.StringArrayInput `pulumi:"containerEntrypoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
-	Environment pulumi.StringMapInput `pulumi:"environment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-imageuri
+	// Sets the environment variables in the Docker container
+	Environment pulumi.Input `pulumi:"environment"`
+	// The container image to be run by the monitoring job.
 	ImageUri pulumi.StringInput `pulumi:"imageUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-postanalyticsprocessorsourceuri
+	// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
 	PostAnalyticsProcessorSourceUri pulumi.StringPtrInput `pulumi:"postAnalyticsProcessorSourceUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-recordpreprocessorsourceuri
+	// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
 	RecordPreprocessorSourceUri pulumi.StringPtrInput `pulumi:"recordPreprocessorSourceUri"`
 }
 
@@ -1069,7 +1263,7 @@ func (i *dataQualityJobDefinitionDataQualityAppSpecificationPtrType) ToDataQuali
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html
+// Container image configuration object for the monitoring job.
 type DataQualityJobDefinitionDataQualityAppSpecificationOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionDataQualityAppSpecificationOutput) ElementType() reflect.Type {
@@ -1094,34 +1288,34 @@ func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) ToDataQuality
 	}).(DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerarguments
+// An array of arguments for the container used to run the monitoring job.
 func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) ContainerArguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityAppSpecification) []string { return v.ContainerArguments }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerentrypoint
+// Specifies the entrypoint for a container used to run the monitoring job.
 func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) ContainerEntrypoint() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityAppSpecification) []string { return v.ContainerEntrypoint }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
-func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityAppSpecification) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
+// Sets the environment variables in the Docker container
+func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) Environment() pulumi.AnyOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityAppSpecification) interface{} { return v.Environment }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-imageuri
+// The container image to be run by the monitoring job.
 func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) ImageUri() pulumi.StringOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityAppSpecification) string { return v.ImageUri }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-postanalyticsprocessorsourceuri
+// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
 func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) PostAnalyticsProcessorSourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityAppSpecification) *string {
 		return v.PostAnalyticsProcessorSourceUri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-recordpreprocessorsourceuri
+// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
 func (o DataQualityJobDefinitionDataQualityAppSpecificationOutput) RecordPreprocessorSourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityAppSpecification) *string {
 		return v.RecordPreprocessorSourceUri
@@ -1152,7 +1346,7 @@ func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) Elem() Dat
 	}).(DataQualityJobDefinitionDataQualityAppSpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerarguments
+// An array of arguments for the container used to run the monitoring job.
 func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) ContainerArguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) []string {
 		if v == nil {
@@ -1162,7 +1356,7 @@ func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) ContainerA
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerentrypoint
+// Specifies the entrypoint for a container used to run the monitoring job.
 func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) ContainerEntrypoint() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) []string {
 		if v == nil {
@@ -1172,17 +1366,17 @@ func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) ContainerE
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
-func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) map[string]string {
+// Sets the environment variables in the Docker container
+func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) Environment() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Environment
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-imageuri
+// The container image to be run by the monitoring job.
 func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) ImageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) *string {
 		if v == nil {
@@ -1192,7 +1386,7 @@ func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) ImageUri()
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-postanalyticsprocessorsourceuri
+// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
 func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) PostAnalyticsProcessorSourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) *string {
 		if v == nil {
@@ -1202,7 +1396,7 @@ func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) PostAnalyt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-recordpreprocessorsourceuri
+// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
 func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) RecordPreprocessorSourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityAppSpecification) *string {
 		if v == nil {
@@ -1212,14 +1406,11 @@ func (o DataQualityJobDefinitionDataQualityAppSpecificationPtrOutput) RecordPrep
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
 type DataQualityJobDefinitionDataQualityBaselineConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-baseliningjobname
-	BaseliningJobName *string `pulumi:"baseliningJobName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-constraintsresource
+	BaseliningJobName   *string                                      `pulumi:"baseliningJobName"`
 	ConstraintsResource *DataQualityJobDefinitionConstraintsResource `pulumi:"constraintsResource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-statisticsresource
-	StatisticsResource *DataQualityJobDefinitionStatisticsResource `pulumi:"statisticsResource"`
+	StatisticsResource  *DataQualityJobDefinitionStatisticsResource  `pulumi:"statisticsResource"`
 }
 
 // DataQualityJobDefinitionDataQualityBaselineConfigInput is an input type that accepts DataQualityJobDefinitionDataQualityBaselineConfigArgs and DataQualityJobDefinitionDataQualityBaselineConfigOutput values.
@@ -1233,14 +1424,11 @@ type DataQualityJobDefinitionDataQualityBaselineConfigInput interface {
 	ToDataQualityJobDefinitionDataQualityBaselineConfigOutputWithContext(context.Context) DataQualityJobDefinitionDataQualityBaselineConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
 type DataQualityJobDefinitionDataQualityBaselineConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-baseliningjobname
-	BaseliningJobName pulumi.StringPtrInput `pulumi:"baseliningJobName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-constraintsresource
+	BaseliningJobName   pulumi.StringPtrInput                               `pulumi:"baseliningJobName"`
 	ConstraintsResource DataQualityJobDefinitionConstraintsResourcePtrInput `pulumi:"constraintsResource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-statisticsresource
-	StatisticsResource DataQualityJobDefinitionStatisticsResourcePtrInput `pulumi:"statisticsResource"`
+	StatisticsResource  DataQualityJobDefinitionStatisticsResourcePtrInput  `pulumi:"statisticsResource"`
 }
 
 func (DataQualityJobDefinitionDataQualityBaselineConfigArgs) ElementType() reflect.Type {
@@ -1296,7 +1484,7 @@ func (i *dataQualityJobDefinitionDataQualityBaselineConfigPtrType) ToDataQuality
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
 type DataQualityJobDefinitionDataQualityBaselineConfigOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionDataQualityBaselineConfigOutput) ElementType() reflect.Type {
@@ -1321,19 +1509,16 @@ func (o DataQualityJobDefinitionDataQualityBaselineConfigOutput) ToDataQualityJo
 	}).(DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-baseliningjobname
 func (o DataQualityJobDefinitionDataQualityBaselineConfigOutput) BaseliningJobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityBaselineConfig) *string { return v.BaseliningJobName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-constraintsresource
 func (o DataQualityJobDefinitionDataQualityBaselineConfigOutput) ConstraintsResource() DataQualityJobDefinitionConstraintsResourcePtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityBaselineConfig) *DataQualityJobDefinitionConstraintsResource {
 		return v.ConstraintsResource
 	}).(DataQualityJobDefinitionConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-statisticsresource
 func (o DataQualityJobDefinitionDataQualityBaselineConfigOutput) StatisticsResource() DataQualityJobDefinitionStatisticsResourcePtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityBaselineConfig) *DataQualityJobDefinitionStatisticsResource {
 		return v.StatisticsResource
@@ -1364,7 +1549,6 @@ func (o DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput) Elem() DataQ
 	}).(DataQualityJobDefinitionDataQualityBaselineConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-baseliningjobname
 func (o DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput) BaseliningJobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityBaselineConfig) *string {
 		if v == nil {
@@ -1374,7 +1558,6 @@ func (o DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput) BaseliningJo
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-constraintsresource
 func (o DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput) ConstraintsResource() DataQualityJobDefinitionConstraintsResourcePtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityBaselineConfig) *DataQualityJobDefinitionConstraintsResource {
 		if v == nil {
@@ -1384,7 +1567,6 @@ func (o DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput) ConstraintsR
 	}).(DataQualityJobDefinitionConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-statisticsresource
 func (o DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput) StatisticsResource() DataQualityJobDefinitionStatisticsResourcePtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityBaselineConfig) *DataQualityJobDefinitionStatisticsResource {
 		if v == nil {
@@ -1394,9 +1576,8 @@ func (o DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput) StatisticsRe
 	}).(DataQualityJobDefinitionStatisticsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html
+// The inputs for a monitoring job.
 type DataQualityJobDefinitionDataQualityJobInput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput-endpointinput
 	EndpointInput DataQualityJobDefinitionEndpointInput `pulumi:"endpointInput"`
 }
 
@@ -1411,9 +1592,8 @@ type DataQualityJobDefinitionDataQualityJobInputInput interface {
 	ToDataQualityJobDefinitionDataQualityJobInputOutputWithContext(context.Context) DataQualityJobDefinitionDataQualityJobInputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html
+// The inputs for a monitoring job.
 type DataQualityJobDefinitionDataQualityJobInputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput-endpointinput
 	EndpointInput DataQualityJobDefinitionEndpointInputInput `pulumi:"endpointInput"`
 }
 
@@ -1470,7 +1650,7 @@ func (i *dataQualityJobDefinitionDataQualityJobInputPtrType) ToDataQualityJobDef
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionDataQualityJobInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html
+// The inputs for a monitoring job.
 type DataQualityJobDefinitionDataQualityJobInputOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionDataQualityJobInputOutput) ElementType() reflect.Type {
@@ -1495,7 +1675,6 @@ func (o DataQualityJobDefinitionDataQualityJobInputOutput) ToDataQualityJobDefin
 	}).(DataQualityJobDefinitionDataQualityJobInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput-endpointinput
 func (o DataQualityJobDefinitionDataQualityJobInputOutput) EndpointInput() DataQualityJobDefinitionEndpointInputOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityJobInput) DataQualityJobDefinitionEndpointInput {
 		return v.EndpointInput
@@ -1526,7 +1705,6 @@ func (o DataQualityJobDefinitionDataQualityJobInputPtrOutput) Elem() DataQuality
 	}).(DataQualityJobDefinitionDataQualityJobInputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput-endpointinput
 func (o DataQualityJobDefinitionDataQualityJobInputPtrOutput) EndpointInput() DataQualityJobDefinitionEndpointInputPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityJobInput) *DataQualityJobDefinitionEndpointInput {
 		if v == nil {
@@ -1536,15 +1714,14 @@ func (o DataQualityJobDefinitionDataQualityJobInputPtrOutput) EndpointInput() Da
 	}).(DataQualityJobDefinitionEndpointInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html
+// The endpoint for a monitoring job.
 type DataQualityJobDefinitionEndpointInput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-endpointname
 	EndpointName string `pulumi:"endpointName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-localpath
+	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath string `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-s3datadistributiontype
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 	S3DataDistributionType *string `pulumi:"s3DataDistributionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-s3inputmode
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 	S3InputMode *string `pulumi:"s3InputMode"`
 }
 
@@ -1559,15 +1736,14 @@ type DataQualityJobDefinitionEndpointInputInput interface {
 	ToDataQualityJobDefinitionEndpointInputOutputWithContext(context.Context) DataQualityJobDefinitionEndpointInputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html
+// The endpoint for a monitoring job.
 type DataQualityJobDefinitionEndpointInputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-endpointname
 	EndpointName pulumi.StringInput `pulumi:"endpointName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-localpath
+	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-s3datadistributiontype
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 	S3DataDistributionType pulumi.StringPtrInput `pulumi:"s3DataDistributionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-s3inputmode
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 	S3InputMode pulumi.StringPtrInput `pulumi:"s3InputMode"`
 }
 
@@ -1624,7 +1800,7 @@ func (i *dataQualityJobDefinitionEndpointInputPtrType) ToDataQualityJobDefinitio
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionEndpointInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html
+// The endpoint for a monitoring job.
 type DataQualityJobDefinitionEndpointInputOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionEndpointInputOutput) ElementType() reflect.Type {
@@ -1649,22 +1825,21 @@ func (o DataQualityJobDefinitionEndpointInputOutput) ToDataQualityJobDefinitionE
 	}).(DataQualityJobDefinitionEndpointInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-endpointname
 func (o DataQualityJobDefinitionEndpointInputOutput) EndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionEndpointInput) string { return v.EndpointName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-localpath
+// Path to the filesystem where the endpoint data is available to the container.
 func (o DataQualityJobDefinitionEndpointInputOutput) LocalPath() pulumi.StringOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionEndpointInput) string { return v.LocalPath }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-s3datadistributiontype
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 func (o DataQualityJobDefinitionEndpointInputOutput) S3DataDistributionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionEndpointInput) *string { return v.S3DataDistributionType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-s3inputmode
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 func (o DataQualityJobDefinitionEndpointInputOutput) S3InputMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionEndpointInput) *string { return v.S3InputMode }).(pulumi.StringPtrOutput)
 }
@@ -1693,7 +1868,6 @@ func (o DataQualityJobDefinitionEndpointInputPtrOutput) Elem() DataQualityJobDef
 	}).(DataQualityJobDefinitionEndpointInputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-endpointname
 func (o DataQualityJobDefinitionEndpointInputPtrOutput) EndpointName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -1703,7 +1877,7 @@ func (o DataQualityJobDefinitionEndpointInputPtrOutput) EndpointName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-localpath
+// Path to the filesystem where the endpoint data is available to the container.
 func (o DataQualityJobDefinitionEndpointInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -1713,7 +1887,7 @@ func (o DataQualityJobDefinitionEndpointInputPtrOutput) LocalPath() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-s3datadistributiontype
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 func (o DataQualityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -1723,7 +1897,7 @@ func (o DataQualityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType()
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-endpointinput.html#cfn-sagemaker-dataqualityjobdefinition-endpointinput-s3inputmode
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 func (o DataQualityJobDefinitionEndpointInputPtrOutput) S3InputMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -1733,9 +1907,8 @@ func (o DataQualityJobDefinitionEndpointInputPtrOutput) S3InputMode() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html
+// The output object for a monitoring job.
 type DataQualityJobDefinitionMonitoringOutput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutput-s3output
 	S3Output DataQualityJobDefinitionS3Output `pulumi:"s3Output"`
 }
 
@@ -1750,9 +1923,8 @@ type DataQualityJobDefinitionMonitoringOutputInput interface {
 	ToDataQualityJobDefinitionMonitoringOutputOutputWithContext(context.Context) DataQualityJobDefinitionMonitoringOutputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html
+// The output object for a monitoring job.
 type DataQualityJobDefinitionMonitoringOutputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutput-s3output
 	S3Output DataQualityJobDefinitionS3OutputInput `pulumi:"s3Output"`
 }
 
@@ -1793,7 +1965,7 @@ func (i DataQualityJobDefinitionMonitoringOutputArray) ToDataQualityJobDefinitio
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionMonitoringOutputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html
+// The output object for a monitoring job.
 type DataQualityJobDefinitionMonitoringOutputOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionMonitoringOutputOutput) ElementType() reflect.Type {
@@ -1808,7 +1980,6 @@ func (o DataQualityJobDefinitionMonitoringOutputOutput) ToDataQualityJobDefiniti
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutput-s3output
 func (o DataQualityJobDefinitionMonitoringOutputOutput) S3Output() DataQualityJobDefinitionS3OutputOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionMonitoringOutput) DataQualityJobDefinitionS3Output { return v.S3Output }).(DataQualityJobDefinitionS3OutputOutput)
 }
@@ -1833,11 +2004,11 @@ func (o DataQualityJobDefinitionMonitoringOutputArrayOutput) Index(i pulumi.IntI
 	}).(DataQualityJobDefinitionMonitoringOutputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html
+// The output configuration for monitoring jobs.
 type DataQualityJobDefinitionMonitoringOutputConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-kmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
+	// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 	MonitoringOutputs []DataQualityJobDefinitionMonitoringOutput `pulumi:"monitoringOutputs"`
 }
 
@@ -1852,11 +2023,11 @@ type DataQualityJobDefinitionMonitoringOutputConfigInput interface {
 	ToDataQualityJobDefinitionMonitoringOutputConfigOutputWithContext(context.Context) DataQualityJobDefinitionMonitoringOutputConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html
+// The output configuration for monitoring jobs.
 type DataQualityJobDefinitionMonitoringOutputConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-kmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
+	// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 	MonitoringOutputs DataQualityJobDefinitionMonitoringOutputArrayInput `pulumi:"monitoringOutputs"`
 }
 
@@ -1913,7 +2084,7 @@ func (i *dataQualityJobDefinitionMonitoringOutputConfigPtrType) ToDataQualityJob
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionMonitoringOutputConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html
+// The output configuration for monitoring jobs.
 type DataQualityJobDefinitionMonitoringOutputConfigOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionMonitoringOutputConfigOutput) ElementType() reflect.Type {
@@ -1938,12 +2109,12 @@ func (o DataQualityJobDefinitionMonitoringOutputConfigOutput) ToDataQualityJobDe
 	}).(DataQualityJobDefinitionMonitoringOutputConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-kmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o DataQualityJobDefinitionMonitoringOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionMonitoringOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
+// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 func (o DataQualityJobDefinitionMonitoringOutputConfigOutput) MonitoringOutputs() DataQualityJobDefinitionMonitoringOutputArrayOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionMonitoringOutputConfig) []DataQualityJobDefinitionMonitoringOutput {
 		return v.MonitoringOutputs
@@ -1974,7 +2145,7 @@ func (o DataQualityJobDefinitionMonitoringOutputConfigPtrOutput) Elem() DataQual
 	}).(DataQualityJobDefinitionMonitoringOutputConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-kmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o DataQualityJobDefinitionMonitoringOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionMonitoringOutputConfig) *string {
 		if v == nil {
@@ -1984,7 +2155,7 @@ func (o DataQualityJobDefinitionMonitoringOutputConfigPtrOutput) KmsKeyId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-dataqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
+// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 func (o DataQualityJobDefinitionMonitoringOutputConfigPtrOutput) MonitoringOutputs() DataQualityJobDefinitionMonitoringOutputArrayOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionMonitoringOutputConfig) []DataQualityJobDefinitionMonitoringOutput {
 		if v == nil {
@@ -1994,9 +2165,8 @@ func (o DataQualityJobDefinitionMonitoringOutputConfigPtrOutput) MonitoringOutpu
 	}).(DataQualityJobDefinitionMonitoringOutputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html
+// Identifies the resources to deploy for a monitoring job.
 type DataQualityJobDefinitionMonitoringResources struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html#cfn-sagemaker-dataqualityjobdefinition-monitoringresources-clusterconfig
 	ClusterConfig DataQualityJobDefinitionClusterConfig `pulumi:"clusterConfig"`
 }
 
@@ -2011,9 +2181,8 @@ type DataQualityJobDefinitionMonitoringResourcesInput interface {
 	ToDataQualityJobDefinitionMonitoringResourcesOutputWithContext(context.Context) DataQualityJobDefinitionMonitoringResourcesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html
+// Identifies the resources to deploy for a monitoring job.
 type DataQualityJobDefinitionMonitoringResourcesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html#cfn-sagemaker-dataqualityjobdefinition-monitoringresources-clusterconfig
 	ClusterConfig DataQualityJobDefinitionClusterConfigInput `pulumi:"clusterConfig"`
 }
 
@@ -2070,7 +2239,7 @@ func (i *dataQualityJobDefinitionMonitoringResourcesPtrType) ToDataQualityJobDef
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionMonitoringResourcesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html
+// Identifies the resources to deploy for a monitoring job.
 type DataQualityJobDefinitionMonitoringResourcesOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionMonitoringResourcesOutput) ElementType() reflect.Type {
@@ -2095,7 +2264,6 @@ func (o DataQualityJobDefinitionMonitoringResourcesOutput) ToDataQualityJobDefin
 	}).(DataQualityJobDefinitionMonitoringResourcesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html#cfn-sagemaker-dataqualityjobdefinition-monitoringresources-clusterconfig
 func (o DataQualityJobDefinitionMonitoringResourcesOutput) ClusterConfig() DataQualityJobDefinitionClusterConfigOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionMonitoringResources) DataQualityJobDefinitionClusterConfig {
 		return v.ClusterConfig
@@ -2126,7 +2294,6 @@ func (o DataQualityJobDefinitionMonitoringResourcesPtrOutput) Elem() DataQuality
 	}).(DataQualityJobDefinitionMonitoringResourcesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-monitoringresources.html#cfn-sagemaker-dataqualityjobdefinition-monitoringresources-clusterconfig
 func (o DataQualityJobDefinitionMonitoringResourcesPtrOutput) ClusterConfig() DataQualityJobDefinitionClusterConfigPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionMonitoringResources) *DataQualityJobDefinitionClusterConfig {
 		if v == nil {
@@ -2136,14 +2303,13 @@ func (o DataQualityJobDefinitionMonitoringResourcesPtrOutput) ClusterConfig() Da
 	}).(DataQualityJobDefinitionClusterConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 type DataQualityJobDefinitionNetworkConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-enableintercontainertrafficencryption
+	// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 	EnableInterContainerTrafficEncryption *bool `pulumi:"enableInterContainerTrafficEncryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-enablenetworkisolation
-	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-vpcconfig
-	VpcConfig *DataQualityJobDefinitionVpcConfig `pulumi:"vpcConfig"`
+	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+	EnableNetworkIsolation *bool                              `pulumi:"enableNetworkIsolation"`
+	VpcConfig              *DataQualityJobDefinitionVpcConfig `pulumi:"vpcConfig"`
 }
 
 // DataQualityJobDefinitionNetworkConfigInput is an input type that accepts DataQualityJobDefinitionNetworkConfigArgs and DataQualityJobDefinitionNetworkConfigOutput values.
@@ -2157,14 +2323,13 @@ type DataQualityJobDefinitionNetworkConfigInput interface {
 	ToDataQualityJobDefinitionNetworkConfigOutputWithContext(context.Context) DataQualityJobDefinitionNetworkConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 type DataQualityJobDefinitionNetworkConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-enableintercontainertrafficencryption
+	// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 	EnableInterContainerTrafficEncryption pulumi.BoolPtrInput `pulumi:"enableInterContainerTrafficEncryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-enablenetworkisolation
-	EnableNetworkIsolation pulumi.BoolPtrInput `pulumi:"enableNetworkIsolation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-vpcconfig
-	VpcConfig DataQualityJobDefinitionVpcConfigPtrInput `pulumi:"vpcConfig"`
+	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+	EnableNetworkIsolation pulumi.BoolPtrInput                       `pulumi:"enableNetworkIsolation"`
+	VpcConfig              DataQualityJobDefinitionVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
 func (DataQualityJobDefinitionNetworkConfigArgs) ElementType() reflect.Type {
@@ -2220,7 +2385,7 @@ func (i *dataQualityJobDefinitionNetworkConfigPtrType) ToDataQualityJobDefinitio
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionNetworkConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 type DataQualityJobDefinitionNetworkConfigOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionNetworkConfigOutput) ElementType() reflect.Type {
@@ -2245,17 +2410,16 @@ func (o DataQualityJobDefinitionNetworkConfigOutput) ToDataQualityJobDefinitionN
 	}).(DataQualityJobDefinitionNetworkConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-enableintercontainertrafficencryption
+// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 func (o DataQualityJobDefinitionNetworkConfigOutput) EnableInterContainerTrafficEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionNetworkConfig) *bool { return v.EnableInterContainerTrafficEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-enablenetworkisolation
+// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 func (o DataQualityJobDefinitionNetworkConfigOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionNetworkConfig) *bool { return v.EnableNetworkIsolation }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-vpcconfig
 func (o DataQualityJobDefinitionNetworkConfigOutput) VpcConfig() DataQualityJobDefinitionVpcConfigPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionNetworkConfig) *DataQualityJobDefinitionVpcConfig { return v.VpcConfig }).(DataQualityJobDefinitionVpcConfigPtrOutput)
 }
@@ -2284,7 +2448,7 @@ func (o DataQualityJobDefinitionNetworkConfigPtrOutput) Elem() DataQualityJobDef
 	}).(DataQualityJobDefinitionNetworkConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-enableintercontainertrafficencryption
+// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 func (o DataQualityJobDefinitionNetworkConfigPtrOutput) EnableInterContainerTrafficEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionNetworkConfig) *bool {
 		if v == nil {
@@ -2294,7 +2458,7 @@ func (o DataQualityJobDefinitionNetworkConfigPtrOutput) EnableInterContainerTraf
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-enablenetworkisolation
+// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 func (o DataQualityJobDefinitionNetworkConfigPtrOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionNetworkConfig) *bool {
 		if v == nil {
@@ -2304,7 +2468,6 @@ func (o DataQualityJobDefinitionNetworkConfigPtrOutput) EnableNetworkIsolation()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-networkconfig.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig-vpcconfig
 func (o DataQualityJobDefinitionNetworkConfigPtrOutput) VpcConfig() DataQualityJobDefinitionVpcConfigPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionNetworkConfig) *DataQualityJobDefinitionVpcConfig {
 		if v == nil {
@@ -2314,13 +2477,13 @@ func (o DataQualityJobDefinitionNetworkConfigPtrOutput) VpcConfig() DataQualityJ
 	}).(DataQualityJobDefinitionVpcConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html
+// Information about where and how to store the results of a monitoring job.
 type DataQualityJobDefinitionS3Output struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-localpath
+	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath string `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-s3uploadmode
+	// Whether to upload the results of the monitoring job continuously or after the job completes.
 	S3UploadMode *string `pulumi:"s3UploadMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-s3uri
+	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -2335,13 +2498,13 @@ type DataQualityJobDefinitionS3OutputInput interface {
 	ToDataQualityJobDefinitionS3OutputOutputWithContext(context.Context) DataQualityJobDefinitionS3OutputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html
+// Information about where and how to store the results of a monitoring job.
 type DataQualityJobDefinitionS3OutputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-localpath
+	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-s3uploadmode
+	// Whether to upload the results of the monitoring job continuously or after the job completes.
 	S3UploadMode pulumi.StringPtrInput `pulumi:"s3UploadMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-s3uri
+	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -2357,7 +2520,7 @@ func (i DataQualityJobDefinitionS3OutputArgs) ToDataQualityJobDefinitionS3Output
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionS3OutputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html
+// Information about where and how to store the results of a monitoring job.
 type DataQualityJobDefinitionS3OutputOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionS3OutputOutput) ElementType() reflect.Type {
@@ -2372,24 +2535,24 @@ func (o DataQualityJobDefinitionS3OutputOutput) ToDataQualityJobDefinitionS3Outp
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-localpath
+// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 func (o DataQualityJobDefinitionS3OutputOutput) LocalPath() pulumi.StringOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionS3Output) string { return v.LocalPath }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-s3uploadmode
+// Whether to upload the results of the monitoring job continuously or after the job completes.
 func (o DataQualityJobDefinitionS3OutputOutput) S3UploadMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionS3Output) *string { return v.S3UploadMode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-s3output.html#cfn-sagemaker-dataqualityjobdefinition-s3output-s3uri
+// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 func (o DataQualityJobDefinitionS3OutputOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionS3Output) string { return v.S3Uri }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html
+// The baseline statistics resource for a monitoring job.
 type DataQualityJobDefinitionStatisticsResource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html#cfn-sagemaker-dataqualityjobdefinition-statisticsresource-s3uri
+	// The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
 	S3Uri *string `pulumi:"s3Uri"`
 }
 
@@ -2404,9 +2567,9 @@ type DataQualityJobDefinitionStatisticsResourceInput interface {
 	ToDataQualityJobDefinitionStatisticsResourceOutputWithContext(context.Context) DataQualityJobDefinitionStatisticsResourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html
+// The baseline statistics resource for a monitoring job.
 type DataQualityJobDefinitionStatisticsResourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html#cfn-sagemaker-dataqualityjobdefinition-statisticsresource-s3uri
+	// The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
 	S3Uri pulumi.StringPtrInput `pulumi:"s3Uri"`
 }
 
@@ -2463,7 +2626,7 @@ func (i *dataQualityJobDefinitionStatisticsResourcePtrType) ToDataQualityJobDefi
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionStatisticsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html
+// The baseline statistics resource for a monitoring job.
 type DataQualityJobDefinitionStatisticsResourceOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionStatisticsResourceOutput) ElementType() reflect.Type {
@@ -2488,7 +2651,7 @@ func (o DataQualityJobDefinitionStatisticsResourceOutput) ToDataQualityJobDefini
 	}).(DataQualityJobDefinitionStatisticsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html#cfn-sagemaker-dataqualityjobdefinition-statisticsresource-s3uri
+// The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
 func (o DataQualityJobDefinitionStatisticsResourceOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionStatisticsResource) *string { return v.S3Uri }).(pulumi.StringPtrOutput)
 }
@@ -2517,7 +2680,7 @@ func (o DataQualityJobDefinitionStatisticsResourcePtrOutput) Elem() DataQualityJ
 	}).(DataQualityJobDefinitionStatisticsResourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html#cfn-sagemaker-dataqualityjobdefinition-statisticsresource-s3uri
+// The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
 func (o DataQualityJobDefinitionStatisticsResourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionStatisticsResource) *string {
 		if v == nil {
@@ -2527,9 +2690,9 @@ func (o DataQualityJobDefinitionStatisticsResourcePtrOutput) S3Uri() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-stoppingcondition.html
+// Specifies a time limit for how long the monitoring job is allowed to run.
 type DataQualityJobDefinitionStoppingCondition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-stoppingcondition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition-maxruntimeinseconds
+	// The maximum runtime allowed in seconds.
 	MaxRuntimeInSeconds int `pulumi:"maxRuntimeInSeconds"`
 }
 
@@ -2544,9 +2707,9 @@ type DataQualityJobDefinitionStoppingConditionInput interface {
 	ToDataQualityJobDefinitionStoppingConditionOutputWithContext(context.Context) DataQualityJobDefinitionStoppingConditionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-stoppingcondition.html
+// Specifies a time limit for how long the monitoring job is allowed to run.
 type DataQualityJobDefinitionStoppingConditionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-stoppingcondition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition-maxruntimeinseconds
+	// The maximum runtime allowed in seconds.
 	MaxRuntimeInSeconds pulumi.IntInput `pulumi:"maxRuntimeInSeconds"`
 }
 
@@ -2603,7 +2766,7 @@ func (i *dataQualityJobDefinitionStoppingConditionPtrType) ToDataQualityJobDefin
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionStoppingConditionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-stoppingcondition.html
+// Specifies a time limit for how long the monitoring job is allowed to run.
 type DataQualityJobDefinitionStoppingConditionOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionStoppingConditionOutput) ElementType() reflect.Type {
@@ -2628,7 +2791,7 @@ func (o DataQualityJobDefinitionStoppingConditionOutput) ToDataQualityJobDefinit
 	}).(DataQualityJobDefinitionStoppingConditionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-stoppingcondition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition-maxruntimeinseconds
+// The maximum runtime allowed in seconds.
 func (o DataQualityJobDefinitionStoppingConditionOutput) MaxRuntimeInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionStoppingCondition) int { return v.MaxRuntimeInSeconds }).(pulumi.IntOutput)
 }
@@ -2657,7 +2820,7 @@ func (o DataQualityJobDefinitionStoppingConditionPtrOutput) Elem() DataQualityJo
 	}).(DataQualityJobDefinitionStoppingConditionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-stoppingcondition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition-maxruntimeinseconds
+// The maximum runtime allowed in seconds.
 func (o DataQualityJobDefinitionStoppingConditionPtrOutput) MaxRuntimeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionStoppingCondition) *int {
 		if v == nil {
@@ -2667,11 +2830,120 @@ func (o DataQualityJobDefinitionStoppingConditionPtrOutput) MaxRuntimeInSeconds(
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html
+// A key-value pair to associate with a resource.
+type DataQualityJobDefinitionTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// DataQualityJobDefinitionTagInput is an input type that accepts DataQualityJobDefinitionTagArgs and DataQualityJobDefinitionTagOutput values.
+// You can construct a concrete instance of `DataQualityJobDefinitionTagInput` via:
+//
+//          DataQualityJobDefinitionTagArgs{...}
+type DataQualityJobDefinitionTagInput interface {
+	pulumi.Input
+
+	ToDataQualityJobDefinitionTagOutput() DataQualityJobDefinitionTagOutput
+	ToDataQualityJobDefinitionTagOutputWithContext(context.Context) DataQualityJobDefinitionTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type DataQualityJobDefinitionTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DataQualityJobDefinitionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityJobDefinitionTag)(nil)).Elem()
+}
+
+func (i DataQualityJobDefinitionTagArgs) ToDataQualityJobDefinitionTagOutput() DataQualityJobDefinitionTagOutput {
+	return i.ToDataQualityJobDefinitionTagOutputWithContext(context.Background())
+}
+
+func (i DataQualityJobDefinitionTagArgs) ToDataQualityJobDefinitionTagOutputWithContext(ctx context.Context) DataQualityJobDefinitionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionTagOutput)
+}
+
+// DataQualityJobDefinitionTagArrayInput is an input type that accepts DataQualityJobDefinitionTagArray and DataQualityJobDefinitionTagArrayOutput values.
+// You can construct a concrete instance of `DataQualityJobDefinitionTagArrayInput` via:
+//
+//          DataQualityJobDefinitionTagArray{ DataQualityJobDefinitionTagArgs{...} }
+type DataQualityJobDefinitionTagArrayInput interface {
+	pulumi.Input
+
+	ToDataQualityJobDefinitionTagArrayOutput() DataQualityJobDefinitionTagArrayOutput
+	ToDataQualityJobDefinitionTagArrayOutputWithContext(context.Context) DataQualityJobDefinitionTagArrayOutput
+}
+
+type DataQualityJobDefinitionTagArray []DataQualityJobDefinitionTagInput
+
+func (DataQualityJobDefinitionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataQualityJobDefinitionTag)(nil)).Elem()
+}
+
+func (i DataQualityJobDefinitionTagArray) ToDataQualityJobDefinitionTagArrayOutput() DataQualityJobDefinitionTagArrayOutput {
+	return i.ToDataQualityJobDefinitionTagArrayOutputWithContext(context.Background())
+}
+
+func (i DataQualityJobDefinitionTagArray) ToDataQualityJobDefinitionTagArrayOutputWithContext(ctx context.Context) DataQualityJobDefinitionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DataQualityJobDefinitionTagOutput struct{ *pulumi.OutputState }
+
+func (DataQualityJobDefinitionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataQualityJobDefinitionTag)(nil)).Elem()
+}
+
+func (o DataQualityJobDefinitionTagOutput) ToDataQualityJobDefinitionTagOutput() DataQualityJobDefinitionTagOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionTagOutput) ToDataQualityJobDefinitionTagOutputWithContext(ctx context.Context) DataQualityJobDefinitionTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DataQualityJobDefinitionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DataQualityJobDefinitionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DataQualityJobDefinitionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DataQualityJobDefinitionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DataQualityJobDefinitionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataQualityJobDefinitionTag)(nil)).Elem()
+}
+
+func (o DataQualityJobDefinitionTagArrayOutput) ToDataQualityJobDefinitionTagArrayOutput() DataQualityJobDefinitionTagArrayOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionTagArrayOutput) ToDataQualityJobDefinitionTagArrayOutputWithContext(ctx context.Context) DataQualityJobDefinitionTagArrayOutput {
+	return o
+}
+
+func (o DataQualityJobDefinitionTagArrayOutput) Index(i pulumi.IntInput) DataQualityJobDefinitionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataQualityJobDefinitionTag {
+		return vs[0].([]DataQualityJobDefinitionTag)[vs[1].(int)]
+	}).(DataQualityJobDefinitionTagOutput)
+}
+
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 type DataQualityJobDefinitionVpcConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html#cfn-sagemaker-dataqualityjobdefinition-vpcconfig-securitygroupids
+	// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html#cfn-sagemaker-dataqualityjobdefinition-vpcconfig-subnets
+	// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 	Subnets []string `pulumi:"subnets"`
 }
 
@@ -2686,11 +2958,11 @@ type DataQualityJobDefinitionVpcConfigInput interface {
 	ToDataQualityJobDefinitionVpcConfigOutputWithContext(context.Context) DataQualityJobDefinitionVpcConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 type DataQualityJobDefinitionVpcConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html#cfn-sagemaker-dataqualityjobdefinition-vpcconfig-securitygroupids
+	// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html#cfn-sagemaker-dataqualityjobdefinition-vpcconfig-subnets
+	// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
@@ -2747,7 +3019,7 @@ func (i *dataQualityJobDefinitionVpcConfigPtrType) ToDataQualityJobDefinitionVpc
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionVpcConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 type DataQualityJobDefinitionVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionVpcConfigOutput) ElementType() reflect.Type {
@@ -2772,12 +3044,12 @@ func (o DataQualityJobDefinitionVpcConfigOutput) ToDataQualityJobDefinitionVpcCo
 	}).(DataQualityJobDefinitionVpcConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html#cfn-sagemaker-dataqualityjobdefinition-vpcconfig-securitygroupids
+// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 func (o DataQualityJobDefinitionVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html#cfn-sagemaker-dataqualityjobdefinition-vpcconfig-subnets
+// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 func (o DataQualityJobDefinitionVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -2806,7 +3078,7 @@ func (o DataQualityJobDefinitionVpcConfigPtrOutput) Elem() DataQualityJobDefinit
 	}).(DataQualityJobDefinitionVpcConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html#cfn-sagemaker-dataqualityjobdefinition-vpcconfig-securitygroupids
+// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 func (o DataQualityJobDefinitionVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionVpcConfig) []string {
 		if v == nil {
@@ -2816,7 +3088,7 @@ func (o DataQualityJobDefinitionVpcConfigPtrOutput) SecurityGroupIds() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-vpcconfig.html#cfn-sagemaker-dataqualityjobdefinition-vpcconfig-subnets
+// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 func (o DataQualityJobDefinitionVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionVpcConfig) []string {
 		if v == nil {
@@ -2826,13 +3098,13 @@ func (o DataQualityJobDefinitionVpcConfigPtrOutput) Subnets() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html
+// Edge device you want to create
 type DeviceDevice struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html#cfn-sagemaker-device-device-description
+	// Description of the device
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html#cfn-sagemaker-device-device-devicename
+	// The name of the device
 	DeviceName string `pulumi:"deviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html#cfn-sagemaker-device-device-iotthingname
+	// AWS Internet of Things (IoT) object name.
 	IotThingName *string `pulumi:"iotThingName"`
 }
 
@@ -2847,13 +3119,13 @@ type DeviceDeviceInput interface {
 	ToDeviceDeviceOutputWithContext(context.Context) DeviceDeviceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html
+// Edge device you want to create
 type DeviceDeviceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html#cfn-sagemaker-device-device-description
+	// Description of the device
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html#cfn-sagemaker-device-device-devicename
+	// The name of the device
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html#cfn-sagemaker-device-device-iotthingname
+	// AWS Internet of Things (IoT) object name.
 	IotThingName pulumi.StringPtrInput `pulumi:"iotThingName"`
 }
 
@@ -2869,7 +3141,48 @@ func (i DeviceDeviceArgs) ToDeviceDeviceOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceDeviceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html
+func (i DeviceDeviceArgs) ToDeviceDevicePtrOutput() DeviceDevicePtrOutput {
+	return i.ToDeviceDevicePtrOutputWithContext(context.Background())
+}
+
+func (i DeviceDeviceArgs) ToDeviceDevicePtrOutputWithContext(ctx context.Context) DeviceDevicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceDeviceOutput).ToDeviceDevicePtrOutputWithContext(ctx)
+}
+
+// DeviceDevicePtrInput is an input type that accepts DeviceDeviceArgs, DeviceDevicePtr and DeviceDevicePtrOutput values.
+// You can construct a concrete instance of `DeviceDevicePtrInput` via:
+//
+//          DeviceDeviceArgs{...}
+//
+//  or:
+//
+//          nil
+type DeviceDevicePtrInput interface {
+	pulumi.Input
+
+	ToDeviceDevicePtrOutput() DeviceDevicePtrOutput
+	ToDeviceDevicePtrOutputWithContext(context.Context) DeviceDevicePtrOutput
+}
+
+type deviceDevicePtrType DeviceDeviceArgs
+
+func DeviceDevicePtr(v *DeviceDeviceArgs) DeviceDevicePtrInput {
+	return (*deviceDevicePtrType)(v)
+}
+
+func (*deviceDevicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceDevice)(nil)).Elem()
+}
+
+func (i *deviceDevicePtrType) ToDeviceDevicePtrOutput() DeviceDevicePtrOutput {
+	return i.ToDeviceDevicePtrOutputWithContext(context.Background())
+}
+
+func (i *deviceDevicePtrType) ToDeviceDevicePtrOutputWithContext(ctx context.Context) DeviceDevicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceDevicePtrOutput)
+}
+
+// Edge device you want to create
 type DeviceDeviceOutput struct{ *pulumi.OutputState }
 
 func (DeviceDeviceOutput) ElementType() reflect.Type {
@@ -2884,26 +3197,89 @@ func (o DeviceDeviceOutput) ToDeviceDeviceOutputWithContext(ctx context.Context)
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html#cfn-sagemaker-device-device-description
+func (o DeviceDeviceOutput) ToDeviceDevicePtrOutput() DeviceDevicePtrOutput {
+	return o.ToDeviceDevicePtrOutputWithContext(context.Background())
+}
+
+func (o DeviceDeviceOutput) ToDeviceDevicePtrOutputWithContext(ctx context.Context) DeviceDevicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceDevice) *DeviceDevice {
+		return &v
+	}).(DeviceDevicePtrOutput)
+}
+
+// Description of the device
 func (o DeviceDeviceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceDevice) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html#cfn-sagemaker-device-device-devicename
+// The name of the device
 func (o DeviceDeviceOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v DeviceDevice) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html#cfn-sagemaker-device-device-iotthingname
+// AWS Internet of Things (IoT) object name.
 func (o DeviceDeviceOutput) IotThingName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceDevice) *string { return v.IotThingName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html
+type DeviceDevicePtrOutput struct{ *pulumi.OutputState }
+
+func (DeviceDevicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceDevice)(nil)).Elem()
+}
+
+func (o DeviceDevicePtrOutput) ToDeviceDevicePtrOutput() DeviceDevicePtrOutput {
+	return o
+}
+
+func (o DeviceDevicePtrOutput) ToDeviceDevicePtrOutputWithContext(ctx context.Context) DeviceDevicePtrOutput {
+	return o
+}
+
+func (o DeviceDevicePtrOutput) Elem() DeviceDeviceOutput {
+	return o.ApplyT(func(v *DeviceDevice) DeviceDevice {
+		if v != nil {
+			return *v
+		}
+		var ret DeviceDevice
+		return ret
+	}).(DeviceDeviceOutput)
+}
+
+// Description of the device
+func (o DeviceDevicePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceDevice) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the device
+func (o DeviceDevicePtrOutput) DeviceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceDevice) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeviceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS Internet of Things (IoT) object name.
+func (o DeviceDevicePtrOutput) IotThingName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceDevice) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IotThingName
+	}).(pulumi.StringPtrOutput)
+}
+
 type DeviceFleetEdgeOutputConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html#cfn-sagemaker-devicefleet-edgeoutputconfig-kmskeyid
+	// The KMS key id used for encryption on the S3 bucket
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html#cfn-sagemaker-devicefleet-edgeoutputconfig-s3outputlocation
+	// The Amazon Simple Storage (S3) bucket URI
 	S3OutputLocation string `pulumi:"s3OutputLocation"`
 }
 
@@ -2918,11 +3294,10 @@ type DeviceFleetEdgeOutputConfigInput interface {
 	ToDeviceFleetEdgeOutputConfigOutputWithContext(context.Context) DeviceFleetEdgeOutputConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html
 type DeviceFleetEdgeOutputConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html#cfn-sagemaker-devicefleet-edgeoutputconfig-kmskeyid
+	// The KMS key id used for encryption on the S3 bucket
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html#cfn-sagemaker-devicefleet-edgeoutputconfig-s3outputlocation
+	// The Amazon Simple Storage (S3) bucket URI
 	S3OutputLocation pulumi.StringInput `pulumi:"s3OutputLocation"`
 }
 
@@ -2979,7 +3354,6 @@ func (i *deviceFleetEdgeOutputConfigPtrType) ToDeviceFleetEdgeOutputConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetEdgeOutputConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html
 type DeviceFleetEdgeOutputConfigOutput struct{ *pulumi.OutputState }
 
 func (DeviceFleetEdgeOutputConfigOutput) ElementType() reflect.Type {
@@ -3004,12 +3378,12 @@ func (o DeviceFleetEdgeOutputConfigOutput) ToDeviceFleetEdgeOutputConfigPtrOutpu
 	}).(DeviceFleetEdgeOutputConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html#cfn-sagemaker-devicefleet-edgeoutputconfig-kmskeyid
+// The KMS key id used for encryption on the S3 bucket
 func (o DeviceFleetEdgeOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceFleetEdgeOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html#cfn-sagemaker-devicefleet-edgeoutputconfig-s3outputlocation
+// The Amazon Simple Storage (S3) bucket URI
 func (o DeviceFleetEdgeOutputConfigOutput) S3OutputLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v DeviceFleetEdgeOutputConfig) string { return v.S3OutputLocation }).(pulumi.StringOutput)
 }
@@ -3038,7 +3412,7 @@ func (o DeviceFleetEdgeOutputConfigPtrOutput) Elem() DeviceFleetEdgeOutputConfig
 	}).(DeviceFleetEdgeOutputConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html#cfn-sagemaker-devicefleet-edgeoutputconfig-kmskeyid
+// The KMS key id used for encryption on the S3 bucket
 func (o DeviceFleetEdgeOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceFleetEdgeOutputConfig) *string {
 		if v == nil {
@@ -3048,7 +3422,7 @@ func (o DeviceFleetEdgeOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html#cfn-sagemaker-devicefleet-edgeoutputconfig-s3outputlocation
+// The Amazon Simple Storage (S3) bucket URI
 func (o DeviceFleetEdgeOutputConfigPtrOutput) S3OutputLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceFleetEdgeOutputConfig) *string {
 		if v == nil {
@@ -3058,13 +3432,228 @@ func (o DeviceFleetEdgeOutputConfigPtrOutput) S3OutputLocation() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html
+// Key-value pair to associate as a tag for the resource
+type DeviceFleetTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// DeviceFleetTagInput is an input type that accepts DeviceFleetTagArgs and DeviceFleetTagOutput values.
+// You can construct a concrete instance of `DeviceFleetTagInput` via:
+//
+//          DeviceFleetTagArgs{...}
+type DeviceFleetTagInput interface {
+	pulumi.Input
+
+	ToDeviceFleetTagOutput() DeviceFleetTagOutput
+	ToDeviceFleetTagOutputWithContext(context.Context) DeviceFleetTagOutput
+}
+
+// Key-value pair to associate as a tag for the resource
+type DeviceFleetTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DeviceFleetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceFleetTag)(nil)).Elem()
+}
+
+func (i DeviceFleetTagArgs) ToDeviceFleetTagOutput() DeviceFleetTagOutput {
+	return i.ToDeviceFleetTagOutputWithContext(context.Background())
+}
+
+func (i DeviceFleetTagArgs) ToDeviceFleetTagOutputWithContext(ctx context.Context) DeviceFleetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetTagOutput)
+}
+
+// DeviceFleetTagArrayInput is an input type that accepts DeviceFleetTagArray and DeviceFleetTagArrayOutput values.
+// You can construct a concrete instance of `DeviceFleetTagArrayInput` via:
+//
+//          DeviceFleetTagArray{ DeviceFleetTagArgs{...} }
+type DeviceFleetTagArrayInput interface {
+	pulumi.Input
+
+	ToDeviceFleetTagArrayOutput() DeviceFleetTagArrayOutput
+	ToDeviceFleetTagArrayOutputWithContext(context.Context) DeviceFleetTagArrayOutput
+}
+
+type DeviceFleetTagArray []DeviceFleetTagInput
+
+func (DeviceFleetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeviceFleetTag)(nil)).Elem()
+}
+
+func (i DeviceFleetTagArray) ToDeviceFleetTagArrayOutput() DeviceFleetTagArrayOutput {
+	return i.ToDeviceFleetTagArrayOutputWithContext(context.Background())
+}
+
+func (i DeviceFleetTagArray) ToDeviceFleetTagArrayOutputWithContext(ctx context.Context) DeviceFleetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetTagArrayOutput)
+}
+
+// Key-value pair to associate as a tag for the resource
+type DeviceFleetTagOutput struct{ *pulumi.OutputState }
+
+func (DeviceFleetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceFleetTag)(nil)).Elem()
+}
+
+func (o DeviceFleetTagOutput) ToDeviceFleetTagOutput() DeviceFleetTagOutput {
+	return o
+}
+
+func (o DeviceFleetTagOutput) ToDeviceFleetTagOutputWithContext(ctx context.Context) DeviceFleetTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DeviceFleetTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceFleetTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DeviceFleetTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceFleetTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DeviceFleetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DeviceFleetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeviceFleetTag)(nil)).Elem()
+}
+
+func (o DeviceFleetTagArrayOutput) ToDeviceFleetTagArrayOutput() DeviceFleetTagArrayOutput {
+	return o
+}
+
+func (o DeviceFleetTagArrayOutput) ToDeviceFleetTagArrayOutputWithContext(ctx context.Context) DeviceFleetTagArrayOutput {
+	return o
+}
+
+func (o DeviceFleetTagArrayOutput) Index(i pulumi.IntInput) DeviceFleetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeviceFleetTag {
+		return vs[0].([]DeviceFleetTag)[vs[1].(int)]
+	}).(DeviceFleetTagOutput)
+}
+
+type DeviceTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// DeviceTagInput is an input type that accepts DeviceTagArgs and DeviceTagOutput values.
+// You can construct a concrete instance of `DeviceTagInput` via:
+//
+//          DeviceTagArgs{...}
+type DeviceTagInput interface {
+	pulumi.Input
+
+	ToDeviceTagOutput() DeviceTagOutput
+	ToDeviceTagOutputWithContext(context.Context) DeviceTagOutput
+}
+
+type DeviceTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DeviceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceTag)(nil)).Elem()
+}
+
+func (i DeviceTagArgs) ToDeviceTagOutput() DeviceTagOutput {
+	return i.ToDeviceTagOutputWithContext(context.Background())
+}
+
+func (i DeviceTagArgs) ToDeviceTagOutputWithContext(ctx context.Context) DeviceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceTagOutput)
+}
+
+// DeviceTagArrayInput is an input type that accepts DeviceTagArray and DeviceTagArrayOutput values.
+// You can construct a concrete instance of `DeviceTagArrayInput` via:
+//
+//          DeviceTagArray{ DeviceTagArgs{...} }
+type DeviceTagArrayInput interface {
+	pulumi.Input
+
+	ToDeviceTagArrayOutput() DeviceTagArrayOutput
+	ToDeviceTagArrayOutputWithContext(context.Context) DeviceTagArrayOutput
+}
+
+type DeviceTagArray []DeviceTagInput
+
+func (DeviceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeviceTag)(nil)).Elem()
+}
+
+func (i DeviceTagArray) ToDeviceTagArrayOutput() DeviceTagArrayOutput {
+	return i.ToDeviceTagArrayOutputWithContext(context.Background())
+}
+
+func (i DeviceTagArray) ToDeviceTagArrayOutputWithContext(ctx context.Context) DeviceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceTagArrayOutput)
+}
+
+type DeviceTagOutput struct{ *pulumi.OutputState }
+
+func (DeviceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceTag)(nil)).Elem()
+}
+
+func (o DeviceTagOutput) ToDeviceTagOutput() DeviceTagOutput {
+	return o
+}
+
+func (o DeviceTagOutput) ToDeviceTagOutputWithContext(ctx context.Context) DeviceTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DeviceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The key value of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DeviceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DeviceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DeviceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeviceTag)(nil)).Elem()
+}
+
+func (o DeviceTagArrayOutput) ToDeviceTagArrayOutput() DeviceTagArrayOutput {
+	return o
+}
+
+func (o DeviceTagArrayOutput) ToDeviceTagArrayOutputWithContext(ctx context.Context) DeviceTagArrayOutput {
+	return o
+}
+
+func (o DeviceTagArrayOutput) Index(i pulumi.IntInput) DeviceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeviceTag {
+		return vs[0].([]DeviceTag)[vs[1].(int)]
+	}).(DeviceTagOutput)
+}
+
+// A custom SageMaker image.
 type DomainCustomImage struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-appimageconfigname
+	// The Name of the AppImageConfig.
 	AppImageConfigName string `pulumi:"appImageConfigName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imagename
+	// The name of the CustomImage. Must be unique to your account.
 	ImageName string `pulumi:"imageName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imageversionnumber
+	// The version number of the CustomImage.
 	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
 }
 
@@ -3079,13 +3668,13 @@ type DomainCustomImageInput interface {
 	ToDomainCustomImageOutputWithContext(context.Context) DomainCustomImageOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html
+// A custom SageMaker image.
 type DomainCustomImageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-appimageconfigname
+	// The Name of the AppImageConfig.
 	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imagename
+	// The name of the CustomImage. Must be unique to your account.
 	ImageName pulumi.StringInput `pulumi:"imageName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imageversionnumber
+	// The version number of the CustomImage.
 	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
 }
 
@@ -3126,7 +3715,7 @@ func (i DomainCustomImageArray) ToDomainCustomImageArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DomainCustomImageArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html
+// A custom SageMaker image.
 type DomainCustomImageOutput struct{ *pulumi.OutputState }
 
 func (DomainCustomImageOutput) ElementType() reflect.Type {
@@ -3141,17 +3730,17 @@ func (o DomainCustomImageOutput) ToDomainCustomImageOutputWithContext(ctx contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-appimageconfigname
+// The Name of the AppImageConfig.
 func (o DomainCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainCustomImage) string { return v.AppImageConfigName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imagename
+// The name of the CustomImage. Must be unique to your account.
 func (o DomainCustomImageOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-customimage.html#cfn-sagemaker-domain-customimage-imageversionnumber
+// The version number of the CustomImage.
 func (o DomainCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
 }
@@ -3176,9 +3765,8 @@ func (o DomainCustomImageArrayOutput) Index(i pulumi.IntInput) DomainCustomImage
 	}).(DomainCustomImageOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html
+// The JupyterServer app settings.
 type DomainJupyterServerAppSettings struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-defaultresourcespec
 	DefaultResourceSpec *DomainResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -3193,9 +3781,8 @@ type DomainJupyterServerAppSettingsInput interface {
 	ToDomainJupyterServerAppSettingsOutputWithContext(context.Context) DomainJupyterServerAppSettingsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html
+// The JupyterServer app settings.
 type DomainJupyterServerAppSettingsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-defaultresourcespec
 	DefaultResourceSpec DomainResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -3252,7 +3839,7 @@ func (i *domainJupyterServerAppSettingsPtrType) ToDomainJupyterServerAppSettings
 	return pulumi.ToOutputWithContext(ctx, i).(DomainJupyterServerAppSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html
+// The JupyterServer app settings.
 type DomainJupyterServerAppSettingsOutput struct{ *pulumi.OutputState }
 
 func (DomainJupyterServerAppSettingsOutput) ElementType() reflect.Type {
@@ -3277,7 +3864,6 @@ func (o DomainJupyterServerAppSettingsOutput) ToDomainJupyterServerAppSettingsPt
 	}).(DomainJupyterServerAppSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-defaultresourcespec
 func (o DomainJupyterServerAppSettingsOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainJupyterServerAppSettings) *DomainResourceSpec { return v.DefaultResourceSpec }).(DomainResourceSpecPtrOutput)
 }
@@ -3306,7 +3892,6 @@ func (o DomainJupyterServerAppSettingsPtrOutput) Elem() DomainJupyterServerAppSe
 	}).(DomainJupyterServerAppSettingsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-defaultresourcespec
 func (o DomainJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainJupyterServerAppSettings) *DomainResourceSpec {
 		if v == nil {
@@ -3316,11 +3901,11 @@ func (o DomainJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() DomainRes
 	}).(DomainResourceSpecPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html
+// The kernel gateway app settings.
 type DomainKernelGatewayAppSettings struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
 	CustomImages []DomainCustomImage `pulumi:"customImages"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-defaultresourcespec
+	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
 	DefaultResourceSpec *DomainResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -3335,11 +3920,11 @@ type DomainKernelGatewayAppSettingsInput interface {
 	ToDomainKernelGatewayAppSettingsOutputWithContext(context.Context) DomainKernelGatewayAppSettingsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html
+// The kernel gateway app settings.
 type DomainKernelGatewayAppSettingsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
 	CustomImages DomainCustomImageArrayInput `pulumi:"customImages"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-defaultresourcespec
+	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
 	DefaultResourceSpec DomainResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -3396,7 +3981,7 @@ func (i *domainKernelGatewayAppSettingsPtrType) ToDomainKernelGatewayAppSettings
 	return pulumi.ToOutputWithContext(ctx, i).(DomainKernelGatewayAppSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html
+// The kernel gateway app settings.
 type DomainKernelGatewayAppSettingsOutput struct{ *pulumi.OutputState }
 
 func (DomainKernelGatewayAppSettingsOutput) ElementType() reflect.Type {
@@ -3421,12 +4006,12 @@ func (o DomainKernelGatewayAppSettingsOutput) ToDomainKernelGatewayAppSettingsPt
 	}).(DomainKernelGatewayAppSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages
+// A list of custom SageMaker images that are configured to run as a KernelGateway app.
 func (o DomainKernelGatewayAppSettingsOutput) CustomImages() DomainCustomImageArrayOutput {
 	return o.ApplyT(func(v DomainKernelGatewayAppSettings) []DomainCustomImage { return v.CustomImages }).(DomainCustomImageArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-defaultresourcespec
+// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
 func (o DomainKernelGatewayAppSettingsOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainKernelGatewayAppSettings) *DomainResourceSpec { return v.DefaultResourceSpec }).(DomainResourceSpecPtrOutput)
 }
@@ -3455,7 +4040,7 @@ func (o DomainKernelGatewayAppSettingsPtrOutput) Elem() DomainKernelGatewayAppSe
 	}).(DomainKernelGatewayAppSettingsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages
+// A list of custom SageMaker images that are configured to run as a KernelGateway app.
 func (o DomainKernelGatewayAppSettingsPtrOutput) CustomImages() DomainCustomImageArrayOutput {
 	return o.ApplyT(func(v *DomainKernelGatewayAppSettings) []DomainCustomImage {
 		if v == nil {
@@ -3465,7 +4050,7 @@ func (o DomainKernelGatewayAppSettingsPtrOutput) CustomImages() DomainCustomImag
 	}).(DomainCustomImageArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-defaultresourcespec
+// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
 func (o DomainKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainKernelGatewayAppSettings) *DomainResourceSpec {
 		if v == nil {
@@ -3475,13 +4060,12 @@ func (o DomainKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() DomainRes
 	}).(DomainResourceSpecPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html
 type DomainResourceSpec struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-instancetype
+	// The instance type that the image version runs on.
 	InstanceType *string `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimagearn
+	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimageversionarn
+	// The ARN of the image version created on the instance.
 	SageMakerImageVersionArn *string `pulumi:"sageMakerImageVersionArn"`
 }
 
@@ -3496,13 +4080,12 @@ type DomainResourceSpecInput interface {
 	ToDomainResourceSpecOutputWithContext(context.Context) DomainResourceSpecOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html
 type DomainResourceSpecArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-instancetype
+	// The instance type that the image version runs on.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimagearn
+	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimageversionarn
+	// The ARN of the image version created on the instance.
 	SageMakerImageVersionArn pulumi.StringPtrInput `pulumi:"sageMakerImageVersionArn"`
 }
 
@@ -3559,7 +4142,6 @@ func (i *domainResourceSpecPtrType) ToDomainResourceSpecPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DomainResourceSpecPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html
 type DomainResourceSpecOutput struct{ *pulumi.OutputState }
 
 func (DomainResourceSpecOutput) ElementType() reflect.Type {
@@ -3584,17 +4166,17 @@ func (o DomainResourceSpecOutput) ToDomainResourceSpecPtrOutputWithContext(ctx c
 	}).(DomainResourceSpecPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-instancetype
+// The instance type that the image version runs on.
 func (o DomainResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimagearn
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainResourceSpecOutput) SageMakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainResourceSpec) *string { return v.SageMakerImageArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimageversionarn
+// The ARN of the image version created on the instance.
 func (o DomainResourceSpecOutput) SageMakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainResourceSpec) *string { return v.SageMakerImageVersionArn }).(pulumi.StringPtrOutput)
 }
@@ -3623,7 +4205,7 @@ func (o DomainResourceSpecPtrOutput) Elem() DomainResourceSpecOutput {
 	}).(DomainResourceSpecOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-instancetype
+// The instance type that the image version runs on.
 func (o DomainResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainResourceSpec) *string {
 		if v == nil {
@@ -3633,7 +4215,7 @@ func (o DomainResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimagearn
+// The ARN of the SageMaker image that the image version belongs to.
 func (o DomainResourceSpecPtrOutput) SageMakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainResourceSpec) *string {
 		if v == nil {
@@ -3643,7 +4225,7 @@ func (o DomainResourceSpecPtrOutput) SageMakerImageArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimageversionarn
+// The ARN of the image version created on the instance.
 func (o DomainResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainResourceSpec) *string {
 		if v == nil {
@@ -3653,13 +4235,13 @@ func (o DomainResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html
+// Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
 type DomainSharingSettings struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-notebookoutputoption
+	// Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
 	NotebookOutputOption *string `pulumi:"notebookOutputOption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3kmskeyid
+	// When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 	S3KmsKeyId *string `pulumi:"s3KmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3outputpath
+	// When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
 	S3OutputPath *string `pulumi:"s3OutputPath"`
 }
 
@@ -3674,13 +4256,13 @@ type DomainSharingSettingsInput interface {
 	ToDomainSharingSettingsOutputWithContext(context.Context) DomainSharingSettingsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html
+// Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
 type DomainSharingSettingsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-notebookoutputoption
+	// Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
 	NotebookOutputOption pulumi.StringPtrInput `pulumi:"notebookOutputOption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3kmskeyid
+	// When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 	S3KmsKeyId pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3outputpath
+	// When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
 	S3OutputPath pulumi.StringPtrInput `pulumi:"s3OutputPath"`
 }
 
@@ -3737,7 +4319,7 @@ func (i *domainSharingSettingsPtrType) ToDomainSharingSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSharingSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html
+// Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
 type DomainSharingSettingsOutput struct{ *pulumi.OutputState }
 
 func (DomainSharingSettingsOutput) ElementType() reflect.Type {
@@ -3762,17 +4344,17 @@ func (o DomainSharingSettingsOutput) ToDomainSharingSettingsPtrOutputWithContext
 	}).(DomainSharingSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-notebookoutputoption
+// Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
 func (o DomainSharingSettingsOutput) NotebookOutputOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSharingSettings) *string { return v.NotebookOutputOption }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3kmskeyid
+// When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 func (o DomainSharingSettingsOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSharingSettings) *string { return v.S3KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3outputpath
+// When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
 func (o DomainSharingSettingsOutput) S3OutputPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainSharingSettings) *string { return v.S3OutputPath }).(pulumi.StringPtrOutput)
 }
@@ -3801,7 +4383,7 @@ func (o DomainSharingSettingsPtrOutput) Elem() DomainSharingSettingsOutput {
 	}).(DomainSharingSettingsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-notebookoutputoption
+// Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
 func (o DomainSharingSettingsPtrOutput) NotebookOutputOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSharingSettings) *string {
 		if v == nil {
@@ -3811,7 +4393,7 @@ func (o DomainSharingSettingsPtrOutput) NotebookOutputOption() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3kmskeyid
+// When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 func (o DomainSharingSettingsPtrOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSharingSettings) *string {
 		if v == nil {
@@ -3821,7 +4403,7 @@ func (o DomainSharingSettingsPtrOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-sharingsettings.html#cfn-sagemaker-domain-sharingsettings-s3outputpath
+// When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
 func (o DomainSharingSettingsPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainSharingSettings) *string {
 		if v == nil {
@@ -3831,17 +4413,117 @@ func (o DomainSharingSettingsPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html
+type DomainTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// DomainTagInput is an input type that accepts DomainTagArgs and DomainTagOutput values.
+// You can construct a concrete instance of `DomainTagInput` via:
+//
+//          DomainTagArgs{...}
+type DomainTagInput interface {
+	pulumi.Input
+
+	ToDomainTagOutput() DomainTagOutput
+	ToDomainTagOutputWithContext(context.Context) DomainTagOutput
+}
+
+type DomainTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DomainTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTag)(nil)).Elem()
+}
+
+func (i DomainTagArgs) ToDomainTagOutput() DomainTagOutput {
+	return i.ToDomainTagOutputWithContext(context.Background())
+}
+
+func (i DomainTagArgs) ToDomainTagOutputWithContext(ctx context.Context) DomainTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTagOutput)
+}
+
+// DomainTagArrayInput is an input type that accepts DomainTagArray and DomainTagArrayOutput values.
+// You can construct a concrete instance of `DomainTagArrayInput` via:
+//
+//          DomainTagArray{ DomainTagArgs{...} }
+type DomainTagArrayInput interface {
+	pulumi.Input
+
+	ToDomainTagArrayOutput() DomainTagArrayOutput
+	ToDomainTagArrayOutputWithContext(context.Context) DomainTagArrayOutput
+}
+
+type DomainTagArray []DomainTagInput
+
+func (DomainTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainTag)(nil)).Elem()
+}
+
+func (i DomainTagArray) ToDomainTagArrayOutput() DomainTagArrayOutput {
+	return i.ToDomainTagArrayOutputWithContext(context.Background())
+}
+
+func (i DomainTagArray) ToDomainTagArrayOutputWithContext(ctx context.Context) DomainTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainTagArrayOutput)
+}
+
+type DomainTagOutput struct{ *pulumi.OutputState }
+
+func (DomainTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTag)(nil)).Elem()
+}
+
+func (o DomainTagOutput) ToDomainTagOutput() DomainTagOutput {
+	return o
+}
+
+func (o DomainTagOutput) ToDomainTagOutputWithContext(ctx context.Context) DomainTagOutput {
+	return o
+}
+
+func (o DomainTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o DomainTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DomainTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainTag)(nil)).Elem()
+}
+
+func (o DomainTagArrayOutput) ToDomainTagArrayOutput() DomainTagArrayOutput {
+	return o
+}
+
+func (o DomainTagArrayOutput) ToDomainTagArrayOutputWithContext(ctx context.Context) DomainTagArrayOutput {
+	return o
+}
+
+func (o DomainTagArrayOutput) Index(i pulumi.IntInput) DomainTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainTag {
+		return vs[0].([]DomainTag)[vs[1].(int)]
+	}).(DomainTagOutput)
+}
+
+// A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type DomainUserSettings struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-executionrole
+	// The user profile Amazon Resource Name (ARN).
 	ExecutionRole *string `pulumi:"executionRole"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-jupyterserverappsettings
+	// The Jupyter server's app settings.
 	JupyterServerAppSettings *DomainJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-kernelgatewayappsettings
+	// The kernel gateway app settings.
 	KernelGatewayAppSettings *DomainKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-securitygroups
+	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-sharingsettings
+	// The sharing settings.
 	SharingSettings *DomainSharingSettings `pulumi:"sharingSettings"`
 }
 
@@ -3856,17 +4538,17 @@ type DomainUserSettingsInput interface {
 	ToDomainUserSettingsOutputWithContext(context.Context) DomainUserSettingsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html
+// A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type DomainUserSettingsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-executionrole
+	// The user profile Amazon Resource Name (ARN).
 	ExecutionRole pulumi.StringPtrInput `pulumi:"executionRole"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-jupyterserverappsettings
+	// The Jupyter server's app settings.
 	JupyterServerAppSettings DomainJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-kernelgatewayappsettings
+	// The kernel gateway app settings.
 	KernelGatewayAppSettings DomainKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-securitygroups
+	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-sharingsettings
+	// The sharing settings.
 	SharingSettings DomainSharingSettingsPtrInput `pulumi:"sharingSettings"`
 }
 
@@ -3923,7 +4605,7 @@ func (i *domainUserSettingsPtrType) ToDomainUserSettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DomainUserSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html
+// A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type DomainUserSettingsOutput struct{ *pulumi.OutputState }
 
 func (DomainUserSettingsOutput) ElementType() reflect.Type {
@@ -3948,27 +4630,27 @@ func (o DomainUserSettingsOutput) ToDomainUserSettingsPtrOutputWithContext(ctx c
 	}).(DomainUserSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-executionrole
+// The user profile Amazon Resource Name (ARN).
 func (o DomainUserSettingsOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-jupyterserverappsettings
+// The Jupyter server's app settings.
 func (o DomainUserSettingsOutput) JupyterServerAppSettings() DomainJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *DomainJupyterServerAppSettings { return v.JupyterServerAppSettings }).(DomainJupyterServerAppSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-kernelgatewayappsettings
+// The kernel gateway app settings.
 func (o DomainUserSettingsOutput) KernelGatewayAppSettings() DomainKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *DomainKernelGatewayAppSettings { return v.KernelGatewayAppSettings }).(DomainKernelGatewayAppSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-securitygroups
+// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 func (o DomainUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainUserSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-sharingsettings
+// The sharing settings.
 func (o DomainUserSettingsOutput) SharingSettings() DomainSharingSettingsPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *DomainSharingSettings { return v.SharingSettings }).(DomainSharingSettingsPtrOutput)
 }
@@ -3997,7 +4679,7 @@ func (o DomainUserSettingsPtrOutput) Elem() DomainUserSettingsOutput {
 	}).(DomainUserSettingsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-executionrole
+// The user profile Amazon Resource Name (ARN).
 func (o DomainUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainUserSettings) *string {
 		if v == nil {
@@ -4007,7 +4689,7 @@ func (o DomainUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-jupyterserverappsettings
+// The Jupyter server's app settings.
 func (o DomainUserSettingsPtrOutput) JupyterServerAppSettings() DomainJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainUserSettings) *DomainJupyterServerAppSettings {
 		if v == nil {
@@ -4017,7 +4699,7 @@ func (o DomainUserSettingsPtrOutput) JupyterServerAppSettings() DomainJupyterSer
 	}).(DomainJupyterServerAppSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-kernelgatewayappsettings
+// The kernel gateway app settings.
 func (o DomainUserSettingsPtrOutput) KernelGatewayAppSettings() DomainKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainUserSettings) *DomainKernelGatewayAppSettings {
 		if v == nil {
@@ -4027,7 +4709,7 @@ func (o DomainUserSettingsPtrOutput) KernelGatewayAppSettings() DomainKernelGate
 	}).(DomainKernelGatewayAppSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-securitygroups
+// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 func (o DomainUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainUserSettings) []string {
 		if v == nil {
@@ -4037,7 +4719,7 @@ func (o DomainUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-usersettings.html#cfn-sagemaker-domain-usersettings-sharingsettings
+// The sharing settings.
 func (o DomainUserSettingsPtrOutput) SharingSettings() DomainSharingSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainUserSettings) *DomainSharingSettings {
 		if v == nil {
@@ -4047,11 +4729,8 @@ func (o DomainUserSettingsPtrOutput) SharingSettings() DomainSharingSettingsPtrO
 	}).(DomainSharingSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html
 type FeatureGroupFeatureDefinition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featurename
 	FeatureName string `pulumi:"featureName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featuretype
 	FeatureType string `pulumi:"featureType"`
 }
 
@@ -4066,11 +4745,8 @@ type FeatureGroupFeatureDefinitionInput interface {
 	ToFeatureGroupFeatureDefinitionOutputWithContext(context.Context) FeatureGroupFeatureDefinitionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html
 type FeatureGroupFeatureDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featurename
 	FeatureName pulumi.StringInput `pulumi:"featureName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featuretype
 	FeatureType pulumi.StringInput `pulumi:"featureType"`
 }
 
@@ -4111,7 +4787,6 @@ func (i FeatureGroupFeatureDefinitionArray) ToFeatureGroupFeatureDefinitionArray
 	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupFeatureDefinitionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html
 type FeatureGroupFeatureDefinitionOutput struct{ *pulumi.OutputState }
 
 func (FeatureGroupFeatureDefinitionOutput) ElementType() reflect.Type {
@@ -4126,12 +4801,10 @@ func (o FeatureGroupFeatureDefinitionOutput) ToFeatureGroupFeatureDefinitionOutp
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featurename
 func (o FeatureGroupFeatureDefinitionOutput) FeatureName() pulumi.StringOutput {
 	return o.ApplyT(func(v FeatureGroupFeatureDefinition) string { return v.FeatureName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html#cfn-sagemaker-featuregroup-featuredefinition-featuretype
 func (o FeatureGroupFeatureDefinitionOutput) FeatureType() pulumi.StringOutput {
 	return o.ApplyT(func(v FeatureGroupFeatureDefinition) string { return v.FeatureType }).(pulumi.StringOutput)
 }
@@ -4156,15 +4829,227 @@ func (o FeatureGroupFeatureDefinitionArrayOutput) Index(i pulumi.IntInput) Featu
 	}).(FeatureGroupFeatureDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html
+// A key-value pair to associate with a resource.
+type FeatureGroupTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// FeatureGroupTagInput is an input type that accepts FeatureGroupTagArgs and FeatureGroupTagOutput values.
+// You can construct a concrete instance of `FeatureGroupTagInput` via:
+//
+//          FeatureGroupTagArgs{...}
+type FeatureGroupTagInput interface {
+	pulumi.Input
+
+	ToFeatureGroupTagOutput() FeatureGroupTagOutput
+	ToFeatureGroupTagOutputWithContext(context.Context) FeatureGroupTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type FeatureGroupTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FeatureGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupTag)(nil)).Elem()
+}
+
+func (i FeatureGroupTagArgs) ToFeatureGroupTagOutput() FeatureGroupTagOutput {
+	return i.ToFeatureGroupTagOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupTagArgs) ToFeatureGroupTagOutputWithContext(ctx context.Context) FeatureGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupTagOutput)
+}
+
+// FeatureGroupTagArrayInput is an input type that accepts FeatureGroupTagArray and FeatureGroupTagArrayOutput values.
+// You can construct a concrete instance of `FeatureGroupTagArrayInput` via:
+//
+//          FeatureGroupTagArray{ FeatureGroupTagArgs{...} }
+type FeatureGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToFeatureGroupTagArrayOutput() FeatureGroupTagArrayOutput
+	ToFeatureGroupTagArrayOutputWithContext(context.Context) FeatureGroupTagArrayOutput
+}
+
+type FeatureGroupTagArray []FeatureGroupTagInput
+
+func (FeatureGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FeatureGroupTag)(nil)).Elem()
+}
+
+func (i FeatureGroupTagArray) ToFeatureGroupTagArrayOutput() FeatureGroupTagArrayOutput {
+	return i.ToFeatureGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupTagArray) ToFeatureGroupTagArrayOutputWithContext(ctx context.Context) FeatureGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type FeatureGroupTagOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupTag)(nil)).Elem()
+}
+
+func (o FeatureGroupTagOutput) ToFeatureGroupTagOutput() FeatureGroupTagOutput {
+	return o
+}
+
+func (o FeatureGroupTagOutput) ToFeatureGroupTagOutputWithContext(ctx context.Context) FeatureGroupTagOutput {
+	return o
+}
+
+func (o FeatureGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FeatureGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o FeatureGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FeatureGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FeatureGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FeatureGroupTag)(nil)).Elem()
+}
+
+func (o FeatureGroupTagArrayOutput) ToFeatureGroupTagArrayOutput() FeatureGroupTagArrayOutput {
+	return o
+}
+
+func (o FeatureGroupTagArrayOutput) ToFeatureGroupTagArrayOutputWithContext(ctx context.Context) FeatureGroupTagArrayOutput {
+	return o
+}
+
+func (o FeatureGroupTagArrayOutput) Index(i pulumi.IntInput) FeatureGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FeatureGroupTag {
+		return vs[0].([]FeatureGroupTag)[vs[1].(int)]
+	}).(FeatureGroupTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ImageTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ImageTagInput is an input type that accepts ImageTagArgs and ImageTagOutput values.
+// You can construct a concrete instance of `ImageTagInput` via:
+//
+//          ImageTagArgs{...}
+type ImageTagInput interface {
+	pulumi.Input
+
+	ToImageTagOutput() ImageTagOutput
+	ToImageTagOutputWithContext(context.Context) ImageTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ImageTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ImageTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTag)(nil)).Elem()
+}
+
+func (i ImageTagArgs) ToImageTagOutput() ImageTagOutput {
+	return i.ToImageTagOutputWithContext(context.Background())
+}
+
+func (i ImageTagArgs) ToImageTagOutputWithContext(ctx context.Context) ImageTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTagOutput)
+}
+
+// ImageTagArrayInput is an input type that accepts ImageTagArray and ImageTagArrayOutput values.
+// You can construct a concrete instance of `ImageTagArrayInput` via:
+//
+//          ImageTagArray{ ImageTagArgs{...} }
+type ImageTagArrayInput interface {
+	pulumi.Input
+
+	ToImageTagArrayOutput() ImageTagArrayOutput
+	ToImageTagArrayOutputWithContext(context.Context) ImageTagArrayOutput
+}
+
+type ImageTagArray []ImageTagInput
+
+func (ImageTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageTag)(nil)).Elem()
+}
+
+func (i ImageTagArray) ToImageTagArrayOutput() ImageTagArrayOutput {
+	return i.ToImageTagArrayOutputWithContext(context.Background())
+}
+
+func (i ImageTagArray) ToImageTagArrayOutputWithContext(ctx context.Context) ImageTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ImageTagOutput struct{ *pulumi.OutputState }
+
+func (ImageTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTag)(nil)).Elem()
+}
+
+func (o ImageTagOutput) ToImageTagOutput() ImageTagOutput {
+	return o
+}
+
+func (o ImageTagOutput) ToImageTagOutputWithContext(ctx context.Context) ImageTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ImageTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ImageTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ImageTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageTag)(nil)).Elem()
+}
+
+func (o ImageTagArrayOutput) ToImageTagArrayOutput() ImageTagArrayOutput {
+	return o
+}
+
+func (o ImageTagArrayOutput) ToImageTagArrayOutputWithContext(ctx context.Context) ImageTagArrayOutput {
+	return o
+}
+
+func (o ImageTagArrayOutput) Index(i pulumi.IntInput) ImageTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageTag {
+		return vs[0].([]ImageTag)[vs[1].(int)]
+	}).(ImageTagOutput)
+}
+
+// Configuration for the cluster used to run model monitoring jobs.
 type ModelBiasJobDefinitionClusterConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancecount
+	// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 	InstanceCount int `pulumi:"instanceCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancetype
+	// The ML compute instance type for the processing job.
 	InstanceType string `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-volumekmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-volumesizeingb
+	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 	VolumeSizeInGB int `pulumi:"volumeSizeInGB"`
 }
 
@@ -4179,15 +5064,15 @@ type ModelBiasJobDefinitionClusterConfigInput interface {
 	ToModelBiasJobDefinitionClusterConfigOutputWithContext(context.Context) ModelBiasJobDefinitionClusterConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html
+// Configuration for the cluster used to run model monitoring jobs.
 type ModelBiasJobDefinitionClusterConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancecount
+	// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancetype
+	// The ML compute instance type for the processing job.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-volumekmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-volumesizeingb
+	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 	VolumeSizeInGB pulumi.IntInput `pulumi:"volumeSizeInGB"`
 }
 
@@ -4244,7 +5129,7 @@ func (i *modelBiasJobDefinitionClusterConfigPtrType) ToModelBiasJobDefinitionClu
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionClusterConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html
+// Configuration for the cluster used to run model monitoring jobs.
 type ModelBiasJobDefinitionClusterConfigOutput struct{ *pulumi.OutputState }
 
 func (ModelBiasJobDefinitionClusterConfigOutput) ElementType() reflect.Type {
@@ -4269,22 +5154,22 @@ func (o ModelBiasJobDefinitionClusterConfigOutput) ToModelBiasJobDefinitionClust
 	}).(ModelBiasJobDefinitionClusterConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancecount
+// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 func (o ModelBiasJobDefinitionClusterConfigOutput) InstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionClusterConfig) int { return v.InstanceCount }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancetype
+// The ML compute instance type for the processing job.
 func (o ModelBiasJobDefinitionClusterConfigOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionClusterConfig) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-volumekmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 func (o ModelBiasJobDefinitionClusterConfigOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionClusterConfig) *string { return v.VolumeKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-volumesizeingb
+// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 func (o ModelBiasJobDefinitionClusterConfigOutput) VolumeSizeInGB() pulumi.IntOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionClusterConfig) int { return v.VolumeSizeInGB }).(pulumi.IntOutput)
 }
@@ -4313,7 +5198,7 @@ func (o ModelBiasJobDefinitionClusterConfigPtrOutput) Elem() ModelBiasJobDefinit
 	}).(ModelBiasJobDefinitionClusterConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancecount
+// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 func (o ModelBiasJobDefinitionClusterConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionClusterConfig) *int {
 		if v == nil {
@@ -4323,7 +5208,7 @@ func (o ModelBiasJobDefinitionClusterConfigPtrOutput) InstanceCount() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-instancetype
+// The ML compute instance type for the processing job.
 func (o ModelBiasJobDefinitionClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionClusterConfig) *string {
 		if v == nil {
@@ -4333,7 +5218,7 @@ func (o ModelBiasJobDefinitionClusterConfigPtrOutput) InstanceType() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-volumekmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 func (o ModelBiasJobDefinitionClusterConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionClusterConfig) *string {
 		if v == nil {
@@ -4343,7 +5228,7 @@ func (o ModelBiasJobDefinitionClusterConfigPtrOutput) VolumeKmsKeyId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-clusterconfig.html#cfn-sagemaker-modelbiasjobdefinition-clusterconfig-volumesizeingb
+// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 func (o ModelBiasJobDefinitionClusterConfigPtrOutput) VolumeSizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionClusterConfig) *int {
 		if v == nil {
@@ -4353,9 +5238,9 @@ func (o ModelBiasJobDefinitionClusterConfigPtrOutput) VolumeSizeInGB() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html
+// The baseline constraints resource for a monitoring job.
 type ModelBiasJobDefinitionConstraintsResource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html#cfn-sagemaker-modelbiasjobdefinition-constraintsresource-s3uri
+	// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 	S3Uri *string `pulumi:"s3Uri"`
 }
 
@@ -4370,9 +5255,9 @@ type ModelBiasJobDefinitionConstraintsResourceInput interface {
 	ToModelBiasJobDefinitionConstraintsResourceOutputWithContext(context.Context) ModelBiasJobDefinitionConstraintsResourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html
+// The baseline constraints resource for a monitoring job.
 type ModelBiasJobDefinitionConstraintsResourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html#cfn-sagemaker-modelbiasjobdefinition-constraintsresource-s3uri
+	// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 	S3Uri pulumi.StringPtrInput `pulumi:"s3Uri"`
 }
 
@@ -4429,7 +5314,7 @@ func (i *modelBiasJobDefinitionConstraintsResourcePtrType) ToModelBiasJobDefinit
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html
+// The baseline constraints resource for a monitoring job.
 type ModelBiasJobDefinitionConstraintsResourceOutput struct{ *pulumi.OutputState }
 
 func (ModelBiasJobDefinitionConstraintsResourceOutput) ElementType() reflect.Type {
@@ -4454,7 +5339,7 @@ func (o ModelBiasJobDefinitionConstraintsResourceOutput) ToModelBiasJobDefinitio
 	}).(ModelBiasJobDefinitionConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html#cfn-sagemaker-modelbiasjobdefinition-constraintsresource-s3uri
+// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 func (o ModelBiasJobDefinitionConstraintsResourceOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionConstraintsResource) *string { return v.S3Uri }).(pulumi.StringPtrOutput)
 }
@@ -4483,7 +5368,7 @@ func (o ModelBiasJobDefinitionConstraintsResourcePtrOutput) Elem() ModelBiasJobD
 	}).(ModelBiasJobDefinitionConstraintsResourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-constraintsresource.html#cfn-sagemaker-modelbiasjobdefinition-constraintsresource-s3uri
+// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 func (o ModelBiasJobDefinitionConstraintsResourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionConstraintsResource) *string {
 		if v == nil {
@@ -4493,27 +5378,25 @@ func (o ModelBiasJobDefinitionConstraintsResourcePtrOutput) S3Uri() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html
+// The endpoint for a monitoring job.
 type ModelBiasJobDefinitionEndpointInput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-endtimeoffset
+	// Monitoring end time offset, e.g. PT0H
 	EndTimeOffset *string `pulumi:"endTimeOffset"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-endpointname
-	EndpointName string `pulumi:"endpointName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-featuresattribute
+	EndpointName  string  `pulumi:"endpointName"`
+	// JSONpath to locate features in JSONlines dataset
 	FeaturesAttribute *string `pulumi:"featuresAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-inferenceattribute
+	// Index or JSONpath to locate predicted label(s)
 	InferenceAttribute *string `pulumi:"inferenceAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-localpath
+	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath string `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-probabilityattribute
-	ProbabilityAttribute *string `pulumi:"probabilityAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-probabilitythresholdattribute
+	// Index or JSONpath to locate probabilities
+	ProbabilityAttribute          *string  `pulumi:"probabilityAttribute"`
 	ProbabilityThresholdAttribute *float64 `pulumi:"probabilityThresholdAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-s3datadistributiontype
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 	S3DataDistributionType *string `pulumi:"s3DataDistributionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-s3inputmode
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 	S3InputMode *string `pulumi:"s3InputMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-starttimeoffset
+	// Monitoring start time offset, e.g. -PT1H
 	StartTimeOffset *string `pulumi:"startTimeOffset"`
 }
 
@@ -4528,27 +5411,25 @@ type ModelBiasJobDefinitionEndpointInputInput interface {
 	ToModelBiasJobDefinitionEndpointInputOutputWithContext(context.Context) ModelBiasJobDefinitionEndpointInputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html
+// The endpoint for a monitoring job.
 type ModelBiasJobDefinitionEndpointInputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-endtimeoffset
+	// Monitoring end time offset, e.g. PT0H
 	EndTimeOffset pulumi.StringPtrInput `pulumi:"endTimeOffset"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-endpointname
-	EndpointName pulumi.StringInput `pulumi:"endpointName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-featuresattribute
+	EndpointName  pulumi.StringInput    `pulumi:"endpointName"`
+	// JSONpath to locate features in JSONlines dataset
 	FeaturesAttribute pulumi.StringPtrInput `pulumi:"featuresAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-inferenceattribute
+	// Index or JSONpath to locate predicted label(s)
 	InferenceAttribute pulumi.StringPtrInput `pulumi:"inferenceAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-localpath
+	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-probabilityattribute
-	ProbabilityAttribute pulumi.StringPtrInput `pulumi:"probabilityAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-probabilitythresholdattribute
+	// Index or JSONpath to locate probabilities
+	ProbabilityAttribute          pulumi.StringPtrInput  `pulumi:"probabilityAttribute"`
 	ProbabilityThresholdAttribute pulumi.Float64PtrInput `pulumi:"probabilityThresholdAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-s3datadistributiontype
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 	S3DataDistributionType pulumi.StringPtrInput `pulumi:"s3DataDistributionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-s3inputmode
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 	S3InputMode pulumi.StringPtrInput `pulumi:"s3InputMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-starttimeoffset
+	// Monitoring start time offset, e.g. -PT1H
 	StartTimeOffset pulumi.StringPtrInput `pulumi:"startTimeOffset"`
 }
 
@@ -4605,7 +5486,7 @@ func (i *modelBiasJobDefinitionEndpointInputPtrType) ToModelBiasJobDefinitionEnd
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionEndpointInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html
+// The endpoint for a monitoring job.
 type ModelBiasJobDefinitionEndpointInputOutput struct{ *pulumi.OutputState }
 
 func (ModelBiasJobDefinitionEndpointInputOutput) ElementType() reflect.Type {
@@ -4630,52 +5511,50 @@ func (o ModelBiasJobDefinitionEndpointInputOutput) ToModelBiasJobDefinitionEndpo
 	}).(ModelBiasJobDefinitionEndpointInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-endtimeoffset
+// Monitoring end time offset, e.g. PT0H
 func (o ModelBiasJobDefinitionEndpointInputOutput) EndTimeOffset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionEndpointInput) *string { return v.EndTimeOffset }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-endpointname
 func (o ModelBiasJobDefinitionEndpointInputOutput) EndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionEndpointInput) string { return v.EndpointName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-featuresattribute
+// JSONpath to locate features in JSONlines dataset
 func (o ModelBiasJobDefinitionEndpointInputOutput) FeaturesAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionEndpointInput) *string { return v.FeaturesAttribute }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-inferenceattribute
+// Index or JSONpath to locate predicted label(s)
 func (o ModelBiasJobDefinitionEndpointInputOutput) InferenceAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionEndpointInput) *string { return v.InferenceAttribute }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-localpath
+// Path to the filesystem where the endpoint data is available to the container.
 func (o ModelBiasJobDefinitionEndpointInputOutput) LocalPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionEndpointInput) string { return v.LocalPath }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-probabilityattribute
+// Index or JSONpath to locate probabilities
 func (o ModelBiasJobDefinitionEndpointInputOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionEndpointInput) *string { return v.ProbabilityAttribute }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-probabilitythresholdattribute
 func (o ModelBiasJobDefinitionEndpointInputOutput) ProbabilityThresholdAttribute() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionEndpointInput) *float64 { return v.ProbabilityThresholdAttribute }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-s3datadistributiontype
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 func (o ModelBiasJobDefinitionEndpointInputOutput) S3DataDistributionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionEndpointInput) *string { return v.S3DataDistributionType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-s3inputmode
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 func (o ModelBiasJobDefinitionEndpointInputOutput) S3InputMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionEndpointInput) *string { return v.S3InputMode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-starttimeoffset
+// Monitoring start time offset, e.g. -PT1H
 func (o ModelBiasJobDefinitionEndpointInputOutput) StartTimeOffset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionEndpointInput) *string { return v.StartTimeOffset }).(pulumi.StringPtrOutput)
 }
@@ -4704,7 +5583,7 @@ func (o ModelBiasJobDefinitionEndpointInputPtrOutput) Elem() ModelBiasJobDefinit
 	}).(ModelBiasJobDefinitionEndpointInputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-endtimeoffset
+// Monitoring end time offset, e.g. PT0H
 func (o ModelBiasJobDefinitionEndpointInputPtrOutput) EndTimeOffset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -4714,7 +5593,6 @@ func (o ModelBiasJobDefinitionEndpointInputPtrOutput) EndTimeOffset() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-endpointname
 func (o ModelBiasJobDefinitionEndpointInputPtrOutput) EndpointName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -4724,7 +5602,7 @@ func (o ModelBiasJobDefinitionEndpointInputPtrOutput) EndpointName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-featuresattribute
+// JSONpath to locate features in JSONlines dataset
 func (o ModelBiasJobDefinitionEndpointInputPtrOutput) FeaturesAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -4734,7 +5612,7 @@ func (o ModelBiasJobDefinitionEndpointInputPtrOutput) FeaturesAttribute() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-inferenceattribute
+// Index or JSONpath to locate predicted label(s)
 func (o ModelBiasJobDefinitionEndpointInputPtrOutput) InferenceAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -4744,7 +5622,7 @@ func (o ModelBiasJobDefinitionEndpointInputPtrOutput) InferenceAttribute() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-localpath
+// Path to the filesystem where the endpoint data is available to the container.
 func (o ModelBiasJobDefinitionEndpointInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -4754,7 +5632,7 @@ func (o ModelBiasJobDefinitionEndpointInputPtrOutput) LocalPath() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-probabilityattribute
+// Index or JSONpath to locate probabilities
 func (o ModelBiasJobDefinitionEndpointInputPtrOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -4764,7 +5642,6 @@ func (o ModelBiasJobDefinitionEndpointInputPtrOutput) ProbabilityAttribute() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-probabilitythresholdattribute
 func (o ModelBiasJobDefinitionEndpointInputPtrOutput) ProbabilityThresholdAttribute() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *float64 {
 		if v == nil {
@@ -4774,7 +5651,7 @@ func (o ModelBiasJobDefinitionEndpointInputPtrOutput) ProbabilityThresholdAttrib
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-s3datadistributiontype
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 func (o ModelBiasJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -4784,7 +5661,7 @@ func (o ModelBiasJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-s3inputmode
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 func (o ModelBiasJobDefinitionEndpointInputPtrOutput) S3InputMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -4794,7 +5671,7 @@ func (o ModelBiasJobDefinitionEndpointInputPtrOutput) S3InputMode() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html#cfn-sagemaker-modelbiasjobdefinition-endpointinput-starttimeoffset
+// Monitoring start time offset, e.g. -PT1H
 func (o ModelBiasJobDefinitionEndpointInputPtrOutput) StartTimeOffset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -4804,13 +5681,13 @@ func (o ModelBiasJobDefinitionEndpointInputPtrOutput) StartTimeOffset() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html
+// Container image configuration object for the monitoring job.
 type ModelBiasJobDefinitionModelBiasAppSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-configuri
+	// The S3 URI to an analysis configuration file
 	ConfigUri string `pulumi:"configUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
-	Environment map[string]string `pulumi:"environment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-imageuri
+	// Sets the environment variables in the Docker container
+	Environment interface{} `pulumi:"environment"`
+	// The container image to be run by the monitoring job.
 	ImageUri string `pulumi:"imageUri"`
 }
 
@@ -4825,13 +5702,13 @@ type ModelBiasJobDefinitionModelBiasAppSpecificationInput interface {
 	ToModelBiasJobDefinitionModelBiasAppSpecificationOutputWithContext(context.Context) ModelBiasJobDefinitionModelBiasAppSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html
+// Container image configuration object for the monitoring job.
 type ModelBiasJobDefinitionModelBiasAppSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-configuri
+	// The S3 URI to an analysis configuration file
 	ConfigUri pulumi.StringInput `pulumi:"configUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
-	Environment pulumi.StringMapInput `pulumi:"environment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-imageuri
+	// Sets the environment variables in the Docker container
+	Environment pulumi.Input `pulumi:"environment"`
+	// The container image to be run by the monitoring job.
 	ImageUri pulumi.StringInput `pulumi:"imageUri"`
 }
 
@@ -4888,7 +5765,7 @@ func (i *modelBiasJobDefinitionModelBiasAppSpecificationPtrType) ToModelBiasJobD
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html
+// Container image configuration object for the monitoring job.
 type ModelBiasJobDefinitionModelBiasAppSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ModelBiasJobDefinitionModelBiasAppSpecificationOutput) ElementType() reflect.Type {
@@ -4913,17 +5790,17 @@ func (o ModelBiasJobDefinitionModelBiasAppSpecificationOutput) ToModelBiasJobDef
 	}).(ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-configuri
+// The S3 URI to an analysis configuration file
 func (o ModelBiasJobDefinitionModelBiasAppSpecificationOutput) ConfigUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasAppSpecification) string { return v.ConfigUri }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
-func (o ModelBiasJobDefinitionModelBiasAppSpecificationOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasAppSpecification) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
+// Sets the environment variables in the Docker container
+func (o ModelBiasJobDefinitionModelBiasAppSpecificationOutput) Environment() pulumi.AnyOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasAppSpecification) interface{} { return v.Environment }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-imageuri
+// The container image to be run by the monitoring job.
 func (o ModelBiasJobDefinitionModelBiasAppSpecificationOutput) ImageUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasAppSpecification) string { return v.ImageUri }).(pulumi.StringOutput)
 }
@@ -4952,7 +5829,7 @@ func (o ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) Elem() ModelBi
 	}).(ModelBiasJobDefinitionModelBiasAppSpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-configuri
+// The S3 URI to an analysis configuration file
 func (o ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) ConfigUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasAppSpecification) *string {
 		if v == nil {
@@ -4962,17 +5839,17 @@ func (o ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) ConfigUri() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-environment
-func (o ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasAppSpecification) map[string]string {
+// Sets the environment variables in the Docker container
+func (o ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) Environment() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasAppSpecification) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Environment
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification-imageuri
+// The container image to be run by the monitoring job.
 func (o ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) ImageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasAppSpecification) *string {
 		if v == nil {
@@ -4982,11 +5859,9 @@ func (o ModelBiasJobDefinitionModelBiasAppSpecificationPtrOutput) ImageUri() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
 type ModelBiasJobDefinitionModelBiasBaselineConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-baseliningjobname
-	BaseliningJobName *string `pulumi:"baseliningJobName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-constraintsresource
+	BaseliningJobName   *string                                    `pulumi:"baseliningJobName"`
 	ConstraintsResource *ModelBiasJobDefinitionConstraintsResource `pulumi:"constraintsResource"`
 }
 
@@ -5001,11 +5876,9 @@ type ModelBiasJobDefinitionModelBiasBaselineConfigInput interface {
 	ToModelBiasJobDefinitionModelBiasBaselineConfigOutputWithContext(context.Context) ModelBiasJobDefinitionModelBiasBaselineConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
 type ModelBiasJobDefinitionModelBiasBaselineConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-baseliningjobname
-	BaseliningJobName pulumi.StringPtrInput `pulumi:"baseliningJobName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-constraintsresource
+	BaseliningJobName   pulumi.StringPtrInput                             `pulumi:"baseliningJobName"`
 	ConstraintsResource ModelBiasJobDefinitionConstraintsResourcePtrInput `pulumi:"constraintsResource"`
 }
 
@@ -5062,7 +5935,7 @@ func (i *modelBiasJobDefinitionModelBiasBaselineConfigPtrType) ToModelBiasJobDef
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
 type ModelBiasJobDefinitionModelBiasBaselineConfigOutput struct{ *pulumi.OutputState }
 
 func (ModelBiasJobDefinitionModelBiasBaselineConfigOutput) ElementType() reflect.Type {
@@ -5087,12 +5960,10 @@ func (o ModelBiasJobDefinitionModelBiasBaselineConfigOutput) ToModelBiasJobDefin
 	}).(ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-baseliningjobname
 func (o ModelBiasJobDefinitionModelBiasBaselineConfigOutput) BaseliningJobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasBaselineConfig) *string { return v.BaseliningJobName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-constraintsresource
 func (o ModelBiasJobDefinitionModelBiasBaselineConfigOutput) ConstraintsResource() ModelBiasJobDefinitionConstraintsResourcePtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasBaselineConfig) *ModelBiasJobDefinitionConstraintsResource {
 		return v.ConstraintsResource
@@ -5123,7 +5994,6 @@ func (o ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput) Elem() ModelBias
 	}).(ModelBiasJobDefinitionModelBiasBaselineConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-baseliningjobname
 func (o ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput) BaseliningJobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasBaselineConfig) *string {
 		if v == nil {
@@ -5133,7 +6003,6 @@ func (o ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput) BaseliningJobNam
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig-constraintsresource
 func (o ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput) ConstraintsResource() ModelBiasJobDefinitionConstraintsResourcePtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasBaselineConfig) *ModelBiasJobDefinitionConstraintsResource {
 		if v == nil {
@@ -5143,11 +6012,9 @@ func (o ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput) ConstraintsResou
 	}).(ModelBiasJobDefinitionConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html
+// The inputs for a monitoring job.
 type ModelBiasJobDefinitionModelBiasJobInput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-endpointinput
-	EndpointInput ModelBiasJobDefinitionEndpointInput `pulumi:"endpointInput"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-groundtruths3input
+	EndpointInput      ModelBiasJobDefinitionEndpointInput                `pulumi:"endpointInput"`
 	GroundTruthS3Input ModelBiasJobDefinitionMonitoringGroundTruthS3Input `pulumi:"groundTruthS3Input"`
 }
 
@@ -5162,11 +6029,9 @@ type ModelBiasJobDefinitionModelBiasJobInputInput interface {
 	ToModelBiasJobDefinitionModelBiasJobInputOutputWithContext(context.Context) ModelBiasJobDefinitionModelBiasJobInputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html
+// The inputs for a monitoring job.
 type ModelBiasJobDefinitionModelBiasJobInputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-endpointinput
-	EndpointInput ModelBiasJobDefinitionEndpointInputInput `pulumi:"endpointInput"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-groundtruths3input
+	EndpointInput      ModelBiasJobDefinitionEndpointInputInput                `pulumi:"endpointInput"`
 	GroundTruthS3Input ModelBiasJobDefinitionMonitoringGroundTruthS3InputInput `pulumi:"groundTruthS3Input"`
 }
 
@@ -5223,7 +6088,7 @@ func (i *modelBiasJobDefinitionModelBiasJobInputPtrType) ToModelBiasJobDefinitio
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionModelBiasJobInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html
+// The inputs for a monitoring job.
 type ModelBiasJobDefinitionModelBiasJobInputOutput struct{ *pulumi.OutputState }
 
 func (ModelBiasJobDefinitionModelBiasJobInputOutput) ElementType() reflect.Type {
@@ -5248,14 +6113,12 @@ func (o ModelBiasJobDefinitionModelBiasJobInputOutput) ToModelBiasJobDefinitionM
 	}).(ModelBiasJobDefinitionModelBiasJobInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-endpointinput
 func (o ModelBiasJobDefinitionModelBiasJobInputOutput) EndpointInput() ModelBiasJobDefinitionEndpointInputOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasJobInput) ModelBiasJobDefinitionEndpointInput {
 		return v.EndpointInput
 	}).(ModelBiasJobDefinitionEndpointInputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-groundtruths3input
 func (o ModelBiasJobDefinitionModelBiasJobInputOutput) GroundTruthS3Input() ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasJobInput) ModelBiasJobDefinitionMonitoringGroundTruthS3Input {
 		return v.GroundTruthS3Input
@@ -5286,7 +6149,6 @@ func (o ModelBiasJobDefinitionModelBiasJobInputPtrOutput) Elem() ModelBiasJobDef
 	}).(ModelBiasJobDefinitionModelBiasJobInputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-endpointinput
 func (o ModelBiasJobDefinitionModelBiasJobInputPtrOutput) EndpointInput() ModelBiasJobDefinitionEndpointInputPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasJobInput) *ModelBiasJobDefinitionEndpointInput {
 		if v == nil {
@@ -5296,7 +6158,6 @@ func (o ModelBiasJobDefinitionModelBiasJobInputPtrOutput) EndpointInput() ModelB
 	}).(ModelBiasJobDefinitionEndpointInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-groundtruths3input
 func (o ModelBiasJobDefinitionModelBiasJobInputPtrOutput) GroundTruthS3Input() ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionModelBiasJobInput) *ModelBiasJobDefinitionMonitoringGroundTruthS3Input {
 		if v == nil {
@@ -5306,9 +6167,9 @@ func (o ModelBiasJobDefinitionModelBiasJobInputPtrOutput) GroundTruthS3Input() M
 	}).(ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html
+// Ground truth input provided in S3
 type ModelBiasJobDefinitionMonitoringGroundTruthS3Input struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input-s3uri
+	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -5323,9 +6184,9 @@ type ModelBiasJobDefinitionMonitoringGroundTruthS3InputInput interface {
 	ToModelBiasJobDefinitionMonitoringGroundTruthS3InputOutputWithContext(context.Context) ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html
+// Ground truth input provided in S3
 type ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input-s3uri
+	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -5382,7 +6243,7 @@ func (i *modelBiasJobDefinitionMonitoringGroundTruthS3InputPtrType) ToModelBiasJ
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html
+// Ground truth input provided in S3
 type ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput struct{ *pulumi.OutputState }
 
 func (ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput) ElementType() reflect.Type {
@@ -5407,7 +6268,7 @@ func (o ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput) ToModelBiasJob
 	}).(ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input-s3uri
+// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 func (o ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionMonitoringGroundTruthS3Input) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -5436,7 +6297,7 @@ func (o ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput) Elem() Mode
 	}).(ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelbiasjobdefinition-monitoringgroundtruths3input-s3uri
+// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 func (o ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionMonitoringGroundTruthS3Input) *string {
 		if v == nil {
@@ -5446,9 +6307,8 @@ func (o ModelBiasJobDefinitionMonitoringGroundTruthS3InputPtrOutput) S3Uri() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html
+// The output object for a monitoring job.
 type ModelBiasJobDefinitionMonitoringOutput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutput-s3output
 	S3Output ModelBiasJobDefinitionS3Output `pulumi:"s3Output"`
 }
 
@@ -5463,9 +6323,8 @@ type ModelBiasJobDefinitionMonitoringOutputInput interface {
 	ToModelBiasJobDefinitionMonitoringOutputOutputWithContext(context.Context) ModelBiasJobDefinitionMonitoringOutputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html
+// The output object for a monitoring job.
 type ModelBiasJobDefinitionMonitoringOutputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutput-s3output
 	S3Output ModelBiasJobDefinitionS3OutputInput `pulumi:"s3Output"`
 }
 
@@ -5506,7 +6365,7 @@ func (i ModelBiasJobDefinitionMonitoringOutputArray) ToModelBiasJobDefinitionMon
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionMonitoringOutputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html
+// The output object for a monitoring job.
 type ModelBiasJobDefinitionMonitoringOutputOutput struct{ *pulumi.OutputState }
 
 func (ModelBiasJobDefinitionMonitoringOutputOutput) ElementType() reflect.Type {
@@ -5521,7 +6380,6 @@ func (o ModelBiasJobDefinitionMonitoringOutputOutput) ToModelBiasJobDefinitionMo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutput-s3output
 func (o ModelBiasJobDefinitionMonitoringOutputOutput) S3Output() ModelBiasJobDefinitionS3OutputOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionMonitoringOutput) ModelBiasJobDefinitionS3Output { return v.S3Output }).(ModelBiasJobDefinitionS3OutputOutput)
 }
@@ -5546,11 +6404,11 @@ func (o ModelBiasJobDefinitionMonitoringOutputArrayOutput) Index(i pulumi.IntInp
 	}).(ModelBiasJobDefinitionMonitoringOutputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html
+// The output configuration for monitoring jobs.
 type ModelBiasJobDefinitionMonitoringOutputConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-kmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-monitoringoutputs
+	// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 	MonitoringOutputs []ModelBiasJobDefinitionMonitoringOutput `pulumi:"monitoringOutputs"`
 }
 
@@ -5565,11 +6423,11 @@ type ModelBiasJobDefinitionMonitoringOutputConfigInput interface {
 	ToModelBiasJobDefinitionMonitoringOutputConfigOutputWithContext(context.Context) ModelBiasJobDefinitionMonitoringOutputConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html
+// The output configuration for monitoring jobs.
 type ModelBiasJobDefinitionMonitoringOutputConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-kmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-monitoringoutputs
+	// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 	MonitoringOutputs ModelBiasJobDefinitionMonitoringOutputArrayInput `pulumi:"monitoringOutputs"`
 }
 
@@ -5626,7 +6484,7 @@ func (i *modelBiasJobDefinitionMonitoringOutputConfigPtrType) ToModelBiasJobDefi
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html
+// The output configuration for monitoring jobs.
 type ModelBiasJobDefinitionMonitoringOutputConfigOutput struct{ *pulumi.OutputState }
 
 func (ModelBiasJobDefinitionMonitoringOutputConfigOutput) ElementType() reflect.Type {
@@ -5651,12 +6509,12 @@ func (o ModelBiasJobDefinitionMonitoringOutputConfigOutput) ToModelBiasJobDefini
 	}).(ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-kmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o ModelBiasJobDefinitionMonitoringOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionMonitoringOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-monitoringoutputs
+// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 func (o ModelBiasJobDefinitionMonitoringOutputConfigOutput) MonitoringOutputs() ModelBiasJobDefinitionMonitoringOutputArrayOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionMonitoringOutputConfig) []ModelBiasJobDefinitionMonitoringOutput {
 		return v.MonitoringOutputs
@@ -5687,7 +6545,7 @@ func (o ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput) Elem() ModelBiasJ
 	}).(ModelBiasJobDefinitionMonitoringOutputConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-kmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionMonitoringOutputConfig) *string {
 		if v == nil {
@@ -5697,7 +6555,7 @@ func (o ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput) KmsKeyId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-monitoringoutputs
+// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 func (o ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput) MonitoringOutputs() ModelBiasJobDefinitionMonitoringOutputArrayOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionMonitoringOutputConfig) []ModelBiasJobDefinitionMonitoringOutput {
 		if v == nil {
@@ -5707,9 +6565,8 @@ func (o ModelBiasJobDefinitionMonitoringOutputConfigPtrOutput) MonitoringOutputs
 	}).(ModelBiasJobDefinitionMonitoringOutputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html
+// Identifies the resources to deploy for a monitoring job.
 type ModelBiasJobDefinitionMonitoringResources struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html#cfn-sagemaker-modelbiasjobdefinition-monitoringresources-clusterconfig
 	ClusterConfig ModelBiasJobDefinitionClusterConfig `pulumi:"clusterConfig"`
 }
 
@@ -5724,9 +6581,8 @@ type ModelBiasJobDefinitionMonitoringResourcesInput interface {
 	ToModelBiasJobDefinitionMonitoringResourcesOutputWithContext(context.Context) ModelBiasJobDefinitionMonitoringResourcesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html
+// Identifies the resources to deploy for a monitoring job.
 type ModelBiasJobDefinitionMonitoringResourcesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html#cfn-sagemaker-modelbiasjobdefinition-monitoringresources-clusterconfig
 	ClusterConfig ModelBiasJobDefinitionClusterConfigInput `pulumi:"clusterConfig"`
 }
 
@@ -5783,7 +6639,7 @@ func (i *modelBiasJobDefinitionMonitoringResourcesPtrType) ToModelBiasJobDefinit
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionMonitoringResourcesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html
+// Identifies the resources to deploy for a monitoring job.
 type ModelBiasJobDefinitionMonitoringResourcesOutput struct{ *pulumi.OutputState }
 
 func (ModelBiasJobDefinitionMonitoringResourcesOutput) ElementType() reflect.Type {
@@ -5808,7 +6664,6 @@ func (o ModelBiasJobDefinitionMonitoringResourcesOutput) ToModelBiasJobDefinitio
 	}).(ModelBiasJobDefinitionMonitoringResourcesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html#cfn-sagemaker-modelbiasjobdefinition-monitoringresources-clusterconfig
 func (o ModelBiasJobDefinitionMonitoringResourcesOutput) ClusterConfig() ModelBiasJobDefinitionClusterConfigOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionMonitoringResources) ModelBiasJobDefinitionClusterConfig {
 		return v.ClusterConfig
@@ -5839,7 +6694,6 @@ func (o ModelBiasJobDefinitionMonitoringResourcesPtrOutput) Elem() ModelBiasJobD
 	}).(ModelBiasJobDefinitionMonitoringResourcesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html#cfn-sagemaker-modelbiasjobdefinition-monitoringresources-clusterconfig
 func (o ModelBiasJobDefinitionMonitoringResourcesPtrOutput) ClusterConfig() ModelBiasJobDefinitionClusterConfigPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionMonitoringResources) *ModelBiasJobDefinitionClusterConfig {
 		if v == nil {
@@ -5849,14 +6703,13 @@ func (o ModelBiasJobDefinitionMonitoringResourcesPtrOutput) ClusterConfig() Mode
 	}).(ModelBiasJobDefinitionClusterConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 type ModelBiasJobDefinitionNetworkConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enableintercontainertrafficencryption
+	// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 	EnableInterContainerTrafficEncryption *bool `pulumi:"enableInterContainerTrafficEncryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enablenetworkisolation
-	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-vpcconfig
-	VpcConfig *ModelBiasJobDefinitionVpcConfig `pulumi:"vpcConfig"`
+	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+	EnableNetworkIsolation *bool                            `pulumi:"enableNetworkIsolation"`
+	VpcConfig              *ModelBiasJobDefinitionVpcConfig `pulumi:"vpcConfig"`
 }
 
 // ModelBiasJobDefinitionNetworkConfigInput is an input type that accepts ModelBiasJobDefinitionNetworkConfigArgs and ModelBiasJobDefinitionNetworkConfigOutput values.
@@ -5870,14 +6723,13 @@ type ModelBiasJobDefinitionNetworkConfigInput interface {
 	ToModelBiasJobDefinitionNetworkConfigOutputWithContext(context.Context) ModelBiasJobDefinitionNetworkConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 type ModelBiasJobDefinitionNetworkConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enableintercontainertrafficencryption
+	// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 	EnableInterContainerTrafficEncryption pulumi.BoolPtrInput `pulumi:"enableInterContainerTrafficEncryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enablenetworkisolation
-	EnableNetworkIsolation pulumi.BoolPtrInput `pulumi:"enableNetworkIsolation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-vpcconfig
-	VpcConfig ModelBiasJobDefinitionVpcConfigPtrInput `pulumi:"vpcConfig"`
+	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+	EnableNetworkIsolation pulumi.BoolPtrInput                     `pulumi:"enableNetworkIsolation"`
+	VpcConfig              ModelBiasJobDefinitionVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
 func (ModelBiasJobDefinitionNetworkConfigArgs) ElementType() reflect.Type {
@@ -5933,7 +6785,7 @@ func (i *modelBiasJobDefinitionNetworkConfigPtrType) ToModelBiasJobDefinitionNet
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionNetworkConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 type ModelBiasJobDefinitionNetworkConfigOutput struct{ *pulumi.OutputState }
 
 func (ModelBiasJobDefinitionNetworkConfigOutput) ElementType() reflect.Type {
@@ -5958,17 +6810,16 @@ func (o ModelBiasJobDefinitionNetworkConfigOutput) ToModelBiasJobDefinitionNetwo
 	}).(ModelBiasJobDefinitionNetworkConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enableintercontainertrafficencryption
+// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 func (o ModelBiasJobDefinitionNetworkConfigOutput) EnableInterContainerTrafficEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionNetworkConfig) *bool { return v.EnableInterContainerTrafficEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enablenetworkisolation
+// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 func (o ModelBiasJobDefinitionNetworkConfigOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionNetworkConfig) *bool { return v.EnableNetworkIsolation }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-vpcconfig
 func (o ModelBiasJobDefinitionNetworkConfigOutput) VpcConfig() ModelBiasJobDefinitionVpcConfigPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionNetworkConfig) *ModelBiasJobDefinitionVpcConfig { return v.VpcConfig }).(ModelBiasJobDefinitionVpcConfigPtrOutput)
 }
@@ -5997,7 +6848,7 @@ func (o ModelBiasJobDefinitionNetworkConfigPtrOutput) Elem() ModelBiasJobDefinit
 	}).(ModelBiasJobDefinitionNetworkConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enableintercontainertrafficencryption
+// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 func (o ModelBiasJobDefinitionNetworkConfigPtrOutput) EnableInterContainerTrafficEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionNetworkConfig) *bool {
 		if v == nil {
@@ -6007,7 +6858,7 @@ func (o ModelBiasJobDefinitionNetworkConfigPtrOutput) EnableInterContainerTraffi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-enablenetworkisolation
+// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 func (o ModelBiasJobDefinitionNetworkConfigPtrOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionNetworkConfig) *bool {
 		if v == nil {
@@ -6017,7 +6868,6 @@ func (o ModelBiasJobDefinitionNetworkConfigPtrOutput) EnableNetworkIsolation() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-networkconfig.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig-vpcconfig
 func (o ModelBiasJobDefinitionNetworkConfigPtrOutput) VpcConfig() ModelBiasJobDefinitionVpcConfigPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionNetworkConfig) *ModelBiasJobDefinitionVpcConfig {
 		if v == nil {
@@ -6027,13 +6877,13 @@ func (o ModelBiasJobDefinitionNetworkConfigPtrOutput) VpcConfig() ModelBiasJobDe
 	}).(ModelBiasJobDefinitionVpcConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html
+// Information about where and how to store the results of a monitoring job.
 type ModelBiasJobDefinitionS3Output struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html#cfn-sagemaker-modelbiasjobdefinition-s3output-localpath
+	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath string `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html#cfn-sagemaker-modelbiasjobdefinition-s3output-s3uploadmode
+	// Whether to upload the results of the monitoring job continuously or after the job completes.
 	S3UploadMode *string `pulumi:"s3UploadMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html#cfn-sagemaker-modelbiasjobdefinition-s3output-s3uri
+	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -6048,13 +6898,13 @@ type ModelBiasJobDefinitionS3OutputInput interface {
 	ToModelBiasJobDefinitionS3OutputOutputWithContext(context.Context) ModelBiasJobDefinitionS3OutputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html
+// Information about where and how to store the results of a monitoring job.
 type ModelBiasJobDefinitionS3OutputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html#cfn-sagemaker-modelbiasjobdefinition-s3output-localpath
+	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html#cfn-sagemaker-modelbiasjobdefinition-s3output-s3uploadmode
+	// Whether to upload the results of the monitoring job continuously or after the job completes.
 	S3UploadMode pulumi.StringPtrInput `pulumi:"s3UploadMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html#cfn-sagemaker-modelbiasjobdefinition-s3output-s3uri
+	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -6070,7 +6920,7 @@ func (i ModelBiasJobDefinitionS3OutputArgs) ToModelBiasJobDefinitionS3OutputOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionS3OutputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html
+// Information about where and how to store the results of a monitoring job.
 type ModelBiasJobDefinitionS3OutputOutput struct{ *pulumi.OutputState }
 
 func (ModelBiasJobDefinitionS3OutputOutput) ElementType() reflect.Type {
@@ -6085,24 +6935,24 @@ func (o ModelBiasJobDefinitionS3OutputOutput) ToModelBiasJobDefinitionS3OutputOu
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html#cfn-sagemaker-modelbiasjobdefinition-s3output-localpath
+// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 func (o ModelBiasJobDefinitionS3OutputOutput) LocalPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionS3Output) string { return v.LocalPath }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html#cfn-sagemaker-modelbiasjobdefinition-s3output-s3uploadmode
+// Whether to upload the results of the monitoring job continuously or after the job completes.
 func (o ModelBiasJobDefinitionS3OutputOutput) S3UploadMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionS3Output) *string { return v.S3UploadMode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-s3output.html#cfn-sagemaker-modelbiasjobdefinition-s3output-s3uri
+// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 func (o ModelBiasJobDefinitionS3OutputOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionS3Output) string { return v.S3Uri }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-stoppingcondition.html
+// Specifies a time limit for how long the monitoring job is allowed to run.
 type ModelBiasJobDefinitionStoppingCondition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-stoppingcondition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition-maxruntimeinseconds
+	// The maximum runtime allowed in seconds.
 	MaxRuntimeInSeconds int `pulumi:"maxRuntimeInSeconds"`
 }
 
@@ -6117,9 +6967,9 @@ type ModelBiasJobDefinitionStoppingConditionInput interface {
 	ToModelBiasJobDefinitionStoppingConditionOutputWithContext(context.Context) ModelBiasJobDefinitionStoppingConditionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-stoppingcondition.html
+// Specifies a time limit for how long the monitoring job is allowed to run.
 type ModelBiasJobDefinitionStoppingConditionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-stoppingcondition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition-maxruntimeinseconds
+	// The maximum runtime allowed in seconds.
 	MaxRuntimeInSeconds pulumi.IntInput `pulumi:"maxRuntimeInSeconds"`
 }
 
@@ -6176,7 +7026,7 @@ func (i *modelBiasJobDefinitionStoppingConditionPtrType) ToModelBiasJobDefinitio
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionStoppingConditionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-stoppingcondition.html
+// Specifies a time limit for how long the monitoring job is allowed to run.
 type ModelBiasJobDefinitionStoppingConditionOutput struct{ *pulumi.OutputState }
 
 func (ModelBiasJobDefinitionStoppingConditionOutput) ElementType() reflect.Type {
@@ -6201,7 +7051,7 @@ func (o ModelBiasJobDefinitionStoppingConditionOutput) ToModelBiasJobDefinitionS
 	}).(ModelBiasJobDefinitionStoppingConditionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-stoppingcondition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition-maxruntimeinseconds
+// The maximum runtime allowed in seconds.
 func (o ModelBiasJobDefinitionStoppingConditionOutput) MaxRuntimeInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionStoppingCondition) int { return v.MaxRuntimeInSeconds }).(pulumi.IntOutput)
 }
@@ -6230,7 +7080,7 @@ func (o ModelBiasJobDefinitionStoppingConditionPtrOutput) Elem() ModelBiasJobDef
 	}).(ModelBiasJobDefinitionStoppingConditionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-stoppingcondition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition-maxruntimeinseconds
+// The maximum runtime allowed in seconds.
 func (o ModelBiasJobDefinitionStoppingConditionPtrOutput) MaxRuntimeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionStoppingCondition) *int {
 		if v == nil {
@@ -6240,11 +7090,120 @@ func (o ModelBiasJobDefinitionStoppingConditionPtrOutput) MaxRuntimeInSeconds() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html
+// A key-value pair to associate with a resource.
+type ModelBiasJobDefinitionTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ModelBiasJobDefinitionTagInput is an input type that accepts ModelBiasJobDefinitionTagArgs and ModelBiasJobDefinitionTagOutput values.
+// You can construct a concrete instance of `ModelBiasJobDefinitionTagInput` via:
+//
+//          ModelBiasJobDefinitionTagArgs{...}
+type ModelBiasJobDefinitionTagInput interface {
+	pulumi.Input
+
+	ToModelBiasJobDefinitionTagOutput() ModelBiasJobDefinitionTagOutput
+	ToModelBiasJobDefinitionTagOutputWithContext(context.Context) ModelBiasJobDefinitionTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ModelBiasJobDefinitionTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ModelBiasJobDefinitionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelBiasJobDefinitionTag)(nil)).Elem()
+}
+
+func (i ModelBiasJobDefinitionTagArgs) ToModelBiasJobDefinitionTagOutput() ModelBiasJobDefinitionTagOutput {
+	return i.ToModelBiasJobDefinitionTagOutputWithContext(context.Background())
+}
+
+func (i ModelBiasJobDefinitionTagArgs) ToModelBiasJobDefinitionTagOutputWithContext(ctx context.Context) ModelBiasJobDefinitionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionTagOutput)
+}
+
+// ModelBiasJobDefinitionTagArrayInput is an input type that accepts ModelBiasJobDefinitionTagArray and ModelBiasJobDefinitionTagArrayOutput values.
+// You can construct a concrete instance of `ModelBiasJobDefinitionTagArrayInput` via:
+//
+//          ModelBiasJobDefinitionTagArray{ ModelBiasJobDefinitionTagArgs{...} }
+type ModelBiasJobDefinitionTagArrayInput interface {
+	pulumi.Input
+
+	ToModelBiasJobDefinitionTagArrayOutput() ModelBiasJobDefinitionTagArrayOutput
+	ToModelBiasJobDefinitionTagArrayOutputWithContext(context.Context) ModelBiasJobDefinitionTagArrayOutput
+}
+
+type ModelBiasJobDefinitionTagArray []ModelBiasJobDefinitionTagInput
+
+func (ModelBiasJobDefinitionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelBiasJobDefinitionTag)(nil)).Elem()
+}
+
+func (i ModelBiasJobDefinitionTagArray) ToModelBiasJobDefinitionTagArrayOutput() ModelBiasJobDefinitionTagArrayOutput {
+	return i.ToModelBiasJobDefinitionTagArrayOutputWithContext(context.Background())
+}
+
+func (i ModelBiasJobDefinitionTagArray) ToModelBiasJobDefinitionTagArrayOutputWithContext(ctx context.Context) ModelBiasJobDefinitionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ModelBiasJobDefinitionTagOutput struct{ *pulumi.OutputState }
+
+func (ModelBiasJobDefinitionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelBiasJobDefinitionTag)(nil)).Elem()
+}
+
+func (o ModelBiasJobDefinitionTagOutput) ToModelBiasJobDefinitionTagOutput() ModelBiasJobDefinitionTagOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionTagOutput) ToModelBiasJobDefinitionTagOutputWithContext(ctx context.Context) ModelBiasJobDefinitionTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ModelBiasJobDefinitionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ModelBiasJobDefinitionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelBiasJobDefinitionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ModelBiasJobDefinitionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelBiasJobDefinitionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelBiasJobDefinitionTag)(nil)).Elem()
+}
+
+func (o ModelBiasJobDefinitionTagArrayOutput) ToModelBiasJobDefinitionTagArrayOutput() ModelBiasJobDefinitionTagArrayOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionTagArrayOutput) ToModelBiasJobDefinitionTagArrayOutputWithContext(ctx context.Context) ModelBiasJobDefinitionTagArrayOutput {
+	return o
+}
+
+func (o ModelBiasJobDefinitionTagArrayOutput) Index(i pulumi.IntInput) ModelBiasJobDefinitionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelBiasJobDefinitionTag {
+		return vs[0].([]ModelBiasJobDefinitionTag)[vs[1].(int)]
+	}).(ModelBiasJobDefinitionTagOutput)
+}
+
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 type ModelBiasJobDefinitionVpcConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html#cfn-sagemaker-modelbiasjobdefinition-vpcconfig-securitygroupids
+	// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html#cfn-sagemaker-modelbiasjobdefinition-vpcconfig-subnets
+	// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 	Subnets []string `pulumi:"subnets"`
 }
 
@@ -6259,11 +7218,11 @@ type ModelBiasJobDefinitionVpcConfigInput interface {
 	ToModelBiasJobDefinitionVpcConfigOutputWithContext(context.Context) ModelBiasJobDefinitionVpcConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 type ModelBiasJobDefinitionVpcConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html#cfn-sagemaker-modelbiasjobdefinition-vpcconfig-securitygroupids
+	// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html#cfn-sagemaker-modelbiasjobdefinition-vpcconfig-subnets
+	// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
@@ -6320,7 +7279,7 @@ func (i *modelBiasJobDefinitionVpcConfigPtrType) ToModelBiasJobDefinitionVpcConf
 	return pulumi.ToOutputWithContext(ctx, i).(ModelBiasJobDefinitionVpcConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 type ModelBiasJobDefinitionVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (ModelBiasJobDefinitionVpcConfigOutput) ElementType() reflect.Type {
@@ -6345,12 +7304,12 @@ func (o ModelBiasJobDefinitionVpcConfigOutput) ToModelBiasJobDefinitionVpcConfig
 	}).(ModelBiasJobDefinitionVpcConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html#cfn-sagemaker-modelbiasjobdefinition-vpcconfig-securitygroupids
+// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 func (o ModelBiasJobDefinitionVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html#cfn-sagemaker-modelbiasjobdefinition-vpcconfig-subnets
+// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 func (o ModelBiasJobDefinitionVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -6379,7 +7338,7 @@ func (o ModelBiasJobDefinitionVpcConfigPtrOutput) Elem() ModelBiasJobDefinitionV
 	}).(ModelBiasJobDefinitionVpcConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html#cfn-sagemaker-modelbiasjobdefinition-vpcconfig-securitygroupids
+// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 func (o ModelBiasJobDefinitionVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionVpcConfig) []string {
 		if v == nil {
@@ -6389,7 +7348,7 @@ func (o ModelBiasJobDefinitionVpcConfigPtrOutput) SecurityGroupIds() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-vpcconfig.html#cfn-sagemaker-modelbiasjobdefinition-vpcconfig-subnets
+// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 func (o ModelBiasJobDefinitionVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionVpcConfig) []string {
 		if v == nil {
@@ -6399,15 +7358,15 @@ func (o ModelBiasJobDefinitionVpcConfigPtrOutput) Subnets() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html
+// Configuration for the cluster used to run model monitoring jobs.
 type ModelExplainabilityJobDefinitionClusterConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-instancecount
+	// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 	InstanceCount int `pulumi:"instanceCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-instancetype
+	// The ML compute instance type for the processing job.
 	InstanceType string `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-volumekmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-volumesizeingb
+	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 	VolumeSizeInGB int `pulumi:"volumeSizeInGB"`
 }
 
@@ -6422,15 +7381,15 @@ type ModelExplainabilityJobDefinitionClusterConfigInput interface {
 	ToModelExplainabilityJobDefinitionClusterConfigOutputWithContext(context.Context) ModelExplainabilityJobDefinitionClusterConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html
+// Configuration for the cluster used to run model monitoring jobs.
 type ModelExplainabilityJobDefinitionClusterConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-instancecount
+	// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-instancetype
+	// The ML compute instance type for the processing job.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-volumekmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-volumesizeingb
+	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 	VolumeSizeInGB pulumi.IntInput `pulumi:"volumeSizeInGB"`
 }
 
@@ -6487,7 +7446,7 @@ func (i *modelExplainabilityJobDefinitionClusterConfigPtrType) ToModelExplainabi
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionClusterConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html
+// Configuration for the cluster used to run model monitoring jobs.
 type ModelExplainabilityJobDefinitionClusterConfigOutput struct{ *pulumi.OutputState }
 
 func (ModelExplainabilityJobDefinitionClusterConfigOutput) ElementType() reflect.Type {
@@ -6512,22 +7471,22 @@ func (o ModelExplainabilityJobDefinitionClusterConfigOutput) ToModelExplainabili
 	}).(ModelExplainabilityJobDefinitionClusterConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-instancecount
+// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 func (o ModelExplainabilityJobDefinitionClusterConfigOutput) InstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionClusterConfig) int { return v.InstanceCount }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-instancetype
+// The ML compute instance type for the processing job.
 func (o ModelExplainabilityJobDefinitionClusterConfigOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionClusterConfig) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-volumekmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 func (o ModelExplainabilityJobDefinitionClusterConfigOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionClusterConfig) *string { return v.VolumeKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-volumesizeingb
+// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 func (o ModelExplainabilityJobDefinitionClusterConfigOutput) VolumeSizeInGB() pulumi.IntOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionClusterConfig) int { return v.VolumeSizeInGB }).(pulumi.IntOutput)
 }
@@ -6556,7 +7515,7 @@ func (o ModelExplainabilityJobDefinitionClusterConfigPtrOutput) Elem() ModelExpl
 	}).(ModelExplainabilityJobDefinitionClusterConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-instancecount
+// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 func (o ModelExplainabilityJobDefinitionClusterConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionClusterConfig) *int {
 		if v == nil {
@@ -6566,7 +7525,7 @@ func (o ModelExplainabilityJobDefinitionClusterConfigPtrOutput) InstanceCount() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-instancetype
+// The ML compute instance type for the processing job.
 func (o ModelExplainabilityJobDefinitionClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionClusterConfig) *string {
 		if v == nil {
@@ -6576,7 +7535,7 @@ func (o ModelExplainabilityJobDefinitionClusterConfigPtrOutput) InstanceType() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-volumekmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 func (o ModelExplainabilityJobDefinitionClusterConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionClusterConfig) *string {
 		if v == nil {
@@ -6586,7 +7545,7 @@ func (o ModelExplainabilityJobDefinitionClusterConfigPtrOutput) VolumeKmsKeyId()
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-clusterconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-clusterconfig-volumesizeingb
+// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 func (o ModelExplainabilityJobDefinitionClusterConfigPtrOutput) VolumeSizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionClusterConfig) *int {
 		if v == nil {
@@ -6596,9 +7555,9 @@ func (o ModelExplainabilityJobDefinitionClusterConfigPtrOutput) VolumeSizeInGB()
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-constraintsresource.html
+// The baseline constraints resource for a monitoring job.
 type ModelExplainabilityJobDefinitionConstraintsResource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-constraintsresource.html#cfn-sagemaker-modelexplainabilityjobdefinition-constraintsresource-s3uri
+	// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 	S3Uri *string `pulumi:"s3Uri"`
 }
 
@@ -6613,9 +7572,9 @@ type ModelExplainabilityJobDefinitionConstraintsResourceInput interface {
 	ToModelExplainabilityJobDefinitionConstraintsResourceOutputWithContext(context.Context) ModelExplainabilityJobDefinitionConstraintsResourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-constraintsresource.html
+// The baseline constraints resource for a monitoring job.
 type ModelExplainabilityJobDefinitionConstraintsResourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-constraintsresource.html#cfn-sagemaker-modelexplainabilityjobdefinition-constraintsresource-s3uri
+	// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 	S3Uri pulumi.StringPtrInput `pulumi:"s3Uri"`
 }
 
@@ -6672,7 +7631,7 @@ func (i *modelExplainabilityJobDefinitionConstraintsResourcePtrType) ToModelExpl
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-constraintsresource.html
+// The baseline constraints resource for a monitoring job.
 type ModelExplainabilityJobDefinitionConstraintsResourceOutput struct{ *pulumi.OutputState }
 
 func (ModelExplainabilityJobDefinitionConstraintsResourceOutput) ElementType() reflect.Type {
@@ -6697,7 +7656,7 @@ func (o ModelExplainabilityJobDefinitionConstraintsResourceOutput) ToModelExplai
 	}).(ModelExplainabilityJobDefinitionConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-constraintsresource.html#cfn-sagemaker-modelexplainabilityjobdefinition-constraintsresource-s3uri
+// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 func (o ModelExplainabilityJobDefinitionConstraintsResourceOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionConstraintsResource) *string { return v.S3Uri }).(pulumi.StringPtrOutput)
 }
@@ -6726,7 +7685,7 @@ func (o ModelExplainabilityJobDefinitionConstraintsResourcePtrOutput) Elem() Mod
 	}).(ModelExplainabilityJobDefinitionConstraintsResourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-constraintsresource.html#cfn-sagemaker-modelexplainabilityjobdefinition-constraintsresource-s3uri
+// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 func (o ModelExplainabilityJobDefinitionConstraintsResourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionConstraintsResource) *string {
 		if v == nil {
@@ -6736,21 +7695,20 @@ func (o ModelExplainabilityJobDefinitionConstraintsResourcePtrOutput) S3Uri() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html
+// The endpoint for a monitoring job.
 type ModelExplainabilityJobDefinitionEndpointInput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-endpointname
 	EndpointName string `pulumi:"endpointName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-featuresattribute
+	// JSONpath to locate features in JSONlines dataset
 	FeaturesAttribute *string `pulumi:"featuresAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-inferenceattribute
+	// Index or JSONpath to locate predicted label(s)
 	InferenceAttribute *string `pulumi:"inferenceAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-localpath
+	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath string `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-probabilityattribute
+	// Index or JSONpath to locate probabilities
 	ProbabilityAttribute *string `pulumi:"probabilityAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-s3datadistributiontype
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 	S3DataDistributionType *string `pulumi:"s3DataDistributionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-s3inputmode
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 	S3InputMode *string `pulumi:"s3InputMode"`
 }
 
@@ -6765,21 +7723,20 @@ type ModelExplainabilityJobDefinitionEndpointInputInput interface {
 	ToModelExplainabilityJobDefinitionEndpointInputOutputWithContext(context.Context) ModelExplainabilityJobDefinitionEndpointInputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html
+// The endpoint for a monitoring job.
 type ModelExplainabilityJobDefinitionEndpointInputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-endpointname
 	EndpointName pulumi.StringInput `pulumi:"endpointName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-featuresattribute
+	// JSONpath to locate features in JSONlines dataset
 	FeaturesAttribute pulumi.StringPtrInput `pulumi:"featuresAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-inferenceattribute
+	// Index or JSONpath to locate predicted label(s)
 	InferenceAttribute pulumi.StringPtrInput `pulumi:"inferenceAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-localpath
+	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-probabilityattribute
+	// Index or JSONpath to locate probabilities
 	ProbabilityAttribute pulumi.StringPtrInput `pulumi:"probabilityAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-s3datadistributiontype
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 	S3DataDistributionType pulumi.StringPtrInput `pulumi:"s3DataDistributionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-s3inputmode
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 	S3InputMode pulumi.StringPtrInput `pulumi:"s3InputMode"`
 }
 
@@ -6836,7 +7793,7 @@ func (i *modelExplainabilityJobDefinitionEndpointInputPtrType) ToModelExplainabi
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionEndpointInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html
+// The endpoint for a monitoring job.
 type ModelExplainabilityJobDefinitionEndpointInputOutput struct{ *pulumi.OutputState }
 
 func (ModelExplainabilityJobDefinitionEndpointInputOutput) ElementType() reflect.Type {
@@ -6861,37 +7818,36 @@ func (o ModelExplainabilityJobDefinitionEndpointInputOutput) ToModelExplainabili
 	}).(ModelExplainabilityJobDefinitionEndpointInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-endpointname
 func (o ModelExplainabilityJobDefinitionEndpointInputOutput) EndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionEndpointInput) string { return v.EndpointName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-featuresattribute
+// JSONpath to locate features in JSONlines dataset
 func (o ModelExplainabilityJobDefinitionEndpointInputOutput) FeaturesAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionEndpointInput) *string { return v.FeaturesAttribute }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-inferenceattribute
+// Index or JSONpath to locate predicted label(s)
 func (o ModelExplainabilityJobDefinitionEndpointInputOutput) InferenceAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionEndpointInput) *string { return v.InferenceAttribute }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-localpath
+// Path to the filesystem where the endpoint data is available to the container.
 func (o ModelExplainabilityJobDefinitionEndpointInputOutput) LocalPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionEndpointInput) string { return v.LocalPath }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-probabilityattribute
+// Index or JSONpath to locate probabilities
 func (o ModelExplainabilityJobDefinitionEndpointInputOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionEndpointInput) *string { return v.ProbabilityAttribute }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-s3datadistributiontype
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 func (o ModelExplainabilityJobDefinitionEndpointInputOutput) S3DataDistributionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionEndpointInput) *string { return v.S3DataDistributionType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-s3inputmode
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 func (o ModelExplainabilityJobDefinitionEndpointInputOutput) S3InputMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionEndpointInput) *string { return v.S3InputMode }).(pulumi.StringPtrOutput)
 }
@@ -6920,7 +7876,6 @@ func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) Elem() ModelExpl
 	}).(ModelExplainabilityJobDefinitionEndpointInputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-endpointname
 func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) EndpointName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -6930,7 +7885,7 @@ func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) EndpointName() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-featuresattribute
+// JSONpath to locate features in JSONlines dataset
 func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) FeaturesAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -6940,7 +7895,7 @@ func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) FeaturesAttribut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-inferenceattribute
+// Index or JSONpath to locate predicted label(s)
 func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) InferenceAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -6950,7 +7905,7 @@ func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) InferenceAttribu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-localpath
+// Path to the filesystem where the endpoint data is available to the container.
 func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -6960,7 +7915,7 @@ func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) LocalPath() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-probabilityattribute
+// Index or JSONpath to locate probabilities
 func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -6970,7 +7925,7 @@ func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) ProbabilityAttri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-s3datadistributiontype
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -6980,7 +7935,7 @@ func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) S3DataDistributi
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-endpointinput-s3inputmode
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) S3InputMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -6990,13 +7945,13 @@ func (o ModelExplainabilityJobDefinitionEndpointInputPtrOutput) S3InputMode() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html
+// Container image configuration object for the monitoring job.
 type ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-configuri
+	// The S3 URI to an analysis configuration file
 	ConfigUri string `pulumi:"configUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
-	Environment map[string]string `pulumi:"environment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri
+	// Sets the environment variables in the Docker container
+	Environment interface{} `pulumi:"environment"`
+	// The container image to be run by the monitoring job.
 	ImageUri string `pulumi:"imageUri"`
 }
 
@@ -7011,13 +7966,13 @@ type ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationInput in
 	ToModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutputWithContext(context.Context) ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html
+// Container image configuration object for the monitoring job.
 type ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-configuri
+	// The S3 URI to an analysis configuration file
 	ConfigUri pulumi.StringInput `pulumi:"configUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
-	Environment pulumi.StringMapInput `pulumi:"environment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri
+	// Sets the environment variables in the Docker container
+	Environment pulumi.Input `pulumi:"environment"`
+	// The container image to be run by the monitoring job.
 	ImageUri pulumi.StringInput `pulumi:"imageUri"`
 }
 
@@ -7074,7 +8029,7 @@ func (i *modelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrT
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html
+// Container image configuration object for the monitoring job.
 type ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput) ElementType() reflect.Type {
@@ -7099,19 +8054,19 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutpu
 	}).(ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-configuri
+// The S3 URI to an analysis configuration file
 func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput) ConfigUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) string { return v.ConfigUri }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
-func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) map[string]string {
+// Sets the environment variables in the Docker container
+func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput) Environment() pulumi.AnyOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) interface{} {
 		return v.Environment
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri
+// The container image to be run by the monitoring job.
 func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput) ImageUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) string { return v.ImageUri }).(pulumi.StringOutput)
 }
@@ -7140,7 +8095,7 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOu
 	}).(ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-configuri
+// The S3 URI to an analysis configuration file
 func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput) ConfigUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) *string {
 		if v == nil {
@@ -7150,17 +8105,17 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
-func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) map[string]string {
+// Sets the environment variables in the Docker container
+func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput) Environment() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Environment
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri
+// The container image to be run by the monitoring job.
 func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOutput) ImageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification) *string {
 		if v == nil {
@@ -7170,11 +8125,9 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
 type ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-baseliningjobname
-	BaseliningJobName *string `pulumi:"baseliningJobName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-constraintsresource
+	BaseliningJobName   *string                                              `pulumi:"baseliningJobName"`
 	ConstraintsResource *ModelExplainabilityJobDefinitionConstraintsResource `pulumi:"constraintsResource"`
 }
 
@@ -7189,11 +8142,9 @@ type ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigInput inte
 	ToModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigOutputWithContext(context.Context) ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
 type ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-baseliningjobname
-	BaseliningJobName pulumi.StringPtrInput `pulumi:"baseliningJobName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-constraintsresource
+	BaseliningJobName   pulumi.StringPtrInput                                       `pulumi:"baseliningJobName"`
 	ConstraintsResource ModelExplainabilityJobDefinitionConstraintsResourcePtrInput `pulumi:"constraintsResource"`
 }
 
@@ -7250,7 +8201,7 @@ func (i *modelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
 type ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigOutput struct{ *pulumi.OutputState }
 
 func (ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigOutput) ElementType() reflect.Type {
@@ -7275,14 +8226,12 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigOutput)
 	}).(ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-baseliningjobname
 func (o ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigOutput) BaseliningJobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig) *string {
 		return v.BaseliningJobName
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-constraintsresource
 func (o ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigOutput) ConstraintsResource() ModelExplainabilityJobDefinitionConstraintsResourcePtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig) *ModelExplainabilityJobDefinitionConstraintsResource {
 		return v.ConstraintsResource
@@ -7313,7 +8262,6 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutp
 	}).(ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-baseliningjobname
 func (o ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutput) BaseliningJobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig) *string {
 		if v == nil {
@@ -7323,7 +8271,6 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig-constraintsresource
 func (o ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutput) ConstraintsResource() ModelExplainabilityJobDefinitionConstraintsResourcePtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig) *ModelExplainabilityJobDefinitionConstraintsResource {
 		if v == nil {
@@ -7333,9 +8280,8 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutp
 	}).(ModelExplainabilityJobDefinitionConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html
+// The inputs for a monitoring job.
 type ModelExplainabilityJobDefinitionModelExplainabilityJobInput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-endpointinput
 	EndpointInput ModelExplainabilityJobDefinitionEndpointInput `pulumi:"endpointInput"`
 }
 
@@ -7350,9 +8296,8 @@ type ModelExplainabilityJobDefinitionModelExplainabilityJobInputInput interface 
 	ToModelExplainabilityJobDefinitionModelExplainabilityJobInputOutputWithContext(context.Context) ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html
+// The inputs for a monitoring job.
 type ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-endpointinput
 	EndpointInput ModelExplainabilityJobDefinitionEndpointInputInput `pulumi:"endpointInput"`
 }
 
@@ -7409,7 +8354,7 @@ func (i *modelExplainabilityJobDefinitionModelExplainabilityJobInputPtrType) ToM
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html
+// The inputs for a monitoring job.
 type ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput struct{ *pulumi.OutputState }
 
 func (ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput) ElementType() reflect.Type {
@@ -7434,7 +8379,6 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput) ToMod
 	}).(ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-endpointinput
 func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput) EndpointInput() ModelExplainabilityJobDefinitionEndpointInputOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionModelExplainabilityJobInput) ModelExplainabilityJobDefinitionEndpointInput {
 		return v.EndpointInput
@@ -7465,7 +8409,6 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput) El
 	}).(ModelExplainabilityJobDefinitionModelExplainabilityJobInputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput-endpointinput
 func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput) EndpointInput() ModelExplainabilityJobDefinitionEndpointInputPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionModelExplainabilityJobInput) *ModelExplainabilityJobDefinitionEndpointInput {
 		if v == nil {
@@ -7475,9 +8418,8 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityJobInputPtrOutput) En
 	}).(ModelExplainabilityJobDefinitionEndpointInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html
+// The output object for a monitoring job.
 type ModelExplainabilityJobDefinitionMonitoringOutput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutput-s3output
 	S3Output ModelExplainabilityJobDefinitionS3Output `pulumi:"s3Output"`
 }
 
@@ -7492,9 +8434,8 @@ type ModelExplainabilityJobDefinitionMonitoringOutputInput interface {
 	ToModelExplainabilityJobDefinitionMonitoringOutputOutputWithContext(context.Context) ModelExplainabilityJobDefinitionMonitoringOutputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html
+// The output object for a monitoring job.
 type ModelExplainabilityJobDefinitionMonitoringOutputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutput-s3output
 	S3Output ModelExplainabilityJobDefinitionS3OutputInput `pulumi:"s3Output"`
 }
 
@@ -7535,7 +8476,7 @@ func (i ModelExplainabilityJobDefinitionMonitoringOutputArray) ToModelExplainabi
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionMonitoringOutputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html
+// The output object for a monitoring job.
 type ModelExplainabilityJobDefinitionMonitoringOutputOutput struct{ *pulumi.OutputState }
 
 func (ModelExplainabilityJobDefinitionMonitoringOutputOutput) ElementType() reflect.Type {
@@ -7550,7 +8491,6 @@ func (o ModelExplainabilityJobDefinitionMonitoringOutputOutput) ToModelExplainab
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutput-s3output
 func (o ModelExplainabilityJobDefinitionMonitoringOutputOutput) S3Output() ModelExplainabilityJobDefinitionS3OutputOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionMonitoringOutput) ModelExplainabilityJobDefinitionS3Output {
 		return v.S3Output
@@ -7577,11 +8517,11 @@ func (o ModelExplainabilityJobDefinitionMonitoringOutputArrayOutput) Index(i pul
 	}).(ModelExplainabilityJobDefinitionMonitoringOutputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html
+// The output configuration for monitoring jobs.
 type ModelExplainabilityJobDefinitionMonitoringOutputConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-kmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-monitoringoutputs
+	// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 	MonitoringOutputs []ModelExplainabilityJobDefinitionMonitoringOutput `pulumi:"monitoringOutputs"`
 }
 
@@ -7596,11 +8536,11 @@ type ModelExplainabilityJobDefinitionMonitoringOutputConfigInput interface {
 	ToModelExplainabilityJobDefinitionMonitoringOutputConfigOutputWithContext(context.Context) ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html
+// The output configuration for monitoring jobs.
 type ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-kmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-monitoringoutputs
+	// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 	MonitoringOutputs ModelExplainabilityJobDefinitionMonitoringOutputArrayInput `pulumi:"monitoringOutputs"`
 }
 
@@ -7657,7 +8597,7 @@ func (i *modelExplainabilityJobDefinitionMonitoringOutputConfigPtrType) ToModelE
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html
+// The output configuration for monitoring jobs.
 type ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput struct{ *pulumi.OutputState }
 
 func (ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput) ElementType() reflect.Type {
@@ -7682,12 +8622,12 @@ func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput) ToModelExp
 	}).(ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-kmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionMonitoringOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-monitoringoutputs
+// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput) MonitoringOutputs() ModelExplainabilityJobDefinitionMonitoringOutputArrayOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionMonitoringOutputConfig) []ModelExplainabilityJobDefinitionMonitoringOutput {
 		return v.MonitoringOutputs
@@ -7718,7 +8658,7 @@ func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput) Elem() 
 	}).(ModelExplainabilityJobDefinitionMonitoringOutputConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-kmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionMonitoringOutputConfig) *string {
 		if v == nil {
@@ -7728,7 +8668,7 @@ func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput) KmsKeyI
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringoutputconfig-monitoringoutputs
+// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput) MonitoringOutputs() ModelExplainabilityJobDefinitionMonitoringOutputArrayOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionMonitoringOutputConfig) []ModelExplainabilityJobDefinitionMonitoringOutput {
 		if v == nil {
@@ -7738,9 +8678,8 @@ func (o ModelExplainabilityJobDefinitionMonitoringOutputConfigPtrOutput) Monitor
 	}).(ModelExplainabilityJobDefinitionMonitoringOutputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html
+// Identifies the resources to deploy for a monitoring job.
 type ModelExplainabilityJobDefinitionMonitoringResources struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringresources-clusterconfig
 	ClusterConfig ModelExplainabilityJobDefinitionClusterConfig `pulumi:"clusterConfig"`
 }
 
@@ -7755,9 +8694,8 @@ type ModelExplainabilityJobDefinitionMonitoringResourcesInput interface {
 	ToModelExplainabilityJobDefinitionMonitoringResourcesOutputWithContext(context.Context) ModelExplainabilityJobDefinitionMonitoringResourcesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html
+// Identifies the resources to deploy for a monitoring job.
 type ModelExplainabilityJobDefinitionMonitoringResourcesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringresources-clusterconfig
 	ClusterConfig ModelExplainabilityJobDefinitionClusterConfigInput `pulumi:"clusterConfig"`
 }
 
@@ -7814,7 +8752,7 @@ func (i *modelExplainabilityJobDefinitionMonitoringResourcesPtrType) ToModelExpl
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html
+// Identifies the resources to deploy for a monitoring job.
 type ModelExplainabilityJobDefinitionMonitoringResourcesOutput struct{ *pulumi.OutputState }
 
 func (ModelExplainabilityJobDefinitionMonitoringResourcesOutput) ElementType() reflect.Type {
@@ -7839,7 +8777,6 @@ func (o ModelExplainabilityJobDefinitionMonitoringResourcesOutput) ToModelExplai
 	}).(ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringresources-clusterconfig
 func (o ModelExplainabilityJobDefinitionMonitoringResourcesOutput) ClusterConfig() ModelExplainabilityJobDefinitionClusterConfigOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionMonitoringResources) ModelExplainabilityJobDefinitionClusterConfig {
 		return v.ClusterConfig
@@ -7870,7 +8807,6 @@ func (o ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput) Elem() Mod
 	}).(ModelExplainabilityJobDefinitionMonitoringResourcesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringresources-clusterconfig
 func (o ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput) ClusterConfig() ModelExplainabilityJobDefinitionClusterConfigPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionMonitoringResources) *ModelExplainabilityJobDefinitionClusterConfig {
 		if v == nil {
@@ -7880,14 +8816,13 @@ func (o ModelExplainabilityJobDefinitionMonitoringResourcesPtrOutput) ClusterCon
 	}).(ModelExplainabilityJobDefinitionClusterConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 type ModelExplainabilityJobDefinitionNetworkConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enableintercontainertrafficencryption
+	// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 	EnableInterContainerTrafficEncryption *bool `pulumi:"enableInterContainerTrafficEncryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enablenetworkisolation
-	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-vpcconfig
-	VpcConfig *ModelExplainabilityJobDefinitionVpcConfig `pulumi:"vpcConfig"`
+	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+	EnableNetworkIsolation *bool                                      `pulumi:"enableNetworkIsolation"`
+	VpcConfig              *ModelExplainabilityJobDefinitionVpcConfig `pulumi:"vpcConfig"`
 }
 
 // ModelExplainabilityJobDefinitionNetworkConfigInput is an input type that accepts ModelExplainabilityJobDefinitionNetworkConfigArgs and ModelExplainabilityJobDefinitionNetworkConfigOutput values.
@@ -7901,14 +8836,13 @@ type ModelExplainabilityJobDefinitionNetworkConfigInput interface {
 	ToModelExplainabilityJobDefinitionNetworkConfigOutputWithContext(context.Context) ModelExplainabilityJobDefinitionNetworkConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 type ModelExplainabilityJobDefinitionNetworkConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enableintercontainertrafficencryption
+	// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 	EnableInterContainerTrafficEncryption pulumi.BoolPtrInput `pulumi:"enableInterContainerTrafficEncryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enablenetworkisolation
-	EnableNetworkIsolation pulumi.BoolPtrInput `pulumi:"enableNetworkIsolation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-vpcconfig
-	VpcConfig ModelExplainabilityJobDefinitionVpcConfigPtrInput `pulumi:"vpcConfig"`
+	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+	EnableNetworkIsolation pulumi.BoolPtrInput                               `pulumi:"enableNetworkIsolation"`
+	VpcConfig              ModelExplainabilityJobDefinitionVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
 func (ModelExplainabilityJobDefinitionNetworkConfigArgs) ElementType() reflect.Type {
@@ -7964,7 +8898,7 @@ func (i *modelExplainabilityJobDefinitionNetworkConfigPtrType) ToModelExplainabi
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionNetworkConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 type ModelExplainabilityJobDefinitionNetworkConfigOutput struct{ *pulumi.OutputState }
 
 func (ModelExplainabilityJobDefinitionNetworkConfigOutput) ElementType() reflect.Type {
@@ -7989,19 +8923,18 @@ func (o ModelExplainabilityJobDefinitionNetworkConfigOutput) ToModelExplainabili
 	}).(ModelExplainabilityJobDefinitionNetworkConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enableintercontainertrafficencryption
+// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 func (o ModelExplainabilityJobDefinitionNetworkConfigOutput) EnableInterContainerTrafficEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionNetworkConfig) *bool {
 		return v.EnableInterContainerTrafficEncryption
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enablenetworkisolation
+// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 func (o ModelExplainabilityJobDefinitionNetworkConfigOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionNetworkConfig) *bool { return v.EnableNetworkIsolation }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-vpcconfig
 func (o ModelExplainabilityJobDefinitionNetworkConfigOutput) VpcConfig() ModelExplainabilityJobDefinitionVpcConfigPtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionNetworkConfig) *ModelExplainabilityJobDefinitionVpcConfig {
 		return v.VpcConfig
@@ -8032,7 +8965,7 @@ func (o ModelExplainabilityJobDefinitionNetworkConfigPtrOutput) Elem() ModelExpl
 	}).(ModelExplainabilityJobDefinitionNetworkConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enableintercontainertrafficencryption
+// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 func (o ModelExplainabilityJobDefinitionNetworkConfigPtrOutput) EnableInterContainerTrafficEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionNetworkConfig) *bool {
 		if v == nil {
@@ -8042,7 +8975,7 @@ func (o ModelExplainabilityJobDefinitionNetworkConfigPtrOutput) EnableInterConta
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-enablenetworkisolation
+// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 func (o ModelExplainabilityJobDefinitionNetworkConfigPtrOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionNetworkConfig) *bool {
 		if v == nil {
@@ -8052,7 +8985,6 @@ func (o ModelExplainabilityJobDefinitionNetworkConfigPtrOutput) EnableNetworkIso
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-networkconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-networkconfig-vpcconfig
 func (o ModelExplainabilityJobDefinitionNetworkConfigPtrOutput) VpcConfig() ModelExplainabilityJobDefinitionVpcConfigPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionNetworkConfig) *ModelExplainabilityJobDefinitionVpcConfig {
 		if v == nil {
@@ -8062,13 +8994,13 @@ func (o ModelExplainabilityJobDefinitionNetworkConfigPtrOutput) VpcConfig() Mode
 	}).(ModelExplainabilityJobDefinitionVpcConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html
+// Information about where and how to store the results of a monitoring job.
 type ModelExplainabilityJobDefinitionS3Output struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html#cfn-sagemaker-modelexplainabilityjobdefinition-s3output-localpath
+	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath string `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html#cfn-sagemaker-modelexplainabilityjobdefinition-s3output-s3uploadmode
+	// Whether to upload the results of the monitoring job continuously or after the job completes.
 	S3UploadMode *string `pulumi:"s3UploadMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html#cfn-sagemaker-modelexplainabilityjobdefinition-s3output-s3uri
+	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -8083,13 +9015,13 @@ type ModelExplainabilityJobDefinitionS3OutputInput interface {
 	ToModelExplainabilityJobDefinitionS3OutputOutputWithContext(context.Context) ModelExplainabilityJobDefinitionS3OutputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html
+// Information about where and how to store the results of a monitoring job.
 type ModelExplainabilityJobDefinitionS3OutputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html#cfn-sagemaker-modelexplainabilityjobdefinition-s3output-localpath
+	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html#cfn-sagemaker-modelexplainabilityjobdefinition-s3output-s3uploadmode
+	// Whether to upload the results of the monitoring job continuously or after the job completes.
 	S3UploadMode pulumi.StringPtrInput `pulumi:"s3UploadMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html#cfn-sagemaker-modelexplainabilityjobdefinition-s3output-s3uri
+	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -8105,7 +9037,7 @@ func (i ModelExplainabilityJobDefinitionS3OutputArgs) ToModelExplainabilityJobDe
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionS3OutputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html
+// Information about where and how to store the results of a monitoring job.
 type ModelExplainabilityJobDefinitionS3OutputOutput struct{ *pulumi.OutputState }
 
 func (ModelExplainabilityJobDefinitionS3OutputOutput) ElementType() reflect.Type {
@@ -8120,24 +9052,24 @@ func (o ModelExplainabilityJobDefinitionS3OutputOutput) ToModelExplainabilityJob
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html#cfn-sagemaker-modelexplainabilityjobdefinition-s3output-localpath
+// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 func (o ModelExplainabilityJobDefinitionS3OutputOutput) LocalPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionS3Output) string { return v.LocalPath }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html#cfn-sagemaker-modelexplainabilityjobdefinition-s3output-s3uploadmode
+// Whether to upload the results of the monitoring job continuously or after the job completes.
 func (o ModelExplainabilityJobDefinitionS3OutputOutput) S3UploadMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionS3Output) *string { return v.S3UploadMode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-s3output.html#cfn-sagemaker-modelexplainabilityjobdefinition-s3output-s3uri
+// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 func (o ModelExplainabilityJobDefinitionS3OutputOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionS3Output) string { return v.S3Uri }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-stoppingcondition.html
+// Specifies a time limit for how long the monitoring job is allowed to run.
 type ModelExplainabilityJobDefinitionStoppingCondition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition-maxruntimeinseconds
+	// The maximum runtime allowed in seconds.
 	MaxRuntimeInSeconds int `pulumi:"maxRuntimeInSeconds"`
 }
 
@@ -8152,9 +9084,9 @@ type ModelExplainabilityJobDefinitionStoppingConditionInput interface {
 	ToModelExplainabilityJobDefinitionStoppingConditionOutputWithContext(context.Context) ModelExplainabilityJobDefinitionStoppingConditionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-stoppingcondition.html
+// Specifies a time limit for how long the monitoring job is allowed to run.
 type ModelExplainabilityJobDefinitionStoppingConditionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition-maxruntimeinseconds
+	// The maximum runtime allowed in seconds.
 	MaxRuntimeInSeconds pulumi.IntInput `pulumi:"maxRuntimeInSeconds"`
 }
 
@@ -8211,7 +9143,7 @@ func (i *modelExplainabilityJobDefinitionStoppingConditionPtrType) ToModelExplai
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionStoppingConditionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-stoppingcondition.html
+// Specifies a time limit for how long the monitoring job is allowed to run.
 type ModelExplainabilityJobDefinitionStoppingConditionOutput struct{ *pulumi.OutputState }
 
 func (ModelExplainabilityJobDefinitionStoppingConditionOutput) ElementType() reflect.Type {
@@ -8236,7 +9168,7 @@ func (o ModelExplainabilityJobDefinitionStoppingConditionOutput) ToModelExplaina
 	}).(ModelExplainabilityJobDefinitionStoppingConditionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition-maxruntimeinseconds
+// The maximum runtime allowed in seconds.
 func (o ModelExplainabilityJobDefinitionStoppingConditionOutput) MaxRuntimeInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionStoppingCondition) int { return v.MaxRuntimeInSeconds }).(pulumi.IntOutput)
 }
@@ -8265,7 +9197,7 @@ func (o ModelExplainabilityJobDefinitionStoppingConditionPtrOutput) Elem() Model
 	}).(ModelExplainabilityJobDefinitionStoppingConditionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelexplainabilityjobdefinition-stoppingcondition-maxruntimeinseconds
+// The maximum runtime allowed in seconds.
 func (o ModelExplainabilityJobDefinitionStoppingConditionPtrOutput) MaxRuntimeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionStoppingCondition) *int {
 		if v == nil {
@@ -8275,11 +9207,120 @@ func (o ModelExplainabilityJobDefinitionStoppingConditionPtrOutput) MaxRuntimeIn
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html
+// A key-value pair to associate with a resource.
+type ModelExplainabilityJobDefinitionTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ModelExplainabilityJobDefinitionTagInput is an input type that accepts ModelExplainabilityJobDefinitionTagArgs and ModelExplainabilityJobDefinitionTagOutput values.
+// You can construct a concrete instance of `ModelExplainabilityJobDefinitionTagInput` via:
+//
+//          ModelExplainabilityJobDefinitionTagArgs{...}
+type ModelExplainabilityJobDefinitionTagInput interface {
+	pulumi.Input
+
+	ToModelExplainabilityJobDefinitionTagOutput() ModelExplainabilityJobDefinitionTagOutput
+	ToModelExplainabilityJobDefinitionTagOutputWithContext(context.Context) ModelExplainabilityJobDefinitionTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ModelExplainabilityJobDefinitionTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ModelExplainabilityJobDefinitionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelExplainabilityJobDefinitionTag)(nil)).Elem()
+}
+
+func (i ModelExplainabilityJobDefinitionTagArgs) ToModelExplainabilityJobDefinitionTagOutput() ModelExplainabilityJobDefinitionTagOutput {
+	return i.ToModelExplainabilityJobDefinitionTagOutputWithContext(context.Background())
+}
+
+func (i ModelExplainabilityJobDefinitionTagArgs) ToModelExplainabilityJobDefinitionTagOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionTagOutput)
+}
+
+// ModelExplainabilityJobDefinitionTagArrayInput is an input type that accepts ModelExplainabilityJobDefinitionTagArray and ModelExplainabilityJobDefinitionTagArrayOutput values.
+// You can construct a concrete instance of `ModelExplainabilityJobDefinitionTagArrayInput` via:
+//
+//          ModelExplainabilityJobDefinitionTagArray{ ModelExplainabilityJobDefinitionTagArgs{...} }
+type ModelExplainabilityJobDefinitionTagArrayInput interface {
+	pulumi.Input
+
+	ToModelExplainabilityJobDefinitionTagArrayOutput() ModelExplainabilityJobDefinitionTagArrayOutput
+	ToModelExplainabilityJobDefinitionTagArrayOutputWithContext(context.Context) ModelExplainabilityJobDefinitionTagArrayOutput
+}
+
+type ModelExplainabilityJobDefinitionTagArray []ModelExplainabilityJobDefinitionTagInput
+
+func (ModelExplainabilityJobDefinitionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelExplainabilityJobDefinitionTag)(nil)).Elem()
+}
+
+func (i ModelExplainabilityJobDefinitionTagArray) ToModelExplainabilityJobDefinitionTagArrayOutput() ModelExplainabilityJobDefinitionTagArrayOutput {
+	return i.ToModelExplainabilityJobDefinitionTagArrayOutputWithContext(context.Background())
+}
+
+func (i ModelExplainabilityJobDefinitionTagArray) ToModelExplainabilityJobDefinitionTagArrayOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ModelExplainabilityJobDefinitionTagOutput struct{ *pulumi.OutputState }
+
+func (ModelExplainabilityJobDefinitionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelExplainabilityJobDefinitionTag)(nil)).Elem()
+}
+
+func (o ModelExplainabilityJobDefinitionTagOutput) ToModelExplainabilityJobDefinitionTagOutput() ModelExplainabilityJobDefinitionTagOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionTagOutput) ToModelExplainabilityJobDefinitionTagOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ModelExplainabilityJobDefinitionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ModelExplainabilityJobDefinitionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelExplainabilityJobDefinitionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ModelExplainabilityJobDefinitionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelExplainabilityJobDefinitionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelExplainabilityJobDefinitionTag)(nil)).Elem()
+}
+
+func (o ModelExplainabilityJobDefinitionTagArrayOutput) ToModelExplainabilityJobDefinitionTagArrayOutput() ModelExplainabilityJobDefinitionTagArrayOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionTagArrayOutput) ToModelExplainabilityJobDefinitionTagArrayOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionTagArrayOutput {
+	return o
+}
+
+func (o ModelExplainabilityJobDefinitionTagArrayOutput) Index(i pulumi.IntInput) ModelExplainabilityJobDefinitionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelExplainabilityJobDefinitionTag {
+		return vs[0].([]ModelExplainabilityJobDefinitionTag)[vs[1].(int)]
+	}).(ModelExplainabilityJobDefinitionTagOutput)
+}
+
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 type ModelExplainabilityJobDefinitionVpcConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-vpcconfig-securitygroupids
+	// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-vpcconfig-subnets
+	// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 	Subnets []string `pulumi:"subnets"`
 }
 
@@ -8294,11 +9335,11 @@ type ModelExplainabilityJobDefinitionVpcConfigInput interface {
 	ToModelExplainabilityJobDefinitionVpcConfigOutputWithContext(context.Context) ModelExplainabilityJobDefinitionVpcConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 type ModelExplainabilityJobDefinitionVpcConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-vpcconfig-securitygroupids
+	// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-vpcconfig-subnets
+	// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
@@ -8355,7 +9396,7 @@ func (i *modelExplainabilityJobDefinitionVpcConfigPtrType) ToModelExplainability
 	return pulumi.ToOutputWithContext(ctx, i).(ModelExplainabilityJobDefinitionVpcConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 type ModelExplainabilityJobDefinitionVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (ModelExplainabilityJobDefinitionVpcConfigOutput) ElementType() reflect.Type {
@@ -8380,12 +9421,12 @@ func (o ModelExplainabilityJobDefinitionVpcConfigOutput) ToModelExplainabilityJo
 	}).(ModelExplainabilityJobDefinitionVpcConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-vpcconfig-securitygroupids
+// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 func (o ModelExplainabilityJobDefinitionVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-vpcconfig-subnets
+// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 func (o ModelExplainabilityJobDefinitionVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -8414,7 +9455,7 @@ func (o ModelExplainabilityJobDefinitionVpcConfigPtrOutput) Elem() ModelExplaina
 	}).(ModelExplainabilityJobDefinitionVpcConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-vpcconfig-securitygroupids
+// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 func (o ModelExplainabilityJobDefinitionVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionVpcConfig) []string {
 		if v == nil {
@@ -8424,7 +9465,7 @@ func (o ModelExplainabilityJobDefinitionVpcConfigPtrOutput) SecurityGroupIds() p
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-vpcconfig.html#cfn-sagemaker-modelexplainabilityjobdefinition-vpcconfig-subnets
+// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 func (o ModelExplainabilityJobDefinitionVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionVpcConfig) []string {
 		if v == nil {
@@ -8434,15 +9475,124 @@ func (o ModelExplainabilityJobDefinitionVpcConfigPtrOutput) Subnets() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html
+// A key-value pair to associate with a resource.
+type ModelPackageGroupTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ModelPackageGroupTagInput is an input type that accepts ModelPackageGroupTagArgs and ModelPackageGroupTagOutput values.
+// You can construct a concrete instance of `ModelPackageGroupTagInput` via:
+//
+//          ModelPackageGroupTagArgs{...}
+type ModelPackageGroupTagInput interface {
+	pulumi.Input
+
+	ToModelPackageGroupTagOutput() ModelPackageGroupTagOutput
+	ToModelPackageGroupTagOutputWithContext(context.Context) ModelPackageGroupTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ModelPackageGroupTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ModelPackageGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageGroupTag)(nil)).Elem()
+}
+
+func (i ModelPackageGroupTagArgs) ToModelPackageGroupTagOutput() ModelPackageGroupTagOutput {
+	return i.ToModelPackageGroupTagOutputWithContext(context.Background())
+}
+
+func (i ModelPackageGroupTagArgs) ToModelPackageGroupTagOutputWithContext(ctx context.Context) ModelPackageGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageGroupTagOutput)
+}
+
+// ModelPackageGroupTagArrayInput is an input type that accepts ModelPackageGroupTagArray and ModelPackageGroupTagArrayOutput values.
+// You can construct a concrete instance of `ModelPackageGroupTagArrayInput` via:
+//
+//          ModelPackageGroupTagArray{ ModelPackageGroupTagArgs{...} }
+type ModelPackageGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToModelPackageGroupTagArrayOutput() ModelPackageGroupTagArrayOutput
+	ToModelPackageGroupTagArrayOutputWithContext(context.Context) ModelPackageGroupTagArrayOutput
+}
+
+type ModelPackageGroupTagArray []ModelPackageGroupTagInput
+
+func (ModelPackageGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPackageGroupTag)(nil)).Elem()
+}
+
+func (i ModelPackageGroupTagArray) ToModelPackageGroupTagArrayOutput() ModelPackageGroupTagArrayOutput {
+	return i.ToModelPackageGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i ModelPackageGroupTagArray) ToModelPackageGroupTagArrayOutputWithContext(ctx context.Context) ModelPackageGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageGroupTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ModelPackageGroupTagOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPackageGroupTag)(nil)).Elem()
+}
+
+func (o ModelPackageGroupTagOutput) ToModelPackageGroupTagOutput() ModelPackageGroupTagOutput {
+	return o
+}
+
+func (o ModelPackageGroupTagOutput) ToModelPackageGroupTagOutputWithContext(ctx context.Context) ModelPackageGroupTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ModelPackageGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ModelPackageGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPackageGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ModelPackageGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelPackageGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPackageGroupTag)(nil)).Elem()
+}
+
+func (o ModelPackageGroupTagArrayOutput) ToModelPackageGroupTagArrayOutput() ModelPackageGroupTagArrayOutput {
+	return o
+}
+
+func (o ModelPackageGroupTagArrayOutput) ToModelPackageGroupTagArrayOutputWithContext(ctx context.Context) ModelPackageGroupTagArrayOutput {
+	return o
+}
+
+func (o ModelPackageGroupTagArrayOutput) Index(i pulumi.IntInput) ModelPackageGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelPackageGroupTag {
+		return vs[0].([]ModelPackageGroupTag)[vs[1].(int)]
+	}).(ModelPackageGroupTagOutput)
+}
+
+// Configuration for the cluster used to run model monitoring jobs.
 type ModelQualityJobDefinitionClusterConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-instancecount
+	// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 	InstanceCount int `pulumi:"instanceCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-instancetype
+	// The ML compute instance type for the processing job.
 	InstanceType string `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-volumekmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-volumesizeingb
+	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 	VolumeSizeInGB int `pulumi:"volumeSizeInGB"`
 }
 
@@ -8457,15 +9607,15 @@ type ModelQualityJobDefinitionClusterConfigInput interface {
 	ToModelQualityJobDefinitionClusterConfigOutputWithContext(context.Context) ModelQualityJobDefinitionClusterConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html
+// Configuration for the cluster used to run model monitoring jobs.
 type ModelQualityJobDefinitionClusterConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-instancecount
+	// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-instancetype
+	// The ML compute instance type for the processing job.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-volumekmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-volumesizeingb
+	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 	VolumeSizeInGB pulumi.IntInput `pulumi:"volumeSizeInGB"`
 }
 
@@ -8522,7 +9672,7 @@ func (i *modelQualityJobDefinitionClusterConfigPtrType) ToModelQualityJobDefinit
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionClusterConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html
+// Configuration for the cluster used to run model monitoring jobs.
 type ModelQualityJobDefinitionClusterConfigOutput struct{ *pulumi.OutputState }
 
 func (ModelQualityJobDefinitionClusterConfigOutput) ElementType() reflect.Type {
@@ -8547,22 +9697,22 @@ func (o ModelQualityJobDefinitionClusterConfigOutput) ToModelQualityJobDefinitio
 	}).(ModelQualityJobDefinitionClusterConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-instancecount
+// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 func (o ModelQualityJobDefinitionClusterConfigOutput) InstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionClusterConfig) int { return v.InstanceCount }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-instancetype
+// The ML compute instance type for the processing job.
 func (o ModelQualityJobDefinitionClusterConfigOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionClusterConfig) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-volumekmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 func (o ModelQualityJobDefinitionClusterConfigOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionClusterConfig) *string { return v.VolumeKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-volumesizeingb
+// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 func (o ModelQualityJobDefinitionClusterConfigOutput) VolumeSizeInGB() pulumi.IntOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionClusterConfig) int { return v.VolumeSizeInGB }).(pulumi.IntOutput)
 }
@@ -8591,7 +9741,7 @@ func (o ModelQualityJobDefinitionClusterConfigPtrOutput) Elem() ModelQualityJobD
 	}).(ModelQualityJobDefinitionClusterConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-instancecount
+// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 func (o ModelQualityJobDefinitionClusterConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionClusterConfig) *int {
 		if v == nil {
@@ -8601,7 +9751,7 @@ func (o ModelQualityJobDefinitionClusterConfigPtrOutput) InstanceCount() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-instancetype
+// The ML compute instance type for the processing job.
 func (o ModelQualityJobDefinitionClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionClusterConfig) *string {
 		if v == nil {
@@ -8611,7 +9761,7 @@ func (o ModelQualityJobDefinitionClusterConfigPtrOutput) InstanceType() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-volumekmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 func (o ModelQualityJobDefinitionClusterConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionClusterConfig) *string {
 		if v == nil {
@@ -8621,7 +9771,7 @@ func (o ModelQualityJobDefinitionClusterConfigPtrOutput) VolumeKmsKeyId() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-clusterconfig.html#cfn-sagemaker-modelqualityjobdefinition-clusterconfig-volumesizeingb
+// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 func (o ModelQualityJobDefinitionClusterConfigPtrOutput) VolumeSizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionClusterConfig) *int {
 		if v == nil {
@@ -8631,9 +9781,9 @@ func (o ModelQualityJobDefinitionClusterConfigPtrOutput) VolumeSizeInGB() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-constraintsresource.html
+// The baseline constraints resource for a monitoring job.
 type ModelQualityJobDefinitionConstraintsResource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-constraintsresource.html#cfn-sagemaker-modelqualityjobdefinition-constraintsresource-s3uri
+	// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 	S3Uri *string `pulumi:"s3Uri"`
 }
 
@@ -8648,9 +9798,9 @@ type ModelQualityJobDefinitionConstraintsResourceInput interface {
 	ToModelQualityJobDefinitionConstraintsResourceOutputWithContext(context.Context) ModelQualityJobDefinitionConstraintsResourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-constraintsresource.html
+// The baseline constraints resource for a monitoring job.
 type ModelQualityJobDefinitionConstraintsResourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-constraintsresource.html#cfn-sagemaker-modelqualityjobdefinition-constraintsresource-s3uri
+	// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 	S3Uri pulumi.StringPtrInput `pulumi:"s3Uri"`
 }
 
@@ -8707,7 +9857,7 @@ func (i *modelQualityJobDefinitionConstraintsResourcePtrType) ToModelQualityJobD
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-constraintsresource.html
+// The baseline constraints resource for a monitoring job.
 type ModelQualityJobDefinitionConstraintsResourceOutput struct{ *pulumi.OutputState }
 
 func (ModelQualityJobDefinitionConstraintsResourceOutput) ElementType() reflect.Type {
@@ -8732,7 +9882,7 @@ func (o ModelQualityJobDefinitionConstraintsResourceOutput) ToModelQualityJobDef
 	}).(ModelQualityJobDefinitionConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-constraintsresource.html#cfn-sagemaker-modelqualityjobdefinition-constraintsresource-s3uri
+// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 func (o ModelQualityJobDefinitionConstraintsResourceOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionConstraintsResource) *string { return v.S3Uri }).(pulumi.StringPtrOutput)
 }
@@ -8761,7 +9911,7 @@ func (o ModelQualityJobDefinitionConstraintsResourcePtrOutput) Elem() ModelQuali
 	}).(ModelQualityJobDefinitionConstraintsResourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-constraintsresource.html#cfn-sagemaker-modelqualityjobdefinition-constraintsresource-s3uri
+// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 func (o ModelQualityJobDefinitionConstraintsResourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionConstraintsResource) *string {
 		if v == nil {
@@ -8771,25 +9921,23 @@ func (o ModelQualityJobDefinitionConstraintsResourcePtrOutput) S3Uri() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html
+// The endpoint for a monitoring job.
 type ModelQualityJobDefinitionEndpointInput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-endtimeoffset
+	// Monitoring end time offset, e.g. PT0H
 	EndTimeOffset *string `pulumi:"endTimeOffset"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-endpointname
-	EndpointName string `pulumi:"endpointName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-inferenceattribute
+	EndpointName  string  `pulumi:"endpointName"`
+	// Index or JSONpath to locate predicted label(s)
 	InferenceAttribute *string `pulumi:"inferenceAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-localpath
+	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath string `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-probabilityattribute
-	ProbabilityAttribute *string `pulumi:"probabilityAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-probabilitythresholdattribute
+	// Index or JSONpath to locate probabilities
+	ProbabilityAttribute          *string  `pulumi:"probabilityAttribute"`
 	ProbabilityThresholdAttribute *float64 `pulumi:"probabilityThresholdAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-s3datadistributiontype
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 	S3DataDistributionType *string `pulumi:"s3DataDistributionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-s3inputmode
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 	S3InputMode *string `pulumi:"s3InputMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-starttimeoffset
+	// Monitoring start time offset, e.g. -PT1H
 	StartTimeOffset *string `pulumi:"startTimeOffset"`
 }
 
@@ -8804,25 +9952,23 @@ type ModelQualityJobDefinitionEndpointInputInput interface {
 	ToModelQualityJobDefinitionEndpointInputOutputWithContext(context.Context) ModelQualityJobDefinitionEndpointInputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html
+// The endpoint for a monitoring job.
 type ModelQualityJobDefinitionEndpointInputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-endtimeoffset
+	// Monitoring end time offset, e.g. PT0H
 	EndTimeOffset pulumi.StringPtrInput `pulumi:"endTimeOffset"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-endpointname
-	EndpointName pulumi.StringInput `pulumi:"endpointName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-inferenceattribute
+	EndpointName  pulumi.StringInput    `pulumi:"endpointName"`
+	// Index or JSONpath to locate predicted label(s)
 	InferenceAttribute pulumi.StringPtrInput `pulumi:"inferenceAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-localpath
+	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-probabilityattribute
-	ProbabilityAttribute pulumi.StringPtrInput `pulumi:"probabilityAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-probabilitythresholdattribute
+	// Index or JSONpath to locate probabilities
+	ProbabilityAttribute          pulumi.StringPtrInput  `pulumi:"probabilityAttribute"`
 	ProbabilityThresholdAttribute pulumi.Float64PtrInput `pulumi:"probabilityThresholdAttribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-s3datadistributiontype
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 	S3DataDistributionType pulumi.StringPtrInput `pulumi:"s3DataDistributionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-s3inputmode
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 	S3InputMode pulumi.StringPtrInput `pulumi:"s3InputMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-starttimeoffset
+	// Monitoring start time offset, e.g. -PT1H
 	StartTimeOffset pulumi.StringPtrInput `pulumi:"startTimeOffset"`
 }
 
@@ -8879,7 +10025,7 @@ func (i *modelQualityJobDefinitionEndpointInputPtrType) ToModelQualityJobDefinit
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionEndpointInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html
+// The endpoint for a monitoring job.
 type ModelQualityJobDefinitionEndpointInputOutput struct{ *pulumi.OutputState }
 
 func (ModelQualityJobDefinitionEndpointInputOutput) ElementType() reflect.Type {
@@ -8904,47 +10050,45 @@ func (o ModelQualityJobDefinitionEndpointInputOutput) ToModelQualityJobDefinitio
 	}).(ModelQualityJobDefinitionEndpointInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-endtimeoffset
+// Monitoring end time offset, e.g. PT0H
 func (o ModelQualityJobDefinitionEndpointInputOutput) EndTimeOffset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionEndpointInput) *string { return v.EndTimeOffset }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-endpointname
 func (o ModelQualityJobDefinitionEndpointInputOutput) EndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionEndpointInput) string { return v.EndpointName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-inferenceattribute
+// Index or JSONpath to locate predicted label(s)
 func (o ModelQualityJobDefinitionEndpointInputOutput) InferenceAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionEndpointInput) *string { return v.InferenceAttribute }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-localpath
+// Path to the filesystem where the endpoint data is available to the container.
 func (o ModelQualityJobDefinitionEndpointInputOutput) LocalPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionEndpointInput) string { return v.LocalPath }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-probabilityattribute
+// Index or JSONpath to locate probabilities
 func (o ModelQualityJobDefinitionEndpointInputOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionEndpointInput) *string { return v.ProbabilityAttribute }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-probabilitythresholdattribute
 func (o ModelQualityJobDefinitionEndpointInputOutput) ProbabilityThresholdAttribute() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionEndpointInput) *float64 { return v.ProbabilityThresholdAttribute }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-s3datadistributiontype
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 func (o ModelQualityJobDefinitionEndpointInputOutput) S3DataDistributionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionEndpointInput) *string { return v.S3DataDistributionType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-s3inputmode
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 func (o ModelQualityJobDefinitionEndpointInputOutput) S3InputMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionEndpointInput) *string { return v.S3InputMode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-starttimeoffset
+// Monitoring start time offset, e.g. -PT1H
 func (o ModelQualityJobDefinitionEndpointInputOutput) StartTimeOffset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionEndpointInput) *string { return v.StartTimeOffset }).(pulumi.StringPtrOutput)
 }
@@ -8973,7 +10117,7 @@ func (o ModelQualityJobDefinitionEndpointInputPtrOutput) Elem() ModelQualityJobD
 	}).(ModelQualityJobDefinitionEndpointInputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-endtimeoffset
+// Monitoring end time offset, e.g. PT0H
 func (o ModelQualityJobDefinitionEndpointInputPtrOutput) EndTimeOffset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -8983,7 +10127,6 @@ func (o ModelQualityJobDefinitionEndpointInputPtrOutput) EndTimeOffset() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-endpointname
 func (o ModelQualityJobDefinitionEndpointInputPtrOutput) EndpointName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -8993,7 +10136,7 @@ func (o ModelQualityJobDefinitionEndpointInputPtrOutput) EndpointName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-inferenceattribute
+// Index or JSONpath to locate predicted label(s)
 func (o ModelQualityJobDefinitionEndpointInputPtrOutput) InferenceAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -9003,7 +10146,7 @@ func (o ModelQualityJobDefinitionEndpointInputPtrOutput) InferenceAttribute() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-localpath
+// Path to the filesystem where the endpoint data is available to the container.
 func (o ModelQualityJobDefinitionEndpointInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -9013,7 +10156,7 @@ func (o ModelQualityJobDefinitionEndpointInputPtrOutput) LocalPath() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-probabilityattribute
+// Index or JSONpath to locate probabilities
 func (o ModelQualityJobDefinitionEndpointInputPtrOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -9023,7 +10166,6 @@ func (o ModelQualityJobDefinitionEndpointInputPtrOutput) ProbabilityAttribute() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-probabilitythresholdattribute
 func (o ModelQualityJobDefinitionEndpointInputPtrOutput) ProbabilityThresholdAttribute() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *float64 {
 		if v == nil {
@@ -9033,7 +10175,7 @@ func (o ModelQualityJobDefinitionEndpointInputPtrOutput) ProbabilityThresholdAtt
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-s3datadistributiontype
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 func (o ModelQualityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -9043,7 +10185,7 @@ func (o ModelQualityJobDefinitionEndpointInputPtrOutput) S3DataDistributionType(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-s3inputmode
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 func (o ModelQualityJobDefinitionEndpointInputPtrOutput) S3InputMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -9053,7 +10195,7 @@ func (o ModelQualityJobDefinitionEndpointInputPtrOutput) S3InputMode() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html#cfn-sagemaker-modelqualityjobdefinition-endpointinput-starttimeoffset
+// Monitoring start time offset, e.g. -PT1H
 func (o ModelQualityJobDefinitionEndpointInputPtrOutput) StartTimeOffset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionEndpointInput) *string {
 		if v == nil {
@@ -9063,21 +10205,20 @@ func (o ModelQualityJobDefinitionEndpointInputPtrOutput) StartTimeOffset() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html
+// Container image configuration object for the monitoring job.
 type ModelQualityJobDefinitionModelQualityAppSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerarguments
+	// An array of arguments for the container used to run the monitoring job.
 	ContainerArguments []string `pulumi:"containerArguments"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerentrypoint
+	// Specifies the entrypoint for a container used to run the monitoring job.
 	ContainerEntrypoint []string `pulumi:"containerEntrypoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
-	Environment map[string]string `pulumi:"environment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-imageuri
+	// Sets the environment variables in the Docker container
+	Environment interface{} `pulumi:"environment"`
+	// The container image to be run by the monitoring job.
 	ImageUri string `pulumi:"imageUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-postanalyticsprocessorsourceuri
+	// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
 	PostAnalyticsProcessorSourceUri *string `pulumi:"postAnalyticsProcessorSourceUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-problemtype
-	ProblemType string `pulumi:"problemType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-recordpreprocessorsourceuri
+	ProblemType                     string  `pulumi:"problemType"`
+	// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
 	RecordPreprocessorSourceUri *string `pulumi:"recordPreprocessorSourceUri"`
 }
 
@@ -9092,21 +10233,20 @@ type ModelQualityJobDefinitionModelQualityAppSpecificationInput interface {
 	ToModelQualityJobDefinitionModelQualityAppSpecificationOutputWithContext(context.Context) ModelQualityJobDefinitionModelQualityAppSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html
+// Container image configuration object for the monitoring job.
 type ModelQualityJobDefinitionModelQualityAppSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerarguments
+	// An array of arguments for the container used to run the monitoring job.
 	ContainerArguments pulumi.StringArrayInput `pulumi:"containerArguments"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerentrypoint
+	// Specifies the entrypoint for a container used to run the monitoring job.
 	ContainerEntrypoint pulumi.StringArrayInput `pulumi:"containerEntrypoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
-	Environment pulumi.StringMapInput `pulumi:"environment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-imageuri
+	// Sets the environment variables in the Docker container
+	Environment pulumi.Input `pulumi:"environment"`
+	// The container image to be run by the monitoring job.
 	ImageUri pulumi.StringInput `pulumi:"imageUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-postanalyticsprocessorsourceuri
+	// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
 	PostAnalyticsProcessorSourceUri pulumi.StringPtrInput `pulumi:"postAnalyticsProcessorSourceUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-problemtype
-	ProblemType pulumi.StringInput `pulumi:"problemType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-recordpreprocessorsourceuri
+	ProblemType                     pulumi.StringInput    `pulumi:"problemType"`
+	// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
 	RecordPreprocessorSourceUri pulumi.StringPtrInput `pulumi:"recordPreprocessorSourceUri"`
 }
 
@@ -9163,7 +10303,7 @@ func (i *modelQualityJobDefinitionModelQualityAppSpecificationPtrType) ToModelQu
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html
+// Container image configuration object for the monitoring job.
 type ModelQualityJobDefinitionModelQualityAppSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ModelQualityJobDefinitionModelQualityAppSpecificationOutput) ElementType() reflect.Type {
@@ -9188,39 +10328,38 @@ func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) ToModelQual
 	}).(ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerarguments
+// An array of arguments for the container used to run the monitoring job.
 func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) ContainerArguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityAppSpecification) []string { return v.ContainerArguments }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerentrypoint
+// Specifies the entrypoint for a container used to run the monitoring job.
 func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) ContainerEntrypoint() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityAppSpecification) []string { return v.ContainerEntrypoint }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityAppSpecification) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
+// Sets the environment variables in the Docker container
+func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) Environment() pulumi.AnyOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityAppSpecification) interface{} { return v.Environment }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-imageuri
+// The container image to be run by the monitoring job.
 func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) ImageUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityAppSpecification) string { return v.ImageUri }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-postanalyticsprocessorsourceuri
+// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
 func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) PostAnalyticsProcessorSourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityAppSpecification) *string {
 		return v.PostAnalyticsProcessorSourceUri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-problemtype
 func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) ProblemType() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityAppSpecification) string { return v.ProblemType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-recordpreprocessorsourceuri
+// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
 func (o ModelQualityJobDefinitionModelQualityAppSpecificationOutput) RecordPreprocessorSourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityAppSpecification) *string {
 		return v.RecordPreprocessorSourceUri
@@ -9251,7 +10390,7 @@ func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) Elem() M
 	}).(ModelQualityJobDefinitionModelQualityAppSpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerarguments
+// An array of arguments for the container used to run the monitoring job.
 func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) ContainerArguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) []string {
 		if v == nil {
@@ -9261,7 +10400,7 @@ func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) Containe
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerentrypoint
+// Specifies the entrypoint for a container used to run the monitoring job.
 func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) ContainerEntrypoint() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) []string {
 		if v == nil {
@@ -9271,17 +10410,17 @@ func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) Containe
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
-func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) map[string]string {
+// Sets the environment variables in the Docker container
+func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) Environment() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Environment
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-imageuri
+// The container image to be run by the monitoring job.
 func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) ImageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) *string {
 		if v == nil {
@@ -9291,7 +10430,7 @@ func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) ImageUri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-postanalyticsprocessorsourceuri
+// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
 func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) PostAnalyticsProcessorSourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) *string {
 		if v == nil {
@@ -9301,7 +10440,6 @@ func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) PostAnal
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-problemtype
 func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) ProblemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) *string {
 		if v == nil {
@@ -9311,7 +10449,7 @@ func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) ProblemT
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-recordpreprocessorsourceuri
+// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
 func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) RecordPreprocessorSourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityAppSpecification) *string {
 		if v == nil {
@@ -9321,11 +10459,9 @@ func (o ModelQualityJobDefinitionModelQualityAppSpecificationPtrOutput) RecordPr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
 type ModelQualityJobDefinitionModelQualityBaselineConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-baseliningjobname
-	BaseliningJobName *string `pulumi:"baseliningJobName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-constraintsresource
+	BaseliningJobName   *string                                       `pulumi:"baseliningJobName"`
 	ConstraintsResource *ModelQualityJobDefinitionConstraintsResource `pulumi:"constraintsResource"`
 }
 
@@ -9340,11 +10476,9 @@ type ModelQualityJobDefinitionModelQualityBaselineConfigInput interface {
 	ToModelQualityJobDefinitionModelQualityBaselineConfigOutputWithContext(context.Context) ModelQualityJobDefinitionModelQualityBaselineConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
 type ModelQualityJobDefinitionModelQualityBaselineConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-baseliningjobname
-	BaseliningJobName pulumi.StringPtrInput `pulumi:"baseliningJobName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-constraintsresource
+	BaseliningJobName   pulumi.StringPtrInput                                `pulumi:"baseliningJobName"`
 	ConstraintsResource ModelQualityJobDefinitionConstraintsResourcePtrInput `pulumi:"constraintsResource"`
 }
 
@@ -9401,7 +10535,7 @@ func (i *modelQualityJobDefinitionModelQualityBaselineConfigPtrType) ToModelQual
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
 type ModelQualityJobDefinitionModelQualityBaselineConfigOutput struct{ *pulumi.OutputState }
 
 func (ModelQualityJobDefinitionModelQualityBaselineConfigOutput) ElementType() reflect.Type {
@@ -9426,12 +10560,10 @@ func (o ModelQualityJobDefinitionModelQualityBaselineConfigOutput) ToModelQualit
 	}).(ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-baseliningjobname
 func (o ModelQualityJobDefinitionModelQualityBaselineConfigOutput) BaseliningJobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityBaselineConfig) *string { return v.BaseliningJobName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-constraintsresource
 func (o ModelQualityJobDefinitionModelQualityBaselineConfigOutput) ConstraintsResource() ModelQualityJobDefinitionConstraintsResourcePtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityBaselineConfig) *ModelQualityJobDefinitionConstraintsResource {
 		return v.ConstraintsResource
@@ -9462,7 +10594,6 @@ func (o ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput) Elem() Mod
 	}).(ModelQualityJobDefinitionModelQualityBaselineConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-baseliningjobname
 func (o ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput) BaseliningJobName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityBaselineConfig) *string {
 		if v == nil {
@@ -9472,7 +10603,6 @@ func (o ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput) Baselining
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-constraintsresource
 func (o ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput) ConstraintsResource() ModelQualityJobDefinitionConstraintsResourcePtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityBaselineConfig) *ModelQualityJobDefinitionConstraintsResource {
 		if v == nil {
@@ -9482,11 +10612,9 @@ func (o ModelQualityJobDefinitionModelQualityBaselineConfigPtrOutput) Constraint
 	}).(ModelQualityJobDefinitionConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html
+// The inputs for a monitoring job.
 type ModelQualityJobDefinitionModelQualityJobInput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-endpointinput
-	EndpointInput ModelQualityJobDefinitionEndpointInput `pulumi:"endpointInput"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-groundtruths3input
+	EndpointInput      ModelQualityJobDefinitionEndpointInput                `pulumi:"endpointInput"`
 	GroundTruthS3Input ModelQualityJobDefinitionMonitoringGroundTruthS3Input `pulumi:"groundTruthS3Input"`
 }
 
@@ -9501,11 +10629,9 @@ type ModelQualityJobDefinitionModelQualityJobInputInput interface {
 	ToModelQualityJobDefinitionModelQualityJobInputOutputWithContext(context.Context) ModelQualityJobDefinitionModelQualityJobInputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html
+// The inputs for a monitoring job.
 type ModelQualityJobDefinitionModelQualityJobInputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-endpointinput
-	EndpointInput ModelQualityJobDefinitionEndpointInputInput `pulumi:"endpointInput"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-groundtruths3input
+	EndpointInput      ModelQualityJobDefinitionEndpointInputInput                `pulumi:"endpointInput"`
 	GroundTruthS3Input ModelQualityJobDefinitionMonitoringGroundTruthS3InputInput `pulumi:"groundTruthS3Input"`
 }
 
@@ -9562,7 +10688,7 @@ func (i *modelQualityJobDefinitionModelQualityJobInputPtrType) ToModelQualityJob
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionModelQualityJobInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html
+// The inputs for a monitoring job.
 type ModelQualityJobDefinitionModelQualityJobInputOutput struct{ *pulumi.OutputState }
 
 func (ModelQualityJobDefinitionModelQualityJobInputOutput) ElementType() reflect.Type {
@@ -9587,14 +10713,12 @@ func (o ModelQualityJobDefinitionModelQualityJobInputOutput) ToModelQualityJobDe
 	}).(ModelQualityJobDefinitionModelQualityJobInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-endpointinput
 func (o ModelQualityJobDefinitionModelQualityJobInputOutput) EndpointInput() ModelQualityJobDefinitionEndpointInputOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityJobInput) ModelQualityJobDefinitionEndpointInput {
 		return v.EndpointInput
 	}).(ModelQualityJobDefinitionEndpointInputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-groundtruths3input
 func (o ModelQualityJobDefinitionModelQualityJobInputOutput) GroundTruthS3Input() ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityJobInput) ModelQualityJobDefinitionMonitoringGroundTruthS3Input {
 		return v.GroundTruthS3Input
@@ -9625,7 +10749,6 @@ func (o ModelQualityJobDefinitionModelQualityJobInputPtrOutput) Elem() ModelQual
 	}).(ModelQualityJobDefinitionModelQualityJobInputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-endpointinput
 func (o ModelQualityJobDefinitionModelQualityJobInputPtrOutput) EndpointInput() ModelQualityJobDefinitionEndpointInputPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityJobInput) *ModelQualityJobDefinitionEndpointInput {
 		if v == nil {
@@ -9635,7 +10758,6 @@ func (o ModelQualityJobDefinitionModelQualityJobInputPtrOutput) EndpointInput() 
 	}).(ModelQualityJobDefinitionEndpointInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput-groundtruths3input
 func (o ModelQualityJobDefinitionModelQualityJobInputPtrOutput) GroundTruthS3Input() ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionModelQualityJobInput) *ModelQualityJobDefinitionMonitoringGroundTruthS3Input {
 		if v == nil {
@@ -9645,9 +10767,9 @@ func (o ModelQualityJobDefinitionModelQualityJobInputPtrOutput) GroundTruthS3Inp
 	}).(ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html
+// Ground truth input provided in S3
 type ModelQualityJobDefinitionMonitoringGroundTruthS3Input struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input-s3uri
+	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -9662,9 +10784,9 @@ type ModelQualityJobDefinitionMonitoringGroundTruthS3InputInput interface {
 	ToModelQualityJobDefinitionMonitoringGroundTruthS3InputOutputWithContext(context.Context) ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html
+// Ground truth input provided in S3
 type ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input-s3uri
+	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -9721,7 +10843,7 @@ func (i *modelQualityJobDefinitionMonitoringGroundTruthS3InputPtrType) ToModelQu
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html
+// Ground truth input provided in S3
 type ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput struct{ *pulumi.OutputState }
 
 func (ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput) ElementType() reflect.Type {
@@ -9746,7 +10868,7 @@ func (o ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput) ToModelQual
 	}).(ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input-s3uri
+// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 func (o ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionMonitoringGroundTruthS3Input) string { return v.S3Uri }).(pulumi.StringOutput)
 }
@@ -9775,7 +10897,7 @@ func (o ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput) Elem() M
 	}).(ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html#cfn-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input-s3uri
+// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 func (o ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionMonitoringGroundTruthS3Input) *string {
 		if v == nil {
@@ -9785,9 +10907,8 @@ func (o ModelQualityJobDefinitionMonitoringGroundTruthS3InputPtrOutput) S3Uri() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html
+// The output object for a monitoring job.
 type ModelQualityJobDefinitionMonitoringOutput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutput-s3output
 	S3Output ModelQualityJobDefinitionS3Output `pulumi:"s3Output"`
 }
 
@@ -9802,9 +10923,8 @@ type ModelQualityJobDefinitionMonitoringOutputInput interface {
 	ToModelQualityJobDefinitionMonitoringOutputOutputWithContext(context.Context) ModelQualityJobDefinitionMonitoringOutputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html
+// The output object for a monitoring job.
 type ModelQualityJobDefinitionMonitoringOutputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutput-s3output
 	S3Output ModelQualityJobDefinitionS3OutputInput `pulumi:"s3Output"`
 }
 
@@ -9845,7 +10965,7 @@ func (i ModelQualityJobDefinitionMonitoringOutputArray) ToModelQualityJobDefinit
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionMonitoringOutputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html
+// The output object for a monitoring job.
 type ModelQualityJobDefinitionMonitoringOutputOutput struct{ *pulumi.OutputState }
 
 func (ModelQualityJobDefinitionMonitoringOutputOutput) ElementType() reflect.Type {
@@ -9860,7 +10980,6 @@ func (o ModelQualityJobDefinitionMonitoringOutputOutput) ToModelQualityJobDefini
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutput-s3output
 func (o ModelQualityJobDefinitionMonitoringOutputOutput) S3Output() ModelQualityJobDefinitionS3OutputOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionMonitoringOutput) ModelQualityJobDefinitionS3Output { return v.S3Output }).(ModelQualityJobDefinitionS3OutputOutput)
 }
@@ -9885,11 +11004,11 @@ func (o ModelQualityJobDefinitionMonitoringOutputArrayOutput) Index(i pulumi.Int
 	}).(ModelQualityJobDefinitionMonitoringOutputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html
+// The output configuration for monitoring jobs.
 type ModelQualityJobDefinitionMonitoringOutputConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-kmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
+	// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 	MonitoringOutputs []ModelQualityJobDefinitionMonitoringOutput `pulumi:"monitoringOutputs"`
 }
 
@@ -9904,11 +11023,11 @@ type ModelQualityJobDefinitionMonitoringOutputConfigInput interface {
 	ToModelQualityJobDefinitionMonitoringOutputConfigOutputWithContext(context.Context) ModelQualityJobDefinitionMonitoringOutputConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html
+// The output configuration for monitoring jobs.
 type ModelQualityJobDefinitionMonitoringOutputConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-kmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
+	// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 	MonitoringOutputs ModelQualityJobDefinitionMonitoringOutputArrayInput `pulumi:"monitoringOutputs"`
 }
 
@@ -9965,7 +11084,7 @@ func (i *modelQualityJobDefinitionMonitoringOutputConfigPtrType) ToModelQualityJ
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html
+// The output configuration for monitoring jobs.
 type ModelQualityJobDefinitionMonitoringOutputConfigOutput struct{ *pulumi.OutputState }
 
 func (ModelQualityJobDefinitionMonitoringOutputConfigOutput) ElementType() reflect.Type {
@@ -9990,12 +11109,12 @@ func (o ModelQualityJobDefinitionMonitoringOutputConfigOutput) ToModelQualityJob
 	}).(ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-kmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o ModelQualityJobDefinitionMonitoringOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionMonitoringOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
+// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 func (o ModelQualityJobDefinitionMonitoringOutputConfigOutput) MonitoringOutputs() ModelQualityJobDefinitionMonitoringOutputArrayOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionMonitoringOutputConfig) []ModelQualityJobDefinitionMonitoringOutput {
 		return v.MonitoringOutputs
@@ -10026,7 +11145,7 @@ func (o ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput) Elem() ModelQu
 	}).(ModelQualityJobDefinitionMonitoringOutputConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-kmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionMonitoringOutputConfig) *string {
 		if v == nil {
@@ -10036,7 +11155,7 @@ func (o ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput) KmsKeyId() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutputconfig-monitoringoutputs
+// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 func (o ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput) MonitoringOutputs() ModelQualityJobDefinitionMonitoringOutputArrayOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionMonitoringOutputConfig) []ModelQualityJobDefinitionMonitoringOutput {
 		if v == nil {
@@ -10046,9 +11165,8 @@ func (o ModelQualityJobDefinitionMonitoringOutputConfigPtrOutput) MonitoringOutp
 	}).(ModelQualityJobDefinitionMonitoringOutputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html
+// Identifies the resources to deploy for a monitoring job.
 type ModelQualityJobDefinitionMonitoringResources struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html#cfn-sagemaker-modelqualityjobdefinition-monitoringresources-clusterconfig
 	ClusterConfig ModelQualityJobDefinitionClusterConfig `pulumi:"clusterConfig"`
 }
 
@@ -10063,9 +11181,8 @@ type ModelQualityJobDefinitionMonitoringResourcesInput interface {
 	ToModelQualityJobDefinitionMonitoringResourcesOutputWithContext(context.Context) ModelQualityJobDefinitionMonitoringResourcesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html
+// Identifies the resources to deploy for a monitoring job.
 type ModelQualityJobDefinitionMonitoringResourcesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html#cfn-sagemaker-modelqualityjobdefinition-monitoringresources-clusterconfig
 	ClusterConfig ModelQualityJobDefinitionClusterConfigInput `pulumi:"clusterConfig"`
 }
 
@@ -10122,7 +11239,7 @@ func (i *modelQualityJobDefinitionMonitoringResourcesPtrType) ToModelQualityJobD
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionMonitoringResourcesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html
+// Identifies the resources to deploy for a monitoring job.
 type ModelQualityJobDefinitionMonitoringResourcesOutput struct{ *pulumi.OutputState }
 
 func (ModelQualityJobDefinitionMonitoringResourcesOutput) ElementType() reflect.Type {
@@ -10147,7 +11264,6 @@ func (o ModelQualityJobDefinitionMonitoringResourcesOutput) ToModelQualityJobDef
 	}).(ModelQualityJobDefinitionMonitoringResourcesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html#cfn-sagemaker-modelqualityjobdefinition-monitoringresources-clusterconfig
 func (o ModelQualityJobDefinitionMonitoringResourcesOutput) ClusterConfig() ModelQualityJobDefinitionClusterConfigOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionMonitoringResources) ModelQualityJobDefinitionClusterConfig {
 		return v.ClusterConfig
@@ -10178,7 +11294,6 @@ func (o ModelQualityJobDefinitionMonitoringResourcesPtrOutput) Elem() ModelQuali
 	}).(ModelQualityJobDefinitionMonitoringResourcesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html#cfn-sagemaker-modelqualityjobdefinition-monitoringresources-clusterconfig
 func (o ModelQualityJobDefinitionMonitoringResourcesPtrOutput) ClusterConfig() ModelQualityJobDefinitionClusterConfigPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionMonitoringResources) *ModelQualityJobDefinitionClusterConfig {
 		if v == nil {
@@ -10188,14 +11303,13 @@ func (o ModelQualityJobDefinitionMonitoringResourcesPtrOutput) ClusterConfig() M
 	}).(ModelQualityJobDefinitionClusterConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 type ModelQualityJobDefinitionNetworkConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-enableintercontainertrafficencryption
+	// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 	EnableInterContainerTrafficEncryption *bool `pulumi:"enableInterContainerTrafficEncryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-enablenetworkisolation
-	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-vpcconfig
-	VpcConfig *ModelQualityJobDefinitionVpcConfig `pulumi:"vpcConfig"`
+	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+	EnableNetworkIsolation *bool                               `pulumi:"enableNetworkIsolation"`
+	VpcConfig              *ModelQualityJobDefinitionVpcConfig `pulumi:"vpcConfig"`
 }
 
 // ModelQualityJobDefinitionNetworkConfigInput is an input type that accepts ModelQualityJobDefinitionNetworkConfigArgs and ModelQualityJobDefinitionNetworkConfigOutput values.
@@ -10209,14 +11323,13 @@ type ModelQualityJobDefinitionNetworkConfigInput interface {
 	ToModelQualityJobDefinitionNetworkConfigOutputWithContext(context.Context) ModelQualityJobDefinitionNetworkConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 type ModelQualityJobDefinitionNetworkConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-enableintercontainertrafficencryption
+	// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 	EnableInterContainerTrafficEncryption pulumi.BoolPtrInput `pulumi:"enableInterContainerTrafficEncryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-enablenetworkisolation
-	EnableNetworkIsolation pulumi.BoolPtrInput `pulumi:"enableNetworkIsolation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-vpcconfig
-	VpcConfig ModelQualityJobDefinitionVpcConfigPtrInput `pulumi:"vpcConfig"`
+	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+	EnableNetworkIsolation pulumi.BoolPtrInput                        `pulumi:"enableNetworkIsolation"`
+	VpcConfig              ModelQualityJobDefinitionVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
 func (ModelQualityJobDefinitionNetworkConfigArgs) ElementType() reflect.Type {
@@ -10272,7 +11385,7 @@ func (i *modelQualityJobDefinitionNetworkConfigPtrType) ToModelQualityJobDefinit
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionNetworkConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 type ModelQualityJobDefinitionNetworkConfigOutput struct{ *pulumi.OutputState }
 
 func (ModelQualityJobDefinitionNetworkConfigOutput) ElementType() reflect.Type {
@@ -10297,17 +11410,16 @@ func (o ModelQualityJobDefinitionNetworkConfigOutput) ToModelQualityJobDefinitio
 	}).(ModelQualityJobDefinitionNetworkConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-enableintercontainertrafficencryption
+// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 func (o ModelQualityJobDefinitionNetworkConfigOutput) EnableInterContainerTrafficEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionNetworkConfig) *bool { return v.EnableInterContainerTrafficEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-enablenetworkisolation
+// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 func (o ModelQualityJobDefinitionNetworkConfigOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionNetworkConfig) *bool { return v.EnableNetworkIsolation }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-vpcconfig
 func (o ModelQualityJobDefinitionNetworkConfigOutput) VpcConfig() ModelQualityJobDefinitionVpcConfigPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionNetworkConfig) *ModelQualityJobDefinitionVpcConfig { return v.VpcConfig }).(ModelQualityJobDefinitionVpcConfigPtrOutput)
 }
@@ -10336,7 +11448,7 @@ func (o ModelQualityJobDefinitionNetworkConfigPtrOutput) Elem() ModelQualityJobD
 	}).(ModelQualityJobDefinitionNetworkConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-enableintercontainertrafficencryption
+// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 func (o ModelQualityJobDefinitionNetworkConfigPtrOutput) EnableInterContainerTrafficEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionNetworkConfig) *bool {
 		if v == nil {
@@ -10346,7 +11458,7 @@ func (o ModelQualityJobDefinitionNetworkConfigPtrOutput) EnableInterContainerTra
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-enablenetworkisolation
+// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 func (o ModelQualityJobDefinitionNetworkConfigPtrOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionNetworkConfig) *bool {
 		if v == nil {
@@ -10356,7 +11468,6 @@ func (o ModelQualityJobDefinitionNetworkConfigPtrOutput) EnableNetworkIsolation(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-networkconfig.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig-vpcconfig
 func (o ModelQualityJobDefinitionNetworkConfigPtrOutput) VpcConfig() ModelQualityJobDefinitionVpcConfigPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionNetworkConfig) *ModelQualityJobDefinitionVpcConfig {
 		if v == nil {
@@ -10366,13 +11477,13 @@ func (o ModelQualityJobDefinitionNetworkConfigPtrOutput) VpcConfig() ModelQualit
 	}).(ModelQualityJobDefinitionVpcConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html
+// Information about where and how to store the results of a monitoring job.
 type ModelQualityJobDefinitionS3Output struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-localpath
+	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath string `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-s3uploadmode
+	// Whether to upload the results of the monitoring job continuously or after the job completes.
 	S3UploadMode *string `pulumi:"s3UploadMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-s3uri
+	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -10387,13 +11498,13 @@ type ModelQualityJobDefinitionS3OutputInput interface {
 	ToModelQualityJobDefinitionS3OutputOutputWithContext(context.Context) ModelQualityJobDefinitionS3OutputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html
+// Information about where and how to store the results of a monitoring job.
 type ModelQualityJobDefinitionS3OutputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-localpath
+	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-s3uploadmode
+	// Whether to upload the results of the monitoring job continuously or after the job completes.
 	S3UploadMode pulumi.StringPtrInput `pulumi:"s3UploadMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-s3uri
+	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -10409,7 +11520,7 @@ func (i ModelQualityJobDefinitionS3OutputArgs) ToModelQualityJobDefinitionS3Outp
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionS3OutputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html
+// Information about where and how to store the results of a monitoring job.
 type ModelQualityJobDefinitionS3OutputOutput struct{ *pulumi.OutputState }
 
 func (ModelQualityJobDefinitionS3OutputOutput) ElementType() reflect.Type {
@@ -10424,24 +11535,24 @@ func (o ModelQualityJobDefinitionS3OutputOutput) ToModelQualityJobDefinitionS3Ou
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-localpath
+// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 func (o ModelQualityJobDefinitionS3OutputOutput) LocalPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionS3Output) string { return v.LocalPath }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-s3uploadmode
+// Whether to upload the results of the monitoring job continuously or after the job completes.
 func (o ModelQualityJobDefinitionS3OutputOutput) S3UploadMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionS3Output) *string { return v.S3UploadMode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-s3uri
+// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 func (o ModelQualityJobDefinitionS3OutputOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionS3Output) string { return v.S3Uri }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html
+// Specifies a time limit for how long the monitoring job is allowed to run.
 type ModelQualityJobDefinitionStoppingCondition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition-maxruntimeinseconds
+	// The maximum runtime allowed in seconds.
 	MaxRuntimeInSeconds int `pulumi:"maxRuntimeInSeconds"`
 }
 
@@ -10456,9 +11567,9 @@ type ModelQualityJobDefinitionStoppingConditionInput interface {
 	ToModelQualityJobDefinitionStoppingConditionOutputWithContext(context.Context) ModelQualityJobDefinitionStoppingConditionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html
+// Specifies a time limit for how long the monitoring job is allowed to run.
 type ModelQualityJobDefinitionStoppingConditionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition-maxruntimeinseconds
+	// The maximum runtime allowed in seconds.
 	MaxRuntimeInSeconds pulumi.IntInput `pulumi:"maxRuntimeInSeconds"`
 }
 
@@ -10515,7 +11626,7 @@ func (i *modelQualityJobDefinitionStoppingConditionPtrType) ToModelQualityJobDef
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionStoppingConditionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html
+// Specifies a time limit for how long the monitoring job is allowed to run.
 type ModelQualityJobDefinitionStoppingConditionOutput struct{ *pulumi.OutputState }
 
 func (ModelQualityJobDefinitionStoppingConditionOutput) ElementType() reflect.Type {
@@ -10540,7 +11651,7 @@ func (o ModelQualityJobDefinitionStoppingConditionOutput) ToModelQualityJobDefin
 	}).(ModelQualityJobDefinitionStoppingConditionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition-maxruntimeinseconds
+// The maximum runtime allowed in seconds.
 func (o ModelQualityJobDefinitionStoppingConditionOutput) MaxRuntimeInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionStoppingCondition) int { return v.MaxRuntimeInSeconds }).(pulumi.IntOutput)
 }
@@ -10569,7 +11680,7 @@ func (o ModelQualityJobDefinitionStoppingConditionPtrOutput) Elem() ModelQuality
 	}).(ModelQualityJobDefinitionStoppingConditionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition-maxruntimeinseconds
+// The maximum runtime allowed in seconds.
 func (o ModelQualityJobDefinitionStoppingConditionPtrOutput) MaxRuntimeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionStoppingCondition) *int {
 		if v == nil {
@@ -10579,11 +11690,120 @@ func (o ModelQualityJobDefinitionStoppingConditionPtrOutput) MaxRuntimeInSeconds
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html
+// A key-value pair to associate with a resource.
+type ModelQualityJobDefinitionTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ModelQualityJobDefinitionTagInput is an input type that accepts ModelQualityJobDefinitionTagArgs and ModelQualityJobDefinitionTagOutput values.
+// You can construct a concrete instance of `ModelQualityJobDefinitionTagInput` via:
+//
+//          ModelQualityJobDefinitionTagArgs{...}
+type ModelQualityJobDefinitionTagInput interface {
+	pulumi.Input
+
+	ToModelQualityJobDefinitionTagOutput() ModelQualityJobDefinitionTagOutput
+	ToModelQualityJobDefinitionTagOutputWithContext(context.Context) ModelQualityJobDefinitionTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ModelQualityJobDefinitionTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ModelQualityJobDefinitionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelQualityJobDefinitionTag)(nil)).Elem()
+}
+
+func (i ModelQualityJobDefinitionTagArgs) ToModelQualityJobDefinitionTagOutput() ModelQualityJobDefinitionTagOutput {
+	return i.ToModelQualityJobDefinitionTagOutputWithContext(context.Background())
+}
+
+func (i ModelQualityJobDefinitionTagArgs) ToModelQualityJobDefinitionTagOutputWithContext(ctx context.Context) ModelQualityJobDefinitionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionTagOutput)
+}
+
+// ModelQualityJobDefinitionTagArrayInput is an input type that accepts ModelQualityJobDefinitionTagArray and ModelQualityJobDefinitionTagArrayOutput values.
+// You can construct a concrete instance of `ModelQualityJobDefinitionTagArrayInput` via:
+//
+//          ModelQualityJobDefinitionTagArray{ ModelQualityJobDefinitionTagArgs{...} }
+type ModelQualityJobDefinitionTagArrayInput interface {
+	pulumi.Input
+
+	ToModelQualityJobDefinitionTagArrayOutput() ModelQualityJobDefinitionTagArrayOutput
+	ToModelQualityJobDefinitionTagArrayOutputWithContext(context.Context) ModelQualityJobDefinitionTagArrayOutput
+}
+
+type ModelQualityJobDefinitionTagArray []ModelQualityJobDefinitionTagInput
+
+func (ModelQualityJobDefinitionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelQualityJobDefinitionTag)(nil)).Elem()
+}
+
+func (i ModelQualityJobDefinitionTagArray) ToModelQualityJobDefinitionTagArrayOutput() ModelQualityJobDefinitionTagArrayOutput {
+	return i.ToModelQualityJobDefinitionTagArrayOutputWithContext(context.Background())
+}
+
+func (i ModelQualityJobDefinitionTagArray) ToModelQualityJobDefinitionTagArrayOutputWithContext(ctx context.Context) ModelQualityJobDefinitionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ModelQualityJobDefinitionTagOutput struct{ *pulumi.OutputState }
+
+func (ModelQualityJobDefinitionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelQualityJobDefinitionTag)(nil)).Elem()
+}
+
+func (o ModelQualityJobDefinitionTagOutput) ToModelQualityJobDefinitionTagOutput() ModelQualityJobDefinitionTagOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionTagOutput) ToModelQualityJobDefinitionTagOutputWithContext(ctx context.Context) ModelQualityJobDefinitionTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ModelQualityJobDefinitionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ModelQualityJobDefinitionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelQualityJobDefinitionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ModelQualityJobDefinitionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelQualityJobDefinitionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelQualityJobDefinitionTag)(nil)).Elem()
+}
+
+func (o ModelQualityJobDefinitionTagArrayOutput) ToModelQualityJobDefinitionTagArrayOutput() ModelQualityJobDefinitionTagArrayOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionTagArrayOutput) ToModelQualityJobDefinitionTagArrayOutputWithContext(ctx context.Context) ModelQualityJobDefinitionTagArrayOutput {
+	return o
+}
+
+func (o ModelQualityJobDefinitionTagArrayOutput) Index(i pulumi.IntInput) ModelQualityJobDefinitionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelQualityJobDefinitionTag {
+		return vs[0].([]ModelQualityJobDefinitionTag)[vs[1].(int)]
+	}).(ModelQualityJobDefinitionTagOutput)
+}
+
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 type ModelQualityJobDefinitionVpcConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-securitygroupids
+	// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-subnets
+	// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 	Subnets []string `pulumi:"subnets"`
 }
 
@@ -10598,11 +11818,11 @@ type ModelQualityJobDefinitionVpcConfigInput interface {
 	ToModelQualityJobDefinitionVpcConfigOutputWithContext(context.Context) ModelQualityJobDefinitionVpcConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 type ModelQualityJobDefinitionVpcConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-securitygroupids
+	// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-subnets
+	// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
@@ -10659,7 +11879,7 @@ func (i *modelQualityJobDefinitionVpcConfigPtrType) ToModelQualityJobDefinitionV
 	return pulumi.ToOutputWithContext(ctx, i).(ModelQualityJobDefinitionVpcConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 type ModelQualityJobDefinitionVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (ModelQualityJobDefinitionVpcConfigOutput) ElementType() reflect.Type {
@@ -10684,12 +11904,12 @@ func (o ModelQualityJobDefinitionVpcConfigOutput) ToModelQualityJobDefinitionVpc
 	}).(ModelQualityJobDefinitionVpcConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-securitygroupids
+// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 func (o ModelQualityJobDefinitionVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-subnets
+// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 func (o ModelQualityJobDefinitionVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -10718,7 +11938,7 @@ func (o ModelQualityJobDefinitionVpcConfigPtrOutput) Elem() ModelQualityJobDefin
 	}).(ModelQualityJobDefinitionVpcConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-securitygroupids
+// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 func (o ModelQualityJobDefinitionVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionVpcConfig) []string {
 		if v == nil {
@@ -10728,7 +11948,7 @@ func (o ModelQualityJobDefinitionVpcConfigPtrOutput) SecurityGroupIds() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-vpcconfig.html#cfn-sagemaker-modelqualityjobdefinition-vpcconfig-subnets
+// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 func (o ModelQualityJobDefinitionVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionVpcConfig) []string {
 		if v == nil {
@@ -10738,12 +11958,10 @@ func (o ModelQualityJobDefinitionVpcConfigPtrOutput) Subnets() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
 type MonitoringScheduleBaselineConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-constraintsresource
 	ConstraintsResource *MonitoringScheduleConstraintsResource `pulumi:"constraintsResource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-statisticsresource
-	StatisticsResource *MonitoringScheduleStatisticsResource `pulumi:"statisticsResource"`
+	StatisticsResource  *MonitoringScheduleStatisticsResource  `pulumi:"statisticsResource"`
 }
 
 // MonitoringScheduleBaselineConfigInput is an input type that accepts MonitoringScheduleBaselineConfigArgs and MonitoringScheduleBaselineConfigOutput values.
@@ -10757,12 +11975,10 @@ type MonitoringScheduleBaselineConfigInput interface {
 	ToMonitoringScheduleBaselineConfigOutputWithContext(context.Context) MonitoringScheduleBaselineConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
 type MonitoringScheduleBaselineConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-constraintsresource
 	ConstraintsResource MonitoringScheduleConstraintsResourcePtrInput `pulumi:"constraintsResource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-statisticsresource
-	StatisticsResource MonitoringScheduleStatisticsResourcePtrInput `pulumi:"statisticsResource"`
+	StatisticsResource  MonitoringScheduleStatisticsResourcePtrInput  `pulumi:"statisticsResource"`
 }
 
 func (MonitoringScheduleBaselineConfigArgs) ElementType() reflect.Type {
@@ -10818,7 +12034,7 @@ func (i *monitoringScheduleBaselineConfigPtrType) ToMonitoringScheduleBaselineCo
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleBaselineConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
 type MonitoringScheduleBaselineConfigOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleBaselineConfigOutput) ElementType() reflect.Type {
@@ -10843,14 +12059,12 @@ func (o MonitoringScheduleBaselineConfigOutput) ToMonitoringScheduleBaselineConf
 	}).(MonitoringScheduleBaselineConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-constraintsresource
 func (o MonitoringScheduleBaselineConfigOutput) ConstraintsResource() MonitoringScheduleConstraintsResourcePtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleBaselineConfig) *MonitoringScheduleConstraintsResource {
 		return v.ConstraintsResource
 	}).(MonitoringScheduleConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-statisticsresource
 func (o MonitoringScheduleBaselineConfigOutput) StatisticsResource() MonitoringScheduleStatisticsResourcePtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleBaselineConfig) *MonitoringScheduleStatisticsResource {
 		return v.StatisticsResource
@@ -10881,7 +12095,6 @@ func (o MonitoringScheduleBaselineConfigPtrOutput) Elem() MonitoringScheduleBase
 	}).(MonitoringScheduleBaselineConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-constraintsresource
 func (o MonitoringScheduleBaselineConfigPtrOutput) ConstraintsResource() MonitoringScheduleConstraintsResourcePtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleBaselineConfig) *MonitoringScheduleConstraintsResource {
 		if v == nil {
@@ -10891,7 +12104,6 @@ func (o MonitoringScheduleBaselineConfigPtrOutput) ConstraintsResource() Monitor
 	}).(MonitoringScheduleConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html#cfn-sagemaker-monitoringschedule-baselineconfig-statisticsresource
 func (o MonitoringScheduleBaselineConfigPtrOutput) StatisticsResource() MonitoringScheduleStatisticsResourcePtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleBaselineConfig) *MonitoringScheduleStatisticsResource {
 		if v == nil {
@@ -10901,15 +12113,15 @@ func (o MonitoringScheduleBaselineConfigPtrOutput) StatisticsResource() Monitori
 	}).(MonitoringScheduleStatisticsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html
+// Configuration for the cluster used to run model monitoring jobs.
 type MonitoringScheduleClusterConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancecount
+	// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 	InstanceCount int `pulumi:"instanceCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancetype
+	// The ML compute instance type for the processing job.
 	InstanceType string `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumekmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumesizeingb
+	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 	VolumeSizeInGB int `pulumi:"volumeSizeInGB"`
 }
 
@@ -10924,15 +12136,15 @@ type MonitoringScheduleClusterConfigInput interface {
 	ToMonitoringScheduleClusterConfigOutputWithContext(context.Context) MonitoringScheduleClusterConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html
+// Configuration for the cluster used to run model monitoring jobs.
 type MonitoringScheduleClusterConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancecount
+	// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancetype
+	// The ML compute instance type for the processing job.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumekmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumesizeingb
+	// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 	VolumeSizeInGB pulumi.IntInput `pulumi:"volumeSizeInGB"`
 }
 
@@ -10989,7 +12201,7 @@ func (i *monitoringScheduleClusterConfigPtrType) ToMonitoringScheduleClusterConf
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleClusterConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html
+// Configuration for the cluster used to run model monitoring jobs.
 type MonitoringScheduleClusterConfigOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleClusterConfigOutput) ElementType() reflect.Type {
@@ -11014,22 +12226,22 @@ func (o MonitoringScheduleClusterConfigOutput) ToMonitoringScheduleClusterConfig
 	}).(MonitoringScheduleClusterConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancecount
+// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 func (o MonitoringScheduleClusterConfigOutput) InstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v MonitoringScheduleClusterConfig) int { return v.InstanceCount }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancetype
+// The ML compute instance type for the processing job.
 func (o MonitoringScheduleClusterConfigOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringScheduleClusterConfig) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumekmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 func (o MonitoringScheduleClusterConfigOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleClusterConfig) *string { return v.VolumeKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumesizeingb
+// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 func (o MonitoringScheduleClusterConfigOutput) VolumeSizeInGB() pulumi.IntOutput {
 	return o.ApplyT(func(v MonitoringScheduleClusterConfig) int { return v.VolumeSizeInGB }).(pulumi.IntOutput)
 }
@@ -11058,7 +12270,7 @@ func (o MonitoringScheduleClusterConfigPtrOutput) Elem() MonitoringScheduleClust
 	}).(MonitoringScheduleClusterConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancecount
+// The number of ML compute instances to use in the model monitoring job. For distributed processing jobs, specify a value greater than 1. The default value is 1.
 func (o MonitoringScheduleClusterConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleClusterConfig) *int {
 		if v == nil {
@@ -11068,7 +12280,7 @@ func (o MonitoringScheduleClusterConfigPtrOutput) InstanceCount() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-instancetype
+// The ML compute instance type for the processing job.
 func (o MonitoringScheduleClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleClusterConfig) *string {
 		if v == nil {
@@ -11078,7 +12290,7 @@ func (o MonitoringScheduleClusterConfigPtrOutput) InstanceType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumekmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
 func (o MonitoringScheduleClusterConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleClusterConfig) *string {
 		if v == nil {
@@ -11088,7 +12300,7 @@ func (o MonitoringScheduleClusterConfigPtrOutput) VolumeKmsKeyId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html#cfn-sagemaker-monitoringschedule-clusterconfig-volumesizeingb
+// The size of the ML storage volume, in gigabytes, that you want to provision. You must specify sufficient ML storage for your scenario.
 func (o MonitoringScheduleClusterConfigPtrOutput) VolumeSizeInGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleClusterConfig) *int {
 		if v == nil {
@@ -11098,9 +12310,9 @@ func (o MonitoringScheduleClusterConfigPtrOutput) VolumeSizeInGB() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html
+// The baseline constraints resource for a monitoring job.
 type MonitoringScheduleConstraintsResource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html#cfn-sagemaker-monitoringschedule-constraintsresource-s3uri
+	// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 	S3Uri *string `pulumi:"s3Uri"`
 }
 
@@ -11115,9 +12327,9 @@ type MonitoringScheduleConstraintsResourceInput interface {
 	ToMonitoringScheduleConstraintsResourceOutputWithContext(context.Context) MonitoringScheduleConstraintsResourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html
+// The baseline constraints resource for a monitoring job.
 type MonitoringScheduleConstraintsResourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html#cfn-sagemaker-monitoringschedule-constraintsresource-s3uri
+	// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 	S3Uri pulumi.StringPtrInput `pulumi:"s3Uri"`
 }
 
@@ -11174,7 +12386,7 @@ func (i *monitoringScheduleConstraintsResourcePtrType) ToMonitoringScheduleConst
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html
+// The baseline constraints resource for a monitoring job.
 type MonitoringScheduleConstraintsResourceOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleConstraintsResourceOutput) ElementType() reflect.Type {
@@ -11199,7 +12411,7 @@ func (o MonitoringScheduleConstraintsResourceOutput) ToMonitoringScheduleConstra
 	}).(MonitoringScheduleConstraintsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html#cfn-sagemaker-monitoringschedule-constraintsresource-s3uri
+// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 func (o MonitoringScheduleConstraintsResourceOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleConstraintsResource) *string { return v.S3Uri }).(pulumi.StringPtrOutput)
 }
@@ -11228,7 +12440,7 @@ func (o MonitoringScheduleConstraintsResourcePtrOutput) Elem() MonitoringSchedul
 	}).(MonitoringScheduleConstraintsResourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html#cfn-sagemaker-monitoringschedule-constraintsresource-s3uri
+// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
 func (o MonitoringScheduleConstraintsResourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleConstraintsResource) *string {
 		if v == nil {
@@ -11238,15 +12450,14 @@ func (o MonitoringScheduleConstraintsResourcePtrOutput) S3Uri() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html
+// The endpoint for a monitoring job.
 type MonitoringScheduleEndpointInput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-endpointname
 	EndpointName string `pulumi:"endpointName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-localpath
+	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath string `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-s3datadistributiontype
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 	S3DataDistributionType *string `pulumi:"s3DataDistributionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-s3inputmode
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 	S3InputMode *string `pulumi:"s3InputMode"`
 }
 
@@ -11261,15 +12472,14 @@ type MonitoringScheduleEndpointInputInput interface {
 	ToMonitoringScheduleEndpointInputOutputWithContext(context.Context) MonitoringScheduleEndpointInputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html
+// The endpoint for a monitoring job.
 type MonitoringScheduleEndpointInputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-endpointname
 	EndpointName pulumi.StringInput `pulumi:"endpointName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-localpath
+	// Path to the filesystem where the endpoint data is available to the container.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-s3datadistributiontype
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 	S3DataDistributionType pulumi.StringPtrInput `pulumi:"s3DataDistributionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-s3inputmode
+	// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 	S3InputMode pulumi.StringPtrInput `pulumi:"s3InputMode"`
 }
 
@@ -11285,7 +12495,7 @@ func (i MonitoringScheduleEndpointInputArgs) ToMonitoringScheduleEndpointInputOu
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleEndpointInputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html
+// The endpoint for a monitoring job.
 type MonitoringScheduleEndpointInputOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleEndpointInputOutput) ElementType() reflect.Type {
@@ -11300,37 +12510,36 @@ func (o MonitoringScheduleEndpointInputOutput) ToMonitoringScheduleEndpointInput
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-endpointname
 func (o MonitoringScheduleEndpointInputOutput) EndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringScheduleEndpointInput) string { return v.EndpointName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-localpath
+// Path to the filesystem where the endpoint data is available to the container.
 func (o MonitoringScheduleEndpointInputOutput) LocalPath() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringScheduleEndpointInput) string { return v.LocalPath }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-s3datadistributiontype
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
 func (o MonitoringScheduleEndpointInputOutput) S3DataDistributionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleEndpointInput) *string { return v.S3DataDistributionType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html#cfn-sagemaker-monitoringschedule-endpointinput-s3inputmode
+// Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
 func (o MonitoringScheduleEndpointInputOutput) S3InputMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleEndpointInput) *string { return v.S3InputMode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html
+// Container image configuration object for the monitoring job.
 type MonitoringScheduleMonitoringAppSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerarguments
+	// An array of arguments for the container used to run the monitoring job.
 	ContainerArguments []string `pulumi:"containerArguments"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerentrypoint
+	// Specifies the entrypoint for a container used to run the monitoring job.
 	ContainerEntrypoint []string `pulumi:"containerEntrypoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-imageuri
+	// The container image to be run by the monitoring job.
 	ImageUri string `pulumi:"imageUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-postanalyticsprocessorsourceuri
+	// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
 	PostAnalyticsProcessorSourceUri *string `pulumi:"postAnalyticsProcessorSourceUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-recordpreprocessorsourceuri
+	// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
 	RecordPreprocessorSourceUri *string `pulumi:"recordPreprocessorSourceUri"`
 }
 
@@ -11345,17 +12554,17 @@ type MonitoringScheduleMonitoringAppSpecificationInput interface {
 	ToMonitoringScheduleMonitoringAppSpecificationOutputWithContext(context.Context) MonitoringScheduleMonitoringAppSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html
+// Container image configuration object for the monitoring job.
 type MonitoringScheduleMonitoringAppSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerarguments
+	// An array of arguments for the container used to run the monitoring job.
 	ContainerArguments pulumi.StringArrayInput `pulumi:"containerArguments"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerentrypoint
+	// Specifies the entrypoint for a container used to run the monitoring job.
 	ContainerEntrypoint pulumi.StringArrayInput `pulumi:"containerEntrypoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-imageuri
+	// The container image to be run by the monitoring job.
 	ImageUri pulumi.StringInput `pulumi:"imageUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-postanalyticsprocessorsourceuri
+	// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
 	PostAnalyticsProcessorSourceUri pulumi.StringPtrInput `pulumi:"postAnalyticsProcessorSourceUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-recordpreprocessorsourceuri
+	// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
 	RecordPreprocessorSourceUri pulumi.StringPtrInput `pulumi:"recordPreprocessorSourceUri"`
 }
 
@@ -11412,7 +12621,7 @@ func (i *monitoringScheduleMonitoringAppSpecificationPtrType) ToMonitoringSchedu
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringAppSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html
+// Container image configuration object for the monitoring job.
 type MonitoringScheduleMonitoringAppSpecificationOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleMonitoringAppSpecificationOutput) ElementType() reflect.Type {
@@ -11437,27 +12646,27 @@ func (o MonitoringScheduleMonitoringAppSpecificationOutput) ToMonitoringSchedule
 	}).(MonitoringScheduleMonitoringAppSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerarguments
+// An array of arguments for the container used to run the monitoring job.
 func (o MonitoringScheduleMonitoringAppSpecificationOutput) ContainerArguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringAppSpecification) []string { return v.ContainerArguments }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerentrypoint
+// Specifies the entrypoint for a container used to run the monitoring job.
 func (o MonitoringScheduleMonitoringAppSpecificationOutput) ContainerEntrypoint() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringAppSpecification) []string { return v.ContainerEntrypoint }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-imageuri
+// The container image to be run by the monitoring job.
 func (o MonitoringScheduleMonitoringAppSpecificationOutput) ImageUri() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringAppSpecification) string { return v.ImageUri }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-postanalyticsprocessorsourceuri
+// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
 func (o MonitoringScheduleMonitoringAppSpecificationOutput) PostAnalyticsProcessorSourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringAppSpecification) *string { return v.PostAnalyticsProcessorSourceUri }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-recordpreprocessorsourceuri
+// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
 func (o MonitoringScheduleMonitoringAppSpecificationOutput) RecordPreprocessorSourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringAppSpecification) *string { return v.RecordPreprocessorSourceUri }).(pulumi.StringPtrOutput)
 }
@@ -11486,7 +12695,7 @@ func (o MonitoringScheduleMonitoringAppSpecificationPtrOutput) Elem() Monitoring
 	}).(MonitoringScheduleMonitoringAppSpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerarguments
+// An array of arguments for the container used to run the monitoring job.
 func (o MonitoringScheduleMonitoringAppSpecificationPtrOutput) ContainerArguments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringAppSpecification) []string {
 		if v == nil {
@@ -11496,7 +12705,7 @@ func (o MonitoringScheduleMonitoringAppSpecificationPtrOutput) ContainerArgument
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerentrypoint
+// Specifies the entrypoint for a container used to run the monitoring job.
 func (o MonitoringScheduleMonitoringAppSpecificationPtrOutput) ContainerEntrypoint() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringAppSpecification) []string {
 		if v == nil {
@@ -11506,7 +12715,7 @@ func (o MonitoringScheduleMonitoringAppSpecificationPtrOutput) ContainerEntrypoi
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-imageuri
+// The container image to be run by the monitoring job.
 func (o MonitoringScheduleMonitoringAppSpecificationPtrOutput) ImageUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringAppSpecification) *string {
 		if v == nil {
@@ -11516,7 +12725,7 @@ func (o MonitoringScheduleMonitoringAppSpecificationPtrOutput) ImageUri() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-postanalyticsprocessorsourceuri
+// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
 func (o MonitoringScheduleMonitoringAppSpecificationPtrOutput) PostAnalyticsProcessorSourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringAppSpecification) *string {
 		if v == nil {
@@ -11526,7 +12735,7 @@ func (o MonitoringScheduleMonitoringAppSpecificationPtrOutput) PostAnalyticsProc
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-recordpreprocessorsourceuri
+// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
 func (o MonitoringScheduleMonitoringAppSpecificationPtrOutput) RecordPreprocessorSourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringAppSpecification) *string {
 		if v == nil {
@@ -11536,23 +12745,21 @@ func (o MonitoringScheduleMonitoringAppSpecificationPtrOutput) RecordPreprocesso
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html
+// Summary of information about monitoring job
 type MonitoringScheduleMonitoringExecutionSummary struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-creationtime
-	CreationTime string `pulumi:"creationTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-endpointname
+	// The time at which the monitoring job was created.
+	CreationTime string  `pulumi:"creationTime"`
 	EndpointName *string `pulumi:"endpointName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-failurereason
+	// Contains the reason a monitoring job failed, if it failed.
 	FailureReason *string `pulumi:"failureReason"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-lastmodifiedtime
+	// A timestamp that indicates the last time the monitoring job was modified.
 	LastModifiedTime string `pulumi:"lastModifiedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-monitoringexecutionstatus
+	// The status of the monitoring job.
 	MonitoringExecutionStatus string `pulumi:"monitoringExecutionStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-monitoringschedulename
-	MonitoringScheduleName string `pulumi:"monitoringScheduleName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-processingjobarn
+	MonitoringScheduleName    string `pulumi:"monitoringScheduleName"`
+	// The Amazon Resource Name (ARN) of the monitoring job.
 	ProcessingJobArn *string `pulumi:"processingJobArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-scheduledtime
+	// The time the monitoring job was scheduled.
 	ScheduledTime string `pulumi:"scheduledTime"`
 }
 
@@ -11567,23 +12774,21 @@ type MonitoringScheduleMonitoringExecutionSummaryInput interface {
 	ToMonitoringScheduleMonitoringExecutionSummaryOutputWithContext(context.Context) MonitoringScheduleMonitoringExecutionSummaryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html
+// Summary of information about monitoring job
 type MonitoringScheduleMonitoringExecutionSummaryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-creationtime
-	CreationTime pulumi.StringInput `pulumi:"creationTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-endpointname
+	// The time at which the monitoring job was created.
+	CreationTime pulumi.StringInput    `pulumi:"creationTime"`
 	EndpointName pulumi.StringPtrInput `pulumi:"endpointName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-failurereason
+	// Contains the reason a monitoring job failed, if it failed.
 	FailureReason pulumi.StringPtrInput `pulumi:"failureReason"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-lastmodifiedtime
+	// A timestamp that indicates the last time the monitoring job was modified.
 	LastModifiedTime pulumi.StringInput `pulumi:"lastModifiedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-monitoringexecutionstatus
+	// The status of the monitoring job.
 	MonitoringExecutionStatus pulumi.StringInput `pulumi:"monitoringExecutionStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-monitoringschedulename
-	MonitoringScheduleName pulumi.StringInput `pulumi:"monitoringScheduleName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-processingjobarn
+	MonitoringScheduleName    pulumi.StringInput `pulumi:"monitoringScheduleName"`
+	// The Amazon Resource Name (ARN) of the monitoring job.
 	ProcessingJobArn pulumi.StringPtrInput `pulumi:"processingJobArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-scheduledtime
+	// The time the monitoring job was scheduled.
 	ScheduledTime pulumi.StringInput `pulumi:"scheduledTime"`
 }
 
@@ -11640,7 +12845,7 @@ func (i *monitoringScheduleMonitoringExecutionSummaryPtrType) ToMonitoringSchedu
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringExecutionSummaryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html
+// Summary of information about monitoring job
 type MonitoringScheduleMonitoringExecutionSummaryOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleMonitoringExecutionSummaryOutput) ElementType() reflect.Type {
@@ -11665,42 +12870,40 @@ func (o MonitoringScheduleMonitoringExecutionSummaryOutput) ToMonitoringSchedule
 	}).(MonitoringScheduleMonitoringExecutionSummaryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-creationtime
+// The time at which the monitoring job was created.
 func (o MonitoringScheduleMonitoringExecutionSummaryOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringExecutionSummary) string { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-endpointname
 func (o MonitoringScheduleMonitoringExecutionSummaryOutput) EndpointName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringExecutionSummary) *string { return v.EndpointName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-failurereason
+// Contains the reason a monitoring job failed, if it failed.
 func (o MonitoringScheduleMonitoringExecutionSummaryOutput) FailureReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringExecutionSummary) *string { return v.FailureReason }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-lastmodifiedtime
+// A timestamp that indicates the last time the monitoring job was modified.
 func (o MonitoringScheduleMonitoringExecutionSummaryOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringExecutionSummary) string { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-monitoringexecutionstatus
+// The status of the monitoring job.
 func (o MonitoringScheduleMonitoringExecutionSummaryOutput) MonitoringExecutionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringExecutionSummary) string { return v.MonitoringExecutionStatus }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-monitoringschedulename
 func (o MonitoringScheduleMonitoringExecutionSummaryOutput) MonitoringScheduleName() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringExecutionSummary) string { return v.MonitoringScheduleName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-processingjobarn
+// The Amazon Resource Name (ARN) of the monitoring job.
 func (o MonitoringScheduleMonitoringExecutionSummaryOutput) ProcessingJobArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringExecutionSummary) *string { return v.ProcessingJobArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-scheduledtime
+// The time the monitoring job was scheduled.
 func (o MonitoringScheduleMonitoringExecutionSummaryOutput) ScheduledTime() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringExecutionSummary) string { return v.ScheduledTime }).(pulumi.StringOutput)
 }
@@ -11729,7 +12932,7 @@ func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) Elem() Monitoring
 	}).(MonitoringScheduleMonitoringExecutionSummaryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-creationtime
+// The time at which the monitoring job was created.
 func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringExecutionSummary) *string {
 		if v == nil {
@@ -11739,7 +12942,6 @@ func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) CreationTime() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-endpointname
 func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) EndpointName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringExecutionSummary) *string {
 		if v == nil {
@@ -11749,7 +12951,7 @@ func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) EndpointName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-failurereason
+// Contains the reason a monitoring job failed, if it failed.
 func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) FailureReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringExecutionSummary) *string {
 		if v == nil {
@@ -11759,7 +12961,7 @@ func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) FailureReason() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-lastmodifiedtime
+// A timestamp that indicates the last time the monitoring job was modified.
 func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringExecutionSummary) *string {
 		if v == nil {
@@ -11769,7 +12971,7 @@ func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) LastModifiedTime(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-monitoringexecutionstatus
+// The status of the monitoring job.
 func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) MonitoringExecutionStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringExecutionSummary) *string {
 		if v == nil {
@@ -11779,7 +12981,6 @@ func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) MonitoringExecuti
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-monitoringschedulename
 func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) MonitoringScheduleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringExecutionSummary) *string {
 		if v == nil {
@@ -11789,7 +12990,7 @@ func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) MonitoringSchedul
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-processingjobarn
+// The Amazon Resource Name (ARN) of the monitoring job.
 func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) ProcessingJobArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringExecutionSummary) *string {
 		if v == nil {
@@ -11799,7 +13000,7 @@ func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) ProcessingJobArn(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html#cfn-sagemaker-monitoringschedule-monitoringexecutionsummary-scheduledtime
+// The time the monitoring job was scheduled.
 func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) ScheduledTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringExecutionSummary) *string {
 		if v == nil {
@@ -11809,9 +13010,8 @@ func (o MonitoringScheduleMonitoringExecutionSummaryPtrOutput) ScheduledTime() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html
+// The inputs for a monitoring job.
 type MonitoringScheduleMonitoringInput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-endpointinput
 	EndpointInput MonitoringScheduleEndpointInput `pulumi:"endpointInput"`
 }
 
@@ -11826,9 +13026,8 @@ type MonitoringScheduleMonitoringInputInput interface {
 	ToMonitoringScheduleMonitoringInputOutputWithContext(context.Context) MonitoringScheduleMonitoringInputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html
+// The inputs for a monitoring job.
 type MonitoringScheduleMonitoringInputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-endpointinput
 	EndpointInput MonitoringScheduleEndpointInputInput `pulumi:"endpointInput"`
 }
 
@@ -11869,7 +13068,7 @@ func (i MonitoringScheduleMonitoringInputArray) ToMonitoringScheduleMonitoringIn
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringInputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html
+// The inputs for a monitoring job.
 type MonitoringScheduleMonitoringInputOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleMonitoringInputOutput) ElementType() reflect.Type {
@@ -11884,7 +13083,6 @@ func (o MonitoringScheduleMonitoringInputOutput) ToMonitoringScheduleMonitoringI
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html#cfn-sagemaker-monitoringschedule-monitoringinput-endpointinput
 func (o MonitoringScheduleMonitoringInputOutput) EndpointInput() MonitoringScheduleEndpointInputOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringInput) MonitoringScheduleEndpointInput { return v.EndpointInput }).(MonitoringScheduleEndpointInputOutput)
 }
@@ -11909,25 +13107,18 @@ func (o MonitoringScheduleMonitoringInputArrayOutput) Index(i pulumi.IntInput) M
 	}).(MonitoringScheduleMonitoringInputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html
+// Defines the monitoring job.
 type MonitoringScheduleMonitoringJobDefinition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig
 	BaselineConfig *MonitoringScheduleBaselineConfig `pulumi:"baselineConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
-	Environment map[string]string `pulumi:"environment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
+	// Sets the environment variables in the Docker container
+	Environment                interface{}                                  `pulumi:"environment"`
 	MonitoringAppSpecification MonitoringScheduleMonitoringAppSpecification `pulumi:"monitoringAppSpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
-	MonitoringInputs []MonitoringScheduleMonitoringInput `pulumi:"monitoringInputs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
-	MonitoringOutputConfig MonitoringScheduleMonitoringOutputConfig `pulumi:"monitoringOutputConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
-	MonitoringResources MonitoringScheduleMonitoringResources `pulumi:"monitoringResources"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-networkconfig
-	NetworkConfig *MonitoringScheduleNetworkConfig `pulumi:"networkConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-stoppingcondition
+	MonitoringInputs           []MonitoringScheduleMonitoringInput          `pulumi:"monitoringInputs"`
+	MonitoringOutputConfig     MonitoringScheduleMonitoringOutputConfig     `pulumi:"monitoringOutputConfig"`
+	MonitoringResources        MonitoringScheduleMonitoringResources        `pulumi:"monitoringResources"`
+	NetworkConfig              *MonitoringScheduleNetworkConfig             `pulumi:"networkConfig"`
+	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+	RoleArn           string                               `pulumi:"roleArn"`
 	StoppingCondition *MonitoringScheduleStoppingCondition `pulumi:"stoppingCondition"`
 }
 
@@ -11942,25 +13133,18 @@ type MonitoringScheduleMonitoringJobDefinitionInput interface {
 	ToMonitoringScheduleMonitoringJobDefinitionOutputWithContext(context.Context) MonitoringScheduleMonitoringJobDefinitionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html
+// Defines the monitoring job.
 type MonitoringScheduleMonitoringJobDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig
 	BaselineConfig MonitoringScheduleBaselineConfigPtrInput `pulumi:"baselineConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
-	Environment pulumi.StringMapInput `pulumi:"environment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
+	// Sets the environment variables in the Docker container
+	Environment                pulumi.Input                                      `pulumi:"environment"`
 	MonitoringAppSpecification MonitoringScheduleMonitoringAppSpecificationInput `pulumi:"monitoringAppSpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
-	MonitoringInputs MonitoringScheduleMonitoringInputArrayInput `pulumi:"monitoringInputs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
-	MonitoringOutputConfig MonitoringScheduleMonitoringOutputConfigInput `pulumi:"monitoringOutputConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
-	MonitoringResources MonitoringScheduleMonitoringResourcesInput `pulumi:"monitoringResources"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-networkconfig
-	NetworkConfig MonitoringScheduleNetworkConfigPtrInput `pulumi:"networkConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-stoppingcondition
+	MonitoringInputs           MonitoringScheduleMonitoringInputArrayInput       `pulumi:"monitoringInputs"`
+	MonitoringOutputConfig     MonitoringScheduleMonitoringOutputConfigInput     `pulumi:"monitoringOutputConfig"`
+	MonitoringResources        MonitoringScheduleMonitoringResourcesInput        `pulumi:"monitoringResources"`
+	NetworkConfig              MonitoringScheduleNetworkConfigPtrInput           `pulumi:"networkConfig"`
+	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+	RoleArn           pulumi.StringInput                          `pulumi:"roleArn"`
 	StoppingCondition MonitoringScheduleStoppingConditionPtrInput `pulumi:"stoppingCondition"`
 }
 
@@ -12017,7 +13201,7 @@ func (i *monitoringScheduleMonitoringJobDefinitionPtrType) ToMonitoringScheduleM
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringJobDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html
+// Defines the monitoring job.
 type MonitoringScheduleMonitoringJobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleMonitoringJobDefinitionOutput) ElementType() reflect.Type {
@@ -12042,59 +13226,52 @@ func (o MonitoringScheduleMonitoringJobDefinitionOutput) ToMonitoringScheduleMon
 	}).(MonitoringScheduleMonitoringJobDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig
 func (o MonitoringScheduleMonitoringJobDefinitionOutput) BaselineConfig() MonitoringScheduleBaselineConfigPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleBaselineConfig {
 		return v.BaselineConfig
 	}).(MonitoringScheduleBaselineConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
-func (o MonitoringScheduleMonitoringJobDefinitionOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
+// Sets the environment variables in the Docker container
+func (o MonitoringScheduleMonitoringJobDefinitionOutput) Environment() pulumi.AnyOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) interface{} { return v.Environment }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
 func (o MonitoringScheduleMonitoringJobDefinitionOutput) MonitoringAppSpecification() MonitoringScheduleMonitoringAppSpecificationOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) MonitoringScheduleMonitoringAppSpecification {
 		return v.MonitoringAppSpecification
 	}).(MonitoringScheduleMonitoringAppSpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
 func (o MonitoringScheduleMonitoringJobDefinitionOutput) MonitoringInputs() MonitoringScheduleMonitoringInputArrayOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) []MonitoringScheduleMonitoringInput {
 		return v.MonitoringInputs
 	}).(MonitoringScheduleMonitoringInputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
 func (o MonitoringScheduleMonitoringJobDefinitionOutput) MonitoringOutputConfig() MonitoringScheduleMonitoringOutputConfigOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) MonitoringScheduleMonitoringOutputConfig {
 		return v.MonitoringOutputConfig
 	}).(MonitoringScheduleMonitoringOutputConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
 func (o MonitoringScheduleMonitoringJobDefinitionOutput) MonitoringResources() MonitoringScheduleMonitoringResourcesOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) MonitoringScheduleMonitoringResources {
 		return v.MonitoringResources
 	}).(MonitoringScheduleMonitoringResourcesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-networkconfig
 func (o MonitoringScheduleMonitoringJobDefinitionOutput) NetworkConfig() MonitoringScheduleNetworkConfigPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleNetworkConfig {
 		return v.NetworkConfig
 	}).(MonitoringScheduleNetworkConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-rolearn
+// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
 func (o MonitoringScheduleMonitoringJobDefinitionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-stoppingcondition
 func (o MonitoringScheduleMonitoringJobDefinitionOutput) StoppingCondition() MonitoringScheduleStoppingConditionPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleStoppingCondition {
 		return v.StoppingCondition
@@ -12125,7 +13302,6 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) Elem() MonitoringSch
 	}).(MonitoringScheduleMonitoringJobDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig
 func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) BaselineConfig() MonitoringScheduleBaselineConfigPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleBaselineConfig {
 		if v == nil {
@@ -12135,17 +13311,16 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) BaselineConfig() Mon
 	}).(MonitoringScheduleBaselineConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
-func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) Environment() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) map[string]string {
+// Sets the environment variables in the Docker container
+func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) Environment() pulumi.AnyOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Environment
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
 func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringAppSpecification() MonitoringScheduleMonitoringAppSpecificationPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleMonitoringAppSpecification {
 		if v == nil {
@@ -12155,7 +13330,6 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringAppSpecifi
 	}).(MonitoringScheduleMonitoringAppSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
 func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringInputs() MonitoringScheduleMonitoringInputArrayOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) []MonitoringScheduleMonitoringInput {
 		if v == nil {
@@ -12165,7 +13339,6 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringInputs() M
 	}).(MonitoringScheduleMonitoringInputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
 func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringOutputConfig() MonitoringScheduleMonitoringOutputConfigPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleMonitoringOutputConfig {
 		if v == nil {
@@ -12175,7 +13348,6 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringOutputConf
 	}).(MonitoringScheduleMonitoringOutputConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
 func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringResources() MonitoringScheduleMonitoringResourcesPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleMonitoringResources {
 		if v == nil {
@@ -12185,7 +13357,6 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringResources(
 	}).(MonitoringScheduleMonitoringResourcesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-networkconfig
 func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) NetworkConfig() MonitoringScheduleNetworkConfigPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleNetworkConfig {
 		if v == nil {
@@ -12195,7 +13366,7 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) NetworkConfig() Moni
 	}).(MonitoringScheduleNetworkConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-rolearn
+// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
 func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) *string {
 		if v == nil {
@@ -12205,7 +13376,6 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) RoleArn() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-stoppingcondition
 func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) StoppingCondition() MonitoringScheduleStoppingConditionPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleStoppingCondition {
 		if v == nil {
@@ -12215,9 +13385,8 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) StoppingCondition() 
 	}).(MonitoringScheduleStoppingConditionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html
+// The output object for a monitoring job.
 type MonitoringScheduleMonitoringOutput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html#cfn-sagemaker-monitoringschedule-monitoringoutput-s3output
 	S3Output MonitoringScheduleS3Output `pulumi:"s3Output"`
 }
 
@@ -12232,9 +13401,8 @@ type MonitoringScheduleMonitoringOutputInput interface {
 	ToMonitoringScheduleMonitoringOutputOutputWithContext(context.Context) MonitoringScheduleMonitoringOutputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html
+// The output object for a monitoring job.
 type MonitoringScheduleMonitoringOutputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html#cfn-sagemaker-monitoringschedule-monitoringoutput-s3output
 	S3Output MonitoringScheduleS3OutputInput `pulumi:"s3Output"`
 }
 
@@ -12275,7 +13443,7 @@ func (i MonitoringScheduleMonitoringOutputArray) ToMonitoringScheduleMonitoringO
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringOutputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html
+// The output object for a monitoring job.
 type MonitoringScheduleMonitoringOutputOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleMonitoringOutputOutput) ElementType() reflect.Type {
@@ -12290,7 +13458,6 @@ func (o MonitoringScheduleMonitoringOutputOutput) ToMonitoringScheduleMonitoring
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html#cfn-sagemaker-monitoringschedule-monitoringoutput-s3output
 func (o MonitoringScheduleMonitoringOutputOutput) S3Output() MonitoringScheduleS3OutputOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringOutput) MonitoringScheduleS3Output { return v.S3Output }).(MonitoringScheduleS3OutputOutput)
 }
@@ -12315,11 +13482,11 @@ func (o MonitoringScheduleMonitoringOutputArrayOutput) Index(i pulumi.IntInput) 
 	}).(MonitoringScheduleMonitoringOutputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html
+// The output configuration for monitoring jobs.
 type MonitoringScheduleMonitoringOutputConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-kmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-monitoringoutputs
+	// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 	MonitoringOutputs []MonitoringScheduleMonitoringOutput `pulumi:"monitoringOutputs"`
 }
 
@@ -12334,11 +13501,11 @@ type MonitoringScheduleMonitoringOutputConfigInput interface {
 	ToMonitoringScheduleMonitoringOutputConfigOutputWithContext(context.Context) MonitoringScheduleMonitoringOutputConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html
+// The output configuration for monitoring jobs.
 type MonitoringScheduleMonitoringOutputConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-kmskeyid
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-monitoringoutputs
+	// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 	MonitoringOutputs MonitoringScheduleMonitoringOutputArrayInput `pulumi:"monitoringOutputs"`
 }
 
@@ -12395,7 +13562,7 @@ func (i *monitoringScheduleMonitoringOutputConfigPtrType) ToMonitoringScheduleMo
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringOutputConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html
+// The output configuration for monitoring jobs.
 type MonitoringScheduleMonitoringOutputConfigOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleMonitoringOutputConfigOutput) ElementType() reflect.Type {
@@ -12420,12 +13587,12 @@ func (o MonitoringScheduleMonitoringOutputConfigOutput) ToMonitoringScheduleMoni
 	}).(MonitoringScheduleMonitoringOutputConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-kmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o MonitoringScheduleMonitoringOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-monitoringoutputs
+// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 func (o MonitoringScheduleMonitoringOutputConfigOutput) MonitoringOutputs() MonitoringScheduleMonitoringOutputArrayOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringOutputConfig) []MonitoringScheduleMonitoringOutput {
 		return v.MonitoringOutputs
@@ -12456,7 +13623,7 @@ func (o MonitoringScheduleMonitoringOutputConfigPtrOutput) Elem() MonitoringSche
 	}).(MonitoringScheduleMonitoringOutputConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-kmskeyid
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
 func (o MonitoringScheduleMonitoringOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringOutputConfig) *string {
 		if v == nil {
@@ -12466,7 +13633,7 @@ func (o MonitoringScheduleMonitoringOutputConfigPtrOutput) KmsKeyId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html#cfn-sagemaker-monitoringschedule-monitoringoutputconfig-monitoringoutputs
+// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
 func (o MonitoringScheduleMonitoringOutputConfigPtrOutput) MonitoringOutputs() MonitoringScheduleMonitoringOutputArrayOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringOutputConfig) []MonitoringScheduleMonitoringOutput {
 		if v == nil {
@@ -12476,9 +13643,8 @@ func (o MonitoringScheduleMonitoringOutputConfigPtrOutput) MonitoringOutputs() M
 	}).(MonitoringScheduleMonitoringOutputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html
+// Identifies the resources to deploy for a monitoring job.
 type MonitoringScheduleMonitoringResources struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html#cfn-sagemaker-monitoringschedule-monitoringresources-clusterconfig
 	ClusterConfig MonitoringScheduleClusterConfig `pulumi:"clusterConfig"`
 }
 
@@ -12493,9 +13659,8 @@ type MonitoringScheduleMonitoringResourcesInput interface {
 	ToMonitoringScheduleMonitoringResourcesOutputWithContext(context.Context) MonitoringScheduleMonitoringResourcesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html
+// Identifies the resources to deploy for a monitoring job.
 type MonitoringScheduleMonitoringResourcesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html#cfn-sagemaker-monitoringschedule-monitoringresources-clusterconfig
 	ClusterConfig MonitoringScheduleClusterConfigInput `pulumi:"clusterConfig"`
 }
 
@@ -12552,7 +13717,7 @@ func (i *monitoringScheduleMonitoringResourcesPtrType) ToMonitoringScheduleMonit
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringResourcesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html
+// Identifies the resources to deploy for a monitoring job.
 type MonitoringScheduleMonitoringResourcesOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleMonitoringResourcesOutput) ElementType() reflect.Type {
@@ -12577,7 +13742,6 @@ func (o MonitoringScheduleMonitoringResourcesOutput) ToMonitoringScheduleMonitor
 	}).(MonitoringScheduleMonitoringResourcesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html#cfn-sagemaker-monitoringschedule-monitoringresources-clusterconfig
 func (o MonitoringScheduleMonitoringResourcesOutput) ClusterConfig() MonitoringScheduleClusterConfigOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringResources) MonitoringScheduleClusterConfig { return v.ClusterConfig }).(MonitoringScheduleClusterConfigOutput)
 }
@@ -12606,7 +13770,6 @@ func (o MonitoringScheduleMonitoringResourcesPtrOutput) Elem() MonitoringSchedul
 	}).(MonitoringScheduleMonitoringResourcesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html#cfn-sagemaker-monitoringschedule-monitoringresources-clusterconfig
 func (o MonitoringScheduleMonitoringResourcesPtrOutput) ClusterConfig() MonitoringScheduleClusterConfigPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringResources) *MonitoringScheduleClusterConfig {
 		if v == nil {
@@ -12616,16 +13779,13 @@ func (o MonitoringScheduleMonitoringResourcesPtrOutput) ClusterConfig() Monitori
 	}).(MonitoringScheduleClusterConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html
+// The configuration object that specifies the monitoring schedule and defines the monitoring job.
 type MonitoringScheduleMonitoringScheduleConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinition
 	MonitoringJobDefinition *MonitoringScheduleMonitoringJobDefinition `pulumi:"monitoringJobDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinitionname
-	MonitoringJobDefinitionName *string `pulumi:"monitoringJobDefinitionName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringtype
-	MonitoringType *string `pulumi:"monitoringType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-scheduleconfig
-	ScheduleConfig *MonitoringScheduleScheduleConfig `pulumi:"scheduleConfig"`
+	// Name of the job definition
+	MonitoringJobDefinitionName *string                           `pulumi:"monitoringJobDefinitionName"`
+	MonitoringType              *string                           `pulumi:"monitoringType"`
+	ScheduleConfig              *MonitoringScheduleScheduleConfig `pulumi:"scheduleConfig"`
 }
 
 // MonitoringScheduleMonitoringScheduleConfigInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigArgs and MonitoringScheduleMonitoringScheduleConfigOutput values.
@@ -12639,16 +13799,13 @@ type MonitoringScheduleMonitoringScheduleConfigInput interface {
 	ToMonitoringScheduleMonitoringScheduleConfigOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html
+// The configuration object that specifies the monitoring schedule and defines the monitoring job.
 type MonitoringScheduleMonitoringScheduleConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinition
 	MonitoringJobDefinition MonitoringScheduleMonitoringJobDefinitionPtrInput `pulumi:"monitoringJobDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinitionname
-	MonitoringJobDefinitionName pulumi.StringPtrInput `pulumi:"monitoringJobDefinitionName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringtype
-	MonitoringType pulumi.StringPtrInput `pulumi:"monitoringType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-scheduleconfig
-	ScheduleConfig MonitoringScheduleScheduleConfigPtrInput `pulumi:"scheduleConfig"`
+	// Name of the job definition
+	MonitoringJobDefinitionName pulumi.StringPtrInput                    `pulumi:"monitoringJobDefinitionName"`
+	MonitoringType              pulumi.StringPtrInput                    `pulumi:"monitoringType"`
+	ScheduleConfig              MonitoringScheduleScheduleConfigPtrInput `pulumi:"scheduleConfig"`
 }
 
 func (MonitoringScheduleMonitoringScheduleConfigArgs) ElementType() reflect.Type {
@@ -12704,7 +13861,7 @@ func (i *monitoringScheduleMonitoringScheduleConfigPtrType) ToMonitoringSchedule
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html
+// The configuration object that specifies the monitoring schedule and defines the monitoring job.
 type MonitoringScheduleMonitoringScheduleConfigOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleMonitoringScheduleConfigOutput) ElementType() reflect.Type {
@@ -12729,24 +13886,21 @@ func (o MonitoringScheduleMonitoringScheduleConfigOutput) ToMonitoringScheduleMo
 	}).(MonitoringScheduleMonitoringScheduleConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinition
 func (o MonitoringScheduleMonitoringScheduleConfigOutput) MonitoringJobDefinition() MonitoringScheduleMonitoringJobDefinitionPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfig) *MonitoringScheduleMonitoringJobDefinition {
 		return v.MonitoringJobDefinition
 	}).(MonitoringScheduleMonitoringJobDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinitionname
+// Name of the job definition
 func (o MonitoringScheduleMonitoringScheduleConfigOutput) MonitoringJobDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfig) *string { return v.MonitoringJobDefinitionName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringtype
 func (o MonitoringScheduleMonitoringScheduleConfigOutput) MonitoringType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfig) *string { return v.MonitoringType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-scheduleconfig
 func (o MonitoringScheduleMonitoringScheduleConfigOutput) ScheduleConfig() MonitoringScheduleScheduleConfigPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfig) *MonitoringScheduleScheduleConfig {
 		return v.ScheduleConfig
@@ -12777,7 +13931,6 @@ func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) Elem() MonitoringSc
 	}).(MonitoringScheduleMonitoringScheduleConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinition
 func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) MonitoringJobDefinition() MonitoringScheduleMonitoringJobDefinitionPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfig) *MonitoringScheduleMonitoringJobDefinition {
 		if v == nil {
@@ -12787,7 +13940,7 @@ func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) MonitoringJobDefini
 	}).(MonitoringScheduleMonitoringJobDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringjobdefinitionname
+// Name of the job definition
 func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) MonitoringJobDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfig) *string {
 		if v == nil {
@@ -12797,7 +13950,6 @@ func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) MonitoringJobDefini
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-monitoringtype
 func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) MonitoringType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfig) *string {
 		if v == nil {
@@ -12807,7 +13959,6 @@ func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) MonitoringType() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig-scheduleconfig
 func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) ScheduleConfig() MonitoringScheduleScheduleConfigPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfig) *MonitoringScheduleScheduleConfig {
 		if v == nil {
@@ -12817,14 +13968,13 @@ func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) ScheduleConfig() Mo
 	}).(MonitoringScheduleScheduleConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 type MonitoringScheduleNetworkConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enableintercontainertrafficencryption
+	// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 	EnableInterContainerTrafficEncryption *bool `pulumi:"enableInterContainerTrafficEncryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enablenetworkisolation
-	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-vpcconfig
-	VpcConfig *MonitoringScheduleVpcConfig `pulumi:"vpcConfig"`
+	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+	EnableNetworkIsolation *bool                        `pulumi:"enableNetworkIsolation"`
+	VpcConfig              *MonitoringScheduleVpcConfig `pulumi:"vpcConfig"`
 }
 
 // MonitoringScheduleNetworkConfigInput is an input type that accepts MonitoringScheduleNetworkConfigArgs and MonitoringScheduleNetworkConfigOutput values.
@@ -12838,14 +13988,13 @@ type MonitoringScheduleNetworkConfigInput interface {
 	ToMonitoringScheduleNetworkConfigOutputWithContext(context.Context) MonitoringScheduleNetworkConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 type MonitoringScheduleNetworkConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enableintercontainertrafficencryption
+	// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 	EnableInterContainerTrafficEncryption pulumi.BoolPtrInput `pulumi:"enableInterContainerTrafficEncryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enablenetworkisolation
-	EnableNetworkIsolation pulumi.BoolPtrInput `pulumi:"enableNetworkIsolation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-vpcconfig
-	VpcConfig MonitoringScheduleVpcConfigPtrInput `pulumi:"vpcConfig"`
+	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+	EnableNetworkIsolation pulumi.BoolPtrInput                 `pulumi:"enableNetworkIsolation"`
+	VpcConfig              MonitoringScheduleVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
 func (MonitoringScheduleNetworkConfigArgs) ElementType() reflect.Type {
@@ -12901,7 +14050,7 @@ func (i *monitoringScheduleNetworkConfigPtrType) ToMonitoringScheduleNetworkConf
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleNetworkConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html
+// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
 type MonitoringScheduleNetworkConfigOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleNetworkConfigOutput) ElementType() reflect.Type {
@@ -12926,17 +14075,16 @@ func (o MonitoringScheduleNetworkConfigOutput) ToMonitoringScheduleNetworkConfig
 	}).(MonitoringScheduleNetworkConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enableintercontainertrafficencryption
+// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 func (o MonitoringScheduleNetworkConfigOutput) EnableInterContainerTrafficEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleNetworkConfig) *bool { return v.EnableInterContainerTrafficEncryption }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enablenetworkisolation
+// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 func (o MonitoringScheduleNetworkConfigOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleNetworkConfig) *bool { return v.EnableNetworkIsolation }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-vpcconfig
 func (o MonitoringScheduleNetworkConfigOutput) VpcConfig() MonitoringScheduleVpcConfigPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleNetworkConfig) *MonitoringScheduleVpcConfig { return v.VpcConfig }).(MonitoringScheduleVpcConfigPtrOutput)
 }
@@ -12965,7 +14113,7 @@ func (o MonitoringScheduleNetworkConfigPtrOutput) Elem() MonitoringScheduleNetwo
 	}).(MonitoringScheduleNetworkConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enableintercontainertrafficencryption
+// Whether to encrypt all communications between distributed processing jobs. Choose True to encrypt communications. Encryption provides greater security for distributed processing jobs, but the processing might take longer.
 func (o MonitoringScheduleNetworkConfigPtrOutput) EnableInterContainerTrafficEncryption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleNetworkConfig) *bool {
 		if v == nil {
@@ -12975,7 +14123,7 @@ func (o MonitoringScheduleNetworkConfigPtrOutput) EnableInterContainerTrafficEnc
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-enablenetworkisolation
+// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 func (o MonitoringScheduleNetworkConfigPtrOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleNetworkConfig) *bool {
 		if v == nil {
@@ -12985,7 +14133,6 @@ func (o MonitoringScheduleNetworkConfigPtrOutput) EnableNetworkIsolation() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html#cfn-sagemaker-monitoringschedule-networkconfig-vpcconfig
 func (o MonitoringScheduleNetworkConfigPtrOutput) VpcConfig() MonitoringScheduleVpcConfigPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleNetworkConfig) *MonitoringScheduleVpcConfig {
 		if v == nil {
@@ -12995,13 +14142,13 @@ func (o MonitoringScheduleNetworkConfigPtrOutput) VpcConfig() MonitoringSchedule
 	}).(MonitoringScheduleVpcConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html
+// Information about where and how to store the results of a monitoring job.
 type MonitoringScheduleS3Output struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-localpath
+	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath string `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-s3uploadmode
+	// Whether to upload the results of the monitoring job continuously or after the job completes.
 	S3UploadMode *string `pulumi:"s3UploadMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-s3uri
+	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri string `pulumi:"s3Uri"`
 }
 
@@ -13016,13 +14163,13 @@ type MonitoringScheduleS3OutputInput interface {
 	ToMonitoringScheduleS3OutputOutputWithContext(context.Context) MonitoringScheduleS3OutputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html
+// Information about where and how to store the results of a monitoring job.
 type MonitoringScheduleS3OutputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-localpath
+	// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 	LocalPath pulumi.StringInput `pulumi:"localPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-s3uploadmode
+	// Whether to upload the results of the monitoring job continuously or after the job completes.
 	S3UploadMode pulumi.StringPtrInput `pulumi:"s3UploadMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-s3uri
+	// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
 
@@ -13038,7 +14185,7 @@ func (i MonitoringScheduleS3OutputArgs) ToMonitoringScheduleS3OutputOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleS3OutputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html
+// Information about where and how to store the results of a monitoring job.
 type MonitoringScheduleS3OutputOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleS3OutputOutput) ElementType() reflect.Type {
@@ -13053,24 +14200,24 @@ func (o MonitoringScheduleS3OutputOutput) ToMonitoringScheduleS3OutputOutputWith
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-localpath
+// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
 func (o MonitoringScheduleS3OutputOutput) LocalPath() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringScheduleS3Output) string { return v.LocalPath }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-s3uploadmode
+// Whether to upload the results of the monitoring job continuously or after the job completes.
 func (o MonitoringScheduleS3OutputOutput) S3UploadMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleS3Output) *string { return v.S3UploadMode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html#cfn-sagemaker-monitoringschedule-s3output-s3uri
+// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
 func (o MonitoringScheduleS3OutputOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringScheduleS3Output) string { return v.S3Uri }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html
+// Configuration details about the monitoring schedule.
 type MonitoringScheduleScheduleConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html#cfn-sagemaker-monitoringschedule-scheduleconfig-scheduleexpression
+	// A cron expression that describes details about the monitoring schedule.
 	ScheduleExpression string `pulumi:"scheduleExpression"`
 }
 
@@ -13085,9 +14232,9 @@ type MonitoringScheduleScheduleConfigInput interface {
 	ToMonitoringScheduleScheduleConfigOutputWithContext(context.Context) MonitoringScheduleScheduleConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html
+// Configuration details about the monitoring schedule.
 type MonitoringScheduleScheduleConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html#cfn-sagemaker-monitoringschedule-scheduleconfig-scheduleexpression
+	// A cron expression that describes details about the monitoring schedule.
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
 }
 
@@ -13144,7 +14291,7 @@ func (i *monitoringScheduleScheduleConfigPtrType) ToMonitoringScheduleScheduleCo
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleScheduleConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html
+// Configuration details about the monitoring schedule.
 type MonitoringScheduleScheduleConfigOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleScheduleConfigOutput) ElementType() reflect.Type {
@@ -13169,7 +14316,7 @@ func (o MonitoringScheduleScheduleConfigOutput) ToMonitoringScheduleScheduleConf
 	}).(MonitoringScheduleScheduleConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html#cfn-sagemaker-monitoringschedule-scheduleconfig-scheduleexpression
+// A cron expression that describes details about the monitoring schedule.
 func (o MonitoringScheduleScheduleConfigOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringScheduleScheduleConfig) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
@@ -13198,7 +14345,7 @@ func (o MonitoringScheduleScheduleConfigPtrOutput) Elem() MonitoringScheduleSche
 	}).(MonitoringScheduleScheduleConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html#cfn-sagemaker-monitoringschedule-scheduleconfig-scheduleexpression
+// A cron expression that describes details about the monitoring schedule.
 func (o MonitoringScheduleScheduleConfigPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleScheduleConfig) *string {
 		if v == nil {
@@ -13208,9 +14355,9 @@ func (o MonitoringScheduleScheduleConfigPtrOutput) ScheduleExpression() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html
+// The baseline statistics resource for a monitoring job.
 type MonitoringScheduleStatisticsResource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html#cfn-sagemaker-monitoringschedule-statisticsresource-s3uri
+	// The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
 	S3Uri *string `pulumi:"s3Uri"`
 }
 
@@ -13225,9 +14372,9 @@ type MonitoringScheduleStatisticsResourceInput interface {
 	ToMonitoringScheduleStatisticsResourceOutputWithContext(context.Context) MonitoringScheduleStatisticsResourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html
+// The baseline statistics resource for a monitoring job.
 type MonitoringScheduleStatisticsResourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html#cfn-sagemaker-monitoringschedule-statisticsresource-s3uri
+	// The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
 	S3Uri pulumi.StringPtrInput `pulumi:"s3Uri"`
 }
 
@@ -13284,7 +14431,7 @@ func (i *monitoringScheduleStatisticsResourcePtrType) ToMonitoringScheduleStatis
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleStatisticsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html
+// The baseline statistics resource for a monitoring job.
 type MonitoringScheduleStatisticsResourceOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleStatisticsResourceOutput) ElementType() reflect.Type {
@@ -13309,7 +14456,7 @@ func (o MonitoringScheduleStatisticsResourceOutput) ToMonitoringScheduleStatisti
 	}).(MonitoringScheduleStatisticsResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html#cfn-sagemaker-monitoringschedule-statisticsresource-s3uri
+// The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
 func (o MonitoringScheduleStatisticsResourceOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleStatisticsResource) *string { return v.S3Uri }).(pulumi.StringPtrOutput)
 }
@@ -13338,7 +14485,7 @@ func (o MonitoringScheduleStatisticsResourcePtrOutput) Elem() MonitoringSchedule
 	}).(MonitoringScheduleStatisticsResourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html#cfn-sagemaker-monitoringschedule-statisticsresource-s3uri
+// The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
 func (o MonitoringScheduleStatisticsResourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleStatisticsResource) *string {
 		if v == nil {
@@ -13348,9 +14495,9 @@ func (o MonitoringScheduleStatisticsResourcePtrOutput) S3Uri() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html
+// Specifies a time limit for how long the monitoring job is allowed to run.
 type MonitoringScheduleStoppingCondition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html#cfn-sagemaker-monitoringschedule-stoppingcondition-maxruntimeinseconds
+	// The maximum runtime allowed in seconds.
 	MaxRuntimeInSeconds int `pulumi:"maxRuntimeInSeconds"`
 }
 
@@ -13365,9 +14512,9 @@ type MonitoringScheduleStoppingConditionInput interface {
 	ToMonitoringScheduleStoppingConditionOutputWithContext(context.Context) MonitoringScheduleStoppingConditionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html
+// Specifies a time limit for how long the monitoring job is allowed to run.
 type MonitoringScheduleStoppingConditionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html#cfn-sagemaker-monitoringschedule-stoppingcondition-maxruntimeinseconds
+	// The maximum runtime allowed in seconds.
 	MaxRuntimeInSeconds pulumi.IntInput `pulumi:"maxRuntimeInSeconds"`
 }
 
@@ -13424,7 +14571,7 @@ func (i *monitoringScheduleStoppingConditionPtrType) ToMonitoringScheduleStoppin
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleStoppingConditionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html
+// Specifies a time limit for how long the monitoring job is allowed to run.
 type MonitoringScheduleStoppingConditionOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleStoppingConditionOutput) ElementType() reflect.Type {
@@ -13449,7 +14596,7 @@ func (o MonitoringScheduleStoppingConditionOutput) ToMonitoringScheduleStoppingC
 	}).(MonitoringScheduleStoppingConditionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html#cfn-sagemaker-monitoringschedule-stoppingcondition-maxruntimeinseconds
+// The maximum runtime allowed in seconds.
 func (o MonitoringScheduleStoppingConditionOutput) MaxRuntimeInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v MonitoringScheduleStoppingCondition) int { return v.MaxRuntimeInSeconds }).(pulumi.IntOutput)
 }
@@ -13478,7 +14625,7 @@ func (o MonitoringScheduleStoppingConditionPtrOutput) Elem() MonitoringScheduleS
 	}).(MonitoringScheduleStoppingConditionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html#cfn-sagemaker-monitoringschedule-stoppingcondition-maxruntimeinseconds
+// The maximum runtime allowed in seconds.
 func (o MonitoringScheduleStoppingConditionPtrOutput) MaxRuntimeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleStoppingCondition) *int {
 		if v == nil {
@@ -13488,11 +14635,120 @@ func (o MonitoringScheduleStoppingConditionPtrOutput) MaxRuntimeInSeconds() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html
+// A key-value pair to associate with a resource.
+type MonitoringScheduleTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// MonitoringScheduleTagInput is an input type that accepts MonitoringScheduleTagArgs and MonitoringScheduleTagOutput values.
+// You can construct a concrete instance of `MonitoringScheduleTagInput` via:
+//
+//          MonitoringScheduleTagArgs{...}
+type MonitoringScheduleTagInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleTagOutput() MonitoringScheduleTagOutput
+	ToMonitoringScheduleTagOutputWithContext(context.Context) MonitoringScheduleTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type MonitoringScheduleTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (MonitoringScheduleTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleTag)(nil)).Elem()
+}
+
+func (i MonitoringScheduleTagArgs) ToMonitoringScheduleTagOutput() MonitoringScheduleTagOutput {
+	return i.ToMonitoringScheduleTagOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleTagArgs) ToMonitoringScheduleTagOutputWithContext(ctx context.Context) MonitoringScheduleTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleTagOutput)
+}
+
+// MonitoringScheduleTagArrayInput is an input type that accepts MonitoringScheduleTagArray and MonitoringScheduleTagArrayOutput values.
+// You can construct a concrete instance of `MonitoringScheduleTagArrayInput` via:
+//
+//          MonitoringScheduleTagArray{ MonitoringScheduleTagArgs{...} }
+type MonitoringScheduleTagArrayInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleTagArrayOutput() MonitoringScheduleTagArrayOutput
+	ToMonitoringScheduleTagArrayOutputWithContext(context.Context) MonitoringScheduleTagArrayOutput
+}
+
+type MonitoringScheduleTagArray []MonitoringScheduleTagInput
+
+func (MonitoringScheduleTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitoringScheduleTag)(nil)).Elem()
+}
+
+func (i MonitoringScheduleTagArray) ToMonitoringScheduleTagArrayOutput() MonitoringScheduleTagArrayOutput {
+	return i.ToMonitoringScheduleTagArrayOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleTagArray) ToMonitoringScheduleTagArrayOutputWithContext(ctx context.Context) MonitoringScheduleTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type MonitoringScheduleTagOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleTag)(nil)).Elem()
+}
+
+func (o MonitoringScheduleTagOutput) ToMonitoringScheduleTagOutput() MonitoringScheduleTagOutput {
+	return o
+}
+
+func (o MonitoringScheduleTagOutput) ToMonitoringScheduleTagOutputWithContext(ctx context.Context) MonitoringScheduleTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o MonitoringScheduleTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitoringScheduleTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o MonitoringScheduleTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitoringScheduleTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type MonitoringScheduleTagArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitoringScheduleTag)(nil)).Elem()
+}
+
+func (o MonitoringScheduleTagArrayOutput) ToMonitoringScheduleTagArrayOutput() MonitoringScheduleTagArrayOutput {
+	return o
+}
+
+func (o MonitoringScheduleTagArrayOutput) ToMonitoringScheduleTagArrayOutputWithContext(ctx context.Context) MonitoringScheduleTagArrayOutput {
+	return o
+}
+
+func (o MonitoringScheduleTagArrayOutput) Index(i pulumi.IntInput) MonitoringScheduleTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitoringScheduleTag {
+		return vs[0].([]MonitoringScheduleTag)[vs[1].(int)]
+	}).(MonitoringScheduleTagOutput)
+}
+
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 type MonitoringScheduleVpcConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html#cfn-sagemaker-monitoringschedule-vpcconfig-securitygroupids
+	// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html#cfn-sagemaker-monitoringschedule-vpcconfig-subnets
+	// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 	Subnets []string `pulumi:"subnets"`
 }
 
@@ -13507,11 +14763,11 @@ type MonitoringScheduleVpcConfigInput interface {
 	ToMonitoringScheduleVpcConfigOutputWithContext(context.Context) MonitoringScheduleVpcConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 type MonitoringScheduleVpcConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html#cfn-sagemaker-monitoringschedule-vpcconfig-securitygroupids
+	// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html#cfn-sagemaker-monitoringschedule-vpcconfig-subnets
+	// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
 }
 
@@ -13568,7 +14824,7 @@ func (i *monitoringScheduleVpcConfigPtrType) ToMonitoringScheduleVpcConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleVpcConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 type MonitoringScheduleVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (MonitoringScheduleVpcConfigOutput) ElementType() reflect.Type {
@@ -13593,12 +14849,12 @@ func (o MonitoringScheduleVpcConfigOutput) ToMonitoringScheduleVpcConfigPtrOutpu
 	}).(MonitoringScheduleVpcConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html#cfn-sagemaker-monitoringschedule-vpcconfig-securitygroupids
+// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 func (o MonitoringScheduleVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MonitoringScheduleVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html#cfn-sagemaker-monitoringschedule-vpcconfig-subnets
+// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 func (o MonitoringScheduleVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MonitoringScheduleVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
 }
@@ -13627,7 +14883,7 @@ func (o MonitoringScheduleVpcConfigPtrOutput) Elem() MonitoringScheduleVpcConfig
 	}).(MonitoringScheduleVpcConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html#cfn-sagemaker-monitoringschedule-vpcconfig-securitygroupids
+// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
 func (o MonitoringScheduleVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MonitoringScheduleVpcConfig) []string {
 		if v == nil {
@@ -13637,7 +14893,7 @@ func (o MonitoringScheduleVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html#cfn-sagemaker-monitoringschedule-vpcconfig-subnets
+// The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
 func (o MonitoringScheduleVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MonitoringScheduleVpcConfig) []string {
 		if v == nil {
@@ -13647,13 +14903,222 @@ func (o MonitoringScheduleVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html
+type PipelineTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// PipelineTagInput is an input type that accepts PipelineTagArgs and PipelineTagOutput values.
+// You can construct a concrete instance of `PipelineTagInput` via:
+//
+//          PipelineTagArgs{...}
+type PipelineTagInput interface {
+	pulumi.Input
+
+	ToPipelineTagOutput() PipelineTagOutput
+	ToPipelineTagOutputWithContext(context.Context) PipelineTagOutput
+}
+
+type PipelineTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PipelineTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTag)(nil)).Elem()
+}
+
+func (i PipelineTagArgs) ToPipelineTagOutput() PipelineTagOutput {
+	return i.ToPipelineTagOutputWithContext(context.Background())
+}
+
+func (i PipelineTagArgs) ToPipelineTagOutputWithContext(ctx context.Context) PipelineTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTagOutput)
+}
+
+// PipelineTagArrayInput is an input type that accepts PipelineTagArray and PipelineTagArrayOutput values.
+// You can construct a concrete instance of `PipelineTagArrayInput` via:
+//
+//          PipelineTagArray{ PipelineTagArgs{...} }
+type PipelineTagArrayInput interface {
+	pulumi.Input
+
+	ToPipelineTagArrayOutput() PipelineTagArrayOutput
+	ToPipelineTagArrayOutputWithContext(context.Context) PipelineTagArrayOutput
+}
+
+type PipelineTagArray []PipelineTagInput
+
+func (PipelineTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineTag)(nil)).Elem()
+}
+
+func (i PipelineTagArray) ToPipelineTagArrayOutput() PipelineTagArrayOutput {
+	return i.ToPipelineTagArrayOutputWithContext(context.Background())
+}
+
+func (i PipelineTagArray) ToPipelineTagArrayOutputWithContext(ctx context.Context) PipelineTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTagArrayOutput)
+}
+
+type PipelineTagOutput struct{ *pulumi.OutputState }
+
+func (PipelineTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTag)(nil)).Elem()
+}
+
+func (o PipelineTagOutput) ToPipelineTagOutput() PipelineTagOutput {
+	return o
+}
+
+func (o PipelineTagOutput) ToPipelineTagOutputWithContext(ctx context.Context) PipelineTagOutput {
+	return o
+}
+
+func (o PipelineTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o PipelineTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PipelineTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PipelineTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineTag)(nil)).Elem()
+}
+
+func (o PipelineTagArrayOutput) ToPipelineTagArrayOutput() PipelineTagArrayOutput {
+	return o
+}
+
+func (o PipelineTagArrayOutput) ToPipelineTagArrayOutputWithContext(ctx context.Context) PipelineTagArrayOutput {
+	return o
+}
+
+func (o PipelineTagArrayOutput) Index(i pulumi.IntInput) PipelineTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineTag {
+		return vs[0].([]PipelineTag)[vs[1].(int)]
+	}).(PipelineTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ProjectTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ProjectTagInput is an input type that accepts ProjectTagArgs and ProjectTagOutput values.
+// You can construct a concrete instance of `ProjectTagInput` via:
+//
+//          ProjectTagArgs{...}
+type ProjectTagInput interface {
+	pulumi.Input
+
+	ToProjectTagOutput() ProjectTagOutput
+	ToProjectTagOutputWithContext(context.Context) ProjectTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ProjectTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ProjectTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectTag)(nil)).Elem()
+}
+
+func (i ProjectTagArgs) ToProjectTagOutput() ProjectTagOutput {
+	return i.ToProjectTagOutputWithContext(context.Background())
+}
+
+func (i ProjectTagArgs) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagOutput)
+}
+
+// ProjectTagArrayInput is an input type that accepts ProjectTagArray and ProjectTagArrayOutput values.
+// You can construct a concrete instance of `ProjectTagArrayInput` via:
+//
+//          ProjectTagArray{ ProjectTagArgs{...} }
+type ProjectTagArrayInput interface {
+	pulumi.Input
+
+	ToProjectTagArrayOutput() ProjectTagArrayOutput
+	ToProjectTagArrayOutputWithContext(context.Context) ProjectTagArrayOutput
+}
+
+type ProjectTagArray []ProjectTagInput
+
+func (ProjectTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectTag)(nil)).Elem()
+}
+
+func (i ProjectTagArray) ToProjectTagArrayOutput() ProjectTagArrayOutput {
+	return i.ToProjectTagArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectTagArray) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ProjectTagOutput struct{ *pulumi.OutputState }
+
+func (ProjectTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectTag)(nil)).Elem()
+}
+
+func (o ProjectTagOutput) ToProjectTagOutput() ProjectTagOutput {
+	return o
+}
+
+func (o ProjectTagOutput) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ProjectTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ProjectTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ProjectTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectTag)(nil)).Elem()
+}
+
+func (o ProjectTagArrayOutput) ToProjectTagArrayOutput() ProjectTagArrayOutput {
+	return o
+}
+
+func (o ProjectTagArrayOutput) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
+	return o
+}
+
+func (o ProjectTagArrayOutput) Index(i pulumi.IntInput) ProjectTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectTag {
+		return vs[0].([]ProjectTag)[vs[1].(int)]
+	}).(ProjectTagOutput)
+}
+
+// A custom SageMaker image.
 type UserProfileCustomImage struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-appimageconfigname
+	// The Name of the AppImageConfig.
 	AppImageConfigName string `pulumi:"appImageConfigName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imagename
+	// The name of the CustomImage. Must be unique to your account.
 	ImageName string `pulumi:"imageName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imageversionnumber
+	// The version number of the CustomImage.
 	ImageVersionNumber *int `pulumi:"imageVersionNumber"`
 }
 
@@ -13668,13 +15133,13 @@ type UserProfileCustomImageInput interface {
 	ToUserProfileCustomImageOutputWithContext(context.Context) UserProfileCustomImageOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html
+// A custom SageMaker image.
 type UserProfileCustomImageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-appimageconfigname
+	// The Name of the AppImageConfig.
 	AppImageConfigName pulumi.StringInput `pulumi:"appImageConfigName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imagename
+	// The name of the CustomImage. Must be unique to your account.
 	ImageName pulumi.StringInput `pulumi:"imageName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imageversionnumber
+	// The version number of the CustomImage.
 	ImageVersionNumber pulumi.IntPtrInput `pulumi:"imageVersionNumber"`
 }
 
@@ -13715,7 +15180,7 @@ func (i UserProfileCustomImageArray) ToUserProfileCustomImageArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(UserProfileCustomImageArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html
+// A custom SageMaker image.
 type UserProfileCustomImageOutput struct{ *pulumi.OutputState }
 
 func (UserProfileCustomImageOutput) ElementType() reflect.Type {
@@ -13730,17 +15195,17 @@ func (o UserProfileCustomImageOutput) ToUserProfileCustomImageOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-appimageconfigname
+// The Name of the AppImageConfig.
 func (o UserProfileCustomImageOutput) AppImageConfigName() pulumi.StringOutput {
 	return o.ApplyT(func(v UserProfileCustomImage) string { return v.AppImageConfigName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imagename
+// The name of the CustomImage. Must be unique to your account.
 func (o UserProfileCustomImageOutput) ImageName() pulumi.StringOutput {
 	return o.ApplyT(func(v UserProfileCustomImage) string { return v.ImageName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imageversionnumber
+// The version number of the CustomImage.
 func (o UserProfileCustomImageOutput) ImageVersionNumber() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserProfileCustomImage) *int { return v.ImageVersionNumber }).(pulumi.IntPtrOutput)
 }
@@ -13765,9 +15230,8 @@ func (o UserProfileCustomImageArrayOutput) Index(i pulumi.IntInput) UserProfileC
 	}).(UserProfileCustomImageOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html
+// The JupyterServer app settings.
 type UserProfileJupyterServerAppSettings struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html#cfn-sagemaker-userprofile-jupyterserverappsettings-defaultresourcespec
 	DefaultResourceSpec *UserProfileResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -13782,9 +15246,8 @@ type UserProfileJupyterServerAppSettingsInput interface {
 	ToUserProfileJupyterServerAppSettingsOutputWithContext(context.Context) UserProfileJupyterServerAppSettingsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html
+// The JupyterServer app settings.
 type UserProfileJupyterServerAppSettingsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html#cfn-sagemaker-userprofile-jupyterserverappsettings-defaultresourcespec
 	DefaultResourceSpec UserProfileResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -13841,7 +15304,7 @@ func (i *userProfileJupyterServerAppSettingsPtrType) ToUserProfileJupyterServerA
 	return pulumi.ToOutputWithContext(ctx, i).(UserProfileJupyterServerAppSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html
+// The JupyterServer app settings.
 type UserProfileJupyterServerAppSettingsOutput struct{ *pulumi.OutputState }
 
 func (UserProfileJupyterServerAppSettingsOutput) ElementType() reflect.Type {
@@ -13866,7 +15329,6 @@ func (o UserProfileJupyterServerAppSettingsOutput) ToUserProfileJupyterServerApp
 	}).(UserProfileJupyterServerAppSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html#cfn-sagemaker-userprofile-jupyterserverappsettings-defaultresourcespec
 func (o UserProfileJupyterServerAppSettingsOutput) DefaultResourceSpec() UserProfileResourceSpecPtrOutput {
 	return o.ApplyT(func(v UserProfileJupyterServerAppSettings) *UserProfileResourceSpec { return v.DefaultResourceSpec }).(UserProfileResourceSpecPtrOutput)
 }
@@ -13895,7 +15357,6 @@ func (o UserProfileJupyterServerAppSettingsPtrOutput) Elem() UserProfileJupyterS
 	}).(UserProfileJupyterServerAppSettingsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html#cfn-sagemaker-userprofile-jupyterserverappsettings-defaultresourcespec
 func (o UserProfileJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() UserProfileResourceSpecPtrOutput {
 	return o.ApplyT(func(v *UserProfileJupyterServerAppSettings) *UserProfileResourceSpec {
 		if v == nil {
@@ -13905,11 +15366,11 @@ func (o UserProfileJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() User
 	}).(UserProfileResourceSpecPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html
+// The kernel gateway app settings.
 type UserProfileKernelGatewayAppSettings struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-customimages
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
 	CustomImages []UserProfileCustomImage `pulumi:"customImages"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-defaultresourcespec
+	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
 	DefaultResourceSpec *UserProfileResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -13924,11 +15385,11 @@ type UserProfileKernelGatewayAppSettingsInput interface {
 	ToUserProfileKernelGatewayAppSettingsOutputWithContext(context.Context) UserProfileKernelGatewayAppSettingsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html
+// The kernel gateway app settings.
 type UserProfileKernelGatewayAppSettingsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-customimages
+	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
 	CustomImages UserProfileCustomImageArrayInput `pulumi:"customImages"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-defaultresourcespec
+	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
 	DefaultResourceSpec UserProfileResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -13985,7 +15446,7 @@ func (i *userProfileKernelGatewayAppSettingsPtrType) ToUserProfileKernelGatewayA
 	return pulumi.ToOutputWithContext(ctx, i).(UserProfileKernelGatewayAppSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html
+// The kernel gateway app settings.
 type UserProfileKernelGatewayAppSettingsOutput struct{ *pulumi.OutputState }
 
 func (UserProfileKernelGatewayAppSettingsOutput) ElementType() reflect.Type {
@@ -14010,12 +15471,12 @@ func (o UserProfileKernelGatewayAppSettingsOutput) ToUserProfileKernelGatewayApp
 	}).(UserProfileKernelGatewayAppSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-customimages
+// A list of custom SageMaker images that are configured to run as a KernelGateway app.
 func (o UserProfileKernelGatewayAppSettingsOutput) CustomImages() UserProfileCustomImageArrayOutput {
 	return o.ApplyT(func(v UserProfileKernelGatewayAppSettings) []UserProfileCustomImage { return v.CustomImages }).(UserProfileCustomImageArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-defaultresourcespec
+// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
 func (o UserProfileKernelGatewayAppSettingsOutput) DefaultResourceSpec() UserProfileResourceSpecPtrOutput {
 	return o.ApplyT(func(v UserProfileKernelGatewayAppSettings) *UserProfileResourceSpec { return v.DefaultResourceSpec }).(UserProfileResourceSpecPtrOutput)
 }
@@ -14044,7 +15505,7 @@ func (o UserProfileKernelGatewayAppSettingsPtrOutput) Elem() UserProfileKernelGa
 	}).(UserProfileKernelGatewayAppSettingsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-customimages
+// A list of custom SageMaker images that are configured to run as a KernelGateway app.
 func (o UserProfileKernelGatewayAppSettingsPtrOutput) CustomImages() UserProfileCustomImageArrayOutput {
 	return o.ApplyT(func(v *UserProfileKernelGatewayAppSettings) []UserProfileCustomImage {
 		if v == nil {
@@ -14054,7 +15515,7 @@ func (o UserProfileKernelGatewayAppSettingsPtrOutput) CustomImages() UserProfile
 	}).(UserProfileCustomImageArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html#cfn-sagemaker-userprofile-kernelgatewayappsettings-defaultresourcespec
+// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
 func (o UserProfileKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() UserProfileResourceSpecPtrOutput {
 	return o.ApplyT(func(v *UserProfileKernelGatewayAppSettings) *UserProfileResourceSpec {
 		if v == nil {
@@ -14064,13 +15525,12 @@ func (o UserProfileKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() User
 	}).(UserProfileResourceSpecPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html
 type UserProfileResourceSpec struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-instancetype
+	// The instance type that the image version runs on.
 	InstanceType *string `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimagearn
+	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn *string `pulumi:"sageMakerImageArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimageversionarn
+	// The ARN of the image version created on the instance.
 	SageMakerImageVersionArn *string `pulumi:"sageMakerImageVersionArn"`
 }
 
@@ -14085,13 +15545,12 @@ type UserProfileResourceSpecInput interface {
 	ToUserProfileResourceSpecOutputWithContext(context.Context) UserProfileResourceSpecOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html
 type UserProfileResourceSpecArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-instancetype
+	// The instance type that the image version runs on.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimagearn
+	// The ARN of the SageMaker image that the image version belongs to.
 	SageMakerImageArn pulumi.StringPtrInput `pulumi:"sageMakerImageArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimageversionarn
+	// The ARN of the image version created on the instance.
 	SageMakerImageVersionArn pulumi.StringPtrInput `pulumi:"sageMakerImageVersionArn"`
 }
 
@@ -14148,7 +15607,6 @@ func (i *userProfileResourceSpecPtrType) ToUserProfileResourceSpecPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(UserProfileResourceSpecPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html
 type UserProfileResourceSpecOutput struct{ *pulumi.OutputState }
 
 func (UserProfileResourceSpecOutput) ElementType() reflect.Type {
@@ -14173,17 +15631,17 @@ func (o UserProfileResourceSpecOutput) ToUserProfileResourceSpecPtrOutputWithCon
 	}).(UserProfileResourceSpecPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-instancetype
+// The instance type that the image version runs on.
 func (o UserProfileResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimagearn
+// The ARN of the SageMaker image that the image version belongs to.
 func (o UserProfileResourceSpecOutput) SageMakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileResourceSpec) *string { return v.SageMakerImageArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimageversionarn
+// The ARN of the image version created on the instance.
 func (o UserProfileResourceSpecOutput) SageMakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileResourceSpec) *string { return v.SageMakerImageVersionArn }).(pulumi.StringPtrOutput)
 }
@@ -14212,7 +15670,7 @@ func (o UserProfileResourceSpecPtrOutput) Elem() UserProfileResourceSpecOutput {
 	}).(UserProfileResourceSpecOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-instancetype
+// The instance type that the image version runs on.
 func (o UserProfileResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileResourceSpec) *string {
 		if v == nil {
@@ -14222,7 +15680,7 @@ func (o UserProfileResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimagearn
+// The ARN of the SageMaker image that the image version belongs to.
 func (o UserProfileResourceSpecPtrOutput) SageMakerImageArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileResourceSpec) *string {
 		if v == nil {
@@ -14232,7 +15690,7 @@ func (o UserProfileResourceSpecPtrOutput) SageMakerImageArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html#cfn-sagemaker-userprofile-resourcespec-sagemakerimageversionarn
+// The ARN of the image version created on the instance.
 func (o UserProfileResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileResourceSpec) *string {
 		if v == nil {
@@ -14242,13 +15700,13 @@ func (o UserProfileResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html
+// Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
 type UserProfileSharingSettings struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-notebookoutputoption
+	// Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
 	NotebookOutputOption *string `pulumi:"notebookOutputOption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3kmskeyid
+	// When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 	S3KmsKeyId *string `pulumi:"s3KmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3outputpath
+	// When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
 	S3OutputPath *string `pulumi:"s3OutputPath"`
 }
 
@@ -14263,13 +15721,13 @@ type UserProfileSharingSettingsInput interface {
 	ToUserProfileSharingSettingsOutputWithContext(context.Context) UserProfileSharingSettingsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html
+// Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
 type UserProfileSharingSettingsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-notebookoutputoption
+	// Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
 	NotebookOutputOption pulumi.StringPtrInput `pulumi:"notebookOutputOption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3kmskeyid
+	// When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 	S3KmsKeyId pulumi.StringPtrInput `pulumi:"s3KmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3outputpath
+	// When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
 	S3OutputPath pulumi.StringPtrInput `pulumi:"s3OutputPath"`
 }
 
@@ -14326,7 +15784,7 @@ func (i *userProfileSharingSettingsPtrType) ToUserProfileSharingSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(UserProfileSharingSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html
+// Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
 type UserProfileSharingSettingsOutput struct{ *pulumi.OutputState }
 
 func (UserProfileSharingSettingsOutput) ElementType() reflect.Type {
@@ -14351,17 +15809,17 @@ func (o UserProfileSharingSettingsOutput) ToUserProfileSharingSettingsPtrOutputW
 	}).(UserProfileSharingSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-notebookoutputoption
+// Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
 func (o UserProfileSharingSettingsOutput) NotebookOutputOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileSharingSettings) *string { return v.NotebookOutputOption }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3kmskeyid
+// When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 func (o UserProfileSharingSettingsOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileSharingSettings) *string { return v.S3KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3outputpath
+// When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
 func (o UserProfileSharingSettingsOutput) S3OutputPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileSharingSettings) *string { return v.S3OutputPath }).(pulumi.StringPtrOutput)
 }
@@ -14390,7 +15848,7 @@ func (o UserProfileSharingSettingsPtrOutput) Elem() UserProfileSharingSettingsOu
 	}).(UserProfileSharingSettingsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-notebookoutputoption
+// Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
 func (o UserProfileSharingSettingsPtrOutput) NotebookOutputOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileSharingSettings) *string {
 		if v == nil {
@@ -14400,7 +15858,7 @@ func (o UserProfileSharingSettingsPtrOutput) NotebookOutputOption() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3kmskeyid
+// When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
 func (o UserProfileSharingSettingsPtrOutput) S3KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileSharingSettings) *string {
 		if v == nil {
@@ -14410,7 +15868,7 @@ func (o UserProfileSharingSettingsPtrOutput) S3KmsKeyId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html#cfn-sagemaker-userprofile-sharingsettings-s3outputpath
+// When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
 func (o UserProfileSharingSettingsPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileSharingSettings) *string {
 		if v == nil {
@@ -14420,17 +15878,117 @@ func (o UserProfileSharingSettingsPtrOutput) S3OutputPath() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html
+type UserProfileTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// UserProfileTagInput is an input type that accepts UserProfileTagArgs and UserProfileTagOutput values.
+// You can construct a concrete instance of `UserProfileTagInput` via:
+//
+//          UserProfileTagArgs{...}
+type UserProfileTagInput interface {
+	pulumi.Input
+
+	ToUserProfileTagOutput() UserProfileTagOutput
+	ToUserProfileTagOutputWithContext(context.Context) UserProfileTagOutput
+}
+
+type UserProfileTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (UserProfileTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileTag)(nil)).Elem()
+}
+
+func (i UserProfileTagArgs) ToUserProfileTagOutput() UserProfileTagOutput {
+	return i.ToUserProfileTagOutputWithContext(context.Background())
+}
+
+func (i UserProfileTagArgs) ToUserProfileTagOutputWithContext(ctx context.Context) UserProfileTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileTagOutput)
+}
+
+// UserProfileTagArrayInput is an input type that accepts UserProfileTagArray and UserProfileTagArrayOutput values.
+// You can construct a concrete instance of `UserProfileTagArrayInput` via:
+//
+//          UserProfileTagArray{ UserProfileTagArgs{...} }
+type UserProfileTagArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileTagArrayOutput() UserProfileTagArrayOutput
+	ToUserProfileTagArrayOutputWithContext(context.Context) UserProfileTagArrayOutput
+}
+
+type UserProfileTagArray []UserProfileTagInput
+
+func (UserProfileTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileTag)(nil)).Elem()
+}
+
+func (i UserProfileTagArray) ToUserProfileTagArrayOutput() UserProfileTagArrayOutput {
+	return i.ToUserProfileTagArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileTagArray) ToUserProfileTagArrayOutputWithContext(ctx context.Context) UserProfileTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileTagArrayOutput)
+}
+
+type UserProfileTagOutput struct{ *pulumi.OutputState }
+
+func (UserProfileTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileTag)(nil)).Elem()
+}
+
+func (o UserProfileTagOutput) ToUserProfileTagOutput() UserProfileTagOutput {
+	return o
+}
+
+func (o UserProfileTagOutput) ToUserProfileTagOutputWithContext(ctx context.Context) UserProfileTagOutput {
+	return o
+}
+
+func (o UserProfileTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o UserProfileTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type UserProfileTagArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileTag)(nil)).Elem()
+}
+
+func (o UserProfileTagArrayOutput) ToUserProfileTagArrayOutput() UserProfileTagArrayOutput {
+	return o
+}
+
+func (o UserProfileTagArrayOutput) ToUserProfileTagArrayOutputWithContext(ctx context.Context) UserProfileTagArrayOutput {
+	return o
+}
+
+func (o UserProfileTagArrayOutput) Index(i pulumi.IntInput) UserProfileTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileTag {
+		return vs[0].([]UserProfileTag)[vs[1].(int)]
+	}).(UserProfileTagOutput)
+}
+
+// A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type UserProfileUserSettings struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
+	// The user profile Amazon Resource Name (ARN).
 	ExecutionRole *string `pulumi:"executionRole"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterserverappsettings
+	// The Jupyter server's app settings.
 	JupyterServerAppSettings *UserProfileJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-kernelgatewayappsettings
+	// The kernel gateway app settings.
 	KernelGatewayAppSettings *UserProfileKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups
+	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings
+	// The sharing settings.
 	SharingSettings *UserProfileSharingSettings `pulumi:"sharingSettings"`
 }
 
@@ -14445,17 +16003,17 @@ type UserProfileUserSettingsInput interface {
 	ToUserProfileUserSettingsOutputWithContext(context.Context) UserProfileUserSettingsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html
+// A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type UserProfileUserSettingsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
+	// The user profile Amazon Resource Name (ARN).
 	ExecutionRole pulumi.StringPtrInput `pulumi:"executionRole"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterserverappsettings
+	// The Jupyter server's app settings.
 	JupyterServerAppSettings UserProfileJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-kernelgatewayappsettings
+	// The kernel gateway app settings.
 	KernelGatewayAppSettings UserProfileKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups
+	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings
+	// The sharing settings.
 	SharingSettings UserProfileSharingSettingsPtrInput `pulumi:"sharingSettings"`
 }
 
@@ -14512,7 +16070,7 @@ func (i *userProfileUserSettingsPtrType) ToUserProfileUserSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html
+// A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type UserProfileUserSettingsOutput struct{ *pulumi.OutputState }
 
 func (UserProfileUserSettingsOutput) ElementType() reflect.Type {
@@ -14537,31 +16095,31 @@ func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsPtrOutputWithCon
 	}).(UserProfileUserSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
+// The user profile Amazon Resource Name (ARN).
 func (o UserProfileUserSettingsOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterserverappsettings
+// The Jupyter server's app settings.
 func (o UserProfileUserSettingsOutput) JupyterServerAppSettings() UserProfileJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileJupyterServerAppSettings {
 		return v.JupyterServerAppSettings
 	}).(UserProfileJupyterServerAppSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-kernelgatewayappsettings
+// The kernel gateway app settings.
 func (o UserProfileUserSettingsOutput) KernelGatewayAppSettings() UserProfileKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileKernelGatewayAppSettings {
 		return v.KernelGatewayAppSettings
 	}).(UserProfileKernelGatewayAppSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups
+// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 func (o UserProfileUserSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings
+// The sharing settings.
 func (o UserProfileUserSettingsOutput) SharingSettings() UserProfileSharingSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileSharingSettings { return v.SharingSettings }).(UserProfileSharingSettingsPtrOutput)
 }
@@ -14590,7 +16148,7 @@ func (o UserProfileUserSettingsPtrOutput) Elem() UserProfileUserSettingsOutput {
 	}).(UserProfileUserSettingsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
+// The user profile Amazon Resource Name (ARN).
 func (o UserProfileUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *string {
 		if v == nil {
@@ -14600,7 +16158,7 @@ func (o UserProfileUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterserverappsettings
+// The Jupyter server's app settings.
 func (o UserProfileUserSettingsPtrOutput) JupyterServerAppSettings() UserProfileJupyterServerAppSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileJupyterServerAppSettings {
 		if v == nil {
@@ -14610,7 +16168,7 @@ func (o UserProfileUserSettingsPtrOutput) JupyterServerAppSettings() UserProfile
 	}).(UserProfileJupyterServerAppSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-kernelgatewayappsettings
+// The kernel gateway app settings.
 func (o UserProfileUserSettingsPtrOutput) KernelGatewayAppSettings() UserProfileKernelGatewayAppSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileKernelGatewayAppSettings {
 		if v == nil {
@@ -14620,7 +16178,7 @@ func (o UserProfileUserSettingsPtrOutput) KernelGatewayAppSettings() UserProfile
 	}).(UserProfileKernelGatewayAppSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups
+// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 func (o UserProfileUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) []string {
 		if v == nil {
@@ -14630,7 +16188,7 @@ func (o UserProfileUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings
+// The sharing settings.
 func (o UserProfileUserSettingsPtrOutput) SharingSettings() UserProfileSharingSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileSharingSettings {
 		if v == nil {
@@ -14647,8 +16205,12 @@ func init() {
 	pulumi.RegisterOutputType(AppImageConfigKernelGatewayImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigKernelSpecOutput{})
 	pulumi.RegisterOutputType(AppImageConfigKernelSpecArrayOutput{})
+	pulumi.RegisterOutputType(AppImageConfigTagOutput{})
+	pulumi.RegisterOutputType(AppImageConfigTagArrayOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(AppTagOutput{})
+	pulumi.RegisterOutputType(AppTagArrayOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionClusterConfigOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionConstraintsResourceOutput{})
@@ -14674,11 +16236,18 @@ func init() {
 	pulumi.RegisterOutputType(DataQualityJobDefinitionStatisticsResourcePtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionStoppingConditionOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionStoppingConditionPtrOutput{})
+	pulumi.RegisterOutputType(DataQualityJobDefinitionTagOutput{})
+	pulumi.RegisterOutputType(DataQualityJobDefinitionTagArrayOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionVpcConfigOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(DeviceDeviceOutput{})
+	pulumi.RegisterOutputType(DeviceDevicePtrOutput{})
 	pulumi.RegisterOutputType(DeviceFleetEdgeOutputConfigOutput{})
 	pulumi.RegisterOutputType(DeviceFleetEdgeOutputConfigPtrOutput{})
+	pulumi.RegisterOutputType(DeviceFleetTagOutput{})
+	pulumi.RegisterOutputType(DeviceFleetTagArrayOutput{})
+	pulumi.RegisterOutputType(DeviceTagOutput{})
+	pulumi.RegisterOutputType(DeviceTagArrayOutput{})
 	pulumi.RegisterOutputType(DomainCustomImageOutput{})
 	pulumi.RegisterOutputType(DomainCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(DomainJupyterServerAppSettingsOutput{})
@@ -14689,10 +16258,16 @@ func init() {
 	pulumi.RegisterOutputType(DomainResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(DomainSharingSettingsOutput{})
 	pulumi.RegisterOutputType(DomainSharingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainTagOutput{})
+	pulumi.RegisterOutputType(DomainTagArrayOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(FeatureGroupTagOutput{})
+	pulumi.RegisterOutputType(FeatureGroupTagArrayOutput{})
+	pulumi.RegisterOutputType(ImageTagOutput{})
+	pulumi.RegisterOutputType(ImageTagArrayOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionClusterConfigOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionConstraintsResourceOutput{})
@@ -14718,6 +16293,8 @@ func init() {
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionS3OutputOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionStoppingConditionOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionStoppingConditionPtrOutput{})
+	pulumi.RegisterOutputType(ModelBiasJobDefinitionTagOutput{})
+	pulumi.RegisterOutputType(ModelBiasJobDefinitionTagArrayOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionVpcConfigOutput{})
 	pulumi.RegisterOutputType(ModelBiasJobDefinitionVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionClusterConfigOutput{})
@@ -14743,8 +16320,12 @@ func init() {
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionS3OutputOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionStoppingConditionOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionStoppingConditionPtrOutput{})
+	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionTagOutput{})
+	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionTagArrayOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionVpcConfigOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelPackageGroupTagOutput{})
+	pulumi.RegisterOutputType(ModelPackageGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionClusterConfigOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionConstraintsResourceOutput{})
@@ -14770,6 +16351,8 @@ func init() {
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionS3OutputOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionStoppingConditionOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionStoppingConditionPtrOutput{})
+	pulumi.RegisterOutputType(ModelQualityJobDefinitionTagOutput{})
+	pulumi.RegisterOutputType(ModelQualityJobDefinitionTagArrayOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionVpcConfigOutput{})
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleBaselineConfigOutput{})
@@ -14804,8 +16387,14 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleStatisticsResourcePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleStoppingConditionOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleStoppingConditionPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleTagOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleTagArrayOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleVpcConfigOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(PipelineTagOutput{})
+	pulumi.RegisterOutputType(PipelineTagArrayOutput{})
+	pulumi.RegisterOutputType(ProjectTagOutput{})
+	pulumi.RegisterOutputType(ProjectTagArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileCustomImageOutput{})
 	pulumi.RegisterOutputType(UserProfileCustomImageArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileJupyterServerAppSettingsOutput{})
@@ -14816,6 +16405,8 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileSharingSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileSharingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileTagOutput{})
+	pulumi.RegisterOutputType(UserProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsPtrOutput{})
 }

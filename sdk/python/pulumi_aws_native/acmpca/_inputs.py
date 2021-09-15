@@ -21,6 +21,7 @@ __all__ = [
     'CertificateAuthorityOtherNameArgs',
     'CertificateAuthorityRevocationConfigurationArgs',
     'CertificateAuthoritySubjectArgs',
+    'CertificateAuthorityTagArgs',
     'CertificateEdiPartyNameArgs',
     'CertificateExtendedKeyUsageArgs',
     'CertificateExtensionsArgs',
@@ -40,9 +41,7 @@ class CertificateApiPassthroughArgs:
                  extensions: Optional[pulumi.Input['CertificateExtensionsArgs']] = None,
                  subject: Optional[pulumi.Input['CertificateSubjectArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html
-        :param pulumi.Input['CertificateExtensionsArgs'] extensions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-extensions
-        :param pulumi.Input['CertificateSubjectArgs'] subject: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-subject
+        Structure that specifies fields to be overridden in a certificate at the time of issuance. These requires an API Passthrough template be used or they will be ignored.
         """
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
@@ -52,9 +51,6 @@ class CertificateApiPassthroughArgs:
     @property
     @pulumi.getter
     def extensions(self) -> Optional[pulumi.Input['CertificateExtensionsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-extensions
-        """
         return pulumi.get(self, "extensions")
 
     @extensions.setter
@@ -64,9 +60,6 @@ class CertificateApiPassthroughArgs:
     @property
     @pulumi.getter
     def subject(self) -> Optional[pulumi.Input['CertificateSubjectArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html#cfn-acmpca-certificate-apipassthrough-subject
-        """
         return pulumi.get(self, "subject")
 
     @subject.setter
@@ -80,9 +73,7 @@ class CertificateAuthorityAccessDescriptionArgs:
                  access_location: pulumi.Input['CertificateAuthorityGeneralNameArgs'],
                  access_method: pulumi.Input['CertificateAuthorityAccessMethodArgs']):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html
-        :param pulumi.Input['CertificateAuthorityGeneralNameArgs'] access_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accesslocation
-        :param pulumi.Input['CertificateAuthorityAccessMethodArgs'] access_method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accessmethod
+        Structure that contains X.509 AccessDescription information.
         """
         pulumi.set(__self__, "access_location", access_location)
         pulumi.set(__self__, "access_method", access_method)
@@ -90,9 +81,6 @@ class CertificateAuthorityAccessDescriptionArgs:
     @property
     @pulumi.getter(name="accessLocation")
     def access_location(self) -> pulumi.Input['CertificateAuthorityGeneralNameArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accesslocation
-        """
         return pulumi.get(self, "access_location")
 
     @access_location.setter
@@ -102,9 +90,6 @@ class CertificateAuthorityAccessDescriptionArgs:
     @property
     @pulumi.getter(name="accessMethod")
     def access_method(self) -> pulumi.Input['CertificateAuthorityAccessMethodArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accessmethod
-        """
         return pulumi.get(self, "access_method")
 
     @access_method.setter
@@ -118,9 +103,7 @@ class CertificateAuthorityAccessMethodArgs:
                  access_method_type: Optional[pulumi.Input[str]] = None,
                  custom_object_identifier: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html
-        :param pulumi.Input[str] access_method_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html#cfn-acmpca-certificateauthority-accessmethod-accessmethodtype
-        :param pulumi.Input[str] custom_object_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html#cfn-acmpca-certificateauthority-accessmethod-customobjectidentifier
+        Structure that contains X.509 AccessMethod information. Assign one and ONLY one field.
         """
         if access_method_type is not None:
             pulumi.set(__self__, "access_method_type", access_method_type)
@@ -130,9 +113,6 @@ class CertificateAuthorityAccessMethodArgs:
     @property
     @pulumi.getter(name="accessMethodType")
     def access_method_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html#cfn-acmpca-certificateauthority-accessmethod-accessmethodtype
-        """
         return pulumi.get(self, "access_method_type")
 
     @access_method_type.setter
@@ -142,9 +122,6 @@ class CertificateAuthorityAccessMethodArgs:
     @property
     @pulumi.getter(name="customObjectIdentifier")
     def custom_object_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html#cfn-acmpca-certificateauthority-accessmethod-customobjectidentifier
-        """
         return pulumi.get(self, "custom_object_identifier")
 
     @custom_object_identifier.setter
@@ -161,12 +138,7 @@ class CertificateAuthorityCrlConfigurationArgs:
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_object_acl: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html
-        :param pulumi.Input[str] custom_cname: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-customcname
-        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-enabled
-        :param pulumi.Input[int] expiration_in_days: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-expirationindays
-        :param pulumi.Input[str] s3_bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3bucketname
-        :param pulumi.Input[str] s3_object_acl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3objectacl
+        Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
         """
         if custom_cname is not None:
             pulumi.set(__self__, "custom_cname", custom_cname)
@@ -182,9 +154,6 @@ class CertificateAuthorityCrlConfigurationArgs:
     @property
     @pulumi.getter(name="customCname")
     def custom_cname(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-customcname
-        """
         return pulumi.get(self, "custom_cname")
 
     @custom_cname.setter
@@ -194,9 +163,6 @@ class CertificateAuthorityCrlConfigurationArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-enabled
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -206,9 +172,6 @@ class CertificateAuthorityCrlConfigurationArgs:
     @property
     @pulumi.getter(name="expirationInDays")
     def expiration_in_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-expirationindays
-        """
         return pulumi.get(self, "expiration_in_days")
 
     @expiration_in_days.setter
@@ -218,9 +181,6 @@ class CertificateAuthorityCrlConfigurationArgs:
     @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3bucketname
-        """
         return pulumi.get(self, "s3_bucket_name")
 
     @s3_bucket_name.setter
@@ -230,9 +190,6 @@ class CertificateAuthorityCrlConfigurationArgs:
     @property
     @pulumi.getter(name="s3ObjectAcl")
     def s3_object_acl(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html#cfn-acmpca-certificateauthority-crlconfiguration-s3objectacl
-        """
         return pulumi.get(self, "s3_object_acl")
 
     @s3_object_acl.setter
@@ -246,9 +203,7 @@ class CertificateAuthorityCsrExtensionsArgs:
                  key_usage: Optional[pulumi.Input['CertificateAuthorityKeyUsageArgs']] = None,
                  subject_information_access: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgs']]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html
-        :param pulumi.Input['CertificateAuthorityKeyUsageArgs'] key_usage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-keyusage
-        :param pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgs']]] subject_information_access: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-subjectinformationaccess
+        Structure that contains CSR pass though extensions information.
         """
         if key_usage is not None:
             pulumi.set(__self__, "key_usage", key_usage)
@@ -258,9 +213,6 @@ class CertificateAuthorityCsrExtensionsArgs:
     @property
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> Optional[pulumi.Input['CertificateAuthorityKeyUsageArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-keyusage
-        """
         return pulumi.get(self, "key_usage")
 
     @key_usage.setter
@@ -270,9 +222,6 @@ class CertificateAuthorityCsrExtensionsArgs:
     @property
     @pulumi.getter(name="subjectInformationAccess")
     def subject_information_access(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityAccessDescriptionArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-subjectinformationaccess
-        """
         return pulumi.get(self, "subject_information_access")
 
     @subject_information_access.setter
@@ -286,9 +235,7 @@ class CertificateAuthorityEdiPartyNameArgs:
                  name_assigner: pulumi.Input[str],
                  party_name: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html
-        :param pulumi.Input[str] name_assigner: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-nameassigner
-        :param pulumi.Input[str] party_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-partyname
+        Structure that contains X.509 EdiPartyName information.
         """
         pulumi.set(__self__, "name_assigner", name_assigner)
         pulumi.set(__self__, "party_name", party_name)
@@ -296,9 +243,6 @@ class CertificateAuthorityEdiPartyNameArgs:
     @property
     @pulumi.getter(name="nameAssigner")
     def name_assigner(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-nameassigner
-        """
         return pulumi.get(self, "name_assigner")
 
     @name_assigner.setter
@@ -308,9 +252,6 @@ class CertificateAuthorityEdiPartyNameArgs:
     @property
     @pulumi.getter(name="partyName")
     def party_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html#cfn-acmpca-certificateauthority-edipartyname-partyname
-        """
         return pulumi.get(self, "party_name")
 
     @party_name.setter
@@ -330,15 +271,7 @@ class CertificateAuthorityGeneralNameArgs:
                  rfc822_name: Optional[pulumi.Input[str]] = None,
                  uniform_resource_identifier: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html
-        :param pulumi.Input['CertificateAuthoritySubjectArgs'] directory_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-directoryname
-        :param pulumi.Input[str] dns_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-dnsname
-        :param pulumi.Input['CertificateAuthorityEdiPartyNameArgs'] edi_party_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-edipartyname
-        :param pulumi.Input[str] ip_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-ipaddress
-        :param pulumi.Input['CertificateAuthorityOtherNameArgs'] other_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-othername
-        :param pulumi.Input[str] registered_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-registeredid
-        :param pulumi.Input[str] rfc822_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-rfc822name
-        :param pulumi.Input[str] uniform_resource_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-uniformresourceidentifier
+        Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
         """
         if directory_name is not None:
             pulumi.set(__self__, "directory_name", directory_name)
@@ -360,9 +293,6 @@ class CertificateAuthorityGeneralNameArgs:
     @property
     @pulumi.getter(name="directoryName")
     def directory_name(self) -> Optional[pulumi.Input['CertificateAuthoritySubjectArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-directoryname
-        """
         return pulumi.get(self, "directory_name")
 
     @directory_name.setter
@@ -372,9 +302,6 @@ class CertificateAuthorityGeneralNameArgs:
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-dnsname
-        """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
@@ -384,9 +311,6 @@ class CertificateAuthorityGeneralNameArgs:
     @property
     @pulumi.getter(name="ediPartyName")
     def edi_party_name(self) -> Optional[pulumi.Input['CertificateAuthorityEdiPartyNameArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-edipartyname
-        """
         return pulumi.get(self, "edi_party_name")
 
     @edi_party_name.setter
@@ -396,9 +320,6 @@ class CertificateAuthorityGeneralNameArgs:
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-ipaddress
-        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -408,9 +329,6 @@ class CertificateAuthorityGeneralNameArgs:
     @property
     @pulumi.getter(name="otherName")
     def other_name(self) -> Optional[pulumi.Input['CertificateAuthorityOtherNameArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-othername
-        """
         return pulumi.get(self, "other_name")
 
     @other_name.setter
@@ -420,9 +338,6 @@ class CertificateAuthorityGeneralNameArgs:
     @property
     @pulumi.getter(name="registeredId")
     def registered_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-registeredid
-        """
         return pulumi.get(self, "registered_id")
 
     @registered_id.setter
@@ -432,9 +347,6 @@ class CertificateAuthorityGeneralNameArgs:
     @property
     @pulumi.getter(name="rfc822Name")
     def rfc822_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-rfc822name
-        """
         return pulumi.get(self, "rfc822_name")
 
     @rfc822_name.setter
@@ -444,9 +356,6 @@ class CertificateAuthorityGeneralNameArgs:
     @property
     @pulumi.getter(name="uniformResourceIdentifier")
     def uniform_resource_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html#cfn-acmpca-certificateauthority-generalname-uniformresourceidentifier
-        """
         return pulumi.get(self, "uniform_resource_identifier")
 
     @uniform_resource_identifier.setter
@@ -467,16 +376,7 @@ class CertificateAuthorityKeyUsageArgs:
                  key_encipherment: Optional[pulumi.Input[bool]] = None,
                  non_repudiation: Optional[pulumi.Input[bool]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html
-        :param pulumi.Input[bool] c_rl_sign: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-crlsign
-        :param pulumi.Input[bool] data_encipherment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-dataencipherment
-        :param pulumi.Input[bool] decipher_only: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-decipheronly
-        :param pulumi.Input[bool] digital_signature: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-digitalsignature
-        :param pulumi.Input[bool] encipher_only: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-encipheronly
-        :param pulumi.Input[bool] key_agreement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keyagreement
-        :param pulumi.Input[bool] key_cert_sign: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keycertsign
-        :param pulumi.Input[bool] key_encipherment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keyencipherment
-        :param pulumi.Input[bool] non_repudiation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-nonrepudiation
+        Structure that contains X.509 KeyUsage information.
         """
         if c_rl_sign is not None:
             pulumi.set(__self__, "c_rl_sign", c_rl_sign)
@@ -500,9 +400,6 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="cRLSign")
     def c_rl_sign(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-crlsign
-        """
         return pulumi.get(self, "c_rl_sign")
 
     @c_rl_sign.setter
@@ -512,9 +409,6 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="dataEncipherment")
     def data_encipherment(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-dataencipherment
-        """
         return pulumi.get(self, "data_encipherment")
 
     @data_encipherment.setter
@@ -524,9 +418,6 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="decipherOnly")
     def decipher_only(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-decipheronly
-        """
         return pulumi.get(self, "decipher_only")
 
     @decipher_only.setter
@@ -536,9 +427,6 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="digitalSignature")
     def digital_signature(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-digitalsignature
-        """
         return pulumi.get(self, "digital_signature")
 
     @digital_signature.setter
@@ -548,9 +436,6 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="encipherOnly")
     def encipher_only(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-encipheronly
-        """
         return pulumi.get(self, "encipher_only")
 
     @encipher_only.setter
@@ -560,9 +445,6 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="keyAgreement")
     def key_agreement(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keyagreement
-        """
         return pulumi.get(self, "key_agreement")
 
     @key_agreement.setter
@@ -572,9 +454,6 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="keyCertSign")
     def key_cert_sign(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keycertsign
-        """
         return pulumi.get(self, "key_cert_sign")
 
     @key_cert_sign.setter
@@ -584,9 +463,6 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="keyEncipherment")
     def key_encipherment(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-keyencipherment
-        """
         return pulumi.get(self, "key_encipherment")
 
     @key_encipherment.setter
@@ -596,9 +472,6 @@ class CertificateAuthorityKeyUsageArgs:
     @property
     @pulumi.getter(name="nonRepudiation")
     def non_repudiation(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html#cfn-acmpca-certificateauthority-keyusage-nonrepudiation
-        """
         return pulumi.get(self, "non_repudiation")
 
     @non_repudiation.setter
@@ -612,9 +485,7 @@ class CertificateAuthorityOcspConfigurationArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  ocsp_custom_cname: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html
-        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-enabled
-        :param pulumi.Input[str] ocsp_custom_cname: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-ocspcustomcname
+        Helps to configure online certificate status protocol (OCSP) responder for your certificate authority
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -624,9 +495,6 @@ class CertificateAuthorityOcspConfigurationArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-enabled
-        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -636,9 +504,6 @@ class CertificateAuthorityOcspConfigurationArgs:
     @property
     @pulumi.getter(name="ocspCustomCname")
     def ocsp_custom_cname(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html#cfn-acmpca-certificateauthority-ocspconfiguration-ocspcustomcname
-        """
         return pulumi.get(self, "ocsp_custom_cname")
 
     @ocsp_custom_cname.setter
@@ -652,9 +517,7 @@ class CertificateAuthorityOtherNameArgs:
                  type_id: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html
-        :param pulumi.Input[str] type_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-typeid
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-value
+        Structure that contains X.509 OtherName information.
         """
         pulumi.set(__self__, "type_id", type_id)
         pulumi.set(__self__, "value", value)
@@ -662,9 +525,6 @@ class CertificateAuthorityOtherNameArgs:
     @property
     @pulumi.getter(name="typeId")
     def type_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-typeid
-        """
         return pulumi.get(self, "type_id")
 
     @type_id.setter
@@ -674,9 +534,6 @@ class CertificateAuthorityOtherNameArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html#cfn-acmpca-certificateauthority-othername-value
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -690,9 +547,7 @@ class CertificateAuthorityRevocationConfigurationArgs:
                  crl_configuration: Optional[pulumi.Input['CertificateAuthorityCrlConfigurationArgs']] = None,
                  ocsp_configuration: Optional[pulumi.Input['CertificateAuthorityOcspConfigurationArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html
-        :param pulumi.Input['CertificateAuthorityCrlConfigurationArgs'] crl_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-crlconfiguration
-        :param pulumi.Input['CertificateAuthorityOcspConfigurationArgs'] ocsp_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-ocspconfiguration
+        Certificate Authority revocation information.
         """
         if crl_configuration is not None:
             pulumi.set(__self__, "crl_configuration", crl_configuration)
@@ -702,9 +557,6 @@ class CertificateAuthorityRevocationConfigurationArgs:
     @property
     @pulumi.getter(name="crlConfiguration")
     def crl_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityCrlConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-crlconfiguration
-        """
         return pulumi.get(self, "crl_configuration")
 
     @crl_configuration.setter
@@ -714,9 +566,6 @@ class CertificateAuthorityRevocationConfigurationArgs:
     @property
     @pulumi.getter(name="ocspConfiguration")
     def ocsp_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityOcspConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-ocspconfiguration
-        """
         return pulumi.get(self, "ocsp_configuration")
 
     @ocsp_configuration.setter
@@ -742,21 +591,7 @@ class CertificateAuthoritySubjectArgs:
                  surname: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html
-        :param pulumi.Input[str] common_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-commonname
-        :param pulumi.Input[str] country: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-country
-        :param pulumi.Input[str] distinguished_name_qualifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-distinguishednamequalifier
-        :param pulumi.Input[str] generation_qualifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-generationqualifier
-        :param pulumi.Input[str] given_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-givenname
-        :param pulumi.Input[str] initials: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-initials
-        :param pulumi.Input[str] locality: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-locality
-        :param pulumi.Input[str] organization: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-organization
-        :param pulumi.Input[str] organizational_unit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-organizationalunit
-        :param pulumi.Input[str] pseudonym: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-pseudonym
-        :param pulumi.Input[str] serial_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-serialnumber
-        :param pulumi.Input[str] state: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-state
-        :param pulumi.Input[str] surname: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-surname
-        :param pulumi.Input[str] title: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-title
+        Structure that contains X.500 distinguished name information for your CA.
         """
         if common_name is not None:
             pulumi.set(__self__, "common_name", common_name)
@@ -790,9 +625,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="commonName")
     def common_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-commonname
-        """
         return pulumi.get(self, "common_name")
 
     @common_name.setter
@@ -802,9 +634,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def country(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-country
-        """
         return pulumi.get(self, "country")
 
     @country.setter
@@ -814,9 +643,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="distinguishedNameQualifier")
     def distinguished_name_qualifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-distinguishednamequalifier
-        """
         return pulumi.get(self, "distinguished_name_qualifier")
 
     @distinguished_name_qualifier.setter
@@ -826,9 +652,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="generationQualifier")
     def generation_qualifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-generationqualifier
-        """
         return pulumi.get(self, "generation_qualifier")
 
     @generation_qualifier.setter
@@ -838,9 +661,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="givenName")
     def given_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-givenname
-        """
         return pulumi.get(self, "given_name")
 
     @given_name.setter
@@ -850,9 +670,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def initials(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-initials
-        """
         return pulumi.get(self, "initials")
 
     @initials.setter
@@ -862,9 +679,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def locality(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-locality
-        """
         return pulumi.get(self, "locality")
 
     @locality.setter
@@ -874,9 +688,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def organization(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-organization
-        """
         return pulumi.get(self, "organization")
 
     @organization.setter
@@ -886,9 +697,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="organizationalUnit")
     def organizational_unit(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-organizationalunit
-        """
         return pulumi.get(self, "organizational_unit")
 
     @organizational_unit.setter
@@ -898,9 +706,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def pseudonym(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-pseudonym
-        """
         return pulumi.get(self, "pseudonym")
 
     @pseudonym.setter
@@ -910,9 +715,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-serialnumber
-        """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
@@ -922,9 +724,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-state
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -934,9 +733,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def surname(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-surname
-        """
         return pulumi.get(self, "surname")
 
     @surname.setter
@@ -946,9 +742,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html#cfn-acmpca-certificateauthority-subject-title
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -957,14 +750,41 @@ class CertificateAuthoritySubjectArgs:
 
 
 @pulumi.input_type
+class CertificateAuthorityTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class CertificateEdiPartyNameArgs:
     def __init__(__self__, *,
                  name_assigner: pulumi.Input[str],
                  party_name: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html
-        :param pulumi.Input[str] name_assigner: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-nameassigner
-        :param pulumi.Input[str] party_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-partyname
+        Structure that contains X.509 EdiPartyName information.
         """
         pulumi.set(__self__, "name_assigner", name_assigner)
         pulumi.set(__self__, "party_name", party_name)
@@ -972,9 +792,6 @@ class CertificateEdiPartyNameArgs:
     @property
     @pulumi.getter(name="nameAssigner")
     def name_assigner(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-nameassigner
-        """
         return pulumi.get(self, "name_assigner")
 
     @name_assigner.setter
@@ -984,9 +801,6 @@ class CertificateEdiPartyNameArgs:
     @property
     @pulumi.getter(name="partyName")
     def party_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-edipartyname.html#cfn-acmpca-certificate-edipartyname-partyname
-        """
         return pulumi.get(self, "party_name")
 
     @party_name.setter
@@ -1000,9 +814,7 @@ class CertificateExtendedKeyUsageArgs:
                  extended_key_usage_object_identifier: Optional[pulumi.Input[str]] = None,
                  extended_key_usage_type: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html
-        :param pulumi.Input[str] extended_key_usage_object_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusageobjectidentifier
-        :param pulumi.Input[str] extended_key_usage_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusagetype
+        Structure that contains X.509 ExtendedKeyUsage information.
         """
         if extended_key_usage_object_identifier is not None:
             pulumi.set(__self__, "extended_key_usage_object_identifier", extended_key_usage_object_identifier)
@@ -1012,9 +824,6 @@ class CertificateExtendedKeyUsageArgs:
     @property
     @pulumi.getter(name="extendedKeyUsageObjectIdentifier")
     def extended_key_usage_object_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusageobjectidentifier
-        """
         return pulumi.get(self, "extended_key_usage_object_identifier")
 
     @extended_key_usage_object_identifier.setter
@@ -1024,9 +833,6 @@ class CertificateExtendedKeyUsageArgs:
     @property
     @pulumi.getter(name="extendedKeyUsageType")
     def extended_key_usage_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusagetype
-        """
         return pulumi.get(self, "extended_key_usage_type")
 
     @extended_key_usage_type.setter
@@ -1042,11 +848,7 @@ class CertificateExtensionsArgs:
                  key_usage: Optional[pulumi.Input['CertificateKeyUsageArgs']] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateGeneralNameArgs']]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html
-        :param pulumi.Input[Sequence[pulumi.Input['CertificatePolicyInformationArgs']]] certificate_policies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-certificatepolicies
-        :param pulumi.Input[Sequence[pulumi.Input['CertificateExtendedKeyUsageArgs']]] extended_key_usage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-extendedkeyusage
-        :param pulumi.Input['CertificateKeyUsageArgs'] key_usage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-keyusage
-        :param pulumi.Input[Sequence[pulumi.Input['CertificateGeneralNameArgs']]] subject_alternative_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-subjectalternativenames
+        Structure that contains X.500 extensions for a Certificate.
         """
         if certificate_policies is not None:
             pulumi.set(__self__, "certificate_policies", certificate_policies)
@@ -1060,9 +862,6 @@ class CertificateExtensionsArgs:
     @property
     @pulumi.getter(name="certificatePolicies")
     def certificate_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyInformationArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-certificatepolicies
-        """
         return pulumi.get(self, "certificate_policies")
 
     @certificate_policies.setter
@@ -1072,9 +871,6 @@ class CertificateExtensionsArgs:
     @property
     @pulumi.getter(name="extendedKeyUsage")
     def extended_key_usage(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateExtendedKeyUsageArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-extendedkeyusage
-        """
         return pulumi.get(self, "extended_key_usage")
 
     @extended_key_usage.setter
@@ -1084,9 +880,6 @@ class CertificateExtensionsArgs:
     @property
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> Optional[pulumi.Input['CertificateKeyUsageArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-keyusage
-        """
         return pulumi.get(self, "key_usage")
 
     @key_usage.setter
@@ -1096,9 +889,6 @@ class CertificateExtensionsArgs:
     @property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateGeneralNameArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-subjectalternativenames
-        """
         return pulumi.get(self, "subject_alternative_names")
 
     @subject_alternative_names.setter
@@ -1118,15 +908,7 @@ class CertificateGeneralNameArgs:
                  rfc822_name: Optional[pulumi.Input[str]] = None,
                  uniform_resource_identifier: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html
-        :param pulumi.Input['CertificateSubjectArgs'] directory_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-directoryname
-        :param pulumi.Input[str] dns_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-dnsname
-        :param pulumi.Input['CertificateEdiPartyNameArgs'] edi_party_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-edipartyname
-        :param pulumi.Input[str] ip_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-ipaddress
-        :param pulumi.Input['CertificateOtherNameArgs'] other_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-othername
-        :param pulumi.Input[str] registered_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-registeredid
-        :param pulumi.Input[str] rfc822_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-rfc822name
-        :param pulumi.Input[str] uniform_resource_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-uniformresourceidentifier
+        Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
         """
         if directory_name is not None:
             pulumi.set(__self__, "directory_name", directory_name)
@@ -1148,9 +930,6 @@ class CertificateGeneralNameArgs:
     @property
     @pulumi.getter(name="directoryName")
     def directory_name(self) -> Optional[pulumi.Input['CertificateSubjectArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-directoryname
-        """
         return pulumi.get(self, "directory_name")
 
     @directory_name.setter
@@ -1160,9 +939,6 @@ class CertificateGeneralNameArgs:
     @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-dnsname
-        """
         return pulumi.get(self, "dns_name")
 
     @dns_name.setter
@@ -1172,9 +948,6 @@ class CertificateGeneralNameArgs:
     @property
     @pulumi.getter(name="ediPartyName")
     def edi_party_name(self) -> Optional[pulumi.Input['CertificateEdiPartyNameArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-edipartyname
-        """
         return pulumi.get(self, "edi_party_name")
 
     @edi_party_name.setter
@@ -1184,9 +957,6 @@ class CertificateGeneralNameArgs:
     @property
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-ipaddress
-        """
         return pulumi.get(self, "ip_address")
 
     @ip_address.setter
@@ -1196,9 +966,6 @@ class CertificateGeneralNameArgs:
     @property
     @pulumi.getter(name="otherName")
     def other_name(self) -> Optional[pulumi.Input['CertificateOtherNameArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-othername
-        """
         return pulumi.get(self, "other_name")
 
     @other_name.setter
@@ -1208,9 +975,6 @@ class CertificateGeneralNameArgs:
     @property
     @pulumi.getter(name="registeredId")
     def registered_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-registeredid
-        """
         return pulumi.get(self, "registered_id")
 
     @registered_id.setter
@@ -1220,9 +984,6 @@ class CertificateGeneralNameArgs:
     @property
     @pulumi.getter(name="rfc822Name")
     def rfc822_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-rfc822name
-        """
         return pulumi.get(self, "rfc822_name")
 
     @rfc822_name.setter
@@ -1232,9 +993,6 @@ class CertificateGeneralNameArgs:
     @property
     @pulumi.getter(name="uniformResourceIdentifier")
     def uniform_resource_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-generalname.html#cfn-acmpca-certificate-generalname-uniformresourceidentifier
-        """
         return pulumi.get(self, "uniform_resource_identifier")
 
     @uniform_resource_identifier.setter
@@ -1255,16 +1013,7 @@ class CertificateKeyUsageArgs:
                  key_encipherment: Optional[pulumi.Input[bool]] = None,
                  non_repudiation: Optional[pulumi.Input[bool]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html
-        :param pulumi.Input[bool] c_rl_sign: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-crlsign
-        :param pulumi.Input[bool] data_encipherment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-dataencipherment
-        :param pulumi.Input[bool] decipher_only: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-decipheronly
-        :param pulumi.Input[bool] digital_signature: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-digitalsignature
-        :param pulumi.Input[bool] encipher_only: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-encipheronly
-        :param pulumi.Input[bool] key_agreement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyagreement
-        :param pulumi.Input[bool] key_cert_sign: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keycertsign
-        :param pulumi.Input[bool] key_encipherment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyencipherment
-        :param pulumi.Input[bool] non_repudiation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-nonrepudiation
+        Structure that contains X.509 KeyUsage information.
         """
         if c_rl_sign is not None:
             pulumi.set(__self__, "c_rl_sign", c_rl_sign)
@@ -1288,9 +1037,6 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="cRLSign")
     def c_rl_sign(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-crlsign
-        """
         return pulumi.get(self, "c_rl_sign")
 
     @c_rl_sign.setter
@@ -1300,9 +1046,6 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="dataEncipherment")
     def data_encipherment(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-dataencipherment
-        """
         return pulumi.get(self, "data_encipherment")
 
     @data_encipherment.setter
@@ -1312,9 +1055,6 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="decipherOnly")
     def decipher_only(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-decipheronly
-        """
         return pulumi.get(self, "decipher_only")
 
     @decipher_only.setter
@@ -1324,9 +1064,6 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="digitalSignature")
     def digital_signature(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-digitalsignature
-        """
         return pulumi.get(self, "digital_signature")
 
     @digital_signature.setter
@@ -1336,9 +1073,6 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="encipherOnly")
     def encipher_only(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-encipheronly
-        """
         return pulumi.get(self, "encipher_only")
 
     @encipher_only.setter
@@ -1348,9 +1082,6 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="keyAgreement")
     def key_agreement(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyagreement
-        """
         return pulumi.get(self, "key_agreement")
 
     @key_agreement.setter
@@ -1360,9 +1091,6 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="keyCertSign")
     def key_cert_sign(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keycertsign
-        """
         return pulumi.get(self, "key_cert_sign")
 
     @key_cert_sign.setter
@@ -1372,9 +1100,6 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="keyEncipherment")
     def key_encipherment(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-keyencipherment
-        """
         return pulumi.get(self, "key_encipherment")
 
     @key_encipherment.setter
@@ -1384,9 +1109,6 @@ class CertificateKeyUsageArgs:
     @property
     @pulumi.getter(name="nonRepudiation")
     def non_repudiation(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-keyusage.html#cfn-acmpca-certificate-keyusage-nonrepudiation
-        """
         return pulumi.get(self, "non_repudiation")
 
     @non_repudiation.setter
@@ -1400,9 +1122,7 @@ class CertificateOtherNameArgs:
                  type_id: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html
-        :param pulumi.Input[str] type_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-typeid
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-value
+        Structure that contains X.509 OtherName information.
         """
         pulumi.set(__self__, "type_id", type_id)
         pulumi.set(__self__, "value", value)
@@ -1410,9 +1130,6 @@ class CertificateOtherNameArgs:
     @property
     @pulumi.getter(name="typeId")
     def type_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-typeid
-        """
         return pulumi.get(self, "type_id")
 
     @type_id.setter
@@ -1422,9 +1139,6 @@ class CertificateOtherNameArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-othername.html#cfn-acmpca-certificate-othername-value
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -1438,9 +1152,7 @@ class CertificatePolicyInformationArgs:
                  cert_policy_id: pulumi.Input[str],
                  policy_qualifiers: Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgs']]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html
-        :param pulumi.Input[str] cert_policy_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-certpolicyid
-        :param pulumi.Input[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgs']]] policy_qualifiers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-policyqualifiers
+        Structure that contains X.509 Policy information.
         """
         pulumi.set(__self__, "cert_policy_id", cert_policy_id)
         if policy_qualifiers is not None:
@@ -1449,9 +1161,6 @@ class CertificatePolicyInformationArgs:
     @property
     @pulumi.getter(name="certPolicyId")
     def cert_policy_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-certpolicyid
-        """
         return pulumi.get(self, "cert_policy_id")
 
     @cert_policy_id.setter
@@ -1461,9 +1170,6 @@ class CertificatePolicyInformationArgs:
     @property
     @pulumi.getter(name="policyQualifiers")
     def policy_qualifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificatePolicyQualifierInfoArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-policyqualifiers
-        """
         return pulumi.get(self, "policy_qualifiers")
 
     @policy_qualifiers.setter
@@ -1477,9 +1183,7 @@ class CertificatePolicyQualifierInfoArgs:
                  policy_qualifier_id: pulumi.Input[str],
                  qualifier: pulumi.Input['CertificateQualifierArgs']):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html
-        :param pulumi.Input[str] policy_qualifier_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-policyqualifierid
-        :param pulumi.Input['CertificateQualifierArgs'] qualifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-qualifier
+        Structure that contains X.509 Policy qualifier information.
         """
         pulumi.set(__self__, "policy_qualifier_id", policy_qualifier_id)
         pulumi.set(__self__, "qualifier", qualifier)
@@ -1487,9 +1191,6 @@ class CertificatePolicyQualifierInfoArgs:
     @property
     @pulumi.getter(name="policyQualifierId")
     def policy_qualifier_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-policyqualifierid
-        """
         return pulumi.get(self, "policy_qualifier_id")
 
     @policy_qualifier_id.setter
@@ -1499,9 +1200,6 @@ class CertificatePolicyQualifierInfoArgs:
     @property
     @pulumi.getter
     def qualifier(self) -> pulumi.Input['CertificateQualifierArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-qualifier
-        """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
@@ -1514,17 +1212,13 @@ class CertificateQualifierArgs:
     def __init__(__self__, *,
                  cps_uri: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html
-        :param pulumi.Input[str] cps_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html#cfn-acmpca-certificate-qualifier-cpsuri
+        Structure that contains a X.509 policy qualifier.
         """
         pulumi.set(__self__, "cps_uri", cps_uri)
 
     @property
     @pulumi.getter(name="cpsUri")
     def cps_uri(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html#cfn-acmpca-certificate-qualifier-cpsuri
-        """
         return pulumi.get(self, "cps_uri")
 
     @cps_uri.setter
@@ -1550,21 +1244,7 @@ class CertificateSubjectArgs:
                  surname: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html
-        :param pulumi.Input[str] common_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-commonname
-        :param pulumi.Input[str] country: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-country
-        :param pulumi.Input[str] distinguished_name_qualifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-distinguishednamequalifier
-        :param pulumi.Input[str] generation_qualifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-generationqualifier
-        :param pulumi.Input[str] given_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-givenname
-        :param pulumi.Input[str] initials: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-initials
-        :param pulumi.Input[str] locality: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-locality
-        :param pulumi.Input[str] organization: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-organization
-        :param pulumi.Input[str] organizational_unit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-organizationalunit
-        :param pulumi.Input[str] pseudonym: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-pseudonym
-        :param pulumi.Input[str] serial_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-serialnumber
-        :param pulumi.Input[str] state: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-state
-        :param pulumi.Input[str] surname: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-surname
-        :param pulumi.Input[str] title: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-title
+        Structure that contains X.500 distinguished name information.
         """
         if common_name is not None:
             pulumi.set(__self__, "common_name", common_name)
@@ -1598,9 +1278,6 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter(name="commonName")
     def common_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-commonname
-        """
         return pulumi.get(self, "common_name")
 
     @common_name.setter
@@ -1610,9 +1287,6 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter
     def country(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-country
-        """
         return pulumi.get(self, "country")
 
     @country.setter
@@ -1622,9 +1296,6 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter(name="distinguishedNameQualifier")
     def distinguished_name_qualifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-distinguishednamequalifier
-        """
         return pulumi.get(self, "distinguished_name_qualifier")
 
     @distinguished_name_qualifier.setter
@@ -1634,9 +1305,6 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter(name="generationQualifier")
     def generation_qualifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-generationqualifier
-        """
         return pulumi.get(self, "generation_qualifier")
 
     @generation_qualifier.setter
@@ -1646,9 +1314,6 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter(name="givenName")
     def given_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-givenname
-        """
         return pulumi.get(self, "given_name")
 
     @given_name.setter
@@ -1658,9 +1323,6 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter
     def initials(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-initials
-        """
         return pulumi.get(self, "initials")
 
     @initials.setter
@@ -1670,9 +1332,6 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter
     def locality(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-locality
-        """
         return pulumi.get(self, "locality")
 
     @locality.setter
@@ -1682,9 +1341,6 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter
     def organization(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-organization
-        """
         return pulumi.get(self, "organization")
 
     @organization.setter
@@ -1694,9 +1350,6 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter(name="organizationalUnit")
     def organizational_unit(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-organizationalunit
-        """
         return pulumi.get(self, "organizational_unit")
 
     @organizational_unit.setter
@@ -1706,9 +1359,6 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter
     def pseudonym(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-pseudonym
-        """
         return pulumi.get(self, "pseudonym")
 
     @pseudonym.setter
@@ -1718,9 +1368,6 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-serialnumber
-        """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
@@ -1730,9 +1377,6 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-state
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -1742,9 +1386,6 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter
     def surname(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-surname
-        """
         return pulumi.get(self, "surname")
 
     @surname.setter
@@ -1754,9 +1395,6 @@ class CertificateSubjectArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-subject.html#cfn-acmpca-certificate-subject-title
-        """
         return pulumi.get(self, "title")
 
     @title.setter
@@ -1770,9 +1408,7 @@ class CertificateValidityArgs:
                  type: pulumi.Input[str],
                  value: pulumi.Input[float]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-type
-        :param pulumi.Input[float] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value
+        Validity for a certificate.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -1780,9 +1416,6 @@ class CertificateValidityArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-type
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1792,9 +1425,6 @@ class CertificateValidityArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[float]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value
-        """
         return pulumi.get(self, "value")
 
     @value.setter

@@ -18,9 +18,9 @@ class ModuleDefaultVersionArgs:
                  version_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ModuleDefaultVersion resource.
-        :param pulumi.Input[str] arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
-        :param pulumi.Input[str] module_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
-        :param pulumi.Input[str] version_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the module version to set as the default version.
+        :param pulumi.Input[str] module_name: The name of a module existing in the registry.
+        :param pulumi.Input[str] version_id: The ID of an existing version of the named module to set as the default.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -33,7 +33,7 @@ class ModuleDefaultVersionArgs:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
+        The Amazon Resource Name (ARN) of the module version to set as the default version.
         """
         return pulumi.get(self, "arn")
 
@@ -45,7 +45,7 @@ class ModuleDefaultVersionArgs:
     @pulumi.getter(name="moduleName")
     def module_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
+        The name of a module existing in the registry.
         """
         return pulumi.get(self, "module_name")
 
@@ -57,7 +57,7 @@ class ModuleDefaultVersionArgs:
     @pulumi.getter(name="versionId")
     def version_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+        The ID of an existing version of the named module to set as the default.
         """
         return pulumi.get(self, "version_id")
 
@@ -76,13 +76,13 @@ class ModuleDefaultVersion(pulumi.CustomResource):
                  version_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html
+        A module that has been registered in the CloudFormation registry as the default version
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
-        :param pulumi.Input[str] module_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
-        :param pulumi.Input[str] version_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the module version to set as the default version.
+        :param pulumi.Input[str] module_name: The name of a module existing in the registry.
+        :param pulumi.Input[str] version_id: The ID of an existing version of the named module to set as the default.
         """
         ...
     @overload
@@ -91,7 +91,7 @@ class ModuleDefaultVersion(pulumi.CustomResource):
                  args: Optional[ModuleDefaultVersionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html
+        A module that has been registered in the CloudFormation registry as the default version
 
         :param str resource_name: The name of the resource.
         :param ModuleDefaultVersionArgs args: The arguments to use to populate this resource's properties.
@@ -157,7 +157,7 @@ class ModuleDefaultVersion(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
+        The Amazon Resource Name (ARN) of the module version to set as the default version.
         """
         return pulumi.get(self, "arn")
 
@@ -165,7 +165,7 @@ class ModuleDefaultVersion(pulumi.CustomResource):
     @pulumi.getter(name="moduleName")
     def module_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
+        The name of a module existing in the registry.
         """
         return pulumi.get(self, "module_name")
 
@@ -173,7 +173,7 @@ class ModuleDefaultVersion(pulumi.CustomResource):
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+        The ID of an existing version of the named module to set as the default.
         """
         return pulumi.get(self, "version_id")
 

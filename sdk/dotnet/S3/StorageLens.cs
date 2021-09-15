@@ -10,25 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html
+    /// The AWS::S3::StorageLens resource is an Amazon S3 resource type that you can use to create Storage Lens configurations.
     /// </summary>
     [AwsNativeResourceType("aws-native:s3:StorageLens")]
     public partial class StorageLens : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
-        /// </summary>
         [Output("storageLensConfiguration")]
         public Output<Outputs.StorageLensStorageLensConfiguration> StorageLensConfiguration { get; private set; } = null!;
 
-        [Output("storageLensConfigurationStorageLensArn")]
-        public Output<string> StorageLensConfigurationStorageLensArn { get; private set; } = null!;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
+        /// A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.StorageLensTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -75,21 +69,18 @@ namespace Pulumi.AwsNative.S3
 
     public sealed class StorageLensArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
-        /// </summary>
         [Input("storageLensConfiguration", required: true)]
         public Input<Inputs.StorageLensStorageLensConfigurationArgs> StorageLensConfiguration { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.StorageLensTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
+        /// A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.StorageLensTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.StorageLensTagArgs>());
             set => _tags = value;
         }
 

@@ -8,26 +8,27 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html
+// Resource schema for AWS::IoTSiteWise::Dashboard
 type Dashboard struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the dashboard.
 	DashboardArn pulumi.StringOutput `pulumi:"dashboardArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
+	// The dashboard definition specified in a JSON literal.
 	DashboardDefinition pulumi.StringOutput `pulumi:"dashboardDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
+	// A description for the dashboard.
 	DashboardDescription pulumi.StringOutput `pulumi:"dashboardDescription"`
-	DashboardId          pulumi.StringOutput `pulumi:"dashboardId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
+	// The ID of the dashboard.
+	DashboardId pulumi.StringOutput `pulumi:"dashboardId"`
+	// A friendly name for the dashboard.
 	DashboardName pulumi.StringOutput `pulumi:"dashboardName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
+	// The ID of the project in which to create the dashboard.
 	ProjectId pulumi.StringPtrOutput `pulumi:"projectId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the dashboard.
+	Tags DashboardTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDashboard registers a new resource with the given unique name, arguments, and options.
@@ -78,30 +79,30 @@ func (DashboardState) ElementType() reflect.Type {
 }
 
 type dashboardArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
+	// The dashboard definition specified in a JSON literal.
 	DashboardDefinition string `pulumi:"dashboardDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
+	// A description for the dashboard.
 	DashboardDescription string `pulumi:"dashboardDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
+	// A friendly name for the dashboard.
 	DashboardName string `pulumi:"dashboardName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
+	// The ID of the project in which to create the dashboard.
 	ProjectId *string `pulumi:"projectId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the dashboard.
+	Tags []DashboardTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Dashboard resource.
 type DashboardArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
+	// The dashboard definition specified in a JSON literal.
 	DashboardDefinition pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
+	// A description for the dashboard.
 	DashboardDescription pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
+	// A friendly name for the dashboard.
 	DashboardName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
+	// The ID of the project in which to create the dashboard.
 	ProjectId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
-	Tags aws.TagArrayInput
+	// A list of key-value pairs that contain metadata for the dashboard.
+	Tags DashboardTagArrayInput
 }
 
 func (DashboardArgs) ElementType() reflect.Type {

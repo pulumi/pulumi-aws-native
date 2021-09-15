@@ -8,29 +8,27 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html
+// Resource type definition for AWS::SSMIncidents::ResponsePlan
 type ResponsePlan struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-actions
+	// The list of actions.
 	Actions ResponsePlanActionArrayOutput `pulumi:"actions"`
-	Arn     pulumi.StringOutput           `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-chatchannel
+	// The ARN of the response plan.
+	Arn         pulumi.StringOutput              `pulumi:"arn"`
 	ChatChannel ResponsePlanChatChannelPtrOutput `pulumi:"chatChannel"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-displayname
+	// The display name of the response plan.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-engagements
-	Engagements pulumi.StringArrayOutput `pulumi:"engagements"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-incidenttemplate
+	// The list of engagements to use.
+	Engagements      pulumi.StringArrayOutput           `pulumi:"engagements"`
 	IncidentTemplate ResponsePlanIncidentTemplateOutput `pulumi:"incidentTemplate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-name
+	// The name of the response plan.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The tags to apply to the response plan.
+	Tags ResponsePlanTagArrayOutput `pulumi:"tags"`
 }
 
 // NewResponsePlan registers a new resource with the given unique name, arguments, and options.
@@ -78,38 +76,34 @@ func (ResponsePlanState) ElementType() reflect.Type {
 }
 
 type responsePlanArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-actions
-	Actions []ResponsePlanAction `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-chatchannel
+	// The list of actions.
+	Actions     []ResponsePlanAction     `pulumi:"actions"`
 	ChatChannel *ResponsePlanChatChannel `pulumi:"chatChannel"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-displayname
+	// The display name of the response plan.
 	DisplayName *string `pulumi:"displayName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-engagements
-	Engagements []string `pulumi:"engagements"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-incidenttemplate
+	// The list of engagements to use.
+	Engagements      []string                     `pulumi:"engagements"`
 	IncidentTemplate ResponsePlanIncidentTemplate `pulumi:"incidentTemplate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-name
+	// The name of the response plan.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// The tags to apply to the response plan.
+	Tags []ResponsePlanTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResponsePlan resource.
 type ResponsePlanArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-actions
-	Actions ResponsePlanActionArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-chatchannel
+	// The list of actions.
+	Actions     ResponsePlanActionArrayInput
 	ChatChannel ResponsePlanChatChannelPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-displayname
+	// The display name of the response plan.
 	DisplayName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-engagements
-	Engagements pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-incidenttemplate
+	// The list of engagements to use.
+	Engagements      pulumi.StringArrayInput
 	IncidentTemplate ResponsePlanIncidentTemplateInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-name
+	// The name of the response plan.
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-tags
-	Tags aws.TagArrayInput
+	// The tags to apply to the response plan.
+	Tags ResponsePlanTagArrayInput
 }
 
 func (ResponsePlanArgs) ElementType() reflect.Type {

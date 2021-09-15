@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html
+    /// The kernel gateway app settings.
     /// </summary>
     [OutputType]
     public sealed class DomainKernelGatewayAppSettings
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages
+        /// A list of custom SageMaker images that are configured to run as a KernelGateway app.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainCustomImage> CustomImages;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-defaultresourcespec
+        /// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
         /// </summary>
         public readonly Outputs.DomainResourceSpec? DefaultResourceSpec;
 

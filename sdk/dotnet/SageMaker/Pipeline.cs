@@ -10,46 +10,40 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html
+    /// Resource Type definition for AWS::SageMaker::Pipeline
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:Pipeline")]
     public partial class Pipeline : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedefinition
-        /// </summary>
         [Output("pipelineDefinition")]
-        public Output<Union<System.Text.Json.JsonElement, string>> PipelineDefinition { get; private set; } = null!;
+        public Output<object> PipelineDefinition { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedescription
+        /// The description of the Pipeline.
         /// </summary>
         [Output("pipelineDescription")]
         public Output<string?> PipelineDescription { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedisplayname
+        /// The display name of the Pipeline.
         /// </summary>
         [Output("pipelineDisplayName")]
         public Output<string?> PipelineDisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinename
+        /// The name of the Pipeline.
         /// </summary>
         [Output("pipelineName")]
         public Output<string> PipelineName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-rolearn
+        /// Role Arn
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PipelineTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -96,45 +90,38 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class PipelineArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedefinition
-        /// </summary>
         [Input("pipelineDefinition", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> PipelineDefinition { get; set; } = null!;
+        public Input<object> PipelineDefinition { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedescription
+        /// The description of the Pipeline.
         /// </summary>
         [Input("pipelineDescription")]
         public Input<string>? PipelineDescription { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinedisplayname
+        /// The display name of the Pipeline.
         /// </summary>
         [Input("pipelineDisplayName")]
         public Input<string>? PipelineDisplayName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-pipelinename
+        /// The name of the Pipeline.
         /// </summary>
         [Input("pipelineName", required: true)]
         public Input<string> PipelineName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-rolearn
+        /// Role Arn
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html#cfn-sagemaker-pipeline-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.PipelineTagArgs>? _tags;
+        public InputList<Inputs.PipelineTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.PipelineTagArgs>());
             set => _tags = value;
         }
 

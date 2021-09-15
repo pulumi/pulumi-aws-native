@@ -20,11 +20,6 @@ class ProfilePermissionArgs:
                  profile_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ProfilePermission resource.
-        :param pulumi.Input[str] action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-action
-        :param pulumi.Input[str] principal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-principal
-        :param pulumi.Input[str] profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profilename
-        :param pulumi.Input[str] statement_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid
-        :param pulumi.Input[str] profile_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "principal", principal)
@@ -36,9 +31,6 @@ class ProfilePermissionArgs:
     @property
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-action
-        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -48,9 +40,6 @@ class ProfilePermissionArgs:
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-principal
-        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -60,9 +49,6 @@ class ProfilePermissionArgs:
     @property
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profilename
-        """
         return pulumi.get(self, "profile_name")
 
     @profile_name.setter
@@ -72,9 +58,6 @@ class ProfilePermissionArgs:
     @property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid
-        """
         return pulumi.get(self, "statement_id")
 
     @statement_id.setter
@@ -84,9 +67,6 @@ class ProfilePermissionArgs:
     @property
     @pulumi.getter(name="profileVersion")
     def profile_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion
-        """
         return pulumi.get(self, "profile_version")
 
     @profile_version.setter
@@ -106,15 +86,10 @@ class ProfilePermission(pulumi.CustomResource):
                  statement_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-action
-        :param pulumi.Input[str] principal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-principal
-        :param pulumi.Input[str] profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profilename
-        :param pulumi.Input[str] profile_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion
-        :param pulumi.Input[str] statement_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid
         """
         ...
     @overload
@@ -123,7 +98,7 @@ class ProfilePermission(pulumi.CustomResource):
                  args: ProfilePermissionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param ProfilePermissionArgs args: The arguments to use to populate this resource's properties.
@@ -202,40 +177,25 @@ class ProfilePermission(pulumi.CustomResource):
     @property
     @pulumi.getter
     def action(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-action
-        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-principal
-        """
         return pulumi.get(self, "principal")
 
     @property
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profilename
-        """
         return pulumi.get(self, "profile_name")
 
     @property
     @pulumi.getter(name="profileVersion")
     def profile_version(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion
-        """
         return pulumi.get(self, "profile_version")
 
     @property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid
-        """
         return pulumi.get(self, "statement_id")
 

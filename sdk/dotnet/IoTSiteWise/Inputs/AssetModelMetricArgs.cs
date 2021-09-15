@@ -10,13 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html
-    /// </summary>
     public sealed class AssetModelMetricArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-expression
+        /// The mathematical expression that defines the metric aggregation function. You can specify up to 10 functions per expression.
         /// </summary>
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
@@ -25,7 +22,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         private InputList<Inputs.AssetModelExpressionVariableArgs>? _variables;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-variables
+        /// The list of variables used in the expression.
         /// </summary>
         public InputList<Inputs.AssetModelExpressionVariableArgs> Variables
         {
@@ -34,7 +31,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-window
+        /// The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression
         /// </summary>
         [Input("window", required: true)]
         public Input<Inputs.AssetModelMetricWindowArgs> Window { get; set; } = null!;

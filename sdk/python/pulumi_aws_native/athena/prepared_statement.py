@@ -19,10 +19,10 @@ class PreparedStatementArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PreparedStatement resource.
-        :param pulumi.Input[str] query_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-querystatement
-        :param pulumi.Input[str] statement_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-statementname
-        :param pulumi.Input[str] work_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-workgroup
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-description
+        :param pulumi.Input[str] query_statement: The query string for the prepared statement.
+        :param pulumi.Input[str] statement_name: The name of the prepared statement.
+        :param pulumi.Input[str] work_group: The name of the workgroup to which the prepared statement belongs.
+        :param pulumi.Input[str] description: The description of the prepared statement.
         """
         pulumi.set(__self__, "query_statement", query_statement)
         pulumi.set(__self__, "statement_name", statement_name)
@@ -34,7 +34,7 @@ class PreparedStatementArgs:
     @pulumi.getter(name="queryStatement")
     def query_statement(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-querystatement
+        The query string for the prepared statement.
         """
         return pulumi.get(self, "query_statement")
 
@@ -46,7 +46,7 @@ class PreparedStatementArgs:
     @pulumi.getter(name="statementName")
     def statement_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-statementname
+        The name of the prepared statement.
         """
         return pulumi.get(self, "statement_name")
 
@@ -58,7 +58,7 @@ class PreparedStatementArgs:
     @pulumi.getter(name="workGroup")
     def work_group(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-workgroup
+        The name of the workgroup to which the prepared statement belongs.
         """
         return pulumi.get(self, "work_group")
 
@@ -70,7 +70,7 @@ class PreparedStatementArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-description
+        The description of the prepared statement.
         """
         return pulumi.get(self, "description")
 
@@ -90,14 +90,14 @@ class PreparedStatement(pulumi.CustomResource):
                  work_group: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html
+        Resource schema for AWS::Athena::PreparedStatement
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-description
-        :param pulumi.Input[str] query_statement: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-querystatement
-        :param pulumi.Input[str] statement_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-statementname
-        :param pulumi.Input[str] work_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-workgroup
+        :param pulumi.Input[str] description: The description of the prepared statement.
+        :param pulumi.Input[str] query_statement: The query string for the prepared statement.
+        :param pulumi.Input[str] statement_name: The name of the prepared statement.
+        :param pulumi.Input[str] work_group: The name of the workgroup to which the prepared statement belongs.
         """
         ...
     @overload
@@ -106,7 +106,7 @@ class PreparedStatement(pulumi.CustomResource):
                  args: PreparedStatementArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html
+        Resource schema for AWS::Athena::PreparedStatement
 
         :param str resource_name: The name of the resource.
         :param PreparedStatementArgs args: The arguments to use to populate this resource's properties.
@@ -181,7 +181,7 @@ class PreparedStatement(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-description
+        The description of the prepared statement.
         """
         return pulumi.get(self, "description")
 
@@ -189,7 +189,7 @@ class PreparedStatement(pulumi.CustomResource):
     @pulumi.getter(name="queryStatement")
     def query_statement(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-querystatement
+        The query string for the prepared statement.
         """
         return pulumi.get(self, "query_statement")
 
@@ -197,7 +197,7 @@ class PreparedStatement(pulumi.CustomResource):
     @pulumi.getter(name="statementName")
     def statement_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-statementname
+        The name of the prepared statement.
         """
         return pulumi.get(self, "statement_name")
 
@@ -205,7 +205,7 @@ class PreparedStatement(pulumi.CustomResource):
     @pulumi.getter(name="workGroup")
     def work_group(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-workgroup
+        The name of the workgroup to which the prepared statement belongs.
         """
         return pulumi.get(self, "work_group")
 

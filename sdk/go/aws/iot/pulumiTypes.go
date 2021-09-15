@@ -10,9 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html
+// The configuration for a specific audit check.
 type AccountAuditConfigurationAuditCheckConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfiguration-enabled
+	// True if the check is enabled.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -27,9 +27,9 @@ type AccountAuditConfigurationAuditCheckConfigurationInput interface {
 	ToAccountAuditConfigurationAuditCheckConfigurationOutputWithContext(context.Context) AccountAuditConfigurationAuditCheckConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html
+// The configuration for a specific audit check.
 type AccountAuditConfigurationAuditCheckConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfiguration-enabled
+	// True if the check is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -86,7 +86,7 @@ func (i *accountAuditConfigurationAuditCheckConfigurationPtrType) ToAccountAudit
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html
+// The configuration for a specific audit check.
 type AccountAuditConfigurationAuditCheckConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccountAuditConfigurationAuditCheckConfigurationOutput) ElementType() reflect.Type {
@@ -111,7 +111,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationOutput) ToAccountAuditCo
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfiguration-enabled
+// True if the check is enabled.
 func (o AccountAuditConfigurationAuditCheckConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -140,7 +140,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationPtrOutput) Elem() Accoun
 	}).(AccountAuditConfigurationAuditCheckConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfiguration-enabled
+// True if the check is enabled.
 func (o AccountAuditConfigurationAuditCheckConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfiguration) *bool {
 		if v == nil {
@@ -150,35 +150,21 @@ func (o AccountAuditConfigurationAuditCheckConfigurationPtrOutput) Enabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html
+// Specifies which audit checks are enabled and disabled for this account.
 type AccountAuditConfigurationAuditCheckConfigurations struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-authenticatedcognitoroleoverlypermissivecheck
-	AuthenticatedCognitoRoleOverlyPermissiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"authenticatedCognitoRoleOverlyPermissiveCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificateexpiringcheck
-	CaCertificateExpiringCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"caCertificateExpiringCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificatekeyqualitycheck
-	CaCertificateKeyQualityCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"caCertificateKeyQualityCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-conflictingclientidscheck
-	ConflictingClientIdsCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"conflictingClientIdsCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificateexpiringcheck
-	DeviceCertificateExpiringCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateExpiringCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatekeyqualitycheck
-	DeviceCertificateKeyQualityCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateKeyQualityCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatesharedcheck
-	DeviceCertificateSharedCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateSharedCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotpolicyoverlypermissivecheck
-	IotPolicyOverlyPermissiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotPolicyOverlyPermissiveCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasallowsaccesstounusedservicescheck
-	IotRoleAliasAllowsAccessToUnusedServicesCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasoverlypermissivecheck
-	IotRoleAliasOverlyPermissiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotRoleAliasOverlyPermissiveCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-loggingdisabledcheck
-	LoggingDisabledCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"loggingDisabledCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokedcacertificatestillactivecheck
-	RevokedCaCertificateStillActiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"revokedCaCertificateStillActiveCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokeddevicecertificatestillactivecheck
-	RevokedDeviceCertificateStillActiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"revokedDeviceCertificateStillActiveCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-unauthenticatedcognitoroleoverlypermissivecheck
+	AuthenticatedCognitoRoleOverlyPermissiveCheck   *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"authenticatedCognitoRoleOverlyPermissiveCheck"`
+	CaCertificateExpiringCheck                      *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"caCertificateExpiringCheck"`
+	CaCertificateKeyQualityCheck                    *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"caCertificateKeyQualityCheck"`
+	ConflictingClientIdsCheck                       *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"conflictingClientIdsCheck"`
+	DeviceCertificateExpiringCheck                  *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateExpiringCheck"`
+	DeviceCertificateKeyQualityCheck                *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateKeyQualityCheck"`
+	DeviceCertificateSharedCheck                    *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateSharedCheck"`
+	IotPolicyOverlyPermissiveCheck                  *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotPolicyOverlyPermissiveCheck"`
+	IotRoleAliasAllowsAccessToUnusedServicesCheck   *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
+	IotRoleAliasOverlyPermissiveCheck               *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotRoleAliasOverlyPermissiveCheck"`
+	LoggingDisabledCheck                            *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"loggingDisabledCheck"`
+	RevokedCaCertificateStillActiveCheck            *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"revokedCaCertificateStillActiveCheck"`
+	RevokedDeviceCertificateStillActiveCheck        *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"revokedDeviceCertificateStillActiveCheck"`
 	UnauthenticatedCognitoRoleOverlyPermissiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
 }
 
@@ -193,35 +179,21 @@ type AccountAuditConfigurationAuditCheckConfigurationsInput interface {
 	ToAccountAuditConfigurationAuditCheckConfigurationsOutputWithContext(context.Context) AccountAuditConfigurationAuditCheckConfigurationsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html
+// Specifies which audit checks are enabled and disabled for this account.
 type AccountAuditConfigurationAuditCheckConfigurationsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-authenticatedcognitoroleoverlypermissivecheck
-	AuthenticatedCognitoRoleOverlyPermissiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"authenticatedCognitoRoleOverlyPermissiveCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificateexpiringcheck
-	CaCertificateExpiringCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"caCertificateExpiringCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificatekeyqualitycheck
-	CaCertificateKeyQualityCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"caCertificateKeyQualityCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-conflictingclientidscheck
-	ConflictingClientIdsCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"conflictingClientIdsCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificateexpiringcheck
-	DeviceCertificateExpiringCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateExpiringCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatekeyqualitycheck
-	DeviceCertificateKeyQualityCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateKeyQualityCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatesharedcheck
-	DeviceCertificateSharedCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateSharedCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotpolicyoverlypermissivecheck
-	IotPolicyOverlyPermissiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotPolicyOverlyPermissiveCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasallowsaccesstounusedservicescheck
-	IotRoleAliasAllowsAccessToUnusedServicesCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasoverlypermissivecheck
-	IotRoleAliasOverlyPermissiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotRoleAliasOverlyPermissiveCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-loggingdisabledcheck
-	LoggingDisabledCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"loggingDisabledCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokedcacertificatestillactivecheck
-	RevokedCaCertificateStillActiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"revokedCaCertificateStillActiveCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokeddevicecertificatestillactivecheck
-	RevokedDeviceCertificateStillActiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"revokedDeviceCertificateStillActiveCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-unauthenticatedcognitoroleoverlypermissivecheck
+	AuthenticatedCognitoRoleOverlyPermissiveCheck   AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"authenticatedCognitoRoleOverlyPermissiveCheck"`
+	CaCertificateExpiringCheck                      AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"caCertificateExpiringCheck"`
+	CaCertificateKeyQualityCheck                    AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"caCertificateKeyQualityCheck"`
+	ConflictingClientIdsCheck                       AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"conflictingClientIdsCheck"`
+	DeviceCertificateExpiringCheck                  AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateExpiringCheck"`
+	DeviceCertificateKeyQualityCheck                AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateKeyQualityCheck"`
+	DeviceCertificateSharedCheck                    AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateSharedCheck"`
+	IotPolicyOverlyPermissiveCheck                  AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotPolicyOverlyPermissiveCheck"`
+	IotRoleAliasAllowsAccessToUnusedServicesCheck   AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
+	IotRoleAliasOverlyPermissiveCheck               AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotRoleAliasOverlyPermissiveCheck"`
+	LoggingDisabledCheck                            AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"loggingDisabledCheck"`
+	RevokedCaCertificateStillActiveCheck            AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"revokedCaCertificateStillActiveCheck"`
+	RevokedDeviceCertificateStillActiveCheck        AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"revokedDeviceCertificateStillActiveCheck"`
 	UnauthenticatedCognitoRoleOverlyPermissiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
 }
 
@@ -278,7 +250,7 @@ func (i *accountAuditConfigurationAuditCheckConfigurationsPtrType) ToAccountAudi
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationAuditCheckConfigurationsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html
+// Specifies which audit checks are enabled and disabled for this account.
 type AccountAuditConfigurationAuditCheckConfigurationsOutput struct{ *pulumi.OutputState }
 
 func (AccountAuditConfigurationAuditCheckConfigurationsOutput) ElementType() reflect.Type {
@@ -303,98 +275,84 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) ToAccountAuditC
 	}).(AccountAuditConfigurationAuditCheckConfigurationsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-authenticatedcognitoroleoverlypermissivecheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) AuthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.AuthenticatedCognitoRoleOverlyPermissiveCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificateexpiringcheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) CaCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.CaCertificateExpiringCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificatekeyqualitycheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) CaCertificateKeyQualityCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.CaCertificateKeyQualityCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-conflictingclientidscheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) ConflictingClientIdsCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.ConflictingClientIdsCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificateexpiringcheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) DeviceCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.DeviceCertificateExpiringCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatekeyqualitycheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) DeviceCertificateKeyQualityCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.DeviceCertificateKeyQualityCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatesharedcheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) DeviceCertificateSharedCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.DeviceCertificateSharedCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotpolicyoverlypermissivecheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) IotPolicyOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.IotPolicyOverlyPermissiveCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasallowsaccesstounusedservicescheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) IotRoleAliasAllowsAccessToUnusedServicesCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.IotRoleAliasAllowsAccessToUnusedServicesCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasoverlypermissivecheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) IotRoleAliasOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.IotRoleAliasOverlyPermissiveCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-loggingdisabledcheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) LoggingDisabledCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.LoggingDisabledCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokedcacertificatestillactivecheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) RevokedCaCertificateStillActiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.RevokedCaCertificateStillActiveCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokeddevicecertificatestillactivecheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) RevokedDeviceCertificateStillActiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.RevokedDeviceCertificateStillActiveCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-unauthenticatedcognitoroleoverlypermissivecheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) UnauthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.UnauthenticatedCognitoRoleOverlyPermissiveCheck
@@ -425,7 +383,6 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) Elem() Accou
 	}).(AccountAuditConfigurationAuditCheckConfigurationsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-authenticatedcognitoroleoverlypermissivecheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) AuthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -435,7 +392,6 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) Authenticate
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificateexpiringcheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) CaCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -445,7 +401,6 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) CaCertificat
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-cacertificatekeyqualitycheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) CaCertificateKeyQualityCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -455,7 +410,6 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) CaCertificat
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-conflictingclientidscheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) ConflictingClientIdsCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -465,7 +419,6 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) ConflictingC
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificateexpiringcheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -475,7 +428,6 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertif
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatekeyqualitycheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateKeyQualityCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -485,7 +437,6 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertif
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificatesharedcheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateSharedCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -495,7 +446,6 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertif
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotpolicyoverlypermissivecheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotPolicyOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -505,7 +455,6 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotPolicyOve
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasallowsaccesstounusedservicescheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotRoleAliasAllowsAccessToUnusedServicesCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -515,7 +464,6 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotRoleAlias
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotrolealiasoverlypermissivecheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotRoleAliasOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -525,7 +473,6 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotRoleAlias
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-loggingdisabledcheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) LoggingDisabledCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -535,7 +482,6 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) LoggingDisab
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokedcacertificatestillactivecheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) RevokedCaCertificateStillActiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -545,7 +491,6 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) RevokedCaCer
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-revokeddevicecertificatestillactivecheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) RevokedDeviceCertificateStillActiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -555,7 +500,6 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) RevokedDevic
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-unauthenticatedcognitoroleoverlypermissivecheck
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) UnauthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -565,13 +509,12 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) Unauthentica
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html
 type AccountAuditConfigurationAuditNotificationTarget struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-enabled
+	// True if notifications to the target are enabled.
 	Enabled *bool `pulumi:"enabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-rolearn
+	// The ARN of the role that grants permission to send notifications to the target.
 	RoleArn *string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-targetarn
+	// The ARN of the target (SNS topic) to which audit notifications are sent.
 	TargetArn *string `pulumi:"targetArn"`
 }
 
@@ -586,13 +529,12 @@ type AccountAuditConfigurationAuditNotificationTargetInput interface {
 	ToAccountAuditConfigurationAuditNotificationTargetOutputWithContext(context.Context) AccountAuditConfigurationAuditNotificationTargetOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html
 type AccountAuditConfigurationAuditNotificationTargetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-enabled
+	// True if notifications to the target are enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-rolearn
+	// The ARN of the role that grants permission to send notifications to the target.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-targetarn
+	// The ARN of the target (SNS topic) to which audit notifications are sent.
 	TargetArn pulumi.StringPtrInput `pulumi:"targetArn"`
 }
 
@@ -649,7 +591,6 @@ func (i *accountAuditConfigurationAuditNotificationTargetPtrType) ToAccountAudit
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationAuditNotificationTargetPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html
 type AccountAuditConfigurationAuditNotificationTargetOutput struct{ *pulumi.OutputState }
 
 func (AccountAuditConfigurationAuditNotificationTargetOutput) ElementType() reflect.Type {
@@ -674,17 +615,17 @@ func (o AccountAuditConfigurationAuditNotificationTargetOutput) ToAccountAuditCo
 	}).(AccountAuditConfigurationAuditNotificationTargetPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-enabled
+// True if notifications to the target are enabled.
 func (o AccountAuditConfigurationAuditNotificationTargetOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditNotificationTarget) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-rolearn
+// The ARN of the role that grants permission to send notifications to the target.
 func (o AccountAuditConfigurationAuditNotificationTargetOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditNotificationTarget) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-targetarn
+// The ARN of the target (SNS topic) to which audit notifications are sent.
 func (o AccountAuditConfigurationAuditNotificationTargetOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditNotificationTarget) *string { return v.TargetArn }).(pulumi.StringPtrOutput)
 }
@@ -713,7 +654,7 @@ func (o AccountAuditConfigurationAuditNotificationTargetPtrOutput) Elem() Accoun
 	}).(AccountAuditConfigurationAuditNotificationTargetOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-enabled
+// True if notifications to the target are enabled.
 func (o AccountAuditConfigurationAuditNotificationTargetPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditNotificationTarget) *bool {
 		if v == nil {
@@ -723,7 +664,7 @@ func (o AccountAuditConfigurationAuditNotificationTargetPtrOutput) Enabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-rolearn
+// The ARN of the role that grants permission to send notifications to the target.
 func (o AccountAuditConfigurationAuditNotificationTargetPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditNotificationTarget) *string {
 		if v == nil {
@@ -733,7 +674,7 @@ func (o AccountAuditConfigurationAuditNotificationTargetPtrOutput) RoleArn() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtarget.html#cfn-iot-accountauditconfiguration-auditnotificationtarget-targetarn
+// The ARN of the target (SNS topic) to which audit notifications are sent.
 func (o AccountAuditConfigurationAuditNotificationTargetPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditNotificationTarget) *string {
 		if v == nil {
@@ -743,9 +684,8 @@ func (o AccountAuditConfigurationAuditNotificationTargetPtrOutput) TargetArn() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html
+// Information about the targets to which audit notifications are sent.
 type AccountAuditConfigurationAuditNotificationTargetConfigurations struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations-sns
 	Sns *AccountAuditConfigurationAuditNotificationTarget `pulumi:"sns"`
 }
 
@@ -760,9 +700,8 @@ type AccountAuditConfigurationAuditNotificationTargetConfigurationsInput interfa
 	ToAccountAuditConfigurationAuditNotificationTargetConfigurationsOutputWithContext(context.Context) AccountAuditConfigurationAuditNotificationTargetConfigurationsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html
+// Information about the targets to which audit notifications are sent.
 type AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations-sns
 	Sns AccountAuditConfigurationAuditNotificationTargetPtrInput `pulumi:"sns"`
 }
 
@@ -819,7 +758,7 @@ func (i *accountAuditConfigurationAuditNotificationTargetConfigurationsPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html
+// Information about the targets to which audit notifications are sent.
 type AccountAuditConfigurationAuditNotificationTargetConfigurationsOutput struct{ *pulumi.OutputState }
 
 func (AccountAuditConfigurationAuditNotificationTargetConfigurationsOutput) ElementType() reflect.Type {
@@ -844,7 +783,6 @@ func (o AccountAuditConfigurationAuditNotificationTargetConfigurationsOutput) To
 	}).(AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations-sns
 func (o AccountAuditConfigurationAuditNotificationTargetConfigurationsOutput) Sns() AccountAuditConfigurationAuditNotificationTargetPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditNotificationTargetConfigurations) *AccountAuditConfigurationAuditNotificationTarget {
 		return v.Sns
@@ -875,7 +813,6 @@ func (o AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput)
 	}).(AccountAuditConfigurationAuditNotificationTargetConfigurationsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations-sns
 func (o AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput) Sns() AccountAuditConfigurationAuditNotificationTargetPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditNotificationTargetConfigurations) *AccountAuditConfigurationAuditNotificationTarget {
 		if v == nil {
@@ -885,12 +822,327 @@ func (o AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput)
 	}).(AccountAuditConfigurationAuditNotificationTargetPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html
+type AuthorizerTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// AuthorizerTagInput is an input type that accepts AuthorizerTagArgs and AuthorizerTagOutput values.
+// You can construct a concrete instance of `AuthorizerTagInput` via:
+//
+//          AuthorizerTagArgs{...}
+type AuthorizerTagInput interface {
+	pulumi.Input
+
+	ToAuthorizerTagOutput() AuthorizerTagOutput
+	ToAuthorizerTagOutputWithContext(context.Context) AuthorizerTagOutput
+}
+
+type AuthorizerTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AuthorizerTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerTag)(nil)).Elem()
+}
+
+func (i AuthorizerTagArgs) ToAuthorizerTagOutput() AuthorizerTagOutput {
+	return i.ToAuthorizerTagOutputWithContext(context.Background())
+}
+
+func (i AuthorizerTagArgs) ToAuthorizerTagOutputWithContext(ctx context.Context) AuthorizerTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerTagOutput)
+}
+
+// AuthorizerTagArrayInput is an input type that accepts AuthorizerTagArray and AuthorizerTagArrayOutput values.
+// You can construct a concrete instance of `AuthorizerTagArrayInput` via:
+//
+//          AuthorizerTagArray{ AuthorizerTagArgs{...} }
+type AuthorizerTagArrayInput interface {
+	pulumi.Input
+
+	ToAuthorizerTagArrayOutput() AuthorizerTagArrayOutput
+	ToAuthorizerTagArrayOutputWithContext(context.Context) AuthorizerTagArrayOutput
+}
+
+type AuthorizerTagArray []AuthorizerTagInput
+
+func (AuthorizerTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthorizerTag)(nil)).Elem()
+}
+
+func (i AuthorizerTagArray) ToAuthorizerTagArrayOutput() AuthorizerTagArrayOutput {
+	return i.ToAuthorizerTagArrayOutputWithContext(context.Background())
+}
+
+func (i AuthorizerTagArray) ToAuthorizerTagArrayOutputWithContext(ctx context.Context) AuthorizerTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerTagArrayOutput)
+}
+
+type AuthorizerTagOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AuthorizerTag)(nil)).Elem()
+}
+
+func (o AuthorizerTagOutput) ToAuthorizerTagOutput() AuthorizerTagOutput {
+	return o
+}
+
+func (o AuthorizerTagOutput) ToAuthorizerTagOutputWithContext(ctx context.Context) AuthorizerTagOutput {
+	return o
+}
+
+func (o AuthorizerTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthorizerTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o AuthorizerTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AuthorizerTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AuthorizerTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AuthorizerTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AuthorizerTag)(nil)).Elem()
+}
+
+func (o AuthorizerTagArrayOutput) ToAuthorizerTagArrayOutput() AuthorizerTagArrayOutput {
+	return o
+}
+
+func (o AuthorizerTagArrayOutput) ToAuthorizerTagArrayOutputWithContext(ctx context.Context) AuthorizerTagArrayOutput {
+	return o
+}
+
+func (o AuthorizerTagArrayOutput) Index(i pulumi.IntInput) AuthorizerTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AuthorizerTag {
+		return vs[0].([]AuthorizerTag)[vs[1].(int)]
+	}).(AuthorizerTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CustomMetricTag struct {
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
+	Value string `pulumi:"value"`
+}
+
+// CustomMetricTagInput is an input type that accepts CustomMetricTagArgs and CustomMetricTagOutput values.
+// You can construct a concrete instance of `CustomMetricTagInput` via:
+//
+//          CustomMetricTagArgs{...}
+type CustomMetricTagInput interface {
+	pulumi.Input
+
+	ToCustomMetricTagOutput() CustomMetricTagOutput
+	ToCustomMetricTagOutputWithContext(context.Context) CustomMetricTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type CustomMetricTagArgs struct {
+	// The tag's key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag's value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CustomMetricTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomMetricTag)(nil)).Elem()
+}
+
+func (i CustomMetricTagArgs) ToCustomMetricTagOutput() CustomMetricTagOutput {
+	return i.ToCustomMetricTagOutputWithContext(context.Background())
+}
+
+func (i CustomMetricTagArgs) ToCustomMetricTagOutputWithContext(ctx context.Context) CustomMetricTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomMetricTagOutput)
+}
+
+// CustomMetricTagArrayInput is an input type that accepts CustomMetricTagArray and CustomMetricTagArrayOutput values.
+// You can construct a concrete instance of `CustomMetricTagArrayInput` via:
+//
+//          CustomMetricTagArray{ CustomMetricTagArgs{...} }
+type CustomMetricTagArrayInput interface {
+	pulumi.Input
+
+	ToCustomMetricTagArrayOutput() CustomMetricTagArrayOutput
+	ToCustomMetricTagArrayOutputWithContext(context.Context) CustomMetricTagArrayOutput
+}
+
+type CustomMetricTagArray []CustomMetricTagInput
+
+func (CustomMetricTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomMetricTag)(nil)).Elem()
+}
+
+func (i CustomMetricTagArray) ToCustomMetricTagArrayOutput() CustomMetricTagArrayOutput {
+	return i.ToCustomMetricTagArrayOutputWithContext(context.Background())
+}
+
+func (i CustomMetricTagArray) ToCustomMetricTagArrayOutputWithContext(ctx context.Context) CustomMetricTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomMetricTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CustomMetricTagOutput struct{ *pulumi.OutputState }
+
+func (CustomMetricTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomMetricTag)(nil)).Elem()
+}
+
+func (o CustomMetricTagOutput) ToCustomMetricTagOutput() CustomMetricTagOutput {
+	return o
+}
+
+func (o CustomMetricTagOutput) ToCustomMetricTagOutputWithContext(ctx context.Context) CustomMetricTagOutput {
+	return o
+}
+
+// The tag's key.
+func (o CustomMetricTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomMetricTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The tag's value.
+func (o CustomMetricTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomMetricTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CustomMetricTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomMetricTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomMetricTag)(nil)).Elem()
+}
+
+func (o CustomMetricTagArrayOutput) ToCustomMetricTagArrayOutput() CustomMetricTagArrayOutput {
+	return o
+}
+
+func (o CustomMetricTagArrayOutput) ToCustomMetricTagArrayOutputWithContext(ctx context.Context) CustomMetricTagArrayOutput {
+	return o
+}
+
+func (o CustomMetricTagArrayOutput) Index(i pulumi.IntInput) CustomMetricTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomMetricTag {
+		return vs[0].([]CustomMetricTag)[vs[1].(int)]
+	}).(CustomMetricTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DimensionTag struct {
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
+	Value string `pulumi:"value"`
+}
+
+// DimensionTagInput is an input type that accepts DimensionTagArgs and DimensionTagOutput values.
+// You can construct a concrete instance of `DimensionTagInput` via:
+//
+//          DimensionTagArgs{...}
+type DimensionTagInput interface {
+	pulumi.Input
+
+	ToDimensionTagOutput() DimensionTagOutput
+	ToDimensionTagOutputWithContext(context.Context) DimensionTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type DimensionTagArgs struct {
+	// The tag's key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag's value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DimensionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DimensionTag)(nil)).Elem()
+}
+
+func (i DimensionTagArgs) ToDimensionTagOutput() DimensionTagOutput {
+	return i.ToDimensionTagOutputWithContext(context.Background())
+}
+
+func (i DimensionTagArgs) ToDimensionTagOutputWithContext(ctx context.Context) DimensionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DimensionTagOutput)
+}
+
+// DimensionTagArrayInput is an input type that accepts DimensionTagArray and DimensionTagArrayOutput values.
+// You can construct a concrete instance of `DimensionTagArrayInput` via:
+//
+//          DimensionTagArray{ DimensionTagArgs{...} }
+type DimensionTagArrayInput interface {
+	pulumi.Input
+
+	ToDimensionTagArrayOutput() DimensionTagArrayOutput
+	ToDimensionTagArrayOutputWithContext(context.Context) DimensionTagArrayOutput
+}
+
+type DimensionTagArray []DimensionTagInput
+
+func (DimensionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DimensionTag)(nil)).Elem()
+}
+
+func (i DimensionTagArray) ToDimensionTagArrayOutput() DimensionTagArrayOutput {
+	return i.ToDimensionTagArrayOutputWithContext(context.Background())
+}
+
+func (i DimensionTagArray) ToDimensionTagArrayOutputWithContext(ctx context.Context) DimensionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DimensionTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DimensionTagOutput struct{ *pulumi.OutputState }
+
+func (DimensionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DimensionTag)(nil)).Elem()
+}
+
+func (o DimensionTagOutput) ToDimensionTagOutput() DimensionTagOutput {
+	return o
+}
+
+func (o DimensionTagOutput) ToDimensionTagOutputWithContext(ctx context.Context) DimensionTagOutput {
+	return o
+}
+
+// The tag's key.
+func (o DimensionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DimensionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The tag's value.
+func (o DimensionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DimensionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DimensionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DimensionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DimensionTag)(nil)).Elem()
+}
+
+func (o DimensionTagArrayOutput) ToDimensionTagArrayOutput() DimensionTagArrayOutput {
+	return o
+}
+
+func (o DimensionTagArrayOutput) ToDimensionTagArrayOutputWithContext(ctx context.Context) DimensionTagArrayOutput {
+	return o
+}
+
+func (o DimensionTagArrayOutput) Index(i pulumi.IntInput) DimensionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DimensionTag {
+		return vs[0].([]DimensionTag)[vs[1].(int)]
+	}).(DimensionTagOutput)
+}
+
 type DomainConfigurationAuthorizerConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html#cfn-iot-domainconfiguration-authorizerconfig-allowauthorizeroverride
-	AllowAuthorizerOverride *bool `pulumi:"allowAuthorizerOverride"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html#cfn-iot-domainconfiguration-authorizerconfig-defaultauthorizername
-	DefaultAuthorizerName *string `pulumi:"defaultAuthorizerName"`
+	AllowAuthorizerOverride *bool   `pulumi:"allowAuthorizerOverride"`
+	DefaultAuthorizerName   *string `pulumi:"defaultAuthorizerName"`
 }
 
 // DomainConfigurationAuthorizerConfigInput is an input type that accepts DomainConfigurationAuthorizerConfigArgs and DomainConfigurationAuthorizerConfigOutput values.
@@ -904,12 +1156,9 @@ type DomainConfigurationAuthorizerConfigInput interface {
 	ToDomainConfigurationAuthorizerConfigOutputWithContext(context.Context) DomainConfigurationAuthorizerConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html
 type DomainConfigurationAuthorizerConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html#cfn-iot-domainconfiguration-authorizerconfig-allowauthorizeroverride
-	AllowAuthorizerOverride pulumi.BoolPtrInput `pulumi:"allowAuthorizerOverride"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html#cfn-iot-domainconfiguration-authorizerconfig-defaultauthorizername
-	DefaultAuthorizerName pulumi.StringPtrInput `pulumi:"defaultAuthorizerName"`
+	AllowAuthorizerOverride pulumi.BoolPtrInput   `pulumi:"allowAuthorizerOverride"`
+	DefaultAuthorizerName   pulumi.StringPtrInput `pulumi:"defaultAuthorizerName"`
 }
 
 func (DomainConfigurationAuthorizerConfigArgs) ElementType() reflect.Type {
@@ -965,7 +1214,6 @@ func (i *domainConfigurationAuthorizerConfigPtrType) ToDomainConfigurationAuthor
 	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationAuthorizerConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html
 type DomainConfigurationAuthorizerConfigOutput struct{ *pulumi.OutputState }
 
 func (DomainConfigurationAuthorizerConfigOutput) ElementType() reflect.Type {
@@ -990,12 +1238,10 @@ func (o DomainConfigurationAuthorizerConfigOutput) ToDomainConfigurationAuthoriz
 	}).(DomainConfigurationAuthorizerConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html#cfn-iot-domainconfiguration-authorizerconfig-allowauthorizeroverride
 func (o DomainConfigurationAuthorizerConfigOutput) AllowAuthorizerOverride() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainConfigurationAuthorizerConfig) *bool { return v.AllowAuthorizerOverride }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html#cfn-iot-domainconfiguration-authorizerconfig-defaultauthorizername
 func (o DomainConfigurationAuthorizerConfigOutput) DefaultAuthorizerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainConfigurationAuthorizerConfig) *string { return v.DefaultAuthorizerName }).(pulumi.StringPtrOutput)
 }
@@ -1024,7 +1270,6 @@ func (o DomainConfigurationAuthorizerConfigPtrOutput) Elem() DomainConfiguration
 	}).(DomainConfigurationAuthorizerConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html#cfn-iot-domainconfiguration-authorizerconfig-allowauthorizeroverride
 func (o DomainConfigurationAuthorizerConfigPtrOutput) AllowAuthorizerOverride() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainConfigurationAuthorizerConfig) *bool {
 		if v == nil {
@@ -1034,7 +1279,6 @@ func (o DomainConfigurationAuthorizerConfigPtrOutput) AllowAuthorizerOverride() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-authorizerconfig.html#cfn-iot-domainconfiguration-authorizerconfig-defaultauthorizername
 func (o DomainConfigurationAuthorizerConfigPtrOutput) DefaultAuthorizerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainConfigurationAuthorizerConfig) *string {
 		if v == nil {
@@ -1044,13 +1288,9 @@ func (o DomainConfigurationAuthorizerConfigPtrOutput) DefaultAuthorizerName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html
 type DomainConfigurationServerCertificateSummary struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatearn
-	ServerCertificateArn *string `pulumi:"serverCertificateArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatestatus
-	ServerCertificateStatus *string `pulumi:"serverCertificateStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatestatusdetail
+	ServerCertificateArn          *string `pulumi:"serverCertificateArn"`
+	ServerCertificateStatus       *string `pulumi:"serverCertificateStatus"`
 	ServerCertificateStatusDetail *string `pulumi:"serverCertificateStatusDetail"`
 }
 
@@ -1065,13 +1305,9 @@ type DomainConfigurationServerCertificateSummaryInput interface {
 	ToDomainConfigurationServerCertificateSummaryOutputWithContext(context.Context) DomainConfigurationServerCertificateSummaryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html
 type DomainConfigurationServerCertificateSummaryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatearn
-	ServerCertificateArn pulumi.StringPtrInput `pulumi:"serverCertificateArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatestatus
-	ServerCertificateStatus pulumi.StringPtrInput `pulumi:"serverCertificateStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatestatusdetail
+	ServerCertificateArn          pulumi.StringPtrInput `pulumi:"serverCertificateArn"`
+	ServerCertificateStatus       pulumi.StringPtrInput `pulumi:"serverCertificateStatus"`
 	ServerCertificateStatusDetail pulumi.StringPtrInput `pulumi:"serverCertificateStatusDetail"`
 }
 
@@ -1112,7 +1348,6 @@ func (i DomainConfigurationServerCertificateSummaryArray) ToDomainConfigurationS
 	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationServerCertificateSummaryArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html
 type DomainConfigurationServerCertificateSummaryOutput struct{ *pulumi.OutputState }
 
 func (DomainConfigurationServerCertificateSummaryOutput) ElementType() reflect.Type {
@@ -1127,17 +1362,14 @@ func (o DomainConfigurationServerCertificateSummaryOutput) ToDomainConfiguration
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatearn
 func (o DomainConfigurationServerCertificateSummaryOutput) ServerCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainConfigurationServerCertificateSummary) *string { return v.ServerCertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatestatus
 func (o DomainConfigurationServerCertificateSummaryOutput) ServerCertificateStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainConfigurationServerCertificateSummary) *string { return v.ServerCertificateStatus }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificatesummary.html#cfn-iot-domainconfiguration-servercertificatesummary-servercertificatestatusdetail
 func (o DomainConfigurationServerCertificateSummaryOutput) ServerCertificateStatusDetail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainConfigurationServerCertificateSummary) *string { return v.ServerCertificateStatusDetail }).(pulumi.StringPtrOutput)
 }
@@ -1162,11 +1394,111 @@ func (o DomainConfigurationServerCertificateSummaryArrayOutput) Index(i pulumi.I
 	}).(DomainConfigurationServerCertificateSummaryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html
+type DomainConfigurationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// DomainConfigurationTagInput is an input type that accepts DomainConfigurationTagArgs and DomainConfigurationTagOutput values.
+// You can construct a concrete instance of `DomainConfigurationTagInput` via:
+//
+//          DomainConfigurationTagArgs{...}
+type DomainConfigurationTagInput interface {
+	pulumi.Input
+
+	ToDomainConfigurationTagOutput() DomainConfigurationTagOutput
+	ToDomainConfigurationTagOutputWithContext(context.Context) DomainConfigurationTagOutput
+}
+
+type DomainConfigurationTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DomainConfigurationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConfigurationTag)(nil)).Elem()
+}
+
+func (i DomainConfigurationTagArgs) ToDomainConfigurationTagOutput() DomainConfigurationTagOutput {
+	return i.ToDomainConfigurationTagOutputWithContext(context.Background())
+}
+
+func (i DomainConfigurationTagArgs) ToDomainConfigurationTagOutputWithContext(ctx context.Context) DomainConfigurationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationTagOutput)
+}
+
+// DomainConfigurationTagArrayInput is an input type that accepts DomainConfigurationTagArray and DomainConfigurationTagArrayOutput values.
+// You can construct a concrete instance of `DomainConfigurationTagArrayInput` via:
+//
+//          DomainConfigurationTagArray{ DomainConfigurationTagArgs{...} }
+type DomainConfigurationTagArrayInput interface {
+	pulumi.Input
+
+	ToDomainConfigurationTagArrayOutput() DomainConfigurationTagArrayOutput
+	ToDomainConfigurationTagArrayOutputWithContext(context.Context) DomainConfigurationTagArrayOutput
+}
+
+type DomainConfigurationTagArray []DomainConfigurationTagInput
+
+func (DomainConfigurationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainConfigurationTag)(nil)).Elem()
+}
+
+func (i DomainConfigurationTagArray) ToDomainConfigurationTagArrayOutput() DomainConfigurationTagArrayOutput {
+	return i.ToDomainConfigurationTagArrayOutputWithContext(context.Background())
+}
+
+func (i DomainConfigurationTagArray) ToDomainConfigurationTagArrayOutputWithContext(ctx context.Context) DomainConfigurationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainConfigurationTagArrayOutput)
+}
+
+type DomainConfigurationTagOutput struct{ *pulumi.OutputState }
+
+func (DomainConfigurationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainConfigurationTag)(nil)).Elem()
+}
+
+func (o DomainConfigurationTagOutput) ToDomainConfigurationTagOutput() DomainConfigurationTagOutput {
+	return o
+}
+
+func (o DomainConfigurationTagOutput) ToDomainConfigurationTagOutputWithContext(ctx context.Context) DomainConfigurationTagOutput {
+	return o
+}
+
+func (o DomainConfigurationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainConfigurationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o DomainConfigurationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainConfigurationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DomainConfigurationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainConfigurationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainConfigurationTag)(nil)).Elem()
+}
+
+func (o DomainConfigurationTagArrayOutput) ToDomainConfigurationTagArrayOutput() DomainConfigurationTagArrayOutput {
+	return o
+}
+
+func (o DomainConfigurationTagArrayOutput) ToDomainConfigurationTagArrayOutputWithContext(ctx context.Context) DomainConfigurationTagArrayOutput {
+	return o
+}
+
+func (o DomainConfigurationTagArrayOutput) Index(i pulumi.IntInput) DomainConfigurationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainConfigurationTag {
+		return vs[0].([]DomainConfigurationTag)[vs[1].(int)]
+	}).(DomainConfigurationTagOutput)
+}
+
+// Aggregation types supported by Fleet Indexing
 type FleetMetricAggregationType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-name
+	// Fleet Indexing aggregation type names such as Statistics, Percentiles and Cardinality
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-values
+	// Fleet Indexing aggregation type values
 	Values []string `pulumi:"values"`
 }
 
@@ -1181,11 +1513,11 @@ type FleetMetricAggregationTypeInput interface {
 	ToFleetMetricAggregationTypeOutputWithContext(context.Context) FleetMetricAggregationTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html
+// Aggregation types supported by Fleet Indexing
 type FleetMetricAggregationTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-name
+	// Fleet Indexing aggregation type names such as Statistics, Percentiles and Cardinality
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-values
+	// Fleet Indexing aggregation type values
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1242,7 +1574,7 @@ func (i *fleetMetricAggregationTypePtrType) ToFleetMetricAggregationTypePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(FleetMetricAggregationTypePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html
+// Aggregation types supported by Fleet Indexing
 type FleetMetricAggregationTypeOutput struct{ *pulumi.OutputState }
 
 func (FleetMetricAggregationTypeOutput) ElementType() reflect.Type {
@@ -1267,12 +1599,12 @@ func (o FleetMetricAggregationTypeOutput) ToFleetMetricAggregationTypePtrOutputW
 	}).(FleetMetricAggregationTypePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-name
+// Fleet Indexing aggregation type names such as Statistics, Percentiles and Cardinality
 func (o FleetMetricAggregationTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetMetricAggregationType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-values
+// Fleet Indexing aggregation type values
 func (o FleetMetricAggregationTypeOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetMetricAggregationType) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1301,7 +1633,7 @@ func (o FleetMetricAggregationTypePtrOutput) Elem() FleetMetricAggregationTypeOu
 	}).(FleetMetricAggregationTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-name
+// Fleet Indexing aggregation type names such as Statistics, Percentiles and Cardinality
 func (o FleetMetricAggregationTypePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetMetricAggregationType) *string {
 		if v == nil {
@@ -1311,7 +1643,7 @@ func (o FleetMetricAggregationTypePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-values
+// Fleet Indexing aggregation type values
 func (o FleetMetricAggregationTypePtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FleetMetricAggregationType) []string {
 		if v == nil {
@@ -1321,20 +1653,123 @@ func (o FleetMetricAggregationTypePtrOutput) Values() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html
+// A key-value pair to associate with a resource
+type FleetMetricTag struct {
+	// The tag's key
+	Key string `pulumi:"key"`
+	// The tag's value
+	Value string `pulumi:"value"`
+}
+
+// FleetMetricTagInput is an input type that accepts FleetMetricTagArgs and FleetMetricTagOutput values.
+// You can construct a concrete instance of `FleetMetricTagInput` via:
+//
+//          FleetMetricTagArgs{...}
+type FleetMetricTagInput interface {
+	pulumi.Input
+
+	ToFleetMetricTagOutput() FleetMetricTagOutput
+	ToFleetMetricTagOutputWithContext(context.Context) FleetMetricTagOutput
+}
+
+// A key-value pair to associate with a resource
+type FleetMetricTagArgs struct {
+	// The tag's key
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag's value
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FleetMetricTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetMetricTag)(nil)).Elem()
+}
+
+func (i FleetMetricTagArgs) ToFleetMetricTagOutput() FleetMetricTagOutput {
+	return i.ToFleetMetricTagOutputWithContext(context.Background())
+}
+
+func (i FleetMetricTagArgs) ToFleetMetricTagOutputWithContext(ctx context.Context) FleetMetricTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetMetricTagOutput)
+}
+
+// FleetMetricTagArrayInput is an input type that accepts FleetMetricTagArray and FleetMetricTagArrayOutput values.
+// You can construct a concrete instance of `FleetMetricTagArrayInput` via:
+//
+//          FleetMetricTagArray{ FleetMetricTagArgs{...} }
+type FleetMetricTagArrayInput interface {
+	pulumi.Input
+
+	ToFleetMetricTagArrayOutput() FleetMetricTagArrayOutput
+	ToFleetMetricTagArrayOutputWithContext(context.Context) FleetMetricTagArrayOutput
+}
+
+type FleetMetricTagArray []FleetMetricTagInput
+
+func (FleetMetricTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetMetricTag)(nil)).Elem()
+}
+
+func (i FleetMetricTagArray) ToFleetMetricTagArrayOutput() FleetMetricTagArrayOutput {
+	return i.ToFleetMetricTagArrayOutputWithContext(context.Background())
+}
+
+func (i FleetMetricTagArray) ToFleetMetricTagArrayOutputWithContext(ctx context.Context) FleetMetricTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetMetricTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource
+type FleetMetricTagOutput struct{ *pulumi.OutputState }
+
+func (FleetMetricTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetMetricTag)(nil)).Elem()
+}
+
+func (o FleetMetricTagOutput) ToFleetMetricTagOutput() FleetMetricTagOutput {
+	return o
+}
+
+func (o FleetMetricTagOutput) ToFleetMetricTagOutputWithContext(ctx context.Context) FleetMetricTagOutput {
+	return o
+}
+
+// The tag's key
+func (o FleetMetricTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetMetricTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The tag's value
+func (o FleetMetricTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetMetricTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FleetMetricTagArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetMetricTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetMetricTag)(nil)).Elem()
+}
+
+func (o FleetMetricTagArrayOutput) ToFleetMetricTagArrayOutput() FleetMetricTagArrayOutput {
+	return o
+}
+
+func (o FleetMetricTagArrayOutput) ToFleetMetricTagArrayOutputWithContext(ctx context.Context) FleetMetricTagArrayOutput {
+	return o
+}
+
+func (o FleetMetricTagArrayOutput) Index(i pulumi.IntInput) FleetMetricTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetMetricTag {
+		return vs[0].([]FleetMetricTag)[vs[1].(int)]
+	}).(FleetMetricTagOutput)
+}
+
+// The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
 type MitigationActionActionParams struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-addthingstothinggroupparams
-	AddThingsToThingGroupParams *MitigationActionAddThingsToThingGroupParams `pulumi:"addThingsToThingGroupParams"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-enableiotloggingparams
-	EnableIoTLoggingParams *MitigationActionEnableIoTLoggingParams `pulumi:"enableIoTLoggingParams"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-publishfindingtosnsparams
-	PublishFindingToSnsParams *MitigationActionPublishFindingToSnsParams `pulumi:"publishFindingToSnsParams"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-replacedefaultpolicyversionparams
+	AddThingsToThingGroupParams       *MitigationActionAddThingsToThingGroupParams       `pulumi:"addThingsToThingGroupParams"`
+	EnableIoTLoggingParams            *MitigationActionEnableIoTLoggingParams            `pulumi:"enableIoTLoggingParams"`
+	PublishFindingToSnsParams         *MitigationActionPublishFindingToSnsParams         `pulumi:"publishFindingToSnsParams"`
 	ReplaceDefaultPolicyVersionParams *MitigationActionReplaceDefaultPolicyVersionParams `pulumi:"replaceDefaultPolicyVersionParams"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatecacertificateparams
-	UpdateCACertificateParams *MitigationActionUpdateCACertificateParams `pulumi:"updateCACertificateParams"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatedevicecertificateparams
-	UpdateDeviceCertificateParams *MitigationActionUpdateDeviceCertificateParams `pulumi:"updateDeviceCertificateParams"`
+	UpdateCACertificateParams         *MitigationActionUpdateCACertificateParams         `pulumi:"updateCACertificateParams"`
+	UpdateDeviceCertificateParams     *MitigationActionUpdateDeviceCertificateParams     `pulumi:"updateDeviceCertificateParams"`
 }
 
 // MitigationActionActionParamsInput is an input type that accepts MitigationActionActionParamsArgs and MitigationActionActionParamsOutput values.
@@ -1348,20 +1783,14 @@ type MitigationActionActionParamsInput interface {
 	ToMitigationActionActionParamsOutputWithContext(context.Context) MitigationActionActionParamsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html
+// The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
 type MitigationActionActionParamsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-addthingstothinggroupparams
-	AddThingsToThingGroupParams MitigationActionAddThingsToThingGroupParamsPtrInput `pulumi:"addThingsToThingGroupParams"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-enableiotloggingparams
-	EnableIoTLoggingParams MitigationActionEnableIoTLoggingParamsPtrInput `pulumi:"enableIoTLoggingParams"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-publishfindingtosnsparams
-	PublishFindingToSnsParams MitigationActionPublishFindingToSnsParamsPtrInput `pulumi:"publishFindingToSnsParams"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-replacedefaultpolicyversionparams
+	AddThingsToThingGroupParams       MitigationActionAddThingsToThingGroupParamsPtrInput       `pulumi:"addThingsToThingGroupParams"`
+	EnableIoTLoggingParams            MitigationActionEnableIoTLoggingParamsPtrInput            `pulumi:"enableIoTLoggingParams"`
+	PublishFindingToSnsParams         MitigationActionPublishFindingToSnsParamsPtrInput         `pulumi:"publishFindingToSnsParams"`
 	ReplaceDefaultPolicyVersionParams MitigationActionReplaceDefaultPolicyVersionParamsPtrInput `pulumi:"replaceDefaultPolicyVersionParams"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatecacertificateparams
-	UpdateCACertificateParams MitigationActionUpdateCACertificateParamsPtrInput `pulumi:"updateCACertificateParams"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatedevicecertificateparams
-	UpdateDeviceCertificateParams MitigationActionUpdateDeviceCertificateParamsPtrInput `pulumi:"updateDeviceCertificateParams"`
+	UpdateCACertificateParams         MitigationActionUpdateCACertificateParamsPtrInput         `pulumi:"updateCACertificateParams"`
+	UpdateDeviceCertificateParams     MitigationActionUpdateDeviceCertificateParamsPtrInput     `pulumi:"updateDeviceCertificateParams"`
 }
 
 func (MitigationActionActionParamsArgs) ElementType() reflect.Type {
@@ -1417,7 +1846,7 @@ func (i *mitigationActionActionParamsPtrType) ToMitigationActionActionParamsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionActionParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html
+// The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
 type MitigationActionActionParamsOutput struct{ *pulumi.OutputState }
 
 func (MitigationActionActionParamsOutput) ElementType() reflect.Type {
@@ -1442,42 +1871,36 @@ func (o MitigationActionActionParamsOutput) ToMitigationActionActionParamsPtrOut
 	}).(MitigationActionActionParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-addthingstothinggroupparams
 func (o MitigationActionActionParamsOutput) AddThingsToThingGroupParams() MitigationActionAddThingsToThingGroupParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionAddThingsToThingGroupParams {
 		return v.AddThingsToThingGroupParams
 	}).(MitigationActionAddThingsToThingGroupParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-enableiotloggingparams
 func (o MitigationActionActionParamsOutput) EnableIoTLoggingParams() MitigationActionEnableIoTLoggingParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionEnableIoTLoggingParams {
 		return v.EnableIoTLoggingParams
 	}).(MitigationActionEnableIoTLoggingParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-publishfindingtosnsparams
 func (o MitigationActionActionParamsOutput) PublishFindingToSnsParams() MitigationActionPublishFindingToSnsParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionPublishFindingToSnsParams {
 		return v.PublishFindingToSnsParams
 	}).(MitigationActionPublishFindingToSnsParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-replacedefaultpolicyversionparams
 func (o MitigationActionActionParamsOutput) ReplaceDefaultPolicyVersionParams() MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionReplaceDefaultPolicyVersionParams {
 		return v.ReplaceDefaultPolicyVersionParams
 	}).(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatecacertificateparams
 func (o MitigationActionActionParamsOutput) UpdateCACertificateParams() MitigationActionUpdateCACertificateParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionUpdateCACertificateParams {
 		return v.UpdateCACertificateParams
 	}).(MitigationActionUpdateCACertificateParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatedevicecertificateparams
 func (o MitigationActionActionParamsOutput) UpdateDeviceCertificateParams() MitigationActionUpdateDeviceCertificateParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionUpdateDeviceCertificateParams {
 		return v.UpdateDeviceCertificateParams
@@ -1508,7 +1931,6 @@ func (o MitigationActionActionParamsPtrOutput) Elem() MitigationActionActionPara
 	}).(MitigationActionActionParamsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-addthingstothinggroupparams
 func (o MitigationActionActionParamsPtrOutput) AddThingsToThingGroupParams() MitigationActionAddThingsToThingGroupParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionAddThingsToThingGroupParams {
 		if v == nil {
@@ -1518,7 +1940,6 @@ func (o MitigationActionActionParamsPtrOutput) AddThingsToThingGroupParams() Mit
 	}).(MitigationActionAddThingsToThingGroupParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-enableiotloggingparams
 func (o MitigationActionActionParamsPtrOutput) EnableIoTLoggingParams() MitigationActionEnableIoTLoggingParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionEnableIoTLoggingParams {
 		if v == nil {
@@ -1528,7 +1949,6 @@ func (o MitigationActionActionParamsPtrOutput) EnableIoTLoggingParams() Mitigati
 	}).(MitigationActionEnableIoTLoggingParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-publishfindingtosnsparams
 func (o MitigationActionActionParamsPtrOutput) PublishFindingToSnsParams() MitigationActionPublishFindingToSnsParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionPublishFindingToSnsParams {
 		if v == nil {
@@ -1538,7 +1958,6 @@ func (o MitigationActionActionParamsPtrOutput) PublishFindingToSnsParams() Mitig
 	}).(MitigationActionPublishFindingToSnsParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-replacedefaultpolicyversionparams
 func (o MitigationActionActionParamsPtrOutput) ReplaceDefaultPolicyVersionParams() MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionReplaceDefaultPolicyVersionParams {
 		if v == nil {
@@ -1548,7 +1967,6 @@ func (o MitigationActionActionParamsPtrOutput) ReplaceDefaultPolicyVersionParams
 	}).(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatecacertificateparams
 func (o MitigationActionActionParamsPtrOutput) UpdateCACertificateParams() MitigationActionUpdateCACertificateParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionUpdateCACertificateParams {
 		if v == nil {
@@ -1558,7 +1976,6 @@ func (o MitigationActionActionParamsPtrOutput) UpdateCACertificateParams() Mitig
 	}).(MitigationActionUpdateCACertificateParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatedevicecertificateparams
 func (o MitigationActionActionParamsPtrOutput) UpdateDeviceCertificateParams() MitigationActionUpdateDeviceCertificateParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionUpdateDeviceCertificateParams {
 		if v == nil {
@@ -1568,11 +1985,11 @@ func (o MitigationActionActionParamsPtrOutput) UpdateDeviceCertificateParams() M
 	}).(MitigationActionUpdateDeviceCertificateParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html
+// Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
 type MitigationActionAddThingsToThingGroupParams struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-overridedynamicgroups
+	// Specifies if this mitigation action can move the things that triggered the mitigation action out of one or more dynamic thing groups.
 	OverrideDynamicGroups *bool `pulumi:"overrideDynamicGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-thinggroupnames
+	// The list of groups to which you want to add the things that triggered the mitigation action.
 	ThingGroupNames []string `pulumi:"thingGroupNames"`
 }
 
@@ -1587,11 +2004,11 @@ type MitigationActionAddThingsToThingGroupParamsInput interface {
 	ToMitigationActionAddThingsToThingGroupParamsOutputWithContext(context.Context) MitigationActionAddThingsToThingGroupParamsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html
+// Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
 type MitigationActionAddThingsToThingGroupParamsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-overridedynamicgroups
+	// Specifies if this mitigation action can move the things that triggered the mitigation action out of one or more dynamic thing groups.
 	OverrideDynamicGroups pulumi.BoolPtrInput `pulumi:"overrideDynamicGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-thinggroupnames
+	// The list of groups to which you want to add the things that triggered the mitigation action.
 	ThingGroupNames pulumi.StringArrayInput `pulumi:"thingGroupNames"`
 }
 
@@ -1648,7 +2065,7 @@ func (i *mitigationActionAddThingsToThingGroupParamsPtrType) ToMitigationActionA
 	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionAddThingsToThingGroupParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html
+// Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
 type MitigationActionAddThingsToThingGroupParamsOutput struct{ *pulumi.OutputState }
 
 func (MitigationActionAddThingsToThingGroupParamsOutput) ElementType() reflect.Type {
@@ -1673,12 +2090,12 @@ func (o MitigationActionAddThingsToThingGroupParamsOutput) ToMitigationActionAdd
 	}).(MitigationActionAddThingsToThingGroupParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-overridedynamicgroups
+// Specifies if this mitigation action can move the things that triggered the mitigation action out of one or more dynamic thing groups.
 func (o MitigationActionAddThingsToThingGroupParamsOutput) OverrideDynamicGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MitigationActionAddThingsToThingGroupParams) *bool { return v.OverrideDynamicGroups }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-thinggroupnames
+// The list of groups to which you want to add the things that triggered the mitigation action.
 func (o MitigationActionAddThingsToThingGroupParamsOutput) ThingGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MitigationActionAddThingsToThingGroupParams) []string { return v.ThingGroupNames }).(pulumi.StringArrayOutput)
 }
@@ -1707,7 +2124,7 @@ func (o MitigationActionAddThingsToThingGroupParamsPtrOutput) Elem() MitigationA
 	}).(MitigationActionAddThingsToThingGroupParamsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-overridedynamicgroups
+// Specifies if this mitigation action can move the things that triggered the mitigation action out of one or more dynamic thing groups.
 func (o MitigationActionAddThingsToThingGroupParamsPtrOutput) OverrideDynamicGroups() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MitigationActionAddThingsToThingGroupParams) *bool {
 		if v == nil {
@@ -1717,7 +2134,7 @@ func (o MitigationActionAddThingsToThingGroupParamsPtrOutput) OverrideDynamicGro
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-thinggroupnames
+// The list of groups to which you want to add the things that triggered the mitigation action.
 func (o MitigationActionAddThingsToThingGroupParamsPtrOutput) ThingGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MitigationActionAddThingsToThingGroupParams) []string {
 		if v == nil {
@@ -1727,11 +2144,11 @@ func (o MitigationActionAddThingsToThingGroupParamsPtrOutput) ThingGroupNames() 
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html
+// Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
 type MitigationActionEnableIoTLoggingParams struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-loglevel
+	//  Specifies which types of information are logged.
 	LogLevel string `pulumi:"logLevel"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-rolearnforlogging
+	//  The ARN of the IAM role used for logging.
 	RoleArnForLogging string `pulumi:"roleArnForLogging"`
 }
 
@@ -1746,11 +2163,11 @@ type MitigationActionEnableIoTLoggingParamsInput interface {
 	ToMitigationActionEnableIoTLoggingParamsOutputWithContext(context.Context) MitigationActionEnableIoTLoggingParamsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html
+// Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
 type MitigationActionEnableIoTLoggingParamsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-loglevel
+	//  Specifies which types of information are logged.
 	LogLevel pulumi.StringInput `pulumi:"logLevel"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-rolearnforlogging
+	//  The ARN of the IAM role used for logging.
 	RoleArnForLogging pulumi.StringInput `pulumi:"roleArnForLogging"`
 }
 
@@ -1807,7 +2224,7 @@ func (i *mitigationActionEnableIoTLoggingParamsPtrType) ToMitigationActionEnable
 	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionEnableIoTLoggingParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html
+// Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
 type MitigationActionEnableIoTLoggingParamsOutput struct{ *pulumi.OutputState }
 
 func (MitigationActionEnableIoTLoggingParamsOutput) ElementType() reflect.Type {
@@ -1832,12 +2249,12 @@ func (o MitigationActionEnableIoTLoggingParamsOutput) ToMitigationActionEnableIo
 	}).(MitigationActionEnableIoTLoggingParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-loglevel
+//  Specifies which types of information are logged.
 func (o MitigationActionEnableIoTLoggingParamsOutput) LogLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v MitigationActionEnableIoTLoggingParams) string { return v.LogLevel }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-rolearnforlogging
+//  The ARN of the IAM role used for logging.
 func (o MitigationActionEnableIoTLoggingParamsOutput) RoleArnForLogging() pulumi.StringOutput {
 	return o.ApplyT(func(v MitigationActionEnableIoTLoggingParams) string { return v.RoleArnForLogging }).(pulumi.StringOutput)
 }
@@ -1866,7 +2283,7 @@ func (o MitigationActionEnableIoTLoggingParamsPtrOutput) Elem() MitigationAction
 	}).(MitigationActionEnableIoTLoggingParamsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-loglevel
+//  Specifies which types of information are logged.
 func (o MitigationActionEnableIoTLoggingParamsPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MitigationActionEnableIoTLoggingParams) *string {
 		if v == nil {
@@ -1876,7 +2293,7 @@ func (o MitigationActionEnableIoTLoggingParamsPtrOutput) LogLevel() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-rolearnforlogging
+//  The ARN of the IAM role used for logging.
 func (o MitigationActionEnableIoTLoggingParamsPtrOutput) RoleArnForLogging() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MitigationActionEnableIoTLoggingParams) *string {
 		if v == nil {
@@ -1886,9 +2303,9 @@ func (o MitigationActionEnableIoTLoggingParamsPtrOutput) RoleArnForLogging() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html
+// Parameters, to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
 type MitigationActionPublishFindingToSnsParams struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html#cfn-iot-mitigationaction-publishfindingtosnsparams-topicarn
+	// The ARN of the topic to which you want to publish the findings.
 	TopicArn string `pulumi:"topicArn"`
 }
 
@@ -1903,9 +2320,9 @@ type MitigationActionPublishFindingToSnsParamsInput interface {
 	ToMitigationActionPublishFindingToSnsParamsOutputWithContext(context.Context) MitigationActionPublishFindingToSnsParamsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html
+// Parameters, to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
 type MitigationActionPublishFindingToSnsParamsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html#cfn-iot-mitigationaction-publishfindingtosnsparams-topicarn
+	// The ARN of the topic to which you want to publish the findings.
 	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
@@ -1962,7 +2379,7 @@ func (i *mitigationActionPublishFindingToSnsParamsPtrType) ToMitigationActionPub
 	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionPublishFindingToSnsParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html
+// Parameters, to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
 type MitigationActionPublishFindingToSnsParamsOutput struct{ *pulumi.OutputState }
 
 func (MitigationActionPublishFindingToSnsParamsOutput) ElementType() reflect.Type {
@@ -1987,7 +2404,7 @@ func (o MitigationActionPublishFindingToSnsParamsOutput) ToMitigationActionPubli
 	}).(MitigationActionPublishFindingToSnsParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html#cfn-iot-mitigationaction-publishfindingtosnsparams-topicarn
+// The ARN of the topic to which you want to publish the findings.
 func (o MitigationActionPublishFindingToSnsParamsOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v MitigationActionPublishFindingToSnsParams) string { return v.TopicArn }).(pulumi.StringOutput)
 }
@@ -2016,7 +2433,7 @@ func (o MitigationActionPublishFindingToSnsParamsPtrOutput) Elem() MitigationAct
 	}).(MitigationActionPublishFindingToSnsParamsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-publishfindingtosnsparams.html#cfn-iot-mitigationaction-publishfindingtosnsparams-topicarn
+// The ARN of the topic to which you want to publish the findings.
 func (o MitigationActionPublishFindingToSnsParamsPtrOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MitigationActionPublishFindingToSnsParams) *string {
 		if v == nil {
@@ -2026,9 +2443,8 @@ func (o MitigationActionPublishFindingToSnsParamsPtrOutput) TopicArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html
+// Parameters to define a mitigation action that adds a blank policy to restrict permissions.
 type MitigationActionReplaceDefaultPolicyVersionParams struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html#cfn-iot-mitigationaction-replacedefaultpolicyversionparams-templatename
 	TemplateName string `pulumi:"templateName"`
 }
 
@@ -2043,9 +2459,8 @@ type MitigationActionReplaceDefaultPolicyVersionParamsInput interface {
 	ToMitigationActionReplaceDefaultPolicyVersionParamsOutputWithContext(context.Context) MitigationActionReplaceDefaultPolicyVersionParamsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html
+// Parameters to define a mitigation action that adds a blank policy to restrict permissions.
 type MitigationActionReplaceDefaultPolicyVersionParamsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html#cfn-iot-mitigationaction-replacedefaultpolicyversionparams-templatename
 	TemplateName pulumi.StringInput `pulumi:"templateName"`
 }
 
@@ -2102,7 +2517,7 @@ func (i *mitigationActionReplaceDefaultPolicyVersionParamsPtrType) ToMitigationA
 	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html
+// Parameters to define a mitigation action that adds a blank policy to restrict permissions.
 type MitigationActionReplaceDefaultPolicyVersionParamsOutput struct{ *pulumi.OutputState }
 
 func (MitigationActionReplaceDefaultPolicyVersionParamsOutput) ElementType() reflect.Type {
@@ -2127,7 +2542,6 @@ func (o MitigationActionReplaceDefaultPolicyVersionParamsOutput) ToMitigationAct
 	}).(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html#cfn-iot-mitigationaction-replacedefaultpolicyversionparams-templatename
 func (o MitigationActionReplaceDefaultPolicyVersionParamsOutput) TemplateName() pulumi.StringOutput {
 	return o.ApplyT(func(v MitigationActionReplaceDefaultPolicyVersionParams) string { return v.TemplateName }).(pulumi.StringOutput)
 }
@@ -2156,7 +2570,6 @@ func (o MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput) Elem() Mitig
 	}).(MitigationActionReplaceDefaultPolicyVersionParamsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html#cfn-iot-mitigationaction-replacedefaultpolicyversionparams-templatename
 func (o MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput) TemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MitigationActionReplaceDefaultPolicyVersionParams) *string {
 		if v == nil {
@@ -2166,9 +2579,117 @@ func (o MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput) TemplateName
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatecacertificateparams.html
+// A key-value pair to associate with a resource.
+type MitigationActionTag struct {
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
+	Value string `pulumi:"value"`
+}
+
+// MitigationActionTagInput is an input type that accepts MitigationActionTagArgs and MitigationActionTagOutput values.
+// You can construct a concrete instance of `MitigationActionTagInput` via:
+//
+//          MitigationActionTagArgs{...}
+type MitigationActionTagInput interface {
+	pulumi.Input
+
+	ToMitigationActionTagOutput() MitigationActionTagOutput
+	ToMitigationActionTagOutputWithContext(context.Context) MitigationActionTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type MitigationActionTagArgs struct {
+	// The tag's key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag's value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (MitigationActionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MitigationActionTag)(nil)).Elem()
+}
+
+func (i MitigationActionTagArgs) ToMitigationActionTagOutput() MitigationActionTagOutput {
+	return i.ToMitigationActionTagOutputWithContext(context.Background())
+}
+
+func (i MitigationActionTagArgs) ToMitigationActionTagOutputWithContext(ctx context.Context) MitigationActionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionTagOutput)
+}
+
+// MitigationActionTagArrayInput is an input type that accepts MitigationActionTagArray and MitigationActionTagArrayOutput values.
+// You can construct a concrete instance of `MitigationActionTagArrayInput` via:
+//
+//          MitigationActionTagArray{ MitigationActionTagArgs{...} }
+type MitigationActionTagArrayInput interface {
+	pulumi.Input
+
+	ToMitigationActionTagArrayOutput() MitigationActionTagArrayOutput
+	ToMitigationActionTagArrayOutputWithContext(context.Context) MitigationActionTagArrayOutput
+}
+
+type MitigationActionTagArray []MitigationActionTagInput
+
+func (MitigationActionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MitigationActionTag)(nil)).Elem()
+}
+
+func (i MitigationActionTagArray) ToMitigationActionTagArrayOutput() MitigationActionTagArrayOutput {
+	return i.ToMitigationActionTagArrayOutputWithContext(context.Background())
+}
+
+func (i MitigationActionTagArray) ToMitigationActionTagArrayOutputWithContext(ctx context.Context) MitigationActionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type MitigationActionTagOutput struct{ *pulumi.OutputState }
+
+func (MitigationActionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MitigationActionTag)(nil)).Elem()
+}
+
+func (o MitigationActionTagOutput) ToMitigationActionTagOutput() MitigationActionTagOutput {
+	return o
+}
+
+func (o MitigationActionTagOutput) ToMitigationActionTagOutputWithContext(ctx context.Context) MitigationActionTagOutput {
+	return o
+}
+
+// The tag's key.
+func (o MitigationActionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MitigationActionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The tag's value.
+func (o MitigationActionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v MitigationActionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type MitigationActionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (MitigationActionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MitigationActionTag)(nil)).Elem()
+}
+
+func (o MitigationActionTagArrayOutput) ToMitigationActionTagArrayOutput() MitigationActionTagArrayOutput {
+	return o
+}
+
+func (o MitigationActionTagArrayOutput) ToMitigationActionTagArrayOutputWithContext(ctx context.Context) MitigationActionTagArrayOutput {
+	return o
+}
+
+func (o MitigationActionTagArrayOutput) Index(i pulumi.IntInput) MitigationActionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MitigationActionTag {
+		return vs[0].([]MitigationActionTag)[vs[1].(int)]
+	}).(MitigationActionTagOutput)
+}
+
+// Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
 type MitigationActionUpdateCACertificateParams struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatecacertificateparams.html#cfn-iot-mitigationaction-updatecacertificateparams-action
 	Action string `pulumi:"action"`
 }
 
@@ -2183,9 +2704,8 @@ type MitigationActionUpdateCACertificateParamsInput interface {
 	ToMitigationActionUpdateCACertificateParamsOutputWithContext(context.Context) MitigationActionUpdateCACertificateParamsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatecacertificateparams.html
+// Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
 type MitigationActionUpdateCACertificateParamsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatecacertificateparams.html#cfn-iot-mitigationaction-updatecacertificateparams-action
 	Action pulumi.StringInput `pulumi:"action"`
 }
 
@@ -2242,7 +2762,7 @@ func (i *mitigationActionUpdateCACertificateParamsPtrType) ToMitigationActionUpd
 	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionUpdateCACertificateParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatecacertificateparams.html
+// Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
 type MitigationActionUpdateCACertificateParamsOutput struct{ *pulumi.OutputState }
 
 func (MitigationActionUpdateCACertificateParamsOutput) ElementType() reflect.Type {
@@ -2267,7 +2787,6 @@ func (o MitigationActionUpdateCACertificateParamsOutput) ToMitigationActionUpdat
 	}).(MitigationActionUpdateCACertificateParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatecacertificateparams.html#cfn-iot-mitigationaction-updatecacertificateparams-action
 func (o MitigationActionUpdateCACertificateParamsOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v MitigationActionUpdateCACertificateParams) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -2296,7 +2815,6 @@ func (o MitigationActionUpdateCACertificateParamsPtrOutput) Elem() MitigationAct
 	}).(MitigationActionUpdateCACertificateParamsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatecacertificateparams.html#cfn-iot-mitigationaction-updatecacertificateparams-action
 func (o MitigationActionUpdateCACertificateParamsPtrOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MitigationActionUpdateCACertificateParams) *string {
 		if v == nil {
@@ -2306,9 +2824,8 @@ func (o MitigationActionUpdateCACertificateParamsPtrOutput) Action() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html
+// Parameters to define a mitigation action that changes the state of the device certificate to inactive.
 type MitigationActionUpdateDeviceCertificateParams struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html#cfn-iot-mitigationaction-updatedevicecertificateparams-action
 	Action string `pulumi:"action"`
 }
 
@@ -2323,9 +2840,8 @@ type MitigationActionUpdateDeviceCertificateParamsInput interface {
 	ToMitigationActionUpdateDeviceCertificateParamsOutputWithContext(context.Context) MitigationActionUpdateDeviceCertificateParamsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html
+// Parameters to define a mitigation action that changes the state of the device certificate to inactive.
 type MitigationActionUpdateDeviceCertificateParamsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html#cfn-iot-mitigationaction-updatedevicecertificateparams-action
 	Action pulumi.StringInput `pulumi:"action"`
 }
 
@@ -2382,7 +2898,7 @@ func (i *mitigationActionUpdateDeviceCertificateParamsPtrType) ToMitigationActio
 	return pulumi.ToOutputWithContext(ctx, i).(MitigationActionUpdateDeviceCertificateParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html
+// Parameters to define a mitigation action that changes the state of the device certificate to inactive.
 type MitigationActionUpdateDeviceCertificateParamsOutput struct{ *pulumi.OutputState }
 
 func (MitigationActionUpdateDeviceCertificateParamsOutput) ElementType() reflect.Type {
@@ -2407,7 +2923,6 @@ func (o MitigationActionUpdateDeviceCertificateParamsOutput) ToMitigationActionU
 	}).(MitigationActionUpdateDeviceCertificateParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html#cfn-iot-mitigationaction-updatedevicecertificateparams-action
 func (o MitigationActionUpdateDeviceCertificateParamsOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v MitigationActionUpdateDeviceCertificateParams) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -2436,7 +2951,6 @@ func (o MitigationActionUpdateDeviceCertificateParamsPtrOutput) Elem() Mitigatio
 	}).(MitigationActionUpdateDeviceCertificateParamsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html#cfn-iot-mitigationaction-updatedevicecertificateparams-action
 func (o MitigationActionUpdateDeviceCertificateParamsPtrOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MitigationActionUpdateDeviceCertificateParams) *string {
 		if v == nil {
@@ -2446,12 +2960,9 @@ func (o MitigationActionUpdateDeviceCertificateParamsPtrOutput) Action() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html
 type ProvisioningTemplateProvisioningHook struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-payloadversion
 	PayloadVersion *string `pulumi:"payloadVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-targetarn
-	TargetArn *string `pulumi:"targetArn"`
+	TargetArn      *string `pulumi:"targetArn"`
 }
 
 // ProvisioningTemplateProvisioningHookInput is an input type that accepts ProvisioningTemplateProvisioningHookArgs and ProvisioningTemplateProvisioningHookOutput values.
@@ -2465,12 +2976,9 @@ type ProvisioningTemplateProvisioningHookInput interface {
 	ToProvisioningTemplateProvisioningHookOutputWithContext(context.Context) ProvisioningTemplateProvisioningHookOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html
 type ProvisioningTemplateProvisioningHookArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-payloadversion
 	PayloadVersion pulumi.StringPtrInput `pulumi:"payloadVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-targetarn
-	TargetArn pulumi.StringPtrInput `pulumi:"targetArn"`
+	TargetArn      pulumi.StringPtrInput `pulumi:"targetArn"`
 }
 
 func (ProvisioningTemplateProvisioningHookArgs) ElementType() reflect.Type {
@@ -2526,7 +3034,6 @@ func (i *provisioningTemplateProvisioningHookPtrType) ToProvisioningTemplateProv
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningTemplateProvisioningHookPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html
 type ProvisioningTemplateProvisioningHookOutput struct{ *pulumi.OutputState }
 
 func (ProvisioningTemplateProvisioningHookOutput) ElementType() reflect.Type {
@@ -2551,12 +3058,10 @@ func (o ProvisioningTemplateProvisioningHookOutput) ToProvisioningTemplateProvis
 	}).(ProvisioningTemplateProvisioningHookPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-payloadversion
 func (o ProvisioningTemplateProvisioningHookOutput) PayloadVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProvisioningTemplateProvisioningHook) *string { return v.PayloadVersion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-targetarn
 func (o ProvisioningTemplateProvisioningHookOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProvisioningTemplateProvisioningHook) *string { return v.TargetArn }).(pulumi.StringPtrOutput)
 }
@@ -2585,7 +3090,6 @@ func (o ProvisioningTemplateProvisioningHookPtrOutput) Elem() ProvisioningTempla
 	}).(ProvisioningTemplateProvisioningHookOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-payloadversion
 func (o ProvisioningTemplateProvisioningHookPtrOutput) PayloadVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningTemplateProvisioningHook) *string {
 		if v == nil {
@@ -2595,7 +3099,6 @@ func (o ProvisioningTemplateProvisioningHookPtrOutput) PayloadVersion() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-provisioningtemplate-provisioninghook.html#cfn-iot-provisioningtemplate-provisioninghook-targetarn
 func (o ProvisioningTemplateProvisioningHookPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProvisioningTemplateProvisioningHook) *string {
 		if v == nil {
@@ -2605,126 +3108,224 @@ func (o ProvisioningTemplateProvisioningHookPtrOutput) TargetArn() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html
-type SecurityProfileAlertTarget struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html#cfn-iot-securityprofile-alerttarget-alerttargetarn
-	AlertTargetArn string `pulumi:"alertTargetArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html#cfn-iot-securityprofile-alerttarget-rolearn
-	RoleArn string `pulumi:"roleArn"`
+type ProvisioningTemplateTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
 }
 
-// SecurityProfileAlertTargetInput is an input type that accepts SecurityProfileAlertTargetArgs and SecurityProfileAlertTargetOutput values.
-// You can construct a concrete instance of `SecurityProfileAlertTargetInput` via:
+// ProvisioningTemplateTagInput is an input type that accepts ProvisioningTemplateTagArgs and ProvisioningTemplateTagOutput values.
+// You can construct a concrete instance of `ProvisioningTemplateTagInput` via:
 //
-//          SecurityProfileAlertTargetArgs{...}
-type SecurityProfileAlertTargetInput interface {
+//          ProvisioningTemplateTagArgs{...}
+type ProvisioningTemplateTagInput interface {
 	pulumi.Input
 
-	ToSecurityProfileAlertTargetOutput() SecurityProfileAlertTargetOutput
-	ToSecurityProfileAlertTargetOutputWithContext(context.Context) SecurityProfileAlertTargetOutput
+	ToProvisioningTemplateTagOutput() ProvisioningTemplateTagOutput
+	ToProvisioningTemplateTagOutputWithContext(context.Context) ProvisioningTemplateTagOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html
-type SecurityProfileAlertTargetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html#cfn-iot-securityprofile-alerttarget-alerttargetarn
-	AlertTargetArn pulumi.StringInput `pulumi:"alertTargetArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html#cfn-iot-securityprofile-alerttarget-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+type ProvisioningTemplateTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (SecurityProfileAlertTargetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityProfileAlertTarget)(nil)).Elem()
+func (ProvisioningTemplateTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisioningTemplateTag)(nil)).Elem()
 }
 
-func (i SecurityProfileAlertTargetArgs) ToSecurityProfileAlertTargetOutput() SecurityProfileAlertTargetOutput {
-	return i.ToSecurityProfileAlertTargetOutputWithContext(context.Background())
+func (i ProvisioningTemplateTagArgs) ToProvisioningTemplateTagOutput() ProvisioningTemplateTagOutput {
+	return i.ToProvisioningTemplateTagOutputWithContext(context.Background())
 }
 
-func (i SecurityProfileAlertTargetArgs) ToSecurityProfileAlertTargetOutputWithContext(ctx context.Context) SecurityProfileAlertTargetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileAlertTargetOutput)
+func (i ProvisioningTemplateTagArgs) ToProvisioningTemplateTagOutputWithContext(ctx context.Context) ProvisioningTemplateTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningTemplateTagOutput)
 }
 
-// SecurityProfileAlertTargetMapInput is an input type that accepts SecurityProfileAlertTargetMap and SecurityProfileAlertTargetMapOutput values.
-// You can construct a concrete instance of `SecurityProfileAlertTargetMapInput` via:
+// ProvisioningTemplateTagArrayInput is an input type that accepts ProvisioningTemplateTagArray and ProvisioningTemplateTagArrayOutput values.
+// You can construct a concrete instance of `ProvisioningTemplateTagArrayInput` via:
 //
-//          SecurityProfileAlertTargetMap{ "key": SecurityProfileAlertTargetArgs{...} }
-type SecurityProfileAlertTargetMapInput interface {
+//          ProvisioningTemplateTagArray{ ProvisioningTemplateTagArgs{...} }
+type ProvisioningTemplateTagArrayInput interface {
 	pulumi.Input
 
-	ToSecurityProfileAlertTargetMapOutput() SecurityProfileAlertTargetMapOutput
-	ToSecurityProfileAlertTargetMapOutputWithContext(context.Context) SecurityProfileAlertTargetMapOutput
+	ToProvisioningTemplateTagArrayOutput() ProvisioningTemplateTagArrayOutput
+	ToProvisioningTemplateTagArrayOutputWithContext(context.Context) ProvisioningTemplateTagArrayOutput
 }
 
-type SecurityProfileAlertTargetMap map[string]SecurityProfileAlertTargetInput
+type ProvisioningTemplateTagArray []ProvisioningTemplateTagInput
 
-func (SecurityProfileAlertTargetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SecurityProfileAlertTarget)(nil)).Elem()
+func (ProvisioningTemplateTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProvisioningTemplateTag)(nil)).Elem()
 }
 
-func (i SecurityProfileAlertTargetMap) ToSecurityProfileAlertTargetMapOutput() SecurityProfileAlertTargetMapOutput {
-	return i.ToSecurityProfileAlertTargetMapOutputWithContext(context.Background())
+func (i ProvisioningTemplateTagArray) ToProvisioningTemplateTagArrayOutput() ProvisioningTemplateTagArrayOutput {
+	return i.ToProvisioningTemplateTagArrayOutputWithContext(context.Background())
 }
 
-func (i SecurityProfileAlertTargetMap) ToSecurityProfileAlertTargetMapOutputWithContext(ctx context.Context) SecurityProfileAlertTargetMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileAlertTargetMapOutput)
+func (i ProvisioningTemplateTagArray) ToProvisioningTemplateTagArrayOutputWithContext(ctx context.Context) ProvisioningTemplateTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningTemplateTagArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html
-type SecurityProfileAlertTargetOutput struct{ *pulumi.OutputState }
+type ProvisioningTemplateTagOutput struct{ *pulumi.OutputState }
 
-func (SecurityProfileAlertTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityProfileAlertTarget)(nil)).Elem()
+func (ProvisioningTemplateTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisioningTemplateTag)(nil)).Elem()
 }
 
-func (o SecurityProfileAlertTargetOutput) ToSecurityProfileAlertTargetOutput() SecurityProfileAlertTargetOutput {
+func (o ProvisioningTemplateTagOutput) ToProvisioningTemplateTagOutput() ProvisioningTemplateTagOutput {
 	return o
 }
 
-func (o SecurityProfileAlertTargetOutput) ToSecurityProfileAlertTargetOutputWithContext(ctx context.Context) SecurityProfileAlertTargetOutput {
+func (o ProvisioningTemplateTagOutput) ToProvisioningTemplateTagOutputWithContext(ctx context.Context) ProvisioningTemplateTagOutput {
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html#cfn-iot-securityprofile-alerttarget-alerttargetarn
-func (o SecurityProfileAlertTargetOutput) AlertTargetArn() pulumi.StringOutput {
-	return o.ApplyT(func(v SecurityProfileAlertTarget) string { return v.AlertTargetArn }).(pulumi.StringOutput)
+func (o ProvisioningTemplateTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ProvisioningTemplateTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-alerttarget.html#cfn-iot-securityprofile-alerttarget-rolearn
-func (o SecurityProfileAlertTargetOutput) RoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v SecurityProfileAlertTarget) string { return v.RoleArn }).(pulumi.StringOutput)
+func (o ProvisioningTemplateTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ProvisioningTemplateTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type SecurityProfileAlertTargetMapOutput struct{ *pulumi.OutputState }
+type ProvisioningTemplateTagArrayOutput struct{ *pulumi.OutputState }
 
-func (SecurityProfileAlertTargetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SecurityProfileAlertTarget)(nil)).Elem()
+func (ProvisioningTemplateTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProvisioningTemplateTag)(nil)).Elem()
 }
 
-func (o SecurityProfileAlertTargetMapOutput) ToSecurityProfileAlertTargetMapOutput() SecurityProfileAlertTargetMapOutput {
+func (o ProvisioningTemplateTagArrayOutput) ToProvisioningTemplateTagArrayOutput() ProvisioningTemplateTagArrayOutput {
 	return o
 }
 
-func (o SecurityProfileAlertTargetMapOutput) ToSecurityProfileAlertTargetMapOutputWithContext(ctx context.Context) SecurityProfileAlertTargetMapOutput {
+func (o ProvisioningTemplateTagArrayOutput) ToProvisioningTemplateTagArrayOutputWithContext(ctx context.Context) ProvisioningTemplateTagArrayOutput {
 	return o
 }
 
-func (o SecurityProfileAlertTargetMapOutput) MapIndex(k pulumi.StringInput) SecurityProfileAlertTargetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecurityProfileAlertTarget {
-		return vs[0].(map[string]SecurityProfileAlertTarget)[vs[1].(string)]
-	}).(SecurityProfileAlertTargetOutput)
+func (o ProvisioningTemplateTagArrayOutput) Index(i pulumi.IntInput) ProvisioningTemplateTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProvisioningTemplateTag {
+		return vs[0].([]ProvisioningTemplateTag)[vs[1].(int)]
+	}).(ProvisioningTemplateTagOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html
+// A key-value pair to associate with a resource.
+type ScheduledAuditTag struct {
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
+	Value string `pulumi:"value"`
+}
+
+// ScheduledAuditTagInput is an input type that accepts ScheduledAuditTagArgs and ScheduledAuditTagOutput values.
+// You can construct a concrete instance of `ScheduledAuditTagInput` via:
+//
+//          ScheduledAuditTagArgs{...}
+type ScheduledAuditTagInput interface {
+	pulumi.Input
+
+	ToScheduledAuditTagOutput() ScheduledAuditTagOutput
+	ToScheduledAuditTagOutputWithContext(context.Context) ScheduledAuditTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ScheduledAuditTagArgs struct {
+	// The tag's key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag's value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ScheduledAuditTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledAuditTag)(nil)).Elem()
+}
+
+func (i ScheduledAuditTagArgs) ToScheduledAuditTagOutput() ScheduledAuditTagOutput {
+	return i.ToScheduledAuditTagOutputWithContext(context.Background())
+}
+
+func (i ScheduledAuditTagArgs) ToScheduledAuditTagOutputWithContext(ctx context.Context) ScheduledAuditTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledAuditTagOutput)
+}
+
+// ScheduledAuditTagArrayInput is an input type that accepts ScheduledAuditTagArray and ScheduledAuditTagArrayOutput values.
+// You can construct a concrete instance of `ScheduledAuditTagArrayInput` via:
+//
+//          ScheduledAuditTagArray{ ScheduledAuditTagArgs{...} }
+type ScheduledAuditTagArrayInput interface {
+	pulumi.Input
+
+	ToScheduledAuditTagArrayOutput() ScheduledAuditTagArrayOutput
+	ToScheduledAuditTagArrayOutputWithContext(context.Context) ScheduledAuditTagArrayOutput
+}
+
+type ScheduledAuditTagArray []ScheduledAuditTagInput
+
+func (ScheduledAuditTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledAuditTag)(nil)).Elem()
+}
+
+func (i ScheduledAuditTagArray) ToScheduledAuditTagArrayOutput() ScheduledAuditTagArrayOutput {
+	return i.ToScheduledAuditTagArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduledAuditTagArray) ToScheduledAuditTagArrayOutputWithContext(ctx context.Context) ScheduledAuditTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledAuditTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ScheduledAuditTagOutput struct{ *pulumi.OutputState }
+
+func (ScheduledAuditTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledAuditTag)(nil)).Elem()
+}
+
+func (o ScheduledAuditTagOutput) ToScheduledAuditTagOutput() ScheduledAuditTagOutput {
+	return o
+}
+
+func (o ScheduledAuditTagOutput) ToScheduledAuditTagOutputWithContext(ctx context.Context) ScheduledAuditTagOutput {
+	return o
+}
+
+// The tag's key.
+func (o ScheduledAuditTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledAuditTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The tag's value.
+func (o ScheduledAuditTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledAuditTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ScheduledAuditTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduledAuditTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledAuditTag)(nil)).Elem()
+}
+
+func (o ScheduledAuditTagArrayOutput) ToScheduledAuditTagArrayOutput() ScheduledAuditTagArrayOutput {
+	return o
+}
+
+func (o ScheduledAuditTagArrayOutput) ToScheduledAuditTagArrayOutputWithContext(ctx context.Context) ScheduledAuditTagArrayOutput {
+	return o
+}
+
+func (o ScheduledAuditTagArrayOutput) Index(i pulumi.IntInput) ScheduledAuditTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduledAuditTag {
+		return vs[0].([]ScheduledAuditTag)[vs[1].(int)]
+	}).(ScheduledAuditTagOutput)
+}
+
+// A security profile behavior.
 type SecurityProfileBehavior struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-criteria
 	Criteria *SecurityProfileBehaviorCriteria `pulumi:"criteria"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metric
-	Metric *string `pulumi:"metric"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metricdimension
+	// What is measured by the behavior.
+	Metric          *string                         `pulumi:"metric"`
 	MetricDimension *SecurityProfileMetricDimension `pulumi:"metricDimension"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-name
+	// The name for the behavior.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-suppressalerts
+	// Manage Detect alarm SNS notifications by setting behavior notification to on or suppressed. Detect will continue to performing device behavior evaluations. However, suppressed alarms wouldn't be forwarded for SNS notification.
 	SuppressAlerts *bool `pulumi:"suppressAlerts"`
 }
 
@@ -2739,17 +3340,15 @@ type SecurityProfileBehaviorInput interface {
 	ToSecurityProfileBehaviorOutputWithContext(context.Context) SecurityProfileBehaviorOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html
+// A security profile behavior.
 type SecurityProfileBehaviorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-criteria
 	Criteria SecurityProfileBehaviorCriteriaPtrInput `pulumi:"criteria"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metric
-	Metric pulumi.StringPtrInput `pulumi:"metric"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metricdimension
+	// What is measured by the behavior.
+	Metric          pulumi.StringPtrInput                  `pulumi:"metric"`
 	MetricDimension SecurityProfileMetricDimensionPtrInput `pulumi:"metricDimension"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-name
+	// The name for the behavior.
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-suppressalerts
+	// Manage Detect alarm SNS notifications by setting behavior notification to on or suppressed. Detect will continue to performing device behavior evaluations. However, suppressed alarms wouldn't be forwarded for SNS notification.
 	SuppressAlerts pulumi.BoolPtrInput `pulumi:"suppressAlerts"`
 }
 
@@ -2790,7 +3389,7 @@ func (i SecurityProfileBehaviorArray) ToSecurityProfileBehaviorArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileBehaviorArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html
+// A security profile behavior.
 type SecurityProfileBehaviorOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfileBehaviorOutput) ElementType() reflect.Type {
@@ -2805,27 +3404,25 @@ func (o SecurityProfileBehaviorOutput) ToSecurityProfileBehaviorOutputWithContex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-criteria
 func (o SecurityProfileBehaviorOutput) Criteria() SecurityProfileBehaviorCriteriaPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehavior) *SecurityProfileBehaviorCriteria { return v.Criteria }).(SecurityProfileBehaviorCriteriaPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metric
+// What is measured by the behavior.
 func (o SecurityProfileBehaviorOutput) Metric() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehavior) *string { return v.Metric }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-metricdimension
 func (o SecurityProfileBehaviorOutput) MetricDimension() SecurityProfileMetricDimensionPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehavior) *SecurityProfileMetricDimension { return v.MetricDimension }).(SecurityProfileMetricDimensionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-name
+// The name for the behavior.
 func (o SecurityProfileBehaviorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityProfileBehavior) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behavior.html#cfn-iot-securityprofile-behavior-suppressalerts
+// Manage Detect alarm SNS notifications by setting behavior notification to on or suppressed. Detect will continue to performing device behavior evaluations. However, suppressed alarms wouldn't be forwarded for SNS notification.
 func (o SecurityProfileBehaviorOutput) SuppressAlerts() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehavior) *bool { return v.SuppressAlerts }).(pulumi.BoolPtrOutput)
 }
@@ -2850,22 +3447,19 @@ func (o SecurityProfileBehaviorArrayOutput) Index(i pulumi.IntInput) SecurityPro
 	}).(SecurityProfileBehaviorOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html
+// The criteria by which the behavior is determined to be normal.
 type SecurityProfileBehaviorCriteria struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-comparisonoperator
+	// The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
 	ComparisonOperator *string `pulumi:"comparisonOperator"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoalarm
+	// If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
 	ConsecutiveDatapointsToAlarm *int `pulumi:"consecutiveDatapointsToAlarm"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoclear
+	// If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
 	ConsecutiveDatapointsToClear *int `pulumi:"consecutiveDatapointsToClear"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-durationseconds
-	DurationSeconds *int `pulumi:"durationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-mldetectionconfig
-	MlDetectionConfig *SecurityProfileMachineLearningDetectionConfig `pulumi:"mlDetectionConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-statisticalthreshold
-	StatisticalThreshold *SecurityProfileStatisticalThreshold `pulumi:"statisticalThreshold"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-value
-	Value *SecurityProfileMetricValue `pulumi:"value"`
+	// Use this to specify the time duration over which the behavior is evaluated.
+	DurationSeconds      *int                                           `pulumi:"durationSeconds"`
+	MlDetectionConfig    *SecurityProfileMachineLearningDetectionConfig `pulumi:"mlDetectionConfig"`
+	StatisticalThreshold *SecurityProfileStatisticalThreshold           `pulumi:"statisticalThreshold"`
+	Value                *SecurityProfileMetricValue                    `pulumi:"value"`
 }
 
 // SecurityProfileBehaviorCriteriaInput is an input type that accepts SecurityProfileBehaviorCriteriaArgs and SecurityProfileBehaviorCriteriaOutput values.
@@ -2879,22 +3473,19 @@ type SecurityProfileBehaviorCriteriaInput interface {
 	ToSecurityProfileBehaviorCriteriaOutputWithContext(context.Context) SecurityProfileBehaviorCriteriaOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html
+// The criteria by which the behavior is determined to be normal.
 type SecurityProfileBehaviorCriteriaArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-comparisonoperator
+	// The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
 	ComparisonOperator pulumi.StringPtrInput `pulumi:"comparisonOperator"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoalarm
+	// If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
 	ConsecutiveDatapointsToAlarm pulumi.IntPtrInput `pulumi:"consecutiveDatapointsToAlarm"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoclear
+	// If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
 	ConsecutiveDatapointsToClear pulumi.IntPtrInput `pulumi:"consecutiveDatapointsToClear"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-durationseconds
-	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-mldetectionconfig
-	MlDetectionConfig SecurityProfileMachineLearningDetectionConfigPtrInput `pulumi:"mlDetectionConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-statisticalthreshold
-	StatisticalThreshold SecurityProfileStatisticalThresholdPtrInput `pulumi:"statisticalThreshold"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-value
-	Value SecurityProfileMetricValuePtrInput `pulumi:"value"`
+	// Use this to specify the time duration over which the behavior is evaluated.
+	DurationSeconds      pulumi.IntPtrInput                                    `pulumi:"durationSeconds"`
+	MlDetectionConfig    SecurityProfileMachineLearningDetectionConfigPtrInput `pulumi:"mlDetectionConfig"`
+	StatisticalThreshold SecurityProfileStatisticalThresholdPtrInput           `pulumi:"statisticalThreshold"`
+	Value                SecurityProfileMetricValuePtrInput                    `pulumi:"value"`
 }
 
 func (SecurityProfileBehaviorCriteriaArgs) ElementType() reflect.Type {
@@ -2950,7 +3541,7 @@ func (i *securityProfileBehaviorCriteriaPtrType) ToSecurityProfileBehaviorCriter
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileBehaviorCriteriaPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html
+// The criteria by which the behavior is determined to be normal.
 type SecurityProfileBehaviorCriteriaOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfileBehaviorCriteriaOutput) ElementType() reflect.Type {
@@ -2975,41 +3566,38 @@ func (o SecurityProfileBehaviorCriteriaOutput) ToSecurityProfileBehaviorCriteria
 	}).(SecurityProfileBehaviorCriteriaPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-comparisonoperator
+// The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
 func (o SecurityProfileBehaviorCriteriaOutput) ComparisonOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehaviorCriteria) *string { return v.ComparisonOperator }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoalarm
+// If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
 func (o SecurityProfileBehaviorCriteriaOutput) ConsecutiveDatapointsToAlarm() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehaviorCriteria) *int { return v.ConsecutiveDatapointsToAlarm }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoclear
+// If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
 func (o SecurityProfileBehaviorCriteriaOutput) ConsecutiveDatapointsToClear() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehaviorCriteria) *int { return v.ConsecutiveDatapointsToClear }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-durationseconds
+// Use this to specify the time duration over which the behavior is evaluated.
 func (o SecurityProfileBehaviorCriteriaOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehaviorCriteria) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-mldetectionconfig
 func (o SecurityProfileBehaviorCriteriaOutput) MlDetectionConfig() SecurityProfileMachineLearningDetectionConfigPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehaviorCriteria) *SecurityProfileMachineLearningDetectionConfig {
 		return v.MlDetectionConfig
 	}).(SecurityProfileMachineLearningDetectionConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-statisticalthreshold
 func (o SecurityProfileBehaviorCriteriaOutput) StatisticalThreshold() SecurityProfileStatisticalThresholdPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehaviorCriteria) *SecurityProfileStatisticalThreshold {
 		return v.StatisticalThreshold
 	}).(SecurityProfileStatisticalThresholdPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-value
 func (o SecurityProfileBehaviorCriteriaOutput) Value() SecurityProfileMetricValuePtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehaviorCriteria) *SecurityProfileMetricValue { return v.Value }).(SecurityProfileMetricValuePtrOutput)
 }
@@ -3038,7 +3626,7 @@ func (o SecurityProfileBehaviorCriteriaPtrOutput) Elem() SecurityProfileBehavior
 	}).(SecurityProfileBehaviorCriteriaOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-comparisonoperator
+// The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
 func (o SecurityProfileBehaviorCriteriaPtrOutput) ComparisonOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityProfileBehaviorCriteria) *string {
 		if v == nil {
@@ -3048,7 +3636,7 @@ func (o SecurityProfileBehaviorCriteriaPtrOutput) ComparisonOperator() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoalarm
+// If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
 func (o SecurityProfileBehaviorCriteriaPtrOutput) ConsecutiveDatapointsToAlarm() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecurityProfileBehaviorCriteria) *int {
 		if v == nil {
@@ -3058,7 +3646,7 @@ func (o SecurityProfileBehaviorCriteriaPtrOutput) ConsecutiveDatapointsToAlarm()
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoclear
+// If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
 func (o SecurityProfileBehaviorCriteriaPtrOutput) ConsecutiveDatapointsToClear() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecurityProfileBehaviorCriteria) *int {
 		if v == nil {
@@ -3068,7 +3656,7 @@ func (o SecurityProfileBehaviorCriteriaPtrOutput) ConsecutiveDatapointsToClear()
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-durationseconds
+// Use this to specify the time duration over which the behavior is evaluated.
 func (o SecurityProfileBehaviorCriteriaPtrOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecurityProfileBehaviorCriteria) *int {
 		if v == nil {
@@ -3078,7 +3666,6 @@ func (o SecurityProfileBehaviorCriteriaPtrOutput) DurationSeconds() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-mldetectionconfig
 func (o SecurityProfileBehaviorCriteriaPtrOutput) MlDetectionConfig() SecurityProfileMachineLearningDetectionConfigPtrOutput {
 	return o.ApplyT(func(v *SecurityProfileBehaviorCriteria) *SecurityProfileMachineLearningDetectionConfig {
 		if v == nil {
@@ -3088,7 +3675,6 @@ func (o SecurityProfileBehaviorCriteriaPtrOutput) MlDetectionConfig() SecurityPr
 	}).(SecurityProfileMachineLearningDetectionConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-statisticalthreshold
 func (o SecurityProfileBehaviorCriteriaPtrOutput) StatisticalThreshold() SecurityProfileStatisticalThresholdPtrOutput {
 	return o.ApplyT(func(v *SecurityProfileBehaviorCriteria) *SecurityProfileStatisticalThreshold {
 		if v == nil {
@@ -3098,7 +3684,6 @@ func (o SecurityProfileBehaviorCriteriaPtrOutput) StatisticalThreshold() Securit
 	}).(SecurityProfileStatisticalThresholdPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-value
 func (o SecurityProfileBehaviorCriteriaPtrOutput) Value() SecurityProfileMetricValuePtrOutput {
 	return o.ApplyT(func(v *SecurityProfileBehaviorCriteria) *SecurityProfileMetricValue {
 		if v == nil {
@@ -3108,9 +3693,9 @@ func (o SecurityProfileBehaviorCriteriaPtrOutput) Value() SecurityProfileMetricV
 	}).(SecurityProfileMetricValuePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-machinelearningdetectionconfig.html
+// The configuration of an ML Detect Security Profile.
 type SecurityProfileMachineLearningDetectionConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-machinelearningdetectionconfig.html#cfn-iot-securityprofile-machinelearningdetectionconfig-confidencelevel
+	// The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
 	ConfidenceLevel *string `pulumi:"confidenceLevel"`
 }
 
@@ -3125,9 +3710,9 @@ type SecurityProfileMachineLearningDetectionConfigInput interface {
 	ToSecurityProfileMachineLearningDetectionConfigOutputWithContext(context.Context) SecurityProfileMachineLearningDetectionConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-machinelearningdetectionconfig.html
+// The configuration of an ML Detect Security Profile.
 type SecurityProfileMachineLearningDetectionConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-machinelearningdetectionconfig.html#cfn-iot-securityprofile-machinelearningdetectionconfig-confidencelevel
+	// The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
 	ConfidenceLevel pulumi.StringPtrInput `pulumi:"confidenceLevel"`
 }
 
@@ -3184,7 +3769,7 @@ func (i *securityProfileMachineLearningDetectionConfigPtrType) ToSecurityProfile
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileMachineLearningDetectionConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-machinelearningdetectionconfig.html
+// The configuration of an ML Detect Security Profile.
 type SecurityProfileMachineLearningDetectionConfigOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfileMachineLearningDetectionConfigOutput) ElementType() reflect.Type {
@@ -3209,7 +3794,7 @@ func (o SecurityProfileMachineLearningDetectionConfigOutput) ToSecurityProfileMa
 	}).(SecurityProfileMachineLearningDetectionConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-machinelearningdetectionconfig.html#cfn-iot-securityprofile-machinelearningdetectionconfig-confidencelevel
+// The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
 func (o SecurityProfileMachineLearningDetectionConfigOutput) ConfidenceLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityProfileMachineLearningDetectionConfig) *string { return v.ConfidenceLevel }).(pulumi.StringPtrOutput)
 }
@@ -3238,7 +3823,7 @@ func (o SecurityProfileMachineLearningDetectionConfigPtrOutput) Elem() SecurityP
 	}).(SecurityProfileMachineLearningDetectionConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-machinelearningdetectionconfig.html#cfn-iot-securityprofile-machinelearningdetectionconfig-confidencelevel
+// The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
 func (o SecurityProfileMachineLearningDetectionConfigPtrOutput) ConfidenceLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityProfileMachineLearningDetectionConfig) *string {
 		if v == nil {
@@ -3248,11 +3833,11 @@ func (o SecurityProfileMachineLearningDetectionConfigPtrOutput) ConfidenceLevel(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html
+// The dimension of a metric.
 type SecurityProfileMetricDimension struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html#cfn-iot-securityprofile-metricdimension-dimensionname
+	// A unique identifier for the dimension.
 	DimensionName string `pulumi:"dimensionName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html#cfn-iot-securityprofile-metricdimension-operator
+	// Defines how the dimensionValues of a dimension are interpreted.
 	Operator *string `pulumi:"operator"`
 }
 
@@ -3267,11 +3852,11 @@ type SecurityProfileMetricDimensionInput interface {
 	ToSecurityProfileMetricDimensionOutputWithContext(context.Context) SecurityProfileMetricDimensionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html
+// The dimension of a metric.
 type SecurityProfileMetricDimensionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html#cfn-iot-securityprofile-metricdimension-dimensionname
+	// A unique identifier for the dimension.
 	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html#cfn-iot-securityprofile-metricdimension-operator
+	// Defines how the dimensionValues of a dimension are interpreted.
 	Operator pulumi.StringPtrInput `pulumi:"operator"`
 }
 
@@ -3328,7 +3913,7 @@ func (i *securityProfileMetricDimensionPtrType) ToSecurityProfileMetricDimension
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileMetricDimensionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html
+// The dimension of a metric.
 type SecurityProfileMetricDimensionOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfileMetricDimensionOutput) ElementType() reflect.Type {
@@ -3353,12 +3938,12 @@ func (o SecurityProfileMetricDimensionOutput) ToSecurityProfileMetricDimensionPt
 	}).(SecurityProfileMetricDimensionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html#cfn-iot-securityprofile-metricdimension-dimensionname
+// A unique identifier for the dimension.
 func (o SecurityProfileMetricDimensionOutput) DimensionName() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityProfileMetricDimension) string { return v.DimensionName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html#cfn-iot-securityprofile-metricdimension-operator
+// Defines how the dimensionValues of a dimension are interpreted.
 func (o SecurityProfileMetricDimensionOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityProfileMetricDimension) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
@@ -3387,7 +3972,7 @@ func (o SecurityProfileMetricDimensionPtrOutput) Elem() SecurityProfileMetricDim
 	}).(SecurityProfileMetricDimensionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html#cfn-iot-securityprofile-metricdimension-dimensionname
+// A unique identifier for the dimension.
 func (o SecurityProfileMetricDimensionPtrOutput) DimensionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityProfileMetricDimension) *string {
 		if v == nil {
@@ -3397,7 +3982,7 @@ func (o SecurityProfileMetricDimensionPtrOutput) DimensionName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html#cfn-iot-securityprofile-metricdimension-operator
+// Defines how the dimensionValues of a dimension are interpreted.
 func (o SecurityProfileMetricDimensionPtrOutput) Operator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityProfileMetricDimension) *string {
 		if v == nil {
@@ -3407,11 +3992,10 @@ func (o SecurityProfileMetricDimensionPtrOutput) Operator() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html
+// The metric you want to retain. Dimensions are optional.
 type SecurityProfileMetricToRetain struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metric
-	Metric string `pulumi:"metric"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metricdimension
+	// What is measured by the behavior.
+	Metric          string                          `pulumi:"metric"`
 	MetricDimension *SecurityProfileMetricDimension `pulumi:"metricDimension"`
 }
 
@@ -3426,11 +4010,10 @@ type SecurityProfileMetricToRetainInput interface {
 	ToSecurityProfileMetricToRetainOutputWithContext(context.Context) SecurityProfileMetricToRetainOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html
+// The metric you want to retain. Dimensions are optional.
 type SecurityProfileMetricToRetainArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metric
-	Metric pulumi.StringInput `pulumi:"metric"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metricdimension
+	// What is measured by the behavior.
+	Metric          pulumi.StringInput                     `pulumi:"metric"`
 	MetricDimension SecurityProfileMetricDimensionPtrInput `pulumi:"metricDimension"`
 }
 
@@ -3471,7 +4054,7 @@ func (i SecurityProfileMetricToRetainArray) ToSecurityProfileMetricToRetainArray
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileMetricToRetainArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html
+// The metric you want to retain. Dimensions are optional.
 type SecurityProfileMetricToRetainOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfileMetricToRetainOutput) ElementType() reflect.Type {
@@ -3486,12 +4069,11 @@ func (o SecurityProfileMetricToRetainOutput) ToSecurityProfileMetricToRetainOutp
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metric
+// What is measured by the behavior.
 func (o SecurityProfileMetricToRetainOutput) Metric() pulumi.StringOutput {
 	return o.ApplyT(func(v SecurityProfileMetricToRetain) string { return v.Metric }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metricdimension
 func (o SecurityProfileMetricToRetainOutput) MetricDimension() SecurityProfileMetricDimensionPtrOutput {
 	return o.ApplyT(func(v SecurityProfileMetricToRetain) *SecurityProfileMetricDimension { return v.MetricDimension }).(SecurityProfileMetricDimensionPtrOutput)
 }
@@ -3516,19 +4098,19 @@ func (o SecurityProfileMetricToRetainArrayOutput) Index(i pulumi.IntInput) Secur
 	}).(SecurityProfileMetricToRetainOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html
+// The value to be compared with the metric.
 type SecurityProfileMetricValue struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-cidrs
+	// If the ComparisonOperator calls for a set of CIDRs, use this to specify that set to be compared with the metric.
 	Cidrs []string `pulumi:"cidrs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-count
+	// If the ComparisonOperator calls for a numeric value, use this to specify that (integer) numeric value to be compared with the metric.
 	Count *string `pulumi:"count"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-number
+	// The numeral value of a metric.
 	Number *float64 `pulumi:"number"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-numbers
+	// The numeral values of a metric.
 	Numbers []float64 `pulumi:"numbers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-ports
+	// If the ComparisonOperator calls for a set of ports, use this to specify that set to be compared with the metric.
 	Ports []int `pulumi:"ports"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-strings
+	// The string values of a metric.
 	Strings []string `pulumi:"strings"`
 }
 
@@ -3543,19 +4125,19 @@ type SecurityProfileMetricValueInput interface {
 	ToSecurityProfileMetricValueOutputWithContext(context.Context) SecurityProfileMetricValueOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html
+// The value to be compared with the metric.
 type SecurityProfileMetricValueArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-cidrs
+	// If the ComparisonOperator calls for a set of CIDRs, use this to specify that set to be compared with the metric.
 	Cidrs pulumi.StringArrayInput `pulumi:"cidrs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-count
+	// If the ComparisonOperator calls for a numeric value, use this to specify that (integer) numeric value to be compared with the metric.
 	Count pulumi.StringPtrInput `pulumi:"count"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-number
+	// The numeral value of a metric.
 	Number pulumi.Float64PtrInput `pulumi:"number"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-numbers
+	// The numeral values of a metric.
 	Numbers pulumi.Float64ArrayInput `pulumi:"numbers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-ports
+	// If the ComparisonOperator calls for a set of ports, use this to specify that set to be compared with the metric.
 	Ports pulumi.IntArrayInput `pulumi:"ports"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-strings
+	// The string values of a metric.
 	Strings pulumi.StringArrayInput `pulumi:"strings"`
 }
 
@@ -3612,7 +4194,7 @@ func (i *securityProfileMetricValuePtrType) ToSecurityProfileMetricValuePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileMetricValuePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html
+// The value to be compared with the metric.
 type SecurityProfileMetricValueOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfileMetricValueOutput) ElementType() reflect.Type {
@@ -3637,32 +4219,32 @@ func (o SecurityProfileMetricValueOutput) ToSecurityProfileMetricValuePtrOutputW
 	}).(SecurityProfileMetricValuePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-cidrs
+// If the ComparisonOperator calls for a set of CIDRs, use this to specify that set to be compared with the metric.
 func (o SecurityProfileMetricValueOutput) Cidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityProfileMetricValue) []string { return v.Cidrs }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-count
+// If the ComparisonOperator calls for a numeric value, use this to specify that (integer) numeric value to be compared with the metric.
 func (o SecurityProfileMetricValueOutput) Count() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityProfileMetricValue) *string { return v.Count }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-number
+// The numeral value of a metric.
 func (o SecurityProfileMetricValueOutput) Number() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SecurityProfileMetricValue) *float64 { return v.Number }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-numbers
+// The numeral values of a metric.
 func (o SecurityProfileMetricValueOutput) Numbers() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v SecurityProfileMetricValue) []float64 { return v.Numbers }).(pulumi.Float64ArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-ports
+// If the ComparisonOperator calls for a set of ports, use this to specify that set to be compared with the metric.
 func (o SecurityProfileMetricValueOutput) Ports() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v SecurityProfileMetricValue) []int { return v.Ports }).(pulumi.IntArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-strings
+// The string values of a metric.
 func (o SecurityProfileMetricValueOutput) Strings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SecurityProfileMetricValue) []string { return v.Strings }).(pulumi.StringArrayOutput)
 }
@@ -3691,7 +4273,7 @@ func (o SecurityProfileMetricValuePtrOutput) Elem() SecurityProfileMetricValueOu
 	}).(SecurityProfileMetricValueOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-cidrs
+// If the ComparisonOperator calls for a set of CIDRs, use this to specify that set to be compared with the metric.
 func (o SecurityProfileMetricValuePtrOutput) Cidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityProfileMetricValue) []string {
 		if v == nil {
@@ -3701,7 +4283,7 @@ func (o SecurityProfileMetricValuePtrOutput) Cidrs() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-count
+// If the ComparisonOperator calls for a numeric value, use this to specify that (integer) numeric value to be compared with the metric.
 func (o SecurityProfileMetricValuePtrOutput) Count() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityProfileMetricValue) *string {
 		if v == nil {
@@ -3711,7 +4293,7 @@ func (o SecurityProfileMetricValuePtrOutput) Count() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-number
+// The numeral value of a metric.
 func (o SecurityProfileMetricValuePtrOutput) Number() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SecurityProfileMetricValue) *float64 {
 		if v == nil {
@@ -3721,7 +4303,7 @@ func (o SecurityProfileMetricValuePtrOutput) Number() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-numbers
+// The numeral values of a metric.
 func (o SecurityProfileMetricValuePtrOutput) Numbers() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v *SecurityProfileMetricValue) []float64 {
 		if v == nil {
@@ -3731,7 +4313,7 @@ func (o SecurityProfileMetricValuePtrOutput) Numbers() pulumi.Float64ArrayOutput
 	}).(pulumi.Float64ArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-ports
+// If the ComparisonOperator calls for a set of ports, use this to specify that set to be compared with the metric.
 func (o SecurityProfileMetricValuePtrOutput) Ports() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *SecurityProfileMetricValue) []int {
 		if v == nil {
@@ -3741,7 +4323,7 @@ func (o SecurityProfileMetricValuePtrOutput) Ports() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-strings
+// The string values of a metric.
 func (o SecurityProfileMetricValuePtrOutput) Strings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecurityProfileMetricValue) []string {
 		if v == nil {
@@ -3751,9 +4333,9 @@ func (o SecurityProfileMetricValuePtrOutput) Strings() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html
+// A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
 type SecurityProfileStatisticalThreshold struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html#cfn-iot-securityprofile-statisticalthreshold-statistic
+	// The percentile which resolves to a threshold value by which compliance with a behavior is determined
 	Statistic *string `pulumi:"statistic"`
 }
 
@@ -3768,9 +4350,9 @@ type SecurityProfileStatisticalThresholdInput interface {
 	ToSecurityProfileStatisticalThresholdOutputWithContext(context.Context) SecurityProfileStatisticalThresholdOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html
+// A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
 type SecurityProfileStatisticalThresholdArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html#cfn-iot-securityprofile-statisticalthreshold-statistic
+	// The percentile which resolves to a threshold value by which compliance with a behavior is determined
 	Statistic pulumi.StringPtrInput `pulumi:"statistic"`
 }
 
@@ -3827,7 +4409,7 @@ func (i *securityProfileStatisticalThresholdPtrType) ToSecurityProfileStatistica
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileStatisticalThresholdPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html
+// A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
 type SecurityProfileStatisticalThresholdOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfileStatisticalThresholdOutput) ElementType() reflect.Type {
@@ -3852,7 +4434,7 @@ func (o SecurityProfileStatisticalThresholdOutput) ToSecurityProfileStatisticalT
 	}).(SecurityProfileStatisticalThresholdPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html#cfn-iot-securityprofile-statisticalthreshold-statistic
+// The percentile which resolves to a threshold value by which compliance with a behavior is determined
 func (o SecurityProfileStatisticalThresholdOutput) Statistic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityProfileStatisticalThreshold) *string { return v.Statistic }).(pulumi.StringPtrOutput)
 }
@@ -3881,7 +4463,7 @@ func (o SecurityProfileStatisticalThresholdPtrOutput) Elem() SecurityProfileStat
 	}).(SecurityProfileStatisticalThresholdOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html#cfn-iot-securityprofile-statisticalthreshold-statistic
+// The percentile which resolves to a threshold value by which compliance with a behavior is determined
 func (o SecurityProfileStatisticalThresholdPtrOutput) Statistic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityProfileStatisticalThreshold) *string {
 		if v == nil {
@@ -3891,48 +4473,136 @@ func (o SecurityProfileStatisticalThresholdPtrOutput) Statistic() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html
+// A key-value pair to associate with a resource.
+type SecurityProfileTag struct {
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
+	Value string `pulumi:"value"`
+}
+
+// SecurityProfileTagInput is an input type that accepts SecurityProfileTagArgs and SecurityProfileTagOutput values.
+// You can construct a concrete instance of `SecurityProfileTagInput` via:
+//
+//          SecurityProfileTagArgs{...}
+type SecurityProfileTagInput interface {
+	pulumi.Input
+
+	ToSecurityProfileTagOutput() SecurityProfileTagOutput
+	ToSecurityProfileTagOutputWithContext(context.Context) SecurityProfileTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type SecurityProfileTagArgs struct {
+	// The tag's key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The tag's value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (SecurityProfileTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfileTag)(nil)).Elem()
+}
+
+func (i SecurityProfileTagArgs) ToSecurityProfileTagOutput() SecurityProfileTagOutput {
+	return i.ToSecurityProfileTagOutputWithContext(context.Background())
+}
+
+func (i SecurityProfileTagArgs) ToSecurityProfileTagOutputWithContext(ctx context.Context) SecurityProfileTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileTagOutput)
+}
+
+// SecurityProfileTagArrayInput is an input type that accepts SecurityProfileTagArray and SecurityProfileTagArrayOutput values.
+// You can construct a concrete instance of `SecurityProfileTagArrayInput` via:
+//
+//          SecurityProfileTagArray{ SecurityProfileTagArgs{...} }
+type SecurityProfileTagArrayInput interface {
+	pulumi.Input
+
+	ToSecurityProfileTagArrayOutput() SecurityProfileTagArrayOutput
+	ToSecurityProfileTagArrayOutputWithContext(context.Context) SecurityProfileTagArrayOutput
+}
+
+type SecurityProfileTagArray []SecurityProfileTagInput
+
+func (SecurityProfileTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityProfileTag)(nil)).Elem()
+}
+
+func (i SecurityProfileTagArray) ToSecurityProfileTagArrayOutput() SecurityProfileTagArrayOutput {
+	return i.ToSecurityProfileTagArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityProfileTagArray) ToSecurityProfileTagArrayOutputWithContext(ctx context.Context) SecurityProfileTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type SecurityProfileTagOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfileTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityProfileTag)(nil)).Elem()
+}
+
+func (o SecurityProfileTagOutput) ToSecurityProfileTagOutput() SecurityProfileTagOutput {
+	return o
+}
+
+func (o SecurityProfileTagOutput) ToSecurityProfileTagOutputWithContext(ctx context.Context) SecurityProfileTagOutput {
+	return o
+}
+
+// The tag's key.
+func (o SecurityProfileTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityProfileTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The tag's value.
+func (o SecurityProfileTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityProfileTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type SecurityProfileTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityProfileTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityProfileTag)(nil)).Elem()
+}
+
+func (o SecurityProfileTagArrayOutput) ToSecurityProfileTagArrayOutput() SecurityProfileTagArrayOutput {
+	return o
+}
+
+func (o SecurityProfileTagArrayOutput) ToSecurityProfileTagArrayOutputWithContext(ctx context.Context) SecurityProfileTagArrayOutput {
+	return o
+}
+
+func (o SecurityProfileTagArrayOutput) Index(i pulumi.IntInput) SecurityProfileTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityProfileTag {
+		return vs[0].([]SecurityProfileTag)[vs[1].(int)]
+	}).(SecurityProfileTagOutput)
+}
+
 type TopicRuleAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchalarm
-	CloudwatchAlarm *TopicRuleCloudwatchAlarmAction `pulumi:"cloudwatchAlarm"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchlogs
-	CloudwatchLogs *TopicRuleCloudwatchLogsAction `pulumi:"cloudwatchLogs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchmetric
+	CloudwatchAlarm  *TopicRuleCloudwatchAlarmAction  `pulumi:"cloudwatchAlarm"`
+	CloudwatchLogs   *TopicRuleCloudwatchLogsAction   `pulumi:"cloudwatchLogs"`
 	CloudwatchMetric *TopicRuleCloudwatchMetricAction `pulumi:"cloudwatchMetric"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodb
-	DynamoDB *TopicRuleDynamoDBAction `pulumi:"dynamoDB"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodbv2
-	DynamoDBv2 *TopicRuleDynamoDBv2Action `pulumi:"dynamoDBv2"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-elasticsearch
-	Elasticsearch *TopicRuleElasticsearchAction `pulumi:"elasticsearch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-firehose
-	Firehose *TopicRuleFirehoseAction `pulumi:"firehose"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-http
-	Http *TopicRuleHttpAction `pulumi:"http"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics
-	IotAnalytics *TopicRuleIotAnalyticsAction `pulumi:"iotAnalytics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotevents
-	IotEvents *TopicRuleIotEventsAction `pulumi:"iotEvents"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotsitewise
-	IotSiteWise *TopicRuleIotSiteWiseAction `pulumi:"iotSiteWise"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kafka
-	Kafka *TopicRuleKafkaAction `pulumi:"kafka"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
-	Kinesis *TopicRuleKinesisAction `pulumi:"kinesis"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-lambda
-	Lambda *TopicRuleLambdaAction `pulumi:"lambda"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-republish
-	Republish *TopicRuleRepublishAction `pulumi:"republish"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-s3
-	S3 *TopicRuleS3Action `pulumi:"s3"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sns
-	Sns *TopicRuleSnsAction `pulumi:"sns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sqs
-	Sqs *TopicRuleSqsAction `pulumi:"sqs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
-	StepFunctions *TopicRuleStepFunctionsAction `pulumi:"stepFunctions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-timestream
-	Timestream *TopicRuleTimestreamAction `pulumi:"timestream"`
+	DynamoDB         *TopicRuleDynamoDBAction         `pulumi:"dynamoDB"`
+	DynamoDBv2       *TopicRuleDynamoDBv2Action       `pulumi:"dynamoDBv2"`
+	Elasticsearch    *TopicRuleElasticsearchAction    `pulumi:"elasticsearch"`
+	Firehose         *TopicRuleFirehoseAction         `pulumi:"firehose"`
+	Http             *TopicRuleHttpAction             `pulumi:"http"`
+	IotAnalytics     *TopicRuleIotAnalyticsAction     `pulumi:"iotAnalytics"`
+	IotEvents        *TopicRuleIotEventsAction        `pulumi:"iotEvents"`
+	IotSiteWise      *TopicRuleIotSiteWiseAction      `pulumi:"iotSiteWise"`
+	Kafka            *TopicRuleKafkaAction            `pulumi:"kafka"`
+	Kinesis          *TopicRuleKinesisAction          `pulumi:"kinesis"`
+	Lambda           *TopicRuleLambdaAction           `pulumi:"lambda"`
+	Republish        *TopicRuleRepublishAction        `pulumi:"republish"`
+	S3               *TopicRuleS3Action               `pulumi:"s3"`
+	Sns              *TopicRuleSnsAction              `pulumi:"sns"`
+	Sqs              *TopicRuleSqsAction              `pulumi:"sqs"`
+	StepFunctions    *TopicRuleStepFunctionsAction    `pulumi:"stepFunctions"`
+	Timestream       *TopicRuleTimestreamAction       `pulumi:"timestream"`
 }
 
 // TopicRuleActionInput is an input type that accepts TopicRuleActionArgs and TopicRuleActionOutput values.
@@ -3946,48 +4616,27 @@ type TopicRuleActionInput interface {
 	ToTopicRuleActionOutputWithContext(context.Context) TopicRuleActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html
 type TopicRuleActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchalarm
-	CloudwatchAlarm TopicRuleCloudwatchAlarmActionPtrInput `pulumi:"cloudwatchAlarm"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchlogs
-	CloudwatchLogs TopicRuleCloudwatchLogsActionPtrInput `pulumi:"cloudwatchLogs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchmetric
+	CloudwatchAlarm  TopicRuleCloudwatchAlarmActionPtrInput  `pulumi:"cloudwatchAlarm"`
+	CloudwatchLogs   TopicRuleCloudwatchLogsActionPtrInput   `pulumi:"cloudwatchLogs"`
 	CloudwatchMetric TopicRuleCloudwatchMetricActionPtrInput `pulumi:"cloudwatchMetric"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodb
-	DynamoDB TopicRuleDynamoDBActionPtrInput `pulumi:"dynamoDB"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodbv2
-	DynamoDBv2 TopicRuleDynamoDBv2ActionPtrInput `pulumi:"dynamoDBv2"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-elasticsearch
-	Elasticsearch TopicRuleElasticsearchActionPtrInput `pulumi:"elasticsearch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-firehose
-	Firehose TopicRuleFirehoseActionPtrInput `pulumi:"firehose"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-http
-	Http TopicRuleHttpActionPtrInput `pulumi:"http"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics
-	IotAnalytics TopicRuleIotAnalyticsActionPtrInput `pulumi:"iotAnalytics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotevents
-	IotEvents TopicRuleIotEventsActionPtrInput `pulumi:"iotEvents"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotsitewise
-	IotSiteWise TopicRuleIotSiteWiseActionPtrInput `pulumi:"iotSiteWise"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kafka
-	Kafka TopicRuleKafkaActionPtrInput `pulumi:"kafka"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
-	Kinesis TopicRuleKinesisActionPtrInput `pulumi:"kinesis"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-lambda
-	Lambda TopicRuleLambdaActionPtrInput `pulumi:"lambda"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-republish
-	Republish TopicRuleRepublishActionPtrInput `pulumi:"republish"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-s3
-	S3 TopicRuleS3ActionPtrInput `pulumi:"s3"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sns
-	Sns TopicRuleSnsActionPtrInput `pulumi:"sns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sqs
-	Sqs TopicRuleSqsActionPtrInput `pulumi:"sqs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
-	StepFunctions TopicRuleStepFunctionsActionPtrInput `pulumi:"stepFunctions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-timestream
-	Timestream TopicRuleTimestreamActionPtrInput `pulumi:"timestream"`
+	DynamoDB         TopicRuleDynamoDBActionPtrInput         `pulumi:"dynamoDB"`
+	DynamoDBv2       TopicRuleDynamoDBv2ActionPtrInput       `pulumi:"dynamoDBv2"`
+	Elasticsearch    TopicRuleElasticsearchActionPtrInput    `pulumi:"elasticsearch"`
+	Firehose         TopicRuleFirehoseActionPtrInput         `pulumi:"firehose"`
+	Http             TopicRuleHttpActionPtrInput             `pulumi:"http"`
+	IotAnalytics     TopicRuleIotAnalyticsActionPtrInput     `pulumi:"iotAnalytics"`
+	IotEvents        TopicRuleIotEventsActionPtrInput        `pulumi:"iotEvents"`
+	IotSiteWise      TopicRuleIotSiteWiseActionPtrInput      `pulumi:"iotSiteWise"`
+	Kafka            TopicRuleKafkaActionPtrInput            `pulumi:"kafka"`
+	Kinesis          TopicRuleKinesisActionPtrInput          `pulumi:"kinesis"`
+	Lambda           TopicRuleLambdaActionPtrInput           `pulumi:"lambda"`
+	Republish        TopicRuleRepublishActionPtrInput        `pulumi:"republish"`
+	S3               TopicRuleS3ActionPtrInput               `pulumi:"s3"`
+	Sns              TopicRuleSnsActionPtrInput              `pulumi:"sns"`
+	Sqs              TopicRuleSqsActionPtrInput              `pulumi:"sqs"`
+	StepFunctions    TopicRuleStepFunctionsActionPtrInput    `pulumi:"stepFunctions"`
+	Timestream       TopicRuleTimestreamActionPtrInput       `pulumi:"timestream"`
 }
 
 func (TopicRuleActionArgs) ElementType() reflect.Type {
@@ -4068,7 +4717,6 @@ func (i TopicRuleActionArray) ToTopicRuleActionArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleActionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html
 type TopicRuleActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleActionOutput) ElementType() reflect.Type {
@@ -4093,102 +4741,82 @@ func (o TopicRuleActionOutput) ToTopicRuleActionPtrOutputWithContext(ctx context
 	}).(TopicRuleActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchalarm
 func (o TopicRuleActionOutput) CloudwatchAlarm() TopicRuleCloudwatchAlarmActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleCloudwatchAlarmAction { return v.CloudwatchAlarm }).(TopicRuleCloudwatchAlarmActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchlogs
 func (o TopicRuleActionOutput) CloudwatchLogs() TopicRuleCloudwatchLogsActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleCloudwatchLogsAction { return v.CloudwatchLogs }).(TopicRuleCloudwatchLogsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchmetric
 func (o TopicRuleActionOutput) CloudwatchMetric() TopicRuleCloudwatchMetricActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleCloudwatchMetricAction { return v.CloudwatchMetric }).(TopicRuleCloudwatchMetricActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodb
 func (o TopicRuleActionOutput) DynamoDB() TopicRuleDynamoDBActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleDynamoDBAction { return v.DynamoDB }).(TopicRuleDynamoDBActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodbv2
 func (o TopicRuleActionOutput) DynamoDBv2() TopicRuleDynamoDBv2ActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleDynamoDBv2Action { return v.DynamoDBv2 }).(TopicRuleDynamoDBv2ActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-elasticsearch
 func (o TopicRuleActionOutput) Elasticsearch() TopicRuleElasticsearchActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleElasticsearchAction { return v.Elasticsearch }).(TopicRuleElasticsearchActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-firehose
 func (o TopicRuleActionOutput) Firehose() TopicRuleFirehoseActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleFirehoseAction { return v.Firehose }).(TopicRuleFirehoseActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-http
 func (o TopicRuleActionOutput) Http() TopicRuleHttpActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleHttpAction { return v.Http }).(TopicRuleHttpActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics
 func (o TopicRuleActionOutput) IotAnalytics() TopicRuleIotAnalyticsActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleIotAnalyticsAction { return v.IotAnalytics }).(TopicRuleIotAnalyticsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotevents
 func (o TopicRuleActionOutput) IotEvents() TopicRuleIotEventsActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleIotEventsAction { return v.IotEvents }).(TopicRuleIotEventsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotsitewise
 func (o TopicRuleActionOutput) IotSiteWise() TopicRuleIotSiteWiseActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleIotSiteWiseAction { return v.IotSiteWise }).(TopicRuleIotSiteWiseActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kafka
 func (o TopicRuleActionOutput) Kafka() TopicRuleKafkaActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleKafkaAction { return v.Kafka }).(TopicRuleKafkaActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
 func (o TopicRuleActionOutput) Kinesis() TopicRuleKinesisActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleKinesisAction { return v.Kinesis }).(TopicRuleKinesisActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-lambda
 func (o TopicRuleActionOutput) Lambda() TopicRuleLambdaActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleLambdaAction { return v.Lambda }).(TopicRuleLambdaActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-republish
 func (o TopicRuleActionOutput) Republish() TopicRuleRepublishActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleRepublishAction { return v.Republish }).(TopicRuleRepublishActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-s3
 func (o TopicRuleActionOutput) S3() TopicRuleS3ActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleS3Action { return v.S3 }).(TopicRuleS3ActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sns
 func (o TopicRuleActionOutput) Sns() TopicRuleSnsActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleSnsAction { return v.Sns }).(TopicRuleSnsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sqs
 func (o TopicRuleActionOutput) Sqs() TopicRuleSqsActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleSqsAction { return v.Sqs }).(TopicRuleSqsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
 func (o TopicRuleActionOutput) StepFunctions() TopicRuleStepFunctionsActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleStepFunctionsAction { return v.StepFunctions }).(TopicRuleStepFunctionsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-timestream
 func (o TopicRuleActionOutput) Timestream() TopicRuleTimestreamActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleTimestreamAction { return v.Timestream }).(TopicRuleTimestreamActionPtrOutput)
 }
@@ -4217,7 +4845,6 @@ func (o TopicRuleActionPtrOutput) Elem() TopicRuleActionOutput {
 	}).(TopicRuleActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchalarm
 func (o TopicRuleActionPtrOutput) CloudwatchAlarm() TopicRuleCloudwatchAlarmActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleCloudwatchAlarmAction {
 		if v == nil {
@@ -4227,7 +4854,6 @@ func (o TopicRuleActionPtrOutput) CloudwatchAlarm() TopicRuleCloudwatchAlarmActi
 	}).(TopicRuleCloudwatchAlarmActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchlogs
 func (o TopicRuleActionPtrOutput) CloudwatchLogs() TopicRuleCloudwatchLogsActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleCloudwatchLogsAction {
 		if v == nil {
@@ -4237,7 +4863,6 @@ func (o TopicRuleActionPtrOutput) CloudwatchLogs() TopicRuleCloudwatchLogsAction
 	}).(TopicRuleCloudwatchLogsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchmetric
 func (o TopicRuleActionPtrOutput) CloudwatchMetric() TopicRuleCloudwatchMetricActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleCloudwatchMetricAction {
 		if v == nil {
@@ -4247,7 +4872,6 @@ func (o TopicRuleActionPtrOutput) CloudwatchMetric() TopicRuleCloudwatchMetricAc
 	}).(TopicRuleCloudwatchMetricActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodb
 func (o TopicRuleActionPtrOutput) DynamoDB() TopicRuleDynamoDBActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleDynamoDBAction {
 		if v == nil {
@@ -4257,7 +4881,6 @@ func (o TopicRuleActionPtrOutput) DynamoDB() TopicRuleDynamoDBActionPtrOutput {
 	}).(TopicRuleDynamoDBActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-dynamodbv2
 func (o TopicRuleActionPtrOutput) DynamoDBv2() TopicRuleDynamoDBv2ActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleDynamoDBv2Action {
 		if v == nil {
@@ -4267,7 +4890,6 @@ func (o TopicRuleActionPtrOutput) DynamoDBv2() TopicRuleDynamoDBv2ActionPtrOutpu
 	}).(TopicRuleDynamoDBv2ActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-elasticsearch
 func (o TopicRuleActionPtrOutput) Elasticsearch() TopicRuleElasticsearchActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleElasticsearchAction {
 		if v == nil {
@@ -4277,7 +4899,6 @@ func (o TopicRuleActionPtrOutput) Elasticsearch() TopicRuleElasticsearchActionPt
 	}).(TopicRuleElasticsearchActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-firehose
 func (o TopicRuleActionPtrOutput) Firehose() TopicRuleFirehoseActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleFirehoseAction {
 		if v == nil {
@@ -4287,7 +4908,6 @@ func (o TopicRuleActionPtrOutput) Firehose() TopicRuleFirehoseActionPtrOutput {
 	}).(TopicRuleFirehoseActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-http
 func (o TopicRuleActionPtrOutput) Http() TopicRuleHttpActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleHttpAction {
 		if v == nil {
@@ -4297,7 +4917,6 @@ func (o TopicRuleActionPtrOutput) Http() TopicRuleHttpActionPtrOutput {
 	}).(TopicRuleHttpActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics
 func (o TopicRuleActionPtrOutput) IotAnalytics() TopicRuleIotAnalyticsActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleIotAnalyticsAction {
 		if v == nil {
@@ -4307,7 +4926,6 @@ func (o TopicRuleActionPtrOutput) IotAnalytics() TopicRuleIotAnalyticsActionPtrO
 	}).(TopicRuleIotAnalyticsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotevents
 func (o TopicRuleActionPtrOutput) IotEvents() TopicRuleIotEventsActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleIotEventsAction {
 		if v == nil {
@@ -4317,7 +4935,6 @@ func (o TopicRuleActionPtrOutput) IotEvents() TopicRuleIotEventsActionPtrOutput 
 	}).(TopicRuleIotEventsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotsitewise
 func (o TopicRuleActionPtrOutput) IotSiteWise() TopicRuleIotSiteWiseActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleIotSiteWiseAction {
 		if v == nil {
@@ -4327,7 +4944,6 @@ func (o TopicRuleActionPtrOutput) IotSiteWise() TopicRuleIotSiteWiseActionPtrOut
 	}).(TopicRuleIotSiteWiseActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kafka
 func (o TopicRuleActionPtrOutput) Kafka() TopicRuleKafkaActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleKafkaAction {
 		if v == nil {
@@ -4337,7 +4953,6 @@ func (o TopicRuleActionPtrOutput) Kafka() TopicRuleKafkaActionPtrOutput {
 	}).(TopicRuleKafkaActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
 func (o TopicRuleActionPtrOutput) Kinesis() TopicRuleKinesisActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleKinesisAction {
 		if v == nil {
@@ -4347,7 +4962,6 @@ func (o TopicRuleActionPtrOutput) Kinesis() TopicRuleKinesisActionPtrOutput {
 	}).(TopicRuleKinesisActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-lambda
 func (o TopicRuleActionPtrOutput) Lambda() TopicRuleLambdaActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleLambdaAction {
 		if v == nil {
@@ -4357,7 +4971,6 @@ func (o TopicRuleActionPtrOutput) Lambda() TopicRuleLambdaActionPtrOutput {
 	}).(TopicRuleLambdaActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-republish
 func (o TopicRuleActionPtrOutput) Republish() TopicRuleRepublishActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleRepublishAction {
 		if v == nil {
@@ -4367,7 +4980,6 @@ func (o TopicRuleActionPtrOutput) Republish() TopicRuleRepublishActionPtrOutput 
 	}).(TopicRuleRepublishActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-s3
 func (o TopicRuleActionPtrOutput) S3() TopicRuleS3ActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleS3Action {
 		if v == nil {
@@ -4377,7 +4989,6 @@ func (o TopicRuleActionPtrOutput) S3() TopicRuleS3ActionPtrOutput {
 	}).(TopicRuleS3ActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sns
 func (o TopicRuleActionPtrOutput) Sns() TopicRuleSnsActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleSnsAction {
 		if v == nil {
@@ -4387,7 +4998,6 @@ func (o TopicRuleActionPtrOutput) Sns() TopicRuleSnsActionPtrOutput {
 	}).(TopicRuleSnsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sqs
 func (o TopicRuleActionPtrOutput) Sqs() TopicRuleSqsActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleSqsAction {
 		if v == nil {
@@ -4397,7 +5007,6 @@ func (o TopicRuleActionPtrOutput) Sqs() TopicRuleSqsActionPtrOutput {
 	}).(TopicRuleSqsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
 func (o TopicRuleActionPtrOutput) StepFunctions() TopicRuleStepFunctionsActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleStepFunctionsAction {
 		if v == nil {
@@ -4407,7 +5016,6 @@ func (o TopicRuleActionPtrOutput) StepFunctions() TopicRuleStepFunctionsActionPt
 	}).(TopicRuleStepFunctionsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-timestream
 func (o TopicRuleActionPtrOutput) Timestream() TopicRuleTimestreamActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleTimestreamAction {
 		if v == nil {
@@ -4437,12 +5045,9 @@ func (o TopicRuleActionArrayOutput) Index(i pulumi.IntInput) TopicRuleActionOutp
 	}).(TopicRuleActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html
 type TopicRuleAssetPropertyTimestamp struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-offsetinnanos
 	OffsetInNanos *string `pulumi:"offsetInNanos"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-timeinseconds
-	TimeInSeconds string `pulumi:"timeInSeconds"`
+	TimeInSeconds string  `pulumi:"timeInSeconds"`
 }
 
 // TopicRuleAssetPropertyTimestampInput is an input type that accepts TopicRuleAssetPropertyTimestampArgs and TopicRuleAssetPropertyTimestampOutput values.
@@ -4456,12 +5061,9 @@ type TopicRuleAssetPropertyTimestampInput interface {
 	ToTopicRuleAssetPropertyTimestampOutputWithContext(context.Context) TopicRuleAssetPropertyTimestampOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html
 type TopicRuleAssetPropertyTimestampArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-offsetinnanos
 	OffsetInNanos pulumi.StringPtrInput `pulumi:"offsetInNanos"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-timeinseconds
-	TimeInSeconds pulumi.StringInput `pulumi:"timeInSeconds"`
+	TimeInSeconds pulumi.StringInput    `pulumi:"timeInSeconds"`
 }
 
 func (TopicRuleAssetPropertyTimestampArgs) ElementType() reflect.Type {
@@ -4476,7 +5078,6 @@ func (i TopicRuleAssetPropertyTimestampArgs) ToTopicRuleAssetPropertyTimestampOu
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleAssetPropertyTimestampOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html
 type TopicRuleAssetPropertyTimestampOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleAssetPropertyTimestampOutput) ElementType() reflect.Type {
@@ -4491,24 +5092,18 @@ func (o TopicRuleAssetPropertyTimestampOutput) ToTopicRuleAssetPropertyTimestamp
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-offsetinnanos
 func (o TopicRuleAssetPropertyTimestampOutput) OffsetInNanos() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyTimestamp) *string { return v.OffsetInNanos }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertytimestamp.html#cfn-iot-topicrule-assetpropertytimestamp-timeinseconds
 func (o TopicRuleAssetPropertyTimestampOutput) TimeInSeconds() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyTimestamp) string { return v.TimeInSeconds }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html
 type TopicRuleAssetPropertyValue struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-quality
-	Quality *string `pulumi:"quality"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-timestamp
+	Quality   *string                         `pulumi:"quality"`
 	Timestamp TopicRuleAssetPropertyTimestamp `pulumi:"timestamp"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-value
-	Value TopicRuleAssetPropertyVariant `pulumi:"value"`
+	Value     TopicRuleAssetPropertyVariant   `pulumi:"value"`
 }
 
 // TopicRuleAssetPropertyValueInput is an input type that accepts TopicRuleAssetPropertyValueArgs and TopicRuleAssetPropertyValueOutput values.
@@ -4522,14 +5117,10 @@ type TopicRuleAssetPropertyValueInput interface {
 	ToTopicRuleAssetPropertyValueOutputWithContext(context.Context) TopicRuleAssetPropertyValueOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html
 type TopicRuleAssetPropertyValueArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-quality
-	Quality pulumi.StringPtrInput `pulumi:"quality"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-timestamp
+	Quality   pulumi.StringPtrInput                `pulumi:"quality"`
 	Timestamp TopicRuleAssetPropertyTimestampInput `pulumi:"timestamp"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-value
-	Value TopicRuleAssetPropertyVariantInput `pulumi:"value"`
+	Value     TopicRuleAssetPropertyVariantInput   `pulumi:"value"`
 }
 
 func (TopicRuleAssetPropertyValueArgs) ElementType() reflect.Type {
@@ -4569,7 +5160,6 @@ func (i TopicRuleAssetPropertyValueArray) ToTopicRuleAssetPropertyValueArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleAssetPropertyValueArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html
 type TopicRuleAssetPropertyValueOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleAssetPropertyValueOutput) ElementType() reflect.Type {
@@ -4584,17 +5174,14 @@ func (o TopicRuleAssetPropertyValueOutput) ToTopicRuleAssetPropertyValueOutputWi
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-quality
 func (o TopicRuleAssetPropertyValueOutput) Quality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyValue) *string { return v.Quality }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-timestamp
 func (o TopicRuleAssetPropertyValueOutput) Timestamp() TopicRuleAssetPropertyTimestampOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyValue) TopicRuleAssetPropertyTimestamp { return v.Timestamp }).(TopicRuleAssetPropertyTimestampOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvalue.html#cfn-iot-topicrule-assetpropertyvalue-value
 func (o TopicRuleAssetPropertyValueOutput) Value() TopicRuleAssetPropertyVariantOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyValue) TopicRuleAssetPropertyVariant { return v.Value }).(TopicRuleAssetPropertyVariantOutput)
 }
@@ -4619,16 +5206,11 @@ func (o TopicRuleAssetPropertyValueArrayOutput) Index(i pulumi.IntInput) TopicRu
 	}).(TopicRuleAssetPropertyValueOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html
 type TopicRuleAssetPropertyVariant struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-booleanvalue
 	BooleanValue *string `pulumi:"booleanValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-doublevalue
-	DoubleValue *string `pulumi:"doubleValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-integervalue
+	DoubleValue  *string `pulumi:"doubleValue"`
 	IntegerValue *string `pulumi:"integerValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-stringvalue
-	StringValue *string `pulumi:"stringValue"`
+	StringValue  *string `pulumi:"stringValue"`
 }
 
 // TopicRuleAssetPropertyVariantInput is an input type that accepts TopicRuleAssetPropertyVariantArgs and TopicRuleAssetPropertyVariantOutput values.
@@ -4642,16 +5224,11 @@ type TopicRuleAssetPropertyVariantInput interface {
 	ToTopicRuleAssetPropertyVariantOutputWithContext(context.Context) TopicRuleAssetPropertyVariantOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html
 type TopicRuleAssetPropertyVariantArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-booleanvalue
 	BooleanValue pulumi.StringPtrInput `pulumi:"booleanValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-doublevalue
-	DoubleValue pulumi.StringPtrInput `pulumi:"doubleValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-integervalue
+	DoubleValue  pulumi.StringPtrInput `pulumi:"doubleValue"`
 	IntegerValue pulumi.StringPtrInput `pulumi:"integerValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-stringvalue
-	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
+	StringValue  pulumi.StringPtrInput `pulumi:"stringValue"`
 }
 
 func (TopicRuleAssetPropertyVariantArgs) ElementType() reflect.Type {
@@ -4666,7 +5243,6 @@ func (i TopicRuleAssetPropertyVariantArgs) ToTopicRuleAssetPropertyVariantOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleAssetPropertyVariantOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html
 type TopicRuleAssetPropertyVariantOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleAssetPropertyVariantOutput) ElementType() reflect.Type {
@@ -4681,36 +5257,27 @@ func (o TopicRuleAssetPropertyVariantOutput) ToTopicRuleAssetPropertyVariantOutp
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-booleanvalue
 func (o TopicRuleAssetPropertyVariantOutput) BooleanValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyVariant) *string { return v.BooleanValue }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-doublevalue
 func (o TopicRuleAssetPropertyVariantOutput) DoubleValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyVariant) *string { return v.DoubleValue }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-integervalue
 func (o TopicRuleAssetPropertyVariantOutput) IntegerValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyVariant) *string { return v.IntegerValue }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-assetpropertyvariant.html#cfn-iot-topicrule-assetpropertyvariant-stringvalue
 func (o TopicRuleAssetPropertyVariantOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyVariant) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html
 type TopicRuleCloudwatchAlarmAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-alarmname
-	AlarmName string `pulumi:"alarmName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-statereason
+	AlarmName   string `pulumi:"alarmName"`
+	RoleArn     string `pulumi:"roleArn"`
 	StateReason string `pulumi:"stateReason"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-statevalue
-	StateValue string `pulumi:"stateValue"`
+	StateValue  string `pulumi:"stateValue"`
 }
 
 // TopicRuleCloudwatchAlarmActionInput is an input type that accepts TopicRuleCloudwatchAlarmActionArgs and TopicRuleCloudwatchAlarmActionOutput values.
@@ -4724,16 +5291,11 @@ type TopicRuleCloudwatchAlarmActionInput interface {
 	ToTopicRuleCloudwatchAlarmActionOutputWithContext(context.Context) TopicRuleCloudwatchAlarmActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html
 type TopicRuleCloudwatchAlarmActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-alarmname
-	AlarmName pulumi.StringInput `pulumi:"alarmName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-statereason
+	AlarmName   pulumi.StringInput `pulumi:"alarmName"`
+	RoleArn     pulumi.StringInput `pulumi:"roleArn"`
 	StateReason pulumi.StringInput `pulumi:"stateReason"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-statevalue
-	StateValue pulumi.StringInput `pulumi:"stateValue"`
+	StateValue  pulumi.StringInput `pulumi:"stateValue"`
 }
 
 func (TopicRuleCloudwatchAlarmActionArgs) ElementType() reflect.Type {
@@ -4789,7 +5351,6 @@ func (i *topicRuleCloudwatchAlarmActionPtrType) ToTopicRuleCloudwatchAlarmAction
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleCloudwatchAlarmActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html
 type TopicRuleCloudwatchAlarmActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleCloudwatchAlarmActionOutput) ElementType() reflect.Type {
@@ -4814,22 +5375,18 @@ func (o TopicRuleCloudwatchAlarmActionOutput) ToTopicRuleCloudwatchAlarmActionPt
 	}).(TopicRuleCloudwatchAlarmActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-alarmname
 func (o TopicRuleCloudwatchAlarmActionOutput) AlarmName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchAlarmAction) string { return v.AlarmName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-rolearn
 func (o TopicRuleCloudwatchAlarmActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchAlarmAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-statereason
 func (o TopicRuleCloudwatchAlarmActionOutput) StateReason() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchAlarmAction) string { return v.StateReason }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-statevalue
 func (o TopicRuleCloudwatchAlarmActionOutput) StateValue() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchAlarmAction) string { return v.StateValue }).(pulumi.StringOutput)
 }
@@ -4858,7 +5415,6 @@ func (o TopicRuleCloudwatchAlarmActionPtrOutput) Elem() TopicRuleCloudwatchAlarm
 	}).(TopicRuleCloudwatchAlarmActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-alarmname
 func (o TopicRuleCloudwatchAlarmActionPtrOutput) AlarmName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchAlarmAction) *string {
 		if v == nil {
@@ -4868,7 +5424,6 @@ func (o TopicRuleCloudwatchAlarmActionPtrOutput) AlarmName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-rolearn
 func (o TopicRuleCloudwatchAlarmActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchAlarmAction) *string {
 		if v == nil {
@@ -4878,7 +5433,6 @@ func (o TopicRuleCloudwatchAlarmActionPtrOutput) RoleArn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-statereason
 func (o TopicRuleCloudwatchAlarmActionPtrOutput) StateReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchAlarmAction) *string {
 		if v == nil {
@@ -4888,7 +5442,6 @@ func (o TopicRuleCloudwatchAlarmActionPtrOutput) StateReason() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-statevalue
 func (o TopicRuleCloudwatchAlarmActionPtrOutput) StateValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchAlarmAction) *string {
 		if v == nil {
@@ -4898,12 +5451,9 @@ func (o TopicRuleCloudwatchAlarmActionPtrOutput) StateValue() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html
 type TopicRuleCloudwatchLogsAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-loggroupname
 	LogGroupName string `pulumi:"logGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-rolearn
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn      string `pulumi:"roleArn"`
 }
 
 // TopicRuleCloudwatchLogsActionInput is an input type that accepts TopicRuleCloudwatchLogsActionArgs and TopicRuleCloudwatchLogsActionOutput values.
@@ -4917,12 +5467,9 @@ type TopicRuleCloudwatchLogsActionInput interface {
 	ToTopicRuleCloudwatchLogsActionOutputWithContext(context.Context) TopicRuleCloudwatchLogsActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html
 type TopicRuleCloudwatchLogsActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-loggroupname
 	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn      pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (TopicRuleCloudwatchLogsActionArgs) ElementType() reflect.Type {
@@ -4978,7 +5525,6 @@ func (i *topicRuleCloudwatchLogsActionPtrType) ToTopicRuleCloudwatchLogsActionPt
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleCloudwatchLogsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html
 type TopicRuleCloudwatchLogsActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleCloudwatchLogsActionOutput) ElementType() reflect.Type {
@@ -5003,12 +5549,10 @@ func (o TopicRuleCloudwatchLogsActionOutput) ToTopicRuleCloudwatchLogsActionPtrO
 	}).(TopicRuleCloudwatchLogsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-loggroupname
 func (o TopicRuleCloudwatchLogsActionOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchLogsAction) string { return v.LogGroupName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-rolearn
 func (o TopicRuleCloudwatchLogsActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchLogsAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -5037,7 +5581,6 @@ func (o TopicRuleCloudwatchLogsActionPtrOutput) Elem() TopicRuleCloudwatchLogsAc
 	}).(TopicRuleCloudwatchLogsActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-loggroupname
 func (o TopicRuleCloudwatchLogsActionPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchLogsAction) *string {
 		if v == nil {
@@ -5047,7 +5590,6 @@ func (o TopicRuleCloudwatchLogsActionPtrOutput) LogGroupName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchlogsaction.html#cfn-iot-topicrule-cloudwatchlogsaction-rolearn
 func (o TopicRuleCloudwatchLogsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchLogsAction) *string {
 		if v == nil {
@@ -5057,20 +5599,13 @@ func (o TopicRuleCloudwatchLogsActionPtrOutput) RoleArn() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html
 type TopicRuleCloudwatchMetricAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricname
-	MetricName string `pulumi:"metricName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricnamespace
-	MetricNamespace string `pulumi:"metricNamespace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metrictimestamp
+	MetricName      string  `pulumi:"metricName"`
+	MetricNamespace string  `pulumi:"metricNamespace"`
 	MetricTimestamp *string `pulumi:"metricTimestamp"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricunit
-	MetricUnit string `pulumi:"metricUnit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricvalue
-	MetricValue string `pulumi:"metricValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-rolearn
-	RoleArn string `pulumi:"roleArn"`
+	MetricUnit      string  `pulumi:"metricUnit"`
+	MetricValue     string  `pulumi:"metricValue"`
+	RoleArn         string  `pulumi:"roleArn"`
 }
 
 // TopicRuleCloudwatchMetricActionInput is an input type that accepts TopicRuleCloudwatchMetricActionArgs and TopicRuleCloudwatchMetricActionOutput values.
@@ -5084,20 +5619,13 @@ type TopicRuleCloudwatchMetricActionInput interface {
 	ToTopicRuleCloudwatchMetricActionOutputWithContext(context.Context) TopicRuleCloudwatchMetricActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html
 type TopicRuleCloudwatchMetricActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricname
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricnamespace
-	MetricNamespace pulumi.StringInput `pulumi:"metricNamespace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metrictimestamp
+	MetricName      pulumi.StringInput    `pulumi:"metricName"`
+	MetricNamespace pulumi.StringInput    `pulumi:"metricNamespace"`
 	MetricTimestamp pulumi.StringPtrInput `pulumi:"metricTimestamp"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricunit
-	MetricUnit pulumi.StringInput `pulumi:"metricUnit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricvalue
-	MetricValue pulumi.StringInput `pulumi:"metricValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	MetricUnit      pulumi.StringInput    `pulumi:"metricUnit"`
+	MetricValue     pulumi.StringInput    `pulumi:"metricValue"`
+	RoleArn         pulumi.StringInput    `pulumi:"roleArn"`
 }
 
 func (TopicRuleCloudwatchMetricActionArgs) ElementType() reflect.Type {
@@ -5153,7 +5681,6 @@ func (i *topicRuleCloudwatchMetricActionPtrType) ToTopicRuleCloudwatchMetricActi
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleCloudwatchMetricActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html
 type TopicRuleCloudwatchMetricActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleCloudwatchMetricActionOutput) ElementType() reflect.Type {
@@ -5178,32 +5705,26 @@ func (o TopicRuleCloudwatchMetricActionOutput) ToTopicRuleCloudwatchMetricAction
 	}).(TopicRuleCloudwatchMetricActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricname
 func (o TopicRuleCloudwatchMetricActionOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetricAction) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricnamespace
 func (o TopicRuleCloudwatchMetricActionOutput) MetricNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetricAction) string { return v.MetricNamespace }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metrictimestamp
 func (o TopicRuleCloudwatchMetricActionOutput) MetricTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetricAction) *string { return v.MetricTimestamp }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricunit
 func (o TopicRuleCloudwatchMetricActionOutput) MetricUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetricAction) string { return v.MetricUnit }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricvalue
 func (o TopicRuleCloudwatchMetricActionOutput) MetricValue() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetricAction) string { return v.MetricValue }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-rolearn
 func (o TopicRuleCloudwatchMetricActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleCloudwatchMetricAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -5232,7 +5753,6 @@ func (o TopicRuleCloudwatchMetricActionPtrOutput) Elem() TopicRuleCloudwatchMetr
 	}).(TopicRuleCloudwatchMetricActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricname
 func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetricAction) *string {
 		if v == nil {
@@ -5242,7 +5762,6 @@ func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricnamespace
 func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetricAction) *string {
 		if v == nil {
@@ -5252,7 +5771,6 @@ func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricNamespace() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metrictimestamp
 func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricTimestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetricAction) *string {
 		if v == nil {
@@ -5262,7 +5780,6 @@ func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricTimestamp() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricunit
 func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetricAction) *string {
 		if v == nil {
@@ -5272,7 +5789,6 @@ func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricUnit() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricvalue
 func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetricAction) *string {
 		if v == nil {
@@ -5282,7 +5798,6 @@ func (o TopicRuleCloudwatchMetricActionPtrOutput) MetricValue() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-rolearn
 func (o TopicRuleCloudwatchMetricActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleCloudwatchMetricAction) *string {
 		if v == nil {
@@ -5292,9 +5807,7 @@ func (o TopicRuleCloudwatchMetricActionPtrOutput) RoleArn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html
 type TopicRuleDestinationHttpUrlDestinationSummary struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html#cfn-iot-topicruledestination-httpurldestinationsummary-confirmationurl
 	ConfirmationUrl *string `pulumi:"confirmationUrl"`
 }
 
@@ -5309,9 +5822,7 @@ type TopicRuleDestinationHttpUrlDestinationSummaryInput interface {
 	ToTopicRuleDestinationHttpUrlDestinationSummaryOutputWithContext(context.Context) TopicRuleDestinationHttpUrlDestinationSummaryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html
 type TopicRuleDestinationHttpUrlDestinationSummaryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html#cfn-iot-topicruledestination-httpurldestinationsummary-confirmationurl
 	ConfirmationUrl pulumi.StringPtrInput `pulumi:"confirmationUrl"`
 }
 
@@ -5368,7 +5879,6 @@ func (i *topicRuleDestinationHttpUrlDestinationSummaryPtrType) ToTopicRuleDestin
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html
 type TopicRuleDestinationHttpUrlDestinationSummaryOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleDestinationHttpUrlDestinationSummaryOutput) ElementType() reflect.Type {
@@ -5393,7 +5903,6 @@ func (o TopicRuleDestinationHttpUrlDestinationSummaryOutput) ToTopicRuleDestinat
 	}).(TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html#cfn-iot-topicruledestination-httpurldestinationsummary-confirmationurl
 func (o TopicRuleDestinationHttpUrlDestinationSummaryOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDestinationHttpUrlDestinationSummary) *string { return v.ConfirmationUrl }).(pulumi.StringPtrOutput)
 }
@@ -5422,7 +5931,6 @@ func (o TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput) Elem() TopicRule
 	}).(TopicRuleDestinationHttpUrlDestinationSummaryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-httpurldestinationsummary.html#cfn-iot-topicruledestination-httpurldestinationsummary-confirmationurl
 func (o TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDestinationHttpUrlDestinationSummary) *string {
 		if v == nil {
@@ -5432,16 +5940,11 @@ func (o TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput) ConfirmationUrl(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html
 type TopicRuleDestinationVpcDestinationProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-rolearn
-	RoleArn *string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-securitygroups
+	RoleArn        *string  `pulumi:"roleArn"`
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-subnetids
-	SubnetIds []string `pulumi:"subnetIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-vpcid
-	VpcId *string `pulumi:"vpcId"`
+	SubnetIds      []string `pulumi:"subnetIds"`
+	VpcId          *string  `pulumi:"vpcId"`
 }
 
 // TopicRuleDestinationVpcDestinationPropertiesInput is an input type that accepts TopicRuleDestinationVpcDestinationPropertiesArgs and TopicRuleDestinationVpcDestinationPropertiesOutput values.
@@ -5455,16 +5958,11 @@ type TopicRuleDestinationVpcDestinationPropertiesInput interface {
 	ToTopicRuleDestinationVpcDestinationPropertiesOutputWithContext(context.Context) TopicRuleDestinationVpcDestinationPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html
 type TopicRuleDestinationVpcDestinationPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-rolearn
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-securitygroups
+	RoleArn        pulumi.StringPtrInput   `pulumi:"roleArn"`
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-subnetids
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-vpcid
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	SubnetIds      pulumi.StringArrayInput `pulumi:"subnetIds"`
+	VpcId          pulumi.StringPtrInput   `pulumi:"vpcId"`
 }
 
 func (TopicRuleDestinationVpcDestinationPropertiesArgs) ElementType() reflect.Type {
@@ -5520,7 +6018,6 @@ func (i *topicRuleDestinationVpcDestinationPropertiesPtrType) ToTopicRuleDestina
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationVpcDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html
 type TopicRuleDestinationVpcDestinationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleDestinationVpcDestinationPropertiesOutput) ElementType() reflect.Type {
@@ -5545,22 +6042,18 @@ func (o TopicRuleDestinationVpcDestinationPropertiesOutput) ToTopicRuleDestinati
 	}).(TopicRuleDestinationVpcDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-rolearn
 func (o TopicRuleDestinationVpcDestinationPropertiesOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDestinationVpcDestinationProperties) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-securitygroups
 func (o TopicRuleDestinationVpcDestinationPropertiesOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicRuleDestinationVpcDestinationProperties) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-subnetids
 func (o TopicRuleDestinationVpcDestinationPropertiesOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicRuleDestinationVpcDestinationProperties) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-vpcid
 func (o TopicRuleDestinationVpcDestinationPropertiesOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDestinationVpcDestinationProperties) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -5589,7 +6082,6 @@ func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) Elem() TopicRuleD
 	}).(TopicRuleDestinationVpcDestinationPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-rolearn
 func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDestinationVpcDestinationProperties) *string {
 		if v == nil {
@@ -5599,7 +6091,6 @@ func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) RoleArn() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-securitygroups
 func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TopicRuleDestinationVpcDestinationProperties) []string {
 		if v == nil {
@@ -5609,7 +6100,6 @@ func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) SecurityGroups() 
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-subnetids
 func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TopicRuleDestinationVpcDestinationProperties) []string {
 		if v == nil {
@@ -5619,7 +6109,6 @@ func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) SubnetIds() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicruledestination-vpcdestinationproperties.html#cfn-iot-topicruledestination-vpcdestinationproperties-vpcid
 func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDestinationVpcDestinationProperties) *string {
 		if v == nil {
@@ -5629,26 +6118,16 @@ func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) VpcId() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html
 type TopicRuleDynamoDBAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyfield
-	HashKeyField string `pulumi:"hashKeyField"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeytype
-	HashKeyType *string `pulumi:"hashKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyvalue
-	HashKeyValue string `pulumi:"hashKeyValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-payloadfield
-	PayloadField *string `pulumi:"payloadField"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyfield
+	HashKeyField  string  `pulumi:"hashKeyField"`
+	HashKeyType   *string `pulumi:"hashKeyType"`
+	HashKeyValue  string  `pulumi:"hashKeyValue"`
+	PayloadField  *string `pulumi:"payloadField"`
 	RangeKeyField *string `pulumi:"rangeKeyField"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeytype
-	RangeKeyType *string `pulumi:"rangeKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyvalue
+	RangeKeyType  *string `pulumi:"rangeKeyType"`
 	RangeKeyValue *string `pulumi:"rangeKeyValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-tablename
-	TableName string `pulumi:"tableName"`
+	RoleArn       string  `pulumi:"roleArn"`
+	TableName     string  `pulumi:"tableName"`
 }
 
 // TopicRuleDynamoDBActionInput is an input type that accepts TopicRuleDynamoDBActionArgs and TopicRuleDynamoDBActionOutput values.
@@ -5662,26 +6141,16 @@ type TopicRuleDynamoDBActionInput interface {
 	ToTopicRuleDynamoDBActionOutputWithContext(context.Context) TopicRuleDynamoDBActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html
 type TopicRuleDynamoDBActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyfield
-	HashKeyField pulumi.StringInput `pulumi:"hashKeyField"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeytype
-	HashKeyType pulumi.StringPtrInput `pulumi:"hashKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyvalue
-	HashKeyValue pulumi.StringInput `pulumi:"hashKeyValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-payloadfield
-	PayloadField pulumi.StringPtrInput `pulumi:"payloadField"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyfield
+	HashKeyField  pulumi.StringInput    `pulumi:"hashKeyField"`
+	HashKeyType   pulumi.StringPtrInput `pulumi:"hashKeyType"`
+	HashKeyValue  pulumi.StringInput    `pulumi:"hashKeyValue"`
+	PayloadField  pulumi.StringPtrInput `pulumi:"payloadField"`
 	RangeKeyField pulumi.StringPtrInput `pulumi:"rangeKeyField"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeytype
-	RangeKeyType pulumi.StringPtrInput `pulumi:"rangeKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyvalue
+	RangeKeyType  pulumi.StringPtrInput `pulumi:"rangeKeyType"`
 	RangeKeyValue pulumi.StringPtrInput `pulumi:"rangeKeyValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-tablename
-	TableName pulumi.StringInput `pulumi:"tableName"`
+	RoleArn       pulumi.StringInput    `pulumi:"roleArn"`
+	TableName     pulumi.StringInput    `pulumi:"tableName"`
 }
 
 func (TopicRuleDynamoDBActionArgs) ElementType() reflect.Type {
@@ -5737,7 +6206,6 @@ func (i *topicRuleDynamoDBActionPtrType) ToTopicRuleDynamoDBActionPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamoDBActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html
 type TopicRuleDynamoDBActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleDynamoDBActionOutput) ElementType() reflect.Type {
@@ -5762,47 +6230,38 @@ func (o TopicRuleDynamoDBActionOutput) ToTopicRuleDynamoDBActionPtrOutputWithCon
 	}).(TopicRuleDynamoDBActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyfield
 func (o TopicRuleDynamoDBActionOutput) HashKeyField() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDBAction) string { return v.HashKeyField }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeytype
 func (o TopicRuleDynamoDBActionOutput) HashKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDBAction) *string { return v.HashKeyType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyvalue
 func (o TopicRuleDynamoDBActionOutput) HashKeyValue() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDBAction) string { return v.HashKeyValue }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-payloadfield
 func (o TopicRuleDynamoDBActionOutput) PayloadField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDBAction) *string { return v.PayloadField }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyfield
 func (o TopicRuleDynamoDBActionOutput) RangeKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDBAction) *string { return v.RangeKeyField }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeytype
 func (o TopicRuleDynamoDBActionOutput) RangeKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDBAction) *string { return v.RangeKeyType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyvalue
 func (o TopicRuleDynamoDBActionOutput) RangeKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDBAction) *string { return v.RangeKeyValue }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rolearn
 func (o TopicRuleDynamoDBActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDBAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-tablename
 func (o TopicRuleDynamoDBActionOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDBAction) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -5831,7 +6290,6 @@ func (o TopicRuleDynamoDBActionPtrOutput) Elem() TopicRuleDynamoDBActionOutput {
 	}).(TopicRuleDynamoDBActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyfield
 func (o TopicRuleDynamoDBActionPtrOutput) HashKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
 		if v == nil {
@@ -5841,7 +6299,6 @@ func (o TopicRuleDynamoDBActionPtrOutput) HashKeyField() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeytype
 func (o TopicRuleDynamoDBActionPtrOutput) HashKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
 		if v == nil {
@@ -5851,7 +6308,6 @@ func (o TopicRuleDynamoDBActionPtrOutput) HashKeyType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-hashkeyvalue
 func (o TopicRuleDynamoDBActionPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
 		if v == nil {
@@ -5861,7 +6317,6 @@ func (o TopicRuleDynamoDBActionPtrOutput) HashKeyValue() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-payloadfield
 func (o TopicRuleDynamoDBActionPtrOutput) PayloadField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
 		if v == nil {
@@ -5871,7 +6326,6 @@ func (o TopicRuleDynamoDBActionPtrOutput) PayloadField() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyfield
 func (o TopicRuleDynamoDBActionPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
 		if v == nil {
@@ -5881,7 +6335,6 @@ func (o TopicRuleDynamoDBActionPtrOutput) RangeKeyField() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeytype
 func (o TopicRuleDynamoDBActionPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
 		if v == nil {
@@ -5891,7 +6344,6 @@ func (o TopicRuleDynamoDBActionPtrOutput) RangeKeyType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rangekeyvalue
 func (o TopicRuleDynamoDBActionPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
 		if v == nil {
@@ -5901,7 +6353,6 @@ func (o TopicRuleDynamoDBActionPtrOutput) RangeKeyValue() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-rolearn
 func (o TopicRuleDynamoDBActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
 		if v == nil {
@@ -5911,7 +6362,6 @@ func (o TopicRuleDynamoDBActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbaction.html#cfn-iot-topicrule-dynamodbaction-tablename
 func (o TopicRuleDynamoDBActionPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDBAction) *string {
 		if v == nil {
@@ -5921,12 +6371,9 @@ func (o TopicRuleDynamoDBActionPtrOutput) TableName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html
 type TopicRuleDynamoDBv2Action struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-putitem
 	PutItem *TopicRulePutItemInput `pulumi:"putItem"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-rolearn
-	RoleArn *string `pulumi:"roleArn"`
+	RoleArn *string                `pulumi:"roleArn"`
 }
 
 // TopicRuleDynamoDBv2ActionInput is an input type that accepts TopicRuleDynamoDBv2ActionArgs and TopicRuleDynamoDBv2ActionOutput values.
@@ -5940,12 +6387,9 @@ type TopicRuleDynamoDBv2ActionInput interface {
 	ToTopicRuleDynamoDBv2ActionOutputWithContext(context.Context) TopicRuleDynamoDBv2ActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html
 type TopicRuleDynamoDBv2ActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-putitem
 	PutItem TopicRulePutItemInputPtrInput `pulumi:"putItem"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-rolearn
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
+	RoleArn pulumi.StringPtrInput         `pulumi:"roleArn"`
 }
 
 func (TopicRuleDynamoDBv2ActionArgs) ElementType() reflect.Type {
@@ -6001,7 +6445,6 @@ func (i *topicRuleDynamoDBv2ActionPtrType) ToTopicRuleDynamoDBv2ActionPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDynamoDBv2ActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html
 type TopicRuleDynamoDBv2ActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleDynamoDBv2ActionOutput) ElementType() reflect.Type {
@@ -6026,12 +6469,10 @@ func (o TopicRuleDynamoDBv2ActionOutput) ToTopicRuleDynamoDBv2ActionPtrOutputWit
 	}).(TopicRuleDynamoDBv2ActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-putitem
 func (o TopicRuleDynamoDBv2ActionOutput) PutItem() TopicRulePutItemInputPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDBv2Action) *TopicRulePutItemInput { return v.PutItem }).(TopicRulePutItemInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-rolearn
 func (o TopicRuleDynamoDBv2ActionOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDBv2Action) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
@@ -6060,7 +6501,6 @@ func (o TopicRuleDynamoDBv2ActionPtrOutput) Elem() TopicRuleDynamoDBv2ActionOutp
 	}).(TopicRuleDynamoDBv2ActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-putitem
 func (o TopicRuleDynamoDBv2ActionPtrOutput) PutItem() TopicRulePutItemInputPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDBv2Action) *TopicRulePutItemInput {
 		if v == nil {
@@ -6070,7 +6510,6 @@ func (o TopicRuleDynamoDBv2ActionPtrOutput) PutItem() TopicRulePutItemInputPtrOu
 	}).(TopicRulePutItemInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-rolearn
 func (o TopicRuleDynamoDBv2ActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDBv2Action) *string {
 		if v == nil {
@@ -6080,18 +6519,12 @@ func (o TopicRuleDynamoDBv2ActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html
 type TopicRuleElasticsearchAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-endpoint
 	Endpoint string `pulumi:"endpoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-id
-	Id string `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-index
-	Index string `pulumi:"index"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-type
-	Type string `pulumi:"type"`
+	Id       string `pulumi:"id"`
+	Index    string `pulumi:"index"`
+	RoleArn  string `pulumi:"roleArn"`
+	Type     string `pulumi:"type"`
 }
 
 // TopicRuleElasticsearchActionInput is an input type that accepts TopicRuleElasticsearchActionArgs and TopicRuleElasticsearchActionOutput values.
@@ -6105,18 +6538,12 @@ type TopicRuleElasticsearchActionInput interface {
 	ToTopicRuleElasticsearchActionOutputWithContext(context.Context) TopicRuleElasticsearchActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html
 type TopicRuleElasticsearchActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-endpoint
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-id
-	Id pulumi.StringInput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-index
-	Index pulumi.StringInput `pulumi:"index"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-type
-	Type pulumi.StringInput `pulumi:"type"`
+	Id       pulumi.StringInput `pulumi:"id"`
+	Index    pulumi.StringInput `pulumi:"index"`
+	RoleArn  pulumi.StringInput `pulumi:"roleArn"`
+	Type     pulumi.StringInput `pulumi:"type"`
 }
 
 func (TopicRuleElasticsearchActionArgs) ElementType() reflect.Type {
@@ -6172,7 +6599,6 @@ func (i *topicRuleElasticsearchActionPtrType) ToTopicRuleElasticsearchActionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleElasticsearchActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html
 type TopicRuleElasticsearchActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleElasticsearchActionOutput) ElementType() reflect.Type {
@@ -6197,27 +6623,22 @@ func (o TopicRuleElasticsearchActionOutput) ToTopicRuleElasticsearchActionPtrOut
 	}).(TopicRuleElasticsearchActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-endpoint
 func (o TopicRuleElasticsearchActionOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleElasticsearchAction) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-id
 func (o TopicRuleElasticsearchActionOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleElasticsearchAction) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-index
 func (o TopicRuleElasticsearchActionOutput) Index() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleElasticsearchAction) string { return v.Index }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-rolearn
 func (o TopicRuleElasticsearchActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleElasticsearchAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-type
 func (o TopicRuleElasticsearchActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleElasticsearchAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6246,7 +6667,6 @@ func (o TopicRuleElasticsearchActionPtrOutput) Elem() TopicRuleElasticsearchActi
 	}).(TopicRuleElasticsearchActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-endpoint
 func (o TopicRuleElasticsearchActionPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleElasticsearchAction) *string {
 		if v == nil {
@@ -6256,7 +6676,6 @@ func (o TopicRuleElasticsearchActionPtrOutput) Endpoint() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-id
 func (o TopicRuleElasticsearchActionPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleElasticsearchAction) *string {
 		if v == nil {
@@ -6266,7 +6685,6 @@ func (o TopicRuleElasticsearchActionPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-index
 func (o TopicRuleElasticsearchActionPtrOutput) Index() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleElasticsearchAction) *string {
 		if v == nil {
@@ -6276,7 +6694,6 @@ func (o TopicRuleElasticsearchActionPtrOutput) Index() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-rolearn
 func (o TopicRuleElasticsearchActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleElasticsearchAction) *string {
 		if v == nil {
@@ -6286,7 +6703,6 @@ func (o TopicRuleElasticsearchActionPtrOutput) RoleArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-type
 func (o TopicRuleElasticsearchActionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleElasticsearchAction) *string {
 		if v == nil {
@@ -6296,16 +6712,11 @@ func (o TopicRuleElasticsearchActionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html
 type TopicRuleFirehoseAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-batchmode
-	BatchMode *bool `pulumi:"batchMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-deliverystreamname
-	DeliveryStreamName string `pulumi:"deliveryStreamName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-separator
-	Separator *string `pulumi:"separator"`
+	BatchMode          *bool   `pulumi:"batchMode"`
+	DeliveryStreamName string  `pulumi:"deliveryStreamName"`
+	RoleArn            string  `pulumi:"roleArn"`
+	Separator          *string `pulumi:"separator"`
 }
 
 // TopicRuleFirehoseActionInput is an input type that accepts TopicRuleFirehoseActionArgs and TopicRuleFirehoseActionOutput values.
@@ -6319,16 +6730,11 @@ type TopicRuleFirehoseActionInput interface {
 	ToTopicRuleFirehoseActionOutputWithContext(context.Context) TopicRuleFirehoseActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html
 type TopicRuleFirehoseActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-batchmode
-	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-deliverystreamname
-	DeliveryStreamName pulumi.StringInput `pulumi:"deliveryStreamName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-separator
-	Separator pulumi.StringPtrInput `pulumi:"separator"`
+	BatchMode          pulumi.BoolPtrInput   `pulumi:"batchMode"`
+	DeliveryStreamName pulumi.StringInput    `pulumi:"deliveryStreamName"`
+	RoleArn            pulumi.StringInput    `pulumi:"roleArn"`
+	Separator          pulumi.StringPtrInput `pulumi:"separator"`
 }
 
 func (TopicRuleFirehoseActionArgs) ElementType() reflect.Type {
@@ -6384,7 +6790,6 @@ func (i *topicRuleFirehoseActionPtrType) ToTopicRuleFirehoseActionPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleFirehoseActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html
 type TopicRuleFirehoseActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleFirehoseActionOutput) ElementType() reflect.Type {
@@ -6409,22 +6814,18 @@ func (o TopicRuleFirehoseActionOutput) ToTopicRuleFirehoseActionPtrOutputWithCon
 	}).(TopicRuleFirehoseActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-batchmode
 func (o TopicRuleFirehoseActionOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicRuleFirehoseAction) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-deliverystreamname
 func (o TopicRuleFirehoseActionOutput) DeliveryStreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleFirehoseAction) string { return v.DeliveryStreamName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-rolearn
 func (o TopicRuleFirehoseActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleFirehoseAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-separator
 func (o TopicRuleFirehoseActionOutput) Separator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleFirehoseAction) *string { return v.Separator }).(pulumi.StringPtrOutput)
 }
@@ -6453,7 +6854,6 @@ func (o TopicRuleFirehoseActionPtrOutput) Elem() TopicRuleFirehoseActionOutput {
 	}).(TopicRuleFirehoseActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-batchmode
 func (o TopicRuleFirehoseActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicRuleFirehoseAction) *bool {
 		if v == nil {
@@ -6463,7 +6863,6 @@ func (o TopicRuleFirehoseActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-deliverystreamname
 func (o TopicRuleFirehoseActionPtrOutput) DeliveryStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleFirehoseAction) *string {
 		if v == nil {
@@ -6473,7 +6872,6 @@ func (o TopicRuleFirehoseActionPtrOutput) DeliveryStreamName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-rolearn
 func (o TopicRuleFirehoseActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleFirehoseAction) *string {
 		if v == nil {
@@ -6483,7 +6881,6 @@ func (o TopicRuleFirehoseActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-separator
 func (o TopicRuleFirehoseActionPtrOutput) Separator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleFirehoseAction) *string {
 		if v == nil {
@@ -6493,16 +6890,11 @@ func (o TopicRuleFirehoseActionPtrOutput) Separator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html
 type TopicRuleHttpAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-auth
-	Auth *TopicRuleHttpAuthorization `pulumi:"auth"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-confirmationurl
-	ConfirmationUrl *string `pulumi:"confirmationUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-headers
-	Headers []TopicRuleHttpActionHeader `pulumi:"headers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-url
-	Url string `pulumi:"url"`
+	Auth            *TopicRuleHttpAuthorization `pulumi:"auth"`
+	ConfirmationUrl *string                     `pulumi:"confirmationUrl"`
+	Headers         []TopicRuleHttpActionHeader `pulumi:"headers"`
+	Url             string                      `pulumi:"url"`
 }
 
 // TopicRuleHttpActionInput is an input type that accepts TopicRuleHttpActionArgs and TopicRuleHttpActionOutput values.
@@ -6516,16 +6908,11 @@ type TopicRuleHttpActionInput interface {
 	ToTopicRuleHttpActionOutputWithContext(context.Context) TopicRuleHttpActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html
 type TopicRuleHttpActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-auth
-	Auth TopicRuleHttpAuthorizationPtrInput `pulumi:"auth"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-confirmationurl
-	ConfirmationUrl pulumi.StringPtrInput `pulumi:"confirmationUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-headers
-	Headers TopicRuleHttpActionHeaderArrayInput `pulumi:"headers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-url
-	Url pulumi.StringInput `pulumi:"url"`
+	Auth            TopicRuleHttpAuthorizationPtrInput  `pulumi:"auth"`
+	ConfirmationUrl pulumi.StringPtrInput               `pulumi:"confirmationUrl"`
+	Headers         TopicRuleHttpActionHeaderArrayInput `pulumi:"headers"`
+	Url             pulumi.StringInput                  `pulumi:"url"`
 }
 
 func (TopicRuleHttpActionArgs) ElementType() reflect.Type {
@@ -6581,7 +6968,6 @@ func (i *topicRuleHttpActionPtrType) ToTopicRuleHttpActionPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleHttpActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html
 type TopicRuleHttpActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleHttpActionOutput) ElementType() reflect.Type {
@@ -6606,22 +6992,18 @@ func (o TopicRuleHttpActionOutput) ToTopicRuleHttpActionPtrOutputWithContext(ctx
 	}).(TopicRuleHttpActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-auth
 func (o TopicRuleHttpActionOutput) Auth() TopicRuleHttpAuthorizationPtrOutput {
 	return o.ApplyT(func(v TopicRuleHttpAction) *TopicRuleHttpAuthorization { return v.Auth }).(TopicRuleHttpAuthorizationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-confirmationurl
 func (o TopicRuleHttpActionOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleHttpAction) *string { return v.ConfirmationUrl }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-headers
 func (o TopicRuleHttpActionOutput) Headers() TopicRuleHttpActionHeaderArrayOutput {
 	return o.ApplyT(func(v TopicRuleHttpAction) []TopicRuleHttpActionHeader { return v.Headers }).(TopicRuleHttpActionHeaderArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-url
 func (o TopicRuleHttpActionOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleHttpAction) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -6650,7 +7032,6 @@ func (o TopicRuleHttpActionPtrOutput) Elem() TopicRuleHttpActionOutput {
 	}).(TopicRuleHttpActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-auth
 func (o TopicRuleHttpActionPtrOutput) Auth() TopicRuleHttpAuthorizationPtrOutput {
 	return o.ApplyT(func(v *TopicRuleHttpAction) *TopicRuleHttpAuthorization {
 		if v == nil {
@@ -6660,7 +7041,6 @@ func (o TopicRuleHttpActionPtrOutput) Auth() TopicRuleHttpAuthorizationPtrOutput
 	}).(TopicRuleHttpAuthorizationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-confirmationurl
 func (o TopicRuleHttpActionPtrOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleHttpAction) *string {
 		if v == nil {
@@ -6670,7 +7050,6 @@ func (o TopicRuleHttpActionPtrOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-headers
 func (o TopicRuleHttpActionPtrOutput) Headers() TopicRuleHttpActionHeaderArrayOutput {
 	return o.ApplyT(func(v *TopicRuleHttpAction) []TopicRuleHttpActionHeader {
 		if v == nil {
@@ -6680,7 +7059,6 @@ func (o TopicRuleHttpActionPtrOutput) Headers() TopicRuleHttpActionHeaderArrayOu
 	}).(TopicRuleHttpActionHeaderArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-url
 func (o TopicRuleHttpActionPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleHttpAction) *string {
 		if v == nil {
@@ -6690,11 +7068,8 @@ func (o TopicRuleHttpActionPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html
 type TopicRuleHttpActionHeader struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html#cfn-iot-topicrule-httpactionheader-key
-	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html#cfn-iot-topicrule-httpactionheader-value
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -6709,11 +7084,8 @@ type TopicRuleHttpActionHeaderInput interface {
 	ToTopicRuleHttpActionHeaderOutputWithContext(context.Context) TopicRuleHttpActionHeaderOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html
 type TopicRuleHttpActionHeaderArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html#cfn-iot-topicrule-httpactionheader-key
-	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html#cfn-iot-topicrule-httpactionheader-value
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -6754,7 +7126,6 @@ func (i TopicRuleHttpActionHeaderArray) ToTopicRuleHttpActionHeaderArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleHttpActionHeaderArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html
 type TopicRuleHttpActionHeaderOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleHttpActionHeaderOutput) ElementType() reflect.Type {
@@ -6769,12 +7140,10 @@ func (o TopicRuleHttpActionHeaderOutput) ToTopicRuleHttpActionHeaderOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html#cfn-iot-topicrule-httpactionheader-key
 func (o TopicRuleHttpActionHeaderOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleHttpActionHeader) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpactionheader.html#cfn-iot-topicrule-httpactionheader-value
 func (o TopicRuleHttpActionHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleHttpActionHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6799,9 +7168,7 @@ func (o TopicRuleHttpActionHeaderArrayOutput) Index(i pulumi.IntInput) TopicRule
 	}).(TopicRuleHttpActionHeaderOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html
 type TopicRuleHttpAuthorization struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html#cfn-iot-topicrule-httpauthorization-sigv4
 	Sigv4 *TopicRuleSigV4Authorization `pulumi:"sigv4"`
 }
 
@@ -6816,9 +7183,7 @@ type TopicRuleHttpAuthorizationInput interface {
 	ToTopicRuleHttpAuthorizationOutputWithContext(context.Context) TopicRuleHttpAuthorizationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html
 type TopicRuleHttpAuthorizationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html#cfn-iot-topicrule-httpauthorization-sigv4
 	Sigv4 TopicRuleSigV4AuthorizationPtrInput `pulumi:"sigv4"`
 }
 
@@ -6875,7 +7240,6 @@ func (i *topicRuleHttpAuthorizationPtrType) ToTopicRuleHttpAuthorizationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleHttpAuthorizationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html
 type TopicRuleHttpAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleHttpAuthorizationOutput) ElementType() reflect.Type {
@@ -6900,7 +7264,6 @@ func (o TopicRuleHttpAuthorizationOutput) ToTopicRuleHttpAuthorizationPtrOutputW
 	}).(TopicRuleHttpAuthorizationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html#cfn-iot-topicrule-httpauthorization-sigv4
 func (o TopicRuleHttpAuthorizationOutput) Sigv4() TopicRuleSigV4AuthorizationPtrOutput {
 	return o.ApplyT(func(v TopicRuleHttpAuthorization) *TopicRuleSigV4Authorization { return v.Sigv4 }).(TopicRuleSigV4AuthorizationPtrOutput)
 }
@@ -6929,7 +7292,6 @@ func (o TopicRuleHttpAuthorizationPtrOutput) Elem() TopicRuleHttpAuthorizationOu
 	}).(TopicRuleHttpAuthorizationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpauthorization.html#cfn-iot-topicrule-httpauthorization-sigv4
 func (o TopicRuleHttpAuthorizationPtrOutput) Sigv4() TopicRuleSigV4AuthorizationPtrOutput {
 	return o.ApplyT(func(v *TopicRuleHttpAuthorization) *TopicRuleSigV4Authorization {
 		if v == nil {
@@ -6939,14 +7301,10 @@ func (o TopicRuleHttpAuthorizationPtrOutput) Sigv4() TopicRuleSigV4Authorization
 	}).(TopicRuleSigV4AuthorizationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html
 type TopicRuleIotAnalyticsAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-batchmode
-	BatchMode *bool `pulumi:"batchMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-channelname
+	BatchMode   *bool  `pulumi:"batchMode"`
 	ChannelName string `pulumi:"channelName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-rolearn
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn     string `pulumi:"roleArn"`
 }
 
 // TopicRuleIotAnalyticsActionInput is an input type that accepts TopicRuleIotAnalyticsActionArgs and TopicRuleIotAnalyticsActionOutput values.
@@ -6960,14 +7318,10 @@ type TopicRuleIotAnalyticsActionInput interface {
 	ToTopicRuleIotAnalyticsActionOutputWithContext(context.Context) TopicRuleIotAnalyticsActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html
 type TopicRuleIotAnalyticsActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-batchmode
-	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-channelname
-	ChannelName pulumi.StringInput `pulumi:"channelName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	BatchMode   pulumi.BoolPtrInput `pulumi:"batchMode"`
+	ChannelName pulumi.StringInput  `pulumi:"channelName"`
+	RoleArn     pulumi.StringInput  `pulumi:"roleArn"`
 }
 
 func (TopicRuleIotAnalyticsActionArgs) ElementType() reflect.Type {
@@ -7023,7 +7377,6 @@ func (i *topicRuleIotAnalyticsActionPtrType) ToTopicRuleIotAnalyticsActionPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleIotAnalyticsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html
 type TopicRuleIotAnalyticsActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleIotAnalyticsActionOutput) ElementType() reflect.Type {
@@ -7048,17 +7401,14 @@ func (o TopicRuleIotAnalyticsActionOutput) ToTopicRuleIotAnalyticsActionPtrOutpu
 	}).(TopicRuleIotAnalyticsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-batchmode
 func (o TopicRuleIotAnalyticsActionOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicRuleIotAnalyticsAction) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-channelname
 func (o TopicRuleIotAnalyticsActionOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleIotAnalyticsAction) string { return v.ChannelName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-rolearn
 func (o TopicRuleIotAnalyticsActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleIotAnalyticsAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -7087,7 +7437,6 @@ func (o TopicRuleIotAnalyticsActionPtrOutput) Elem() TopicRuleIotAnalyticsAction
 	}).(TopicRuleIotAnalyticsActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-batchmode
 func (o TopicRuleIotAnalyticsActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicRuleIotAnalyticsAction) *bool {
 		if v == nil {
@@ -7097,7 +7446,6 @@ func (o TopicRuleIotAnalyticsActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-channelname
 func (o TopicRuleIotAnalyticsActionPtrOutput) ChannelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleIotAnalyticsAction) *string {
 		if v == nil {
@@ -7107,7 +7455,6 @@ func (o TopicRuleIotAnalyticsActionPtrOutput) ChannelName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-rolearn
 func (o TopicRuleIotAnalyticsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleIotAnalyticsAction) *string {
 		if v == nil {
@@ -7117,16 +7464,11 @@ func (o TopicRuleIotAnalyticsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html
 type TopicRuleIotEventsAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-batchmode
-	BatchMode *bool `pulumi:"batchMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-inputname
-	InputName string `pulumi:"inputName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-messageid
+	BatchMode *bool   `pulumi:"batchMode"`
+	InputName string  `pulumi:"inputName"`
 	MessageId *string `pulumi:"messageId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-rolearn
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn   string  `pulumi:"roleArn"`
 }
 
 // TopicRuleIotEventsActionInput is an input type that accepts TopicRuleIotEventsActionArgs and TopicRuleIotEventsActionOutput values.
@@ -7140,16 +7482,11 @@ type TopicRuleIotEventsActionInput interface {
 	ToTopicRuleIotEventsActionOutputWithContext(context.Context) TopicRuleIotEventsActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html
 type TopicRuleIotEventsActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-batchmode
-	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-inputname
-	InputName pulumi.StringInput `pulumi:"inputName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-messageid
+	BatchMode pulumi.BoolPtrInput   `pulumi:"batchMode"`
+	InputName pulumi.StringInput    `pulumi:"inputName"`
 	MessageId pulumi.StringPtrInput `pulumi:"messageId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn   pulumi.StringInput    `pulumi:"roleArn"`
 }
 
 func (TopicRuleIotEventsActionArgs) ElementType() reflect.Type {
@@ -7205,7 +7542,6 @@ func (i *topicRuleIotEventsActionPtrType) ToTopicRuleIotEventsActionPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleIotEventsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html
 type TopicRuleIotEventsActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleIotEventsActionOutput) ElementType() reflect.Type {
@@ -7230,22 +7566,18 @@ func (o TopicRuleIotEventsActionOutput) ToTopicRuleIotEventsActionPtrOutputWithC
 	}).(TopicRuleIotEventsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-batchmode
 func (o TopicRuleIotEventsActionOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicRuleIotEventsAction) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-inputname
 func (o TopicRuleIotEventsActionOutput) InputName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleIotEventsAction) string { return v.InputName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-messageid
 func (o TopicRuleIotEventsActionOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleIotEventsAction) *string { return v.MessageId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-rolearn
 func (o TopicRuleIotEventsActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleIotEventsAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -7274,7 +7606,6 @@ func (o TopicRuleIotEventsActionPtrOutput) Elem() TopicRuleIotEventsActionOutput
 	}).(TopicRuleIotEventsActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-batchmode
 func (o TopicRuleIotEventsActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicRuleIotEventsAction) *bool {
 		if v == nil {
@@ -7284,7 +7615,6 @@ func (o TopicRuleIotEventsActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-inputname
 func (o TopicRuleIotEventsActionPtrOutput) InputName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleIotEventsAction) *string {
 		if v == nil {
@@ -7294,7 +7624,6 @@ func (o TopicRuleIotEventsActionPtrOutput) InputName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-messageid
 func (o TopicRuleIotEventsActionPtrOutput) MessageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleIotEventsAction) *string {
 		if v == nil {
@@ -7304,7 +7633,6 @@ func (o TopicRuleIotEventsActionPtrOutput) MessageId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-ioteventsaction.html#cfn-iot-topicrule-ioteventsaction-rolearn
 func (o TopicRuleIotEventsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleIotEventsAction) *string {
 		if v == nil {
@@ -7314,12 +7642,9 @@ func (o TopicRuleIotEventsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html
 type TopicRuleIotSiteWiseAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-putassetpropertyvalueentries
 	PutAssetPropertyValueEntries []TopicRulePutAssetPropertyValueEntry `pulumi:"putAssetPropertyValueEntries"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-rolearn
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn                      string                                `pulumi:"roleArn"`
 }
 
 // TopicRuleIotSiteWiseActionInput is an input type that accepts TopicRuleIotSiteWiseActionArgs and TopicRuleIotSiteWiseActionOutput values.
@@ -7333,12 +7658,9 @@ type TopicRuleIotSiteWiseActionInput interface {
 	ToTopicRuleIotSiteWiseActionOutputWithContext(context.Context) TopicRuleIotSiteWiseActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html
 type TopicRuleIotSiteWiseActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-putassetpropertyvalueentries
 	PutAssetPropertyValueEntries TopicRulePutAssetPropertyValueEntryArrayInput `pulumi:"putAssetPropertyValueEntries"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn                      pulumi.StringInput                            `pulumi:"roleArn"`
 }
 
 func (TopicRuleIotSiteWiseActionArgs) ElementType() reflect.Type {
@@ -7394,7 +7716,6 @@ func (i *topicRuleIotSiteWiseActionPtrType) ToTopicRuleIotSiteWiseActionPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleIotSiteWiseActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html
 type TopicRuleIotSiteWiseActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleIotSiteWiseActionOutput) ElementType() reflect.Type {
@@ -7419,14 +7740,12 @@ func (o TopicRuleIotSiteWiseActionOutput) ToTopicRuleIotSiteWiseActionPtrOutputW
 	}).(TopicRuleIotSiteWiseActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-putassetpropertyvalueentries
 func (o TopicRuleIotSiteWiseActionOutput) PutAssetPropertyValueEntries() TopicRulePutAssetPropertyValueEntryArrayOutput {
 	return o.ApplyT(func(v TopicRuleIotSiteWiseAction) []TopicRulePutAssetPropertyValueEntry {
 		return v.PutAssetPropertyValueEntries
 	}).(TopicRulePutAssetPropertyValueEntryArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-rolearn
 func (o TopicRuleIotSiteWiseActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleIotSiteWiseAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -7455,7 +7774,6 @@ func (o TopicRuleIotSiteWiseActionPtrOutput) Elem() TopicRuleIotSiteWiseActionOu
 	}).(TopicRuleIotSiteWiseActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-putassetpropertyvalueentries
 func (o TopicRuleIotSiteWiseActionPtrOutput) PutAssetPropertyValueEntries() TopicRulePutAssetPropertyValueEntryArrayOutput {
 	return o.ApplyT(func(v *TopicRuleIotSiteWiseAction) []TopicRulePutAssetPropertyValueEntry {
 		if v == nil {
@@ -7465,7 +7783,6 @@ func (o TopicRuleIotSiteWiseActionPtrOutput) PutAssetPropertyValueEntries() Topi
 	}).(TopicRulePutAssetPropertyValueEntryArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-rolearn
 func (o TopicRuleIotSiteWiseActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleIotSiteWiseAction) *string {
 		if v == nil {
@@ -7475,18 +7792,12 @@ func (o TopicRuleIotSiteWiseActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html
 type TopicRuleKafkaAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-clientproperties
-	ClientProperties map[string]string `pulumi:"clientProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-destinationarn
-	DestinationArn string `pulumi:"destinationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-key
-	Key *string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-partition
-	Partition *string `pulumi:"partition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-topic
-	Topic string `pulumi:"topic"`
+	ClientProperties interface{} `pulumi:"clientProperties"`
+	DestinationArn   string      `pulumi:"destinationArn"`
+	Key              *string     `pulumi:"key"`
+	Partition        *string     `pulumi:"partition"`
+	Topic            string      `pulumi:"topic"`
 }
 
 // TopicRuleKafkaActionInput is an input type that accepts TopicRuleKafkaActionArgs and TopicRuleKafkaActionOutput values.
@@ -7500,18 +7811,12 @@ type TopicRuleKafkaActionInput interface {
 	ToTopicRuleKafkaActionOutputWithContext(context.Context) TopicRuleKafkaActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html
 type TopicRuleKafkaActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-clientproperties
-	ClientProperties pulumi.StringMapInput `pulumi:"clientProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-destinationarn
-	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-key
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-partition
-	Partition pulumi.StringPtrInput `pulumi:"partition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-topic
-	Topic pulumi.StringInput `pulumi:"topic"`
+	ClientProperties pulumi.Input          `pulumi:"clientProperties"`
+	DestinationArn   pulumi.StringInput    `pulumi:"destinationArn"`
+	Key              pulumi.StringPtrInput `pulumi:"key"`
+	Partition        pulumi.StringPtrInput `pulumi:"partition"`
+	Topic            pulumi.StringInput    `pulumi:"topic"`
 }
 
 func (TopicRuleKafkaActionArgs) ElementType() reflect.Type {
@@ -7567,7 +7872,6 @@ func (i *topicRuleKafkaActionPtrType) ToTopicRuleKafkaActionPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKafkaActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html
 type TopicRuleKafkaActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleKafkaActionOutput) ElementType() reflect.Type {
@@ -7592,27 +7896,22 @@ func (o TopicRuleKafkaActionOutput) ToTopicRuleKafkaActionPtrOutputWithContext(c
 	}).(TopicRuleKafkaActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-clientproperties
-func (o TopicRuleKafkaActionOutput) ClientProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v TopicRuleKafkaAction) map[string]string { return v.ClientProperties }).(pulumi.StringMapOutput)
+func (o TopicRuleKafkaActionOutput) ClientProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v TopicRuleKafkaAction) interface{} { return v.ClientProperties }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-destinationarn
 func (o TopicRuleKafkaActionOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKafkaAction) string { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-key
 func (o TopicRuleKafkaActionOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleKafkaAction) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-partition
 func (o TopicRuleKafkaActionOutput) Partition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleKafkaAction) *string { return v.Partition }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-topic
 func (o TopicRuleKafkaActionOutput) Topic() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKafkaAction) string { return v.Topic }).(pulumi.StringOutput)
 }
@@ -7641,17 +7940,15 @@ func (o TopicRuleKafkaActionPtrOutput) Elem() TopicRuleKafkaActionOutput {
 	}).(TopicRuleKafkaActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-clientproperties
-func (o TopicRuleKafkaActionPtrOutput) ClientProperties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *TopicRuleKafkaAction) map[string]string {
+func (o TopicRuleKafkaActionPtrOutput) ClientProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TopicRuleKafkaAction) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.ClientProperties
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-destinationarn
 func (o TopicRuleKafkaActionPtrOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKafkaAction) *string {
 		if v == nil {
@@ -7661,7 +7958,6 @@ func (o TopicRuleKafkaActionPtrOutput) DestinationArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-key
 func (o TopicRuleKafkaActionPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKafkaAction) *string {
 		if v == nil {
@@ -7671,7 +7967,6 @@ func (o TopicRuleKafkaActionPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-partition
 func (o TopicRuleKafkaActionPtrOutput) Partition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKafkaAction) *string {
 		if v == nil {
@@ -7681,7 +7976,6 @@ func (o TopicRuleKafkaActionPtrOutput) Partition() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-topic
 func (o TopicRuleKafkaActionPtrOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKafkaAction) *string {
 		if v == nil {
@@ -7691,14 +7985,10 @@ func (o TopicRuleKafkaActionPtrOutput) Topic() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html
 type TopicRuleKinesisAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-partitionkey
 	PartitionKey *string `pulumi:"partitionKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-streamname
-	StreamName string `pulumi:"streamName"`
+	RoleArn      string  `pulumi:"roleArn"`
+	StreamName   string  `pulumi:"streamName"`
 }
 
 // TopicRuleKinesisActionInput is an input type that accepts TopicRuleKinesisActionArgs and TopicRuleKinesisActionOutput values.
@@ -7712,14 +8002,10 @@ type TopicRuleKinesisActionInput interface {
 	ToTopicRuleKinesisActionOutputWithContext(context.Context) TopicRuleKinesisActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html
 type TopicRuleKinesisActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-partitionkey
 	PartitionKey pulumi.StringPtrInput `pulumi:"partitionKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-streamname
-	StreamName pulumi.StringInput `pulumi:"streamName"`
+	RoleArn      pulumi.StringInput    `pulumi:"roleArn"`
+	StreamName   pulumi.StringInput    `pulumi:"streamName"`
 }
 
 func (TopicRuleKinesisActionArgs) ElementType() reflect.Type {
@@ -7775,7 +8061,6 @@ func (i *topicRuleKinesisActionPtrType) ToTopicRuleKinesisActionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKinesisActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html
 type TopicRuleKinesisActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleKinesisActionOutput) ElementType() reflect.Type {
@@ -7800,17 +8085,14 @@ func (o TopicRuleKinesisActionOutput) ToTopicRuleKinesisActionPtrOutputWithConte
 	}).(TopicRuleKinesisActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-partitionkey
 func (o TopicRuleKinesisActionOutput) PartitionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleKinesisAction) *string { return v.PartitionKey }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-rolearn
 func (o TopicRuleKinesisActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKinesisAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-streamname
 func (o TopicRuleKinesisActionOutput) StreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKinesisAction) string { return v.StreamName }).(pulumi.StringOutput)
 }
@@ -7839,7 +8121,6 @@ func (o TopicRuleKinesisActionPtrOutput) Elem() TopicRuleKinesisActionOutput {
 	}).(TopicRuleKinesisActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-partitionkey
 func (o TopicRuleKinesisActionPtrOutput) PartitionKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKinesisAction) *string {
 		if v == nil {
@@ -7849,7 +8130,6 @@ func (o TopicRuleKinesisActionPtrOutput) PartitionKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-rolearn
 func (o TopicRuleKinesisActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKinesisAction) *string {
 		if v == nil {
@@ -7859,7 +8139,6 @@ func (o TopicRuleKinesisActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-streamname
 func (o TopicRuleKinesisActionPtrOutput) StreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleKinesisAction) *string {
 		if v == nil {
@@ -7869,9 +8148,7 @@ func (o TopicRuleKinesisActionPtrOutput) StreamName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html
 type TopicRuleLambdaAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html#cfn-iot-topicrule-lambdaaction-functionarn
 	FunctionArn *string `pulumi:"functionArn"`
 }
 
@@ -7886,9 +8163,7 @@ type TopicRuleLambdaActionInput interface {
 	ToTopicRuleLambdaActionOutputWithContext(context.Context) TopicRuleLambdaActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html
 type TopicRuleLambdaActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html#cfn-iot-topicrule-lambdaaction-functionarn
 	FunctionArn pulumi.StringPtrInput `pulumi:"functionArn"`
 }
 
@@ -7945,7 +8220,6 @@ func (i *topicRuleLambdaActionPtrType) ToTopicRuleLambdaActionPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleLambdaActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html
 type TopicRuleLambdaActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleLambdaActionOutput) ElementType() reflect.Type {
@@ -7970,7 +8244,6 @@ func (o TopicRuleLambdaActionOutput) ToTopicRuleLambdaActionPtrOutputWithContext
 	}).(TopicRuleLambdaActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html#cfn-iot-topicrule-lambdaaction-functionarn
 func (o TopicRuleLambdaActionOutput) FunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleLambdaAction) *string { return v.FunctionArn }).(pulumi.StringPtrOutput)
 }
@@ -7999,7 +8272,6 @@ func (o TopicRuleLambdaActionPtrOutput) Elem() TopicRuleLambdaActionOutput {
 	}).(TopicRuleLambdaActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html#cfn-iot-topicrule-lambdaaction-functionarn
 func (o TopicRuleLambdaActionPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleLambdaAction) *string {
 		if v == nil {
@@ -8009,17 +8281,11 @@ func (o TopicRuleLambdaActionPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html
 type TopicRulePutAssetPropertyValueEntry struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-assetid
-	AssetId *string `pulumi:"assetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-entryid
-	EntryId *string `pulumi:"entryId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyalias
-	PropertyAlias *string `pulumi:"propertyAlias"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyid
-	PropertyId *string `pulumi:"propertyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyvalues
+	AssetId        *string                       `pulumi:"assetId"`
+	EntryId        *string                       `pulumi:"entryId"`
+	PropertyAlias  *string                       `pulumi:"propertyAlias"`
+	PropertyId     *string                       `pulumi:"propertyId"`
 	PropertyValues []TopicRuleAssetPropertyValue `pulumi:"propertyValues"`
 }
 
@@ -8034,17 +8300,11 @@ type TopicRulePutAssetPropertyValueEntryInput interface {
 	ToTopicRulePutAssetPropertyValueEntryOutputWithContext(context.Context) TopicRulePutAssetPropertyValueEntryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html
 type TopicRulePutAssetPropertyValueEntryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-assetid
-	AssetId pulumi.StringPtrInput `pulumi:"assetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-entryid
-	EntryId pulumi.StringPtrInput `pulumi:"entryId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyalias
-	PropertyAlias pulumi.StringPtrInput `pulumi:"propertyAlias"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyid
-	PropertyId pulumi.StringPtrInput `pulumi:"propertyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyvalues
+	AssetId        pulumi.StringPtrInput                 `pulumi:"assetId"`
+	EntryId        pulumi.StringPtrInput                 `pulumi:"entryId"`
+	PropertyAlias  pulumi.StringPtrInput                 `pulumi:"propertyAlias"`
+	PropertyId     pulumi.StringPtrInput                 `pulumi:"propertyId"`
 	PropertyValues TopicRuleAssetPropertyValueArrayInput `pulumi:"propertyValues"`
 }
 
@@ -8085,7 +8345,6 @@ func (i TopicRulePutAssetPropertyValueEntryArray) ToTopicRulePutAssetPropertyVal
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRulePutAssetPropertyValueEntryArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html
 type TopicRulePutAssetPropertyValueEntryOutput struct{ *pulumi.OutputState }
 
 func (TopicRulePutAssetPropertyValueEntryOutput) ElementType() reflect.Type {
@@ -8100,27 +8359,22 @@ func (o TopicRulePutAssetPropertyValueEntryOutput) ToTopicRulePutAssetPropertyVa
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-assetid
 func (o TopicRulePutAssetPropertyValueEntryOutput) AssetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRulePutAssetPropertyValueEntry) *string { return v.AssetId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-entryid
 func (o TopicRulePutAssetPropertyValueEntryOutput) EntryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRulePutAssetPropertyValueEntry) *string { return v.EntryId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyalias
 func (o TopicRulePutAssetPropertyValueEntryOutput) PropertyAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRulePutAssetPropertyValueEntry) *string { return v.PropertyAlias }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyid
 func (o TopicRulePutAssetPropertyValueEntryOutput) PropertyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRulePutAssetPropertyValueEntry) *string { return v.PropertyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putassetpropertyvalueentry.html#cfn-iot-topicrule-putassetpropertyvalueentry-propertyvalues
 func (o TopicRulePutAssetPropertyValueEntryOutput) PropertyValues() TopicRuleAssetPropertyValueArrayOutput {
 	return o.ApplyT(func(v TopicRulePutAssetPropertyValueEntry) []TopicRuleAssetPropertyValue { return v.PropertyValues }).(TopicRuleAssetPropertyValueArrayOutput)
 }
@@ -8145,9 +8399,7 @@ func (o TopicRulePutAssetPropertyValueEntryArrayOutput) Index(i pulumi.IntInput)
 	}).(TopicRulePutAssetPropertyValueEntryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html
 type TopicRulePutItemInput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html#cfn-iot-topicrule-putiteminput-tablename
 	TableName string `pulumi:"tableName"`
 }
 
@@ -8162,9 +8414,7 @@ type TopicRulePutItemInputInput interface {
 	ToTopicRulePutItemInputOutputWithContext(context.Context) TopicRulePutItemInputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html
 type TopicRulePutItemInputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html#cfn-iot-topicrule-putiteminput-tablename
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -8221,7 +8471,6 @@ func (i *topicRulePutItemInputPtrType) ToTopicRulePutItemInputPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRulePutItemInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html
 type TopicRulePutItemInputOutput struct{ *pulumi.OutputState }
 
 func (TopicRulePutItemInputOutput) ElementType() reflect.Type {
@@ -8246,7 +8495,6 @@ func (o TopicRulePutItemInputOutput) ToTopicRulePutItemInputPtrOutputWithContext
 	}).(TopicRulePutItemInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html#cfn-iot-topicrule-putiteminput-tablename
 func (o TopicRulePutItemInputOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRulePutItemInput) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -8275,7 +8523,6 @@ func (o TopicRulePutItemInputPtrOutput) Elem() TopicRulePutItemInputOutput {
 	}).(TopicRulePutItemInputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html#cfn-iot-topicrule-putiteminput-tablename
 func (o TopicRulePutItemInputPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRulePutItemInput) *string {
 		if v == nil {
@@ -8285,14 +8532,10 @@ func (o TopicRulePutItemInputPtrOutput) TableName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html
 type TopicRuleRepublishAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-qos
-	Qos *int `pulumi:"qos"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-rolearn
+	Qos     *int   `pulumi:"qos"`
 	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-topic
-	Topic string `pulumi:"topic"`
+	Topic   string `pulumi:"topic"`
 }
 
 // TopicRuleRepublishActionInput is an input type that accepts TopicRuleRepublishActionArgs and TopicRuleRepublishActionOutput values.
@@ -8306,14 +8549,10 @@ type TopicRuleRepublishActionInput interface {
 	ToTopicRuleRepublishActionOutputWithContext(context.Context) TopicRuleRepublishActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html
 type TopicRuleRepublishActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-qos
-	Qos pulumi.IntPtrInput `pulumi:"qos"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-rolearn
+	Qos     pulumi.IntPtrInput `pulumi:"qos"`
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-topic
-	Topic pulumi.StringInput `pulumi:"topic"`
+	Topic   pulumi.StringInput `pulumi:"topic"`
 }
 
 func (TopicRuleRepublishActionArgs) ElementType() reflect.Type {
@@ -8369,7 +8608,6 @@ func (i *topicRuleRepublishActionPtrType) ToTopicRuleRepublishActionPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleRepublishActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html
 type TopicRuleRepublishActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleRepublishActionOutput) ElementType() reflect.Type {
@@ -8394,17 +8632,14 @@ func (o TopicRuleRepublishActionOutput) ToTopicRuleRepublishActionPtrOutputWithC
 	}).(TopicRuleRepublishActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-qos
 func (o TopicRuleRepublishActionOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TopicRuleRepublishAction) *int { return v.Qos }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-rolearn
 func (o TopicRuleRepublishActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleRepublishAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-topic
 func (o TopicRuleRepublishActionOutput) Topic() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleRepublishAction) string { return v.Topic }).(pulumi.StringOutput)
 }
@@ -8433,7 +8668,6 @@ func (o TopicRuleRepublishActionPtrOutput) Elem() TopicRuleRepublishActionOutput
 	}).(TopicRuleRepublishActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-qos
 func (o TopicRuleRepublishActionPtrOutput) Qos() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublishAction) *int {
 		if v == nil {
@@ -8443,7 +8677,6 @@ func (o TopicRuleRepublishActionPtrOutput) Qos() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-rolearn
 func (o TopicRuleRepublishActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublishAction) *string {
 		if v == nil {
@@ -8453,7 +8686,6 @@ func (o TopicRuleRepublishActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-topic
 func (o TopicRuleRepublishActionPtrOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublishAction) *string {
 		if v == nil {
@@ -8463,16 +8695,11 @@ func (o TopicRuleRepublishActionPtrOutput) Topic() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html
 type TopicRuleS3Action struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-bucketname
-	BucketName string `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-cannedacl
-	CannedAcl *string `pulumi:"cannedAcl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-key
-	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-rolearn
-	RoleArn string `pulumi:"roleArn"`
+	BucketName string  `pulumi:"bucketName"`
+	CannedAcl  *string `pulumi:"cannedAcl"`
+	Key        string  `pulumi:"key"`
+	RoleArn    string  `pulumi:"roleArn"`
 }
 
 // TopicRuleS3ActionInput is an input type that accepts TopicRuleS3ActionArgs and TopicRuleS3ActionOutput values.
@@ -8486,16 +8713,11 @@ type TopicRuleS3ActionInput interface {
 	ToTopicRuleS3ActionOutputWithContext(context.Context) TopicRuleS3ActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html
 type TopicRuleS3ActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-bucketname
-	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-cannedacl
-	CannedAcl pulumi.StringPtrInput `pulumi:"cannedAcl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-key
-	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	BucketName pulumi.StringInput    `pulumi:"bucketName"`
+	CannedAcl  pulumi.StringPtrInput `pulumi:"cannedAcl"`
+	Key        pulumi.StringInput    `pulumi:"key"`
+	RoleArn    pulumi.StringInput    `pulumi:"roleArn"`
 }
 
 func (TopicRuleS3ActionArgs) ElementType() reflect.Type {
@@ -8551,7 +8773,6 @@ func (i *topicRuleS3ActionPtrType) ToTopicRuleS3ActionPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleS3ActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html
 type TopicRuleS3ActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleS3ActionOutput) ElementType() reflect.Type {
@@ -8576,22 +8797,18 @@ func (o TopicRuleS3ActionOutput) ToTopicRuleS3ActionPtrOutputWithContext(ctx con
 	}).(TopicRuleS3ActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-bucketname
 func (o TopicRuleS3ActionOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleS3Action) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-cannedacl
 func (o TopicRuleS3ActionOutput) CannedAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleS3Action) *string { return v.CannedAcl }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-key
 func (o TopicRuleS3ActionOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleS3Action) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-rolearn
 func (o TopicRuleS3ActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleS3Action) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -8620,7 +8837,6 @@ func (o TopicRuleS3ActionPtrOutput) Elem() TopicRuleS3ActionOutput {
 	}).(TopicRuleS3ActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-bucketname
 func (o TopicRuleS3ActionPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleS3Action) *string {
 		if v == nil {
@@ -8630,7 +8846,6 @@ func (o TopicRuleS3ActionPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-cannedacl
 func (o TopicRuleS3ActionPtrOutput) CannedAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleS3Action) *string {
 		if v == nil {
@@ -8640,7 +8855,6 @@ func (o TopicRuleS3ActionPtrOutput) CannedAcl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-key
 func (o TopicRuleS3ActionPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleS3Action) *string {
 		if v == nil {
@@ -8650,7 +8864,6 @@ func (o TopicRuleS3ActionPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-rolearn
 func (o TopicRuleS3ActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleS3Action) *string {
 		if v == nil {
@@ -8660,13 +8873,9 @@ func (o TopicRuleS3ActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html
 type TopicRuleSigV4Authorization struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-servicename
-	ServiceName string `pulumi:"serviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-signingregion
+	RoleArn       string `pulumi:"roleArn"`
+	ServiceName   string `pulumi:"serviceName"`
 	SigningRegion string `pulumi:"signingRegion"`
 }
 
@@ -8681,13 +8890,9 @@ type TopicRuleSigV4AuthorizationInput interface {
 	ToTopicRuleSigV4AuthorizationOutputWithContext(context.Context) TopicRuleSigV4AuthorizationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html
 type TopicRuleSigV4AuthorizationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-servicename
-	ServiceName pulumi.StringInput `pulumi:"serviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-signingregion
+	RoleArn       pulumi.StringInput `pulumi:"roleArn"`
+	ServiceName   pulumi.StringInput `pulumi:"serviceName"`
 	SigningRegion pulumi.StringInput `pulumi:"signingRegion"`
 }
 
@@ -8744,7 +8949,6 @@ func (i *topicRuleSigV4AuthorizationPtrType) ToTopicRuleSigV4AuthorizationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSigV4AuthorizationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html
 type TopicRuleSigV4AuthorizationOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleSigV4AuthorizationOutput) ElementType() reflect.Type {
@@ -8769,17 +8973,14 @@ func (o TopicRuleSigV4AuthorizationOutput) ToTopicRuleSigV4AuthorizationPtrOutpu
 	}).(TopicRuleSigV4AuthorizationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-rolearn
 func (o TopicRuleSigV4AuthorizationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSigV4Authorization) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-servicename
 func (o TopicRuleSigV4AuthorizationOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSigV4Authorization) string { return v.ServiceName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-signingregion
 func (o TopicRuleSigV4AuthorizationOutput) SigningRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSigV4Authorization) string { return v.SigningRegion }).(pulumi.StringOutput)
 }
@@ -8808,7 +9009,6 @@ func (o TopicRuleSigV4AuthorizationPtrOutput) Elem() TopicRuleSigV4Authorization
 	}).(TopicRuleSigV4AuthorizationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-rolearn
 func (o TopicRuleSigV4AuthorizationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSigV4Authorization) *string {
 		if v == nil {
@@ -8818,7 +9018,6 @@ func (o TopicRuleSigV4AuthorizationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-servicename
 func (o TopicRuleSigV4AuthorizationPtrOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSigV4Authorization) *string {
 		if v == nil {
@@ -8828,7 +9027,6 @@ func (o TopicRuleSigV4AuthorizationPtrOutput) ServiceName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sigv4authorization.html#cfn-iot-topicrule-sigv4authorization-signingregion
 func (o TopicRuleSigV4AuthorizationPtrOutput) SigningRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSigV4Authorization) *string {
 		if v == nil {
@@ -8838,14 +9036,10 @@ func (o TopicRuleSigV4AuthorizationPtrOutput) SigningRegion() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html
 type TopicRuleSnsAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-messageformat
 	MessageFormat *string `pulumi:"messageFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-targetarn
-	TargetArn string `pulumi:"targetArn"`
+	RoleArn       string  `pulumi:"roleArn"`
+	TargetArn     string  `pulumi:"targetArn"`
 }
 
 // TopicRuleSnsActionInput is an input type that accepts TopicRuleSnsActionArgs and TopicRuleSnsActionOutput values.
@@ -8859,14 +9053,10 @@ type TopicRuleSnsActionInput interface {
 	ToTopicRuleSnsActionOutputWithContext(context.Context) TopicRuleSnsActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html
 type TopicRuleSnsActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-messageformat
 	MessageFormat pulumi.StringPtrInput `pulumi:"messageFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-targetarn
-	TargetArn pulumi.StringInput `pulumi:"targetArn"`
+	RoleArn       pulumi.StringInput    `pulumi:"roleArn"`
+	TargetArn     pulumi.StringInput    `pulumi:"targetArn"`
 }
 
 func (TopicRuleSnsActionArgs) ElementType() reflect.Type {
@@ -8922,7 +9112,6 @@ func (i *topicRuleSnsActionPtrType) ToTopicRuleSnsActionPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSnsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html
 type TopicRuleSnsActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleSnsActionOutput) ElementType() reflect.Type {
@@ -8947,17 +9136,14 @@ func (o TopicRuleSnsActionOutput) ToTopicRuleSnsActionPtrOutputWithContext(ctx c
 	}).(TopicRuleSnsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-messageformat
 func (o TopicRuleSnsActionOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleSnsAction) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-rolearn
 func (o TopicRuleSnsActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSnsAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-targetarn
 func (o TopicRuleSnsActionOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSnsAction) string { return v.TargetArn }).(pulumi.StringOutput)
 }
@@ -8986,7 +9172,6 @@ func (o TopicRuleSnsActionPtrOutput) Elem() TopicRuleSnsActionOutput {
 	}).(TopicRuleSnsActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-messageformat
 func (o TopicRuleSnsActionPtrOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSnsAction) *string {
 		if v == nil {
@@ -8996,7 +9181,6 @@ func (o TopicRuleSnsActionPtrOutput) MessageFormat() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-rolearn
 func (o TopicRuleSnsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSnsAction) *string {
 		if v == nil {
@@ -9006,7 +9190,6 @@ func (o TopicRuleSnsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-targetarn
 func (o TopicRuleSnsActionPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSnsAction) *string {
 		if v == nil {
@@ -9016,14 +9199,10 @@ func (o TopicRuleSnsActionPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html
 type TopicRuleSqsAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-queueurl
-	QueueUrl string `pulumi:"queueUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-usebase64
-	UseBase64 *bool `pulumi:"useBase64"`
+	QueueUrl  string `pulumi:"queueUrl"`
+	RoleArn   string `pulumi:"roleArn"`
+	UseBase64 *bool  `pulumi:"useBase64"`
 }
 
 // TopicRuleSqsActionInput is an input type that accepts TopicRuleSqsActionArgs and TopicRuleSqsActionOutput values.
@@ -9037,13 +9216,9 @@ type TopicRuleSqsActionInput interface {
 	ToTopicRuleSqsActionOutputWithContext(context.Context) TopicRuleSqsActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html
 type TopicRuleSqsActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-queueurl
-	QueueUrl pulumi.StringInput `pulumi:"queueUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-usebase64
+	QueueUrl  pulumi.StringInput  `pulumi:"queueUrl"`
+	RoleArn   pulumi.StringInput  `pulumi:"roleArn"`
 	UseBase64 pulumi.BoolPtrInput `pulumi:"useBase64"`
 }
 
@@ -9100,7 +9275,6 @@ func (i *topicRuleSqsActionPtrType) ToTopicRuleSqsActionPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleSqsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html
 type TopicRuleSqsActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleSqsActionOutput) ElementType() reflect.Type {
@@ -9125,17 +9299,14 @@ func (o TopicRuleSqsActionOutput) ToTopicRuleSqsActionPtrOutputWithContext(ctx c
 	}).(TopicRuleSqsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-queueurl
 func (o TopicRuleSqsActionOutput) QueueUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSqsAction) string { return v.QueueUrl }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-rolearn
 func (o TopicRuleSqsActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleSqsAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-usebase64
 func (o TopicRuleSqsActionOutput) UseBase64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicRuleSqsAction) *bool { return v.UseBase64 }).(pulumi.BoolPtrOutput)
 }
@@ -9164,7 +9335,6 @@ func (o TopicRuleSqsActionPtrOutput) Elem() TopicRuleSqsActionOutput {
 	}).(TopicRuleSqsActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-queueurl
 func (o TopicRuleSqsActionPtrOutput) QueueUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSqsAction) *string {
 		if v == nil {
@@ -9174,7 +9344,6 @@ func (o TopicRuleSqsActionPtrOutput) QueueUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-rolearn
 func (o TopicRuleSqsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSqsAction) *string {
 		if v == nil {
@@ -9184,7 +9353,6 @@ func (o TopicRuleSqsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-usebase64
 func (o TopicRuleSqsActionPtrOutput) UseBase64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicRuleSqsAction) *bool {
 		if v == nil {
@@ -9194,14 +9362,10 @@ func (o TopicRuleSqsActionPtrOutput) UseBase64() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html
 type TopicRuleStepFunctionsAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-executionnameprefix
 	ExecutionNamePrefix *string `pulumi:"executionNamePrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-statemachinename
-	StateMachineName string `pulumi:"stateMachineName"`
+	RoleArn             string  `pulumi:"roleArn"`
+	StateMachineName    string  `pulumi:"stateMachineName"`
 }
 
 // TopicRuleStepFunctionsActionInput is an input type that accepts TopicRuleStepFunctionsActionArgs and TopicRuleStepFunctionsActionOutput values.
@@ -9215,14 +9379,10 @@ type TopicRuleStepFunctionsActionInput interface {
 	ToTopicRuleStepFunctionsActionOutputWithContext(context.Context) TopicRuleStepFunctionsActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html
 type TopicRuleStepFunctionsActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-executionnameprefix
 	ExecutionNamePrefix pulumi.StringPtrInput `pulumi:"executionNamePrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-statemachinename
-	StateMachineName pulumi.StringInput `pulumi:"stateMachineName"`
+	RoleArn             pulumi.StringInput    `pulumi:"roleArn"`
+	StateMachineName    pulumi.StringInput    `pulumi:"stateMachineName"`
 }
 
 func (TopicRuleStepFunctionsActionArgs) ElementType() reflect.Type {
@@ -9278,7 +9438,6 @@ func (i *topicRuleStepFunctionsActionPtrType) ToTopicRuleStepFunctionsActionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleStepFunctionsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html
 type TopicRuleStepFunctionsActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleStepFunctionsActionOutput) ElementType() reflect.Type {
@@ -9303,17 +9462,14 @@ func (o TopicRuleStepFunctionsActionOutput) ToTopicRuleStepFunctionsActionPtrOut
 	}).(TopicRuleStepFunctionsActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-executionnameprefix
 func (o TopicRuleStepFunctionsActionOutput) ExecutionNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleStepFunctionsAction) *string { return v.ExecutionNamePrefix }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-rolearn
 func (o TopicRuleStepFunctionsActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleStepFunctionsAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-statemachinename
 func (o TopicRuleStepFunctionsActionOutput) StateMachineName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleStepFunctionsAction) string { return v.StateMachineName }).(pulumi.StringOutput)
 }
@@ -9342,7 +9498,6 @@ func (o TopicRuleStepFunctionsActionPtrOutput) Elem() TopicRuleStepFunctionsActi
 	}).(TopicRuleStepFunctionsActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-executionnameprefix
 func (o TopicRuleStepFunctionsActionPtrOutput) ExecutionNamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleStepFunctionsAction) *string {
 		if v == nil {
@@ -9352,7 +9507,6 @@ func (o TopicRuleStepFunctionsActionPtrOutput) ExecutionNamePrefix() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-rolearn
 func (o TopicRuleStepFunctionsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleStepFunctionsAction) *string {
 		if v == nil {
@@ -9362,7 +9516,6 @@ func (o TopicRuleStepFunctionsActionPtrOutput) RoleArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-statemachinename
 func (o TopicRuleStepFunctionsActionPtrOutput) StateMachineName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleStepFunctionsAction) *string {
 		if v == nil {
@@ -9372,20 +9525,113 @@ func (o TopicRuleStepFunctionsActionPtrOutput) StateMachineName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html
+type TopicRuleTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// TopicRuleTagInput is an input type that accepts TopicRuleTagArgs and TopicRuleTagOutput values.
+// You can construct a concrete instance of `TopicRuleTagInput` via:
+//
+//          TopicRuleTagArgs{...}
+type TopicRuleTagInput interface {
+	pulumi.Input
+
+	ToTopicRuleTagOutput() TopicRuleTagOutput
+	ToTopicRuleTagOutputWithContext(context.Context) TopicRuleTagOutput
+}
+
+type TopicRuleTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TopicRuleTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleTag)(nil)).Elem()
+}
+
+func (i TopicRuleTagArgs) ToTopicRuleTagOutput() TopicRuleTagOutput {
+	return i.ToTopicRuleTagOutputWithContext(context.Background())
+}
+
+func (i TopicRuleTagArgs) ToTopicRuleTagOutputWithContext(ctx context.Context) TopicRuleTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTagOutput)
+}
+
+// TopicRuleTagArrayInput is an input type that accepts TopicRuleTagArray and TopicRuleTagArrayOutput values.
+// You can construct a concrete instance of `TopicRuleTagArrayInput` via:
+//
+//          TopicRuleTagArray{ TopicRuleTagArgs{...} }
+type TopicRuleTagArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleTagArrayOutput() TopicRuleTagArrayOutput
+	ToTopicRuleTagArrayOutputWithContext(context.Context) TopicRuleTagArrayOutput
+}
+
+type TopicRuleTagArray []TopicRuleTagInput
+
+func (TopicRuleTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleTag)(nil)).Elem()
+}
+
+func (i TopicRuleTagArray) ToTopicRuleTagArrayOutput() TopicRuleTagArrayOutput {
+	return i.ToTopicRuleTagArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleTagArray) ToTopicRuleTagArrayOutputWithContext(ctx context.Context) TopicRuleTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTagArrayOutput)
+}
+
+type TopicRuleTagOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleTag)(nil)).Elem()
+}
+
+func (o TopicRuleTagOutput) ToTopicRuleTagOutput() TopicRuleTagOutput {
+	return o
+}
+
+func (o TopicRuleTagOutput) ToTopicRuleTagOutputWithContext(ctx context.Context) TopicRuleTagOutput {
+	return o
+}
+
+func (o TopicRuleTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TopicRuleTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleTag)(nil)).Elem()
+}
+
+func (o TopicRuleTagArrayOutput) ToTopicRuleTagArrayOutput() TopicRuleTagArrayOutput {
+	return o
+}
+
+func (o TopicRuleTagArrayOutput) ToTopicRuleTagArrayOutputWithContext(ctx context.Context) TopicRuleTagArrayOutput {
+	return o
+}
+
+func (o TopicRuleTagArrayOutput) Index(i pulumi.IntInput) TopicRuleTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleTag {
+		return vs[0].([]TopicRuleTag)[vs[1].(int)]
+	}).(TopicRuleTagOutput)
+}
+
 type TopicRuleTimestreamAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-batchmode
-	BatchMode *bool `pulumi:"batchMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-databasename
-	DatabaseName string `pulumi:"databaseName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-dimensions
-	Dimensions []TopicRuleTimestreamDimension `pulumi:"dimensions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-tablename
-	TableName string `pulumi:"tableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-timestamp
-	Timestamp *TopicRuleTimestreamTimestamp `pulumi:"timestamp"`
+	BatchMode    *bool                          `pulumi:"batchMode"`
+	DatabaseName string                         `pulumi:"databaseName"`
+	Dimensions   []TopicRuleTimestreamDimension `pulumi:"dimensions"`
+	RoleArn      string                         `pulumi:"roleArn"`
+	TableName    string                         `pulumi:"tableName"`
+	Timestamp    *TopicRuleTimestreamTimestamp  `pulumi:"timestamp"`
 }
 
 // TopicRuleTimestreamActionInput is an input type that accepts TopicRuleTimestreamActionArgs and TopicRuleTimestreamActionOutput values.
@@ -9399,20 +9645,13 @@ type TopicRuleTimestreamActionInput interface {
 	ToTopicRuleTimestreamActionOutputWithContext(context.Context) TopicRuleTimestreamActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html
 type TopicRuleTimestreamActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-batchmode
-	BatchMode pulumi.BoolPtrInput `pulumi:"batchMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-databasename
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-dimensions
-	Dimensions TopicRuleTimestreamDimensionArrayInput `pulumi:"dimensions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-tablename
-	TableName pulumi.StringInput `pulumi:"tableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-timestamp
-	Timestamp TopicRuleTimestreamTimestampPtrInput `pulumi:"timestamp"`
+	BatchMode    pulumi.BoolPtrInput                    `pulumi:"batchMode"`
+	DatabaseName pulumi.StringInput                     `pulumi:"databaseName"`
+	Dimensions   TopicRuleTimestreamDimensionArrayInput `pulumi:"dimensions"`
+	RoleArn      pulumi.StringInput                     `pulumi:"roleArn"`
+	TableName    pulumi.StringInput                     `pulumi:"tableName"`
+	Timestamp    TopicRuleTimestreamTimestampPtrInput   `pulumi:"timestamp"`
 }
 
 func (TopicRuleTimestreamActionArgs) ElementType() reflect.Type {
@@ -9468,7 +9707,6 @@ func (i *topicRuleTimestreamActionPtrType) ToTopicRuleTimestreamActionPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTimestreamActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html
 type TopicRuleTimestreamActionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleTimestreamActionOutput) ElementType() reflect.Type {
@@ -9493,32 +9731,26 @@ func (o TopicRuleTimestreamActionOutput) ToTopicRuleTimestreamActionPtrOutputWit
 	}).(TopicRuleTimestreamActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-batchmode
 func (o TopicRuleTimestreamActionOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamAction) *bool { return v.BatchMode }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-databasename
 func (o TopicRuleTimestreamActionOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamAction) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-dimensions
 func (o TopicRuleTimestreamActionOutput) Dimensions() TopicRuleTimestreamDimensionArrayOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamAction) []TopicRuleTimestreamDimension { return v.Dimensions }).(TopicRuleTimestreamDimensionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-rolearn
 func (o TopicRuleTimestreamActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-tablename
 func (o TopicRuleTimestreamActionOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamAction) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-timestamp
 func (o TopicRuleTimestreamActionOutput) Timestamp() TopicRuleTimestreamTimestampPtrOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamAction) *TopicRuleTimestreamTimestamp { return v.Timestamp }).(TopicRuleTimestreamTimestampPtrOutput)
 }
@@ -9547,7 +9779,6 @@ func (o TopicRuleTimestreamActionPtrOutput) Elem() TopicRuleTimestreamActionOutp
 	}).(TopicRuleTimestreamActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-batchmode
 func (o TopicRuleTimestreamActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamAction) *bool {
 		if v == nil {
@@ -9557,7 +9788,6 @@ func (o TopicRuleTimestreamActionPtrOutput) BatchMode() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-databasename
 func (o TopicRuleTimestreamActionPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamAction) *string {
 		if v == nil {
@@ -9567,7 +9797,6 @@ func (o TopicRuleTimestreamActionPtrOutput) DatabaseName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-dimensions
 func (o TopicRuleTimestreamActionPtrOutput) Dimensions() TopicRuleTimestreamDimensionArrayOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamAction) []TopicRuleTimestreamDimension {
 		if v == nil {
@@ -9577,7 +9806,6 @@ func (o TopicRuleTimestreamActionPtrOutput) Dimensions() TopicRuleTimestreamDime
 	}).(TopicRuleTimestreamDimensionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-rolearn
 func (o TopicRuleTimestreamActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamAction) *string {
 		if v == nil {
@@ -9587,7 +9815,6 @@ func (o TopicRuleTimestreamActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-tablename
 func (o TopicRuleTimestreamActionPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamAction) *string {
 		if v == nil {
@@ -9597,7 +9824,6 @@ func (o TopicRuleTimestreamActionPtrOutput) TableName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamaction.html#cfn-iot-topicrule-timestreamaction-timestamp
 func (o TopicRuleTimestreamActionPtrOutput) Timestamp() TopicRuleTimestreamTimestampPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamAction) *TopicRuleTimestreamTimestamp {
 		if v == nil {
@@ -9607,11 +9833,8 @@ func (o TopicRuleTimestreamActionPtrOutput) Timestamp() TopicRuleTimestreamTimes
 	}).(TopicRuleTimestreamTimestampPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html
 type TopicRuleTimestreamDimension struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html#cfn-iot-topicrule-timestreamdimension-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html#cfn-iot-topicrule-timestreamdimension-value
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -9626,11 +9849,8 @@ type TopicRuleTimestreamDimensionInput interface {
 	ToTopicRuleTimestreamDimensionOutputWithContext(context.Context) TopicRuleTimestreamDimensionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html
 type TopicRuleTimestreamDimensionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html#cfn-iot-topicrule-timestreamdimension-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html#cfn-iot-topicrule-timestreamdimension-value
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -9671,7 +9891,6 @@ func (i TopicRuleTimestreamDimensionArray) ToTopicRuleTimestreamDimensionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTimestreamDimensionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html
 type TopicRuleTimestreamDimensionOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleTimestreamDimensionOutput) ElementType() reflect.Type {
@@ -9686,12 +9905,10 @@ func (o TopicRuleTimestreamDimensionOutput) ToTopicRuleTimestreamDimensionOutput
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html#cfn-iot-topicrule-timestreamdimension-name
 func (o TopicRuleTimestreamDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamDimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamdimension.html#cfn-iot-topicrule-timestreamdimension-value
 func (o TopicRuleTimestreamDimensionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamDimension) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -9716,11 +9933,8 @@ func (o TopicRuleTimestreamDimensionArrayOutput) Index(i pulumi.IntInput) TopicR
 	}).(TopicRuleTimestreamDimensionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html
 type TopicRuleTimestreamTimestamp struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html#cfn-iot-topicrule-timestreamtimestamp-unit
-	Unit string `pulumi:"unit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html#cfn-iot-topicrule-timestreamtimestamp-value
+	Unit  string `pulumi:"unit"`
 	Value string `pulumi:"value"`
 }
 
@@ -9735,11 +9949,8 @@ type TopicRuleTimestreamTimestampInput interface {
 	ToTopicRuleTimestreamTimestampOutputWithContext(context.Context) TopicRuleTimestreamTimestampOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html
 type TopicRuleTimestreamTimestampArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html#cfn-iot-topicrule-timestreamtimestamp-unit
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html#cfn-iot-topicrule-timestreamtimestamp-value
+	Unit  pulumi.StringInput `pulumi:"unit"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -9796,7 +10007,6 @@ func (i *topicRuleTimestreamTimestampPtrType) ToTopicRuleTimestreamTimestampPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTimestreamTimestampPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html
 type TopicRuleTimestreamTimestampOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleTimestreamTimestampOutput) ElementType() reflect.Type {
@@ -9821,12 +10031,10 @@ func (o TopicRuleTimestreamTimestampOutput) ToTopicRuleTimestreamTimestampPtrOut
 	}).(TopicRuleTimestreamTimestampPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html#cfn-iot-topicrule-timestreamtimestamp-unit
 func (o TopicRuleTimestreamTimestampOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamTimestamp) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html#cfn-iot-topicrule-timestreamtimestamp-value
 func (o TopicRuleTimestreamTimestampOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTimestreamTimestamp) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -9855,7 +10063,6 @@ func (o TopicRuleTimestreamTimestampPtrOutput) Elem() TopicRuleTimestreamTimesta
 	}).(TopicRuleTimestreamTimestampOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html#cfn-iot-topicrule-timestreamtimestamp-unit
 func (o TopicRuleTimestreamTimestampPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamTimestamp) *string {
 		if v == nil {
@@ -9865,7 +10072,6 @@ func (o TopicRuleTimestreamTimestampPtrOutput) Unit() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestreamtimestamp.html#cfn-iot-topicrule-timestreamtimestamp-value
 func (o TopicRuleTimestreamTimestampPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTimestreamTimestamp) *string {
 		if v == nil {
@@ -9875,20 +10081,13 @@ func (o TopicRuleTimestreamTimestampPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html
 type TopicRuleTopicRulePayload struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-actions
-	Actions []TopicRuleAction `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-awsiotsqlversion
-	AwsIotSqlVersion *string `pulumi:"awsIotSqlVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction
-	ErrorAction *TopicRuleAction `pulumi:"errorAction"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
-	RuleDisabled *bool `pulumi:"ruleDisabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-sql
-	Sql string `pulumi:"sql"`
+	Actions          []TopicRuleAction `pulumi:"actions"`
+	AwsIotSqlVersion *string           `pulumi:"awsIotSqlVersion"`
+	Description      *string           `pulumi:"description"`
+	ErrorAction      *TopicRuleAction  `pulumi:"errorAction"`
+	RuleDisabled     *bool             `pulumi:"ruleDisabled"`
+	Sql              string            `pulumi:"sql"`
 }
 
 // TopicRuleTopicRulePayloadInput is an input type that accepts TopicRuleTopicRulePayloadArgs and TopicRuleTopicRulePayloadOutput values.
@@ -9902,20 +10101,13 @@ type TopicRuleTopicRulePayloadInput interface {
 	ToTopicRuleTopicRulePayloadOutputWithContext(context.Context) TopicRuleTopicRulePayloadOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html
 type TopicRuleTopicRulePayloadArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-actions
-	Actions TopicRuleActionArrayInput `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-awsiotsqlversion
-	AwsIotSqlVersion pulumi.StringPtrInput `pulumi:"awsIotSqlVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction
-	ErrorAction TopicRuleActionPtrInput `pulumi:"errorAction"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
-	RuleDisabled pulumi.BoolPtrInput `pulumi:"ruleDisabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-sql
-	Sql pulumi.StringInput `pulumi:"sql"`
+	Actions          TopicRuleActionArrayInput `pulumi:"actions"`
+	AwsIotSqlVersion pulumi.StringPtrInput     `pulumi:"awsIotSqlVersion"`
+	Description      pulumi.StringPtrInput     `pulumi:"description"`
+	ErrorAction      TopicRuleActionPtrInput   `pulumi:"errorAction"`
+	RuleDisabled     pulumi.BoolPtrInput       `pulumi:"ruleDisabled"`
+	Sql              pulumi.StringInput        `pulumi:"sql"`
 }
 
 func (TopicRuleTopicRulePayloadArgs) ElementType() reflect.Type {
@@ -9971,7 +10163,6 @@ func (i *topicRuleTopicRulePayloadPtrType) ToTopicRuleTopicRulePayloadPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTopicRulePayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html
 type TopicRuleTopicRulePayloadOutput struct{ *pulumi.OutputState }
 
 func (TopicRuleTopicRulePayloadOutput) ElementType() reflect.Type {
@@ -9996,32 +10187,26 @@ func (o TopicRuleTopicRulePayloadOutput) ToTopicRuleTopicRulePayloadPtrOutputWit
 	}).(TopicRuleTopicRulePayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-actions
 func (o TopicRuleTopicRulePayloadOutput) Actions() TopicRuleActionArrayOutput {
 	return o.ApplyT(func(v TopicRuleTopicRulePayload) []TopicRuleAction { return v.Actions }).(TopicRuleActionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-awsiotsqlversion
 func (o TopicRuleTopicRulePayloadOutput) AwsIotSqlVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleTopicRulePayload) *string { return v.AwsIotSqlVersion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-description
 func (o TopicRuleTopicRulePayloadOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleTopicRulePayload) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction
 func (o TopicRuleTopicRulePayloadOutput) ErrorAction() TopicRuleActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleTopicRulePayload) *TopicRuleAction { return v.ErrorAction }).(TopicRuleActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
 func (o TopicRuleTopicRulePayloadOutput) RuleDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TopicRuleTopicRulePayload) *bool { return v.RuleDisabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-sql
 func (o TopicRuleTopicRulePayloadOutput) Sql() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleTopicRulePayload) string { return v.Sql }).(pulumi.StringOutput)
 }
@@ -10050,7 +10235,6 @@ func (o TopicRuleTopicRulePayloadPtrOutput) Elem() TopicRuleTopicRulePayloadOutp
 	}).(TopicRuleTopicRulePayloadOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-actions
 func (o TopicRuleTopicRulePayloadPtrOutput) Actions() TopicRuleActionArrayOutput {
 	return o.ApplyT(func(v *TopicRuleTopicRulePayload) []TopicRuleAction {
 		if v == nil {
@@ -10060,7 +10244,6 @@ func (o TopicRuleTopicRulePayloadPtrOutput) Actions() TopicRuleActionArrayOutput
 	}).(TopicRuleActionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-awsiotsqlversion
 func (o TopicRuleTopicRulePayloadPtrOutput) AwsIotSqlVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTopicRulePayload) *string {
 		if v == nil {
@@ -10070,7 +10253,6 @@ func (o TopicRuleTopicRulePayloadPtrOutput) AwsIotSqlVersion() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-description
 func (o TopicRuleTopicRulePayloadPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTopicRulePayload) *string {
 		if v == nil {
@@ -10080,7 +10262,6 @@ func (o TopicRuleTopicRulePayloadPtrOutput) Description() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction
 func (o TopicRuleTopicRulePayloadPtrOutput) ErrorAction() TopicRuleActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTopicRulePayload) *TopicRuleAction {
 		if v == nil {
@@ -10090,7 +10271,6 @@ func (o TopicRuleTopicRulePayloadPtrOutput) ErrorAction() TopicRuleActionPtrOutp
 	}).(TopicRuleActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
 func (o TopicRuleTopicRulePayloadPtrOutput) RuleDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTopicRulePayload) *bool {
 		if v == nil {
@@ -10100,7 +10280,6 @@ func (o TopicRuleTopicRulePayloadPtrOutput) RuleDisabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-sql
 func (o TopicRuleTopicRulePayloadPtrOutput) Sql() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleTopicRulePayload) *string {
 		if v == nil {
@@ -10119,12 +10298,22 @@ func init() {
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditNotificationTargetPtrOutput{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditNotificationTargetConfigurationsOutput{})
 	pulumi.RegisterOutputType(AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput{})
+	pulumi.RegisterOutputType(AuthorizerTagOutput{})
+	pulumi.RegisterOutputType(AuthorizerTagArrayOutput{})
+	pulumi.RegisterOutputType(CustomMetricTagOutput{})
+	pulumi.RegisterOutputType(CustomMetricTagArrayOutput{})
+	pulumi.RegisterOutputType(DimensionTagOutput{})
+	pulumi.RegisterOutputType(DimensionTagArrayOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationAuthorizerConfigOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationAuthorizerConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationServerCertificateSummaryOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationServerCertificateSummaryArrayOutput{})
+	pulumi.RegisterOutputType(DomainConfigurationTagOutput{})
+	pulumi.RegisterOutputType(DomainConfigurationTagArrayOutput{})
 	pulumi.RegisterOutputType(FleetMetricAggregationTypeOutput{})
 	pulumi.RegisterOutputType(FleetMetricAggregationTypePtrOutput{})
+	pulumi.RegisterOutputType(FleetMetricTagOutput{})
+	pulumi.RegisterOutputType(FleetMetricTagArrayOutput{})
 	pulumi.RegisterOutputType(MitigationActionActionParamsOutput{})
 	pulumi.RegisterOutputType(MitigationActionActionParamsPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionAddThingsToThingGroupParamsOutput{})
@@ -10135,14 +10324,18 @@ func init() {
 	pulumi.RegisterOutputType(MitigationActionPublishFindingToSnsParamsPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionReplaceDefaultPolicyVersionParamsOutput{})
 	pulumi.RegisterOutputType(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput{})
+	pulumi.RegisterOutputType(MitigationActionTagOutput{})
+	pulumi.RegisterOutputType(MitigationActionTagArrayOutput{})
 	pulumi.RegisterOutputType(MitigationActionUpdateCACertificateParamsOutput{})
 	pulumi.RegisterOutputType(MitigationActionUpdateCACertificateParamsPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionUpdateDeviceCertificateParamsOutput{})
 	pulumi.RegisterOutputType(MitigationActionUpdateDeviceCertificateParamsPtrOutput{})
 	pulumi.RegisterOutputType(ProvisioningTemplateProvisioningHookOutput{})
 	pulumi.RegisterOutputType(ProvisioningTemplateProvisioningHookPtrOutput{})
-	pulumi.RegisterOutputType(SecurityProfileAlertTargetOutput{})
-	pulumi.RegisterOutputType(SecurityProfileAlertTargetMapOutput{})
+	pulumi.RegisterOutputType(ProvisioningTemplateTagOutput{})
+	pulumi.RegisterOutputType(ProvisioningTemplateTagArrayOutput{})
+	pulumi.RegisterOutputType(ScheduledAuditTagOutput{})
+	pulumi.RegisterOutputType(ScheduledAuditTagArrayOutput{})
 	pulumi.RegisterOutputType(SecurityProfileBehaviorOutput{})
 	pulumi.RegisterOutputType(SecurityProfileBehaviorArrayOutput{})
 	pulumi.RegisterOutputType(SecurityProfileBehaviorCriteriaOutput{})
@@ -10157,6 +10350,8 @@ func init() {
 	pulumi.RegisterOutputType(SecurityProfileMetricValuePtrOutput{})
 	pulumi.RegisterOutputType(SecurityProfileStatisticalThresholdOutput{})
 	pulumi.RegisterOutputType(SecurityProfileStatisticalThresholdPtrOutput{})
+	pulumi.RegisterOutputType(SecurityProfileTagOutput{})
+	pulumi.RegisterOutputType(SecurityProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleActionArrayOutput{})
@@ -10216,6 +10411,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleSqsActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleStepFunctionsActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleStepFunctionsActionPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleTagOutput{})
+	pulumi.RegisterOutputType(TopicRuleTagArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleTimestreamActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleTimestreamActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleTimestreamDimensionOutput{})

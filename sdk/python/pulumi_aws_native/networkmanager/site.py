@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['SiteArgs', 'Site']
@@ -20,13 +18,13 @@ class SiteArgs:
                  global_network_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input['SiteLocationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['SiteTagArgs']]]] = None):
         """
         The set of arguments for constructing a Site resource.
-        :param pulumi.Input[str] global_network_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-globalnetworkid
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-description
-        :param pulumi.Input['SiteLocationArgs'] location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags
+        :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input[str] description: The description of the site.
+        :param pulumi.Input['SiteLocationArgs'] location: The location of the site.
+        :param pulumi.Input[Sequence[pulumi.Input['SiteTagArgs']]] tags: The tags for the site.
         """
         pulumi.set(__self__, "global_network_id", global_network_id)
         if description is not None:
@@ -40,7 +38,7 @@ class SiteArgs:
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-globalnetworkid
+        The ID of the global network.
         """
         return pulumi.get(self, "global_network_id")
 
@@ -52,7 +50,7 @@ class SiteArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-description
+        The description of the site.
         """
         return pulumi.get(self, "description")
 
@@ -64,7 +62,7 @@ class SiteArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input['SiteLocationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
+        The location of the site.
         """
         return pulumi.get(self, "location")
 
@@ -74,14 +72,14 @@ class SiteArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SiteTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags
+        The tags for the site.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SiteTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -93,17 +91,17 @@ class Site(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[pulumi.InputType['SiteLocationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SiteTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html
+        The AWS::NetworkManager::Site type describes a site.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-description
-        :param pulumi.Input[str] global_network_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-globalnetworkid
-        :param pulumi.Input[pulumi.InputType['SiteLocationArgs']] location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags
+        :param pulumi.Input[str] description: The description of the site.
+        :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input[pulumi.InputType['SiteLocationArgs']] location: The location of the site.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SiteTagArgs']]]] tags: The tags for the site.
         """
         ...
     @overload
@@ -112,7 +110,7 @@ class Site(pulumi.CustomResource):
                  args: SiteArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html
+        The AWS::NetworkManager::Site type describes a site.
 
         :param str resource_name: The name of the resource.
         :param SiteArgs args: The arguments to use to populate this resource's properties.
@@ -132,7 +130,7 @@ class Site(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[pulumi.InputType['SiteLocationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SiteTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -187,7 +185,7 @@ class Site(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-description
+        The description of the site.
         """
         return pulumi.get(self, "description")
 
@@ -195,7 +193,7 @@ class Site(pulumi.CustomResource):
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-globalnetworkid
+        The ID of the global network.
         """
         return pulumi.get(self, "global_network_id")
 
@@ -203,25 +201,31 @@ class Site(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional['outputs.SiteLocation']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
+        The location of the site.
         """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="siteArn")
     def site_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the site.
+        """
         return pulumi.get(self, "site_arn")
 
     @property
     @pulumi.getter(name="siteId")
     def site_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the site.
+        """
         return pulumi.get(self, "site_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SiteTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags
+        The tags for the site.
         """
         return pulumi.get(self, "tags")
 

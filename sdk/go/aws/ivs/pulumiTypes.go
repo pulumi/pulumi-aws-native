@@ -10,9 +10,208 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html
+type ChannelTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ChannelTagInput is an input type that accepts ChannelTagArgs and ChannelTagOutput values.
+// You can construct a concrete instance of `ChannelTagInput` via:
+//
+//          ChannelTagArgs{...}
+type ChannelTagInput interface {
+	pulumi.Input
+
+	ToChannelTagOutput() ChannelTagOutput
+	ToChannelTagOutputWithContext(context.Context) ChannelTagOutput
+}
+
+type ChannelTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ChannelTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTag)(nil)).Elem()
+}
+
+func (i ChannelTagArgs) ToChannelTagOutput() ChannelTagOutput {
+	return i.ToChannelTagOutputWithContext(context.Background())
+}
+
+func (i ChannelTagArgs) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagOutput)
+}
+
+// ChannelTagArrayInput is an input type that accepts ChannelTagArray and ChannelTagArrayOutput values.
+// You can construct a concrete instance of `ChannelTagArrayInput` via:
+//
+//          ChannelTagArray{ ChannelTagArgs{...} }
+type ChannelTagArrayInput interface {
+	pulumi.Input
+
+	ToChannelTagArrayOutput() ChannelTagArrayOutput
+	ToChannelTagArrayOutputWithContext(context.Context) ChannelTagArrayOutput
+}
+
+type ChannelTagArray []ChannelTagInput
+
+func (ChannelTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelTag)(nil)).Elem()
+}
+
+func (i ChannelTagArray) ToChannelTagArrayOutput() ChannelTagArrayOutput {
+	return i.ToChannelTagArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelTagArray) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagArrayOutput)
+}
+
+type ChannelTagOutput struct{ *pulumi.OutputState }
+
+func (ChannelTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTag)(nil)).Elem()
+}
+
+func (o ChannelTagOutput) ToChannelTagOutput() ChannelTagOutput {
+	return o
+}
+
+func (o ChannelTagOutput) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
+	return o
+}
+
+func (o ChannelTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ChannelTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ChannelTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelTag)(nil)).Elem()
+}
+
+func (o ChannelTagArrayOutput) ToChannelTagArrayOutput() ChannelTagArrayOutput {
+	return o
+}
+
+func (o ChannelTagArrayOutput) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
+	return o
+}
+
+func (o ChannelTagArrayOutput) Index(i pulumi.IntInput) ChannelTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelTag {
+		return vs[0].([]ChannelTag)[vs[1].(int)]
+	}).(ChannelTagOutput)
+}
+
+type PlaybackKeyPairTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// PlaybackKeyPairTagInput is an input type that accepts PlaybackKeyPairTagArgs and PlaybackKeyPairTagOutput values.
+// You can construct a concrete instance of `PlaybackKeyPairTagInput` via:
+//
+//          PlaybackKeyPairTagArgs{...}
+type PlaybackKeyPairTagInput interface {
+	pulumi.Input
+
+	ToPlaybackKeyPairTagOutput() PlaybackKeyPairTagOutput
+	ToPlaybackKeyPairTagOutputWithContext(context.Context) PlaybackKeyPairTagOutput
+}
+
+type PlaybackKeyPairTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PlaybackKeyPairTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackKeyPairTag)(nil)).Elem()
+}
+
+func (i PlaybackKeyPairTagArgs) ToPlaybackKeyPairTagOutput() PlaybackKeyPairTagOutput {
+	return i.ToPlaybackKeyPairTagOutputWithContext(context.Background())
+}
+
+func (i PlaybackKeyPairTagArgs) ToPlaybackKeyPairTagOutputWithContext(ctx context.Context) PlaybackKeyPairTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackKeyPairTagOutput)
+}
+
+// PlaybackKeyPairTagArrayInput is an input type that accepts PlaybackKeyPairTagArray and PlaybackKeyPairTagArrayOutput values.
+// You can construct a concrete instance of `PlaybackKeyPairTagArrayInput` via:
+//
+//          PlaybackKeyPairTagArray{ PlaybackKeyPairTagArgs{...} }
+type PlaybackKeyPairTagArrayInput interface {
+	pulumi.Input
+
+	ToPlaybackKeyPairTagArrayOutput() PlaybackKeyPairTagArrayOutput
+	ToPlaybackKeyPairTagArrayOutputWithContext(context.Context) PlaybackKeyPairTagArrayOutput
+}
+
+type PlaybackKeyPairTagArray []PlaybackKeyPairTagInput
+
+func (PlaybackKeyPairTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlaybackKeyPairTag)(nil)).Elem()
+}
+
+func (i PlaybackKeyPairTagArray) ToPlaybackKeyPairTagArrayOutput() PlaybackKeyPairTagArrayOutput {
+	return i.ToPlaybackKeyPairTagArrayOutputWithContext(context.Background())
+}
+
+func (i PlaybackKeyPairTagArray) ToPlaybackKeyPairTagArrayOutputWithContext(ctx context.Context) PlaybackKeyPairTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackKeyPairTagArrayOutput)
+}
+
+type PlaybackKeyPairTagOutput struct{ *pulumi.OutputState }
+
+func (PlaybackKeyPairTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackKeyPairTag)(nil)).Elem()
+}
+
+func (o PlaybackKeyPairTagOutput) ToPlaybackKeyPairTagOutput() PlaybackKeyPairTagOutput {
+	return o
+}
+
+func (o PlaybackKeyPairTagOutput) ToPlaybackKeyPairTagOutputWithContext(ctx context.Context) PlaybackKeyPairTagOutput {
+	return o
+}
+
+func (o PlaybackKeyPairTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PlaybackKeyPairTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o PlaybackKeyPairTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PlaybackKeyPairTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PlaybackKeyPairTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PlaybackKeyPairTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlaybackKeyPairTag)(nil)).Elem()
+}
+
+func (o PlaybackKeyPairTagArrayOutput) ToPlaybackKeyPairTagArrayOutput() PlaybackKeyPairTagArrayOutput {
+	return o
+}
+
+func (o PlaybackKeyPairTagArrayOutput) ToPlaybackKeyPairTagArrayOutputWithContext(ctx context.Context) PlaybackKeyPairTagArrayOutput {
+	return o
+}
+
+func (o PlaybackKeyPairTagArrayOutput) Index(i pulumi.IntInput) PlaybackKeyPairTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlaybackKeyPairTag {
+		return vs[0].([]PlaybackKeyPairTag)[vs[1].(int)]
+	}).(PlaybackKeyPairTagOutput)
+}
+
+// Recording Destination Configuration.
 type RecordingConfigurationDestinationConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration-s3
 	S3 RecordingConfigurationS3DestinationConfiguration `pulumi:"s3"`
 }
 
@@ -27,9 +226,8 @@ type RecordingConfigurationDestinationConfigurationInput interface {
 	ToRecordingConfigurationDestinationConfigurationOutputWithContext(context.Context) RecordingConfigurationDestinationConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html
+// Recording Destination Configuration.
 type RecordingConfigurationDestinationConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration-s3
 	S3 RecordingConfigurationS3DestinationConfigurationInput `pulumi:"s3"`
 }
 
@@ -86,7 +284,7 @@ func (i *recordingConfigurationDestinationConfigurationPtrType) ToRecordingConfi
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationDestinationConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html
+// Recording Destination Configuration.
 type RecordingConfigurationDestinationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RecordingConfigurationDestinationConfigurationOutput) ElementType() reflect.Type {
@@ -111,7 +309,6 @@ func (o RecordingConfigurationDestinationConfigurationOutput) ToRecordingConfigu
 	}).(RecordingConfigurationDestinationConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration-s3
 func (o RecordingConfigurationDestinationConfigurationOutput) S3() RecordingConfigurationS3DestinationConfigurationOutput {
 	return o.ApplyT(func(v RecordingConfigurationDestinationConfiguration) RecordingConfigurationS3DestinationConfiguration {
 		return v.S3
@@ -142,7 +339,6 @@ func (o RecordingConfigurationDestinationConfigurationPtrOutput) Elem() Recordin
 	}).(RecordingConfigurationDestinationConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration-s3
 func (o RecordingConfigurationDestinationConfigurationPtrOutput) S3() RecordingConfigurationS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *RecordingConfigurationDestinationConfiguration) *RecordingConfigurationS3DestinationConfiguration {
 		if v == nil {
@@ -152,9 +348,8 @@ func (o RecordingConfigurationDestinationConfigurationPtrOutput) S3() RecordingC
 	}).(RecordingConfigurationS3DestinationConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html
+// Recording S3 Destination Configuration.
 type RecordingConfigurationS3DestinationConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html#cfn-ivs-recordingconfiguration-s3destinationconfiguration-bucketname
 	BucketName string `pulumi:"bucketName"`
 }
 
@@ -169,9 +364,8 @@ type RecordingConfigurationS3DestinationConfigurationInput interface {
 	ToRecordingConfigurationS3DestinationConfigurationOutputWithContext(context.Context) RecordingConfigurationS3DestinationConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html
+// Recording S3 Destination Configuration.
 type RecordingConfigurationS3DestinationConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html#cfn-ivs-recordingconfiguration-s3destinationconfiguration-bucketname
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 }
 
@@ -228,7 +422,7 @@ func (i *recordingConfigurationS3DestinationConfigurationPtrType) ToRecordingCon
 	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationS3DestinationConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html
+// Recording S3 Destination Configuration.
 type RecordingConfigurationS3DestinationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RecordingConfigurationS3DestinationConfigurationOutput) ElementType() reflect.Type {
@@ -253,7 +447,6 @@ func (o RecordingConfigurationS3DestinationConfigurationOutput) ToRecordingConfi
 	}).(RecordingConfigurationS3DestinationConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html#cfn-ivs-recordingconfiguration-s3destinationconfiguration-bucketname
 func (o RecordingConfigurationS3DestinationConfigurationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v RecordingConfigurationS3DestinationConfiguration) string { return v.BucketName }).(pulumi.StringOutput)
 }
@@ -282,7 +475,6 @@ func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) Elem() Record
 	}).(RecordingConfigurationS3DestinationConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html#cfn-ivs-recordingconfiguration-s3destinationconfiguration-bucketname
 func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecordingConfigurationS3DestinationConfiguration) *string {
 		if v == nil {
@@ -292,9 +484,217 @@ func (o RecordingConfigurationS3DestinationConfigurationPtrOutput) BucketName() 
 	}).(pulumi.StringPtrOutput)
 }
 
+type RecordingConfigurationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// RecordingConfigurationTagInput is an input type that accepts RecordingConfigurationTagArgs and RecordingConfigurationTagOutput values.
+// You can construct a concrete instance of `RecordingConfigurationTagInput` via:
+//
+//          RecordingConfigurationTagArgs{...}
+type RecordingConfigurationTagInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationTagOutput() RecordingConfigurationTagOutput
+	ToRecordingConfigurationTagOutputWithContext(context.Context) RecordingConfigurationTagOutput
+}
+
+type RecordingConfigurationTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RecordingConfigurationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordingConfigurationTag)(nil)).Elem()
+}
+
+func (i RecordingConfigurationTagArgs) ToRecordingConfigurationTagOutput() RecordingConfigurationTagOutput {
+	return i.ToRecordingConfigurationTagOutputWithContext(context.Background())
+}
+
+func (i RecordingConfigurationTagArgs) ToRecordingConfigurationTagOutputWithContext(ctx context.Context) RecordingConfigurationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationTagOutput)
+}
+
+// RecordingConfigurationTagArrayInput is an input type that accepts RecordingConfigurationTagArray and RecordingConfigurationTagArrayOutput values.
+// You can construct a concrete instance of `RecordingConfigurationTagArrayInput` via:
+//
+//          RecordingConfigurationTagArray{ RecordingConfigurationTagArgs{...} }
+type RecordingConfigurationTagArrayInput interface {
+	pulumi.Input
+
+	ToRecordingConfigurationTagArrayOutput() RecordingConfigurationTagArrayOutput
+	ToRecordingConfigurationTagArrayOutputWithContext(context.Context) RecordingConfigurationTagArrayOutput
+}
+
+type RecordingConfigurationTagArray []RecordingConfigurationTagInput
+
+func (RecordingConfigurationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecordingConfigurationTag)(nil)).Elem()
+}
+
+func (i RecordingConfigurationTagArray) ToRecordingConfigurationTagArrayOutput() RecordingConfigurationTagArrayOutput {
+	return i.ToRecordingConfigurationTagArrayOutputWithContext(context.Background())
+}
+
+func (i RecordingConfigurationTagArray) ToRecordingConfigurationTagArrayOutputWithContext(ctx context.Context) RecordingConfigurationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordingConfigurationTagArrayOutput)
+}
+
+type RecordingConfigurationTagOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordingConfigurationTag)(nil)).Elem()
+}
+
+func (o RecordingConfigurationTagOutput) ToRecordingConfigurationTagOutput() RecordingConfigurationTagOutput {
+	return o
+}
+
+func (o RecordingConfigurationTagOutput) ToRecordingConfigurationTagOutputWithContext(ctx context.Context) RecordingConfigurationTagOutput {
+	return o
+}
+
+func (o RecordingConfigurationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordingConfigurationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o RecordingConfigurationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordingConfigurationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RecordingConfigurationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RecordingConfigurationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecordingConfigurationTag)(nil)).Elem()
+}
+
+func (o RecordingConfigurationTagArrayOutput) ToRecordingConfigurationTagArrayOutput() RecordingConfigurationTagArrayOutput {
+	return o
+}
+
+func (o RecordingConfigurationTagArrayOutput) ToRecordingConfigurationTagArrayOutputWithContext(ctx context.Context) RecordingConfigurationTagArrayOutput {
+	return o
+}
+
+func (o RecordingConfigurationTagArrayOutput) Index(i pulumi.IntInput) RecordingConfigurationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecordingConfigurationTag {
+		return vs[0].([]RecordingConfigurationTag)[vs[1].(int)]
+	}).(RecordingConfigurationTagOutput)
+}
+
+type StreamKeyTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// StreamKeyTagInput is an input type that accepts StreamKeyTagArgs and StreamKeyTagOutput values.
+// You can construct a concrete instance of `StreamKeyTagInput` via:
+//
+//          StreamKeyTagArgs{...}
+type StreamKeyTagInput interface {
+	pulumi.Input
+
+	ToStreamKeyTagOutput() StreamKeyTagOutput
+	ToStreamKeyTagOutputWithContext(context.Context) StreamKeyTagOutput
+}
+
+type StreamKeyTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (StreamKeyTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamKeyTag)(nil)).Elem()
+}
+
+func (i StreamKeyTagArgs) ToStreamKeyTagOutput() StreamKeyTagOutput {
+	return i.ToStreamKeyTagOutputWithContext(context.Background())
+}
+
+func (i StreamKeyTagArgs) ToStreamKeyTagOutputWithContext(ctx context.Context) StreamKeyTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamKeyTagOutput)
+}
+
+// StreamKeyTagArrayInput is an input type that accepts StreamKeyTagArray and StreamKeyTagArrayOutput values.
+// You can construct a concrete instance of `StreamKeyTagArrayInput` via:
+//
+//          StreamKeyTagArray{ StreamKeyTagArgs{...} }
+type StreamKeyTagArrayInput interface {
+	pulumi.Input
+
+	ToStreamKeyTagArrayOutput() StreamKeyTagArrayOutput
+	ToStreamKeyTagArrayOutputWithContext(context.Context) StreamKeyTagArrayOutput
+}
+
+type StreamKeyTagArray []StreamKeyTagInput
+
+func (StreamKeyTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamKeyTag)(nil)).Elem()
+}
+
+func (i StreamKeyTagArray) ToStreamKeyTagArrayOutput() StreamKeyTagArrayOutput {
+	return i.ToStreamKeyTagArrayOutputWithContext(context.Background())
+}
+
+func (i StreamKeyTagArray) ToStreamKeyTagArrayOutputWithContext(ctx context.Context) StreamKeyTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamKeyTagArrayOutput)
+}
+
+type StreamKeyTagOutput struct{ *pulumi.OutputState }
+
+func (StreamKeyTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamKeyTag)(nil)).Elem()
+}
+
+func (o StreamKeyTagOutput) ToStreamKeyTagOutput() StreamKeyTagOutput {
+	return o
+}
+
+func (o StreamKeyTagOutput) ToStreamKeyTagOutputWithContext(ctx context.Context) StreamKeyTagOutput {
+	return o
+}
+
+func (o StreamKeyTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamKeyTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o StreamKeyTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamKeyTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StreamKeyTagArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamKeyTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamKeyTag)(nil)).Elem()
+}
+
+func (o StreamKeyTagArrayOutput) ToStreamKeyTagArrayOutput() StreamKeyTagArrayOutput {
+	return o
+}
+
+func (o StreamKeyTagArrayOutput) ToStreamKeyTagArrayOutputWithContext(ctx context.Context) StreamKeyTagArrayOutput {
+	return o
+}
+
+func (o StreamKeyTagArrayOutput) Index(i pulumi.IntInput) StreamKeyTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamKeyTag {
+		return vs[0].([]StreamKeyTag)[vs[1].(int)]
+	}).(StreamKeyTagOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(ChannelTagOutput{})
+	pulumi.RegisterOutputType(ChannelTagArrayOutput{})
+	pulumi.RegisterOutputType(PlaybackKeyPairTagOutput{})
+	pulumi.RegisterOutputType(PlaybackKeyPairTagArrayOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationDestinationConfigurationOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationDestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationS3DestinationConfigurationOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationS3DestinationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationTagOutput{})
+	pulumi.RegisterOutputType(RecordingConfigurationTagArrayOutput{})
+	pulumi.RegisterOutputType(StreamKeyTagOutput{})
+	pulumi.RegisterOutputType(StreamKeyTagArrayOutput{})
 }

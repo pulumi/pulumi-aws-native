@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DataSourceArgs', 'DataSource']
@@ -26,23 +24,23 @@ class DataSourceArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]]] = None,
                  ssl_properties: Optional[pulumi.Input['DataSourceSslPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
-        :param pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceParametersArgs']]] alternate_data_source_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-alternatedatasourceparameters
-        :param pulumi.Input[str] aws_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-awsaccountid
-        :param pulumi.Input['DataSourceDataSourceCredentialsArgs'] credentials: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-credentials
-        :param pulumi.Input[str] data_source_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceid
-        :param pulumi.Input['DataSourceDataSourceParametersArgs'] data_source_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceparameters
-        :param pulumi.Input['DataSourceDataSourceErrorInfoArgs'] error_info: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-errorinfo
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-name
-        :param pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]] permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-permissions
-        :param pulumi.Input['DataSourceSslPropertiesArgs'] ssl_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-sslproperties
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-tags
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-type
-        :param pulumi.Input['DataSourceVpcConnectionPropertiesArgs'] vpc_connection_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-vpcconnectionproperties
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceParametersArgs']]] alternate_data_source_parameters: <p>A set of alternate data source parameters that you want to share for the credentials
+                           stored with this data source. The credentials are applied in tandem with the data source
+                           parameters when you copy a data source by using a create or update request. The API
+                           operation compares the <code>DataSourceParameters</code> structure that's in the request
+                           with the structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+                           structures are an exact match, the request is allowed to use the credentials from this
+                           existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
+                           the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
+                           are automatically allowed.</p>
+        :param pulumi.Input[str] name: <p>A display name for the data source.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]] permissions: <p>A list of resource permissions on the data source.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
         """
         if alternate_data_source_parameters is not None:
             pulumi.set(__self__, "alternate_data_source_parameters", alternate_data_source_parameters)
@@ -73,7 +71,15 @@ class DataSourceArgs:
     @pulumi.getter(name="alternateDataSourceParameters")
     def alternate_data_source_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceParametersArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-alternatedatasourceparameters
+        <p>A set of alternate data source parameters that you want to share for the credentials
+                    stored with this data source. The credentials are applied in tandem with the data source
+                    parameters when you copy a data source by using a create or update request. The API
+                    operation compares the <code>DataSourceParameters</code> structure that's in the request
+                    with the structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+                    structures are an exact match, the request is allowed to use the credentials from this
+                    existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
+                    the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
+                    are automatically allowed.</p>
         """
         return pulumi.get(self, "alternate_data_source_parameters")
 
@@ -84,9 +90,6 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-awsaccountid
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -96,9 +99,6 @@ class DataSourceArgs:
     @property
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input['DataSourceDataSourceCredentialsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-credentials
-        """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
@@ -108,9 +108,6 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceid
-        """
         return pulumi.get(self, "data_source_id")
 
     @data_source_id.setter
@@ -120,9 +117,6 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="dataSourceParameters")
     def data_source_parameters(self) -> Optional[pulumi.Input['DataSourceDataSourceParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceparameters
-        """
         return pulumi.get(self, "data_source_parameters")
 
     @data_source_parameters.setter
@@ -132,9 +126,6 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="errorInfo")
     def error_info(self) -> Optional[pulumi.Input['DataSourceDataSourceErrorInfoArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-errorinfo
-        """
         return pulumi.get(self, "error_info")
 
     @error_info.setter
@@ -145,7 +136,7 @@ class DataSourceArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-name
+        <p>A display name for the data source.</p>
         """
         return pulumi.get(self, "name")
 
@@ -157,7 +148,7 @@ class DataSourceArgs:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-permissions
+        <p>A list of resource permissions on the data source.</p>
         """
         return pulumi.get(self, "permissions")
 
@@ -168,9 +159,6 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="sslProperties")
     def ssl_properties(self) -> Optional[pulumi.Input['DataSourceSslPropertiesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-sslproperties
-        """
         return pulumi.get(self, "ssl_properties")
 
     @ssl_properties.setter
@@ -179,22 +167,19 @@ class DataSourceArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-tags
+        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-type
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -204,9 +189,6 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="vpcConnectionProperties")
     def vpc_connection_properties(self) -> Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-vpcconnectionproperties
-        """
         return pulumi.get(self, "vpc_connection_properties")
 
     @vpc_connection_properties.setter
@@ -228,27 +210,27 @@ class DataSource(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceResourcePermissionArgs']]]]] = None,
                  ssl_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceSslPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpc_connection_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceVpcConnectionPropertiesArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html
+        Definition of the AWS::QuickSight::DataSource Resource Type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceDataSourceParametersArgs']]]] alternate_data_source_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-alternatedatasourceparameters
-        :param pulumi.Input[str] aws_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-awsaccountid
-        :param pulumi.Input[pulumi.InputType['DataSourceDataSourceCredentialsArgs']] credentials: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-credentials
-        :param pulumi.Input[str] data_source_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceid
-        :param pulumi.Input[pulumi.InputType['DataSourceDataSourceParametersArgs']] data_source_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceparameters
-        :param pulumi.Input[pulumi.InputType['DataSourceDataSourceErrorInfoArgs']] error_info: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-errorinfo
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceResourcePermissionArgs']]]] permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-permissions
-        :param pulumi.Input[pulumi.InputType['DataSourceSslPropertiesArgs']] ssl_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-sslproperties
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-tags
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-type
-        :param pulumi.Input[pulumi.InputType['DataSourceVpcConnectionPropertiesArgs']] vpc_connection_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-vpcconnectionproperties
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceDataSourceParametersArgs']]]] alternate_data_source_parameters: <p>A set of alternate data source parameters that you want to share for the credentials
+                           stored with this data source. The credentials are applied in tandem with the data source
+                           parameters when you copy a data source by using a create or update request. The API
+                           operation compares the <code>DataSourceParameters</code> structure that's in the request
+                           with the structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+                           structures are an exact match, the request is allowed to use the credentials from this
+                           existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
+                           the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
+                           are automatically allowed.</p>
+        :param pulumi.Input[str] name: <p>A display name for the data source.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceResourcePermissionArgs']]]] permissions: <p>A list of resource permissions on the data source.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceTagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
         """
         ...
     @overload
@@ -257,7 +239,7 @@ class DataSource(pulumi.CustomResource):
                  args: Optional[DataSourceArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html
+        Definition of the AWS::QuickSight::DataSource Resource Type.
 
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.
@@ -283,7 +265,7 @@ class DataSource(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceResourcePermissionArgs']]]]] = None,
                  ssl_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceSslPropertiesArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpc_connection_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceVpcConnectionPropertiesArgs']]] = None,
                  __props__=None):
@@ -358,70 +340,72 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="alternateDataSourceParameters")
     def alternate_data_source_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.DataSourceDataSourceParameters']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-alternatedatasourceparameters
+        <p>A set of alternate data source parameters that you want to share for the credentials
+                    stored with this data source. The credentials are applied in tandem with the data source
+                    parameters when you copy a data source by using a create or update request. The API
+                    operation compares the <code>DataSourceParameters</code> structure that's in the request
+                    with the structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+                    structures are an exact match, the request is allowed to use the credentials from this
+                    existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
+                    the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
+                    are automatically allowed.</p>
         """
         return pulumi.get(self, "alternate_data_source_parameters")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the data source.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-awsaccountid
-        """
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        <p>The time that this data source was created.</p>
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional['outputs.DataSourceDataSourceCredentials']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-credentials
-        """
         return pulumi.get(self, "credentials")
 
     @property
     @pulumi.getter(name="dataSourceId")
     def data_source_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceid
-        """
         return pulumi.get(self, "data_source_id")
 
     @property
     @pulumi.getter(name="dataSourceParameters")
     def data_source_parameters(self) -> pulumi.Output[Optional['outputs.DataSourceDataSourceParameters']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceparameters
-        """
         return pulumi.get(self, "data_source_parameters")
 
     @property
     @pulumi.getter(name="errorInfo")
     def error_info(self) -> pulumi.Output[Optional['outputs.DataSourceDataSourceErrorInfo']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-errorinfo
-        """
         return pulumi.get(self, "error_info")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
+        """
+        <p>The last time that this data source was updated.</p>
+        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-name
+        <p>A display name for the data source.</p>
         """
         return pulumi.get(self, "name")
 
@@ -429,16 +413,13 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.DataSourceResourcePermission']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-permissions
+        <p>A list of resource permissions on the data source.</p>
         """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter(name="sslProperties")
     def ssl_properties(self) -> pulumi.Output[Optional['outputs.DataSourceSslProperties']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-sslproperties
-        """
         return pulumi.get(self, "ssl_properties")
 
     @property
@@ -448,25 +429,19 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DataSourceTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-tags
+        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-type
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="vpcConnectionProperties")
     def vpc_connection_properties(self) -> pulumi.Output[Optional['outputs.DataSourceVpcConnectionProperties']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-vpcconnectionproperties
-        """
         return pulumi.get(self, "vpc_connection_properties")
 

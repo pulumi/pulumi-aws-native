@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html
+    /// &lt;p&gt;The display options for tile borders for visuals.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class ThemeBorderStyle
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html#cfn-quicksight-theme-borderstyle-show
+        /// &lt;p&gt;The option to enable display of borders for visuals.&lt;/p&gt;
         /// </summary>
         public readonly bool? Show;
 

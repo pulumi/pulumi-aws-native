@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['StreamingImageArgs', 'StreamingImage']
 
@@ -17,14 +18,9 @@ class StreamingImageArgs:
                  name: pulumi.Input[str],
                  studio_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[Any] = None):
         """
         The set of arguments for constructing a StreamingImage resource.
-        :param pulumi.Input[str] ec2_image_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-ec2imageid
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-name
-        :param pulumi.Input[str] studio_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-studioid
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-description
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-tags
         """
         pulumi.set(__self__, "ec2_image_id", ec2_image_id)
         pulumi.set(__self__, "name", name)
@@ -37,9 +33,6 @@ class StreamingImageArgs:
     @property
     @pulumi.getter(name="ec2ImageId")
     def ec2_image_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-ec2imageid
-        """
         return pulumi.get(self, "ec2_image_id")
 
     @ec2_image_id.setter
@@ -49,9 +42,6 @@ class StreamingImageArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -61,9 +51,6 @@ class StreamingImageArgs:
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-studioid
-        """
         return pulumi.get(self, "studio_id")
 
     @studio_id.setter
@@ -73,9 +60,6 @@ class StreamingImageArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -84,14 +68,11 @@ class StreamingImageArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-tags
-        """
+    def tags(self) -> Optional[Any]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def tags(self, value: Optional[Any]):
         pulumi.set(self, "tags", value)
 
 
@@ -104,18 +85,13 @@ class StreamingImage(pulumi.CustomResource):
                  ec2_image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html
+        Resource schema for AWS::NimbleStudio::StreamingImage.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-description
-        :param pulumi.Input[str] ec2_image_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-ec2imageid
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-name
-        :param pulumi.Input[str] studio_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-studioid
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-tags
         """
         ...
     @overload
@@ -124,7 +100,7 @@ class StreamingImage(pulumi.CustomResource):
                  args: StreamingImageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html
+        Resource schema for AWS::NimbleStudio::StreamingImage.
 
         :param str resource_name: The name of the resource.
         :param StreamingImageArgs args: The arguments to use to populate this resource's properties.
@@ -145,7 +121,7 @@ class StreamingImage(pulumi.CustomResource):
                  ec2_image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -169,6 +145,7 @@ class StreamingImage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'studio_id'")
             __props__.__dict__["studio_id"] = studio_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["encryption_configuration"] = None
             __props__.__dict__["eula_ids"] = None
             __props__.__dict__["owner"] = None
             __props__.__dict__["platform"] = None
@@ -197,6 +174,7 @@ class StreamingImage(pulumi.CustomResource):
 
         __props__.__dict__["description"] = None
         __props__.__dict__["ec2_image_id"] = None
+        __props__.__dict__["encryption_configuration"] = None
         __props__.__dict__["eula_ids"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["owner"] = None
@@ -209,18 +187,17 @@ class StreamingImage(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-description
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="ec2ImageId")
     def ec2_image_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-ec2imageid
-        """
         return pulumi.get(self, "ec2_image_id")
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Output['outputs.StreamingImageStreamingImageEncryptionConfiguration']:
+        return pulumi.get(self, "encryption_configuration")
 
     @property
     @pulumi.getter(name="eulaIds")
@@ -230,9 +207,6 @@ class StreamingImage(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-name
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -253,16 +227,10 @@ class StreamingImage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-studioid
-        """
         return pulumi.get(self, "studio_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Any]]:
         return pulumi.get(self, "tags")
 

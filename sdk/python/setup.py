@@ -39,7 +39,7 @@ def readme():
 
 setup(name='pulumi_aws_native',
       version=VERSION,
-      description="A Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
+      description="A native Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
       long_description=readme(),
       long_description_content_type='text/markdown',
       cmdclass={

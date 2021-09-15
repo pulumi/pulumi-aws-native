@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html
+    /// &lt;p&gt;A date-time parameter.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DashboardDateTimeParameter
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-name
+        /// &lt;p&gt;A display name for the date-time parameter.&lt;/p&gt;
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-values
+        /// &lt;p&gt;The values for the date-time parameter.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

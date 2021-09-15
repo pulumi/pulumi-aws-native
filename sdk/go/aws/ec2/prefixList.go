@@ -8,28 +8,31 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html
+// Resource schema of AWS::EC2::PrefixList Type
 type PrefixList struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
+	// Ip Version of Prefix List.
 	AddressFamily pulumi.StringOutput `pulumi:"addressFamily"`
-	Arn           pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
+	// The Amazon Resource Name (ARN) of the Prefix List.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Entries of Prefix List.
 	Entries PrefixListEntryArrayOutput `pulumi:"entries"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
-	MaxEntries   pulumi.IntOutput    `pulumi:"maxEntries"`
-	OwnerId      pulumi.StringOutput `pulumi:"ownerId"`
+	// Max Entries of Prefix List.
+	MaxEntries pulumi.IntOutput `pulumi:"maxEntries"`
+	// Owner Id of Prefix List.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// Id of Prefix List.
 	PrefixListId pulumi.StringOutput `pulumi:"prefixListId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
+	// Name of Prefix List.
 	PrefixListName pulumi.StringOutput `pulumi:"prefixListName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
-	Tags    aws.TagArrayOutput `pulumi:"tags"`
-	Version pulumi.IntOutput   `pulumi:"version"`
+	// Tags for Prefix List
+	Tags PrefixListTagArrayOutput `pulumi:"tags"`
+	// Version of Prefix List.
+	Version pulumi.IntOutput `pulumi:"version"`
 }
 
 // NewPrefixList registers a new resource with the given unique name, arguments, and options.
@@ -80,30 +83,30 @@ func (PrefixListState) ElementType() reflect.Type {
 }
 
 type prefixListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
+	// Ip Version of Prefix List.
 	AddressFamily string `pulumi:"addressFamily"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
+	// Entries of Prefix List.
 	Entries []PrefixListEntry `pulumi:"entries"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
+	// Max Entries of Prefix List.
 	MaxEntries int `pulumi:"maxEntries"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
+	// Name of Prefix List.
 	PrefixListName string `pulumi:"prefixListName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// Tags for Prefix List
+	Tags []PrefixListTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PrefixList resource.
 type PrefixListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
+	// Ip Version of Prefix List.
 	AddressFamily pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
+	// Entries of Prefix List.
 	Entries PrefixListEntryArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
+	// Max Entries of Prefix List.
 	MaxEntries pulumi.IntInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
+	// Name of Prefix List.
 	PrefixListName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
-	Tags aws.TagArrayInput
+	// Tags for Prefix List
+	Tags PrefixListTagArrayInput
 }
 
 func (PrefixListArgs) ElementType() reflect.Type {

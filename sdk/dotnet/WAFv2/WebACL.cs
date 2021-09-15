@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html
+    /// Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
     /// </summary>
     [AwsNativeResourceType("aws-native:wafv2:WebACL")]
     public partial class WebACL : Pulumi.CustomResource
@@ -21,57 +21,33 @@ namespace Pulumi.AwsNative.WAFv2
         [Output("capacity")]
         public Output<int> Capacity { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
-        /// </summary>
         [Output("customResponseBodies")]
-        public Output<ImmutableDictionary<string, Outputs.WebACLCustomResponseBody>?> CustomResponseBodies { get; private set; } = null!;
+        public Output<Outputs.WebACLCustomResponseBodies?> CustomResponseBodies { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
-        /// </summary>
         [Output("defaultAction")]
         public Output<Outputs.WebACLDefaultAction> DefaultAction { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
-
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
 
         [Output("labelNamespace")]
         public Output<string> LabelNamespace { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
-        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
+        /// Collection of Rules.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.WebACLRule>> Rules { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
-        /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WebACLTag>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
-        /// </summary>
         [Output("visibilityConfig")]
         public Output<Outputs.WebACLVisibilityConfig> VisibilityConfig { get; private set; } = null!;
 
@@ -121,32 +97,14 @@ namespace Pulumi.AwsNative.WAFv2
     public sealed class WebACLArgs : Pulumi.ResourceArgs
     {
         [Input("customResponseBodies")]
-        private InputMap<Inputs.WebACLCustomResponseBodyArgs>? _customResponseBodies;
+        public Input<Inputs.WebACLCustomResponseBodiesArgs>? CustomResponseBodies { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
-        /// </summary>
-        public InputMap<Inputs.WebACLCustomResponseBodyArgs> CustomResponseBodies
-        {
-            get => _customResponseBodies ?? (_customResponseBodies = new InputMap<Inputs.WebACLCustomResponseBodyArgs>());
-            set => _customResponseBodies = value;
-        }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
-        /// </summary>
         [Input("defaultAction", required: true)]
         public Input<Inputs.WebACLDefaultActionArgs> DefaultAction { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -154,7 +112,7 @@ namespace Pulumi.AwsNative.WAFv2
         private InputList<Inputs.WebACLRuleArgs>? _rules;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
+        /// Collection of Rules.
         /// </summary>
         public InputList<Inputs.WebACLRuleArgs> Rules
         {
@@ -162,27 +120,17 @@ namespace Pulumi.AwsNative.WAFv2
             set => _rules = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
-        /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.WebACLTagArgs>? _tags;
+        public InputList<Inputs.WebACLTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.WebACLTagArgs>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
-        /// </summary>
         [Input("visibilityConfig", required: true)]
         public Input<Inputs.WebACLVisibilityConfigArgs> VisibilityConfig { get; set; } = null!;
 

@@ -11,31 +11,19 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html
+    /// Rule of WebACL that contains condition and action.
     /// </summary>
     public sealed class WebACLRuleArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-action
-        /// </summary>
         [Input("action")]
         public Input<Inputs.WebACLRuleActionArgs>? Action { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-name
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-overrideaction
-        /// </summary>
         [Input("overrideAction")]
         public Input<Inputs.WebACLOverrideActionArgs>? OverrideAction { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-priority
-        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
@@ -43,7 +31,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         private InputList<Inputs.WebACLLabelArgs>? _ruleLabels;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-rulelabels
+        /// Collection of Rule Labels.
         /// </summary>
         public InputList<Inputs.WebACLLabelArgs> RuleLabels
         {
@@ -51,15 +39,9 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
             set => _ruleLabels = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
-        /// </summary>
         [Input("statement", required: true)]
         public Input<Inputs.WebACLStatementArgs> Statement { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
-        /// </summary>
         [Input("visibilityConfig", required: true)]
         public Input<Inputs.WebACLVisibilityConfigArgs> VisibilityConfig { get; set; } = null!;
 

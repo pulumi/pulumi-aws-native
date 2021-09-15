@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html
+    /// Information needed to clear the timer.
     /// </summary>
     [OutputType]
     public sealed class DetectorModelClearTimer
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html#cfn-iotevents-detectormodel-cleartimer-timername
-        /// </summary>
         public readonly string TimerName;
 
         [OutputConstructor]

@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html
+    /// S3 buckets and Regions to include/exclude in the Amazon S3 Storage Lens configuration.
     /// </summary>
     [OutputType]
     public sealed class StorageLensBucketsAndRegions
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
-        /// </summary>
         public readonly ImmutableArray<string> Buckets;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
-        /// </summary>
         public readonly ImmutableArray<string> Regions;
 
         [OutputConstructor]

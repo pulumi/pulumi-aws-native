@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html
+    /// Sqli Match Statement.
     /// </summary>
     [OutputType]
     public sealed class RuleGroupSqliMatchStatement
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-fieldtomatch
-        /// </summary>
         public readonly Outputs.RuleGroupFieldToMatch FieldToMatch;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-texttransformations
-        /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupTextTransformation> TextTransformations;
 
         [OutputConstructor]

@@ -8,32 +8,29 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html
+// Resource schema for AWS::Cassandra::Table
 type Table struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
 	BillingMode TableBillingModePtrOutput `pulumi:"billingMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
-	ClusteringKeyColumns TableClusteringKeyColumnArrayOutput `pulumi:"clusteringKeyColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
+	// Clustering key columns of the table
+	ClusteringKeyColumns    TableClusteringKeyColumnArrayOutput   `pulumi:"clusteringKeyColumns"`
 	EncryptionSpecification TableEncryptionSpecificationPtrOutput `pulumi:"encryptionSpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
+	// Name for Cassandra keyspace
 	KeyspaceName pulumi.StringOutput `pulumi:"keyspaceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
+	// Partition key columns of the table
 	PartitionKeyColumns TableColumnArrayOutput `pulumi:"partitionKeyColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
+	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
 	PointInTimeRecoveryEnabled pulumi.BoolPtrOutput `pulumi:"pointInTimeRecoveryEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
+	// Non-key columns of the table
 	RegularColumns TableColumnArrayOutput `pulumi:"regularColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
+	// Name for Cassandra table
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource
+	Tags TableTagArrayOutput `pulumi:"tags"`
 }
 
 // NewTable registers a new resource with the given unique name, arguments, and options.
@@ -81,46 +78,42 @@ func (TableState) ElementType() reflect.Type {
 }
 
 type tableArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
 	BillingMode *TableBillingMode `pulumi:"billingMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
-	ClusteringKeyColumns []TableClusteringKeyColumn `pulumi:"clusteringKeyColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
+	// Clustering key columns of the table
+	ClusteringKeyColumns    []TableClusteringKeyColumn    `pulumi:"clusteringKeyColumns"`
 	EncryptionSpecification *TableEncryptionSpecification `pulumi:"encryptionSpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
+	// Name for Cassandra keyspace
 	KeyspaceName string `pulumi:"keyspaceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
+	// Partition key columns of the table
 	PartitionKeyColumns []TableColumn `pulumi:"partitionKeyColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
+	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
 	PointInTimeRecoveryEnabled *bool `pulumi:"pointInTimeRecoveryEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
+	// Non-key columns of the table
 	RegularColumns []TableColumn `pulumi:"regularColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
+	// Name for Cassandra table
 	TableName *string `pulumi:"tableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource
+	Tags []TableTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
 	BillingMode TableBillingModePtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
-	ClusteringKeyColumns TableClusteringKeyColumnArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
+	// Clustering key columns of the table
+	ClusteringKeyColumns    TableClusteringKeyColumnArrayInput
 	EncryptionSpecification TableEncryptionSpecificationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
+	// Name for Cassandra keyspace
 	KeyspaceName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
+	// Partition key columns of the table
 	PartitionKeyColumns TableColumnArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
+	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
 	PointInTimeRecoveryEnabled pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
+	// Non-key columns of the table
 	RegularColumns TableColumnArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
+	// Name for Cassandra table
 	TableName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
-	Tags aws.TagArrayInput
+	// An array of key-value pairs to apply to this resource
+	Tags TableTagArrayInput
 }
 
 func (TableArgs) ElementType() reflect.Type {

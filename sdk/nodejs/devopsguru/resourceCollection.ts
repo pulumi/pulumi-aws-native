@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html
+ * This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
  */
 export class ResourceCollection extends pulumi.CustomResource {
     /**
@@ -35,10 +35,10 @@ export class ResourceCollection extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceCollection.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
-     */
     public readonly resourceCollectionFilter!: pulumi.Output<outputs.devopsguru.ResourceCollectionResourceCollectionFilter>;
+    /**
+     * The type of ResourceCollection
+     */
     public /*out*/ readonly resourceCollectionType!: pulumi.Output<string>;
 
     /**
@@ -72,8 +72,5 @@ export class ResourceCollection extends pulumi.CustomResource {
  * The set of arguments for constructing a ResourceCollection resource.
  */
 export interface ResourceCollectionArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
-     */
     resourceCollectionFilter: pulumi.Input<inputs.devopsguru.ResourceCollectionResourceCollectionFilterArgs>;
 }

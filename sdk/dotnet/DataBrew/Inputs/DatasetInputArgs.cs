@@ -11,25 +11,16 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html
+    /// Input
     /// </summary>
     public sealed class DatasetInputArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-datacataloginputdefinition
-        /// </summary>
         [Input("dataCatalogInputDefinition")]
         public Input<Inputs.DatasetDataCatalogInputDefinitionArgs>? DataCatalogInputDefinition { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-databaseinputdefinition
-        /// </summary>
         [Input("databaseInputDefinition")]
         public Input<Inputs.DatasetDatabaseInputDefinitionArgs>? DatabaseInputDefinition { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-s3inputdefinition
-        /// </summary>
         [Input("s3InputDefinition")]
         public Input<Inputs.DatasetS3LocationArgs>? S3InputDefinition { get; set; }
 

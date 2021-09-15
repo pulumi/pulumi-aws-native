@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html
+    /// The configuration settings.
     /// </summary>
     public sealed class ApplicationConfigurationDetailsArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         private InputList<Inputs.ApplicationAlarmMetricArgs>? _alarmMetrics;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarmmetrics
+        /// A list of metrics to monitor for the component.
         /// </summary>
         public InputList<Inputs.ApplicationAlarmMetricArgs> AlarmMetrics
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         private InputList<Inputs.ApplicationAlarmArgs>? _alarms;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarms
+        /// A list of alarms to monitor for the component.
         /// </summary>
         public InputList<Inputs.ApplicationAlarmArgs> Alarms
         {
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-jmxprometheusexporter
+        /// The JMX Prometheus Exporter settings.
         /// </summary>
         [Input("jMXPrometheusExporter")]
         public Input<Inputs.ApplicationJMXPrometheusExporterArgs>? JMXPrometheusExporter { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         private InputList<Inputs.ApplicationLogArgs>? _logs;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs
+        /// A list of logs to monitor for the component.
         /// </summary>
         public InputList<Inputs.ApplicationLogArgs> Logs
         {
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         private InputList<Inputs.ApplicationWindowsEventArgs>? _windowsEvents;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents
+        /// A list of Windows Events to log.
         /// </summary>
         public InputList<Inputs.ApplicationWindowsEventArgs> WindowsEvents
         {

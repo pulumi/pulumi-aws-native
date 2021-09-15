@@ -8,26 +8,26 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html
+// Resource schema for AWS::DataSync::LocationS3
 type LocationS3 struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the Amazon S3 bucket location.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
+	// The URL of the S3 location that was described.
 	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3bucketarn
-	S3BucketArn pulumi.StringOutput `pulumi:"s3BucketArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3config
-	S3Config LocationS3S3ConfigOutput `pulumi:"s3Config"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3storageclass
+	// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
+	S3BucketArn pulumi.StringOutput      `pulumi:"s3BucketArn"`
+	S3Config    LocationS3S3ConfigOutput `pulumi:"s3Config"`
+	// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
 	S3StorageClass pulumi.StringPtrOutput `pulumi:"s3StorageClass"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-subdirectory
+	// A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags LocationS3TagArrayOutput `pulumi:"tags"`
 }
 
 // NewLocationS3 registers a new resource with the given unique name, arguments, and options.
@@ -75,30 +75,28 @@ func (LocationS3State) ElementType() reflect.Type {
 }
 
 type locationS3Args struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3bucketarn
-	S3BucketArn string `pulumi:"s3BucketArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3config
-	S3Config LocationS3S3Config `pulumi:"s3Config"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3storageclass
+	// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
+	S3BucketArn string             `pulumi:"s3BucketArn"`
+	S3Config    LocationS3S3Config `pulumi:"s3Config"`
+	// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
 	S3StorageClass *string `pulumi:"s3StorageClass"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-subdirectory
+	// A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
 	Subdirectory *string `pulumi:"subdirectory"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []LocationS3Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocationS3 resource.
 type LocationS3Args struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3bucketarn
+	// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
 	S3BucketArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3config
-	S3Config LocationS3S3ConfigInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3storageclass
+	S3Config    LocationS3S3ConfigInput
+	// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
 	S3StorageClass pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-subdirectory
+	// A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
 	Subdirectory pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-tags
-	Tags aws.TagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags LocationS3TagArrayInput
 }
 
 func (LocationS3Args) ElementType() reflect.Type {

@@ -10,26 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EKS.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html
-    /// </summary>
     public sealed class FargateProfileSelectorArgs : Pulumi.ResourceArgs
     {
         [Input("labels")]
         private InputList<Inputs.FargateProfileLabelArgs>? _labels;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-labels
-        /// </summary>
         public InputList<Inputs.FargateProfileLabelArgs> Labels
         {
             get => _labels ?? (_labels = new InputList<Inputs.FargateProfileLabelArgs>());
             set => _labels = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-namespace
-        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 

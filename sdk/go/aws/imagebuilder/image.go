@@ -7,43 +7,42 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html
+// Resource schema for AWS::ImageBuilder::Image
 type Image struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the image.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
+	// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
 	ContainerRecipeArn pulumi.StringPtrOutput `pulumi:"containerRecipeArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
+	// The Amazon Resource Name (ARN) of the distribution configuration.
 	DistributionConfigurationArn pulumi.StringPtrOutput `pulumi:"distributionConfigurationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
+	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	EnhancedImageMetadataEnabled pulumi.BoolPtrOutput `pulumi:"enhancedImageMetadataEnabled"`
-	ImageId                      pulumi.StringOutput  `pulumi:"imageId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
+	// The AMI ID of the EC2 AMI in current region.
+	ImageId pulumi.StringOutput `pulumi:"imageId"`
+	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn pulumi.StringPtrOutput `pulumi:"imageRecipeArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
+	// The image tests configuration used when creating this image.
 	ImageTestsConfiguration ImageImageTestsConfigurationPtrOutput `pulumi:"imageTestsConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
-	InfrastructureConfigurationArn pulumi.StringOutput `pulumi:"infrastructureConfigurationArn"`
-	Name                           pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the infrastructure configuration.
+	InfrastructureConfigurationArn pulumi.StringPtrOutput `pulumi:"infrastructureConfigurationArn"`
+	// The name of the image.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The tags associated with the image.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewImage registers a new resource with the given unique name, arguments, and options.
 func NewImage(ctx *pulumi.Context,
 	name string, args *ImageArgs, opts ...pulumi.ResourceOption) (*Image, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ImageArgs{}
 	}
 
-	if args.InfrastructureConfigurationArn == nil {
-		return nil, errors.New("invalid value for required argument 'InfrastructureConfigurationArn'")
-	}
 	var resource Image
 	err := ctx.RegisterResource("aws-native:imagebuilder:Image", name, args, &resource, opts...)
 	if err != nil {
@@ -76,38 +75,38 @@ func (ImageState) ElementType() reflect.Type {
 }
 
 type imageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
+	// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
 	ContainerRecipeArn *string `pulumi:"containerRecipeArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
+	// The Amazon Resource Name (ARN) of the distribution configuration.
 	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
+	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
+	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
+	// The image tests configuration used when creating this image.
 	ImageTestsConfiguration *ImageImageTestsConfiguration `pulumi:"imageTestsConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
-	InfrastructureConfigurationArn string `pulumi:"infrastructureConfigurationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
-	Tags map[string]string `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the infrastructure configuration.
+	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
+	// The tags associated with the image.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Image resource.
 type ImageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
+	// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
 	ContainerRecipeArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
+	// The Amazon Resource Name (ARN) of the distribution configuration.
 	DistributionConfigurationArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
+	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
+	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
+	// The image tests configuration used when creating this image.
 	ImageTestsConfiguration ImageImageTestsConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
-	InfrastructureConfigurationArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
-	Tags pulumi.StringMapInput
+	// The Amazon Resource Name (ARN) of the infrastructure configuration.
+	InfrastructureConfigurationArn pulumi.StringPtrInput
+	// The tags associated with the image.
+	Tags pulumi.Input
 }
 
 func (ImageArgs) ElementType() reflect.Type {

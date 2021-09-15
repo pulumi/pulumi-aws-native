@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html
+ * AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
  */
 export class RecoveryGroup extends pulumi.CustomResource {
     /**
@@ -36,18 +36,21 @@ export class RecoveryGroup extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-cells
+     * A list of the cell Amazon Resource Names (ARNs) in the recovery group.
      */
     public readonly cells!: pulumi.Output<string[] | undefined>;
+    /**
+     * A collection of tags associated with a resource.
+     */
     public /*out*/ readonly recoveryGroupArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-recoverygroupname
+     * The name of the recovery group to create.
      */
     public readonly recoveryGroupName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-tags
+     * A collection of tags associated with a resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.route53recoveryreadiness.RecoveryGroupTag[] | undefined>;
 
     /**
      * Create a RecoveryGroup resource with the given unique name, arguments, and options.
@@ -85,15 +88,15 @@ export class RecoveryGroup extends pulumi.CustomResource {
  */
 export interface RecoveryGroupArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-cells
+     * A list of the cell Amazon Resource Names (ARNs) in the recovery group.
      */
     cells?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-recoverygroupname
+     * The name of the recovery group to create.
      */
     recoveryGroupName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-tags
+     * A collection of tags associated with a resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.route53recoveryreadiness.RecoveryGroupTagArgs>[]>;
 }

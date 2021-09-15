@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['IndexArgs', 'Index']
@@ -24,21 +22,16 @@ class IndexArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  document_metadata_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input['IndexServerSideEncryptionConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IndexTagArgs']]]] = None,
                  user_context_policy: Optional[pulumi.Input[str]] = None,
                  user_token_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Index resource.
-        :param pulumi.Input[str] edition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn
-        :param pulumi.Input['IndexCapacityUnitsConfigurationArgs'] capacity_units: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
-        :param pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]] document_metadata_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
-        :param pulumi.Input['IndexServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
-        :param pulumi.Input[str] user_context_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
-        :param pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]] user_token_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
+        :param pulumi.Input['IndexCapacityUnitsConfigurationArgs'] capacity_units: Capacity units
+        :param pulumi.Input[str] description: A description for the index
+        :param pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]] document_metadata_configurations: Document metadata configurations
+        :param pulumi.Input['IndexServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Server side encryption configuration
+        :param pulumi.Input[Sequence[pulumi.Input['IndexTagArgs']]] tags: Tags for labeling the index
         """
         pulumi.set(__self__, "edition", edition)
         pulumi.set(__self__, "name", name)
@@ -61,9 +54,6 @@ class IndexArgs:
     @property
     @pulumi.getter
     def edition(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
-        """
         return pulumi.get(self, "edition")
 
     @edition.setter
@@ -73,9 +63,6 @@ class IndexArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -85,9 +72,6 @@ class IndexArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -98,7 +82,7 @@ class IndexArgs:
     @pulumi.getter(name="capacityUnits")
     def capacity_units(self) -> Optional[pulumi.Input['IndexCapacityUnitsConfigurationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
+        Capacity units
         """
         return pulumi.get(self, "capacity_units")
 
@@ -110,7 +94,7 @@ class IndexArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
+        A description for the index
         """
         return pulumi.get(self, "description")
 
@@ -122,7 +106,7 @@ class IndexArgs:
     @pulumi.getter(name="documentMetadataConfigurations")
     def document_metadata_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexDocumentMetadataConfigurationArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
+        Document metadata configurations
         """
         return pulumi.get(self, "document_metadata_configurations")
 
@@ -134,7 +118,7 @@ class IndexArgs:
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> Optional[pulumi.Input['IndexServerSideEncryptionConfigurationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
+        Server side encryption configuration
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
@@ -144,22 +128,19 @@ class IndexArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
+        Tags for labeling the index
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="userContextPolicy")
     def user_context_policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
-        """
         return pulumi.get(self, "user_context_policy")
 
     @user_context_policy.setter
@@ -169,9 +150,6 @@ class IndexArgs:
     @property
     @pulumi.getter(name="userTokenConfigurations")
     def user_token_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
-        """
         return pulumi.get(self, "user_token_configurations")
 
     @user_token_configurations.setter
@@ -191,25 +169,20 @@ class Index(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexTagArgs']]]]] = None,
                  user_context_policy: Optional[pulumi.Input[str]] = None,
                  user_token_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html
+        A Kendra index
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['IndexCapacityUnitsConfigurationArgs']] capacity_units: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexDocumentMetadataConfigurationArgs']]]] document_metadata_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
-        :param pulumi.Input[str] edition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn
-        :param pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
-        :param pulumi.Input[str] user_context_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationArgs']]]] user_token_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
+        :param pulumi.Input[pulumi.InputType['IndexCapacityUnitsConfigurationArgs']] capacity_units: Capacity units
+        :param pulumi.Input[str] description: A description for the index
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexDocumentMetadataConfigurationArgs']]]] document_metadata_configurations: Document metadata configurations
+        :param pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: Server side encryption configuration
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexTagArgs']]]] tags: Tags for labeling the index
         """
         ...
     @overload
@@ -218,7 +191,7 @@ class Index(pulumi.CustomResource):
                  args: IndexArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html
+        A Kendra index
 
         :param str resource_name: The name of the resource.
         :param IndexArgs args: The arguments to use to populate this resource's properties.
@@ -242,7 +215,7 @@ class Index(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[pulumi.InputType['IndexServerSideEncryptionConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexTagArgs']]]]] = None,
                  user_context_policy: Optional[pulumi.Input[str]] = None,
                  user_token_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IndexUserTokenConfigurationArgs']]]]] = None,
                  __props__=None):
@@ -274,7 +247,6 @@ class Index(pulumi.CustomResource):
             __props__.__dict__["user_context_policy"] = user_context_policy
             __props__.__dict__["user_token_configurations"] = user_token_configurations
             __props__.__dict__["arn"] = None
-            __props__.__dict__["id"] = None
         super(Index, __self__).__init__(
             'aws-native:kendra:Index',
             resource_name,
@@ -302,7 +274,6 @@ class Index(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["document_metadata_configurations"] = None
         __props__.__dict__["edition"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["server_side_encryption_configuration"] = None
@@ -320,7 +291,7 @@ class Index(pulumi.CustomResource):
     @pulumi.getter(name="capacityUnits")
     def capacity_units(self) -> pulumi.Output[Optional['outputs.IndexCapacityUnitsConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-capacityunits
+        Capacity units
         """
         return pulumi.get(self, "capacity_units")
 
@@ -328,7 +299,7 @@ class Index(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-description
+        A description for the index
         """
         return pulumi.get(self, "description")
 
@@ -336,68 +307,48 @@ class Index(pulumi.CustomResource):
     @pulumi.getter(name="documentMetadataConfigurations")
     def document_metadata_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.IndexDocumentMetadataConfiguration']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-documentmetadataconfigurations
+        Document metadata configurations
         """
         return pulumi.get(self, "document_metadata_configurations")
 
     @property
     @pulumi.getter
     def edition(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-edition
-        """
         return pulumi.get(self, "edition")
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-rolearn
-        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> pulumi.Output[Optional['outputs.IndexServerSideEncryptionConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-serversideencryptionconfiguration
+        Server side encryption configuration
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.IndexTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-tags
+        Tags for labeling the index
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="userContextPolicy")
     def user_context_policy(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usercontextpolicy
-        """
         return pulumi.get(self, "user_context_policy")
 
     @property
     @pulumi.getter(name="userTokenConfigurations")
     def user_token_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.IndexUserTokenConfiguration']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kendra-index.html#cfn-kendra-index-usertokenconfigurations
-        """
         return pulumi.get(self, "user_token_configurations")
 

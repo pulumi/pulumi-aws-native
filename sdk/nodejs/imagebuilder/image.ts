@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html
+ * Resource schema for AWS::ImageBuilder::Image
  */
 export class Image extends pulumi.CustomResource {
     /**
@@ -35,37 +35,46 @@ export class Image extends pulumi.CustomResource {
         return obj['__pulumiType'] === Image.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the image.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
+     * The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
      */
     public readonly containerRecipeArn!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
+     * The Amazon Resource Name (ARN) of the distribution configuration.
      */
     public readonly distributionConfigurationArn!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
+     * Collects additional information about the image being created, including the operating system (OS) version and package list.
      */
     public readonly enhancedImageMetadataEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The AMI ID of the EC2 AMI in current region.
+     */
     public /*out*/ readonly imageId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
+     * The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
      */
     public readonly imageRecipeArn!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
+     * The image tests configuration used when creating this image.
      */
     public readonly imageTestsConfiguration!: pulumi.Output<outputs.imagebuilder.ImageImageTestsConfiguration | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
+     * The Amazon Resource Name (ARN) of the infrastructure configuration.
      */
-    public readonly infrastructureConfigurationArn!: pulumi.Output<string>;
+    public readonly infrastructureConfigurationArn!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the image.
+     */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
+     * The tags associated with the image.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
      * Create a Image resource with the given unique name, arguments, and options.
@@ -74,13 +83,10 @@ export class Image extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ImageArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ImageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.infrastructureConfigurationArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'infrastructureConfigurationArn'");
-            }
             inputs["containerRecipeArn"] = args ? args.containerRecipeArn : undefined;
             inputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
             inputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
@@ -115,31 +121,31 @@ export class Image extends pulumi.CustomResource {
  */
 export interface ImageArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
+     * The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
      */
     containerRecipeArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
+     * The Amazon Resource Name (ARN) of the distribution configuration.
      */
     distributionConfigurationArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
+     * Collects additional information about the image being created, including the operating system (OS) version and package list.
      */
     enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
+     * The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
      */
     imageRecipeArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
+     * The image tests configuration used when creating this image.
      */
     imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfigurationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
+     * The Amazon Resource Name (ARN) of the infrastructure configuration.
      */
-    infrastructureConfigurationArn: pulumi.Input<string>;
+    infrastructureConfigurationArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
+     * The tags associated with the image.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: any;
 }

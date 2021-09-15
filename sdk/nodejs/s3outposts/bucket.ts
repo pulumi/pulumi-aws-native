@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html
+ * Resource Type Definition for AWS::S3Outposts::Bucket
  */
 export class Bucket extends pulumi.CustomResource {
     /**
@@ -35,23 +35,26 @@ export class Bucket extends pulumi.CustomResource {
         return obj['__pulumiType'] === Bucket.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the specified bucket.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-bucketname
+     * A name for the bucket.
      */
     public readonly bucketName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-lifecycleconfiguration
+     * Rules that define how Amazon S3Outposts manages objects during their lifetime.
      */
     public readonly lifecycleConfiguration!: pulumi.Output<outputs.s3outposts.BucketLifecycleConfiguration | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-outpostid
+     * The id of the customer outpost on which the bucket resides.
      */
     public readonly outpostId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-tags
+     * An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.s3outposts.BucketTag[] | undefined>;
 
     /**
      * Create a Bucket resource with the given unique name, arguments, and options.
@@ -94,19 +97,19 @@ export class Bucket extends pulumi.CustomResource {
  */
 export interface BucketArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-bucketname
+     * A name for the bucket.
      */
     bucketName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-lifecycleconfiguration
+     * Rules that define how Amazon S3Outposts manages objects during their lifetime.
      */
     lifecycleConfiguration?: pulumi.Input<inputs.s3outposts.BucketLifecycleConfigurationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-outpostid
+     * The id of the customer outpost on which the bucket resides.
      */
     outpostId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-tags
+     * An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.s3outposts.BucketTagArgs>[]>;
 }

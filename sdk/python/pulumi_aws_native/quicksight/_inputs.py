@@ -19,6 +19,7 @@ __all__ = [
     'AnalysisParametersArgs',
     'AnalysisResourcePermissionArgs',
     'AnalysisStringParameterArgs',
+    'AnalysisTagArgs',
     'DashboardAdHocFilteringOptionArgs',
     'DashboardDashboardPublishOptionsArgs',
     'DashboardDashboardSourceEntityArgs',
@@ -32,33 +33,17 @@ __all__ = [
     'DashboardResourcePermissionArgs',
     'DashboardSheetControlsOptionArgs',
     'DashboardStringParameterArgs',
-    'DataSetCalculatedColumnArgs',
-    'DataSetCastColumnTypeOperationArgs',
-    'DataSetColumnDescriptionArgs',
+    'DashboardTagArgs',
     'DataSetColumnGroupArgs',
     'DataSetColumnLevelPermissionRuleArgs',
-    'DataSetColumnTagArgs',
-    'DataSetCreateColumnsOperationArgs',
-    'DataSetCustomSqlArgs',
-    'DataSetFieldFolderArgs',
-    'DataSetFilterOperationArgs',
+    'DataSetFieldFolderMapArgs',
     'DataSetGeoSpatialColumnGroupArgs',
     'DataSetIngestionWaitPolicyArgs',
-    'DataSetInputColumnArgs',
-    'DataSetJoinInstructionArgs',
-    'DataSetJoinKeyPropertiesArgs',
-    'DataSetLogicalTableSourceArgs',
-    'DataSetLogicalTableArgs',
-    'DataSetPhysicalTableArgs',
-    'DataSetProjectOperationArgs',
-    'DataSetRelationalTableArgs',
-    'DataSetRenameColumnOperationArgs',
+    'DataSetLogicalTableMapArgs',
+    'DataSetPhysicalTableMapArgs',
     'DataSetResourcePermissionArgs',
     'DataSetRowLevelPermissionDataSetArgs',
-    'DataSetS3SourceArgs',
-    'DataSetTagColumnOperationArgs',
-    'DataSetTransformOperationArgs',
-    'DataSetUploadSettingsArgs',
+    'DataSetTagArgs',
     'DataSourceAmazonElasticsearchParametersArgs',
     'DataSourceAthenaParametersArgs',
     'DataSourceAuroraParametersArgs',
@@ -81,10 +66,12 @@ __all__ = [
     'DataSourceSparkParametersArgs',
     'DataSourceSqlServerParametersArgs',
     'DataSourceSslPropertiesArgs',
+    'DataSourceTagArgs',
     'DataSourceTeradataParametersArgs',
     'DataSourceVpcConnectionPropertiesArgs',
     'TemplateDataSetReferenceArgs',
     'TemplateResourcePermissionArgs',
+    'TemplateTagArgs',
     'TemplateTemplateSourceAnalysisArgs',
     'TemplateTemplateSourceEntityArgs',
     'TemplateTemplateSourceTemplateArgs',
@@ -95,6 +82,7 @@ __all__ = [
     'ThemeMarginStyleArgs',
     'ThemeResourcePermissionArgs',
     'ThemeSheetStyleArgs',
+    'ThemeTagArgs',
     'ThemeThemeConfigurationArgs',
     'ThemeTileLayoutStyleArgs',
     'ThemeTileStyleArgs',
@@ -108,9 +96,8 @@ class AnalysisAnalysisErrorArgs:
                  message: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html
-        :param pulumi.Input[str] message: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-message
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-type
+        <p>A metadata error structure for an analysis.</p>
+        :param pulumi.Input[str] message: <p>The message associated with the analysis error.</p>
         """
         if message is not None:
             pulumi.set(__self__, "message", message)
@@ -121,7 +108,7 @@ class AnalysisAnalysisErrorArgs:
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-message
+        <p>The message associated with the analysis error.</p>
         """
         return pulumi.get(self, "message")
 
@@ -132,9 +119,6 @@ class AnalysisAnalysisErrorArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-type
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -147,8 +131,7 @@ class AnalysisAnalysisSourceEntityArgs:
     def __init__(__self__, *,
                  source_template: Optional[pulumi.Input['AnalysisAnalysisSourceTemplateArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourceentity.html
-        :param pulumi.Input['AnalysisAnalysisSourceTemplateArgs'] source_template: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourceentity.html#cfn-quicksight-analysis-analysissourceentity-sourcetemplate
+        <p>The source entity of an analysis.</p>
         """
         if source_template is not None:
             pulumi.set(__self__, "source_template", source_template)
@@ -156,9 +139,6 @@ class AnalysisAnalysisSourceEntityArgs:
     @property
     @pulumi.getter(name="sourceTemplate")
     def source_template(self) -> Optional[pulumi.Input['AnalysisAnalysisSourceTemplateArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourceentity.html#cfn-quicksight-analysis-analysissourceentity-sourcetemplate
-        """
         return pulumi.get(self, "source_template")
 
     @source_template.setter
@@ -172,9 +152,9 @@ class AnalysisAnalysisSourceTemplateArgs:
                  arn: pulumi.Input[str],
                  data_set_references: pulumi.Input[Sequence[pulumi.Input['AnalysisDataSetReferenceArgs']]]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html
-        :param pulumi.Input[str] arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-arn
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisDataSetReferenceArgs']]] data_set_references: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-datasetreferences
+        <p>The source template of an analysis.</p>
+        :param pulumi.Input[str] arn: <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisDataSetReferenceArgs']]] data_set_references: <p>The dataset references of the source template of an analysis.</p>
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
@@ -183,7 +163,7 @@ class AnalysisAnalysisSourceTemplateArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-arn
+        <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
         """
         return pulumi.get(self, "arn")
 
@@ -195,7 +175,7 @@ class AnalysisAnalysisSourceTemplateArgs:
     @pulumi.getter(name="dataSetReferences")
     def data_set_references(self) -> pulumi.Input[Sequence[pulumi.Input['AnalysisDataSetReferenceArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-datasetreferences
+        <p>The dataset references of the source template of an analysis.</p>
         """
         return pulumi.get(self, "data_set_references")
 
@@ -210,9 +190,9 @@ class AnalysisDataSetReferenceArgs:
                  data_set_arn: pulumi.Input[str],
                  data_set_placeholder: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html
-        :param pulumi.Input[str] data_set_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html#cfn-quicksight-analysis-datasetreference-datasetarn
-        :param pulumi.Input[str] data_set_placeholder: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html#cfn-quicksight-analysis-datasetreference-datasetplaceholder
+        <p>Dataset reference.</p>
+        :param pulumi.Input[str] data_set_arn: <p>Dataset Amazon Resource Name (ARN).</p>
+        :param pulumi.Input[str] data_set_placeholder: <p>Dataset placeholder.</p>
         """
         pulumi.set(__self__, "data_set_arn", data_set_arn)
         pulumi.set(__self__, "data_set_placeholder", data_set_placeholder)
@@ -221,7 +201,7 @@ class AnalysisDataSetReferenceArgs:
     @pulumi.getter(name="dataSetArn")
     def data_set_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html#cfn-quicksight-analysis-datasetreference-datasetarn
+        <p>Dataset Amazon Resource Name (ARN).</p>
         """
         return pulumi.get(self, "data_set_arn")
 
@@ -233,7 +213,7 @@ class AnalysisDataSetReferenceArgs:
     @pulumi.getter(name="dataSetPlaceholder")
     def data_set_placeholder(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html#cfn-quicksight-analysis-datasetreference-datasetplaceholder
+        <p>Dataset placeholder.</p>
         """
         return pulumi.get(self, "data_set_placeholder")
 
@@ -248,9 +228,9 @@ class AnalysisDateTimeParameterArgs:
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimeparameter.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimeparameter.html#cfn-quicksight-analysis-datetimeparameter-name
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimeparameter.html#cfn-quicksight-analysis-datetimeparameter-values
+        <p>A date-time parameter.</p>
+        :param pulumi.Input[str] name: <p>A display name for the date-time parameter.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: <p>The values for the date-time parameter.</p>
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -259,7 +239,7 @@ class AnalysisDateTimeParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimeparameter.html#cfn-quicksight-analysis-datetimeparameter-name
+        <p>A display name for the date-time parameter.</p>
         """
         return pulumi.get(self, "name")
 
@@ -271,7 +251,7 @@ class AnalysisDateTimeParameterArgs:
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimeparameter.html#cfn-quicksight-analysis-datetimeparameter-values
+        <p>The values for the date-time parameter.</p>
         """
         return pulumi.get(self, "values")
 
@@ -286,9 +266,9 @@ class AnalysisDecimalParameterArgs:
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[float]]]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html#cfn-quicksight-analysis-decimalparameter-name
-        :param pulumi.Input[Sequence[pulumi.Input[float]]] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html#cfn-quicksight-analysis-decimalparameter-values
+        <p>A decimal parameter.</p>
+        :param pulumi.Input[str] name: <p>A display name for the decimal parameter.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] values: <p>The values for the decimal parameter.</p>
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -297,7 +277,7 @@ class AnalysisDecimalParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html#cfn-quicksight-analysis-decimalparameter-name
+        <p>A display name for the decimal parameter.</p>
         """
         return pulumi.get(self, "name")
 
@@ -309,7 +289,7 @@ class AnalysisDecimalParameterArgs:
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[float]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html#cfn-quicksight-analysis-decimalparameter-values
+        <p>The values for the decimal parameter.</p>
         """
         return pulumi.get(self, "values")
 
@@ -324,9 +304,9 @@ class AnalysisIntegerParameterArgs:
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[float]]]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html#cfn-quicksight-analysis-integerparameter-name
-        :param pulumi.Input[Sequence[pulumi.Input[float]]] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html#cfn-quicksight-analysis-integerparameter-values
+        <p>An integer parameter.</p>
+        :param pulumi.Input[str] name: <p>The name of the integer parameter.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] values: <p>The values for the integer parameter.</p>
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -335,7 +315,7 @@ class AnalysisIntegerParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html#cfn-quicksight-analysis-integerparameter-name
+        <p>The name of the integer parameter.</p>
         """
         return pulumi.get(self, "name")
 
@@ -347,7 +327,7 @@ class AnalysisIntegerParameterArgs:
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[float]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html#cfn-quicksight-analysis-integerparameter-values
+        <p>The values for the integer parameter.</p>
         """
         return pulumi.get(self, "values")
 
@@ -364,11 +344,11 @@ class AnalysisParametersArgs:
                  integer_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisIntegerParameterArgs']]]] = None,
                  string_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisStringParameterArgs']]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisDateTimeParameterArgs']]] date_time_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-datetimeparameters
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisDecimalParameterArgs']]] decimal_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-decimalparameters
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisIntegerParameterArgs']]] integer_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-integerparameters
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisStringParameterArgs']]] string_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-stringparameters
+        <p>A list of QuickSight parameters and the list's override values.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisDateTimeParameterArgs']]] date_time_parameters: <p>Date-time parameters.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisDecimalParameterArgs']]] decimal_parameters: <p>Decimal parameters.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisIntegerParameterArgs']]] integer_parameters: <p>Integer parameters.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisStringParameterArgs']]] string_parameters: <p>String parameters.</p>
         """
         if date_time_parameters is not None:
             pulumi.set(__self__, "date_time_parameters", date_time_parameters)
@@ -383,7 +363,7 @@ class AnalysisParametersArgs:
     @pulumi.getter(name="dateTimeParameters")
     def date_time_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDateTimeParameterArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-datetimeparameters
+        <p>Date-time parameters.</p>
         """
         return pulumi.get(self, "date_time_parameters")
 
@@ -395,7 +375,7 @@ class AnalysisParametersArgs:
     @pulumi.getter(name="decimalParameters")
     def decimal_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisDecimalParameterArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-decimalparameters
+        <p>Decimal parameters.</p>
         """
         return pulumi.get(self, "decimal_parameters")
 
@@ -407,7 +387,7 @@ class AnalysisParametersArgs:
     @pulumi.getter(name="integerParameters")
     def integer_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisIntegerParameterArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-integerparameters
+        <p>Integer parameters.</p>
         """
         return pulumi.get(self, "integer_parameters")
 
@@ -419,7 +399,7 @@ class AnalysisParametersArgs:
     @pulumi.getter(name="stringParameters")
     def string_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisStringParameterArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-stringparameters
+        <p>String parameters.</p>
         """
         return pulumi.get(self, "string_parameters")
 
@@ -434,9 +414,23 @@ class AnalysisResourcePermissionArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  principal: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-resourcepermission.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-resourcepermission.html#cfn-quicksight-analysis-resourcepermission-actions
-        :param pulumi.Input[str] principal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-resourcepermission.html#cfn-quicksight-analysis-resourcepermission-principal
+        <p>Permission for the resource.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: <p>The IAM action to grant or revoke permissions on.</p>
+        :param pulumi.Input[str] principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                           following:</p>
+                       <ul>
+                           <li>
+                               <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                           </li>
+                           <li>
+                               <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                           </li>
+                           <li>
+                               <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+                                   ARN. Use this option only to share resources (templates) across AWS accounts.
+                                   (This is less common.) </p>
+                           </li>
+                        </ul>
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
@@ -445,7 +439,7 @@ class AnalysisResourcePermissionArgs:
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-resourcepermission.html#cfn-quicksight-analysis-resourcepermission-actions
+        <p>The IAM action to grant or revoke permissions on.</p>
         """
         return pulumi.get(self, "actions")
 
@@ -457,7 +451,21 @@ class AnalysisResourcePermissionArgs:
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-resourcepermission.html#cfn-quicksight-analysis-resourcepermission-principal
+        <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                    following:</p>
+                <ul>
+                    <li>
+                        <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                    </li>
+                    <li>
+                        <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                    </li>
+                    <li>
+                        <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+                            ARN. Use this option only to share resources (templates) across AWS accounts.
+                            (This is less common.) </p>
+                    </li>
+                 </ul>
         """
         return pulumi.get(self, "principal")
 
@@ -472,9 +480,9 @@ class AnalysisStringParameterArgs:
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html#cfn-quicksight-analysis-stringparameter-name
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html#cfn-quicksight-analysis-stringparameter-values
+        <p>A string parameter.</p>
+        :param pulumi.Input[str] name: <p>A display name for a string parameter.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: <p>The values of a string parameter.</p>
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -483,7 +491,7 @@ class AnalysisStringParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html#cfn-quicksight-analysis-stringparameter-name
+        <p>A display name for a string parameter.</p>
         """
         return pulumi.get(self, "name")
 
@@ -495,7 +503,7 @@ class AnalysisStringParameterArgs:
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html#cfn-quicksight-analysis-stringparameter-values
+        <p>The values of a string parameter.</p>
         """
         return pulumi.get(self, "values")
 
@@ -505,12 +513,50 @@ class AnalysisStringParameterArgs:
 
 
 @pulumi.input_type
+class AnalysisTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+                    resource.</p>
+        :param pulumi.Input[str] key: <p>Tag key.</p>
+        :param pulumi.Input[str] value: <p>Tag value.</p>
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        <p>Tag key.</p>
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        <p>Tag value.</p>
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class DashboardAdHocFilteringOptionArgs:
     def __init__(__self__, *,
                  availability_status: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-adhocfilteringoption.html
-        :param pulumi.Input[str] availability_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-adhocfilteringoption.html#cfn-quicksight-dashboard-adhocfilteringoption-availabilitystatus
+        <p>Ad hoc (one-time) filtering option.</p>
         """
         if availability_status is not None:
             pulumi.set(__self__, "availability_status", availability_status)
@@ -518,9 +564,6 @@ class DashboardAdHocFilteringOptionArgs:
     @property
     @pulumi.getter(name="availabilityStatus")
     def availability_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-adhocfilteringoption.html#cfn-quicksight-dashboard-adhocfilteringoption-availabilitystatus
-        """
         return pulumi.get(self, "availability_status")
 
     @availability_status.setter
@@ -535,10 +578,7 @@ class DashboardDashboardPublishOptionsArgs:
                  export_to_csv_option: Optional[pulumi.Input['DashboardExportToCSVOptionArgs']] = None,
                  sheet_controls_option: Optional[pulumi.Input['DashboardSheetControlsOptionArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html
-        :param pulumi.Input['DashboardAdHocFilteringOptionArgs'] ad_hoc_filtering_option: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-adhocfilteringoption
-        :param pulumi.Input['DashboardExportToCSVOptionArgs'] export_to_csv_option: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-exporttocsvoption
-        :param pulumi.Input['DashboardSheetControlsOptionArgs'] sheet_controls_option: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-sheetcontrolsoption
+        <p>Dashboard publish options.</p>
         """
         if ad_hoc_filtering_option is not None:
             pulumi.set(__self__, "ad_hoc_filtering_option", ad_hoc_filtering_option)
@@ -550,9 +590,6 @@ class DashboardDashboardPublishOptionsArgs:
     @property
     @pulumi.getter(name="adHocFilteringOption")
     def ad_hoc_filtering_option(self) -> Optional[pulumi.Input['DashboardAdHocFilteringOptionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-adhocfilteringoption
-        """
         return pulumi.get(self, "ad_hoc_filtering_option")
 
     @ad_hoc_filtering_option.setter
@@ -562,9 +599,6 @@ class DashboardDashboardPublishOptionsArgs:
     @property
     @pulumi.getter(name="exportToCSVOption")
     def export_to_csv_option(self) -> Optional[pulumi.Input['DashboardExportToCSVOptionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-exporttocsvoption
-        """
         return pulumi.get(self, "export_to_csv_option")
 
     @export_to_csv_option.setter
@@ -574,9 +608,6 @@ class DashboardDashboardPublishOptionsArgs:
     @property
     @pulumi.getter(name="sheetControlsOption")
     def sheet_controls_option(self) -> Optional[pulumi.Input['DashboardSheetControlsOptionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-sheetcontrolsoption
-        """
         return pulumi.get(self, "sheet_controls_option")
 
     @sheet_controls_option.setter
@@ -589,8 +620,7 @@ class DashboardDashboardSourceEntityArgs:
     def __init__(__self__, *,
                  source_template: Optional[pulumi.Input['DashboardDashboardSourceTemplateArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourceentity.html
-        :param pulumi.Input['DashboardDashboardSourceTemplateArgs'] source_template: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourceentity.html#cfn-quicksight-dashboard-dashboardsourceentity-sourcetemplate
+        <p>Dashboard source entity.</p>
         """
         if source_template is not None:
             pulumi.set(__self__, "source_template", source_template)
@@ -598,9 +628,6 @@ class DashboardDashboardSourceEntityArgs:
     @property
     @pulumi.getter(name="sourceTemplate")
     def source_template(self) -> Optional[pulumi.Input['DashboardDashboardSourceTemplateArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourceentity.html#cfn-quicksight-dashboard-dashboardsourceentity-sourcetemplate
-        """
         return pulumi.get(self, "source_template")
 
     @source_template.setter
@@ -614,9 +641,9 @@ class DashboardDashboardSourceTemplateArgs:
                  arn: pulumi.Input[str],
                  data_set_references: pulumi.Input[Sequence[pulumi.Input['DashboardDataSetReferenceArgs']]]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html
-        :param pulumi.Input[str] arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-arn
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardDataSetReferenceArgs']]] data_set_references: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-datasetreferences
+        <p>Dashboard source template.</p>
+        :param pulumi.Input[str] arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardDataSetReferenceArgs']]] data_set_references: <p>Dataset references.</p>
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
@@ -625,7 +652,7 @@ class DashboardDashboardSourceTemplateArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-arn
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
         """
         return pulumi.get(self, "arn")
 
@@ -637,7 +664,7 @@ class DashboardDashboardSourceTemplateArgs:
     @pulumi.getter(name="dataSetReferences")
     def data_set_references(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardDataSetReferenceArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-datasetreferences
+        <p>Dataset references.</p>
         """
         return pulumi.get(self, "data_set_references")
 
@@ -652,9 +679,9 @@ class DashboardDataSetReferenceArgs:
                  data_set_arn: pulumi.Input[str],
                  data_set_placeholder: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html
-        :param pulumi.Input[str] data_set_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html#cfn-quicksight-dashboard-datasetreference-datasetarn
-        :param pulumi.Input[str] data_set_placeholder: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html#cfn-quicksight-dashboard-datasetreference-datasetplaceholder
+        <p>Dataset reference.</p>
+        :param pulumi.Input[str] data_set_arn: <p>Dataset Amazon Resource Name (ARN).</p>
+        :param pulumi.Input[str] data_set_placeholder: <p>Dataset placeholder.</p>
         """
         pulumi.set(__self__, "data_set_arn", data_set_arn)
         pulumi.set(__self__, "data_set_placeholder", data_set_placeholder)
@@ -663,7 +690,7 @@ class DashboardDataSetReferenceArgs:
     @pulumi.getter(name="dataSetArn")
     def data_set_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html#cfn-quicksight-dashboard-datasetreference-datasetarn
+        <p>Dataset Amazon Resource Name (ARN).</p>
         """
         return pulumi.get(self, "data_set_arn")
 
@@ -675,7 +702,7 @@ class DashboardDataSetReferenceArgs:
     @pulumi.getter(name="dataSetPlaceholder")
     def data_set_placeholder(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html#cfn-quicksight-dashboard-datasetreference-datasetplaceholder
+        <p>Dataset placeholder.</p>
         """
         return pulumi.get(self, "data_set_placeholder")
 
@@ -690,9 +717,9 @@ class DashboardDateTimeParameterArgs:
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-name
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-values
+        <p>A date-time parameter.</p>
+        :param pulumi.Input[str] name: <p>A display name for the date-time parameter.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: <p>The values for the date-time parameter.</p>
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -701,7 +728,7 @@ class DashboardDateTimeParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-name
+        <p>A display name for the date-time parameter.</p>
         """
         return pulumi.get(self, "name")
 
@@ -713,7 +740,7 @@ class DashboardDateTimeParameterArgs:
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-values
+        <p>The values for the date-time parameter.</p>
         """
         return pulumi.get(self, "values")
 
@@ -728,9 +755,9 @@ class DashboardDecimalParameterArgs:
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[float]]]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html#cfn-quicksight-dashboard-decimalparameter-name
-        :param pulumi.Input[Sequence[pulumi.Input[float]]] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html#cfn-quicksight-dashboard-decimalparameter-values
+        <p>A decimal parameter.</p>
+        :param pulumi.Input[str] name: <p>A display name for the decimal parameter.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] values: <p>The values for the decimal parameter.</p>
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -739,7 +766,7 @@ class DashboardDecimalParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html#cfn-quicksight-dashboard-decimalparameter-name
+        <p>A display name for the decimal parameter.</p>
         """
         return pulumi.get(self, "name")
 
@@ -751,7 +778,7 @@ class DashboardDecimalParameterArgs:
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[float]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html#cfn-quicksight-dashboard-decimalparameter-values
+        <p>The values for the decimal parameter.</p>
         """
         return pulumi.get(self, "values")
 
@@ -765,8 +792,7 @@ class DashboardExportToCSVOptionArgs:
     def __init__(__self__, *,
                  availability_status: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html
-        :param pulumi.Input[str] availability_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html#cfn-quicksight-dashboard-exporttocsvoption-availabilitystatus
+        <p>Export to .csv option.</p>
         """
         if availability_status is not None:
             pulumi.set(__self__, "availability_status", availability_status)
@@ -774,9 +800,6 @@ class DashboardExportToCSVOptionArgs:
     @property
     @pulumi.getter(name="availabilityStatus")
     def availability_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html#cfn-quicksight-dashboard-exporttocsvoption-availabilitystatus
-        """
         return pulumi.get(self, "availability_status")
 
     @availability_status.setter
@@ -790,9 +813,9 @@ class DashboardIntegerParameterArgs:
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[float]]]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameter.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameter.html#cfn-quicksight-dashboard-integerparameter-name
-        :param pulumi.Input[Sequence[pulumi.Input[float]]] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameter.html#cfn-quicksight-dashboard-integerparameter-values
+        <p>An integer parameter.</p>
+        :param pulumi.Input[str] name: <p>The name of the integer parameter.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] values: <p>The values for the integer parameter.</p>
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -801,7 +824,7 @@ class DashboardIntegerParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameter.html#cfn-quicksight-dashboard-integerparameter-name
+        <p>The name of the integer parameter.</p>
         """
         return pulumi.get(self, "name")
 
@@ -813,7 +836,7 @@ class DashboardIntegerParameterArgs:
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[float]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameter.html#cfn-quicksight-dashboard-integerparameter-values
+        <p>The values for the integer parameter.</p>
         """
         return pulumi.get(self, "values")
 
@@ -830,11 +853,11 @@ class DashboardParametersArgs:
                  integer_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardIntegerParameterArgs']]]] = None,
                  string_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardStringParameterArgs']]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardDateTimeParameterArgs']]] date_time_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-datetimeparameters
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardDecimalParameterArgs']]] decimal_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-decimalparameters
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardIntegerParameterArgs']]] integer_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-integerparameters
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardStringParameterArgs']]] string_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-stringparameters
+        <p>A list of QuickSight parameters and the list's override values.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardDateTimeParameterArgs']]] date_time_parameters: <p>Date-time parameters.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardDecimalParameterArgs']]] decimal_parameters: <p>Decimal parameters.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardIntegerParameterArgs']]] integer_parameters: <p>Integer parameters.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardStringParameterArgs']]] string_parameters: <p>String parameters.</p>
         """
         if date_time_parameters is not None:
             pulumi.set(__self__, "date_time_parameters", date_time_parameters)
@@ -849,7 +872,7 @@ class DashboardParametersArgs:
     @pulumi.getter(name="dateTimeParameters")
     def date_time_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDateTimeParameterArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-datetimeparameters
+        <p>Date-time parameters.</p>
         """
         return pulumi.get(self, "date_time_parameters")
 
@@ -861,7 +884,7 @@ class DashboardParametersArgs:
     @pulumi.getter(name="decimalParameters")
     def decimal_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardDecimalParameterArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-decimalparameters
+        <p>Decimal parameters.</p>
         """
         return pulumi.get(self, "decimal_parameters")
 
@@ -873,7 +896,7 @@ class DashboardParametersArgs:
     @pulumi.getter(name="integerParameters")
     def integer_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardIntegerParameterArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-integerparameters
+        <p>Integer parameters.</p>
         """
         return pulumi.get(self, "integer_parameters")
 
@@ -885,7 +908,7 @@ class DashboardParametersArgs:
     @pulumi.getter(name="stringParameters")
     def string_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardStringParameterArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-stringparameters
+        <p>String parameters.</p>
         """
         return pulumi.get(self, "string_parameters")
 
@@ -900,9 +923,23 @@ class DashboardResourcePermissionArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  principal: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-resourcepermission.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-resourcepermission.html#cfn-quicksight-dashboard-resourcepermission-actions
-        :param pulumi.Input[str] principal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-resourcepermission.html#cfn-quicksight-dashboard-resourcepermission-principal
+        <p>Permission for the resource.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: <p>The IAM action to grant or revoke permissions on.</p>
+        :param pulumi.Input[str] principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                           following:</p>
+                       <ul>
+                           <li>
+                               <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                           </li>
+                           <li>
+                               <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                           </li>
+                           <li>
+                               <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+                                   ARN. Use this option only to share resources (templates) across AWS accounts.
+                                   (This is less common.) </p>
+                           </li>
+                        </ul>
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
@@ -911,7 +948,7 @@ class DashboardResourcePermissionArgs:
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-resourcepermission.html#cfn-quicksight-dashboard-resourcepermission-actions
+        <p>The IAM action to grant or revoke permissions on.</p>
         """
         return pulumi.get(self, "actions")
 
@@ -923,7 +960,21 @@ class DashboardResourcePermissionArgs:
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-resourcepermission.html#cfn-quicksight-dashboard-resourcepermission-principal
+        <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                    following:</p>
+                <ul>
+                    <li>
+                        <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                    </li>
+                    <li>
+                        <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                    </li>
+                    <li>
+                        <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+                            ARN. Use this option only to share resources (templates) across AWS accounts.
+                            (This is less common.) </p>
+                    </li>
+                 </ul>
         """
         return pulumi.get(self, "principal")
 
@@ -937,8 +988,7 @@ class DashboardSheetControlsOptionArgs:
     def __init__(__self__, *,
                  visibility_state: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html
-        :param pulumi.Input[str] visibility_state: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html#cfn-quicksight-dashboard-sheetcontrolsoption-visibilitystate
+        <p>Sheet controls option.</p>
         """
         if visibility_state is not None:
             pulumi.set(__self__, "visibility_state", visibility_state)
@@ -946,9 +996,6 @@ class DashboardSheetControlsOptionArgs:
     @property
     @pulumi.getter(name="visibilityState")
     def visibility_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html#cfn-quicksight-dashboard-sheetcontrolsoption-visibilitystate
-        """
         return pulumi.get(self, "visibility_state")
 
     @visibility_state.setter
@@ -962,9 +1009,9 @@ class DashboardStringParameterArgs:
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html#cfn-quicksight-dashboard-stringparameter-name
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html#cfn-quicksight-dashboard-stringparameter-values
+        <p>A string parameter.</p>
+        :param pulumi.Input[str] name: <p>A display name for a string parameter.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: <p>The values of a string parameter.</p>
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -973,7 +1020,7 @@ class DashboardStringParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html#cfn-quicksight-dashboard-stringparameter-name
+        <p>A display name for a string parameter.</p>
         """
         return pulumi.get(self, "name")
 
@@ -985,7 +1032,7 @@ class DashboardStringParameterArgs:
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html#cfn-quicksight-dashboard-stringparameter-values
+        <p>The values of a string parameter.</p>
         """
         return pulumi.get(self, "values")
 
@@ -995,134 +1042,42 @@ class DashboardStringParameterArgs:
 
 
 @pulumi.input_type
-class DataSetCalculatedColumnArgs:
+class DashboardTagArgs:
     def __init__(__self__, *,
-                 column_id: pulumi.Input[str],
-                 column_name: pulumi.Input[str],
-                 expression: pulumi.Input[str]):
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html
-        :param pulumi.Input[str] column_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html#cfn-quicksight-dataset-calculatedcolumn-columnid
-        :param pulumi.Input[str] column_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html#cfn-quicksight-dataset-calculatedcolumn-columnname
-        :param pulumi.Input[str] expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html#cfn-quicksight-dataset-calculatedcolumn-expression
+        <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+                    resource.</p>
+        :param pulumi.Input[str] key: <p>Tag key.</p>
+        :param pulumi.Input[str] value: <p>Tag value.</p>
         """
-        pulumi.set(__self__, "column_id", column_id)
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "expression", expression)
-
-    @property
-    @pulumi.getter(name="columnId")
-    def column_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html#cfn-quicksight-dataset-calculatedcolumn-columnid
-        """
-        return pulumi.get(self, "column_id")
-
-    @column_id.setter
-    def column_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "column_id", value)
-
-    @property
-    @pulumi.getter(name="columnName")
-    def column_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html#cfn-quicksight-dataset-calculatedcolumn-columnname
-        """
-        return pulumi.get(self, "column_name")
-
-    @column_name.setter
-    def column_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "column_name", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def expression(self) -> pulumi.Input[str]:
+    def key(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html#cfn-quicksight-dataset-calculatedcolumn-expression
+        <p>Tag key.</p>
         """
-        return pulumi.get(self, "expression")
+        return pulumi.get(self, "key")
 
-    @expression.setter
-    def expression(self, value: pulumi.Input[str]):
-        pulumi.set(self, "expression", value)
-
-
-@pulumi.input_type
-class DataSetCastColumnTypeOperationArgs:
-    def __init__(__self__, *,
-                 column_name: pulumi.Input[str],
-                 new_column_type: pulumi.Input[str],
-                 format: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html
-        :param pulumi.Input[str] column_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-columnname
-        :param pulumi.Input[str] new_column_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-newcolumntype
-        :param pulumi.Input[str] format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-format
-        """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "new_column_type", new_column_type)
-        if format is not None:
-            pulumi.set(__self__, "format", format)
-
-    @property
-    @pulumi.getter(name="columnName")
-    def column_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-columnname
-        """
-        return pulumi.get(self, "column_name")
-
-    @column_name.setter
-    def column_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "column_name", value)
-
-    @property
-    @pulumi.getter(name="newColumnType")
-    def new_column_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-newcolumntype
-        """
-        return pulumi.get(self, "new_column_type")
-
-    @new_column_type.setter
-    def new_column_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "new_column_type", value)
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
 
     @property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[str]]:
+    def value(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-format
+        <p>Tag value.</p>
         """
-        return pulumi.get(self, "format")
+        return pulumi.get(self, "value")
 
-    @format.setter
-    def format(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "format", value)
-
-
-@pulumi.input_type
-class DataSetColumnDescriptionArgs:
-    def __init__(__self__, *,
-                 text: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html
-        :param pulumi.Input[str] text: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html#cfn-quicksight-dataset-columndescription-text
-        """
-        if text is not None:
-            pulumi.set(__self__, "text", text)
-
-    @property
-    @pulumi.getter
-    def text(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html#cfn-quicksight-dataset-columndescription-text
-        """
-        return pulumi.get(self, "text")
-
-    @text.setter
-    def text(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "text", value)
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1130,8 +1085,9 @@ class DataSetColumnGroupArgs:
     def __init__(__self__, *,
                  geo_spatial_column_group: Optional[pulumi.Input['DataSetGeoSpatialColumnGroupArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html
-        :param pulumi.Input['DataSetGeoSpatialColumnGroupArgs'] geo_spatial_column_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html#cfn-quicksight-dataset-columngroup-geospatialcolumngroup
+        <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
+                    a variant type structure. For this structure to be valid, only one of the attributes can
+                    be non-null.</p>
         """
         if geo_spatial_column_group is not None:
             pulumi.set(__self__, "geo_spatial_column_group", geo_spatial_column_group)
@@ -1139,9 +1095,6 @@ class DataSetColumnGroupArgs:
     @property
     @pulumi.getter(name="geoSpatialColumnGroup")
     def geo_spatial_column_group(self) -> Optional[pulumi.Input['DataSetGeoSpatialColumnGroupArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html#cfn-quicksight-dataset-columngroup-geospatialcolumngroup
-        """
         return pulumi.get(self, "geo_spatial_column_group")
 
     @geo_spatial_column_group.setter
@@ -1154,11 +1107,6 @@ class DataSetColumnLevelPermissionRuleArgs:
     def __init__(__self__, *,
                  column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] column_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-columnnames
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] principals: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-principals
-        """
         if column_names is not None:
             pulumi.set(__self__, "column_names", column_names)
         if principals is not None:
@@ -1167,9 +1115,6 @@ class DataSetColumnLevelPermissionRuleArgs:
     @property
     @pulumi.getter(name="columnNames")
     def column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-columnnames
-        """
         return pulumi.get(self, "column_names")
 
     @column_names.setter
@@ -1179,9 +1124,6 @@ class DataSetColumnLevelPermissionRuleArgs:
     @property
     @pulumi.getter
     def principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-principals
-        """
         return pulumi.get(self, "principals")
 
     @principals.setter
@@ -1190,197 +1132,9 @@ class DataSetColumnLevelPermissionRuleArgs:
 
 
 @pulumi.input_type
-class DataSetColumnTagArgs:
-    def __init__(__self__, *,
-                 column_description: Optional[pulumi.Input['DataSetColumnDescriptionArgs']] = None,
-                 column_geographic_role: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html
-        :param pulumi.Input['DataSetColumnDescriptionArgs'] column_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html#cfn-quicksight-dataset-columntag-columndescription
-        :param pulumi.Input[str] column_geographic_role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html#cfn-quicksight-dataset-columntag-columngeographicrole
-        """
-        if column_description is not None:
-            pulumi.set(__self__, "column_description", column_description)
-        if column_geographic_role is not None:
-            pulumi.set(__self__, "column_geographic_role", column_geographic_role)
-
-    @property
-    @pulumi.getter(name="columnDescription")
-    def column_description(self) -> Optional[pulumi.Input['DataSetColumnDescriptionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html#cfn-quicksight-dataset-columntag-columndescription
-        """
-        return pulumi.get(self, "column_description")
-
-    @column_description.setter
-    def column_description(self, value: Optional[pulumi.Input['DataSetColumnDescriptionArgs']]):
-        pulumi.set(self, "column_description", value)
-
-    @property
-    @pulumi.getter(name="columnGeographicRole")
-    def column_geographic_role(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html#cfn-quicksight-dataset-columntag-columngeographicrole
-        """
-        return pulumi.get(self, "column_geographic_role")
-
-    @column_geographic_role.setter
-    def column_geographic_role(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "column_geographic_role", value)
-
-
-@pulumi.input_type
-class DataSetCreateColumnsOperationArgs:
-    def __init__(__self__, *,
-                 columns: pulumi.Input[Sequence[pulumi.Input['DataSetCalculatedColumnArgs']]]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetCalculatedColumnArgs']]] columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html#cfn-quicksight-dataset-createcolumnsoperation-columns
-        """
-        pulumi.set(__self__, "columns", columns)
-
-    @property
-    @pulumi.getter
-    def columns(self) -> pulumi.Input[Sequence[pulumi.Input['DataSetCalculatedColumnArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html#cfn-quicksight-dataset-createcolumnsoperation-columns
-        """
-        return pulumi.get(self, "columns")
-
-    @columns.setter
-    def columns(self, value: pulumi.Input[Sequence[pulumi.Input['DataSetCalculatedColumnArgs']]]):
-        pulumi.set(self, "columns", value)
-
-
-@pulumi.input_type
-class DataSetCustomSqlArgs:
-    def __init__(__self__, *,
-                 columns: pulumi.Input[Sequence[pulumi.Input['DataSetInputColumnArgs']]],
-                 data_source_arn: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 sql_query: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetInputColumnArgs']]] columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-columns
-        :param pulumi.Input[str] data_source_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-datasourcearn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-name
-        :param pulumi.Input[str] sql_query: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-sqlquery
-        """
-        pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "data_source_arn", data_source_arn)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "sql_query", sql_query)
-
-    @property
-    @pulumi.getter
-    def columns(self) -> pulumi.Input[Sequence[pulumi.Input['DataSetInputColumnArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-columns
-        """
-        return pulumi.get(self, "columns")
-
-    @columns.setter
-    def columns(self, value: pulumi.Input[Sequence[pulumi.Input['DataSetInputColumnArgs']]]):
-        pulumi.set(self, "columns", value)
-
-    @property
-    @pulumi.getter(name="dataSourceArn")
-    def data_source_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-datasourcearn
-        """
-        return pulumi.get(self, "data_source_arn")
-
-    @data_source_arn.setter
-    def data_source_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_source_arn", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="sqlQuery")
-    def sql_query(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-sqlquery
-        """
-        return pulumi.get(self, "sql_query")
-
-    @sql_query.setter
-    def sql_query(self, value: pulumi.Input[str]):
-        pulumi.set(self, "sql_query", value)
-
-
-@pulumi.input_type
-class DataSetFieldFolderArgs:
-    def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 description: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html#cfn-quicksight-dataset-fieldfolder-columns
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html#cfn-quicksight-dataset-fieldfolder-description
-        """
-        if columns is not None:
-            pulumi.set(__self__, "columns", columns)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-
-    @property
-    @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html#cfn-quicksight-dataset-fieldfolder-columns
-        """
-        return pulumi.get(self, "columns")
-
-    @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "columns", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html#cfn-quicksight-dataset-fieldfolder-description
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-
-@pulumi.input_type
-class DataSetFilterOperationArgs:
-    def __init__(__self__, *,
-                 condition_expression: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html
-        :param pulumi.Input[str] condition_expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-conditionexpression
-        """
-        pulumi.set(__self__, "condition_expression", condition_expression)
-
-    @property
-    @pulumi.getter(name="conditionExpression")
-    def condition_expression(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-conditionexpression
-        """
-        return pulumi.get(self, "condition_expression")
-
-    @condition_expression.setter
-    def condition_expression(self, value: pulumi.Input[str]):
-        pulumi.set(self, "condition_expression", value)
+class DataSetFieldFolderMapArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type
@@ -1390,10 +1144,9 @@ class DataSetGeoSpatialColumnGroupArgs:
                  name: pulumi.Input[str],
                  country_code: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-columns
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-name
-        :param pulumi.Input[str] country_code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-countrycode
+        <p>Geospatial column group that denotes a hierarchy.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: <p>Columns in this hierarchy.</p>
+        :param pulumi.Input[str] name: <p>A display name for the hierarchy.</p>
         """
         pulumi.set(__self__, "columns", columns)
         pulumi.set(__self__, "name", name)
@@ -1404,7 +1157,7 @@ class DataSetGeoSpatialColumnGroupArgs:
     @pulumi.getter
     def columns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-columns
+        <p>Columns in this hierarchy.</p>
         """
         return pulumi.get(self, "columns")
 
@@ -1416,7 +1169,7 @@ class DataSetGeoSpatialColumnGroupArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-name
+        <p>A display name for the hierarchy.</p>
         """
         return pulumi.get(self, "name")
 
@@ -1427,9 +1180,6 @@ class DataSetGeoSpatialColumnGroupArgs:
     @property
     @pulumi.getter(name="countryCode")
     def country_code(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-countrycode
-        """
         return pulumi.get(self, "country_code")
 
     @country_code.setter
@@ -1443,9 +1193,11 @@ class DataSetIngestionWaitPolicyArgs:
                  ingestion_wait_time_in_hours: Optional[pulumi.Input[float]] = None,
                  wait_for_spice_ingestion: Optional[pulumi.Input[bool]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html
-        :param pulumi.Input[float] ingestion_wait_time_in_hours: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-ingestionwaittimeinhours
-        :param pulumi.Input[bool] wait_for_spice_ingestion: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-waitforspiceingestion
+        <p>Wait policy to use when creating/updating dataset. Default is to wait for SPICE ingestion to finish with timeout of 36 hours.</p>
+        :param pulumi.Input[float] ingestion_wait_time_in_hours: <p>The maximum time (in hours) to wait for Ingestion to complete. Default timeout is 36 hours.
+                Applicable only when DataSetImportMode mode is set to SPICE and WaitForSpiceIngestion is set to true.</p>
+        :param pulumi.Input[bool] wait_for_spice_ingestion: <p>Wait for SPICE ingestion to finish to mark dataset creation/update successful. Default (true).
+                 Applicable only when DataSetImportMode mode is set to SPICE.</p>
         """
         if ingestion_wait_time_in_hours is not None:
             pulumi.set(__self__, "ingestion_wait_time_in_hours", ingestion_wait_time_in_hours)
@@ -1456,7 +1208,8 @@ class DataSetIngestionWaitPolicyArgs:
     @pulumi.getter(name="ingestionWaitTimeInHours")
     def ingestion_wait_time_in_hours(self) -> Optional[pulumi.Input[float]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-ingestionwaittimeinhours
+        <p>The maximum time (in hours) to wait for Ingestion to complete. Default timeout is 36 hours.
+         Applicable only when DataSetImportMode mode is set to SPICE and WaitForSpiceIngestion is set to true.</p>
         """
         return pulumi.get(self, "ingestion_wait_time_in_hours")
 
@@ -1468,7 +1221,8 @@ class DataSetIngestionWaitPolicyArgs:
     @pulumi.getter(name="waitForSpiceIngestion")
     def wait_for_spice_ingestion(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-waitforspiceingestion
+        <p>Wait for SPICE ingestion to finish to mark dataset creation/update successful. Default (true).
+          Applicable only when DataSetImportMode mode is set to SPICE.</p>
         """
         return pulumi.get(self, "wait_for_spice_ingestion")
 
@@ -1478,461 +1232,15 @@ class DataSetIngestionWaitPolicyArgs:
 
 
 @pulumi.input_type
-class DataSetInputColumnArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 type: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-name
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-type
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-type
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
+class DataSetLogicalTableMapArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type
-class DataSetJoinInstructionArgs:
-    def __init__(__self__, *,
-                 left_operand: pulumi.Input[str],
-                 on_clause: pulumi.Input[str],
-                 right_operand: pulumi.Input[str],
-                 type: pulumi.Input[str],
-                 left_join_key_properties: Optional[pulumi.Input['DataSetJoinKeyPropertiesArgs']] = None,
-                 right_join_key_properties: Optional[pulumi.Input['DataSetJoinKeyPropertiesArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html
-        :param pulumi.Input[str] left_operand: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftoperand
-        :param pulumi.Input[str] on_clause: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-onclause
-        :param pulumi.Input[str] right_operand: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightoperand
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-type
-        :param pulumi.Input['DataSetJoinKeyPropertiesArgs'] left_join_key_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftjoinkeyproperties
-        :param pulumi.Input['DataSetJoinKeyPropertiesArgs'] right_join_key_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightjoinkeyproperties
-        """
-        pulumi.set(__self__, "left_operand", left_operand)
-        pulumi.set(__self__, "on_clause", on_clause)
-        pulumi.set(__self__, "right_operand", right_operand)
-        pulumi.set(__self__, "type", type)
-        if left_join_key_properties is not None:
-            pulumi.set(__self__, "left_join_key_properties", left_join_key_properties)
-        if right_join_key_properties is not None:
-            pulumi.set(__self__, "right_join_key_properties", right_join_key_properties)
-
-    @property
-    @pulumi.getter(name="leftOperand")
-    def left_operand(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftoperand
-        """
-        return pulumi.get(self, "left_operand")
-
-    @left_operand.setter
-    def left_operand(self, value: pulumi.Input[str]):
-        pulumi.set(self, "left_operand", value)
-
-    @property
-    @pulumi.getter(name="onClause")
-    def on_clause(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-onclause
-        """
-        return pulumi.get(self, "on_clause")
-
-    @on_clause.setter
-    def on_clause(self, value: pulumi.Input[str]):
-        pulumi.set(self, "on_clause", value)
-
-    @property
-    @pulumi.getter(name="rightOperand")
-    def right_operand(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightoperand
-        """
-        return pulumi.get(self, "right_operand")
-
-    @right_operand.setter
-    def right_operand(self, value: pulumi.Input[str]):
-        pulumi.set(self, "right_operand", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-type
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="leftJoinKeyProperties")
-    def left_join_key_properties(self) -> Optional[pulumi.Input['DataSetJoinKeyPropertiesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftjoinkeyproperties
-        """
-        return pulumi.get(self, "left_join_key_properties")
-
-    @left_join_key_properties.setter
-    def left_join_key_properties(self, value: Optional[pulumi.Input['DataSetJoinKeyPropertiesArgs']]):
-        pulumi.set(self, "left_join_key_properties", value)
-
-    @property
-    @pulumi.getter(name="rightJoinKeyProperties")
-    def right_join_key_properties(self) -> Optional[pulumi.Input['DataSetJoinKeyPropertiesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightjoinkeyproperties
-        """
-        return pulumi.get(self, "right_join_key_properties")
-
-    @right_join_key_properties.setter
-    def right_join_key_properties(self, value: Optional[pulumi.Input['DataSetJoinKeyPropertiesArgs']]):
-        pulumi.set(self, "right_join_key_properties", value)
-
-
-@pulumi.input_type
-class DataSetJoinKeyPropertiesArgs:
-    def __init__(__self__, *,
-                 unique_key: Optional[pulumi.Input[bool]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html
-        :param pulumi.Input[bool] unique_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html#cfn-quicksight-dataset-joinkeyproperties-uniquekey
-        """
-        if unique_key is not None:
-            pulumi.set(__self__, "unique_key", unique_key)
-
-    @property
-    @pulumi.getter(name="uniqueKey")
-    def unique_key(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html#cfn-quicksight-dataset-joinkeyproperties-uniquekey
-        """
-        return pulumi.get(self, "unique_key")
-
-    @unique_key.setter
-    def unique_key(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "unique_key", value)
-
-
-@pulumi.input_type
-class DataSetLogicalTableSourceArgs:
-    def __init__(__self__, *,
-                 join_instruction: Optional[pulumi.Input['DataSetJoinInstructionArgs']] = None,
-                 physical_table_id: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html
-        :param pulumi.Input['DataSetJoinInstructionArgs'] join_instruction: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-joininstruction
-        :param pulumi.Input[str] physical_table_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-physicaltableid
-        """
-        if join_instruction is not None:
-            pulumi.set(__self__, "join_instruction", join_instruction)
-        if physical_table_id is not None:
-            pulumi.set(__self__, "physical_table_id", physical_table_id)
-
-    @property
-    @pulumi.getter(name="joinInstruction")
-    def join_instruction(self) -> Optional[pulumi.Input['DataSetJoinInstructionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-joininstruction
-        """
-        return pulumi.get(self, "join_instruction")
-
-    @join_instruction.setter
-    def join_instruction(self, value: Optional[pulumi.Input['DataSetJoinInstructionArgs']]):
-        pulumi.set(self, "join_instruction", value)
-
-    @property
-    @pulumi.getter(name="physicalTableId")
-    def physical_table_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-physicaltableid
-        """
-        return pulumi.get(self, "physical_table_id")
-
-    @physical_table_id.setter
-    def physical_table_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "physical_table_id", value)
-
-
-@pulumi.input_type
-class DataSetLogicalTableArgs:
-    def __init__(__self__, *,
-                 alias: pulumi.Input[str],
-                 source: pulumi.Input['DataSetLogicalTableSourceArgs'],
-                 data_transforms: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetTransformOperationArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html
-        :param pulumi.Input[str] alias: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-alias
-        :param pulumi.Input['DataSetLogicalTableSourceArgs'] source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-source
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetTransformOperationArgs']]] data_transforms: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-datatransforms
-        """
-        pulumi.set(__self__, "alias", alias)
-        pulumi.set(__self__, "source", source)
-        if data_transforms is not None:
-            pulumi.set(__self__, "data_transforms", data_transforms)
-
-    @property
-    @pulumi.getter
-    def alias(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-alias
-        """
-        return pulumi.get(self, "alias")
-
-    @alias.setter
-    def alias(self, value: pulumi.Input[str]):
-        pulumi.set(self, "alias", value)
-
-    @property
-    @pulumi.getter
-    def source(self) -> pulumi.Input['DataSetLogicalTableSourceArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-source
-        """
-        return pulumi.get(self, "source")
-
-    @source.setter
-    def source(self, value: pulumi.Input['DataSetLogicalTableSourceArgs']):
-        pulumi.set(self, "source", value)
-
-    @property
-    @pulumi.getter(name="dataTransforms")
-    def data_transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetTransformOperationArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-datatransforms
-        """
-        return pulumi.get(self, "data_transforms")
-
-    @data_transforms.setter
-    def data_transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetTransformOperationArgs']]]]):
-        pulumi.set(self, "data_transforms", value)
-
-
-@pulumi.input_type
-class DataSetPhysicalTableArgs:
-    def __init__(__self__, *,
-                 custom_sql: Optional[pulumi.Input['DataSetCustomSqlArgs']] = None,
-                 relational_table: Optional[pulumi.Input['DataSetRelationalTableArgs']] = None,
-                 s3_source: Optional[pulumi.Input['DataSetS3SourceArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html
-        :param pulumi.Input['DataSetCustomSqlArgs'] custom_sql: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-customsql
-        :param pulumi.Input['DataSetRelationalTableArgs'] relational_table: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-relationaltable
-        :param pulumi.Input['DataSetS3SourceArgs'] s3_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-s3source
-        """
-        if custom_sql is not None:
-            pulumi.set(__self__, "custom_sql", custom_sql)
-        if relational_table is not None:
-            pulumi.set(__self__, "relational_table", relational_table)
-        if s3_source is not None:
-            pulumi.set(__self__, "s3_source", s3_source)
-
-    @property
-    @pulumi.getter(name="customSql")
-    def custom_sql(self) -> Optional[pulumi.Input['DataSetCustomSqlArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-customsql
-        """
-        return pulumi.get(self, "custom_sql")
-
-    @custom_sql.setter
-    def custom_sql(self, value: Optional[pulumi.Input['DataSetCustomSqlArgs']]):
-        pulumi.set(self, "custom_sql", value)
-
-    @property
-    @pulumi.getter(name="relationalTable")
-    def relational_table(self) -> Optional[pulumi.Input['DataSetRelationalTableArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-relationaltable
-        """
-        return pulumi.get(self, "relational_table")
-
-    @relational_table.setter
-    def relational_table(self, value: Optional[pulumi.Input['DataSetRelationalTableArgs']]):
-        pulumi.set(self, "relational_table", value)
-
-    @property
-    @pulumi.getter(name="s3Source")
-    def s3_source(self) -> Optional[pulumi.Input['DataSetS3SourceArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-s3source
-        """
-        return pulumi.get(self, "s3_source")
-
-    @s3_source.setter
-    def s3_source(self, value: Optional[pulumi.Input['DataSetS3SourceArgs']]):
-        pulumi.set(self, "s3_source", value)
-
-
-@pulumi.input_type
-class DataSetProjectOperationArgs:
-    def __init__(__self__, *,
-                 projected_columns: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] projected_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html#cfn-quicksight-dataset-projectoperation-projectedcolumns
-        """
-        pulumi.set(__self__, "projected_columns", projected_columns)
-
-    @property
-    @pulumi.getter(name="projectedColumns")
-    def projected_columns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html#cfn-quicksight-dataset-projectoperation-projectedcolumns
-        """
-        return pulumi.get(self, "projected_columns")
-
-    @projected_columns.setter
-    def projected_columns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "projected_columns", value)
-
-
-@pulumi.input_type
-class DataSetRelationalTableArgs:
-    def __init__(__self__, *,
-                 data_source_arn: pulumi.Input[str],
-                 input_columns: pulumi.Input[Sequence[pulumi.Input['DataSetInputColumnArgs']]],
-                 name: pulumi.Input[str],
-                 catalog: Optional[pulumi.Input[str]] = None,
-                 schema: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html
-        :param pulumi.Input[str] data_source_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-datasourcearn
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetInputColumnArgs']]] input_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-inputcolumns
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-name
-        :param pulumi.Input[str] catalog: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-catalog
-        :param pulumi.Input[str] schema: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-schema
-        """
-        pulumi.set(__self__, "data_source_arn", data_source_arn)
-        pulumi.set(__self__, "input_columns", input_columns)
-        pulumi.set(__self__, "name", name)
-        if catalog is not None:
-            pulumi.set(__self__, "catalog", catalog)
-        if schema is not None:
-            pulumi.set(__self__, "schema", schema)
-
-    @property
-    @pulumi.getter(name="dataSourceArn")
-    def data_source_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-datasourcearn
-        """
-        return pulumi.get(self, "data_source_arn")
-
-    @data_source_arn.setter
-    def data_source_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_source_arn", value)
-
-    @property
-    @pulumi.getter(name="inputColumns")
-    def input_columns(self) -> pulumi.Input[Sequence[pulumi.Input['DataSetInputColumnArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-inputcolumns
-        """
-        return pulumi.get(self, "input_columns")
-
-    @input_columns.setter
-    def input_columns(self, value: pulumi.Input[Sequence[pulumi.Input['DataSetInputColumnArgs']]]):
-        pulumi.set(self, "input_columns", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def catalog(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-catalog
-        """
-        return pulumi.get(self, "catalog")
-
-    @catalog.setter
-    def catalog(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "catalog", value)
-
-    @property
-    @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-schema
-        """
-        return pulumi.get(self, "schema")
-
-    @schema.setter
-    def schema(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "schema", value)
-
-
-@pulumi.input_type
-class DataSetRenameColumnOperationArgs:
-    def __init__(__self__, *,
-                 column_name: pulumi.Input[str],
-                 new_column_name: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html
-        :param pulumi.Input[str] column_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-columnname
-        :param pulumi.Input[str] new_column_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-newcolumnname
-        """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "new_column_name", new_column_name)
-
-    @property
-    @pulumi.getter(name="columnName")
-    def column_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-columnname
-        """
-        return pulumi.get(self, "column_name")
-
-    @column_name.setter
-    def column_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "column_name", value)
-
-    @property
-    @pulumi.getter(name="newColumnName")
-    def new_column_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-newcolumnname
-        """
-        return pulumi.get(self, "new_column_name")
-
-    @new_column_name.setter
-    def new_column_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "new_column_name", value)
+class DataSetPhysicalTableMapArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type
@@ -1941,9 +1249,23 @@ class DataSetResourcePermissionArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  principal: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-resourcepermission.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-resourcepermission.html#cfn-quicksight-dataset-resourcepermission-actions
-        :param pulumi.Input[str] principal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-resourcepermission.html#cfn-quicksight-dataset-resourcepermission-principal
+        <p>Permission for the resource.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: <p>The IAM action to grant or revoke permissions on.</p>
+        :param pulumi.Input[str] principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                           following:</p>
+                       <ul>
+                           <li>
+                               <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                           </li>
+                           <li>
+                               <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                           </li>
+                           <li>
+                               <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+                                   ARN. Use this option only to share resources (templates) across AWS accounts.
+                                   (This is less common.) </p>
+                           </li>
+                        </ul>
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
@@ -1952,7 +1274,7 @@ class DataSetResourcePermissionArgs:
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-resourcepermission.html#cfn-quicksight-dataset-resourcepermission-actions
+        <p>The IAM action to grant or revoke permissions on.</p>
         """
         return pulumi.get(self, "actions")
 
@@ -1964,7 +1286,21 @@ class DataSetResourcePermissionArgs:
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-resourcepermission.html#cfn-quicksight-dataset-resourcepermission-principal
+        <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                    following:</p>
+                <ul>
+                    <li>
+                        <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                    </li>
+                    <li>
+                        <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                    </li>
+                    <li>
+                        <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+                            ARN. Use this option only to share resources (templates) across AWS accounts.
+                            (This is less common.) </p>
+                    </li>
+                 </ul>
         """
         return pulumi.get(self, "principal")
 
@@ -1981,11 +1317,9 @@ class DataSetRowLevelPermissionDataSetArgs:
                  format_version: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html
-        :param pulumi.Input[str] arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-arn
-        :param pulumi.Input[str] permission_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-permissionpolicy
-        :param pulumi.Input[str] format_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-formatversion
-        :param pulumi.Input[str] namespace: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-namespace
+        <p>The row-level security configuration for the dataset.</p>
+        :param pulumi.Input[str] arn: <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
+        :param pulumi.Input[str] namespace: <p>The namespace associated with the row-level permissions dataset.</p>
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "permission_policy", permission_policy)
@@ -1998,7 +1332,7 @@ class DataSetRowLevelPermissionDataSetArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-arn
+        <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
         """
         return pulumi.get(self, "arn")
 
@@ -2009,9 +1343,6 @@ class DataSetRowLevelPermissionDataSetArgs:
     @property
     @pulumi.getter(name="permissionPolicy")
     def permission_policy(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-permissionpolicy
-        """
         return pulumi.get(self, "permission_policy")
 
     @permission_policy.setter
@@ -2021,9 +1352,6 @@ class DataSetRowLevelPermissionDataSetArgs:
     @property
     @pulumi.getter(name="formatVersion")
     def format_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-formatversion
-        """
         return pulumi.get(self, "format_version")
 
     @format_version.setter
@@ -2034,7 +1362,7 @@ class DataSetRowLevelPermissionDataSetArgs:
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-namespace
+        <p>The namespace associated with the row-level permissions dataset.</p>
         """
         return pulumi.get(self, "namespace")
 
@@ -2044,287 +1372,42 @@ class DataSetRowLevelPermissionDataSetArgs:
 
 
 @pulumi.input_type
-class DataSetS3SourceArgs:
+class DataSetTagArgs:
     def __init__(__self__, *,
-                 data_source_arn: pulumi.Input[str],
-                 input_columns: pulumi.Input[Sequence[pulumi.Input['DataSetInputColumnArgs']]],
-                 upload_settings: Optional[pulumi.Input['DataSetUploadSettingsArgs']] = None):
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html
-        :param pulumi.Input[str] data_source_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-datasourcearn
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetInputColumnArgs']]] input_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-inputcolumns
-        :param pulumi.Input['DataSetUploadSettingsArgs'] upload_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-uploadsettings
+        <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+                    resource.</p>
+        :param pulumi.Input[str] key: <p>Tag key.</p>
+        :param pulumi.Input[str] value: <p>Tag value.</p>
         """
-        pulumi.set(__self__, "data_source_arn", data_source_arn)
-        pulumi.set(__self__, "input_columns", input_columns)
-        if upload_settings is not None:
-            pulumi.set(__self__, "upload_settings", upload_settings)
-
-    @property
-    @pulumi.getter(name="dataSourceArn")
-    def data_source_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-datasourcearn
-        """
-        return pulumi.get(self, "data_source_arn")
-
-    @data_source_arn.setter
-    def data_source_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data_source_arn", value)
-
-    @property
-    @pulumi.getter(name="inputColumns")
-    def input_columns(self) -> pulumi.Input[Sequence[pulumi.Input['DataSetInputColumnArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-inputcolumns
-        """
-        return pulumi.get(self, "input_columns")
-
-    @input_columns.setter
-    def input_columns(self, value: pulumi.Input[Sequence[pulumi.Input['DataSetInputColumnArgs']]]):
-        pulumi.set(self, "input_columns", value)
-
-    @property
-    @pulumi.getter(name="uploadSettings")
-    def upload_settings(self) -> Optional[pulumi.Input['DataSetUploadSettingsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-uploadsettings
-        """
-        return pulumi.get(self, "upload_settings")
-
-    @upload_settings.setter
-    def upload_settings(self, value: Optional[pulumi.Input['DataSetUploadSettingsArgs']]):
-        pulumi.set(self, "upload_settings", value)
-
-
-@pulumi.input_type
-class DataSetTagColumnOperationArgs:
-    def __init__(__self__, *,
-                 column_name: pulumi.Input[str],
-                 tags: pulumi.Input[Sequence[pulumi.Input['DataSetColumnTagArgs']]]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html
-        :param pulumi.Input[str] column_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-columnname
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnTagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-tags
-        """
-        pulumi.set(__self__, "column_name", column_name)
-        pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="columnName")
-    def column_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-columnname
-        """
-        return pulumi.get(self, "column_name")
-
-    @column_name.setter
-    def column_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "column_name", value)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Sequence[pulumi.Input['DataSetColumnTagArgs']]]:
+    def key(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-tags
+        <p>Tag key.</p>
         """
-        return pulumi.get(self, "tags")
+        return pulumi.get(self, "key")
 
-    @tags.setter
-    def tags(self, value: pulumi.Input[Sequence[pulumi.Input['DataSetColumnTagArgs']]]):
-        pulumi.set(self, "tags", value)
-
-
-@pulumi.input_type
-class DataSetTransformOperationArgs:
-    def __init__(__self__, *,
-                 cast_column_type_operation: Optional[pulumi.Input['DataSetCastColumnTypeOperationArgs']] = None,
-                 create_columns_operation: Optional[pulumi.Input['DataSetCreateColumnsOperationArgs']] = None,
-                 filter_operation: Optional[pulumi.Input['DataSetFilterOperationArgs']] = None,
-                 project_operation: Optional[pulumi.Input['DataSetProjectOperationArgs']] = None,
-                 rename_column_operation: Optional[pulumi.Input['DataSetRenameColumnOperationArgs']] = None,
-                 tag_column_operation: Optional[pulumi.Input['DataSetTagColumnOperationArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html
-        :param pulumi.Input['DataSetCastColumnTypeOperationArgs'] cast_column_type_operation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-castcolumntypeoperation
-        :param pulumi.Input['DataSetCreateColumnsOperationArgs'] create_columns_operation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-createcolumnsoperation
-        :param pulumi.Input['DataSetFilterOperationArgs'] filter_operation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-filteroperation
-        :param pulumi.Input['DataSetProjectOperationArgs'] project_operation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-projectoperation
-        :param pulumi.Input['DataSetRenameColumnOperationArgs'] rename_column_operation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-renamecolumnoperation
-        :param pulumi.Input['DataSetTagColumnOperationArgs'] tag_column_operation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-tagcolumnoperation
-        """
-        if cast_column_type_operation is not None:
-            pulumi.set(__self__, "cast_column_type_operation", cast_column_type_operation)
-        if create_columns_operation is not None:
-            pulumi.set(__self__, "create_columns_operation", create_columns_operation)
-        if filter_operation is not None:
-            pulumi.set(__self__, "filter_operation", filter_operation)
-        if project_operation is not None:
-            pulumi.set(__self__, "project_operation", project_operation)
-        if rename_column_operation is not None:
-            pulumi.set(__self__, "rename_column_operation", rename_column_operation)
-        if tag_column_operation is not None:
-            pulumi.set(__self__, "tag_column_operation", tag_column_operation)
-
-    @property
-    @pulumi.getter(name="castColumnTypeOperation")
-    def cast_column_type_operation(self) -> Optional[pulumi.Input['DataSetCastColumnTypeOperationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-castcolumntypeoperation
-        """
-        return pulumi.get(self, "cast_column_type_operation")
-
-    @cast_column_type_operation.setter
-    def cast_column_type_operation(self, value: Optional[pulumi.Input['DataSetCastColumnTypeOperationArgs']]):
-        pulumi.set(self, "cast_column_type_operation", value)
-
-    @property
-    @pulumi.getter(name="createColumnsOperation")
-    def create_columns_operation(self) -> Optional[pulumi.Input['DataSetCreateColumnsOperationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-createcolumnsoperation
-        """
-        return pulumi.get(self, "create_columns_operation")
-
-    @create_columns_operation.setter
-    def create_columns_operation(self, value: Optional[pulumi.Input['DataSetCreateColumnsOperationArgs']]):
-        pulumi.set(self, "create_columns_operation", value)
-
-    @property
-    @pulumi.getter(name="filterOperation")
-    def filter_operation(self) -> Optional[pulumi.Input['DataSetFilterOperationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-filteroperation
-        """
-        return pulumi.get(self, "filter_operation")
-
-    @filter_operation.setter
-    def filter_operation(self, value: Optional[pulumi.Input['DataSetFilterOperationArgs']]):
-        pulumi.set(self, "filter_operation", value)
-
-    @property
-    @pulumi.getter(name="projectOperation")
-    def project_operation(self) -> Optional[pulumi.Input['DataSetProjectOperationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-projectoperation
-        """
-        return pulumi.get(self, "project_operation")
-
-    @project_operation.setter
-    def project_operation(self, value: Optional[pulumi.Input['DataSetProjectOperationArgs']]):
-        pulumi.set(self, "project_operation", value)
-
-    @property
-    @pulumi.getter(name="renameColumnOperation")
-    def rename_column_operation(self) -> Optional[pulumi.Input['DataSetRenameColumnOperationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-renamecolumnoperation
-        """
-        return pulumi.get(self, "rename_column_operation")
-
-    @rename_column_operation.setter
-    def rename_column_operation(self, value: Optional[pulumi.Input['DataSetRenameColumnOperationArgs']]):
-        pulumi.set(self, "rename_column_operation", value)
-
-    @property
-    @pulumi.getter(name="tagColumnOperation")
-    def tag_column_operation(self) -> Optional[pulumi.Input['DataSetTagColumnOperationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-tagcolumnoperation
-        """
-        return pulumi.get(self, "tag_column_operation")
-
-    @tag_column_operation.setter
-    def tag_column_operation(self, value: Optional[pulumi.Input['DataSetTagColumnOperationArgs']]):
-        pulumi.set(self, "tag_column_operation", value)
-
-
-@pulumi.input_type
-class DataSetUploadSettingsArgs:
-    def __init__(__self__, *,
-                 contains_header: Optional[pulumi.Input[bool]] = None,
-                 delimiter: Optional[pulumi.Input[str]] = None,
-                 format: Optional[pulumi.Input[str]] = None,
-                 start_from_row: Optional[pulumi.Input[float]] = None,
-                 text_qualifier: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html
-        :param pulumi.Input[bool] contains_header: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-containsheader
-        :param pulumi.Input[str] delimiter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-delimiter
-        :param pulumi.Input[str] format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-format
-        :param pulumi.Input[float] start_from_row: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-startfromrow
-        :param pulumi.Input[str] text_qualifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-textqualifier
-        """
-        if contains_header is not None:
-            pulumi.set(__self__, "contains_header", contains_header)
-        if delimiter is not None:
-            pulumi.set(__self__, "delimiter", delimiter)
-        if format is not None:
-            pulumi.set(__self__, "format", format)
-        if start_from_row is not None:
-            pulumi.set(__self__, "start_from_row", start_from_row)
-        if text_qualifier is not None:
-            pulumi.set(__self__, "text_qualifier", text_qualifier)
-
-    @property
-    @pulumi.getter(name="containsHeader")
-    def contains_header(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-containsheader
-        """
-        return pulumi.get(self, "contains_header")
-
-    @contains_header.setter
-    def contains_header(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "contains_header", value)
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
 
     @property
     @pulumi.getter
-    def delimiter(self) -> Optional[pulumi.Input[str]]:
+    def value(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-delimiter
+        <p>Tag value.</p>
         """
-        return pulumi.get(self, "delimiter")
+        return pulumi.get(self, "value")
 
-    @delimiter.setter
-    def delimiter(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "delimiter", value)
-
-    @property
-    @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-format
-        """
-        return pulumi.get(self, "format")
-
-    @format.setter
-    def format(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "format", value)
-
-    @property
-    @pulumi.getter(name="startFromRow")
-    def start_from_row(self) -> Optional[pulumi.Input[float]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-startfromrow
-        """
-        return pulumi.get(self, "start_from_row")
-
-    @start_from_row.setter
-    def start_from_row(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "start_from_row", value)
-
-    @property
-    @pulumi.getter(name="textQualifier")
-    def text_qualifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-textqualifier
-        """
-        return pulumi.get(self, "text_qualifier")
-
-    @text_qualifier.setter
-    def text_qualifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "text_qualifier", value)
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -2332,8 +1415,8 @@ class DataSourceAmazonElasticsearchParametersArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html
-        :param pulumi.Input[str] domain: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html#cfn-quicksight-datasource-amazonelasticsearchparameters-domain
+        <p>Amazon Elasticsearch Service parameters.</p>
+        :param pulumi.Input[str] domain: <p>The Amazon Elasticsearch Service domain.</p>
         """
         pulumi.set(__self__, "domain", domain)
 
@@ -2341,7 +1424,7 @@ class DataSourceAmazonElasticsearchParametersArgs:
     @pulumi.getter
     def domain(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html#cfn-quicksight-datasource-amazonelasticsearchparameters-domain
+        <p>The Amazon Elasticsearch Service domain.</p>
         """
         return pulumi.get(self, "domain")
 
@@ -2355,8 +1438,8 @@ class DataSourceAthenaParametersArgs:
     def __init__(__self__, *,
                  work_group: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html
-        :param pulumi.Input[str] work_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html#cfn-quicksight-datasource-athenaparameters-workgroup
+        <p>Amazon Athena parameters.</p>
+        :param pulumi.Input[str] work_group: <p>The workgroup that Amazon Athena uses.</p>
         """
         if work_group is not None:
             pulumi.set(__self__, "work_group", work_group)
@@ -2365,7 +1448,7 @@ class DataSourceAthenaParametersArgs:
     @pulumi.getter(name="workGroup")
     def work_group(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html#cfn-quicksight-datasource-athenaparameters-workgroup
+        <p>The workgroup that Amazon Athena uses.</p>
         """
         return pulumi.get(self, "work_group")
 
@@ -2381,10 +1464,10 @@ class DataSourceAuroraParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html
-        :param pulumi.Input[str] database: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-database
-        :param pulumi.Input[str] host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-host
-        :param pulumi.Input[float] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-port
+        <p>Amazon Aurora parameters.</p>
+        :param pulumi.Input[str] database: <p>Database.</p>
+        :param pulumi.Input[str] host: <p>Host.</p>
+        :param pulumi.Input[float] port: <p>Port.</p>
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -2394,7 +1477,7 @@ class DataSourceAuroraParametersArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-database
+        <p>Database.</p>
         """
         return pulumi.get(self, "database")
 
@@ -2406,7 +1489,7 @@ class DataSourceAuroraParametersArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-host
+        <p>Host.</p>
         """
         return pulumi.get(self, "host")
 
@@ -2418,7 +1501,7 @@ class DataSourceAuroraParametersArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[float]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-port
+        <p>Port.</p>
         """
         return pulumi.get(self, "port")
 
@@ -2434,10 +1517,10 @@ class DataSourceAuroraPostgreSqlParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html
-        :param pulumi.Input[str] database: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-database
-        :param pulumi.Input[str] host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-host
-        :param pulumi.Input[float] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-port
+        <p>Amazon Aurora with PostgreSQL compatibility parameters.</p>
+        :param pulumi.Input[str] database: <p>Database.</p>
+        :param pulumi.Input[str] host: <p>Host.</p>
+        :param pulumi.Input[float] port: <p>Port.</p>
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -2447,7 +1530,7 @@ class DataSourceAuroraPostgreSqlParametersArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-database
+        <p>Database.</p>
         """
         return pulumi.get(self, "database")
 
@@ -2459,7 +1542,7 @@ class DataSourceAuroraPostgreSqlParametersArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-host
+        <p>Host.</p>
         """
         return pulumi.get(self, "host")
 
@@ -2471,7 +1554,7 @@ class DataSourceAuroraPostgreSqlParametersArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[float]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-port
+        <p>Port.</p>
         """
         return pulumi.get(self, "port")
 
@@ -2487,10 +1570,18 @@ class DataSourceCredentialPairArgs:
                  username: pulumi.Input[str],
                  alternate_data_source_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceParametersArgs']]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html
-        :param pulumi.Input[str] password: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-password
-        :param pulumi.Input[str] username: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-username
-        :param pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceParametersArgs']]] alternate_data_source_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-alternatedatasourceparameters
+        <p>The combination of user name and password that are used as credentials.</p>
+        :param pulumi.Input[str] password: <p>Password.</p>
+        :param pulumi.Input[str] username: <p>User name.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceParametersArgs']]] alternate_data_source_parameters: <p>A set of alternate data source parameters that you want to share for these
+                           credentials. The credentials are applied in tandem with the data source parameters when
+                           you copy a data source by using a create or update request. The API operation compares
+                           the <code>DataSourceParameters</code> structure that's in the request with the
+                           structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+                           structures are an exact match, the request is allowed to use the new data source with
+                           the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
+                           null, the <code>DataSourceParameters</code> originally used with these
+                               <code>Credentials</code> is automatically allowed.</p>
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -2501,7 +1592,7 @@ class DataSourceCredentialPairArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-password
+        <p>Password.</p>
         """
         return pulumi.get(self, "password")
 
@@ -2513,7 +1604,7 @@ class DataSourceCredentialPairArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-username
+        <p>User name.</p>
         """
         return pulumi.get(self, "username")
 
@@ -2525,7 +1616,15 @@ class DataSourceCredentialPairArgs:
     @pulumi.getter(name="alternateDataSourceParameters")
     def alternate_data_source_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceParametersArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-alternatedatasourceparameters
+        <p>A set of alternate data source parameters that you want to share for these
+                    credentials. The credentials are applied in tandem with the data source parameters when
+                    you copy a data source by using a create or update request. The API operation compares
+                    the <code>DataSourceParameters</code> structure that's in the request with the
+                    structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+                    structures are an exact match, the request is allowed to use the new data source with
+                    the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
+                    null, the <code>DataSourceParameters</code> originally used with these
+                        <code>Credentials</code> is automatically allowed.</p>
         """
         return pulumi.get(self, "alternate_data_source_parameters")
 
@@ -2540,9 +1639,12 @@ class DataSourceDataSourceCredentialsArgs:
                  copy_source_arn: Optional[pulumi.Input[str]] = None,
                  credential_pair: Optional[pulumi.Input['DataSourceCredentialPairArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html
-        :param pulumi.Input[str] copy_source_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-copysourcearn
-        :param pulumi.Input['DataSourceCredentialPairArgs'] credential_pair: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-credentialpair
+        <p>Data source credentials. This is a variant type structure. For this structure to be
+                    valid, only one of the attributes can be non-null.</p>
+        :param pulumi.Input[str] copy_source_arn: <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
+                           want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
+                           data source in the ARN is used as the credentials for the
+                           <code>DataSourceCredentials</code> structure.</p>
         """
         if copy_source_arn is not None:
             pulumi.set(__self__, "copy_source_arn", copy_source_arn)
@@ -2553,7 +1655,10 @@ class DataSourceDataSourceCredentialsArgs:
     @pulumi.getter(name="copySourceArn")
     def copy_source_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-copysourcearn
+        <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
+                    want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
+                    data source in the ARN is used as the credentials for the
+                    <code>DataSourceCredentials</code> structure.</p>
         """
         return pulumi.get(self, "copy_source_arn")
 
@@ -2564,9 +1669,6 @@ class DataSourceDataSourceCredentialsArgs:
     @property
     @pulumi.getter(name="credentialPair")
     def credential_pair(self) -> Optional[pulumi.Input['DataSourceCredentialPairArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-credentialpair
-        """
         return pulumi.get(self, "credential_pair")
 
     @credential_pair.setter
@@ -2580,9 +1682,8 @@ class DataSourceDataSourceErrorInfoArgs:
                  message: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html
-        :param pulumi.Input[str] message: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-message
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-type
+        <p>Error information for the data source creation or update.</p>
+        :param pulumi.Input[str] message: <p>Error message.</p>
         """
         if message is not None:
             pulumi.set(__self__, "message", message)
@@ -2593,7 +1694,7 @@ class DataSourceDataSourceErrorInfoArgs:
     @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-message
+        <p>Error message.</p>
         """
         return pulumi.get(self, "message")
 
@@ -2604,9 +1705,6 @@ class DataSourceDataSourceErrorInfoArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-type
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -2634,23 +1732,9 @@ class DataSourceDataSourceParametersArgs:
                  sql_server_parameters: Optional[pulumi.Input['DataSourceSqlServerParametersArgs']] = None,
                  teradata_parameters: Optional[pulumi.Input['DataSourceTeradataParametersArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html
-        :param pulumi.Input['DataSourceAmazonElasticsearchParametersArgs'] amazon_elasticsearch_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-amazonelasticsearchparameters
-        :param pulumi.Input['DataSourceAthenaParametersArgs'] athena_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-athenaparameters
-        :param pulumi.Input['DataSourceAuroraParametersArgs'] aurora_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-auroraparameters
-        :param pulumi.Input['DataSourceAuroraPostgreSqlParametersArgs'] aurora_postgre_sql_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-aurorapostgresqlparameters
-        :param pulumi.Input['DataSourceMariaDbParametersArgs'] maria_db_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mariadbparameters
-        :param pulumi.Input['DataSourceMySqlParametersArgs'] my_sql_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mysqlparameters
-        :param pulumi.Input['DataSourceOracleParametersArgs'] oracle_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-oracleparameters
-        :param pulumi.Input['DataSourcePostgreSqlParametersArgs'] postgre_sql_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-postgresqlparameters
-        :param pulumi.Input['DataSourcePrestoParametersArgs'] presto_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-prestoparameters
-        :param pulumi.Input['DataSourceRdsParametersArgs'] rds_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-rdsparameters
-        :param pulumi.Input['DataSourceRedshiftParametersArgs'] redshift_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-redshiftparameters
-        :param pulumi.Input['DataSourceS3ParametersArgs'] s3_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-s3parameters
-        :param pulumi.Input['DataSourceSnowflakeParametersArgs'] snowflake_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-snowflakeparameters
-        :param pulumi.Input['DataSourceSparkParametersArgs'] spark_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sparkparameters
-        :param pulumi.Input['DataSourceSqlServerParametersArgs'] sql_server_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sqlserverparameters
-        :param pulumi.Input['DataSourceTeradataParametersArgs'] teradata_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-teradataparameters
+        <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
+                    This is a variant type structure. For this structure to be valid, only one of the
+                    attributes can be non-null.</p>
         """
         if amazon_elasticsearch_parameters is not None:
             pulumi.set(__self__, "amazon_elasticsearch_parameters", amazon_elasticsearch_parameters)
@@ -2688,9 +1772,6 @@ class DataSourceDataSourceParametersArgs:
     @property
     @pulumi.getter(name="amazonElasticsearchParameters")
     def amazon_elasticsearch_parameters(self) -> Optional[pulumi.Input['DataSourceAmazonElasticsearchParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-amazonelasticsearchparameters
-        """
         return pulumi.get(self, "amazon_elasticsearch_parameters")
 
     @amazon_elasticsearch_parameters.setter
@@ -2700,9 +1781,6 @@ class DataSourceDataSourceParametersArgs:
     @property
     @pulumi.getter(name="athenaParameters")
     def athena_parameters(self) -> Optional[pulumi.Input['DataSourceAthenaParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-athenaparameters
-        """
         return pulumi.get(self, "athena_parameters")
 
     @athena_parameters.setter
@@ -2712,9 +1790,6 @@ class DataSourceDataSourceParametersArgs:
     @property
     @pulumi.getter(name="auroraParameters")
     def aurora_parameters(self) -> Optional[pulumi.Input['DataSourceAuroraParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-auroraparameters
-        """
         return pulumi.get(self, "aurora_parameters")
 
     @aurora_parameters.setter
@@ -2724,9 +1799,6 @@ class DataSourceDataSourceParametersArgs:
     @property
     @pulumi.getter(name="auroraPostgreSqlParameters")
     def aurora_postgre_sql_parameters(self) -> Optional[pulumi.Input['DataSourceAuroraPostgreSqlParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-aurorapostgresqlparameters
-        """
         return pulumi.get(self, "aurora_postgre_sql_parameters")
 
     @aurora_postgre_sql_parameters.setter
@@ -2736,9 +1808,6 @@ class DataSourceDataSourceParametersArgs:
     @property
     @pulumi.getter(name="mariaDbParameters")
     def maria_db_parameters(self) -> Optional[pulumi.Input['DataSourceMariaDbParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mariadbparameters
-        """
         return pulumi.get(self, "maria_db_parameters")
 
     @maria_db_parameters.setter
@@ -2748,9 +1817,6 @@ class DataSourceDataSourceParametersArgs:
     @property
     @pulumi.getter(name="mySqlParameters")
     def my_sql_parameters(self) -> Optional[pulumi.Input['DataSourceMySqlParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mysqlparameters
-        """
         return pulumi.get(self, "my_sql_parameters")
 
     @my_sql_parameters.setter
@@ -2760,9 +1826,6 @@ class DataSourceDataSourceParametersArgs:
     @property
     @pulumi.getter(name="oracleParameters")
     def oracle_parameters(self) -> Optional[pulumi.Input['DataSourceOracleParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-oracleparameters
-        """
         return pulumi.get(self, "oracle_parameters")
 
     @oracle_parameters.setter
@@ -2772,9 +1835,6 @@ class DataSourceDataSourceParametersArgs:
     @property
     @pulumi.getter(name="postgreSqlParameters")
     def postgre_sql_parameters(self) -> Optional[pulumi.Input['DataSourcePostgreSqlParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-postgresqlparameters
-        """
         return pulumi.get(self, "postgre_sql_parameters")
 
     @postgre_sql_parameters.setter
@@ -2784,9 +1844,6 @@ class DataSourceDataSourceParametersArgs:
     @property
     @pulumi.getter(name="prestoParameters")
     def presto_parameters(self) -> Optional[pulumi.Input['DataSourcePrestoParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-prestoparameters
-        """
         return pulumi.get(self, "presto_parameters")
 
     @presto_parameters.setter
@@ -2796,9 +1853,6 @@ class DataSourceDataSourceParametersArgs:
     @property
     @pulumi.getter(name="rdsParameters")
     def rds_parameters(self) -> Optional[pulumi.Input['DataSourceRdsParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-rdsparameters
-        """
         return pulumi.get(self, "rds_parameters")
 
     @rds_parameters.setter
@@ -2808,9 +1862,6 @@ class DataSourceDataSourceParametersArgs:
     @property
     @pulumi.getter(name="redshiftParameters")
     def redshift_parameters(self) -> Optional[pulumi.Input['DataSourceRedshiftParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-redshiftparameters
-        """
         return pulumi.get(self, "redshift_parameters")
 
     @redshift_parameters.setter
@@ -2820,9 +1871,6 @@ class DataSourceDataSourceParametersArgs:
     @property
     @pulumi.getter(name="s3Parameters")
     def s3_parameters(self) -> Optional[pulumi.Input['DataSourceS3ParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-s3parameters
-        """
         return pulumi.get(self, "s3_parameters")
 
     @s3_parameters.setter
@@ -2832,9 +1880,6 @@ class DataSourceDataSourceParametersArgs:
     @property
     @pulumi.getter(name="snowflakeParameters")
     def snowflake_parameters(self) -> Optional[pulumi.Input['DataSourceSnowflakeParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-snowflakeparameters
-        """
         return pulumi.get(self, "snowflake_parameters")
 
     @snowflake_parameters.setter
@@ -2844,9 +1889,6 @@ class DataSourceDataSourceParametersArgs:
     @property
     @pulumi.getter(name="sparkParameters")
     def spark_parameters(self) -> Optional[pulumi.Input['DataSourceSparkParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sparkparameters
-        """
         return pulumi.get(self, "spark_parameters")
 
     @spark_parameters.setter
@@ -2856,9 +1898,6 @@ class DataSourceDataSourceParametersArgs:
     @property
     @pulumi.getter(name="sqlServerParameters")
     def sql_server_parameters(self) -> Optional[pulumi.Input['DataSourceSqlServerParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sqlserverparameters
-        """
         return pulumi.get(self, "sql_server_parameters")
 
     @sql_server_parameters.setter
@@ -2868,9 +1907,6 @@ class DataSourceDataSourceParametersArgs:
     @property
     @pulumi.getter(name="teradataParameters")
     def teradata_parameters(self) -> Optional[pulumi.Input['DataSourceTeradataParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-teradataparameters
-        """
         return pulumi.get(self, "teradata_parameters")
 
     @teradata_parameters.setter
@@ -2884,9 +1920,9 @@ class DataSourceManifestFileLocationArgs:
                  bucket: pulumi.Input[str],
                  key: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html
-        :param pulumi.Input[str] bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-bucket
-        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-key
+        <p>Amazon S3 manifest file location.</p>
+        :param pulumi.Input[str] bucket: <p>Amazon S3 bucket.</p>
+        :param pulumi.Input[str] key: <p>Amazon S3 key that identifies an object.</p>
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
@@ -2895,7 +1931,7 @@ class DataSourceManifestFileLocationArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-bucket
+        <p>Amazon S3 bucket.</p>
         """
         return pulumi.get(self, "bucket")
 
@@ -2907,7 +1943,7 @@ class DataSourceManifestFileLocationArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-key
+        <p>Amazon S3 key that identifies an object.</p>
         """
         return pulumi.get(self, "key")
 
@@ -2923,10 +1959,10 @@ class DataSourceMariaDbParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html
-        :param pulumi.Input[str] database: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-database
-        :param pulumi.Input[str] host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-host
-        :param pulumi.Input[float] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-port
+        <p>MariaDB parameters.</p>
+        :param pulumi.Input[str] database: <p>Database.</p>
+        :param pulumi.Input[str] host: <p>Host.</p>
+        :param pulumi.Input[float] port: <p>Port.</p>
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -2936,7 +1972,7 @@ class DataSourceMariaDbParametersArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-database
+        <p>Database.</p>
         """
         return pulumi.get(self, "database")
 
@@ -2948,7 +1984,7 @@ class DataSourceMariaDbParametersArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-host
+        <p>Host.</p>
         """
         return pulumi.get(self, "host")
 
@@ -2960,7 +1996,7 @@ class DataSourceMariaDbParametersArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[float]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-port
+        <p>Port.</p>
         """
         return pulumi.get(self, "port")
 
@@ -2976,10 +2012,10 @@ class DataSourceMySqlParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html
-        :param pulumi.Input[str] database: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-database
-        :param pulumi.Input[str] host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-host
-        :param pulumi.Input[float] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-port
+        <p>MySQL parameters.</p>
+        :param pulumi.Input[str] database: <p>Database.</p>
+        :param pulumi.Input[str] host: <p>Host.</p>
+        :param pulumi.Input[float] port: <p>Port.</p>
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -2989,7 +2025,7 @@ class DataSourceMySqlParametersArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-database
+        <p>Database.</p>
         """
         return pulumi.get(self, "database")
 
@@ -3001,7 +2037,7 @@ class DataSourceMySqlParametersArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-host
+        <p>Host.</p>
         """
         return pulumi.get(self, "host")
 
@@ -3013,7 +2049,7 @@ class DataSourceMySqlParametersArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[float]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-port
+        <p>Port.</p>
         """
         return pulumi.get(self, "port")
 
@@ -3028,12 +2064,6 @@ class DataSourceOracleParametersArgs:
                  database: pulumi.Input[str],
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html
-        :param pulumi.Input[str] database: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-database
-        :param pulumi.Input[str] host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-host
-        :param pulumi.Input[float] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-port
-        """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -3041,9 +2071,6 @@ class DataSourceOracleParametersArgs:
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-database
-        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -3053,9 +2080,6 @@ class DataSourceOracleParametersArgs:
     @property
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-host
-        """
         return pulumi.get(self, "host")
 
     @host.setter
@@ -3065,9 +2089,6 @@ class DataSourceOracleParametersArgs:
     @property
     @pulumi.getter
     def port(self) -> pulumi.Input[float]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-port
-        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -3082,10 +2103,10 @@ class DataSourcePostgreSqlParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html
-        :param pulumi.Input[str] database: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-database
-        :param pulumi.Input[str] host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-host
-        :param pulumi.Input[float] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-port
+        <p>PostgreSQL parameters.</p>
+        :param pulumi.Input[str] database: <p>Database.</p>
+        :param pulumi.Input[str] host: <p>Host.</p>
+        :param pulumi.Input[float] port: <p>Port.</p>
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -3095,7 +2116,7 @@ class DataSourcePostgreSqlParametersArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-database
+        <p>Database.</p>
         """
         return pulumi.get(self, "database")
 
@@ -3107,7 +2128,7 @@ class DataSourcePostgreSqlParametersArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-host
+        <p>Host.</p>
         """
         return pulumi.get(self, "host")
 
@@ -3119,7 +2140,7 @@ class DataSourcePostgreSqlParametersArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[float]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-port
+        <p>Port.</p>
         """
         return pulumi.get(self, "port")
 
@@ -3135,10 +2156,10 @@ class DataSourcePrestoParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html
-        :param pulumi.Input[str] catalog: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-catalog
-        :param pulumi.Input[str] host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-host
-        :param pulumi.Input[float] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-port
+        <p>Presto parameters.</p>
+        :param pulumi.Input[str] catalog: <p>Catalog.</p>
+        :param pulumi.Input[str] host: <p>Host.</p>
+        :param pulumi.Input[float] port: <p>Port.</p>
         """
         pulumi.set(__self__, "catalog", catalog)
         pulumi.set(__self__, "host", host)
@@ -3148,7 +2169,7 @@ class DataSourcePrestoParametersArgs:
     @pulumi.getter
     def catalog(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-catalog
+        <p>Catalog.</p>
         """
         return pulumi.get(self, "catalog")
 
@@ -3160,7 +2181,7 @@ class DataSourcePrestoParametersArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-host
+        <p>Host.</p>
         """
         return pulumi.get(self, "host")
 
@@ -3172,7 +2193,7 @@ class DataSourcePrestoParametersArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[float]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-port
+        <p>Port.</p>
         """
         return pulumi.get(self, "port")
 
@@ -3187,9 +2208,9 @@ class DataSourceRdsParametersArgs:
                  database: pulumi.Input[str],
                  instance_id: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html
-        :param pulumi.Input[str] database: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-database
-        :param pulumi.Input[str] instance_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-instanceid
+        <p>Amazon RDS parameters.</p>
+        :param pulumi.Input[str] database: <p>Database.</p>
+        :param pulumi.Input[str] instance_id: <p>Instance ID.</p>
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "instance_id", instance_id)
@@ -3198,7 +2219,7 @@ class DataSourceRdsParametersArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-database
+        <p>Database.</p>
         """
         return pulumi.get(self, "database")
 
@@ -3210,7 +2231,7 @@ class DataSourceRdsParametersArgs:
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-instanceid
+        <p>Instance ID.</p>
         """
         return pulumi.get(self, "instance_id")
 
@@ -3227,11 +2248,14 @@ class DataSourceRedshiftParametersArgs:
                  host: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[float]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html
-        :param pulumi.Input[str] database: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-database
-        :param pulumi.Input[str] cluster_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-clusterid
-        :param pulumi.Input[str] host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-host
-        :param pulumi.Input[float] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-port
+        <p>Amazon Redshift parameters. The <code>ClusterId</code> field can be blank if
+                    <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
+                    <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
+        :param pulumi.Input[str] database: <p>Database.</p>
+        :param pulumi.Input[str] cluster_id: <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are
+                           provided.</p>
+        :param pulumi.Input[str] host: <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
+        :param pulumi.Input[float] port: <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
         """
         pulumi.set(__self__, "database", database)
         if cluster_id is not None:
@@ -3245,7 +2269,7 @@ class DataSourceRedshiftParametersArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-database
+        <p>Database.</p>
         """
         return pulumi.get(self, "database")
 
@@ -3257,7 +2281,8 @@ class DataSourceRedshiftParametersArgs:
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-clusterid
+        <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are
+                    provided.</p>
         """
         return pulumi.get(self, "cluster_id")
 
@@ -3269,7 +2294,7 @@ class DataSourceRedshiftParametersArgs:
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-host
+        <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
         """
         return pulumi.get(self, "host")
 
@@ -3281,7 +2306,7 @@ class DataSourceRedshiftParametersArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[float]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-port
+        <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
         """
         return pulumi.get(self, "port")
 
@@ -3296,9 +2321,23 @@ class DataSourceResourcePermissionArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  principal: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html#cfn-quicksight-datasource-resourcepermission-actions
-        :param pulumi.Input[str] principal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html#cfn-quicksight-datasource-resourcepermission-principal
+        <p>Permission for the resource.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: <p>The IAM action to grant or revoke permissions on.</p>
+        :param pulumi.Input[str] principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                           following:</p>
+                       <ul>
+                           <li>
+                               <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                           </li>
+                           <li>
+                               <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                           </li>
+                           <li>
+                               <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+                                   ARN. Use this option only to share resources (templates) across AWS accounts.
+                                   (This is less common.) </p>
+                           </li>
+                        </ul>
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
@@ -3307,7 +2346,7 @@ class DataSourceResourcePermissionArgs:
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html#cfn-quicksight-datasource-resourcepermission-actions
+        <p>The IAM action to grant or revoke permissions on.</p>
         """
         return pulumi.get(self, "actions")
 
@@ -3319,7 +2358,21 @@ class DataSourceResourcePermissionArgs:
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html#cfn-quicksight-datasource-resourcepermission-principal
+        <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                    following:</p>
+                <ul>
+                    <li>
+                        <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                    </li>
+                    <li>
+                        <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                    </li>
+                    <li>
+                        <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+                            ARN. Use this option only to share resources (templates) across AWS accounts.
+                            (This is less common.) </p>
+                    </li>
+                 </ul>
         """
         return pulumi.get(self, "principal")
 
@@ -3333,17 +2386,13 @@ class DataSourceS3ParametersArgs:
     def __init__(__self__, *,
                  manifest_file_location: pulumi.Input['DataSourceManifestFileLocationArgs']):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html
-        :param pulumi.Input['DataSourceManifestFileLocationArgs'] manifest_file_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html#cfn-quicksight-datasource-s3parameters-manifestfilelocation
+        <p>S3 parameters.</p>
         """
         pulumi.set(__self__, "manifest_file_location", manifest_file_location)
 
     @property
     @pulumi.getter(name="manifestFileLocation")
     def manifest_file_location(self) -> pulumi.Input['DataSourceManifestFileLocationArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html#cfn-quicksight-datasource-s3parameters-manifestfilelocation
-        """
         return pulumi.get(self, "manifest_file_location")
 
     @manifest_file_location.setter
@@ -3358,10 +2407,10 @@ class DataSourceSnowflakeParametersArgs:
                  host: pulumi.Input[str],
                  warehouse: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html
-        :param pulumi.Input[str] database: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-database
-        :param pulumi.Input[str] host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-host
-        :param pulumi.Input[str] warehouse: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-warehouse
+        <p>Snowflake parameters.</p>
+        :param pulumi.Input[str] database: <p>Database.</p>
+        :param pulumi.Input[str] host: <p>Host.</p>
+        :param pulumi.Input[str] warehouse: <p>Warehouse.</p>
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -3371,7 +2420,7 @@ class DataSourceSnowflakeParametersArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-database
+        <p>Database.</p>
         """
         return pulumi.get(self, "database")
 
@@ -3383,7 +2432,7 @@ class DataSourceSnowflakeParametersArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-host
+        <p>Host.</p>
         """
         return pulumi.get(self, "host")
 
@@ -3395,7 +2444,7 @@ class DataSourceSnowflakeParametersArgs:
     @pulumi.getter
     def warehouse(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-warehouse
+        <p>Warehouse.</p>
         """
         return pulumi.get(self, "warehouse")
 
@@ -3410,9 +2459,9 @@ class DataSourceSparkParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html
-        :param pulumi.Input[str] host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-host
-        :param pulumi.Input[float] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-port
+        <p>Spark parameters.</p>
+        :param pulumi.Input[str] host: <p>Host.</p>
+        :param pulumi.Input[float] port: <p>Port.</p>
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -3421,7 +2470,7 @@ class DataSourceSparkParametersArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-host
+        <p>Host.</p>
         """
         return pulumi.get(self, "host")
 
@@ -3433,7 +2482,7 @@ class DataSourceSparkParametersArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[float]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-port
+        <p>Port.</p>
         """
         return pulumi.get(self, "port")
 
@@ -3449,10 +2498,10 @@ class DataSourceSqlServerParametersArgs:
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html
-        :param pulumi.Input[str] database: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-database
-        :param pulumi.Input[str] host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-host
-        :param pulumi.Input[float] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-port
+        <p>SQL Server parameters.</p>
+        :param pulumi.Input[str] database: <p>Database.</p>
+        :param pulumi.Input[str] host: <p>Host.</p>
+        :param pulumi.Input[float] port: <p>Port.</p>
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -3462,7 +2511,7 @@ class DataSourceSqlServerParametersArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-database
+        <p>Database.</p>
         """
         return pulumi.get(self, "database")
 
@@ -3474,7 +2523,7 @@ class DataSourceSqlServerParametersArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-host
+        <p>Host.</p>
         """
         return pulumi.get(self, "host")
 
@@ -3486,7 +2535,7 @@ class DataSourceSqlServerParametersArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[float]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-port
+        <p>Port.</p>
         """
         return pulumi.get(self, "port")
 
@@ -3500,8 +2549,9 @@ class DataSourceSslPropertiesArgs:
     def __init__(__self__, *,
                  disable_ssl: Optional[pulumi.Input[bool]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html
-        :param pulumi.Input[bool] disable_ssl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html#cfn-quicksight-datasource-sslproperties-disablessl
+        <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
+                    underlying data source.</p>
+        :param pulumi.Input[bool] disable_ssl: <p>A Boolean option to control whether SSL should be disabled.</p>
         """
         if disable_ssl is not None:
             pulumi.set(__self__, "disable_ssl", disable_ssl)
@@ -3510,7 +2560,7 @@ class DataSourceSslPropertiesArgs:
     @pulumi.getter(name="disableSsl")
     def disable_ssl(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html#cfn-quicksight-datasource-sslproperties-disablessl
+        <p>A Boolean option to control whether SSL should be disabled.</p>
         """
         return pulumi.get(self, "disable_ssl")
 
@@ -3520,16 +2570,55 @@ class DataSourceSslPropertiesArgs:
 
 
 @pulumi.input_type
+class DataSourceTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+                    resource.</p>
+        :param pulumi.Input[str] key: <p>Tag key.</p>
+        :param pulumi.Input[str] value: <p>Tag value.</p>
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        <p>Tag key.</p>
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        <p>Tag value.</p>
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class DataSourceTeradataParametersArgs:
     def __init__(__self__, *,
                  database: pulumi.Input[str],
                  host: pulumi.Input[str],
                  port: pulumi.Input[float]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html
-        :param pulumi.Input[str] database: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-database
-        :param pulumi.Input[str] host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-host
-        :param pulumi.Input[float] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-port
+        <p>Teradata parameters.</p>
+        :param pulumi.Input[str] database: <p>Database.</p>
+        :param pulumi.Input[str] host: <p>Host.</p>
+        :param pulumi.Input[float] port: <p>Port.</p>
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -3539,7 +2628,7 @@ class DataSourceTeradataParametersArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-database
+        <p>Database.</p>
         """
         return pulumi.get(self, "database")
 
@@ -3551,7 +2640,7 @@ class DataSourceTeradataParametersArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-host
+        <p>Host.</p>
         """
         return pulumi.get(self, "host")
 
@@ -3563,7 +2652,7 @@ class DataSourceTeradataParametersArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[float]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-port
+        <p>Port.</p>
         """
         return pulumi.get(self, "port")
 
@@ -3577,8 +2666,8 @@ class DataSourceVpcConnectionPropertiesArgs:
     def __init__(__self__, *,
                  vpc_connection_arn: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html
-        :param pulumi.Input[str] vpc_connection_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html#cfn-quicksight-datasource-vpcconnectionproperties-vpcconnectionarn
+        <p>VPC connection properties.</p>
+        :param pulumi.Input[str] vpc_connection_arn: <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
         """
         pulumi.set(__self__, "vpc_connection_arn", vpc_connection_arn)
 
@@ -3586,7 +2675,7 @@ class DataSourceVpcConnectionPropertiesArgs:
     @pulumi.getter(name="vpcConnectionArn")
     def vpc_connection_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html#cfn-quicksight-datasource-vpcconnectionproperties-vpcconnectionarn
+        <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
         """
         return pulumi.get(self, "vpc_connection_arn")
 
@@ -3601,9 +2690,9 @@ class TemplateDataSetReferenceArgs:
                  data_set_arn: pulumi.Input[str],
                  data_set_placeholder: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html
-        :param pulumi.Input[str] data_set_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html#cfn-quicksight-template-datasetreference-datasetarn
-        :param pulumi.Input[str] data_set_placeholder: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html#cfn-quicksight-template-datasetreference-datasetplaceholder
+        <p>Dataset reference.</p>
+        :param pulumi.Input[str] data_set_arn: <p>Dataset Amazon Resource Name (ARN).</p>
+        :param pulumi.Input[str] data_set_placeholder: <p>Dataset placeholder.</p>
         """
         pulumi.set(__self__, "data_set_arn", data_set_arn)
         pulumi.set(__self__, "data_set_placeholder", data_set_placeholder)
@@ -3612,7 +2701,7 @@ class TemplateDataSetReferenceArgs:
     @pulumi.getter(name="dataSetArn")
     def data_set_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html#cfn-quicksight-template-datasetreference-datasetarn
+        <p>Dataset Amazon Resource Name (ARN).</p>
         """
         return pulumi.get(self, "data_set_arn")
 
@@ -3624,7 +2713,7 @@ class TemplateDataSetReferenceArgs:
     @pulumi.getter(name="dataSetPlaceholder")
     def data_set_placeholder(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html#cfn-quicksight-template-datasetreference-datasetplaceholder
+        <p>Dataset placeholder.</p>
         """
         return pulumi.get(self, "data_set_placeholder")
 
@@ -3639,9 +2728,23 @@ class TemplateResourcePermissionArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  principal: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-resourcepermission.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-resourcepermission.html#cfn-quicksight-template-resourcepermission-actions
-        :param pulumi.Input[str] principal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-resourcepermission.html#cfn-quicksight-template-resourcepermission-principal
+        <p>Permission for the resource.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: <p>The IAM action to grant or revoke permissions on.</p>
+        :param pulumi.Input[str] principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                           following:</p>
+                       <ul>
+                           <li>
+                               <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                           </li>
+                           <li>
+                               <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                           </li>
+                           <li>
+                               <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+                                   ARN. Use this option only to share resources (templates) across AWS accounts.
+                                   (This is less common.) </p>
+                           </li>
+                        </ul>
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
@@ -3650,7 +2753,7 @@ class TemplateResourcePermissionArgs:
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-resourcepermission.html#cfn-quicksight-template-resourcepermission-actions
+        <p>The IAM action to grant or revoke permissions on.</p>
         """
         return pulumi.get(self, "actions")
 
@@ -3662,7 +2765,21 @@ class TemplateResourcePermissionArgs:
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-resourcepermission.html#cfn-quicksight-template-resourcepermission-principal
+        <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                    following:</p>
+                <ul>
+                    <li>
+                        <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                    </li>
+                    <li>
+                        <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                    </li>
+                    <li>
+                        <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+                            ARN. Use this option only to share resources (templates) across AWS accounts.
+                            (This is less common.) </p>
+                    </li>
+                 </ul>
         """
         return pulumi.get(self, "principal")
 
@@ -3672,14 +2789,54 @@ class TemplateResourcePermissionArgs:
 
 
 @pulumi.input_type
+class TemplateTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+                    resource.</p>
+        :param pulumi.Input[str] key: <p>Tag key.</p>
+        :param pulumi.Input[str] value: <p>Tag value.</p>
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        <p>Tag key.</p>
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        <p>Tag value.</p>
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class TemplateTemplateSourceAnalysisArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
                  data_set_references: pulumi.Input[Sequence[pulumi.Input['TemplateDataSetReferenceArgs']]]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html
-        :param pulumi.Input[str] arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-arn
-        :param pulumi.Input[Sequence[pulumi.Input['TemplateDataSetReferenceArgs']]] data_set_references: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-datasetreferences
+        <p>The source analysis of the template.</p>
+        :param pulumi.Input[str] arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['TemplateDataSetReferenceArgs']]] data_set_references: <p>A structure containing information about the dataset references used as placeholders
+                           in the template.</p>
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
@@ -3688,7 +2845,7 @@ class TemplateTemplateSourceAnalysisArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-arn
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
         """
         return pulumi.get(self, "arn")
 
@@ -3700,7 +2857,8 @@ class TemplateTemplateSourceAnalysisArgs:
     @pulumi.getter(name="dataSetReferences")
     def data_set_references(self) -> pulumi.Input[Sequence[pulumi.Input['TemplateDataSetReferenceArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-datasetreferences
+        <p>A structure containing information about the dataset references used as placeholders
+                    in the template.</p>
         """
         return pulumi.get(self, "data_set_references")
 
@@ -3715,9 +2873,7 @@ class TemplateTemplateSourceEntityArgs:
                  source_analysis: Optional[pulumi.Input['TemplateTemplateSourceAnalysisArgs']] = None,
                  source_template: Optional[pulumi.Input['TemplateTemplateSourceTemplateArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html
-        :param pulumi.Input['TemplateTemplateSourceAnalysisArgs'] source_analysis: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourceanalysis
-        :param pulumi.Input['TemplateTemplateSourceTemplateArgs'] source_template: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourcetemplate
+        <p>The source entity of the template.</p>
         """
         if source_analysis is not None:
             pulumi.set(__self__, "source_analysis", source_analysis)
@@ -3727,9 +2883,6 @@ class TemplateTemplateSourceEntityArgs:
     @property
     @pulumi.getter(name="sourceAnalysis")
     def source_analysis(self) -> Optional[pulumi.Input['TemplateTemplateSourceAnalysisArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourceanalysis
-        """
         return pulumi.get(self, "source_analysis")
 
     @source_analysis.setter
@@ -3739,9 +2892,6 @@ class TemplateTemplateSourceEntityArgs:
     @property
     @pulumi.getter(name="sourceTemplate")
     def source_template(self) -> Optional[pulumi.Input['TemplateTemplateSourceTemplateArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourcetemplate
-        """
         return pulumi.get(self, "source_template")
 
     @source_template.setter
@@ -3754,8 +2904,8 @@ class TemplateTemplateSourceTemplateArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourcetemplate.html
-        :param pulumi.Input[str] arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourcetemplate.html#cfn-quicksight-template-templatesourcetemplate-arn
+        <p>The source template of the template.</p>
+        :param pulumi.Input[str] arn: <p>The Amazon Resource Name (ARN) of the resource.</p>
         """
         pulumi.set(__self__, "arn", arn)
 
@@ -3763,7 +2913,7 @@ class TemplateTemplateSourceTemplateArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourcetemplate.html#cfn-quicksight-template-templatesourcetemplate-arn
+        <p>The Amazon Resource Name (ARN) of the resource.</p>
         """
         return pulumi.get(self, "arn")
 
@@ -3777,8 +2927,8 @@ class ThemeBorderStyleArgs:
     def __init__(__self__, *,
                  show: Optional[pulumi.Input[bool]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html
-        :param pulumi.Input[bool] show: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html#cfn-quicksight-theme-borderstyle-show
+        <p>The display options for tile borders for visuals.</p>
+        :param pulumi.Input[bool] show: <p>The option to enable display of borders for visuals.</p>
         """
         if show is not None:
             pulumi.set(__self__, "show", show)
@@ -3787,7 +2937,7 @@ class ThemeBorderStyleArgs:
     @pulumi.getter
     def show(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html#cfn-quicksight-theme-borderstyle-show
+        <p>The option to enable display of borders for visuals.</p>
         """
         return pulumi.get(self, "show")
 
@@ -3803,10 +2953,13 @@ class ThemeDataColorPaletteArgs:
                  empty_fill_color: Optional[pulumi.Input[str]] = None,
                  min_max_gradient: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] colors: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-colors
-        :param pulumi.Input[str] empty_fill_color: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-emptyfillcolor
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] min_max_gradient: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-minmaxgradient
+        <p>The theme colors that are used for data colors in charts. The colors description is a
+                    hexadecimal color code that consists of six alphanumerical characters, prefixed with
+                        <code>#</code>, for example #37BFF5. </p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] colors: <p>The hexadecimal codes for the colors.</p>
+        :param pulumi.Input[str] empty_fill_color: <p>The hexadecimal code of a color that applies to charts where a lack of data is
+                           highlighted.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] min_max_gradient: <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
         """
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
@@ -3819,7 +2972,7 @@ class ThemeDataColorPaletteArgs:
     @pulumi.getter
     def colors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-colors
+        <p>The hexadecimal codes for the colors.</p>
         """
         return pulumi.get(self, "colors")
 
@@ -3831,7 +2984,8 @@ class ThemeDataColorPaletteArgs:
     @pulumi.getter(name="emptyFillColor")
     def empty_fill_color(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-emptyfillcolor
+        <p>The hexadecimal code of a color that applies to charts where a lack of data is
+                    highlighted.</p>
         """
         return pulumi.get(self, "empty_fill_color")
 
@@ -3843,7 +2997,7 @@ class ThemeDataColorPaletteArgs:
     @pulumi.getter(name="minMaxGradient")
     def min_max_gradient(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-minmaxgradient
+        <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
         """
         return pulumi.get(self, "min_max_gradient")
 
@@ -3856,19 +3010,12 @@ class ThemeDataColorPaletteArgs:
 class ThemeFontArgs:
     def __init__(__self__, *,
                  font_family: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html
-        :param pulumi.Input[str] font_family: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html#cfn-quicksight-theme-font-fontfamily
-        """
         if font_family is not None:
             pulumi.set(__self__, "font_family", font_family)
 
     @property
     @pulumi.getter(name="fontFamily")
     def font_family(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html#cfn-quicksight-theme-font-fontfamily
-        """
         return pulumi.get(self, "font_family")
 
     @font_family.setter
@@ -3881,8 +3028,9 @@ class ThemeGutterStyleArgs:
     def __init__(__self__, *,
                  show: Optional[pulumi.Input[bool]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html
-        :param pulumi.Input[bool] show: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html#cfn-quicksight-theme-gutterstyle-show
+        <p>The display options for gutter spacing between tiles on a sheet.</p>
+        :param pulumi.Input[bool] show: <p>This Boolean value controls whether to display a gutter space between sheet tiles.
+                       </p>
         """
         if show is not None:
             pulumi.set(__self__, "show", show)
@@ -3891,7 +3039,8 @@ class ThemeGutterStyleArgs:
     @pulumi.getter
     def show(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html#cfn-quicksight-theme-gutterstyle-show
+        <p>This Boolean value controls whether to display a gutter space between sheet tiles.
+                </p>
         """
         return pulumi.get(self, "show")
 
@@ -3905,8 +3054,8 @@ class ThemeMarginStyleArgs:
     def __init__(__self__, *,
                  show: Optional[pulumi.Input[bool]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html
-        :param pulumi.Input[bool] show: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html#cfn-quicksight-theme-marginstyle-show
+        <p>The display options for margins around the outside edge of sheets.</p>
+        :param pulumi.Input[bool] show: <p>This Boolean value controls whether to display sheet margins.</p>
         """
         if show is not None:
             pulumi.set(__self__, "show", show)
@@ -3915,7 +3064,7 @@ class ThemeMarginStyleArgs:
     @pulumi.getter
     def show(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html#cfn-quicksight-theme-marginstyle-show
+        <p>This Boolean value controls whether to display sheet margins.</p>
         """
         return pulumi.get(self, "show")
 
@@ -3930,9 +3079,23 @@ class ThemeResourcePermissionArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  principal: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html#cfn-quicksight-theme-resourcepermission-actions
-        :param pulumi.Input[str] principal: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html#cfn-quicksight-theme-resourcepermission-principal
+        <p>Permission for the resource.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: <p>The IAM action to grant or revoke permissions on.</p>
+        :param pulumi.Input[str] principal: <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                           following:</p>
+                       <ul>
+                           <li>
+                               <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                           </li>
+                           <li>
+                               <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                           </li>
+                           <li>
+                               <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+                                   ARN. Use this option only to share resources (templates) across AWS accounts.
+                                   (This is less common.) </p>
+                           </li>
+                        </ul>
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "principal", principal)
@@ -3941,7 +3104,7 @@ class ThemeResourcePermissionArgs:
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html#cfn-quicksight-theme-resourcepermission-actions
+        <p>The IAM action to grant or revoke permissions on.</p>
         """
         return pulumi.get(self, "actions")
 
@@ -3953,7 +3116,21 @@ class ThemeResourcePermissionArgs:
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html#cfn-quicksight-theme-resourcepermission-principal
+        <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+                    following:</p>
+                <ul>
+                    <li>
+                        <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+                    </li>
+                    <li>
+                        <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+                    </li>
+                    <li>
+                        <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+                            ARN. Use this option only to share resources (templates) across AWS accounts.
+                            (This is less common.) </p>
+                    </li>
+                 </ul>
         """
         return pulumi.get(self, "principal")
 
@@ -3968,9 +3145,7 @@ class ThemeSheetStyleArgs:
                  tile: Optional[pulumi.Input['ThemeTileStyleArgs']] = None,
                  tile_layout: Optional[pulumi.Input['ThemeTileLayoutStyleArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html
-        :param pulumi.Input['ThemeTileStyleArgs'] tile: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tile
-        :param pulumi.Input['ThemeTileLayoutStyleArgs'] tile_layout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tilelayout
+        <p>The theme display options for sheets. </p>
         """
         if tile is not None:
             pulumi.set(__self__, "tile", tile)
@@ -3980,9 +3155,6 @@ class ThemeSheetStyleArgs:
     @property
     @pulumi.getter
     def tile(self) -> Optional[pulumi.Input['ThemeTileStyleArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tile
-        """
         return pulumi.get(self, "tile")
 
     @tile.setter
@@ -3992,14 +3164,50 @@ class ThemeSheetStyleArgs:
     @property
     @pulumi.getter(name="tileLayout")
     def tile_layout(self) -> Optional[pulumi.Input['ThemeTileLayoutStyleArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tilelayout
-        """
         return pulumi.get(self, "tile_layout")
 
     @tile_layout.setter
     def tile_layout(self, value: Optional[pulumi.Input['ThemeTileLayoutStyleArgs']]):
         pulumi.set(self, "tile_layout", value)
+
+
+@pulumi.input_type
+class ThemeTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+                    resource.</p>
+        :param pulumi.Input[str] key: <p>Tag key.</p>
+        :param pulumi.Input[str] value: <p>Tag value.</p>
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        <p>Tag key.</p>
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        <p>Tag value.</p>
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -4010,11 +3218,8 @@ class ThemeThemeConfigurationArgs:
                  typography: Optional[pulumi.Input['ThemeTypographyArgs']] = None,
                  u_i_color_palette: Optional[pulumi.Input['ThemeUIColorPaletteArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html
-        :param pulumi.Input['ThemeDataColorPaletteArgs'] data_color_palette: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-datacolorpalette
-        :param pulumi.Input['ThemeSheetStyleArgs'] sheet: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-sheet
-        :param pulumi.Input['ThemeTypographyArgs'] typography: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-typography
-        :param pulumi.Input['ThemeUIColorPaletteArgs'] u_i_color_palette: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-uicolorpalette
+        <p>The theme configuration. This configuration contains all of the display properties for
+                    a theme.</p>
         """
         if data_color_palette is not None:
             pulumi.set(__self__, "data_color_palette", data_color_palette)
@@ -4028,9 +3233,6 @@ class ThemeThemeConfigurationArgs:
     @property
     @pulumi.getter(name="dataColorPalette")
     def data_color_palette(self) -> Optional[pulumi.Input['ThemeDataColorPaletteArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-datacolorpalette
-        """
         return pulumi.get(self, "data_color_palette")
 
     @data_color_palette.setter
@@ -4040,9 +3242,6 @@ class ThemeThemeConfigurationArgs:
     @property
     @pulumi.getter
     def sheet(self) -> Optional[pulumi.Input['ThemeSheetStyleArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-sheet
-        """
         return pulumi.get(self, "sheet")
 
     @sheet.setter
@@ -4052,9 +3251,6 @@ class ThemeThemeConfigurationArgs:
     @property
     @pulumi.getter
     def typography(self) -> Optional[pulumi.Input['ThemeTypographyArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-typography
-        """
         return pulumi.get(self, "typography")
 
     @typography.setter
@@ -4064,9 +3260,6 @@ class ThemeThemeConfigurationArgs:
     @property
     @pulumi.getter(name="uIColorPalette")
     def u_i_color_palette(self) -> Optional[pulumi.Input['ThemeUIColorPaletteArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-uicolorpalette
-        """
         return pulumi.get(self, "u_i_color_palette")
 
     @u_i_color_palette.setter
@@ -4080,9 +3273,7 @@ class ThemeTileLayoutStyleArgs:
                  gutter: Optional[pulumi.Input['ThemeGutterStyleArgs']] = None,
                  margin: Optional[pulumi.Input['ThemeMarginStyleArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html
-        :param pulumi.Input['ThemeGutterStyleArgs'] gutter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-gutter
-        :param pulumi.Input['ThemeMarginStyleArgs'] margin: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-margin
+        <p>The display options for the layout of tiles on a sheet.</p>
         """
         if gutter is not None:
             pulumi.set(__self__, "gutter", gutter)
@@ -4092,9 +3283,6 @@ class ThemeTileLayoutStyleArgs:
     @property
     @pulumi.getter
     def gutter(self) -> Optional[pulumi.Input['ThemeGutterStyleArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-gutter
-        """
         return pulumi.get(self, "gutter")
 
     @gutter.setter
@@ -4104,9 +3292,6 @@ class ThemeTileLayoutStyleArgs:
     @property
     @pulumi.getter
     def margin(self) -> Optional[pulumi.Input['ThemeMarginStyleArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-margin
-        """
         return pulumi.get(self, "margin")
 
     @margin.setter
@@ -4119,8 +3304,7 @@ class ThemeTileStyleArgs:
     def __init__(__self__, *,
                  border: Optional[pulumi.Input['ThemeBorderStyleArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html
-        :param pulumi.Input['ThemeBorderStyleArgs'] border: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html#cfn-quicksight-theme-tilestyle-border
+        <p>Display options related to tiles on a sheet.</p>
         """
         if border is not None:
             pulumi.set(__self__, "border", border)
@@ -4128,9 +3312,6 @@ class ThemeTileStyleArgs:
     @property
     @pulumi.getter
     def border(self) -> Optional[pulumi.Input['ThemeBorderStyleArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html#cfn-quicksight-theme-tilestyle-border
-        """
         return pulumi.get(self, "border")
 
     @border.setter
@@ -4142,19 +3323,12 @@ class ThemeTileStyleArgs:
 class ThemeTypographyArgs:
     def __init__(__self__, *,
                  font_families: Optional[pulumi.Input[Sequence[pulumi.Input['ThemeFontArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html
-        :param pulumi.Input[Sequence[pulumi.Input['ThemeFontArgs']]] font_families: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html#cfn-quicksight-theme-typography-fontfamilies
-        """
         if font_families is not None:
             pulumi.set(__self__, "font_families", font_families)
 
     @property
     @pulumi.getter(name="fontFamilies")
     def font_families(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThemeFontArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html#cfn-quicksight-theme-typography-fontfamilies
-        """
         return pulumi.get(self, "font_families")
 
     @font_families.setter
@@ -4182,23 +3356,37 @@ class ThemeUIColorPaletteArgs:
                  warning: Optional[pulumi.Input[str]] = None,
                  warning_foreground: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html
-        :param pulumi.Input[str] accent: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-accent
-        :param pulumi.Input[str] accent_foreground: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-accentforeground
-        :param pulumi.Input[str] danger: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-danger
-        :param pulumi.Input[str] danger_foreground: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dangerforeground
-        :param pulumi.Input[str] dimension: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dimension
-        :param pulumi.Input[str] dimension_foreground: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dimensionforeground
-        :param pulumi.Input[str] measure: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-measure
-        :param pulumi.Input[str] measure_foreground: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-measureforeground
-        :param pulumi.Input[str] primary_background: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-primarybackground
-        :param pulumi.Input[str] primary_foreground: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-primaryforeground
-        :param pulumi.Input[str] secondary_background: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-secondarybackground
-        :param pulumi.Input[str] secondary_foreground: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-secondaryforeground
-        :param pulumi.Input[str] success: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-success
-        :param pulumi.Input[str] success_foreground: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-successforeground
-        :param pulumi.Input[str] warning: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-warning
-        :param pulumi.Input[str] warning_foreground: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-warningforeground
+        <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
+                    description is a hexadecimal color code that consists of six alphanumerical characters,
+                    prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+                        Guide.</i>
+                </p>
+        :param pulumi.Input[str] accent: <p>This color is that applies to selected states and buttons.</p>
+        :param pulumi.Input[str] accent_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           accent color.</p>
+        :param pulumi.Input[str] danger: <p>The color that applies to error messages.</p>
+        :param pulumi.Input[str] danger_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           error color.</p>
+        :param pulumi.Input[str] dimension: <p>The color that applies to the names of fields that are identified as
+                           dimensions.</p>
+        :param pulumi.Input[str] dimension_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           dimension color.</p>
+        :param pulumi.Input[str] measure: <p>The color that applies to the names of fields that are identified as measures.</p>
+        :param pulumi.Input[str] measure_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           measure color.</p>
+        :param pulumi.Input[str] primary_background: <p>The background color that applies to visuals and other high emphasis UI.</p>
+        :param pulumi.Input[str] primary_foreground: <p>The color of text and other foreground elements that appear over the primary
+                           background regions, such as grid lines, borders, table banding, icons, and so on.</p>
+        :param pulumi.Input[str] secondary_background: <p>The background color that applies to the sheet background and sheet controls.</p>
+        :param pulumi.Input[str] secondary_foreground: <p>The foreground color that applies to any sheet title, sheet control text, or UI that
+                           appears over the secondary background.</p>
+        :param pulumi.Input[str] success: <p>The color that applies to success messages, for example the check mark for a
+                           successful download.</p>
+        :param pulumi.Input[str] success_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           success color.</p>
+        :param pulumi.Input[str] warning: <p>This color that applies to warning and informational messages.</p>
+        :param pulumi.Input[str] warning_foreground: <p>The foreground color that applies to any text or other elements that appear over the
+                           warning color.</p>
         """
         if accent is not None:
             pulumi.set(__self__, "accent", accent)
@@ -4237,7 +3425,7 @@ class ThemeUIColorPaletteArgs:
     @pulumi.getter
     def accent(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-accent
+        <p>This color is that applies to selected states and buttons.</p>
         """
         return pulumi.get(self, "accent")
 
@@ -4249,7 +3437,8 @@ class ThemeUIColorPaletteArgs:
     @pulumi.getter(name="accentForeground")
     def accent_foreground(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-accentforeground
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    accent color.</p>
         """
         return pulumi.get(self, "accent_foreground")
 
@@ -4261,7 +3450,7 @@ class ThemeUIColorPaletteArgs:
     @pulumi.getter
     def danger(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-danger
+        <p>The color that applies to error messages.</p>
         """
         return pulumi.get(self, "danger")
 
@@ -4273,7 +3462,8 @@ class ThemeUIColorPaletteArgs:
     @pulumi.getter(name="dangerForeground")
     def danger_foreground(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dangerforeground
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    error color.</p>
         """
         return pulumi.get(self, "danger_foreground")
 
@@ -4285,7 +3475,8 @@ class ThemeUIColorPaletteArgs:
     @pulumi.getter
     def dimension(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dimension
+        <p>The color that applies to the names of fields that are identified as
+                    dimensions.</p>
         """
         return pulumi.get(self, "dimension")
 
@@ -4297,7 +3488,8 @@ class ThemeUIColorPaletteArgs:
     @pulumi.getter(name="dimensionForeground")
     def dimension_foreground(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dimensionforeground
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    dimension color.</p>
         """
         return pulumi.get(self, "dimension_foreground")
 
@@ -4309,7 +3501,7 @@ class ThemeUIColorPaletteArgs:
     @pulumi.getter
     def measure(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-measure
+        <p>The color that applies to the names of fields that are identified as measures.</p>
         """
         return pulumi.get(self, "measure")
 
@@ -4321,7 +3513,8 @@ class ThemeUIColorPaletteArgs:
     @pulumi.getter(name="measureForeground")
     def measure_foreground(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-measureforeground
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    measure color.</p>
         """
         return pulumi.get(self, "measure_foreground")
 
@@ -4333,7 +3526,7 @@ class ThemeUIColorPaletteArgs:
     @pulumi.getter(name="primaryBackground")
     def primary_background(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-primarybackground
+        <p>The background color that applies to visuals and other high emphasis UI.</p>
         """
         return pulumi.get(self, "primary_background")
 
@@ -4345,7 +3538,8 @@ class ThemeUIColorPaletteArgs:
     @pulumi.getter(name="primaryForeground")
     def primary_foreground(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-primaryforeground
+        <p>The color of text and other foreground elements that appear over the primary
+                    background regions, such as grid lines, borders, table banding, icons, and so on.</p>
         """
         return pulumi.get(self, "primary_foreground")
 
@@ -4357,7 +3551,7 @@ class ThemeUIColorPaletteArgs:
     @pulumi.getter(name="secondaryBackground")
     def secondary_background(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-secondarybackground
+        <p>The background color that applies to the sheet background and sheet controls.</p>
         """
         return pulumi.get(self, "secondary_background")
 
@@ -4369,7 +3563,8 @@ class ThemeUIColorPaletteArgs:
     @pulumi.getter(name="secondaryForeground")
     def secondary_foreground(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-secondaryforeground
+        <p>The foreground color that applies to any sheet title, sheet control text, or UI that
+                    appears over the secondary background.</p>
         """
         return pulumi.get(self, "secondary_foreground")
 
@@ -4381,7 +3576,8 @@ class ThemeUIColorPaletteArgs:
     @pulumi.getter
     def success(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-success
+        <p>The color that applies to success messages, for example the check mark for a
+                    successful download.</p>
         """
         return pulumi.get(self, "success")
 
@@ -4393,7 +3589,8 @@ class ThemeUIColorPaletteArgs:
     @pulumi.getter(name="successForeground")
     def success_foreground(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-successforeground
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    success color.</p>
         """
         return pulumi.get(self, "success_foreground")
 
@@ -4405,7 +3602,7 @@ class ThemeUIColorPaletteArgs:
     @pulumi.getter
     def warning(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-warning
+        <p>This color that applies to warning and informational messages.</p>
         """
         return pulumi.get(self, "warning")
 
@@ -4417,7 +3614,8 @@ class ThemeUIColorPaletteArgs:
     @pulumi.getter(name="warningForeground")
     def warning_foreground(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-warningforeground
+        <p>The foreground color that applies to any text or other elements that appear over the
+                    warning color.</p>
         """
         return pulumi.get(self, "warning_foreground")
 

@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html
+    /// The Route 53 resource that a DNS target resource record points to.
     /// </summary>
     public sealed class ResourceSetR53ResourceRecordArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-domainname
+        /// The DNS target domain name.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-recordsetid
+        /// The Resource Record set id.
         /// </summary>
         [Input("recordSetId")]
         public Input<string>? RecordSetId { get; set; }

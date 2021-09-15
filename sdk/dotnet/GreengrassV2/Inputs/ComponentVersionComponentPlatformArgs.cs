@@ -10,26 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GreengrassV2.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html
-    /// </summary>
     public sealed class ComponentVersionComponentPlatformArgs : Pulumi.ResourceArgs
     {
         [Input("attributes")]
-        private InputMap<string>? _attributes;
+        public Input<object>? Attributes { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-attributes
-        /// </summary>
-        public InputMap<string> Attributes
-        {
-            get => _attributes ?? (_attributes = new InputMap<string>());
-            set => _attributes = value;
-        }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-name
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 

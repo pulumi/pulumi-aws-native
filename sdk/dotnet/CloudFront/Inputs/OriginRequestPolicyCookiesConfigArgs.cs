@@ -10,23 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html
-    /// </summary>
     public sealed class OriginRequestPolicyCookiesConfigArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookiebehavior
-        /// </summary>
         [Input("cookieBehavior", required: true)]
         public Input<string> CookieBehavior { get; set; } = null!;
 
         [Input("cookies")]
         private InputList<string>? _cookies;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookies
-        /// </summary>
         public InputList<string> Cookies
         {
             get => _cookies ?? (_cookies = new InputList<string>());

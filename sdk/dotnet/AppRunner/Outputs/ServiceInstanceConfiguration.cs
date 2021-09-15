@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html
+    /// Instance Configuration
     /// </summary>
     [OutputType]
     public sealed class ServiceInstanceConfiguration
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-cpu
+        /// CPU
         /// </summary>
         public readonly string? Cpu;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-instancerolearn
+        /// Instance Role Arn
         /// </summary>
         public readonly string? InstanceRoleArn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-memory
+        /// Memory
         /// </summary>
         public readonly string? Memory;
 

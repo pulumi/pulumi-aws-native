@@ -11,24 +11,24 @@ namespace Pulumi.AwsNative.S3.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html
+    /// Selection criteria for prefix-level metrics.
     /// </summary>
     public sealed class StorageLensSelectionCriteriaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter
+        /// Delimiter to divide S3 key into hierarchy of prefixes.
         /// </summary>
         [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth
+        /// Max depth of prefixes of S3 key that Amazon S3 Storage Lens will analyze.
         /// </summary>
         [Input("maxDepth")]
         public Input<int>? MaxDepth { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-minstoragebytespercentage
+        /// The minimum storage bytes threshold for the prefixes to be included in the analysis.
         /// </summary>
         [Input("minStorageBytesPercentage")]
         public Input<double>? MinStorageBytesPercentage { get; set; }

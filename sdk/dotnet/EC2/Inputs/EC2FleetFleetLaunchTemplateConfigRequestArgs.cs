@@ -10,23 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html
-    /// </summary>
     public sealed class EC2FleetFleetLaunchTemplateConfigRequestArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-launchtemplatespecification
-        /// </summary>
         [Input("launchTemplateSpecification")]
         public Input<Inputs.EC2FleetFleetLaunchTemplateSpecificationRequestArgs>? LaunchTemplateSpecification { get; set; }
 
         [Input("overrides")]
         private InputList<Inputs.EC2FleetFleetLaunchTemplateOverridesRequestArgs>? _overrides;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-overrides
-        /// </summary>
         public InputList<Inputs.EC2FleetFleetLaunchTemplateOverridesRequestArgs> Overrides
         {
             get => _overrides ?? (_overrides = new InputList<Inputs.EC2FleetFleetLaunchTemplateOverridesRequestArgs>());

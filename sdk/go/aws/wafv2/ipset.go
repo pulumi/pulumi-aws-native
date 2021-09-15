@@ -8,28 +8,21 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html
+// Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
 type IPSet struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses
-	Addresses pulumi.StringArrayOutput `pulumi:"addresses"`
-	Arn       pulumi.StringOutput      `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-ipaddressversion
-	IPAddressVersion pulumi.StringOutput `pulumi:"iPAddressVersion"`
-	Id               pulumi.StringOutput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-scope
-	Scope pulumi.StringOutput `pulumi:"scope"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// List of IPAddresses.
+	Addresses        pulumi.StringArrayOutput `pulumi:"addresses"`
+	Arn              pulumi.StringOutput      `pulumi:"arn"`
+	Description      pulumi.StringPtrOutput   `pulumi:"description"`
+	IPAddressVersion pulumi.StringOutput      `pulumi:"iPAddressVersion"`
+	Name             pulumi.StringPtrOutput   `pulumi:"name"`
+	Scope            pulumi.StringOutput      `pulumi:"scope"`
+	Tags             IPSetTagArrayOutput      `pulumi:"tags"`
 }
 
 // NewIPSet registers a new resource with the given unique name, arguments, and options.
@@ -80,34 +73,24 @@ func (IPSetState) ElementType() reflect.Type {
 }
 
 type ipsetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses
-	Addresses []string `pulumi:"addresses"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-ipaddressversion
-	IPAddressVersion string `pulumi:"iPAddressVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-scope
-	Scope string `pulumi:"scope"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// List of IPAddresses.
+	Addresses        []string   `pulumi:"addresses"`
+	Description      *string    `pulumi:"description"`
+	IPAddressVersion string     `pulumi:"iPAddressVersion"`
+	Name             *string    `pulumi:"name"`
+	Scope            string     `pulumi:"scope"`
+	Tags             []IPSetTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IPSet resource.
 type IPSetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-addresses
-	Addresses pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-ipaddressversion
+	// List of IPAddresses.
+	Addresses        pulumi.StringArrayInput
+	Description      pulumi.StringPtrInput
 	IPAddressVersion pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-name
-	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-scope
-	Scope pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-ipset.html#cfn-wafv2-ipset-tags
-	Tags aws.TagArrayInput
+	Name             pulumi.StringPtrInput
+	Scope            pulumi.StringInput
+	Tags             IPSetTagArrayInput
 }
 
 func (IPSetArgs) ElementType() reflect.Type {

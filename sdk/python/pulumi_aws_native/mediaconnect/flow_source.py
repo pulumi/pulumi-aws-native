@@ -29,18 +29,18 @@ class FlowSourceInitArgs:
                  whitelist_cidr: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FlowSource resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-description
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-name
-        :param pulumi.Input['FlowSourceEncryptionArgs'] decryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-decryption
-        :param pulumi.Input[str] entitlement_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-entitlementarn
-        :param pulumi.Input[str] flow_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-flowarn
-        :param pulumi.Input[int] ingest_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-ingestport
-        :param pulumi.Input[int] max_bitrate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxbitrate
-        :param pulumi.Input[int] max_latency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxlatency
-        :param pulumi.Input[str] protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-protocol
-        :param pulumi.Input[str] stream_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-streamid
-        :param pulumi.Input[str] vpc_interface_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-vpcinterfacename
-        :param pulumi.Input[str] whitelist_cidr: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-whitelistcidr
+        :param pulumi.Input[str] description: A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
+        :param pulumi.Input[str] name: The name of the source.
+        :param pulumi.Input['FlowSourceEncryptionArgs'] decryption: The type of encryption that is used on the content ingested from this source.
+        :param pulumi.Input[str] entitlement_arn: The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
+        :param pulumi.Input[str] flow_arn: The ARN of the flow.
+        :param pulumi.Input[int] ingest_port: The port that the flow will be listening on for incoming content.
+        :param pulumi.Input[int] max_bitrate: The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+        :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+        :param pulumi.Input[str] protocol: The protocol that is used by the source.
+        :param pulumi.Input[str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+        :param pulumi.Input[str] vpc_interface_name: The name of the VPC Interface this Source is configured with.
+        :param pulumi.Input[str] whitelist_cidr: The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "name", name)
@@ -69,7 +69,7 @@ class FlowSourceInitArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-description
+        A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
         """
         return pulumi.get(self, "description")
 
@@ -81,7 +81,7 @@ class FlowSourceInitArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-name
+        The name of the source.
         """
         return pulumi.get(self, "name")
 
@@ -93,7 +93,7 @@ class FlowSourceInitArgs:
     @pulumi.getter
     def decryption(self) -> Optional[pulumi.Input['FlowSourceEncryptionArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-decryption
+        The type of encryption that is used on the content ingested from this source.
         """
         return pulumi.get(self, "decryption")
 
@@ -105,7 +105,7 @@ class FlowSourceInitArgs:
     @pulumi.getter(name="entitlementArn")
     def entitlement_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-entitlementarn
+        The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
         """
         return pulumi.get(self, "entitlement_arn")
 
@@ -117,7 +117,7 @@ class FlowSourceInitArgs:
     @pulumi.getter(name="flowArn")
     def flow_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-flowarn
+        The ARN of the flow.
         """
         return pulumi.get(self, "flow_arn")
 
@@ -129,7 +129,7 @@ class FlowSourceInitArgs:
     @pulumi.getter(name="ingestPort")
     def ingest_port(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-ingestport
+        The port that the flow will be listening on for incoming content.
         """
         return pulumi.get(self, "ingest_port")
 
@@ -141,7 +141,7 @@ class FlowSourceInitArgs:
     @pulumi.getter(name="maxBitrate")
     def max_bitrate(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxbitrate
+        The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         """
         return pulumi.get(self, "max_bitrate")
 
@@ -153,7 +153,7 @@ class FlowSourceInitArgs:
     @pulumi.getter(name="maxLatency")
     def max_latency(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxlatency
+        The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         """
         return pulumi.get(self, "max_latency")
 
@@ -165,7 +165,7 @@ class FlowSourceInitArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-protocol
+        The protocol that is used by the source.
         """
         return pulumi.get(self, "protocol")
 
@@ -177,7 +177,7 @@ class FlowSourceInitArgs:
     @pulumi.getter(name="streamId")
     def stream_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-streamid
+        The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         """
         return pulumi.get(self, "stream_id")
 
@@ -189,7 +189,7 @@ class FlowSourceInitArgs:
     @pulumi.getter(name="vpcInterfaceName")
     def vpc_interface_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-vpcinterfacename
+        The name of the VPC Interface this Source is configured with.
         """
         return pulumi.get(self, "vpc_interface_name")
 
@@ -201,7 +201,7 @@ class FlowSourceInitArgs:
     @pulumi.getter(name="whitelistCidr")
     def whitelist_cidr(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-whitelistcidr
+        The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         """
         return pulumi.get(self, "whitelist_cidr")
 
@@ -229,22 +229,22 @@ class FlowSource(pulumi.CustomResource):
                  whitelist_cidr: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html
+        Resource schema for AWS::MediaConnect::FlowSource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FlowSourceEncryptionArgs']] decryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-decryption
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-description
-        :param pulumi.Input[str] entitlement_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-entitlementarn
-        :param pulumi.Input[str] flow_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-flowarn
-        :param pulumi.Input[int] ingest_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-ingestport
-        :param pulumi.Input[int] max_bitrate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxbitrate
-        :param pulumi.Input[int] max_latency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxlatency
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-name
-        :param pulumi.Input[str] protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-protocol
-        :param pulumi.Input[str] stream_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-streamid
-        :param pulumi.Input[str] vpc_interface_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-vpcinterfacename
-        :param pulumi.Input[str] whitelist_cidr: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-whitelistcidr
+        :param pulumi.Input[pulumi.InputType['FlowSourceEncryptionArgs']] decryption: The type of encryption that is used on the content ingested from this source.
+        :param pulumi.Input[str] description: A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
+        :param pulumi.Input[str] entitlement_arn: The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
+        :param pulumi.Input[str] flow_arn: The ARN of the flow.
+        :param pulumi.Input[int] ingest_port: The port that the flow will be listening on for incoming content.
+        :param pulumi.Input[int] max_bitrate: The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
+        :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+        :param pulumi.Input[str] name: The name of the source.
+        :param pulumi.Input[str] protocol: The protocol that is used by the source.
+        :param pulumi.Input[str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+        :param pulumi.Input[str] vpc_interface_name: The name of the VPC Interface this Source is configured with.
+        :param pulumi.Input[str] whitelist_cidr: The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         """
         ...
     @overload
@@ -253,7 +253,7 @@ class FlowSource(pulumi.CustomResource):
                  args: FlowSourceInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html
+        Resource schema for AWS::MediaConnect::FlowSource
 
         :param str resource_name: The name of the resource.
         :param FlowSourceInitArgs args: The arguments to use to populate this resource's properties.
@@ -354,7 +354,7 @@ class FlowSource(pulumi.CustomResource):
     @pulumi.getter
     def decryption(self) -> pulumi.Output[Optional['outputs.FlowSourceEncryption']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-decryption
+        The type of encryption that is used on the content ingested from this source.
         """
         return pulumi.get(self, "decryption")
 
@@ -362,7 +362,7 @@ class FlowSource(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-description
+        A description for the source. This value is not used or seen outside of the current AWS Elemental MediaConnect account.
         """
         return pulumi.get(self, "description")
 
@@ -370,7 +370,7 @@ class FlowSource(pulumi.CustomResource):
     @pulumi.getter(name="entitlementArn")
     def entitlement_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-entitlementarn
+        The ARN of the entitlement that allows you to subscribe to content that comes from another AWS account. The entitlement is set by the content originator and the ARN is generated as part of the originator's flow.
         """
         return pulumi.get(self, "entitlement_arn")
 
@@ -378,20 +378,23 @@ class FlowSource(pulumi.CustomResource):
     @pulumi.getter(name="flowArn")
     def flow_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-flowarn
+        The ARN of the flow.
         """
         return pulumi.get(self, "flow_arn")
 
     @property
     @pulumi.getter(name="ingestIp")
     def ingest_ip(self) -> pulumi.Output[str]:
+        """
+        The IP address that the flow will be listening on for incoming content.
+        """
         return pulumi.get(self, "ingest_ip")
 
     @property
     @pulumi.getter(name="ingestPort")
     def ingest_port(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-ingestport
+        The port that the flow will be listening on for incoming content.
         """
         return pulumi.get(self, "ingest_port")
 
@@ -399,7 +402,7 @@ class FlowSource(pulumi.CustomResource):
     @pulumi.getter(name="maxBitrate")
     def max_bitrate(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxbitrate
+        The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         """
         return pulumi.get(self, "max_bitrate")
 
@@ -407,7 +410,7 @@ class FlowSource(pulumi.CustomResource):
     @pulumi.getter(name="maxLatency")
     def max_latency(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-maxlatency
+        The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         """
         return pulumi.get(self, "max_latency")
 
@@ -415,7 +418,7 @@ class FlowSource(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-name
+        The name of the source.
         """
         return pulumi.get(self, "name")
 
@@ -423,20 +426,23 @@ class FlowSource(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-protocol
+        The protocol that is used by the source.
         """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the source.
+        """
         return pulumi.get(self, "source_arn")
 
     @property
     @pulumi.getter(name="streamId")
     def stream_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-streamid
+        The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         """
         return pulumi.get(self, "stream_id")
 
@@ -444,7 +450,7 @@ class FlowSource(pulumi.CustomResource):
     @pulumi.getter(name="vpcInterfaceName")
     def vpc_interface_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-vpcinterfacename
+        The name of the VPC Interface this Source is configured with.
         """
         return pulumi.get(self, "vpc_interface_name")
 
@@ -452,7 +458,7 @@ class FlowSource(pulumi.CustomResource):
     @pulumi.getter(name="whitelistCidr")
     def whitelist_cidr(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowsource.html#cfn-mediaconnect-flowsource-whitelistcidr
+        The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         """
         return pulumi.get(self, "whitelist_cidr")
 

@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html
+    /// When an input is received and the `condition` is `TRUE`, perform the specified `actions`.
     /// </summary>
     public sealed class DetectorModelOnInputArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         private InputList<Inputs.DetectorModelEventArgs>? _events;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-events
+        /// Specifies the `actions` performed when the `condition` evaluates to `TRUE`.
         /// </summary>
         public InputList<Inputs.DetectorModelEventArgs> Events
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         private InputList<Inputs.DetectorModelTransitionEventArgs>? _transitionEvents;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-transitionevents
+        /// Specifies the `actions` performed, and the next `state` entered, when a `condition` evaluates to `TRUE`.
         /// </summary>
         public InputList<Inputs.DetectorModelTransitionEventArgs> TransitionEvents
         {

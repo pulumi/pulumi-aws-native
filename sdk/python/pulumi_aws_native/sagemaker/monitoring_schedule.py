@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['MonitoringScheduleArgs', 'MonitoringSchedule']
@@ -23,16 +21,13 @@ class MonitoringScheduleArgs:
                  failure_reason: Optional[pulumi.Input[str]] = None,
                  last_monitoring_execution_summary: Optional[pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryArgs']] = None,
                  monitoring_schedule_status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleTagArgs']]]] = None):
         """
         The set of arguments for constructing a MonitoringSchedule resource.
-        :param pulumi.Input['MonitoringScheduleMonitoringScheduleConfigArgs'] monitoring_schedule_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
-        :param pulumi.Input[str] monitoring_schedule_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
-        :param pulumi.Input[str] endpoint_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
-        :param pulumi.Input[str] failure_reason: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
-        :param pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryArgs'] last_monitoring_execution_summary: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
-        :param pulumi.Input[str] monitoring_schedule_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
+        :param pulumi.Input[str] failure_reason: Contains the reason a monitoring job failed, if it failed.
+        :param pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryArgs'] last_monitoring_execution_summary: Describes metadata on the last execution to run, if there was one.
+        :param pulumi.Input[str] monitoring_schedule_status: The status of a schedule job.
+        :param pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "monitoring_schedule_config", monitoring_schedule_config)
         pulumi.set(__self__, "monitoring_schedule_name", monitoring_schedule_name)
@@ -50,9 +45,6 @@ class MonitoringScheduleArgs:
     @property
     @pulumi.getter(name="monitoringScheduleConfig")
     def monitoring_schedule_config(self) -> pulumi.Input['MonitoringScheduleMonitoringScheduleConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
-        """
         return pulumi.get(self, "monitoring_schedule_config")
 
     @monitoring_schedule_config.setter
@@ -62,9 +54,6 @@ class MonitoringScheduleArgs:
     @property
     @pulumi.getter(name="monitoringScheduleName")
     def monitoring_schedule_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
-        """
         return pulumi.get(self, "monitoring_schedule_name")
 
     @monitoring_schedule_name.setter
@@ -74,9 +63,6 @@ class MonitoringScheduleArgs:
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
-        """
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
@@ -87,7 +73,7 @@ class MonitoringScheduleArgs:
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
+        Contains the reason a monitoring job failed, if it failed.
         """
         return pulumi.get(self, "failure_reason")
 
@@ -99,7 +85,7 @@ class MonitoringScheduleArgs:
     @pulumi.getter(name="lastMonitoringExecutionSummary")
     def last_monitoring_execution_summary(self) -> Optional[pulumi.Input['MonitoringScheduleMonitoringExecutionSummaryArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
+        Describes metadata on the last execution to run, if there was one.
         """
         return pulumi.get(self, "last_monitoring_execution_summary")
 
@@ -111,7 +97,7 @@ class MonitoringScheduleArgs:
     @pulumi.getter(name="monitoringScheduleStatus")
     def monitoring_schedule_status(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
+        The status of a schedule job.
         """
         return pulumi.get(self, "monitoring_schedule_status")
 
@@ -121,14 +107,14 @@ class MonitoringScheduleArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoringScheduleTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -143,20 +129,17 @@ class MonitoringSchedule(pulumi.CustomResource):
                  monitoring_schedule_config: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringScheduleConfigArgs']]] = None,
                  monitoring_schedule_name: Optional[pulumi.Input[str]] = None,
                  monitoring_schedule_status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitoringScheduleTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html
+        Resource Type definition for AWS::SageMaker::MonitoringSchedule
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] endpoint_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
-        :param pulumi.Input[str] failure_reason: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
-        :param pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringExecutionSummaryArgs']] last_monitoring_execution_summary: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
-        :param pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringScheduleConfigArgs']] monitoring_schedule_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
-        :param pulumi.Input[str] monitoring_schedule_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
-        :param pulumi.Input[str] monitoring_schedule_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
+        :param pulumi.Input[str] failure_reason: Contains the reason a monitoring job failed, if it failed.
+        :param pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringExecutionSummaryArgs']] last_monitoring_execution_summary: Describes metadata on the last execution to run, if there was one.
+        :param pulumi.Input[str] monitoring_schedule_status: The status of a schedule job.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitoringScheduleTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -165,7 +148,7 @@ class MonitoringSchedule(pulumi.CustomResource):
                  args: MonitoringScheduleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html
+        Resource Type definition for AWS::SageMaker::MonitoringSchedule
 
         :param str resource_name: The name of the resource.
         :param MonitoringScheduleArgs args: The arguments to use to populate this resource's properties.
@@ -188,7 +171,7 @@ class MonitoringSchedule(pulumi.CustomResource):
                  monitoring_schedule_config: Optional[pulumi.Input[pulumi.InputType['MonitoringScheduleMonitoringScheduleConfigArgs']]] = None,
                  monitoring_schedule_name: Optional[pulumi.Input[str]] = None,
                  monitoring_schedule_status: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitoringScheduleTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -252,71 +235,71 @@ class MonitoringSchedule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        The time at which the schedule was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
-        """
         return pulumi.get(self, "endpoint_name")
 
     @property
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
+        Contains the reason a monitoring job failed, if it failed.
         """
         return pulumi.get(self, "failure_reason")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
+        """
+        A timestamp that indicates the last time the monitoring job was modified.
+        """
         return pulumi.get(self, "last_modified_time")
 
     @property
     @pulumi.getter(name="lastMonitoringExecutionSummary")
     def last_monitoring_execution_summary(self) -> pulumi.Output[Optional['outputs.MonitoringScheduleMonitoringExecutionSummary']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
+        Describes metadata on the last execution to run, if there was one.
         """
         return pulumi.get(self, "last_monitoring_execution_summary")
 
     @property
     @pulumi.getter(name="monitoringScheduleArn")
     def monitoring_schedule_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the monitoring schedule.
+        """
         return pulumi.get(self, "monitoring_schedule_arn")
 
     @property
     @pulumi.getter(name="monitoringScheduleConfig")
     def monitoring_schedule_config(self) -> pulumi.Output['outputs.MonitoringScheduleMonitoringScheduleConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
-        """
         return pulumi.get(self, "monitoring_schedule_config")
 
     @property
     @pulumi.getter(name="monitoringScheduleName")
     def monitoring_schedule_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
-        """
         return pulumi.get(self, "monitoring_schedule_name")
 
     @property
     @pulumi.getter(name="monitoringScheduleStatus")
     def monitoring_schedule_status(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
+        The status of a schedule job.
         """
         return pulumi.get(self, "monitoring_schedule_status")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MonitoringScheduleTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 

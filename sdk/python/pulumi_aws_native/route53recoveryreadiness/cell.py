@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['CellArgs', 'Cell']
 
@@ -17,12 +17,12 @@ class CellArgs:
     def __init__(__self__, *,
                  cell_name: pulumi.Input[str],
                  cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['CellTagArgs']]]] = None):
         """
         The set of arguments for constructing a Cell resource.
-        :param pulumi.Input[str] cell_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cellname
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cells
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-tags
+        :param pulumi.Input[str] cell_name: The name of the cell to create.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
+        :param pulumi.Input[Sequence[pulumi.Input['CellTagArgs']]] tags: A collection of tags associated with a resource
         """
         pulumi.set(__self__, "cell_name", cell_name)
         if cells is not None:
@@ -34,7 +34,7 @@ class CellArgs:
     @pulumi.getter(name="cellName")
     def cell_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cellname
+        The name of the cell to create.
         """
         return pulumi.get(self, "cell_name")
 
@@ -46,7 +46,7 @@ class CellArgs:
     @pulumi.getter
     def cells(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cells
+        A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
         """
         return pulumi.get(self, "cells")
 
@@ -56,14 +56,14 @@ class CellArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CellTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-tags
+        A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CellTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -74,16 +74,16 @@ class Cell(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cell_name: Optional[pulumi.Input[str]] = None,
                  cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CellTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html
+        The API Schema for AWS Route53 Recovery Readiness Cells.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cell_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cellname
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cells
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-tags
+        :param pulumi.Input[str] cell_name: The name of the cell to create.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CellTagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -92,7 +92,7 @@ class Cell(pulumi.CustomResource):
                  args: CellArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html
+        The API Schema for AWS Route53 Recovery Readiness Cells.
 
         :param str resource_name: The name of the resource.
         :param CellArgs args: The arguments to use to populate this resource's properties.
@@ -111,7 +111,7 @@ class Cell(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cell_name: Optional[pulumi.Input[str]] = None,
                  cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CellTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -163,13 +163,16 @@ class Cell(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cellArn")
     def cell_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the cell.
+        """
         return pulumi.get(self, "cell_arn")
 
     @property
     @pulumi.getter(name="cellName")
     def cell_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cellname
+        The name of the cell to create.
         """
         return pulumi.get(self, "cell_name")
 
@@ -177,20 +180,23 @@ class Cell(pulumi.CustomResource):
     @pulumi.getter
     def cells(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cells
+        A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
         """
         return pulumi.get(self, "cells")
 
     @property
     @pulumi.getter(name="parentReadinessScopes")
     def parent_readiness_scopes(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.
+        """
         return pulumi.get(self, "parent_readiness_scopes")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.CellTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-tags
+        A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 

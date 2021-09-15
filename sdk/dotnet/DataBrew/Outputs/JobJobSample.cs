@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html
+    /// Job Sample
     /// </summary>
     [OutputType]
     public sealed class JobJobSample
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-mode
-        /// </summary>
         public readonly string? Mode;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-size
-        /// </summary>
         public readonly int? Size;
 
         [OutputConstructor]

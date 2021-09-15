@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html
+ * Resource schema for AWS::MediaPackage::Channel
  */
 export class Channel extends pulumi.CustomResource {
     /**
@@ -35,27 +35,30 @@ export class Channel extends pulumi.CustomResource {
         return obj['__pulumiType'] === Channel.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) assigned to the Channel.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
+     * A short text description of the Channel.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+     * The configuration parameters for egress access logging.
      */
     public readonly egressAccessLogs!: pulumi.Output<outputs.mediapackage.ChannelLogConfiguration | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
+     * A short text description of the Channel.
      */
-    public readonly id!: pulumi.Output<string>;
+    public /*out*/ readonly hlsIngest!: pulumi.Output<outputs.mediapackage.ChannelHlsIngest>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+     * The configuration parameters for egress access logging.
      */
     public readonly ingressAccessLogs!: pulumi.Output<outputs.mediapackage.ChannelLogConfiguration | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
+     * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.mediapackage.ChannelTag[] | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -64,24 +67,21 @@ export class Channel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.id === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'id'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["egressAccessLogs"] = args ? args.egressAccessLogs : undefined;
-            inputs["id"] = args ? args.id : undefined;
             inputs["ingressAccessLogs"] = args ? args.ingressAccessLogs : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["hlsIngest"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["egressAccessLogs"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
+            inputs["hlsIngest"] = undefined /*out*/;
             inputs["ingressAccessLogs"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
@@ -97,23 +97,19 @@ export class Channel extends pulumi.CustomResource {
  */
 export interface ChannelArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
+     * A short text description of the Channel.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+     * The configuration parameters for egress access logging.
      */
     egressAccessLogs?: pulumi.Input<inputs.mediapackage.ChannelLogConfigurationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
-     */
-    id: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+     * The configuration parameters for egress access logging.
      */
     ingressAccessLogs?: pulumi.Input<inputs.mediapackage.ChannelLogConfigurationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
+     * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.mediapackage.ChannelTagArgs>[]>;
 }

@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ApplicationArgs', 'Application']
 
@@ -18,13 +18,13 @@ class ApplicationArgs:
                  application_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  application_description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[str] application_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationname
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-rolearn
-        :param pulumi.Input[str] application_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationdescription
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-tags
+        :param pulumi.Input[str] application_name: Application Name, should be between 1 and 256 characters.
+        :param pulumi.Input[str] role_arn: The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
+        :param pulumi.Input[str] application_description: Application Description, should be between 1 and 2048 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]] tags: A list of key-value pairs that contain metadata for the application.
         """
         pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -37,7 +37,7 @@ class ApplicationArgs:
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationname
+        Application Name, should be between 1 and 256 characters.
         """
         return pulumi.get(self, "application_name")
 
@@ -49,7 +49,7 @@ class ApplicationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-rolearn
+        The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
         """
         return pulumi.get(self, "role_arn")
 
@@ -61,7 +61,7 @@ class ApplicationArgs:
     @pulumi.getter(name="applicationDescription")
     def application_description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationdescription
+        Application Description, should be between 1 and 2048 characters.
         """
         return pulumi.get(self, "application_description")
 
@@ -71,14 +71,14 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-tags
+        A list of key-value pairs that contain metadata for the application.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -90,17 +90,17 @@ class Application(pulumi.CustomResource):
                  application_description: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html
+        Resource schema for AWS::IoTFleetHub::Application
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationdescription
-        :param pulumi.Input[str] application_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationname
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-tags
+        :param pulumi.Input[str] application_description: Application Description, should be between 1 and 2048 characters.
+        :param pulumi.Input[str] application_name: Application Name, should be between 1 and 256 characters.
+        :param pulumi.Input[str] role_arn: The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]] tags: A list of key-value pairs that contain metadata for the application.
         """
         ...
     @overload
@@ -109,7 +109,7 @@ class Application(pulumi.CustomResource):
                  args: ApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html
+        Resource schema for AWS::IoTFleetHub::Application
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -129,7 +129,7 @@ class Application(pulumi.CustomResource):
                  application_description: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -197,72 +197,96 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the application.
+        """
         return pulumi.get(self, "application_arn")
 
     @property
     @pulumi.getter(name="applicationCreationDate")
     def application_creation_date(self) -> pulumi.Output[int]:
+        """
+        When the Application was created
+        """
         return pulumi.get(self, "application_creation_date")
 
     @property
     @pulumi.getter(name="applicationDescription")
     def application_description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationdescription
+        Application Description, should be between 1 and 2048 characters.
         """
         return pulumi.get(self, "application_description")
 
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the application.
+        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter(name="applicationLastUpdateDate")
     def application_last_update_date(self) -> pulumi.Output[int]:
+        """
+        When the Application was last updated
+        """
         return pulumi.get(self, "application_last_update_date")
 
     @property
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationname
+        Application Name, should be between 1 and 256 characters.
         """
         return pulumi.get(self, "application_name")
 
     @property
     @pulumi.getter(name="applicationState")
     def application_state(self) -> pulumi.Output[str]:
+        """
+        The current state of the application.
+        """
         return pulumi.get(self, "application_state")
 
     @property
     @pulumi.getter(name="applicationUrl")
     def application_url(self) -> pulumi.Output[str]:
+        """
+        The URL of the application.
+        """
         return pulumi.get(self, "application_url")
 
     @property
     @pulumi.getter(name="errorMessage")
     def error_message(self) -> pulumi.Output[str]:
+        """
+        A message indicating why Create or Delete Application failed.
+        """
         return pulumi.get(self, "error_message")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-rolearn
+        The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
         """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="ssoClientId")
     def sso_client_id(self) -> pulumi.Output[str]:
+        """
+        The AWS SSO application generated client ID (used with AWS SSO APIs).
+        """
         return pulumi.get(self, "sso_client_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-tags
+        A list of key-value pairs that contain metadata for the application.
         """
         return pulumi.get(self, "tags")
 

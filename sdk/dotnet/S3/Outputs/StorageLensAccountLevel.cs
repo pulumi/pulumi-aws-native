@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html
+    /// Account-level metrics configurations.
     /// </summary>
     [OutputType]
     public sealed class StorageLensAccountLevel
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
-        /// </summary>
         public readonly Outputs.StorageLensActivityMetrics? ActivityMetrics;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
-        /// </summary>
         public readonly Outputs.StorageLensBucketLevel BucketLevel;
 
         [OutputConstructor]

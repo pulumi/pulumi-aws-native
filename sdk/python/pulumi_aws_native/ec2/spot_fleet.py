@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['SpotFleetArgs', 'SpotFleet']
@@ -20,16 +18,12 @@ class SpotFleetArgs:
                  spot_fleet_request_config_data: pulumi.Input['SpotFleetSpotFleetRequestConfigDataArgs']):
         """
         The set of arguments for constructing a SpotFleet resource.
-        :param pulumi.Input['SpotFleetSpotFleetRequestConfigDataArgs'] spot_fleet_request_config_data: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
         """
         pulumi.set(__self__, "spot_fleet_request_config_data", spot_fleet_request_config_data)
 
     @property
     @pulumi.getter(name="spotFleetRequestConfigData")
     def spot_fleet_request_config_data(self) -> pulumi.Input['SpotFleetSpotFleetRequestConfigDataArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
-        """
         return pulumi.get(self, "spot_fleet_request_config_data")
 
     @spot_fleet_request_config_data.setter
@@ -45,11 +39,10 @@ class SpotFleet(pulumi.CustomResource):
                  spot_fleet_request_config_data: Optional[pulumi.Input[pulumi.InputType['SpotFleetSpotFleetRequestConfigDataArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html
+        Resource Type definition for AWS::EC2::SpotFleet
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SpotFleetSpotFleetRequestConfigDataArgs']] spot_fleet_request_config_data: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
         """
         ...
     @overload
@@ -58,7 +51,7 @@ class SpotFleet(pulumi.CustomResource):
                  args: SpotFleetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html
+        Resource Type definition for AWS::EC2::SpotFleet
 
         :param str resource_name: The name of the resource.
         :param SpotFleetArgs args: The arguments to use to populate this resource's properties.
@@ -91,7 +84,6 @@ class SpotFleet(pulumi.CustomResource):
             if spot_fleet_request_config_data is None and not opts.urn:
                 raise TypeError("Missing required property 'spot_fleet_request_config_data'")
             __props__.__dict__["spot_fleet_request_config_data"] = spot_fleet_request_config_data
-            __props__.__dict__["id"] = None
         super(SpotFleet, __self__).__init__(
             'aws-native:ec2:SpotFleet',
             resource_name,
@@ -114,20 +106,11 @@ class SpotFleet(pulumi.CustomResource):
 
         __props__ = SpotFleetArgs.__new__(SpotFleetArgs)
 
-        __props__.__dict__["id"] = None
         __props__.__dict__["spot_fleet_request_config_data"] = None
         return SpotFleet(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="spotFleetRequestConfigData")
     def spot_fleet_request_config_data(self) -> pulumi.Output['outputs.SpotFleetSpotFleetRequestConfigData']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
-        """
         return pulumi.get(self, "spot_fleet_request_config_data")
 

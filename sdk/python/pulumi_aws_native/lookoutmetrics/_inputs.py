@@ -33,11 +33,6 @@ class AlertActionArgs:
     def __init__(__self__, *,
                  lambda_configuration: Optional[pulumi.Input['AlertLambdaConfigurationArgs']] = None,
                  s_ns_configuration: Optional[pulumi.Input['AlertSNSConfigurationArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html
-        :param pulumi.Input['AlertLambdaConfigurationArgs'] lambda_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-lambdaconfiguration
-        :param pulumi.Input['AlertSNSConfigurationArgs'] s_ns_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-snsconfiguration
-        """
         if lambda_configuration is not None:
             pulumi.set(__self__, "lambda_configuration", lambda_configuration)
         if s_ns_configuration is not None:
@@ -46,9 +41,6 @@ class AlertActionArgs:
     @property
     @pulumi.getter(name="lambdaConfiguration")
     def lambda_configuration(self) -> Optional[pulumi.Input['AlertLambdaConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-lambdaconfiguration
-        """
         return pulumi.get(self, "lambda_configuration")
 
     @lambda_configuration.setter
@@ -58,9 +50,6 @@ class AlertActionArgs:
     @property
     @pulumi.getter(name="sNSConfiguration")
     def s_ns_configuration(self) -> Optional[pulumi.Input['AlertSNSConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-snsconfiguration
-        """
         return pulumi.get(self, "s_ns_configuration")
 
     @s_ns_configuration.setter
@@ -74,9 +63,9 @@ class AlertLambdaConfigurationArgs:
                  lambda_arn: pulumi.Input[str],
                  role_arn: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html
-        :param pulumi.Input[str] lambda_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-lambdaarn
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-rolearn
+        Configuration options for a Lambda alert action.
+        :param pulumi.Input[str] lambda_arn: ARN of a Lambda to send alert notifications to.
+        :param pulumi.Input[str] role_arn: ARN of an IAM role that LookoutMetrics should assume to access the Lambda function.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -85,7 +74,7 @@ class AlertLambdaConfigurationArgs:
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-lambdaarn
+        ARN of a Lambda to send alert notifications to.
         """
         return pulumi.get(self, "lambda_arn")
 
@@ -97,7 +86,7 @@ class AlertLambdaConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-rolearn
+        ARN of an IAM role that LookoutMetrics should assume to access the Lambda function.
         """
         return pulumi.get(self, "role_arn")
 
@@ -112,9 +101,9 @@ class AlertSNSConfigurationArgs:
                  role_arn: pulumi.Input[str],
                  sns_topic_arn: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-rolearn
-        :param pulumi.Input[str] sns_topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-snstopicarn
+        Configuration options for an SNS alert action.
+        :param pulumi.Input[str] role_arn: ARN of an IAM role that LookoutMetrics should assume to access the SNS topic.
+        :param pulumi.Input[str] sns_topic_arn: ARN of an SNS topic to send alert notifications to.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
@@ -123,7 +112,7 @@ class AlertSNSConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-rolearn
+        ARN of an IAM role that LookoutMetrics should assume to access the SNS topic.
         """
         return pulumi.get(self, "role_arn")
 
@@ -135,7 +124,7 @@ class AlertSNSConfigurationArgs:
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-snstopicarn
+        ARN of an SNS topic to send alert notifications to.
         """
         return pulumi.get(self, "sns_topic_arn")
 
@@ -149,8 +138,7 @@ class AnomalyDetectorAnomalyDetectorConfigArgs:
     def __init__(__self__, *,
                  anomaly_detector_frequency: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html
-        :param pulumi.Input[str] anomaly_detector_frequency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig-anomalydetectorfrequency
+        :param pulumi.Input[str] anomaly_detector_frequency: Frequency of anomaly detection
         """
         pulumi.set(__self__, "anomaly_detector_frequency", anomaly_detector_frequency)
 
@@ -158,7 +146,7 @@ class AnomalyDetectorAnomalyDetectorConfigArgs:
     @pulumi.getter(name="anomalyDetectorFrequency")
     def anomaly_detector_frequency(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig-anomalydetectorfrequency
+        Frequency of anomaly detection
         """
         return pulumi.get(self, "anomaly_detector_frequency")
 
@@ -172,20 +160,12 @@ class AnomalyDetectorAppFlowConfigArgs:
     def __init__(__self__, *,
                  flow_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html
-        :param pulumi.Input[str] flow_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html#cfn-lookoutmetrics-anomalydetector-appflowconfig-flowname
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html#cfn-lookoutmetrics-anomalydetector-appflowconfig-rolearn
-        """
         pulumi.set(__self__, "flow_name", flow_name)
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="flowName")
     def flow_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html#cfn-lookoutmetrics-anomalydetector-appflowconfig-flowname
-        """
         return pulumi.get(self, "flow_name")
 
     @flow_name.setter
@@ -195,9 +175,6 @@ class AnomalyDetectorAppFlowConfigArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html#cfn-lookoutmetrics-anomalydetector-appflowconfig-rolearn
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -209,18 +186,11 @@ class AnomalyDetectorAppFlowConfigArgs:
 class AnomalyDetectorCloudwatchConfigArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html#cfn-lookoutmetrics-anomalydetector-cloudwatchconfig-rolearn
-        """
         pulumi.set(__self__, "role_arn", role_arn)
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html#cfn-lookoutmetrics-anomalydetector-cloudwatchconfig-rolearn
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -237,15 +207,6 @@ class AnomalyDetectorCsvFormatDescriptorArgs:
                  file_compression: Optional[pulumi.Input[str]] = None,
                  header_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  quote_symbol: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html
-        :param pulumi.Input[str] charset: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-charset
-        :param pulumi.Input[bool] contains_header: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-containsheader
-        :param pulumi.Input[str] delimiter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-delimiter
-        :param pulumi.Input[str] file_compression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-filecompression
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] header_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-headerlist
-        :param pulumi.Input[str] quote_symbol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-quotesymbol
-        """
         if charset is not None:
             pulumi.set(__self__, "charset", charset)
         if contains_header is not None:
@@ -262,9 +223,6 @@ class AnomalyDetectorCsvFormatDescriptorArgs:
     @property
     @pulumi.getter
     def charset(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-charset
-        """
         return pulumi.get(self, "charset")
 
     @charset.setter
@@ -274,9 +232,6 @@ class AnomalyDetectorCsvFormatDescriptorArgs:
     @property
     @pulumi.getter(name="containsHeader")
     def contains_header(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-containsheader
-        """
         return pulumi.get(self, "contains_header")
 
     @contains_header.setter
@@ -286,9 +241,6 @@ class AnomalyDetectorCsvFormatDescriptorArgs:
     @property
     @pulumi.getter
     def delimiter(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-delimiter
-        """
         return pulumi.get(self, "delimiter")
 
     @delimiter.setter
@@ -298,9 +250,6 @@ class AnomalyDetectorCsvFormatDescriptorArgs:
     @property
     @pulumi.getter(name="fileCompression")
     def file_compression(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-filecompression
-        """
         return pulumi.get(self, "file_compression")
 
     @file_compression.setter
@@ -310,9 +259,6 @@ class AnomalyDetectorCsvFormatDescriptorArgs:
     @property
     @pulumi.getter(name="headerList")
     def header_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-headerlist
-        """
         return pulumi.get(self, "header_list")
 
     @header_list.setter
@@ -322,9 +268,6 @@ class AnomalyDetectorCsvFormatDescriptorArgs:
     @property
     @pulumi.getter(name="quoteSymbol")
     def quote_symbol(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-quotesymbol
-        """
         return pulumi.get(self, "quote_symbol")
 
     @quote_symbol.setter
@@ -337,11 +280,6 @@ class AnomalyDetectorFileFormatDescriptorArgs:
     def __init__(__self__, *,
                  csv_format_descriptor: Optional[pulumi.Input['AnomalyDetectorCsvFormatDescriptorArgs']] = None,
                  json_format_descriptor: Optional[pulumi.Input['AnomalyDetectorJsonFormatDescriptorArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html
-        :param pulumi.Input['AnomalyDetectorCsvFormatDescriptorArgs'] csv_format_descriptor: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-csvformatdescriptor
-        :param pulumi.Input['AnomalyDetectorJsonFormatDescriptorArgs'] json_format_descriptor: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-jsonformatdescriptor
-        """
         if csv_format_descriptor is not None:
             pulumi.set(__self__, "csv_format_descriptor", csv_format_descriptor)
         if json_format_descriptor is not None:
@@ -350,9 +288,6 @@ class AnomalyDetectorFileFormatDescriptorArgs:
     @property
     @pulumi.getter(name="csvFormatDescriptor")
     def csv_format_descriptor(self) -> Optional[pulumi.Input['AnomalyDetectorCsvFormatDescriptorArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-csvformatdescriptor
-        """
         return pulumi.get(self, "csv_format_descriptor")
 
     @csv_format_descriptor.setter
@@ -362,9 +297,6 @@ class AnomalyDetectorFileFormatDescriptorArgs:
     @property
     @pulumi.getter(name="jsonFormatDescriptor")
     def json_format_descriptor(self) -> Optional[pulumi.Input['AnomalyDetectorJsonFormatDescriptorArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-jsonformatdescriptor
-        """
         return pulumi.get(self, "json_format_descriptor")
 
     @json_format_descriptor.setter
@@ -377,11 +309,6 @@ class AnomalyDetectorJsonFormatDescriptorArgs:
     def __init__(__self__, *,
                  charset: Optional[pulumi.Input[str]] = None,
                  file_compression: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html
-        :param pulumi.Input[str] charset: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-charset
-        :param pulumi.Input[str] file_compression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-filecompression
-        """
         if charset is not None:
             pulumi.set(__self__, "charset", charset)
         if file_compression is not None:
@@ -390,9 +317,6 @@ class AnomalyDetectorJsonFormatDescriptorArgs:
     @property
     @pulumi.getter
     def charset(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-charset
-        """
         return pulumi.get(self, "charset")
 
     @charset.setter
@@ -402,9 +326,6 @@ class AnomalyDetectorJsonFormatDescriptorArgs:
     @property
     @pulumi.getter(name="fileCompression")
     def file_compression(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-filecompression
-        """
         return pulumi.get(self, "file_compression")
 
     @file_compression.setter
@@ -425,16 +346,12 @@ class AnomalyDetectorMetricSetArgs:
                  timestamp_column: Optional[pulumi.Input['AnomalyDetectorTimestampColumnArgs']] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html
-        :param pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorMetricArgs']]] metric_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metriclist
-        :param pulumi.Input[str] metric_set_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetname
-        :param pulumi.Input['AnomalyDetectorMetricSourceArgs'] metric_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsource
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dimension_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-dimensionlist
-        :param pulumi.Input[str] metric_set_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetdescription
-        :param pulumi.Input[str] metric_set_frequency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetfrequency
-        :param pulumi.Input[int] offset: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-offset
-        :param pulumi.Input['AnomalyDetectorTimestampColumnArgs'] timestamp_column: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-timestampcolumn
-        :param pulumi.Input[str] timezone: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-timezone
+        :param pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorMetricArgs']]] metric_list: Metrics captured by this MetricSet.
+        :param pulumi.Input[str] metric_set_name: The name of the MetricSet.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dimension_list: Dimensions for this MetricSet.
+        :param pulumi.Input[str] metric_set_description: A description for the MetricSet.
+        :param pulumi.Input[str] metric_set_frequency: A frequency period to aggregate the data
+        :param pulumi.Input[int] offset: Offset, in seconds, between the frequency interval and the time at which the metrics are available.
         """
         pulumi.set(__self__, "metric_list", metric_list)
         pulumi.set(__self__, "metric_set_name", metric_set_name)
@@ -456,7 +373,7 @@ class AnomalyDetectorMetricSetArgs:
     @pulumi.getter(name="metricList")
     def metric_list(self) -> pulumi.Input[Sequence[pulumi.Input['AnomalyDetectorMetricArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metriclist
+        Metrics captured by this MetricSet.
         """
         return pulumi.get(self, "metric_list")
 
@@ -468,7 +385,7 @@ class AnomalyDetectorMetricSetArgs:
     @pulumi.getter(name="metricSetName")
     def metric_set_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetname
+        The name of the MetricSet.
         """
         return pulumi.get(self, "metric_set_name")
 
@@ -479,9 +396,6 @@ class AnomalyDetectorMetricSetArgs:
     @property
     @pulumi.getter(name="metricSource")
     def metric_source(self) -> pulumi.Input['AnomalyDetectorMetricSourceArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsource
-        """
         return pulumi.get(self, "metric_source")
 
     @metric_source.setter
@@ -492,7 +406,7 @@ class AnomalyDetectorMetricSetArgs:
     @pulumi.getter(name="dimensionList")
     def dimension_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-dimensionlist
+        Dimensions for this MetricSet.
         """
         return pulumi.get(self, "dimension_list")
 
@@ -504,7 +418,7 @@ class AnomalyDetectorMetricSetArgs:
     @pulumi.getter(name="metricSetDescription")
     def metric_set_description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetdescription
+        A description for the MetricSet.
         """
         return pulumi.get(self, "metric_set_description")
 
@@ -516,7 +430,7 @@ class AnomalyDetectorMetricSetArgs:
     @pulumi.getter(name="metricSetFrequency")
     def metric_set_frequency(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetfrequency
+        A frequency period to aggregate the data
         """
         return pulumi.get(self, "metric_set_frequency")
 
@@ -528,7 +442,7 @@ class AnomalyDetectorMetricSetArgs:
     @pulumi.getter
     def offset(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-offset
+        Offset, in seconds, between the frequency interval and the time at which the metrics are available.
         """
         return pulumi.get(self, "offset")
 
@@ -539,9 +453,6 @@ class AnomalyDetectorMetricSetArgs:
     @property
     @pulumi.getter(name="timestampColumn")
     def timestamp_column(self) -> Optional[pulumi.Input['AnomalyDetectorTimestampColumnArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-timestampcolumn
-        """
         return pulumi.get(self, "timestamp_column")
 
     @timestamp_column.setter
@@ -551,9 +462,6 @@ class AnomalyDetectorMetricSetArgs:
     @property
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-timezone
-        """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
@@ -569,14 +477,6 @@ class AnomalyDetectorMetricSourceArgs:
                  r_ds_source_config: Optional[pulumi.Input['AnomalyDetectorRDSSourceConfigArgs']] = None,
                  redshift_source_config: Optional[pulumi.Input['AnomalyDetectorRedshiftSourceConfigArgs']] = None,
                  s3_source_config: Optional[pulumi.Input['AnomalyDetectorS3SourceConfigArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html
-        :param pulumi.Input['AnomalyDetectorAppFlowConfigArgs'] app_flow_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-appflowconfig
-        :param pulumi.Input['AnomalyDetectorCloudwatchConfigArgs'] cloudwatch_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-cloudwatchconfig
-        :param pulumi.Input['AnomalyDetectorRDSSourceConfigArgs'] r_ds_source_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-rdssourceconfig
-        :param pulumi.Input['AnomalyDetectorRedshiftSourceConfigArgs'] redshift_source_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-redshiftsourceconfig
-        :param pulumi.Input['AnomalyDetectorS3SourceConfigArgs'] s3_source_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-s3sourceconfig
-        """
         if app_flow_config is not None:
             pulumi.set(__self__, "app_flow_config", app_flow_config)
         if cloudwatch_config is not None:
@@ -591,9 +491,6 @@ class AnomalyDetectorMetricSourceArgs:
     @property
     @pulumi.getter(name="appFlowConfig")
     def app_flow_config(self) -> Optional[pulumi.Input['AnomalyDetectorAppFlowConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-appflowconfig
-        """
         return pulumi.get(self, "app_flow_config")
 
     @app_flow_config.setter
@@ -603,9 +500,6 @@ class AnomalyDetectorMetricSourceArgs:
     @property
     @pulumi.getter(name="cloudwatchConfig")
     def cloudwatch_config(self) -> Optional[pulumi.Input['AnomalyDetectorCloudwatchConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-cloudwatchconfig
-        """
         return pulumi.get(self, "cloudwatch_config")
 
     @cloudwatch_config.setter
@@ -615,9 +509,6 @@ class AnomalyDetectorMetricSourceArgs:
     @property
     @pulumi.getter(name="rDSSourceConfig")
     def r_ds_source_config(self) -> Optional[pulumi.Input['AnomalyDetectorRDSSourceConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-rdssourceconfig
-        """
         return pulumi.get(self, "r_ds_source_config")
 
     @r_ds_source_config.setter
@@ -627,9 +518,6 @@ class AnomalyDetectorMetricSourceArgs:
     @property
     @pulumi.getter(name="redshiftSourceConfig")
     def redshift_source_config(self) -> Optional[pulumi.Input['AnomalyDetectorRedshiftSourceConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-redshiftsourceconfig
-        """
         return pulumi.get(self, "redshift_source_config")
 
     @redshift_source_config.setter
@@ -639,9 +527,6 @@ class AnomalyDetectorMetricSourceArgs:
     @property
     @pulumi.getter(name="s3SourceConfig")
     def s3_source_config(self) -> Optional[pulumi.Input['AnomalyDetectorS3SourceConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-s3sourceconfig
-        """
         return pulumi.get(self, "s3_source_config")
 
     @s3_source_config.setter
@@ -656,10 +541,7 @@ class AnomalyDetectorMetricArgs:
                  metric_name: pulumi.Input[str],
                  namespace: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html
-        :param pulumi.Input[str] aggregation_function: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-aggregationfunction
-        :param pulumi.Input[str] metric_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-metricname
-        :param pulumi.Input[str] namespace: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-namespace
+        :param pulumi.Input[str] aggregation_function: Operator used to aggregate metric values
         """
         pulumi.set(__self__, "aggregation_function", aggregation_function)
         pulumi.set(__self__, "metric_name", metric_name)
@@ -670,7 +552,7 @@ class AnomalyDetectorMetricArgs:
     @pulumi.getter(name="aggregationFunction")
     def aggregation_function(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-aggregationfunction
+        Operator used to aggregate metric values
         """
         return pulumi.get(self, "aggregation_function")
 
@@ -681,9 +563,6 @@ class AnomalyDetectorMetricArgs:
     @property
     @pulumi.getter(name="metricName")
     def metric_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-metricname
-        """
         return pulumi.get(self, "metric_name")
 
     @metric_name.setter
@@ -693,9 +572,6 @@ class AnomalyDetectorMetricArgs:
     @property
     @pulumi.getter
     def namespace(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-namespace
-        """
         return pulumi.get(self, "namespace")
 
     @namespace.setter
@@ -714,17 +590,6 @@ class AnomalyDetectorRDSSourceConfigArgs:
                  secret_manager_arn: pulumi.Input[str],
                  table_name: pulumi.Input[str],
                  vpc_configuration: pulumi.Input['AnomalyDetectorVpcConfigurationArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html
-        :param pulumi.Input[str] d_b_instance_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-dbinstanceidentifier
-        :param pulumi.Input[str] database_host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databasehost
-        :param pulumi.Input[str] database_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databasename
-        :param pulumi.Input[int] database_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databaseport
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-rolearn
-        :param pulumi.Input[str] secret_manager_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-secretmanagerarn
-        :param pulumi.Input[str] table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-tablename
-        :param pulumi.Input['AnomalyDetectorVpcConfigurationArgs'] vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-vpcconfiguration
-        """
         pulumi.set(__self__, "d_b_instance_identifier", d_b_instance_identifier)
         pulumi.set(__self__, "database_host", database_host)
         pulumi.set(__self__, "database_name", database_name)
@@ -737,9 +602,6 @@ class AnomalyDetectorRDSSourceConfigArgs:
     @property
     @pulumi.getter(name="dBInstanceIdentifier")
     def d_b_instance_identifier(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-dbinstanceidentifier
-        """
         return pulumi.get(self, "d_b_instance_identifier")
 
     @d_b_instance_identifier.setter
@@ -749,9 +611,6 @@ class AnomalyDetectorRDSSourceConfigArgs:
     @property
     @pulumi.getter(name="databaseHost")
     def database_host(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databasehost
-        """
         return pulumi.get(self, "database_host")
 
     @database_host.setter
@@ -761,9 +620,6 @@ class AnomalyDetectorRDSSourceConfigArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databasename
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -773,9 +629,6 @@ class AnomalyDetectorRDSSourceConfigArgs:
     @property
     @pulumi.getter(name="databasePort")
     def database_port(self) -> pulumi.Input[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databaseport
-        """
         return pulumi.get(self, "database_port")
 
     @database_port.setter
@@ -785,9 +638,6 @@ class AnomalyDetectorRDSSourceConfigArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-rolearn
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -797,9 +647,6 @@ class AnomalyDetectorRDSSourceConfigArgs:
     @property
     @pulumi.getter(name="secretManagerArn")
     def secret_manager_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-secretmanagerarn
-        """
         return pulumi.get(self, "secret_manager_arn")
 
     @secret_manager_arn.setter
@@ -809,9 +656,6 @@ class AnomalyDetectorRDSSourceConfigArgs:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-tablename
-        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -821,9 +665,6 @@ class AnomalyDetectorRDSSourceConfigArgs:
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Input['AnomalyDetectorVpcConfigurationArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-vpcconfiguration
-        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -842,17 +683,6 @@ class AnomalyDetectorRedshiftSourceConfigArgs:
                  secret_manager_arn: pulumi.Input[str],
                  table_name: pulumi.Input[str],
                  vpc_configuration: pulumi.Input['AnomalyDetectorVpcConfigurationArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html
-        :param pulumi.Input[str] cluster_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-clusteridentifier
-        :param pulumi.Input[str] database_host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databasehost
-        :param pulumi.Input[str] database_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databasename
-        :param pulumi.Input[int] database_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databaseport
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-rolearn
-        :param pulumi.Input[str] secret_manager_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-secretmanagerarn
-        :param pulumi.Input[str] table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-tablename
-        :param pulumi.Input['AnomalyDetectorVpcConfigurationArgs'] vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-vpcconfiguration
-        """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "database_host", database_host)
         pulumi.set(__self__, "database_name", database_name)
@@ -865,9 +695,6 @@ class AnomalyDetectorRedshiftSourceConfigArgs:
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-clusteridentifier
-        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -877,9 +704,6 @@ class AnomalyDetectorRedshiftSourceConfigArgs:
     @property
     @pulumi.getter(name="databaseHost")
     def database_host(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databasehost
-        """
         return pulumi.get(self, "database_host")
 
     @database_host.setter
@@ -889,9 +713,6 @@ class AnomalyDetectorRedshiftSourceConfigArgs:
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databasename
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -901,9 +722,6 @@ class AnomalyDetectorRedshiftSourceConfigArgs:
     @property
     @pulumi.getter(name="databasePort")
     def database_port(self) -> pulumi.Input[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databaseport
-        """
         return pulumi.get(self, "database_port")
 
     @database_port.setter
@@ -913,9 +731,6 @@ class AnomalyDetectorRedshiftSourceConfigArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-rolearn
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -925,9 +740,6 @@ class AnomalyDetectorRedshiftSourceConfigArgs:
     @property
     @pulumi.getter(name="secretManagerArn")
     def secret_manager_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-secretmanagerarn
-        """
         return pulumi.get(self, "secret_manager_arn")
 
     @secret_manager_arn.setter
@@ -937,9 +749,6 @@ class AnomalyDetectorRedshiftSourceConfigArgs:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-tablename
-        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -949,9 +758,6 @@ class AnomalyDetectorRedshiftSourceConfigArgs:
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Input['AnomalyDetectorVpcConfigurationArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-vpcconfiguration
-        """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
@@ -966,13 +772,6 @@ class AnomalyDetectorS3SourceConfigArgs:
                  role_arn: pulumi.Input[str],
                  historical_data_path_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  templated_path_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html
-        :param pulumi.Input['AnomalyDetectorFileFormatDescriptorArgs'] file_format_descriptor: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-fileformatdescriptor
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] historical_data_path_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-historicaldatapathlist
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] templated_path_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-templatedpathlist
-        """
         pulumi.set(__self__, "file_format_descriptor", file_format_descriptor)
         pulumi.set(__self__, "role_arn", role_arn)
         if historical_data_path_list is not None:
@@ -983,9 +782,6 @@ class AnomalyDetectorS3SourceConfigArgs:
     @property
     @pulumi.getter(name="fileFormatDescriptor")
     def file_format_descriptor(self) -> pulumi.Input['AnomalyDetectorFileFormatDescriptorArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-fileformatdescriptor
-        """
         return pulumi.get(self, "file_format_descriptor")
 
     @file_format_descriptor.setter
@@ -995,9 +791,6 @@ class AnomalyDetectorS3SourceConfigArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-rolearn
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -1007,9 +800,6 @@ class AnomalyDetectorS3SourceConfigArgs:
     @property
     @pulumi.getter(name="historicalDataPathList")
     def historical_data_path_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-historicaldatapathlist
-        """
         return pulumi.get(self, "historical_data_path_list")
 
     @historical_data_path_list.setter
@@ -1019,9 +809,6 @@ class AnomalyDetectorS3SourceConfigArgs:
     @property
     @pulumi.getter(name="templatedPathList")
     def templated_path_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-templatedpathlist
-        """
         return pulumi.get(self, "templated_path_list")
 
     @templated_path_list.setter
@@ -1035,9 +822,7 @@ class AnomalyDetectorTimestampColumnArgs:
                  column_format: Optional[pulumi.Input[str]] = None,
                  column_name: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html
-        :param pulumi.Input[str] column_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnformat
-        :param pulumi.Input[str] column_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnname
+        :param pulumi.Input[str] column_format: A timestamp format for the timestamps in the dataset
         """
         if column_format is not None:
             pulumi.set(__self__, "column_format", column_format)
@@ -1048,7 +833,7 @@ class AnomalyDetectorTimestampColumnArgs:
     @pulumi.getter(name="columnFormat")
     def column_format(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnformat
+        A timestamp format for the timestamps in the dataset
         """
         return pulumi.get(self, "column_format")
 
@@ -1059,9 +844,6 @@ class AnomalyDetectorTimestampColumnArgs:
     @property
     @pulumi.getter(name="columnName")
     def column_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnname
-        """
         return pulumi.get(self, "column_name")
 
     @column_name.setter
@@ -1074,20 +856,12 @@ class AnomalyDetectorVpcConfigurationArgs:
     def __init__(__self__, *,
                  security_group_id_list: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_id_list: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_id_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-securitygroupidlist
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_id_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-subnetidlist
-        """
         pulumi.set(__self__, "security_group_id_list", security_group_id_list)
         pulumi.set(__self__, "subnet_id_list", subnet_id_list)
 
     @property
     @pulumi.getter(name="securityGroupIdList")
     def security_group_id_list(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-securitygroupidlist
-        """
         return pulumi.get(self, "security_group_id_list")
 
     @security_group_id_list.setter
@@ -1097,9 +871,6 @@ class AnomalyDetectorVpcConfigurationArgs:
     @property
     @pulumi.getter(name="subnetIdList")
     def subnet_id_list(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-subnetidlist
-        """
         return pulumi.get(self, "subnet_id_list")
 
     @subnet_id_list.setter

@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.AuditManager.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html
+    /// The destination in which evidence reports are stored for the specified assessment.
     /// </summary>
     [OutputType]
     public sealed class AssessmentAssessmentReportsDestination
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destination
-        /// </summary>
         public readonly string? Destination;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destinationtype
-        /// </summary>
         public readonly string? DestinationType;
 
         [OutputConstructor]

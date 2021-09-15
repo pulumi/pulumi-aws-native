@@ -11,31 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html
+// Resource schema for AWS::NimbleStudio::StudioComponent.
 type StudioComponent struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-configuration
-	Configuration StudioComponentStudioComponentConfigurationPtrOutput `pulumi:"configuration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-ec2securitygroupids
-	Ec2SecurityGroupIds pulumi.StringArrayOutput `pulumi:"ec2SecurityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-initializationscripts
+	Configuration         StudioComponentStudioComponentConfigurationPtrOutput          `pulumi:"configuration"`
+	Description           pulumi.StringPtrOutput                                        `pulumi:"description"`
+	Ec2SecurityGroupIds   pulumi.StringArrayOutput                                      `pulumi:"ec2SecurityGroupIds"`
 	InitializationScripts StudioComponentStudioComponentInitializationScriptArrayOutput `pulumi:"initializationScripts"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-scriptparameters
-	ScriptParameters  StudioComponentScriptParameterKeyValueArrayOutput `pulumi:"scriptParameters"`
-	StudioComponentId pulumi.StringOutput                               `pulumi:"studioComponentId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-studioid
-	StudioId pulumi.StringOutput `pulumi:"studioId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-subtype
-	Subtype pulumi.StringPtrOutput `pulumi:"subtype"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name                  pulumi.StringOutput                                           `pulumi:"name"`
+	ScriptParameters      StudioComponentScriptParameterKeyValueArrayOutput             `pulumi:"scriptParameters"`
+	StudioComponentId     pulumi.StringOutput                                           `pulumi:"studioComponentId"`
+	StudioId              pulumi.StringOutput                                           `pulumi:"studioId"`
+	Subtype               pulumi.StringPtrOutput                                        `pulumi:"subtype"`
+	Tags                  pulumi.AnyOutput                                              `pulumi:"tags"`
+	Type                  pulumi.StringOutput                                           `pulumi:"type"`
 }
 
 // NewStudioComponent registers a new resource with the given unique name, arguments, and options.
@@ -86,50 +76,30 @@ func (StudioComponentState) ElementType() reflect.Type {
 }
 
 type studioComponentArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-configuration
-	Configuration *StudioComponentStudioComponentConfiguration `pulumi:"configuration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-ec2securitygroupids
-	Ec2SecurityGroupIds []string `pulumi:"ec2SecurityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-initializationscripts
+	Configuration         *StudioComponentStudioComponentConfiguration         `pulumi:"configuration"`
+	Description           *string                                              `pulumi:"description"`
+	Ec2SecurityGroupIds   []string                                             `pulumi:"ec2SecurityGroupIds"`
 	InitializationScripts []StudioComponentStudioComponentInitializationScript `pulumi:"initializationScripts"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-scriptparameters
-	ScriptParameters []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-studioid
-	StudioId string `pulumi:"studioId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-subtype
-	Subtype *string `pulumi:"subtype"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-tags
-	Tags map[string]string `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-type
-	Type string `pulumi:"type"`
+	Name                  string                                               `pulumi:"name"`
+	ScriptParameters      []StudioComponentScriptParameterKeyValue             `pulumi:"scriptParameters"`
+	StudioId              string                                               `pulumi:"studioId"`
+	Subtype               *string                                              `pulumi:"subtype"`
+	Tags                  interface{}                                          `pulumi:"tags"`
+	Type                  string                                               `pulumi:"type"`
 }
 
 // The set of arguments for constructing a StudioComponent resource.
 type StudioComponentArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-configuration
-	Configuration StudioComponentStudioComponentConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-ec2securitygroupids
-	Ec2SecurityGroupIds pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-initializationscripts
+	Configuration         StudioComponentStudioComponentConfigurationPtrInput
+	Description           pulumi.StringPtrInput
+	Ec2SecurityGroupIds   pulumi.StringArrayInput
 	InitializationScripts StudioComponentStudioComponentInitializationScriptArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-name
-	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-scriptparameters
-	ScriptParameters StudioComponentScriptParameterKeyValueArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-studioid
-	StudioId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-subtype
-	Subtype pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-tags
-	Tags pulumi.StringMapInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-type
-	Type pulumi.StringInput
+	Name                  pulumi.StringInput
+	ScriptParameters      StudioComponentScriptParameterKeyValueArrayInput
+	StudioId              pulumi.StringInput
+	Subtype               pulumi.StringPtrInput
+	Tags                  pulumi.Input
+	Type                  pulumi.StringInput
 }
 
 func (StudioComponentArgs) ElementType() reflect.Type {

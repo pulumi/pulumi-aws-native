@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html
+    /// The baseline statistics resource for a monitoring job.
     /// </summary>
     public sealed class DataQualityJobDefinitionStatisticsResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-statisticsresource.html#cfn-sagemaker-dataqualityjobdefinition-statisticsresource-s3uri
+        /// The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
         /// </summary>
         [Input("s3Uri")]
         public Input<string>? S3Uri { get; set; }

@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html
+    /// Throughput for the specified table, which consists of values for ReadCapacityUnits and WriteCapacityUnits
     /// </summary>
     [OutputType]
     public sealed class TableProvisionedThroughput
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-readcapacityunits
-        /// </summary>
         public readonly int ReadCapacityUnits;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html#cfn-cassandra-table-provisionedthroughput-writecapacityunits
-        /// </summary>
         public readonly int WriteCapacityUnits;
 
         [OutputConstructor]

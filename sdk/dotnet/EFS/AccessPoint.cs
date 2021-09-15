@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EFS
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html
+    /// Resource Type definition for AWS::EFS::AccessPoint
     /// </summary>
     [AwsNativeResourceType("aws-native:efs:AccessPoint")]
     public partial class AccessPoint : Pulumi.CustomResource
@@ -18,9 +18,6 @@ namespace Pulumi.AwsNative.EFS
         [Output("accessPointId")]
         public Output<string> AccessPointId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
-        /// </summary>
         [Output("accessPointTags")]
         public Output<ImmutableArray<Outputs.AccessPointAccessPointTag>> AccessPointTags { get; private set; } = null!;
 
@@ -28,25 +25,25 @@ namespace Pulumi.AwsNative.EFS
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
+        /// (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
         /// </summary>
         [Output("clientToken")]
         public Output<string?> ClientToken { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
+        /// The ID of the EFS file system that the access point provides access to.
         /// </summary>
         [Output("fileSystemId")]
         public Output<string> FileSystemId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
+        /// The operating system user and group applied to all file system requests made using the access point.
         /// </summary>
         [Output("posixUser")]
         public Output<Outputs.AccessPointPosixUser?> PosixUser { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
+        /// Specifies the directory on the Amazon EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the RootDirectory&gt;Path specified does not exist, EFS creates it and applies the CreationInfo settings when a client connects to an access point. When specifying a RootDirectory, you need to provide the Path, and the CreationInfo is optional.
         /// </summary>
         [Output("rootDirectory")]
         public Output<Outputs.AccessPointRootDirectory?> RootDirectory { get; private set; } = null!;
@@ -98,10 +95,6 @@ namespace Pulumi.AwsNative.EFS
     {
         [Input("accessPointTags")]
         private InputList<Inputs.AccessPointAccessPointTagArgs>? _accessPointTags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
-        /// </summary>
         public InputList<Inputs.AccessPointAccessPointTagArgs> AccessPointTags
         {
             get => _accessPointTags ?? (_accessPointTags = new InputList<Inputs.AccessPointAccessPointTagArgs>());
@@ -109,25 +102,25 @@ namespace Pulumi.AwsNative.EFS
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
+        /// (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
         /// </summary>
         [Input("clientToken")]
         public Input<string>? ClientToken { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
+        /// The ID of the EFS file system that the access point provides access to.
         /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
+        /// The operating system user and group applied to all file system requests made using the access point.
         /// </summary>
         [Input("posixUser")]
         public Input<Inputs.AccessPointPosixUserArgs>? PosixUser { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
+        /// Specifies the directory on the Amazon EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the RootDirectory&gt;Path specified does not exist, EFS creates it and applies the CreationInfo settings when a client connects to an access point. When specifying a RootDirectory, you need to provide the Path, and the CreationInfo is optional.
         /// </summary>
         [Input("rootDirectory")]
         public Input<Inputs.AccessPointRootDirectoryArgs>? RootDirectory { get; set; }

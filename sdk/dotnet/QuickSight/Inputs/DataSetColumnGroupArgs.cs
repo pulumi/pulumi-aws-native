@@ -11,13 +11,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html
+    /// &lt;p&gt;Groupings of columns that work together in certain Amazon QuickSight features. This is
+    ///             a variant type structure. For this structure to be valid, only one of the attributes can
+    ///             be non-null.&lt;/p&gt;
     /// </summary>
     public sealed class DataSetColumnGroupArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html#cfn-quicksight-dataset-columngroup-geospatialcolumngroup
-        /// </summary>
         [Input("geoSpatialColumnGroup")]
         public Input<Inputs.DataSetGeoSpatialColumnGroupArgs>? GeoSpatialColumnGroup { get; set; }
 

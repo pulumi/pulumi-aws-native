@@ -7,30 +7,26 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
+// The AWS::ECR::Repository resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html
 type Repository struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
-	EncryptionConfiguration RepositoryEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
+	Arn                        pulumi.StringOutput                           `pulumi:"arn"`
+	EncryptionConfiguration    RepositoryEncryptionConfigurationPtrOutput    `pulumi:"encryptionConfiguration"`
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrOutput `pulumi:"imageScanningConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
-	ImageTagMutability pulumi.StringPtrOutput `pulumi:"imageTagMutability"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
-	LifecyclePolicy RepositoryLifecyclePolicyPtrOutput `pulumi:"lifecyclePolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
+	// The image tag mutability setting for the repository.
+	ImageTagMutability pulumi.StringPtrOutput             `pulumi:"imageTagMutability"`
+	LifecyclePolicy    RepositoryLifecyclePolicyPtrOutput `pulumi:"lifecyclePolicy"`
+	// The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
 	RepositoryName pulumi.StringPtrOutput `pulumi:"repositoryName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
+	// The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide.
 	RepositoryPolicyText pulumi.AnyOutput    `pulumi:"repositoryPolicyText"`
 	RepositoryUri        pulumi.StringOutput `pulumi:"repositoryUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags RepositoryTagArrayOutput `pulumi:"tags"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -72,38 +68,32 @@ func (RepositoryState) ElementType() reflect.Type {
 }
 
 type repositoryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
-	EncryptionConfiguration *RepositoryEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
+	EncryptionConfiguration    *RepositoryEncryptionConfiguration    `pulumi:"encryptionConfiguration"`
 	ImageScanningConfiguration *RepositoryImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
-	ImageTagMutability *string `pulumi:"imageTagMutability"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
-	LifecyclePolicy *RepositoryLifecyclePolicy `pulumi:"lifecyclePolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
+	// The image tag mutability setting for the repository.
+	ImageTagMutability *string                    `pulumi:"imageTagMutability"`
+	LifecyclePolicy    *RepositoryLifecyclePolicy `pulumi:"lifecyclePolicy"`
+	// The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
 	RepositoryName *string `pulumi:"repositoryName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
+	// The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide.
 	RepositoryPolicyText interface{} `pulumi:"repositoryPolicyText"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []RepositoryTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
-	EncryptionConfiguration RepositoryEncryptionConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
+	EncryptionConfiguration    RepositoryEncryptionConfigurationPtrInput
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
+	// The image tag mutability setting for the repository.
 	ImageTagMutability pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
-	LifecyclePolicy RepositoryLifecyclePolicyPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
+	LifecyclePolicy    RepositoryLifecyclePolicyPtrInput
+	// The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
 	RepositoryName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
+	// The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide.
 	RepositoryPolicyText pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
-	Tags aws.TagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags RepositoryTagArrayInput
 }
 
 func (RepositoryArgs) ElementType() reflect.Type {

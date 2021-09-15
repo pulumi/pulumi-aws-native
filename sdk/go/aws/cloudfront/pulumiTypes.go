@@ -10,19 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html
 type CachePolicyCachePolicyConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-comment
-	Comment *string `pulumi:"comment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-defaultttl
-	DefaultTTL float64 `pulumi:"defaultTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-maxttl
-	MaxTTL float64 `pulumi:"maxTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-minttl
-	MinTTL float64 `pulumi:"minTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-parametersincachekeyandforwardedtoorigin
+	Comment                                  *string                                             `pulumi:"comment"`
+	DefaultTTL                               float64                                             `pulumi:"defaultTTL"`
+	MaxTTL                                   float64                                             `pulumi:"maxTTL"`
+	MinTTL                                   float64                                             `pulumi:"minTTL"`
+	Name                                     string                                              `pulumi:"name"`
 	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOrigin `pulumi:"parametersInCacheKeyAndForwardedToOrigin"`
 }
 
@@ -37,19 +30,12 @@ type CachePolicyCachePolicyConfigInput interface {
 	ToCachePolicyCachePolicyConfigOutputWithContext(context.Context) CachePolicyCachePolicyConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html
 type CachePolicyCachePolicyConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-comment
-	Comment pulumi.StringPtrInput `pulumi:"comment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-defaultttl
-	DefaultTTL pulumi.Float64Input `pulumi:"defaultTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-maxttl
-	MaxTTL pulumi.Float64Input `pulumi:"maxTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-minttl
-	MinTTL pulumi.Float64Input `pulumi:"minTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-parametersincachekeyandforwardedtoorigin
+	Comment                                  pulumi.StringPtrInput                                    `pulumi:"comment"`
+	DefaultTTL                               pulumi.Float64Input                                      `pulumi:"defaultTTL"`
+	MaxTTL                                   pulumi.Float64Input                                      `pulumi:"maxTTL"`
+	MinTTL                                   pulumi.Float64Input                                      `pulumi:"minTTL"`
+	Name                                     pulumi.StringInput                                       `pulumi:"name"`
 	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOriginInput `pulumi:"parametersInCacheKeyAndForwardedToOrigin"`
 }
 
@@ -106,7 +92,6 @@ func (i *cachePolicyCachePolicyConfigPtrType) ToCachePolicyCachePolicyConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyCachePolicyConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html
 type CachePolicyCachePolicyConfigOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyCachePolicyConfigOutput) ElementType() reflect.Type {
@@ -131,32 +116,26 @@ func (o CachePolicyCachePolicyConfigOutput) ToCachePolicyCachePolicyConfigPtrOut
 	}).(CachePolicyCachePolicyConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-comment
 func (o CachePolicyCachePolicyConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CachePolicyCachePolicyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-defaultttl
 func (o CachePolicyCachePolicyConfigOutput) DefaultTTL() pulumi.Float64Output {
 	return o.ApplyT(func(v CachePolicyCachePolicyConfig) float64 { return v.DefaultTTL }).(pulumi.Float64Output)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-maxttl
 func (o CachePolicyCachePolicyConfigOutput) MaxTTL() pulumi.Float64Output {
 	return o.ApplyT(func(v CachePolicyCachePolicyConfig) float64 { return v.MaxTTL }).(pulumi.Float64Output)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-minttl
 func (o CachePolicyCachePolicyConfigOutput) MinTTL() pulumi.Float64Output {
 	return o.ApplyT(func(v CachePolicyCachePolicyConfig) float64 { return v.MinTTL }).(pulumi.Float64Output)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-name
 func (o CachePolicyCachePolicyConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CachePolicyCachePolicyConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-parametersincachekeyandforwardedtoorigin
 func (o CachePolicyCachePolicyConfigOutput) ParametersInCacheKeyAndForwardedToOrigin() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
 	return o.ApplyT(func(v CachePolicyCachePolicyConfig) CachePolicyParametersInCacheKeyAndForwardedToOrigin {
 		return v.ParametersInCacheKeyAndForwardedToOrigin
@@ -187,7 +166,6 @@ func (o CachePolicyCachePolicyConfigPtrOutput) Elem() CachePolicyCachePolicyConf
 	}).(CachePolicyCachePolicyConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-comment
 func (o CachePolicyCachePolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *string {
 		if v == nil {
@@ -197,7 +175,6 @@ func (o CachePolicyCachePolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-defaultttl
 func (o CachePolicyCachePolicyConfigPtrOutput) DefaultTTL() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *float64 {
 		if v == nil {
@@ -207,7 +184,6 @@ func (o CachePolicyCachePolicyConfigPtrOutput) DefaultTTL() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-maxttl
 func (o CachePolicyCachePolicyConfigPtrOutput) MaxTTL() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *float64 {
 		if v == nil {
@@ -217,7 +193,6 @@ func (o CachePolicyCachePolicyConfigPtrOutput) MaxTTL() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-minttl
 func (o CachePolicyCachePolicyConfigPtrOutput) MinTTL() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *float64 {
 		if v == nil {
@@ -227,7 +202,6 @@ func (o CachePolicyCachePolicyConfigPtrOutput) MinTTL() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-name
 func (o CachePolicyCachePolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *string {
 		if v == nil {
@@ -237,7 +211,6 @@ func (o CachePolicyCachePolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cachepolicyconfig.html#cfn-cloudfront-cachepolicy-cachepolicyconfig-parametersincachekeyandforwardedtoorigin
 func (o CachePolicyCachePolicyConfigPtrOutput) ParametersInCacheKeyAndForwardedToOrigin() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
 	return o.ApplyT(func(v *CachePolicyCachePolicyConfig) *CachePolicyParametersInCacheKeyAndForwardedToOrigin {
 		if v == nil {
@@ -247,12 +220,9 @@ func (o CachePolicyCachePolicyConfigPtrOutput) ParametersInCacheKeyAndForwardedT
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html
 type CachePolicyCookiesConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookiebehavior
-	CookieBehavior string `pulumi:"cookieBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookies
-	Cookies []string `pulumi:"cookies"`
+	CookieBehavior string   `pulumi:"cookieBehavior"`
+	Cookies        []string `pulumi:"cookies"`
 }
 
 // CachePolicyCookiesConfigInput is an input type that accepts CachePolicyCookiesConfigArgs and CachePolicyCookiesConfigOutput values.
@@ -266,12 +236,9 @@ type CachePolicyCookiesConfigInput interface {
 	ToCachePolicyCookiesConfigOutputWithContext(context.Context) CachePolicyCookiesConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html
 type CachePolicyCookiesConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookiebehavior
-	CookieBehavior pulumi.StringInput `pulumi:"cookieBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookies
-	Cookies pulumi.StringArrayInput `pulumi:"cookies"`
+	CookieBehavior pulumi.StringInput      `pulumi:"cookieBehavior"`
+	Cookies        pulumi.StringArrayInput `pulumi:"cookies"`
 }
 
 func (CachePolicyCookiesConfigArgs) ElementType() reflect.Type {
@@ -327,7 +294,6 @@ func (i *cachePolicyCookiesConfigPtrType) ToCachePolicyCookiesConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyCookiesConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html
 type CachePolicyCookiesConfigOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyCookiesConfigOutput) ElementType() reflect.Type {
@@ -352,12 +318,10 @@ func (o CachePolicyCookiesConfigOutput) ToCachePolicyCookiesConfigPtrOutputWithC
 	}).(CachePolicyCookiesConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookiebehavior
 func (o CachePolicyCookiesConfigOutput) CookieBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v CachePolicyCookiesConfig) string { return v.CookieBehavior }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookies
 func (o CachePolicyCookiesConfigOutput) Cookies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CachePolicyCookiesConfig) []string { return v.Cookies }).(pulumi.StringArrayOutput)
 }
@@ -386,7 +350,6 @@ func (o CachePolicyCookiesConfigPtrOutput) Elem() CachePolicyCookiesConfigOutput
 	}).(CachePolicyCookiesConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookiebehavior
 func (o CachePolicyCookiesConfigPtrOutput) CookieBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachePolicyCookiesConfig) *string {
 		if v == nil {
@@ -396,7 +359,6 @@ func (o CachePolicyCookiesConfigPtrOutput) CookieBehavior() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-cookiesconfig.html#cfn-cloudfront-cachepolicy-cookiesconfig-cookies
 func (o CachePolicyCookiesConfigPtrOutput) Cookies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CachePolicyCookiesConfig) []string {
 		if v == nil {
@@ -406,12 +368,9 @@ func (o CachePolicyCookiesConfigPtrOutput) Cookies() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html
 type CachePolicyHeadersConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headerbehavior
-	HeaderBehavior string `pulumi:"headerBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headers
-	Headers []string `pulumi:"headers"`
+	HeaderBehavior string   `pulumi:"headerBehavior"`
+	Headers        []string `pulumi:"headers"`
 }
 
 // CachePolicyHeadersConfigInput is an input type that accepts CachePolicyHeadersConfigArgs and CachePolicyHeadersConfigOutput values.
@@ -425,12 +384,9 @@ type CachePolicyHeadersConfigInput interface {
 	ToCachePolicyHeadersConfigOutputWithContext(context.Context) CachePolicyHeadersConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html
 type CachePolicyHeadersConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headerbehavior
-	HeaderBehavior pulumi.StringInput `pulumi:"headerBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headers
-	Headers pulumi.StringArrayInput `pulumi:"headers"`
+	HeaderBehavior pulumi.StringInput      `pulumi:"headerBehavior"`
+	Headers        pulumi.StringArrayInput `pulumi:"headers"`
 }
 
 func (CachePolicyHeadersConfigArgs) ElementType() reflect.Type {
@@ -486,7 +442,6 @@ func (i *cachePolicyHeadersConfigPtrType) ToCachePolicyHeadersConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyHeadersConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html
 type CachePolicyHeadersConfigOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyHeadersConfigOutput) ElementType() reflect.Type {
@@ -511,12 +466,10 @@ func (o CachePolicyHeadersConfigOutput) ToCachePolicyHeadersConfigPtrOutputWithC
 	}).(CachePolicyHeadersConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headerbehavior
 func (o CachePolicyHeadersConfigOutput) HeaderBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v CachePolicyHeadersConfig) string { return v.HeaderBehavior }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headers
 func (o CachePolicyHeadersConfigOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CachePolicyHeadersConfig) []string { return v.Headers }).(pulumi.StringArrayOutput)
 }
@@ -545,7 +498,6 @@ func (o CachePolicyHeadersConfigPtrOutput) Elem() CachePolicyHeadersConfigOutput
 	}).(CachePolicyHeadersConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headerbehavior
 func (o CachePolicyHeadersConfigPtrOutput) HeaderBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachePolicyHeadersConfig) *string {
 		if v == nil {
@@ -555,7 +507,6 @@ func (o CachePolicyHeadersConfigPtrOutput) HeaderBehavior() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-headersconfig.html#cfn-cloudfront-cachepolicy-headersconfig-headers
 func (o CachePolicyHeadersConfigPtrOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CachePolicyHeadersConfig) []string {
 		if v == nil {
@@ -565,18 +516,12 @@ func (o CachePolicyHeadersConfigPtrOutput) Headers() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html
 type CachePolicyParametersInCacheKeyAndForwardedToOrigin struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-cookiesconfig
-	CookiesConfig CachePolicyCookiesConfig `pulumi:"cookiesConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodingbrotli
-	EnableAcceptEncodingBrotli *bool `pulumi:"enableAcceptEncodingBrotli"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodinggzip
-	EnableAcceptEncodingGzip bool `pulumi:"enableAcceptEncodingGzip"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-headersconfig
-	HeadersConfig CachePolicyHeadersConfig `pulumi:"headersConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-querystringsconfig
-	QueryStringsConfig CachePolicyQueryStringsConfig `pulumi:"queryStringsConfig"`
+	CookiesConfig              CachePolicyCookiesConfig      `pulumi:"cookiesConfig"`
+	EnableAcceptEncodingBrotli *bool                         `pulumi:"enableAcceptEncodingBrotli"`
+	EnableAcceptEncodingGzip   bool                          `pulumi:"enableAcceptEncodingGzip"`
+	HeadersConfig              CachePolicyHeadersConfig      `pulumi:"headersConfig"`
+	QueryStringsConfig         CachePolicyQueryStringsConfig `pulumi:"queryStringsConfig"`
 }
 
 // CachePolicyParametersInCacheKeyAndForwardedToOriginInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginArgs and CachePolicyParametersInCacheKeyAndForwardedToOriginOutput values.
@@ -590,18 +535,12 @@ type CachePolicyParametersInCacheKeyAndForwardedToOriginInput interface {
 	ToCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html
 type CachePolicyParametersInCacheKeyAndForwardedToOriginArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-cookiesconfig
-	CookiesConfig CachePolicyCookiesConfigInput `pulumi:"cookiesConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodingbrotli
-	EnableAcceptEncodingBrotli pulumi.BoolPtrInput `pulumi:"enableAcceptEncodingBrotli"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodinggzip
-	EnableAcceptEncodingGzip pulumi.BoolInput `pulumi:"enableAcceptEncodingGzip"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-headersconfig
-	HeadersConfig CachePolicyHeadersConfigInput `pulumi:"headersConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-querystringsconfig
-	QueryStringsConfig CachePolicyQueryStringsConfigInput `pulumi:"queryStringsConfig"`
+	CookiesConfig              CachePolicyCookiesConfigInput      `pulumi:"cookiesConfig"`
+	EnableAcceptEncodingBrotli pulumi.BoolPtrInput                `pulumi:"enableAcceptEncodingBrotli"`
+	EnableAcceptEncodingGzip   pulumi.BoolInput                   `pulumi:"enableAcceptEncodingGzip"`
+	HeadersConfig              CachePolicyHeadersConfigInput      `pulumi:"headersConfig"`
+	QueryStringsConfig         CachePolicyQueryStringsConfigInput `pulumi:"queryStringsConfig"`
 }
 
 func (CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ElementType() reflect.Type {
@@ -657,7 +596,6 @@ func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginPtrType) ToCachePoli
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html
 type CachePolicyParametersInCacheKeyAndForwardedToOriginOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ElementType() reflect.Type {
@@ -682,31 +620,26 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicy
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-cookiesconfig
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) CookiesConfig() CachePolicyCookiesConfigOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyCookiesConfig {
 		return v.CookiesConfig
 	}).(CachePolicyCookiesConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodingbrotli
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) EnableAcceptEncodingBrotli() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool { return v.EnableAcceptEncodingBrotli }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodinggzip
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) EnableAcceptEncodingGzip() pulumi.BoolOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) bool { return v.EnableAcceptEncodingGzip }).(pulumi.BoolOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-headersconfig
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) HeadersConfig() CachePolicyHeadersConfigOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyHeadersConfig {
 		return v.HeadersConfig
 	}).(CachePolicyHeadersConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-querystringsconfig
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) QueryStringsConfig() CachePolicyQueryStringsConfigOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyQueryStringsConfig {
 		return v.QueryStringsConfig
@@ -737,7 +670,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) Elem() Cac
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-cookiesconfig
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) CookiesConfig() CachePolicyCookiesConfigPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyCookiesConfig {
 		if v == nil {
@@ -747,7 +679,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) CookiesCon
 	}).(CachePolicyCookiesConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodingbrotli
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcceptEncodingBrotli() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool {
 		if v == nil {
@@ -757,7 +688,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcce
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-enableacceptencodinggzip
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcceptEncodingGzip() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool {
 		if v == nil {
@@ -767,7 +697,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcce
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-headersconfig
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) HeadersConfig() CachePolicyHeadersConfigPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyHeadersConfig {
 		if v == nil {
@@ -777,7 +706,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) HeadersCon
 	}).(CachePolicyHeadersConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin.html#cfn-cloudfront-cachepolicy-parametersincachekeyandforwardedtoorigin-querystringsconfig
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) QueryStringsConfig() CachePolicyQueryStringsConfigPtrOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyQueryStringsConfig {
 		if v == nil {
@@ -787,12 +715,9 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) QueryStrin
 	}).(CachePolicyQueryStringsConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html
 type CachePolicyQueryStringsConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystringbehavior
-	QueryStringBehavior string `pulumi:"queryStringBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystrings
-	QueryStrings []string `pulumi:"queryStrings"`
+	QueryStringBehavior string   `pulumi:"queryStringBehavior"`
+	QueryStrings        []string `pulumi:"queryStrings"`
 }
 
 // CachePolicyQueryStringsConfigInput is an input type that accepts CachePolicyQueryStringsConfigArgs and CachePolicyQueryStringsConfigOutput values.
@@ -806,12 +731,9 @@ type CachePolicyQueryStringsConfigInput interface {
 	ToCachePolicyQueryStringsConfigOutputWithContext(context.Context) CachePolicyQueryStringsConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html
 type CachePolicyQueryStringsConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystringbehavior
-	QueryStringBehavior pulumi.StringInput `pulumi:"queryStringBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystrings
-	QueryStrings pulumi.StringArrayInput `pulumi:"queryStrings"`
+	QueryStringBehavior pulumi.StringInput      `pulumi:"queryStringBehavior"`
+	QueryStrings        pulumi.StringArrayInput `pulumi:"queryStrings"`
 }
 
 func (CachePolicyQueryStringsConfigArgs) ElementType() reflect.Type {
@@ -867,7 +789,6 @@ func (i *cachePolicyQueryStringsConfigPtrType) ToCachePolicyQueryStringsConfigPt
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyQueryStringsConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html
 type CachePolicyQueryStringsConfigOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyQueryStringsConfigOutput) ElementType() reflect.Type {
@@ -892,12 +813,10 @@ func (o CachePolicyQueryStringsConfigOutput) ToCachePolicyQueryStringsConfigPtrO
 	}).(CachePolicyQueryStringsConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystringbehavior
 func (o CachePolicyQueryStringsConfigOutput) QueryStringBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v CachePolicyQueryStringsConfig) string { return v.QueryStringBehavior }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystrings
 func (o CachePolicyQueryStringsConfigOutput) QueryStrings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CachePolicyQueryStringsConfig) []string { return v.QueryStrings }).(pulumi.StringArrayOutput)
 }
@@ -926,7 +845,6 @@ func (o CachePolicyQueryStringsConfigPtrOutput) Elem() CachePolicyQueryStringsCo
 	}).(CachePolicyQueryStringsConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystringbehavior
 func (o CachePolicyQueryStringsConfigPtrOutput) QueryStringBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CachePolicyQueryStringsConfig) *string {
 		if v == nil {
@@ -936,7 +854,6 @@ func (o CachePolicyQueryStringsConfigPtrOutput) QueryStringBehavior() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachepolicy-querystringsconfig.html#cfn-cloudfront-cachepolicy-querystringsconfig-querystrings
 func (o CachePolicyQueryStringsConfigPtrOutput) QueryStrings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CachePolicyQueryStringsConfig) []string {
 		if v == nil {
@@ -946,9 +863,7 @@ func (o CachePolicyQueryStringsConfigPtrOutput) QueryStrings() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html
 type CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment
 	Comment string `pulumi:"comment"`
 }
 
@@ -963,9 +878,7 @@ type CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigInput int
 	ToCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutputWithContext(context.Context) CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html
 type CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment
 	Comment pulumi.StringInput `pulumi:"comment"`
 }
 
@@ -1022,7 +935,6 @@ func (i *cloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html
 type CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput struct{ *pulumi.OutputState }
 
 func (CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput) ElementType() reflect.Type {
@@ -1047,7 +959,6 @@ func (o CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput
 	}).(CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment
 func (o CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig) string { return v.Comment }).(pulumi.StringOutput)
 }
@@ -1076,7 +987,6 @@ func (o CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOut
 	}).(CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment
 func (o CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig) *string {
 		if v == nil {
@@ -1086,46 +996,26 @@ func (o CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html
 type DistributionCacheBehavior struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-allowedmethods
-	AllowedMethods []string `pulumi:"allowedMethods"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachepolicyid
-	CachePolicyId *string `pulumi:"cachePolicyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachedmethods
-	CachedMethods []string `pulumi:"cachedMethods"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-compress
-	Compress *bool `pulumi:"compress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-defaultttl
-	DefaultTTL *float64 `pulumi:"defaultTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-fieldlevelencryptionid
-	FieldLevelEncryptionId *string `pulumi:"fieldLevelEncryptionId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues
-	ForwardedValues *DistributionForwardedValues `pulumi:"forwardedValues"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-functionassociations
-	FunctionAssociations []DistributionFunctionAssociation `pulumi:"functionAssociations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations
+	AllowedMethods             []string                                `pulumi:"allowedMethods"`
+	CachePolicyId              *string                                 `pulumi:"cachePolicyId"`
+	CachedMethods              []string                                `pulumi:"cachedMethods"`
+	Compress                   *bool                                   `pulumi:"compress"`
+	DefaultTTL                 *float64                                `pulumi:"defaultTTL"`
+	FieldLevelEncryptionId     *string                                 `pulumi:"fieldLevelEncryptionId"`
+	ForwardedValues            *DistributionForwardedValues            `pulumi:"forwardedValues"`
+	FunctionAssociations       []DistributionFunctionAssociation       `pulumi:"functionAssociations"`
 	LambdaFunctionAssociations []DistributionLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-maxttl
-	MaxTTL *float64 `pulumi:"maxTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-minttl
-	MinTTL *float64 `pulumi:"minTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-originrequestpolicyid
-	OriginRequestPolicyId *string `pulumi:"originRequestPolicyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-pathpattern
-	PathPattern string `pulumi:"pathPattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-realtimelogconfigarn
-	RealtimeLogConfigArn *string `pulumi:"realtimeLogConfigArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-smoothstreaming
-	SmoothStreaming *bool `pulumi:"smoothStreaming"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-targetoriginid
-	TargetOriginId string `pulumi:"targetOriginId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedkeygroups
-	TrustedKeyGroups []string `pulumi:"trustedKeyGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedsigners
-	TrustedSigners []string `pulumi:"trustedSigners"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-viewerprotocolpolicy
-	ViewerProtocolPolicy string `pulumi:"viewerProtocolPolicy"`
+	MaxTTL                     *float64                                `pulumi:"maxTTL"`
+	MinTTL                     *float64                                `pulumi:"minTTL"`
+	OriginRequestPolicyId      *string                                 `pulumi:"originRequestPolicyId"`
+	PathPattern                string                                  `pulumi:"pathPattern"`
+	RealtimeLogConfigArn       *string                                 `pulumi:"realtimeLogConfigArn"`
+	SmoothStreaming            *bool                                   `pulumi:"smoothStreaming"`
+	TargetOriginId             string                                  `pulumi:"targetOriginId"`
+	TrustedKeyGroups           []string                                `pulumi:"trustedKeyGroups"`
+	TrustedSigners             []string                                `pulumi:"trustedSigners"`
+	ViewerProtocolPolicy       string                                  `pulumi:"viewerProtocolPolicy"`
 }
 
 // DistributionCacheBehaviorInput is an input type that accepts DistributionCacheBehaviorArgs and DistributionCacheBehaviorOutput values.
@@ -1139,46 +1029,26 @@ type DistributionCacheBehaviorInput interface {
 	ToDistributionCacheBehaviorOutputWithContext(context.Context) DistributionCacheBehaviorOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html
 type DistributionCacheBehaviorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-allowedmethods
-	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachepolicyid
-	CachePolicyId pulumi.StringPtrInput `pulumi:"cachePolicyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachedmethods
-	CachedMethods pulumi.StringArrayInput `pulumi:"cachedMethods"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-compress
-	Compress pulumi.BoolPtrInput `pulumi:"compress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-defaultttl
-	DefaultTTL pulumi.Float64PtrInput `pulumi:"defaultTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-fieldlevelencryptionid
-	FieldLevelEncryptionId pulumi.StringPtrInput `pulumi:"fieldLevelEncryptionId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues
-	ForwardedValues DistributionForwardedValuesPtrInput `pulumi:"forwardedValues"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-functionassociations
-	FunctionAssociations DistributionFunctionAssociationArrayInput `pulumi:"functionAssociations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations
+	AllowedMethods             pulumi.StringArrayInput                         `pulumi:"allowedMethods"`
+	CachePolicyId              pulumi.StringPtrInput                           `pulumi:"cachePolicyId"`
+	CachedMethods              pulumi.StringArrayInput                         `pulumi:"cachedMethods"`
+	Compress                   pulumi.BoolPtrInput                             `pulumi:"compress"`
+	DefaultTTL                 pulumi.Float64PtrInput                          `pulumi:"defaultTTL"`
+	FieldLevelEncryptionId     pulumi.StringPtrInput                           `pulumi:"fieldLevelEncryptionId"`
+	ForwardedValues            DistributionForwardedValuesPtrInput             `pulumi:"forwardedValues"`
+	FunctionAssociations       DistributionFunctionAssociationArrayInput       `pulumi:"functionAssociations"`
 	LambdaFunctionAssociations DistributionLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-maxttl
-	MaxTTL pulumi.Float64PtrInput `pulumi:"maxTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-minttl
-	MinTTL pulumi.Float64PtrInput `pulumi:"minTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-originrequestpolicyid
-	OriginRequestPolicyId pulumi.StringPtrInput `pulumi:"originRequestPolicyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-pathpattern
-	PathPattern pulumi.StringInput `pulumi:"pathPattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-realtimelogconfigarn
-	RealtimeLogConfigArn pulumi.StringPtrInput `pulumi:"realtimeLogConfigArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-smoothstreaming
-	SmoothStreaming pulumi.BoolPtrInput `pulumi:"smoothStreaming"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-targetoriginid
-	TargetOriginId pulumi.StringInput `pulumi:"targetOriginId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedkeygroups
-	TrustedKeyGroups pulumi.StringArrayInput `pulumi:"trustedKeyGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedsigners
-	TrustedSigners pulumi.StringArrayInput `pulumi:"trustedSigners"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-viewerprotocolpolicy
-	ViewerProtocolPolicy pulumi.StringInput `pulumi:"viewerProtocolPolicy"`
+	MaxTTL                     pulumi.Float64PtrInput                          `pulumi:"maxTTL"`
+	MinTTL                     pulumi.Float64PtrInput                          `pulumi:"minTTL"`
+	OriginRequestPolicyId      pulumi.StringPtrInput                           `pulumi:"originRequestPolicyId"`
+	PathPattern                pulumi.StringInput                              `pulumi:"pathPattern"`
+	RealtimeLogConfigArn       pulumi.StringPtrInput                           `pulumi:"realtimeLogConfigArn"`
+	SmoothStreaming            pulumi.BoolPtrInput                             `pulumi:"smoothStreaming"`
+	TargetOriginId             pulumi.StringInput                              `pulumi:"targetOriginId"`
+	TrustedKeyGroups           pulumi.StringArrayInput                         `pulumi:"trustedKeyGroups"`
+	TrustedSigners             pulumi.StringArrayInput                         `pulumi:"trustedSigners"`
+	ViewerProtocolPolicy       pulumi.StringInput                              `pulumi:"viewerProtocolPolicy"`
 }
 
 func (DistributionCacheBehaviorArgs) ElementType() reflect.Type {
@@ -1218,7 +1088,6 @@ func (i DistributionCacheBehaviorArray) ToDistributionCacheBehaviorArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html
 type DistributionCacheBehaviorOutput struct{ *pulumi.OutputState }
 
 func (DistributionCacheBehaviorOutput) ElementType() reflect.Type {
@@ -1233,99 +1102,80 @@ func (o DistributionCacheBehaviorOutput) ToDistributionCacheBehaviorOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-allowedmethods
 func (o DistributionCacheBehaviorOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachepolicyid
 func (o DistributionCacheBehaviorOutput) CachePolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *string { return v.CachePolicyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachedmethods
 func (o DistributionCacheBehaviorOutput) CachedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) []string { return v.CachedMethods }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-compress
 func (o DistributionCacheBehaviorOutput) Compress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-defaultttl
 func (o DistributionCacheBehaviorOutput) DefaultTTL() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *float64 { return v.DefaultTTL }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-fieldlevelencryptionid
 func (o DistributionCacheBehaviorOutput) FieldLevelEncryptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *string { return v.FieldLevelEncryptionId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues
 func (o DistributionCacheBehaviorOutput) ForwardedValues() DistributionForwardedValuesPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *DistributionForwardedValues { return v.ForwardedValues }).(DistributionForwardedValuesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-functionassociations
 func (o DistributionCacheBehaviorOutput) FunctionAssociations() DistributionFunctionAssociationArrayOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) []DistributionFunctionAssociation { return v.FunctionAssociations }).(DistributionFunctionAssociationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations
 func (o DistributionCacheBehaviorOutput) LambdaFunctionAssociations() DistributionLambdaFunctionAssociationArrayOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) []DistributionLambdaFunctionAssociation {
 		return v.LambdaFunctionAssociations
 	}).(DistributionLambdaFunctionAssociationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-maxttl
 func (o DistributionCacheBehaviorOutput) MaxTTL() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *float64 { return v.MaxTTL }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-minttl
 func (o DistributionCacheBehaviorOutput) MinTTL() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *float64 { return v.MinTTL }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-originrequestpolicyid
 func (o DistributionCacheBehaviorOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *string { return v.OriginRequestPolicyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-pathpattern
 func (o DistributionCacheBehaviorOutput) PathPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) string { return v.PathPattern }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-realtimelogconfigarn
 func (o DistributionCacheBehaviorOutput) RealtimeLogConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *string { return v.RealtimeLogConfigArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-smoothstreaming
 func (o DistributionCacheBehaviorOutput) SmoothStreaming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) *bool { return v.SmoothStreaming }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-targetoriginid
 func (o DistributionCacheBehaviorOutput) TargetOriginId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) string { return v.TargetOriginId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedkeygroups
 func (o DistributionCacheBehaviorOutput) TrustedKeyGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) []string { return v.TrustedKeyGroups }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedsigners
 func (o DistributionCacheBehaviorOutput) TrustedSigners() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) []string { return v.TrustedSigners }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-viewerprotocolpolicy
 func (o DistributionCacheBehaviorOutput) ViewerProtocolPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) string { return v.ViewerProtocolPolicy }).(pulumi.StringOutput)
 }
@@ -1350,11 +1200,8 @@ func (o DistributionCacheBehaviorArrayOutput) Index(i pulumi.IntInput) Distribut
 	}).(DistributionCacheBehaviorOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html
 type DistributionCookies struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-forward
-	Forward string `pulumi:"forward"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-whitelistednames
+	Forward          string   `pulumi:"forward"`
 	WhitelistedNames []string `pulumi:"whitelistedNames"`
 }
 
@@ -1369,11 +1216,8 @@ type DistributionCookiesInput interface {
 	ToDistributionCookiesOutputWithContext(context.Context) DistributionCookiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html
 type DistributionCookiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-forward
-	Forward pulumi.StringInput `pulumi:"forward"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-whitelistednames
+	Forward          pulumi.StringInput      `pulumi:"forward"`
 	WhitelistedNames pulumi.StringArrayInput `pulumi:"whitelistedNames"`
 }
 
@@ -1430,7 +1274,6 @@ func (i *distributionCookiesPtrType) ToDistributionCookiesPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCookiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html
 type DistributionCookiesOutput struct{ *pulumi.OutputState }
 
 func (DistributionCookiesOutput) ElementType() reflect.Type {
@@ -1455,12 +1298,10 @@ func (o DistributionCookiesOutput) ToDistributionCookiesPtrOutputWithContext(ctx
 	}).(DistributionCookiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-forward
 func (o DistributionCookiesOutput) Forward() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionCookies) string { return v.Forward }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-whitelistednames
 func (o DistributionCookiesOutput) WhitelistedNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionCookies) []string { return v.WhitelistedNames }).(pulumi.StringArrayOutput)
 }
@@ -1489,7 +1330,6 @@ func (o DistributionCookiesPtrOutput) Elem() DistributionCookiesOutput {
 	}).(DistributionCookiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-forward
 func (o DistributionCookiesPtrOutput) Forward() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionCookies) *string {
 		if v == nil {
@@ -1499,7 +1339,6 @@ func (o DistributionCookiesPtrOutput) Forward() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-whitelistednames
 func (o DistributionCookiesPtrOutput) WhitelistedNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionCookies) []string {
 		if v == nil {
@@ -1509,16 +1348,11 @@ func (o DistributionCookiesPtrOutput) WhitelistedNames() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html
 type DistributionCustomErrorResponse struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcachingminttl
 	ErrorCachingMinTTL *float64 `pulumi:"errorCachingMinTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcode
-	ErrorCode int `pulumi:"errorCode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsecode
-	ResponseCode *int `pulumi:"responseCode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsepagepath
-	ResponsePagePath *string `pulumi:"responsePagePath"`
+	ErrorCode          int      `pulumi:"errorCode"`
+	ResponseCode       *int     `pulumi:"responseCode"`
+	ResponsePagePath   *string  `pulumi:"responsePagePath"`
 }
 
 // DistributionCustomErrorResponseInput is an input type that accepts DistributionCustomErrorResponseArgs and DistributionCustomErrorResponseOutput values.
@@ -1532,16 +1366,11 @@ type DistributionCustomErrorResponseInput interface {
 	ToDistributionCustomErrorResponseOutputWithContext(context.Context) DistributionCustomErrorResponseOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html
 type DistributionCustomErrorResponseArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcachingminttl
 	ErrorCachingMinTTL pulumi.Float64PtrInput `pulumi:"errorCachingMinTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcode
-	ErrorCode pulumi.IntInput `pulumi:"errorCode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsecode
-	ResponseCode pulumi.IntPtrInput `pulumi:"responseCode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsepagepath
-	ResponsePagePath pulumi.StringPtrInput `pulumi:"responsePagePath"`
+	ErrorCode          pulumi.IntInput        `pulumi:"errorCode"`
+	ResponseCode       pulumi.IntPtrInput     `pulumi:"responseCode"`
+	ResponsePagePath   pulumi.StringPtrInput  `pulumi:"responsePagePath"`
 }
 
 func (DistributionCustomErrorResponseArgs) ElementType() reflect.Type {
@@ -1581,7 +1410,6 @@ func (i DistributionCustomErrorResponseArray) ToDistributionCustomErrorResponseA
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCustomErrorResponseArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html
 type DistributionCustomErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (DistributionCustomErrorResponseOutput) ElementType() reflect.Type {
@@ -1596,22 +1424,18 @@ func (o DistributionCustomErrorResponseOutput) ToDistributionCustomErrorResponse
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcachingminttl
 func (o DistributionCustomErrorResponseOutput) ErrorCachingMinTTL() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DistributionCustomErrorResponse) *float64 { return v.ErrorCachingMinTTL }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcode
 func (o DistributionCustomErrorResponseOutput) ErrorCode() pulumi.IntOutput {
 	return o.ApplyT(func(v DistributionCustomErrorResponse) int { return v.ErrorCode }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsecode
 func (o DistributionCustomErrorResponseOutput) ResponseCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionCustomErrorResponse) *int { return v.ResponseCode }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsepagepath
 func (o DistributionCustomErrorResponseOutput) ResponsePagePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionCustomErrorResponse) *string { return v.ResponsePagePath }).(pulumi.StringPtrOutput)
 }
@@ -1636,20 +1460,13 @@ func (o DistributionCustomErrorResponseArrayOutput) Index(i pulumi.IntInput) Dis
 	}).(DistributionCustomErrorResponseOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html
 type DistributionCustomOriginConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpport
-	HTTPPort *int `pulumi:"hTTPPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpsport
-	HTTPSPort *int `pulumi:"hTTPSPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originkeepalivetimeout
-	OriginKeepaliveTimeout *int `pulumi:"originKeepaliveTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originprotocolpolicy
-	OriginProtocolPolicy string `pulumi:"originProtocolPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originreadtimeout
-	OriginReadTimeout *int `pulumi:"originReadTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originsslprotocols
-	OriginSSLProtocols []string `pulumi:"originSSLProtocols"`
+	HTTPPort               *int     `pulumi:"hTTPPort"`
+	HTTPSPort              *int     `pulumi:"hTTPSPort"`
+	OriginKeepaliveTimeout *int     `pulumi:"originKeepaliveTimeout"`
+	OriginProtocolPolicy   string   `pulumi:"originProtocolPolicy"`
+	OriginReadTimeout      *int     `pulumi:"originReadTimeout"`
+	OriginSSLProtocols     []string `pulumi:"originSSLProtocols"`
 }
 
 // DistributionCustomOriginConfigInput is an input type that accepts DistributionCustomOriginConfigArgs and DistributionCustomOriginConfigOutput values.
@@ -1663,20 +1480,13 @@ type DistributionCustomOriginConfigInput interface {
 	ToDistributionCustomOriginConfigOutputWithContext(context.Context) DistributionCustomOriginConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html
 type DistributionCustomOriginConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpport
-	HTTPPort pulumi.IntPtrInput `pulumi:"hTTPPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpsport
-	HTTPSPort pulumi.IntPtrInput `pulumi:"hTTPSPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originkeepalivetimeout
-	OriginKeepaliveTimeout pulumi.IntPtrInput `pulumi:"originKeepaliveTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originprotocolpolicy
-	OriginProtocolPolicy pulumi.StringInput `pulumi:"originProtocolPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originreadtimeout
-	OriginReadTimeout pulumi.IntPtrInput `pulumi:"originReadTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originsslprotocols
-	OriginSSLProtocols pulumi.StringArrayInput `pulumi:"originSSLProtocols"`
+	HTTPPort               pulumi.IntPtrInput      `pulumi:"hTTPPort"`
+	HTTPSPort              pulumi.IntPtrInput      `pulumi:"hTTPSPort"`
+	OriginKeepaliveTimeout pulumi.IntPtrInput      `pulumi:"originKeepaliveTimeout"`
+	OriginProtocolPolicy   pulumi.StringInput      `pulumi:"originProtocolPolicy"`
+	OriginReadTimeout      pulumi.IntPtrInput      `pulumi:"originReadTimeout"`
+	OriginSSLProtocols     pulumi.StringArrayInput `pulumi:"originSSLProtocols"`
 }
 
 func (DistributionCustomOriginConfigArgs) ElementType() reflect.Type {
@@ -1732,7 +1542,6 @@ func (i *distributionCustomOriginConfigPtrType) ToDistributionCustomOriginConfig
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCustomOriginConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html
 type DistributionCustomOriginConfigOutput struct{ *pulumi.OutputState }
 
 func (DistributionCustomOriginConfigOutput) ElementType() reflect.Type {
@@ -1757,32 +1566,26 @@ func (o DistributionCustomOriginConfigOutput) ToDistributionCustomOriginConfigPt
 	}).(DistributionCustomOriginConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpport
 func (o DistributionCustomOriginConfigOutput) HTTPPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionCustomOriginConfig) *int { return v.HTTPPort }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpsport
 func (o DistributionCustomOriginConfigOutput) HTTPSPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionCustomOriginConfig) *int { return v.HTTPSPort }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originkeepalivetimeout
 func (o DistributionCustomOriginConfigOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionCustomOriginConfig) *int { return v.OriginKeepaliveTimeout }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originprotocolpolicy
 func (o DistributionCustomOriginConfigOutput) OriginProtocolPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionCustomOriginConfig) string { return v.OriginProtocolPolicy }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originreadtimeout
 func (o DistributionCustomOriginConfigOutput) OriginReadTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionCustomOriginConfig) *int { return v.OriginReadTimeout }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originsslprotocols
 func (o DistributionCustomOriginConfigOutput) OriginSSLProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionCustomOriginConfig) []string { return v.OriginSSLProtocols }).(pulumi.StringArrayOutput)
 }
@@ -1811,7 +1614,6 @@ func (o DistributionCustomOriginConfigPtrOutput) Elem() DistributionCustomOrigin
 	}).(DistributionCustomOriginConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpport
 func (o DistributionCustomOriginConfigPtrOutput) HTTPPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionCustomOriginConfig) *int {
 		if v == nil {
@@ -1821,7 +1623,6 @@ func (o DistributionCustomOriginConfigPtrOutput) HTTPPort() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpsport
 func (o DistributionCustomOriginConfigPtrOutput) HTTPSPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionCustomOriginConfig) *int {
 		if v == nil {
@@ -1831,7 +1632,6 @@ func (o DistributionCustomOriginConfigPtrOutput) HTTPSPort() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originkeepalivetimeout
 func (o DistributionCustomOriginConfigPtrOutput) OriginKeepaliveTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionCustomOriginConfig) *int {
 		if v == nil {
@@ -1841,7 +1641,6 @@ func (o DistributionCustomOriginConfigPtrOutput) OriginKeepaliveTimeout() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originprotocolpolicy
 func (o DistributionCustomOriginConfigPtrOutput) OriginProtocolPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionCustomOriginConfig) *string {
 		if v == nil {
@@ -1851,7 +1650,6 @@ func (o DistributionCustomOriginConfigPtrOutput) OriginProtocolPolicy() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originreadtimeout
 func (o DistributionCustomOriginConfigPtrOutput) OriginReadTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionCustomOriginConfig) *int {
 		if v == nil {
@@ -1861,7 +1659,6 @@ func (o DistributionCustomOriginConfigPtrOutput) OriginReadTimeout() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originsslprotocols
 func (o DistributionCustomOriginConfigPtrOutput) OriginSSLProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionCustomOriginConfig) []string {
 		if v == nil {
@@ -1871,44 +1668,25 @@ func (o DistributionCustomOriginConfigPtrOutput) OriginSSLProtocols() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html
 type DistributionDefaultCacheBehavior struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-allowedmethods
-	AllowedMethods []string `pulumi:"allowedMethods"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachepolicyid
-	CachePolicyId *string `pulumi:"cachePolicyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachedmethods
-	CachedMethods []string `pulumi:"cachedMethods"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-compress
-	Compress *bool `pulumi:"compress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-defaultttl
-	DefaultTTL *float64 `pulumi:"defaultTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-fieldlevelencryptionid
-	FieldLevelEncryptionId *string `pulumi:"fieldLevelEncryptionId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
-	ForwardedValues *DistributionForwardedValues `pulumi:"forwardedValues"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-functionassociations
-	FunctionAssociations []DistributionFunctionAssociation `pulumi:"functionAssociations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
+	AllowedMethods             []string                                `pulumi:"allowedMethods"`
+	CachePolicyId              *string                                 `pulumi:"cachePolicyId"`
+	CachedMethods              []string                                `pulumi:"cachedMethods"`
+	Compress                   *bool                                   `pulumi:"compress"`
+	DefaultTTL                 *float64                                `pulumi:"defaultTTL"`
+	FieldLevelEncryptionId     *string                                 `pulumi:"fieldLevelEncryptionId"`
+	ForwardedValues            *DistributionForwardedValues            `pulumi:"forwardedValues"`
+	FunctionAssociations       []DistributionFunctionAssociation       `pulumi:"functionAssociations"`
 	LambdaFunctionAssociations []DistributionLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-maxttl
-	MaxTTL *float64 `pulumi:"maxTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-minttl
-	MinTTL *float64 `pulumi:"minTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-originrequestpolicyid
-	OriginRequestPolicyId *string `pulumi:"originRequestPolicyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-realtimelogconfigarn
-	RealtimeLogConfigArn *string `pulumi:"realtimeLogConfigArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
-	SmoothStreaming *bool `pulumi:"smoothStreaming"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-targetoriginid
-	TargetOriginId string `pulumi:"targetOriginId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedkeygroups
-	TrustedKeyGroups []string `pulumi:"trustedKeyGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedsigners
-	TrustedSigners []string `pulumi:"trustedSigners"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-viewerprotocolpolicy
-	ViewerProtocolPolicy string `pulumi:"viewerProtocolPolicy"`
+	MaxTTL                     *float64                                `pulumi:"maxTTL"`
+	MinTTL                     *float64                                `pulumi:"minTTL"`
+	OriginRequestPolicyId      *string                                 `pulumi:"originRequestPolicyId"`
+	RealtimeLogConfigArn       *string                                 `pulumi:"realtimeLogConfigArn"`
+	SmoothStreaming            *bool                                   `pulumi:"smoothStreaming"`
+	TargetOriginId             string                                  `pulumi:"targetOriginId"`
+	TrustedKeyGroups           []string                                `pulumi:"trustedKeyGroups"`
+	TrustedSigners             []string                                `pulumi:"trustedSigners"`
+	ViewerProtocolPolicy       string                                  `pulumi:"viewerProtocolPolicy"`
 }
 
 // DistributionDefaultCacheBehaviorInput is an input type that accepts DistributionDefaultCacheBehaviorArgs and DistributionDefaultCacheBehaviorOutput values.
@@ -1922,44 +1700,25 @@ type DistributionDefaultCacheBehaviorInput interface {
 	ToDistributionDefaultCacheBehaviorOutputWithContext(context.Context) DistributionDefaultCacheBehaviorOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html
 type DistributionDefaultCacheBehaviorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-allowedmethods
-	AllowedMethods pulumi.StringArrayInput `pulumi:"allowedMethods"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachepolicyid
-	CachePolicyId pulumi.StringPtrInput `pulumi:"cachePolicyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachedmethods
-	CachedMethods pulumi.StringArrayInput `pulumi:"cachedMethods"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-compress
-	Compress pulumi.BoolPtrInput `pulumi:"compress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-defaultttl
-	DefaultTTL pulumi.Float64PtrInput `pulumi:"defaultTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-fieldlevelencryptionid
-	FieldLevelEncryptionId pulumi.StringPtrInput `pulumi:"fieldLevelEncryptionId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
-	ForwardedValues DistributionForwardedValuesPtrInput `pulumi:"forwardedValues"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-functionassociations
-	FunctionAssociations DistributionFunctionAssociationArrayInput `pulumi:"functionAssociations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
+	AllowedMethods             pulumi.StringArrayInput                         `pulumi:"allowedMethods"`
+	CachePolicyId              pulumi.StringPtrInput                           `pulumi:"cachePolicyId"`
+	CachedMethods              pulumi.StringArrayInput                         `pulumi:"cachedMethods"`
+	Compress                   pulumi.BoolPtrInput                             `pulumi:"compress"`
+	DefaultTTL                 pulumi.Float64PtrInput                          `pulumi:"defaultTTL"`
+	FieldLevelEncryptionId     pulumi.StringPtrInput                           `pulumi:"fieldLevelEncryptionId"`
+	ForwardedValues            DistributionForwardedValuesPtrInput             `pulumi:"forwardedValues"`
+	FunctionAssociations       DistributionFunctionAssociationArrayInput       `pulumi:"functionAssociations"`
 	LambdaFunctionAssociations DistributionLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-maxttl
-	MaxTTL pulumi.Float64PtrInput `pulumi:"maxTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-minttl
-	MinTTL pulumi.Float64PtrInput `pulumi:"minTTL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-originrequestpolicyid
-	OriginRequestPolicyId pulumi.StringPtrInput `pulumi:"originRequestPolicyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-realtimelogconfigarn
-	RealtimeLogConfigArn pulumi.StringPtrInput `pulumi:"realtimeLogConfigArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
-	SmoothStreaming pulumi.BoolPtrInput `pulumi:"smoothStreaming"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-targetoriginid
-	TargetOriginId pulumi.StringInput `pulumi:"targetOriginId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedkeygroups
-	TrustedKeyGroups pulumi.StringArrayInput `pulumi:"trustedKeyGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedsigners
-	TrustedSigners pulumi.StringArrayInput `pulumi:"trustedSigners"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-viewerprotocolpolicy
-	ViewerProtocolPolicy pulumi.StringInput `pulumi:"viewerProtocolPolicy"`
+	MaxTTL                     pulumi.Float64PtrInput                          `pulumi:"maxTTL"`
+	MinTTL                     pulumi.Float64PtrInput                          `pulumi:"minTTL"`
+	OriginRequestPolicyId      pulumi.StringPtrInput                           `pulumi:"originRequestPolicyId"`
+	RealtimeLogConfigArn       pulumi.StringPtrInput                           `pulumi:"realtimeLogConfigArn"`
+	SmoothStreaming            pulumi.BoolPtrInput                             `pulumi:"smoothStreaming"`
+	TargetOriginId             pulumi.StringInput                              `pulumi:"targetOriginId"`
+	TrustedKeyGroups           pulumi.StringArrayInput                         `pulumi:"trustedKeyGroups"`
+	TrustedSigners             pulumi.StringArrayInput                         `pulumi:"trustedSigners"`
+	ViewerProtocolPolicy       pulumi.StringInput                              `pulumi:"viewerProtocolPolicy"`
 }
 
 func (DistributionDefaultCacheBehaviorArgs) ElementType() reflect.Type {
@@ -2015,7 +1774,6 @@ func (i *distributionDefaultCacheBehaviorPtrType) ToDistributionDefaultCacheBeha
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html
 type DistributionDefaultCacheBehaviorOutput struct{ *pulumi.OutputState }
 
 func (DistributionDefaultCacheBehaviorOutput) ElementType() reflect.Type {
@@ -2040,96 +1798,78 @@ func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehavi
 	}).(DistributionDefaultCacheBehaviorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-allowedmethods
 func (o DistributionDefaultCacheBehaviorOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []string { return v.AllowedMethods }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachepolicyid
 func (o DistributionDefaultCacheBehaviorOutput) CachePolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.CachePolicyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachedmethods
 func (o DistributionDefaultCacheBehaviorOutput) CachedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []string { return v.CachedMethods }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-compress
 func (o DistributionDefaultCacheBehaviorOutput) Compress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-defaultttl
 func (o DistributionDefaultCacheBehaviorOutput) DefaultTTL() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *float64 { return v.DefaultTTL }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-fieldlevelencryptionid
 func (o DistributionDefaultCacheBehaviorOutput) FieldLevelEncryptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.FieldLevelEncryptionId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
 func (o DistributionDefaultCacheBehaviorOutput) ForwardedValues() DistributionForwardedValuesPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *DistributionForwardedValues { return v.ForwardedValues }).(DistributionForwardedValuesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-functionassociations
 func (o DistributionDefaultCacheBehaviorOutput) FunctionAssociations() DistributionFunctionAssociationArrayOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []DistributionFunctionAssociation {
 		return v.FunctionAssociations
 	}).(DistributionFunctionAssociationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
 func (o DistributionDefaultCacheBehaviorOutput) LambdaFunctionAssociations() DistributionLambdaFunctionAssociationArrayOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []DistributionLambdaFunctionAssociation {
 		return v.LambdaFunctionAssociations
 	}).(DistributionLambdaFunctionAssociationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-maxttl
 func (o DistributionDefaultCacheBehaviorOutput) MaxTTL() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *float64 { return v.MaxTTL }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-minttl
 func (o DistributionDefaultCacheBehaviorOutput) MinTTL() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *float64 { return v.MinTTL }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-originrequestpolicyid
 func (o DistributionDefaultCacheBehaviorOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.OriginRequestPolicyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-realtimelogconfigarn
 func (o DistributionDefaultCacheBehaviorOutput) RealtimeLogConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *string { return v.RealtimeLogConfigArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
 func (o DistributionDefaultCacheBehaviorOutput) SmoothStreaming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *bool { return v.SmoothStreaming }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-targetoriginid
 func (o DistributionDefaultCacheBehaviorOutput) TargetOriginId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) string { return v.TargetOriginId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedkeygroups
 func (o DistributionDefaultCacheBehaviorOutput) TrustedKeyGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []string { return v.TrustedKeyGroups }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedsigners
 func (o DistributionDefaultCacheBehaviorOutput) TrustedSigners() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []string { return v.TrustedSigners }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-viewerprotocolpolicy
 func (o DistributionDefaultCacheBehaviorOutput) ViewerProtocolPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) string { return v.ViewerProtocolPolicy }).(pulumi.StringOutput)
 }
@@ -2158,7 +1898,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) Elem() DistributionDefaultCac
 	}).(DistributionDefaultCacheBehaviorOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-allowedmethods
 func (o DistributionDefaultCacheBehaviorPtrOutput) AllowedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []string {
 		if v == nil {
@@ -2168,7 +1907,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) AllowedMethods() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachepolicyid
 func (o DistributionDefaultCacheBehaviorPtrOutput) CachePolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
 		if v == nil {
@@ -2178,7 +1916,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) CachePolicyId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachedmethods
 func (o DistributionDefaultCacheBehaviorPtrOutput) CachedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []string {
 		if v == nil {
@@ -2188,7 +1925,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) CachedMethods() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-compress
 func (o DistributionDefaultCacheBehaviorPtrOutput) Compress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *bool {
 		if v == nil {
@@ -2198,7 +1934,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) Compress() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-defaultttl
 func (o DistributionDefaultCacheBehaviorPtrOutput) DefaultTTL() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *float64 {
 		if v == nil {
@@ -2208,7 +1943,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) DefaultTTL() pulumi.Float64Pt
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-fieldlevelencryptionid
 func (o DistributionDefaultCacheBehaviorPtrOutput) FieldLevelEncryptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
 		if v == nil {
@@ -2218,7 +1952,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) FieldLevelEncryptionId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
 func (o DistributionDefaultCacheBehaviorPtrOutput) ForwardedValues() DistributionForwardedValuesPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *DistributionForwardedValues {
 		if v == nil {
@@ -2228,7 +1961,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) ForwardedValues() Distributio
 	}).(DistributionForwardedValuesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-functionassociations
 func (o DistributionDefaultCacheBehaviorPtrOutput) FunctionAssociations() DistributionFunctionAssociationArrayOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []DistributionFunctionAssociation {
 		if v == nil {
@@ -2238,7 +1970,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) FunctionAssociations() Distri
 	}).(DistributionFunctionAssociationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
 func (o DistributionDefaultCacheBehaviorPtrOutput) LambdaFunctionAssociations() DistributionLambdaFunctionAssociationArrayOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []DistributionLambdaFunctionAssociation {
 		if v == nil {
@@ -2248,7 +1979,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) LambdaFunctionAssociations() 
 	}).(DistributionLambdaFunctionAssociationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-maxttl
 func (o DistributionDefaultCacheBehaviorPtrOutput) MaxTTL() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *float64 {
 		if v == nil {
@@ -2258,7 +1988,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) MaxTTL() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-minttl
 func (o DistributionDefaultCacheBehaviorPtrOutput) MinTTL() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *float64 {
 		if v == nil {
@@ -2268,7 +1997,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) MinTTL() pulumi.Float64PtrOut
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-originrequestpolicyid
 func (o DistributionDefaultCacheBehaviorPtrOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
 		if v == nil {
@@ -2278,7 +2006,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) OriginRequestPolicyId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-realtimelogconfigarn
 func (o DistributionDefaultCacheBehaviorPtrOutput) RealtimeLogConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
 		if v == nil {
@@ -2288,7 +2015,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) RealtimeLogConfigArn() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
 func (o DistributionDefaultCacheBehaviorPtrOutput) SmoothStreaming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *bool {
 		if v == nil {
@@ -2298,7 +2024,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) SmoothStreaming() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-targetoriginid
 func (o DistributionDefaultCacheBehaviorPtrOutput) TargetOriginId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
 		if v == nil {
@@ -2308,7 +2033,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) TargetOriginId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedkeygroups
 func (o DistributionDefaultCacheBehaviorPtrOutput) TrustedKeyGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []string {
 		if v == nil {
@@ -2318,7 +2042,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) TrustedKeyGroups() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedsigners
 func (o DistributionDefaultCacheBehaviorPtrOutput) TrustedSigners() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []string {
 		if v == nil {
@@ -2328,7 +2051,6 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) TrustedSigners() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-viewerprotocolpolicy
 func (o DistributionDefaultCacheBehaviorPtrOutput) ViewerProtocolPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
 		if v == nil {
@@ -2338,46 +2060,26 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) ViewerProtocolPolicy() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html
 type DistributionDistributionConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases
-	Aliases []string `pulumi:"aliases"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cnames
-	CNAMEs []string `pulumi:"cNAMEs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachebehaviors
-	CacheBehaviors []DistributionCacheBehavior `pulumi:"cacheBehaviors"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-comment
-	Comment *string `pulumi:"comment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customerrorresponses
+	Aliases              []string                          `pulumi:"aliases"`
+	CNAMEs               []string                          `pulumi:"cNAMEs"`
+	CacheBehaviors       []DistributionCacheBehavior       `pulumi:"cacheBehaviors"`
+	Comment              *string                           `pulumi:"comment"`
 	CustomErrorResponses []DistributionCustomErrorResponse `pulumi:"customErrorResponses"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customorigin
-	CustomOrigin *DistributionLegacyCustomOrigin `pulumi:"customOrigin"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultcachebehavior
+	CustomOrigin         *DistributionLegacyCustomOrigin   `pulumi:"customOrigin"`
 	DefaultCacheBehavior *DistributionDefaultCacheBehavior `pulumi:"defaultCacheBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultrootobject
-	DefaultRootObject *string `pulumi:"defaultRootObject"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-enabled
-	Enabled bool `pulumi:"enabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-httpversion
-	HttpVersion *string `pulumi:"httpVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-ipv6enabled
-	IPV6Enabled *bool `pulumi:"iPV6Enabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-logging
-	Logging *DistributionLogging `pulumi:"logging"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origingroups
-	OriginGroups *DistributionOriginGroups `pulumi:"originGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origins
-	Origins []DistributionOrigin `pulumi:"origins"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-priceclass
-	PriceClass *string `pulumi:"priceClass"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions
-	Restrictions *DistributionRestrictions `pulumi:"restrictions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-s3origin
-	S3Origin *DistributionLegacyS3Origin `pulumi:"s3Origin"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-viewercertificate
-	ViewerCertificate *DistributionViewerCertificate `pulumi:"viewerCertificate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-webaclid
-	WebACLId *string `pulumi:"webACLId"`
+	DefaultRootObject    *string                           `pulumi:"defaultRootObject"`
+	Enabled              bool                              `pulumi:"enabled"`
+	HttpVersion          *string                           `pulumi:"httpVersion"`
+	IPV6Enabled          *bool                             `pulumi:"iPV6Enabled"`
+	Logging              *DistributionLogging              `pulumi:"logging"`
+	OriginGroups         *DistributionOriginGroups         `pulumi:"originGroups"`
+	Origins              []DistributionOrigin              `pulumi:"origins"`
+	PriceClass           *string                           `pulumi:"priceClass"`
+	Restrictions         *DistributionRestrictions         `pulumi:"restrictions"`
+	S3Origin             *DistributionLegacyS3Origin       `pulumi:"s3Origin"`
+	ViewerCertificate    *DistributionViewerCertificate    `pulumi:"viewerCertificate"`
+	WebACLId             *string                           `pulumi:"webACLId"`
 }
 
 // DistributionDistributionConfigInput is an input type that accepts DistributionDistributionConfigArgs and DistributionDistributionConfigOutput values.
@@ -2391,46 +2093,26 @@ type DistributionDistributionConfigInput interface {
 	ToDistributionDistributionConfigOutputWithContext(context.Context) DistributionDistributionConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html
 type DistributionDistributionConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases
-	Aliases pulumi.StringArrayInput `pulumi:"aliases"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cnames
-	CNAMEs pulumi.StringArrayInput `pulumi:"cNAMEs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachebehaviors
-	CacheBehaviors DistributionCacheBehaviorArrayInput `pulumi:"cacheBehaviors"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-comment
-	Comment pulumi.StringPtrInput `pulumi:"comment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customerrorresponses
+	Aliases              pulumi.StringArrayInput                   `pulumi:"aliases"`
+	CNAMEs               pulumi.StringArrayInput                   `pulumi:"cNAMEs"`
+	CacheBehaviors       DistributionCacheBehaviorArrayInput       `pulumi:"cacheBehaviors"`
+	Comment              pulumi.StringPtrInput                     `pulumi:"comment"`
 	CustomErrorResponses DistributionCustomErrorResponseArrayInput `pulumi:"customErrorResponses"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customorigin
-	CustomOrigin DistributionLegacyCustomOriginPtrInput `pulumi:"customOrigin"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultcachebehavior
-	DefaultCacheBehavior DistributionDefaultCacheBehaviorPtrInput `pulumi:"defaultCacheBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultrootobject
-	DefaultRootObject pulumi.StringPtrInput `pulumi:"defaultRootObject"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-enabled
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-httpversion
-	HttpVersion pulumi.StringPtrInput `pulumi:"httpVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-ipv6enabled
-	IPV6Enabled pulumi.BoolPtrInput `pulumi:"iPV6Enabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-logging
-	Logging DistributionLoggingPtrInput `pulumi:"logging"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origingroups
-	OriginGroups DistributionOriginGroupsPtrInput `pulumi:"originGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origins
-	Origins DistributionOriginArrayInput `pulumi:"origins"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-priceclass
-	PriceClass pulumi.StringPtrInput `pulumi:"priceClass"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions
-	Restrictions DistributionRestrictionsPtrInput `pulumi:"restrictions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-s3origin
-	S3Origin DistributionLegacyS3OriginPtrInput `pulumi:"s3Origin"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-viewercertificate
-	ViewerCertificate DistributionViewerCertificatePtrInput `pulumi:"viewerCertificate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-webaclid
-	WebACLId pulumi.StringPtrInput `pulumi:"webACLId"`
+	CustomOrigin         DistributionLegacyCustomOriginPtrInput    `pulumi:"customOrigin"`
+	DefaultCacheBehavior DistributionDefaultCacheBehaviorPtrInput  `pulumi:"defaultCacheBehavior"`
+	DefaultRootObject    pulumi.StringPtrInput                     `pulumi:"defaultRootObject"`
+	Enabled              pulumi.BoolInput                          `pulumi:"enabled"`
+	HttpVersion          pulumi.StringPtrInput                     `pulumi:"httpVersion"`
+	IPV6Enabled          pulumi.BoolPtrInput                       `pulumi:"iPV6Enabled"`
+	Logging              DistributionLoggingPtrInput               `pulumi:"logging"`
+	OriginGroups         DistributionOriginGroupsPtrInput          `pulumi:"originGroups"`
+	Origins              DistributionOriginArrayInput              `pulumi:"origins"`
+	PriceClass           pulumi.StringPtrInput                     `pulumi:"priceClass"`
+	Restrictions         DistributionRestrictionsPtrInput          `pulumi:"restrictions"`
+	S3Origin             DistributionLegacyS3OriginPtrInput        `pulumi:"s3Origin"`
+	ViewerCertificate    DistributionViewerCertificatePtrInput     `pulumi:"viewerCertificate"`
+	WebACLId             pulumi.StringPtrInput                     `pulumi:"webACLId"`
 }
 
 func (DistributionDistributionConfigArgs) ElementType() reflect.Type {
@@ -2486,7 +2168,6 @@ func (i *distributionDistributionConfigPtrType) ToDistributionDistributionConfig
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionDistributionConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html
 type DistributionDistributionConfigOutput struct{ *pulumi.OutputState }
 
 func (DistributionDistributionConfigOutput) ElementType() reflect.Type {
@@ -2511,101 +2192,82 @@ func (o DistributionDistributionConfigOutput) ToDistributionDistributionConfigPt
 	}).(DistributionDistributionConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases
 func (o DistributionDistributionConfigOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) []string { return v.Aliases }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cnames
 func (o DistributionDistributionConfigOutput) CNAMEs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) []string { return v.CNAMEs }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachebehaviors
 func (o DistributionDistributionConfigOutput) CacheBehaviors() DistributionCacheBehaviorArrayOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) []DistributionCacheBehavior { return v.CacheBehaviors }).(DistributionCacheBehaviorArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-comment
 func (o DistributionDistributionConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customerrorresponses
 func (o DistributionDistributionConfigOutput) CustomErrorResponses() DistributionCustomErrorResponseArrayOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) []DistributionCustomErrorResponse {
 		return v.CustomErrorResponses
 	}).(DistributionCustomErrorResponseArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customorigin
 func (o DistributionDistributionConfigOutput) CustomOrigin() DistributionLegacyCustomOriginPtrOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) *DistributionLegacyCustomOrigin { return v.CustomOrigin }).(DistributionLegacyCustomOriginPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultcachebehavior
 func (o DistributionDistributionConfigOutput) DefaultCacheBehavior() DistributionDefaultCacheBehaviorPtrOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) *DistributionDefaultCacheBehavior {
 		return v.DefaultCacheBehavior
 	}).(DistributionDefaultCacheBehaviorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultrootobject
 func (o DistributionDistributionConfigOutput) DefaultRootObject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) *string { return v.DefaultRootObject }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-enabled
 func (o DistributionDistributionConfigOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-httpversion
 func (o DistributionDistributionConfigOutput) HttpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) *string { return v.HttpVersion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-ipv6enabled
 func (o DistributionDistributionConfigOutput) IPV6Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) *bool { return v.IPV6Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-logging
 func (o DistributionDistributionConfigOutput) Logging() DistributionLoggingPtrOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) *DistributionLogging { return v.Logging }).(DistributionLoggingPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origingroups
 func (o DistributionDistributionConfigOutput) OriginGroups() DistributionOriginGroupsPtrOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) *DistributionOriginGroups { return v.OriginGroups }).(DistributionOriginGroupsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origins
 func (o DistributionDistributionConfigOutput) Origins() DistributionOriginArrayOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) []DistributionOrigin { return v.Origins }).(DistributionOriginArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-priceclass
 func (o DistributionDistributionConfigOutput) PriceClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) *string { return v.PriceClass }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions
 func (o DistributionDistributionConfigOutput) Restrictions() DistributionRestrictionsPtrOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) *DistributionRestrictions { return v.Restrictions }).(DistributionRestrictionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-s3origin
 func (o DistributionDistributionConfigOutput) S3Origin() DistributionLegacyS3OriginPtrOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) *DistributionLegacyS3Origin { return v.S3Origin }).(DistributionLegacyS3OriginPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-viewercertificate
 func (o DistributionDistributionConfigOutput) ViewerCertificate() DistributionViewerCertificatePtrOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) *DistributionViewerCertificate { return v.ViewerCertificate }).(DistributionViewerCertificatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-webaclid
 func (o DistributionDistributionConfigOutput) WebACLId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionDistributionConfig) *string { return v.WebACLId }).(pulumi.StringPtrOutput)
 }
@@ -2634,7 +2296,6 @@ func (o DistributionDistributionConfigPtrOutput) Elem() DistributionDistribution
 	}).(DistributionDistributionConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases
 func (o DistributionDistributionConfigPtrOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) []string {
 		if v == nil {
@@ -2644,7 +2305,6 @@ func (o DistributionDistributionConfigPtrOutput) Aliases() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cnames
 func (o DistributionDistributionConfigPtrOutput) CNAMEs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) []string {
 		if v == nil {
@@ -2654,7 +2314,6 @@ func (o DistributionDistributionConfigPtrOutput) CNAMEs() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachebehaviors
 func (o DistributionDistributionConfigPtrOutput) CacheBehaviors() DistributionCacheBehaviorArrayOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) []DistributionCacheBehavior {
 		if v == nil {
@@ -2664,7 +2323,6 @@ func (o DistributionDistributionConfigPtrOutput) CacheBehaviors() DistributionCa
 	}).(DistributionCacheBehaviorArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-comment
 func (o DistributionDistributionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) *string {
 		if v == nil {
@@ -2674,7 +2332,6 @@ func (o DistributionDistributionConfigPtrOutput) Comment() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customerrorresponses
 func (o DistributionDistributionConfigPtrOutput) CustomErrorResponses() DistributionCustomErrorResponseArrayOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) []DistributionCustomErrorResponse {
 		if v == nil {
@@ -2684,7 +2341,6 @@ func (o DistributionDistributionConfigPtrOutput) CustomErrorResponses() Distribu
 	}).(DistributionCustomErrorResponseArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customorigin
 func (o DistributionDistributionConfigPtrOutput) CustomOrigin() DistributionLegacyCustomOriginPtrOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) *DistributionLegacyCustomOrigin {
 		if v == nil {
@@ -2694,7 +2350,6 @@ func (o DistributionDistributionConfigPtrOutput) CustomOrigin() DistributionLega
 	}).(DistributionLegacyCustomOriginPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultcachebehavior
 func (o DistributionDistributionConfigPtrOutput) DefaultCacheBehavior() DistributionDefaultCacheBehaviorPtrOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) *DistributionDefaultCacheBehavior {
 		if v == nil {
@@ -2704,7 +2359,6 @@ func (o DistributionDistributionConfigPtrOutput) DefaultCacheBehavior() Distribu
 	}).(DistributionDefaultCacheBehaviorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultrootobject
 func (o DistributionDistributionConfigPtrOutput) DefaultRootObject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) *string {
 		if v == nil {
@@ -2714,7 +2368,6 @@ func (o DistributionDistributionConfigPtrOutput) DefaultRootObject() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-enabled
 func (o DistributionDistributionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) *bool {
 		if v == nil {
@@ -2724,7 +2377,6 @@ func (o DistributionDistributionConfigPtrOutput) Enabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-httpversion
 func (o DistributionDistributionConfigPtrOutput) HttpVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) *string {
 		if v == nil {
@@ -2734,7 +2386,6 @@ func (o DistributionDistributionConfigPtrOutput) HttpVersion() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-ipv6enabled
 func (o DistributionDistributionConfigPtrOutput) IPV6Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) *bool {
 		if v == nil {
@@ -2744,7 +2395,6 @@ func (o DistributionDistributionConfigPtrOutput) IPV6Enabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-logging
 func (o DistributionDistributionConfigPtrOutput) Logging() DistributionLoggingPtrOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) *DistributionLogging {
 		if v == nil {
@@ -2754,7 +2404,6 @@ func (o DistributionDistributionConfigPtrOutput) Logging() DistributionLoggingPt
 	}).(DistributionLoggingPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origingroups
 func (o DistributionDistributionConfigPtrOutput) OriginGroups() DistributionOriginGroupsPtrOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) *DistributionOriginGroups {
 		if v == nil {
@@ -2764,7 +2413,6 @@ func (o DistributionDistributionConfigPtrOutput) OriginGroups() DistributionOrig
 	}).(DistributionOriginGroupsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origins
 func (o DistributionDistributionConfigPtrOutput) Origins() DistributionOriginArrayOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) []DistributionOrigin {
 		if v == nil {
@@ -2774,7 +2422,6 @@ func (o DistributionDistributionConfigPtrOutput) Origins() DistributionOriginArr
 	}).(DistributionOriginArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-priceclass
 func (o DistributionDistributionConfigPtrOutput) PriceClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) *string {
 		if v == nil {
@@ -2784,7 +2431,6 @@ func (o DistributionDistributionConfigPtrOutput) PriceClass() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions
 func (o DistributionDistributionConfigPtrOutput) Restrictions() DistributionRestrictionsPtrOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) *DistributionRestrictions {
 		if v == nil {
@@ -2794,7 +2440,6 @@ func (o DistributionDistributionConfigPtrOutput) Restrictions() DistributionRest
 	}).(DistributionRestrictionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-s3origin
 func (o DistributionDistributionConfigPtrOutput) S3Origin() DistributionLegacyS3OriginPtrOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) *DistributionLegacyS3Origin {
 		if v == nil {
@@ -2804,7 +2449,6 @@ func (o DistributionDistributionConfigPtrOutput) S3Origin() DistributionLegacyS3
 	}).(DistributionLegacyS3OriginPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-viewercertificate
 func (o DistributionDistributionConfigPtrOutput) ViewerCertificate() DistributionViewerCertificatePtrOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) *DistributionViewerCertificate {
 		if v == nil {
@@ -2814,7 +2458,6 @@ func (o DistributionDistributionConfigPtrOutput) ViewerCertificate() Distributio
 	}).(DistributionViewerCertificatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-webaclid
 func (o DistributionDistributionConfigPtrOutput) WebACLId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionDistributionConfig) *string {
 		if v == nil {
@@ -2824,16 +2467,11 @@ func (o DistributionDistributionConfigPtrOutput) WebACLId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html
 type DistributionForwardedValues struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-cookies
-	Cookies *DistributionCookies `pulumi:"cookies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-headers
-	Headers []string `pulumi:"headers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystring
-	QueryString bool `pulumi:"queryString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystringcachekeys
-	QueryStringCacheKeys []string `pulumi:"queryStringCacheKeys"`
+	Cookies              *DistributionCookies `pulumi:"cookies"`
+	Headers              []string             `pulumi:"headers"`
+	QueryString          bool                 `pulumi:"queryString"`
+	QueryStringCacheKeys []string             `pulumi:"queryStringCacheKeys"`
 }
 
 // DistributionForwardedValuesInput is an input type that accepts DistributionForwardedValuesArgs and DistributionForwardedValuesOutput values.
@@ -2847,16 +2485,11 @@ type DistributionForwardedValuesInput interface {
 	ToDistributionForwardedValuesOutputWithContext(context.Context) DistributionForwardedValuesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html
 type DistributionForwardedValuesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-cookies
-	Cookies DistributionCookiesPtrInput `pulumi:"cookies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-headers
-	Headers pulumi.StringArrayInput `pulumi:"headers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystring
-	QueryString pulumi.BoolInput `pulumi:"queryString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystringcachekeys
-	QueryStringCacheKeys pulumi.StringArrayInput `pulumi:"queryStringCacheKeys"`
+	Cookies              DistributionCookiesPtrInput `pulumi:"cookies"`
+	Headers              pulumi.StringArrayInput     `pulumi:"headers"`
+	QueryString          pulumi.BoolInput            `pulumi:"queryString"`
+	QueryStringCacheKeys pulumi.StringArrayInput     `pulumi:"queryStringCacheKeys"`
 }
 
 func (DistributionForwardedValuesArgs) ElementType() reflect.Type {
@@ -2912,7 +2545,6 @@ func (i *distributionForwardedValuesPtrType) ToDistributionForwardedValuesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionForwardedValuesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html
 type DistributionForwardedValuesOutput struct{ *pulumi.OutputState }
 
 func (DistributionForwardedValuesOutput) ElementType() reflect.Type {
@@ -2937,22 +2569,18 @@ func (o DistributionForwardedValuesOutput) ToDistributionForwardedValuesPtrOutpu
 	}).(DistributionForwardedValuesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-cookies
 func (o DistributionForwardedValuesOutput) Cookies() DistributionCookiesPtrOutput {
 	return o.ApplyT(func(v DistributionForwardedValues) *DistributionCookies { return v.Cookies }).(DistributionCookiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-headers
 func (o DistributionForwardedValuesOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionForwardedValues) []string { return v.Headers }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystring
 func (o DistributionForwardedValuesOutput) QueryString() pulumi.BoolOutput {
 	return o.ApplyT(func(v DistributionForwardedValues) bool { return v.QueryString }).(pulumi.BoolOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystringcachekeys
 func (o DistributionForwardedValuesOutput) QueryStringCacheKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionForwardedValues) []string { return v.QueryStringCacheKeys }).(pulumi.StringArrayOutput)
 }
@@ -2981,7 +2609,6 @@ func (o DistributionForwardedValuesPtrOutput) Elem() DistributionForwardedValues
 	}).(DistributionForwardedValuesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-cookies
 func (o DistributionForwardedValuesPtrOutput) Cookies() DistributionCookiesPtrOutput {
 	return o.ApplyT(func(v *DistributionForwardedValues) *DistributionCookies {
 		if v == nil {
@@ -2991,7 +2618,6 @@ func (o DistributionForwardedValuesPtrOutput) Cookies() DistributionCookiesPtrOu
 	}).(DistributionCookiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-headers
 func (o DistributionForwardedValuesPtrOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionForwardedValues) []string {
 		if v == nil {
@@ -3001,7 +2627,6 @@ func (o DistributionForwardedValuesPtrOutput) Headers() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystring
 func (o DistributionForwardedValuesPtrOutput) QueryString() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionForwardedValues) *bool {
 		if v == nil {
@@ -3011,7 +2636,6 @@ func (o DistributionForwardedValuesPtrOutput) QueryString() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystringcachekeys
 func (o DistributionForwardedValuesPtrOutput) QueryStringCacheKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionForwardedValues) []string {
 		if v == nil {
@@ -3021,11 +2645,8 @@ func (o DistributionForwardedValuesPtrOutput) QueryStringCacheKeys() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html
 type DistributionFunctionAssociation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html#cfn-cloudfront-distribution-functionassociation-eventtype
-	EventType *string `pulumi:"eventType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html#cfn-cloudfront-distribution-functionassociation-functionarn
+	EventType   *string `pulumi:"eventType"`
 	FunctionARN *string `pulumi:"functionARN"`
 }
 
@@ -3040,11 +2661,8 @@ type DistributionFunctionAssociationInput interface {
 	ToDistributionFunctionAssociationOutputWithContext(context.Context) DistributionFunctionAssociationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html
 type DistributionFunctionAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html#cfn-cloudfront-distribution-functionassociation-eventtype
-	EventType pulumi.StringPtrInput `pulumi:"eventType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html#cfn-cloudfront-distribution-functionassociation-functionarn
+	EventType   pulumi.StringPtrInput `pulumi:"eventType"`
 	FunctionARN pulumi.StringPtrInput `pulumi:"functionARN"`
 }
 
@@ -3085,7 +2703,6 @@ func (i DistributionFunctionAssociationArray) ToDistributionFunctionAssociationA
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionFunctionAssociationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html
 type DistributionFunctionAssociationOutput struct{ *pulumi.OutputState }
 
 func (DistributionFunctionAssociationOutput) ElementType() reflect.Type {
@@ -3100,12 +2717,10 @@ func (o DistributionFunctionAssociationOutput) ToDistributionFunctionAssociation
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html#cfn-cloudfront-distribution-functionassociation-eventtype
 func (o DistributionFunctionAssociationOutput) EventType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionFunctionAssociation) *string { return v.EventType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-functionassociation.html#cfn-cloudfront-distribution-functionassociation-functionarn
 func (o DistributionFunctionAssociationOutput) FunctionARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionFunctionAssociation) *string { return v.FunctionARN }).(pulumi.StringPtrOutput)
 }
@@ -3130,12 +2745,9 @@ func (o DistributionFunctionAssociationArrayOutput) Index(i pulumi.IntInput) Dis
 	}).(DistributionFunctionAssociationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html
 type DistributionGeoRestriction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-locations
-	Locations []string `pulumi:"locations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-restrictiontype
-	RestrictionType string `pulumi:"restrictionType"`
+	Locations       []string `pulumi:"locations"`
+	RestrictionType string   `pulumi:"restrictionType"`
 }
 
 // DistributionGeoRestrictionInput is an input type that accepts DistributionGeoRestrictionArgs and DistributionGeoRestrictionOutput values.
@@ -3149,12 +2761,9 @@ type DistributionGeoRestrictionInput interface {
 	ToDistributionGeoRestrictionOutputWithContext(context.Context) DistributionGeoRestrictionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html
 type DistributionGeoRestrictionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-locations
-	Locations pulumi.StringArrayInput `pulumi:"locations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-restrictiontype
-	RestrictionType pulumi.StringInput `pulumi:"restrictionType"`
+	Locations       pulumi.StringArrayInput `pulumi:"locations"`
+	RestrictionType pulumi.StringInput      `pulumi:"restrictionType"`
 }
 
 func (DistributionGeoRestrictionArgs) ElementType() reflect.Type {
@@ -3210,7 +2819,6 @@ func (i *distributionGeoRestrictionPtrType) ToDistributionGeoRestrictionPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionGeoRestrictionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html
 type DistributionGeoRestrictionOutput struct{ *pulumi.OutputState }
 
 func (DistributionGeoRestrictionOutput) ElementType() reflect.Type {
@@ -3235,12 +2843,10 @@ func (o DistributionGeoRestrictionOutput) ToDistributionGeoRestrictionPtrOutputW
 	}).(DistributionGeoRestrictionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-locations
 func (o DistributionGeoRestrictionOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionGeoRestriction) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-restrictiontype
 func (o DistributionGeoRestrictionOutput) RestrictionType() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionGeoRestriction) string { return v.RestrictionType }).(pulumi.StringOutput)
 }
@@ -3269,7 +2875,6 @@ func (o DistributionGeoRestrictionPtrOutput) Elem() DistributionGeoRestrictionOu
 	}).(DistributionGeoRestrictionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-locations
 func (o DistributionGeoRestrictionPtrOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionGeoRestriction) []string {
 		if v == nil {
@@ -3279,7 +2884,6 @@ func (o DistributionGeoRestrictionPtrOutput) Locations() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-restrictiontype
 func (o DistributionGeoRestrictionPtrOutput) RestrictionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionGeoRestriction) *string {
 		if v == nil {
@@ -3289,13 +2893,9 @@ func (o DistributionGeoRestrictionPtrOutput) RestrictionType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html
 type DistributionLambdaFunctionAssociation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-eventtype
-	EventType *string `pulumi:"eventType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-includebody
-	IncludeBody *bool `pulumi:"includeBody"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn
+	EventType         *string `pulumi:"eventType"`
+	IncludeBody       *bool   `pulumi:"includeBody"`
 	LambdaFunctionARN *string `pulumi:"lambdaFunctionARN"`
 }
 
@@ -3310,13 +2910,9 @@ type DistributionLambdaFunctionAssociationInput interface {
 	ToDistributionLambdaFunctionAssociationOutputWithContext(context.Context) DistributionLambdaFunctionAssociationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html
 type DistributionLambdaFunctionAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-eventtype
-	EventType pulumi.StringPtrInput `pulumi:"eventType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-includebody
-	IncludeBody pulumi.BoolPtrInput `pulumi:"includeBody"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn
+	EventType         pulumi.StringPtrInput `pulumi:"eventType"`
+	IncludeBody       pulumi.BoolPtrInput   `pulumi:"includeBody"`
 	LambdaFunctionARN pulumi.StringPtrInput `pulumi:"lambdaFunctionARN"`
 }
 
@@ -3357,7 +2953,6 @@ func (i DistributionLambdaFunctionAssociationArray) ToDistributionLambdaFunction
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionLambdaFunctionAssociationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html
 type DistributionLambdaFunctionAssociationOutput struct{ *pulumi.OutputState }
 
 func (DistributionLambdaFunctionAssociationOutput) ElementType() reflect.Type {
@@ -3372,17 +2967,14 @@ func (o DistributionLambdaFunctionAssociationOutput) ToDistributionLambdaFunctio
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-eventtype
 func (o DistributionLambdaFunctionAssociationOutput) EventType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionLambdaFunctionAssociation) *string { return v.EventType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-includebody
 func (o DistributionLambdaFunctionAssociationOutput) IncludeBody() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionLambdaFunctionAssociation) *bool { return v.IncludeBody }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn
 func (o DistributionLambdaFunctionAssociationOutput) LambdaFunctionARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionLambdaFunctionAssociation) *string { return v.LambdaFunctionARN }).(pulumi.StringPtrOutput)
 }
@@ -3407,18 +2999,12 @@ func (o DistributionLambdaFunctionAssociationArrayOutput) Index(i pulumi.IntInpu
 	}).(DistributionLambdaFunctionAssociationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html
 type DistributionLegacyCustomOrigin struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-dnsname
-	DNSName string `pulumi:"dNSName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpport
-	HTTPPort *int `pulumi:"hTTPPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpsport
-	HTTPSPort *int `pulumi:"hTTPSPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-originprotocolpolicy
-	OriginProtocolPolicy string `pulumi:"originProtocolPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-originsslprotocols
-	OriginSSLProtocols []string `pulumi:"originSSLProtocols"`
+	DNSName              string   `pulumi:"dNSName"`
+	HTTPPort             *int     `pulumi:"hTTPPort"`
+	HTTPSPort            *int     `pulumi:"hTTPSPort"`
+	OriginProtocolPolicy string   `pulumi:"originProtocolPolicy"`
+	OriginSSLProtocols   []string `pulumi:"originSSLProtocols"`
 }
 
 // DistributionLegacyCustomOriginInput is an input type that accepts DistributionLegacyCustomOriginArgs and DistributionLegacyCustomOriginOutput values.
@@ -3432,18 +3018,12 @@ type DistributionLegacyCustomOriginInput interface {
 	ToDistributionLegacyCustomOriginOutputWithContext(context.Context) DistributionLegacyCustomOriginOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html
 type DistributionLegacyCustomOriginArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-dnsname
-	DNSName pulumi.StringInput `pulumi:"dNSName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpport
-	HTTPPort pulumi.IntPtrInput `pulumi:"hTTPPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpsport
-	HTTPSPort pulumi.IntPtrInput `pulumi:"hTTPSPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-originprotocolpolicy
-	OriginProtocolPolicy pulumi.StringInput `pulumi:"originProtocolPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-originsslprotocols
-	OriginSSLProtocols pulumi.StringArrayInput `pulumi:"originSSLProtocols"`
+	DNSName              pulumi.StringInput      `pulumi:"dNSName"`
+	HTTPPort             pulumi.IntPtrInput      `pulumi:"hTTPPort"`
+	HTTPSPort            pulumi.IntPtrInput      `pulumi:"hTTPSPort"`
+	OriginProtocolPolicy pulumi.StringInput      `pulumi:"originProtocolPolicy"`
+	OriginSSLProtocols   pulumi.StringArrayInput `pulumi:"originSSLProtocols"`
 }
 
 func (DistributionLegacyCustomOriginArgs) ElementType() reflect.Type {
@@ -3499,7 +3079,6 @@ func (i *distributionLegacyCustomOriginPtrType) ToDistributionLegacyCustomOrigin
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionLegacyCustomOriginPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html
 type DistributionLegacyCustomOriginOutput struct{ *pulumi.OutputState }
 
 func (DistributionLegacyCustomOriginOutput) ElementType() reflect.Type {
@@ -3524,27 +3103,22 @@ func (o DistributionLegacyCustomOriginOutput) ToDistributionLegacyCustomOriginPt
 	}).(DistributionLegacyCustomOriginPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-dnsname
 func (o DistributionLegacyCustomOriginOutput) DNSName() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionLegacyCustomOrigin) string { return v.DNSName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpport
 func (o DistributionLegacyCustomOriginOutput) HTTPPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionLegacyCustomOrigin) *int { return v.HTTPPort }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpsport
 func (o DistributionLegacyCustomOriginOutput) HTTPSPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionLegacyCustomOrigin) *int { return v.HTTPSPort }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-originprotocolpolicy
 func (o DistributionLegacyCustomOriginOutput) OriginProtocolPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionLegacyCustomOrigin) string { return v.OriginProtocolPolicy }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-originsslprotocols
 func (o DistributionLegacyCustomOriginOutput) OriginSSLProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionLegacyCustomOrigin) []string { return v.OriginSSLProtocols }).(pulumi.StringArrayOutput)
 }
@@ -3573,7 +3147,6 @@ func (o DistributionLegacyCustomOriginPtrOutput) Elem() DistributionLegacyCustom
 	}).(DistributionLegacyCustomOriginOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-dnsname
 func (o DistributionLegacyCustomOriginPtrOutput) DNSName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyCustomOrigin) *string {
 		if v == nil {
@@ -3583,7 +3156,6 @@ func (o DistributionLegacyCustomOriginPtrOutput) DNSName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpport
 func (o DistributionLegacyCustomOriginPtrOutput) HTTPPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyCustomOrigin) *int {
 		if v == nil {
@@ -3593,7 +3165,6 @@ func (o DistributionLegacyCustomOriginPtrOutput) HTTPPort() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-httpsport
 func (o DistributionLegacyCustomOriginPtrOutput) HTTPSPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyCustomOrigin) *int {
 		if v == nil {
@@ -3603,7 +3174,6 @@ func (o DistributionLegacyCustomOriginPtrOutput) HTTPSPort() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-originprotocolpolicy
 func (o DistributionLegacyCustomOriginPtrOutput) OriginProtocolPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyCustomOrigin) *string {
 		if v == nil {
@@ -3613,7 +3183,6 @@ func (o DistributionLegacyCustomOriginPtrOutput) OriginProtocolPolicy() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacycustomorigin.html#cfn-cloudfront-distribution-legacycustomorigin-originsslprotocols
 func (o DistributionLegacyCustomOriginPtrOutput) OriginSSLProtocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionLegacyCustomOrigin) []string {
 		if v == nil {
@@ -3623,11 +3192,8 @@ func (o DistributionLegacyCustomOriginPtrOutput) OriginSSLProtocols() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html
 type DistributionLegacyS3Origin struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-dnsname
-	DNSName string `pulumi:"dNSName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-originaccessidentity
+	DNSName              string  `pulumi:"dNSName"`
 	OriginAccessIdentity *string `pulumi:"originAccessIdentity"`
 }
 
@@ -3642,11 +3208,8 @@ type DistributionLegacyS3OriginInput interface {
 	ToDistributionLegacyS3OriginOutputWithContext(context.Context) DistributionLegacyS3OriginOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html
 type DistributionLegacyS3OriginArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-dnsname
-	DNSName pulumi.StringInput `pulumi:"dNSName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-originaccessidentity
+	DNSName              pulumi.StringInput    `pulumi:"dNSName"`
 	OriginAccessIdentity pulumi.StringPtrInput `pulumi:"originAccessIdentity"`
 }
 
@@ -3703,7 +3266,6 @@ func (i *distributionLegacyS3OriginPtrType) ToDistributionLegacyS3OriginPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionLegacyS3OriginPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html
 type DistributionLegacyS3OriginOutput struct{ *pulumi.OutputState }
 
 func (DistributionLegacyS3OriginOutput) ElementType() reflect.Type {
@@ -3728,12 +3290,10 @@ func (o DistributionLegacyS3OriginOutput) ToDistributionLegacyS3OriginPtrOutputW
 	}).(DistributionLegacyS3OriginPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-dnsname
 func (o DistributionLegacyS3OriginOutput) DNSName() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionLegacyS3Origin) string { return v.DNSName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-originaccessidentity
 func (o DistributionLegacyS3OriginOutput) OriginAccessIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionLegacyS3Origin) *string { return v.OriginAccessIdentity }).(pulumi.StringPtrOutput)
 }
@@ -3762,7 +3322,6 @@ func (o DistributionLegacyS3OriginPtrOutput) Elem() DistributionLegacyS3OriginOu
 	}).(DistributionLegacyS3OriginOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-dnsname
 func (o DistributionLegacyS3OriginPtrOutput) DNSName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyS3Origin) *string {
 		if v == nil {
@@ -3772,7 +3331,6 @@ func (o DistributionLegacyS3OriginPtrOutput) DNSName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-legacys3origin.html#cfn-cloudfront-distribution-legacys3origin-originaccessidentity
 func (o DistributionLegacyS3OriginPtrOutput) OriginAccessIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLegacyS3Origin) *string {
 		if v == nil {
@@ -3782,14 +3340,10 @@ func (o DistributionLegacyS3OriginPtrOutput) OriginAccessIdentity() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html
 type DistributionLogging struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-bucket
-	Bucket string `pulumi:"bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-includecookies
-	IncludeCookies *bool `pulumi:"includeCookies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-prefix
-	Prefix *string `pulumi:"prefix"`
+	Bucket         string  `pulumi:"bucket"`
+	IncludeCookies *bool   `pulumi:"includeCookies"`
+	Prefix         *string `pulumi:"prefix"`
 }
 
 // DistributionLoggingInput is an input type that accepts DistributionLoggingArgs and DistributionLoggingOutput values.
@@ -3803,14 +3357,10 @@ type DistributionLoggingInput interface {
 	ToDistributionLoggingOutputWithContext(context.Context) DistributionLoggingOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html
 type DistributionLoggingArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-bucket
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-includecookies
-	IncludeCookies pulumi.BoolPtrInput `pulumi:"includeCookies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-prefix
-	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	Bucket         pulumi.StringInput    `pulumi:"bucket"`
+	IncludeCookies pulumi.BoolPtrInput   `pulumi:"includeCookies"`
+	Prefix         pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
 func (DistributionLoggingArgs) ElementType() reflect.Type {
@@ -3866,7 +3416,6 @@ func (i *distributionLoggingPtrType) ToDistributionLoggingPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionLoggingPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html
 type DistributionLoggingOutput struct{ *pulumi.OutputState }
 
 func (DistributionLoggingOutput) ElementType() reflect.Type {
@@ -3891,17 +3440,14 @@ func (o DistributionLoggingOutput) ToDistributionLoggingPtrOutputWithContext(ctx
 	}).(DistributionLoggingPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-bucket
 func (o DistributionLoggingOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionLogging) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-includecookies
 func (o DistributionLoggingOutput) IncludeCookies() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionLogging) *bool { return v.IncludeCookies }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-prefix
 func (o DistributionLoggingOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionLogging) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -3930,7 +3476,6 @@ func (o DistributionLoggingPtrOutput) Elem() DistributionLoggingOutput {
 	}).(DistributionLoggingOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-bucket
 func (o DistributionLoggingPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLogging) *string {
 		if v == nil {
@@ -3940,7 +3485,6 @@ func (o DistributionLoggingPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-includecookies
 func (o DistributionLoggingPtrOutput) IncludeCookies() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionLogging) *bool {
 		if v == nil {
@@ -3950,7 +3494,6 @@ func (o DistributionLoggingPtrOutput) IncludeCookies() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-prefix
 func (o DistributionLoggingPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionLogging) *string {
 		if v == nil {
@@ -3960,26 +3503,16 @@ func (o DistributionLoggingPtrOutput) Prefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html
 type DistributionOrigin struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-connectionattempts
-	ConnectionAttempts *int `pulumi:"connectionAttempts"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-connectiontimeout
-	ConnectionTimeout *int `pulumi:"connectionTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-customoriginconfig
-	CustomOriginConfig *DistributionCustomOriginConfig `pulumi:"customOriginConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-domainname
-	DomainName string `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-id
-	Id string `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-origincustomheaders
+	ConnectionAttempts  *int                             `pulumi:"connectionAttempts"`
+	ConnectionTimeout   *int                             `pulumi:"connectionTimeout"`
+	CustomOriginConfig  *DistributionCustomOriginConfig  `pulumi:"customOriginConfig"`
+	DomainName          string                           `pulumi:"domainName"`
+	Id                  string                           `pulumi:"id"`
 	OriginCustomHeaders []DistributionOriginCustomHeader `pulumi:"originCustomHeaders"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originpath
-	OriginPath *string `pulumi:"originPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originshield
-	OriginShield *DistributionOriginShield `pulumi:"originShield"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3originconfig
-	S3OriginConfig *DistributionS3OriginConfig `pulumi:"s3OriginConfig"`
+	OriginPath          *string                          `pulumi:"originPath"`
+	OriginShield        *DistributionOriginShield        `pulumi:"originShield"`
+	S3OriginConfig      *DistributionS3OriginConfig      `pulumi:"s3OriginConfig"`
 }
 
 // DistributionOriginInput is an input type that accepts DistributionOriginArgs and DistributionOriginOutput values.
@@ -3993,26 +3526,16 @@ type DistributionOriginInput interface {
 	ToDistributionOriginOutputWithContext(context.Context) DistributionOriginOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html
 type DistributionOriginArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-connectionattempts
-	ConnectionAttempts pulumi.IntPtrInput `pulumi:"connectionAttempts"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-connectiontimeout
-	ConnectionTimeout pulumi.IntPtrInput `pulumi:"connectionTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-customoriginconfig
-	CustomOriginConfig DistributionCustomOriginConfigPtrInput `pulumi:"customOriginConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-domainname
-	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-id
-	Id pulumi.StringInput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-origincustomheaders
+	ConnectionAttempts  pulumi.IntPtrInput                       `pulumi:"connectionAttempts"`
+	ConnectionTimeout   pulumi.IntPtrInput                       `pulumi:"connectionTimeout"`
+	CustomOriginConfig  DistributionCustomOriginConfigPtrInput   `pulumi:"customOriginConfig"`
+	DomainName          pulumi.StringInput                       `pulumi:"domainName"`
+	Id                  pulumi.StringInput                       `pulumi:"id"`
 	OriginCustomHeaders DistributionOriginCustomHeaderArrayInput `pulumi:"originCustomHeaders"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originpath
-	OriginPath pulumi.StringPtrInput `pulumi:"originPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originshield
-	OriginShield DistributionOriginShieldPtrInput `pulumi:"originShield"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3originconfig
-	S3OriginConfig DistributionS3OriginConfigPtrInput `pulumi:"s3OriginConfig"`
+	OriginPath          pulumi.StringPtrInput                    `pulumi:"originPath"`
+	OriginShield        DistributionOriginShieldPtrInput         `pulumi:"originShield"`
+	S3OriginConfig      DistributionS3OriginConfigPtrInput       `pulumi:"s3OriginConfig"`
 }
 
 func (DistributionOriginArgs) ElementType() reflect.Type {
@@ -4052,7 +3575,6 @@ func (i DistributionOriginArray) ToDistributionOriginArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html
 type DistributionOriginOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginOutput) ElementType() reflect.Type {
@@ -4067,47 +3589,38 @@ func (o DistributionOriginOutput) ToDistributionOriginOutputWithContext(ctx cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-connectionattempts
 func (o DistributionOriginOutput) ConnectionAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *int { return v.ConnectionAttempts }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-connectiontimeout
 func (o DistributionOriginOutput) ConnectionTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *int { return v.ConnectionTimeout }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-customoriginconfig
 func (o DistributionOriginOutput) CustomOriginConfig() DistributionCustomOriginConfigPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *DistributionCustomOriginConfig { return v.CustomOriginConfig }).(DistributionCustomOriginConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-domainname
 func (o DistributionOriginOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOrigin) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-id
 func (o DistributionOriginOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOrigin) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-origincustomheaders
 func (o DistributionOriginOutput) OriginCustomHeaders() DistributionOriginCustomHeaderArrayOutput {
 	return o.ApplyT(func(v DistributionOrigin) []DistributionOriginCustomHeader { return v.OriginCustomHeaders }).(DistributionOriginCustomHeaderArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originpath
 func (o DistributionOriginOutput) OriginPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *string { return v.OriginPath }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originshield
 func (o DistributionOriginOutput) OriginShield() DistributionOriginShieldPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *DistributionOriginShield { return v.OriginShield }).(DistributionOriginShieldPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3originconfig
 func (o DistributionOriginOutput) S3OriginConfig() DistributionS3OriginConfigPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *DistributionS3OriginConfig { return v.S3OriginConfig }).(DistributionS3OriginConfigPtrOutput)
 }
@@ -4132,11 +3645,8 @@ func (o DistributionOriginArrayOutput) Index(i pulumi.IntInput) DistributionOrig
 	}).(DistributionOriginOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html
 type DistributionOriginCustomHeader struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headername
-	HeaderName string `pulumi:"headerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headervalue
+	HeaderName  string `pulumi:"headerName"`
 	HeaderValue string `pulumi:"headerValue"`
 }
 
@@ -4151,11 +3661,8 @@ type DistributionOriginCustomHeaderInput interface {
 	ToDistributionOriginCustomHeaderOutputWithContext(context.Context) DistributionOriginCustomHeaderOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html
 type DistributionOriginCustomHeaderArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headername
-	HeaderName pulumi.StringInput `pulumi:"headerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headervalue
+	HeaderName  pulumi.StringInput `pulumi:"headerName"`
 	HeaderValue pulumi.StringInput `pulumi:"headerValue"`
 }
 
@@ -4196,7 +3703,6 @@ func (i DistributionOriginCustomHeaderArray) ToDistributionOriginCustomHeaderArr
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginCustomHeaderArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html
 type DistributionOriginCustomHeaderOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginCustomHeaderOutput) ElementType() reflect.Type {
@@ -4211,12 +3717,10 @@ func (o DistributionOriginCustomHeaderOutput) ToDistributionOriginCustomHeaderOu
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headername
 func (o DistributionOriginCustomHeaderOutput) HeaderName() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOriginCustomHeader) string { return v.HeaderName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headervalue
 func (o DistributionOriginCustomHeaderOutput) HeaderValue() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOriginCustomHeader) string { return v.HeaderValue }).(pulumi.StringOutput)
 }
@@ -4241,14 +3745,10 @@ func (o DistributionOriginCustomHeaderArrayOutput) Index(i pulumi.IntInput) Dist
 	}).(DistributionOriginCustomHeaderOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html
 type DistributionOriginGroup struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-failovercriteria
 	FailoverCriteria DistributionOriginGroupFailoverCriteria `pulumi:"failoverCriteria"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-id
-	Id string `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-members
-	Members DistributionOriginGroupMembers `pulumi:"members"`
+	Id               string                                  `pulumi:"id"`
+	Members          DistributionOriginGroupMembers          `pulumi:"members"`
 }
 
 // DistributionOriginGroupInput is an input type that accepts DistributionOriginGroupArgs and DistributionOriginGroupOutput values.
@@ -4262,14 +3762,10 @@ type DistributionOriginGroupInput interface {
 	ToDistributionOriginGroupOutputWithContext(context.Context) DistributionOriginGroupOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html
 type DistributionOriginGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-failovercriteria
 	FailoverCriteria DistributionOriginGroupFailoverCriteriaInput `pulumi:"failoverCriteria"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-id
-	Id pulumi.StringInput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-members
-	Members DistributionOriginGroupMembersInput `pulumi:"members"`
+	Id               pulumi.StringInput                           `pulumi:"id"`
+	Members          DistributionOriginGroupMembersInput          `pulumi:"members"`
 }
 
 func (DistributionOriginGroupArgs) ElementType() reflect.Type {
@@ -4309,7 +3805,6 @@ func (i DistributionOriginGroupArray) ToDistributionOriginGroupArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginGroupArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html
 type DistributionOriginGroupOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginGroupOutput) ElementType() reflect.Type {
@@ -4324,17 +3819,14 @@ func (o DistributionOriginGroupOutput) ToDistributionOriginGroupOutputWithContex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-failovercriteria
 func (o DistributionOriginGroupOutput) FailoverCriteria() DistributionOriginGroupFailoverCriteriaOutput {
 	return o.ApplyT(func(v DistributionOriginGroup) DistributionOriginGroupFailoverCriteria { return v.FailoverCriteria }).(DistributionOriginGroupFailoverCriteriaOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-id
 func (o DistributionOriginGroupOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOriginGroup) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroup.html#cfn-cloudfront-distribution-origingroup-members
 func (o DistributionOriginGroupOutput) Members() DistributionOriginGroupMembersOutput {
 	return o.ApplyT(func(v DistributionOriginGroup) DistributionOriginGroupMembers { return v.Members }).(DistributionOriginGroupMembersOutput)
 }
@@ -4359,9 +3851,7 @@ func (o DistributionOriginGroupArrayOutput) Index(i pulumi.IntInput) Distributio
 	}).(DistributionOriginGroupOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html
 type DistributionOriginGroupFailoverCriteria struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html#cfn-cloudfront-distribution-origingroupfailovercriteria-statuscodes
 	StatusCodes DistributionStatusCodes `pulumi:"statusCodes"`
 }
 
@@ -4376,9 +3866,7 @@ type DistributionOriginGroupFailoverCriteriaInput interface {
 	ToDistributionOriginGroupFailoverCriteriaOutputWithContext(context.Context) DistributionOriginGroupFailoverCriteriaOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html
 type DistributionOriginGroupFailoverCriteriaArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html#cfn-cloudfront-distribution-origingroupfailovercriteria-statuscodes
 	StatusCodes DistributionStatusCodesInput `pulumi:"statusCodes"`
 }
 
@@ -4394,7 +3882,6 @@ func (i DistributionOriginGroupFailoverCriteriaArgs) ToDistributionOriginGroupFa
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginGroupFailoverCriteriaOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html
 type DistributionOriginGroupFailoverCriteriaOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginGroupFailoverCriteriaOutput) ElementType() reflect.Type {
@@ -4409,14 +3896,11 @@ func (o DistributionOriginGroupFailoverCriteriaOutput) ToDistributionOriginGroup
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupfailovercriteria.html#cfn-cloudfront-distribution-origingroupfailovercriteria-statuscodes
 func (o DistributionOriginGroupFailoverCriteriaOutput) StatusCodes() DistributionStatusCodesOutput {
 	return o.ApplyT(func(v DistributionOriginGroupFailoverCriteria) DistributionStatusCodes { return v.StatusCodes }).(DistributionStatusCodesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html
 type DistributionOriginGroupMember struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html#cfn-cloudfront-distribution-origingroupmember-originid
 	OriginId string `pulumi:"originId"`
 }
 
@@ -4431,9 +3915,7 @@ type DistributionOriginGroupMemberInput interface {
 	ToDistributionOriginGroupMemberOutputWithContext(context.Context) DistributionOriginGroupMemberOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html
 type DistributionOriginGroupMemberArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html#cfn-cloudfront-distribution-origingroupmember-originid
 	OriginId pulumi.StringInput `pulumi:"originId"`
 }
 
@@ -4474,7 +3956,6 @@ func (i DistributionOriginGroupMemberArray) ToDistributionOriginGroupMemberArray
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginGroupMemberArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html
 type DistributionOriginGroupMemberOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginGroupMemberOutput) ElementType() reflect.Type {
@@ -4489,7 +3970,6 @@ func (o DistributionOriginGroupMemberOutput) ToDistributionOriginGroupMemberOutp
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmember.html#cfn-cloudfront-distribution-origingroupmember-originid
 func (o DistributionOriginGroupMemberOutput) OriginId() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOriginGroupMember) string { return v.OriginId }).(pulumi.StringOutput)
 }
@@ -4514,12 +3994,9 @@ func (o DistributionOriginGroupMemberArrayOutput) Index(i pulumi.IntInput) Distr
 	}).(DistributionOriginGroupMemberOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html
 type DistributionOriginGroupMembers struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-items
-	Items []DistributionOriginGroupMember `pulumi:"items"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-quantity
-	Quantity int `pulumi:"quantity"`
+	Items    []DistributionOriginGroupMember `pulumi:"items"`
+	Quantity int                             `pulumi:"quantity"`
 }
 
 // DistributionOriginGroupMembersInput is an input type that accepts DistributionOriginGroupMembersArgs and DistributionOriginGroupMembersOutput values.
@@ -4533,12 +4010,9 @@ type DistributionOriginGroupMembersInput interface {
 	ToDistributionOriginGroupMembersOutputWithContext(context.Context) DistributionOriginGroupMembersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html
 type DistributionOriginGroupMembersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-items
-	Items DistributionOriginGroupMemberArrayInput `pulumi:"items"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-quantity
-	Quantity pulumi.IntInput `pulumi:"quantity"`
+	Items    DistributionOriginGroupMemberArrayInput `pulumi:"items"`
+	Quantity pulumi.IntInput                         `pulumi:"quantity"`
 }
 
 func (DistributionOriginGroupMembersArgs) ElementType() reflect.Type {
@@ -4553,7 +4027,6 @@ func (i DistributionOriginGroupMembersArgs) ToDistributionOriginGroupMembersOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginGroupMembersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html
 type DistributionOriginGroupMembersOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginGroupMembersOutput) ElementType() reflect.Type {
@@ -4568,22 +4041,17 @@ func (o DistributionOriginGroupMembersOutput) ToDistributionOriginGroupMembersOu
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-items
 func (o DistributionOriginGroupMembersOutput) Items() DistributionOriginGroupMemberArrayOutput {
 	return o.ApplyT(func(v DistributionOriginGroupMembers) []DistributionOriginGroupMember { return v.Items }).(DistributionOriginGroupMemberArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroupmembers.html#cfn-cloudfront-distribution-origingroupmembers-quantity
 func (o DistributionOriginGroupMembersOutput) Quantity() pulumi.IntOutput {
 	return o.ApplyT(func(v DistributionOriginGroupMembers) int { return v.Quantity }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html
 type DistributionOriginGroups struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-items
-	Items []DistributionOriginGroup `pulumi:"items"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-quantity
-	Quantity int `pulumi:"quantity"`
+	Items    []DistributionOriginGroup `pulumi:"items"`
+	Quantity int                       `pulumi:"quantity"`
 }
 
 // DistributionOriginGroupsInput is an input type that accepts DistributionOriginGroupsArgs and DistributionOriginGroupsOutput values.
@@ -4597,12 +4065,9 @@ type DistributionOriginGroupsInput interface {
 	ToDistributionOriginGroupsOutputWithContext(context.Context) DistributionOriginGroupsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html
 type DistributionOriginGroupsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-items
-	Items DistributionOriginGroupArrayInput `pulumi:"items"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-quantity
-	Quantity pulumi.IntInput `pulumi:"quantity"`
+	Items    DistributionOriginGroupArrayInput `pulumi:"items"`
+	Quantity pulumi.IntInput                   `pulumi:"quantity"`
 }
 
 func (DistributionOriginGroupsArgs) ElementType() reflect.Type {
@@ -4658,7 +4123,6 @@ func (i *distributionOriginGroupsPtrType) ToDistributionOriginGroupsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginGroupsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html
 type DistributionOriginGroupsOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginGroupsOutput) ElementType() reflect.Type {
@@ -4683,12 +4147,10 @@ func (o DistributionOriginGroupsOutput) ToDistributionOriginGroupsPtrOutputWithC
 	}).(DistributionOriginGroupsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-items
 func (o DistributionOriginGroupsOutput) Items() DistributionOriginGroupArrayOutput {
 	return o.ApplyT(func(v DistributionOriginGroups) []DistributionOriginGroup { return v.Items }).(DistributionOriginGroupArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-quantity
 func (o DistributionOriginGroupsOutput) Quantity() pulumi.IntOutput {
 	return o.ApplyT(func(v DistributionOriginGroups) int { return v.Quantity }).(pulumi.IntOutput)
 }
@@ -4717,7 +4179,6 @@ func (o DistributionOriginGroupsPtrOutput) Elem() DistributionOriginGroupsOutput
 	}).(DistributionOriginGroupsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-items
 func (o DistributionOriginGroupsPtrOutput) Items() DistributionOriginGroupArrayOutput {
 	return o.ApplyT(func(v *DistributionOriginGroups) []DistributionOriginGroup {
 		if v == nil {
@@ -4727,7 +4188,6 @@ func (o DistributionOriginGroupsPtrOutput) Items() DistributionOriginGroupArrayO
 	}).(DistributionOriginGroupArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-quantity
 func (o DistributionOriginGroupsPtrOutput) Quantity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DistributionOriginGroups) *int {
 		if v == nil {
@@ -4737,11 +4197,8 @@ func (o DistributionOriginGroupsPtrOutput) Quantity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html
 type DistributionOriginShield struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-enabled
-	Enabled *bool `pulumi:"enabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-originshieldregion
+	Enabled            *bool   `pulumi:"enabled"`
 	OriginShieldRegion *string `pulumi:"originShieldRegion"`
 }
 
@@ -4756,11 +4213,8 @@ type DistributionOriginShieldInput interface {
 	ToDistributionOriginShieldOutputWithContext(context.Context) DistributionOriginShieldOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html
 type DistributionOriginShieldArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-enabled
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-originshieldregion
+	Enabled            pulumi.BoolPtrInput   `pulumi:"enabled"`
 	OriginShieldRegion pulumi.StringPtrInput `pulumi:"originShieldRegion"`
 }
 
@@ -4817,7 +4271,6 @@ func (i *distributionOriginShieldPtrType) ToDistributionOriginShieldPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginShieldPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html
 type DistributionOriginShieldOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginShieldOutput) ElementType() reflect.Type {
@@ -4842,12 +4295,10 @@ func (o DistributionOriginShieldOutput) ToDistributionOriginShieldPtrOutputWithC
 	}).(DistributionOriginShieldPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-enabled
 func (o DistributionOriginShieldOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionOriginShield) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-originshieldregion
 func (o DistributionOriginShieldOutput) OriginShieldRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionOriginShield) *string { return v.OriginShieldRegion }).(pulumi.StringPtrOutput)
 }
@@ -4876,7 +4327,6 @@ func (o DistributionOriginShieldPtrOutput) Elem() DistributionOriginShieldOutput
 	}).(DistributionOriginShieldOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-enabled
 func (o DistributionOriginShieldPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionOriginShield) *bool {
 		if v == nil {
@@ -4886,7 +4336,6 @@ func (o DistributionOriginShieldPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-originshield.html#cfn-cloudfront-distribution-originshield-originshieldregion
 func (o DistributionOriginShieldPtrOutput) OriginShieldRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionOriginShield) *string {
 		if v == nil {
@@ -4896,9 +4345,7 @@ func (o DistributionOriginShieldPtrOutput) OriginShieldRegion() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html
 type DistributionRestrictions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html#cfn-cloudfront-distribution-restrictions-georestriction
 	GeoRestriction DistributionGeoRestriction `pulumi:"geoRestriction"`
 }
 
@@ -4913,9 +4360,7 @@ type DistributionRestrictionsInput interface {
 	ToDistributionRestrictionsOutputWithContext(context.Context) DistributionRestrictionsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html
 type DistributionRestrictionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html#cfn-cloudfront-distribution-restrictions-georestriction
 	GeoRestriction DistributionGeoRestrictionInput `pulumi:"geoRestriction"`
 }
 
@@ -4972,7 +4417,6 @@ func (i *distributionRestrictionsPtrType) ToDistributionRestrictionsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionRestrictionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html
 type DistributionRestrictionsOutput struct{ *pulumi.OutputState }
 
 func (DistributionRestrictionsOutput) ElementType() reflect.Type {
@@ -4997,7 +4441,6 @@ func (o DistributionRestrictionsOutput) ToDistributionRestrictionsPtrOutputWithC
 	}).(DistributionRestrictionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html#cfn-cloudfront-distribution-restrictions-georestriction
 func (o DistributionRestrictionsOutput) GeoRestriction() DistributionGeoRestrictionOutput {
 	return o.ApplyT(func(v DistributionRestrictions) DistributionGeoRestriction { return v.GeoRestriction }).(DistributionGeoRestrictionOutput)
 }
@@ -5026,7 +4469,6 @@ func (o DistributionRestrictionsPtrOutput) Elem() DistributionRestrictionsOutput
 	}).(DistributionRestrictionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html#cfn-cloudfront-distribution-restrictions-georestriction
 func (o DistributionRestrictionsPtrOutput) GeoRestriction() DistributionGeoRestrictionPtrOutput {
 	return o.ApplyT(func(v *DistributionRestrictions) *DistributionGeoRestriction {
 		if v == nil {
@@ -5036,9 +4478,7 @@ func (o DistributionRestrictionsPtrOutput) GeoRestriction() DistributionGeoRestr
 	}).(DistributionGeoRestrictionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html
 type DistributionS3OriginConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html#cfn-cloudfront-distribution-s3originconfig-originaccessidentity
 	OriginAccessIdentity *string `pulumi:"originAccessIdentity"`
 }
 
@@ -5053,9 +4493,7 @@ type DistributionS3OriginConfigInput interface {
 	ToDistributionS3OriginConfigOutputWithContext(context.Context) DistributionS3OriginConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html
 type DistributionS3OriginConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html#cfn-cloudfront-distribution-s3originconfig-originaccessidentity
 	OriginAccessIdentity pulumi.StringPtrInput `pulumi:"originAccessIdentity"`
 }
 
@@ -5112,7 +4550,6 @@ func (i *distributionS3OriginConfigPtrType) ToDistributionS3OriginConfigPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionS3OriginConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html
 type DistributionS3OriginConfigOutput struct{ *pulumi.OutputState }
 
 func (DistributionS3OriginConfigOutput) ElementType() reflect.Type {
@@ -5137,7 +4574,6 @@ func (o DistributionS3OriginConfigOutput) ToDistributionS3OriginConfigPtrOutputW
 	}).(DistributionS3OriginConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html#cfn-cloudfront-distribution-s3originconfig-originaccessidentity
 func (o DistributionS3OriginConfigOutput) OriginAccessIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionS3OriginConfig) *string { return v.OriginAccessIdentity }).(pulumi.StringPtrOutput)
 }
@@ -5166,7 +4602,6 @@ func (o DistributionS3OriginConfigPtrOutput) Elem() DistributionS3OriginConfigOu
 	}).(DistributionS3OriginConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html#cfn-cloudfront-distribution-s3originconfig-originaccessidentity
 func (o DistributionS3OriginConfigPtrOutput) OriginAccessIdentity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionS3OriginConfig) *string {
 		if v == nil {
@@ -5176,12 +4611,9 @@ func (o DistributionS3OriginConfigPtrOutput) OriginAccessIdentity() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html
 type DistributionStatusCodes struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-items
-	Items []int `pulumi:"items"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-quantity
-	Quantity int `pulumi:"quantity"`
+	Items    []int `pulumi:"items"`
+	Quantity int   `pulumi:"quantity"`
 }
 
 // DistributionStatusCodesInput is an input type that accepts DistributionStatusCodesArgs and DistributionStatusCodesOutput values.
@@ -5195,12 +4627,9 @@ type DistributionStatusCodesInput interface {
 	ToDistributionStatusCodesOutputWithContext(context.Context) DistributionStatusCodesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html
 type DistributionStatusCodesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-items
-	Items pulumi.IntArrayInput `pulumi:"items"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-quantity
-	Quantity pulumi.IntInput `pulumi:"quantity"`
+	Items    pulumi.IntArrayInput `pulumi:"items"`
+	Quantity pulumi.IntInput      `pulumi:"quantity"`
 }
 
 func (DistributionStatusCodesArgs) ElementType() reflect.Type {
@@ -5215,7 +4644,6 @@ func (i DistributionStatusCodesArgs) ToDistributionStatusCodesOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionStatusCodesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html
 type DistributionStatusCodesOutput struct{ *pulumi.OutputState }
 
 func (DistributionStatusCodesOutput) ElementType() reflect.Type {
@@ -5230,28 +4658,120 @@ func (o DistributionStatusCodesOutput) ToDistributionStatusCodesOutputWithContex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-items
 func (o DistributionStatusCodesOutput) Items() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DistributionStatusCodes) []int { return v.Items }).(pulumi.IntArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-quantity
 func (o DistributionStatusCodesOutput) Quantity() pulumi.IntOutput {
 	return o.ApplyT(func(v DistributionStatusCodes) int { return v.Quantity }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html
+type DistributionTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// DistributionTagInput is an input type that accepts DistributionTagArgs and DistributionTagOutput values.
+// You can construct a concrete instance of `DistributionTagInput` via:
+//
+//          DistributionTagArgs{...}
+type DistributionTagInput interface {
+	pulumi.Input
+
+	ToDistributionTagOutput() DistributionTagOutput
+	ToDistributionTagOutputWithContext(context.Context) DistributionTagOutput
+}
+
+type DistributionTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DistributionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTag)(nil)).Elem()
+}
+
+func (i DistributionTagArgs) ToDistributionTagOutput() DistributionTagOutput {
+	return i.ToDistributionTagOutputWithContext(context.Background())
+}
+
+func (i DistributionTagArgs) ToDistributionTagOutputWithContext(ctx context.Context) DistributionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTagOutput)
+}
+
+// DistributionTagArrayInput is an input type that accepts DistributionTagArray and DistributionTagArrayOutput values.
+// You can construct a concrete instance of `DistributionTagArrayInput` via:
+//
+//          DistributionTagArray{ DistributionTagArgs{...} }
+type DistributionTagArrayInput interface {
+	pulumi.Input
+
+	ToDistributionTagArrayOutput() DistributionTagArrayOutput
+	ToDistributionTagArrayOutputWithContext(context.Context) DistributionTagArrayOutput
+}
+
+type DistributionTagArray []DistributionTagInput
+
+func (DistributionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionTag)(nil)).Elem()
+}
+
+func (i DistributionTagArray) ToDistributionTagArrayOutput() DistributionTagArrayOutput {
+	return i.ToDistributionTagArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionTagArray) ToDistributionTagArrayOutputWithContext(ctx context.Context) DistributionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionTagArrayOutput)
+}
+
+type DistributionTagOutput struct{ *pulumi.OutputState }
+
+func (DistributionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionTag)(nil)).Elem()
+}
+
+func (o DistributionTagOutput) ToDistributionTagOutput() DistributionTagOutput {
+	return o
+}
+
+func (o DistributionTagOutput) ToDistributionTagOutputWithContext(ctx context.Context) DistributionTagOutput {
+	return o
+}
+
+func (o DistributionTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o DistributionTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DistributionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionTag)(nil)).Elem()
+}
+
+func (o DistributionTagArrayOutput) ToDistributionTagArrayOutput() DistributionTagArrayOutput {
+	return o
+}
+
+func (o DistributionTagArrayOutput) ToDistributionTagArrayOutputWithContext(ctx context.Context) DistributionTagArrayOutput {
+	return o
+}
+
+func (o DistributionTagArrayOutput) Index(i pulumi.IntInput) DistributionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionTag {
+		return vs[0].([]DistributionTag)[vs[1].(int)]
+	}).(DistributionTagOutput)
+}
+
 type DistributionViewerCertificate struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-acmcertificatearn
-	AcmCertificateArn *string `pulumi:"acmCertificateArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-cloudfrontdefaultcertificate
-	CloudFrontDefaultCertificate *bool `pulumi:"cloudFrontDefaultCertificate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-iamcertificateid
-	IamCertificateId *string `pulumi:"iamCertificateId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-minimumprotocolversion
-	MinimumProtocolVersion *string `pulumi:"minimumProtocolVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-sslsupportmethod
-	SslSupportMethod *string `pulumi:"sslSupportMethod"`
+	AcmCertificateArn            *string `pulumi:"acmCertificateArn"`
+	CloudFrontDefaultCertificate *bool   `pulumi:"cloudFrontDefaultCertificate"`
+	IamCertificateId             *string `pulumi:"iamCertificateId"`
+	MinimumProtocolVersion       *string `pulumi:"minimumProtocolVersion"`
+	SslSupportMethod             *string `pulumi:"sslSupportMethod"`
 }
 
 // DistributionViewerCertificateInput is an input type that accepts DistributionViewerCertificateArgs and DistributionViewerCertificateOutput values.
@@ -5265,18 +4785,12 @@ type DistributionViewerCertificateInput interface {
 	ToDistributionViewerCertificateOutputWithContext(context.Context) DistributionViewerCertificateOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html
 type DistributionViewerCertificateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-acmcertificatearn
-	AcmCertificateArn pulumi.StringPtrInput `pulumi:"acmCertificateArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-cloudfrontdefaultcertificate
-	CloudFrontDefaultCertificate pulumi.BoolPtrInput `pulumi:"cloudFrontDefaultCertificate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-iamcertificateid
-	IamCertificateId pulumi.StringPtrInput `pulumi:"iamCertificateId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-minimumprotocolversion
-	MinimumProtocolVersion pulumi.StringPtrInput `pulumi:"minimumProtocolVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-sslsupportmethod
-	SslSupportMethod pulumi.StringPtrInput `pulumi:"sslSupportMethod"`
+	AcmCertificateArn            pulumi.StringPtrInput `pulumi:"acmCertificateArn"`
+	CloudFrontDefaultCertificate pulumi.BoolPtrInput   `pulumi:"cloudFrontDefaultCertificate"`
+	IamCertificateId             pulumi.StringPtrInput `pulumi:"iamCertificateId"`
+	MinimumProtocolVersion       pulumi.StringPtrInput `pulumi:"minimumProtocolVersion"`
+	SslSupportMethod             pulumi.StringPtrInput `pulumi:"sslSupportMethod"`
 }
 
 func (DistributionViewerCertificateArgs) ElementType() reflect.Type {
@@ -5332,7 +4846,6 @@ func (i *distributionViewerCertificatePtrType) ToDistributionViewerCertificatePt
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionViewerCertificatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html
 type DistributionViewerCertificateOutput struct{ *pulumi.OutputState }
 
 func (DistributionViewerCertificateOutput) ElementType() reflect.Type {
@@ -5357,27 +4870,22 @@ func (o DistributionViewerCertificateOutput) ToDistributionViewerCertificatePtrO
 	}).(DistributionViewerCertificatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-acmcertificatearn
 func (o DistributionViewerCertificateOutput) AcmCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.AcmCertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-cloudfrontdefaultcertificate
 func (o DistributionViewerCertificateOutput) CloudFrontDefaultCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionViewerCertificate) *bool { return v.CloudFrontDefaultCertificate }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-iamcertificateid
 func (o DistributionViewerCertificateOutput) IamCertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.IamCertificateId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-minimumprotocolversion
 func (o DistributionViewerCertificateOutput) MinimumProtocolVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.MinimumProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-sslsupportmethod
 func (o DistributionViewerCertificateOutput) SslSupportMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.SslSupportMethod }).(pulumi.StringPtrOutput)
 }
@@ -5406,7 +4914,6 @@ func (o DistributionViewerCertificatePtrOutput) Elem() DistributionViewerCertifi
 	}).(DistributionViewerCertificateOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-acmcertificatearn
 func (o DistributionViewerCertificatePtrOutput) AcmCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionViewerCertificate) *string {
 		if v == nil {
@@ -5416,7 +4923,6 @@ func (o DistributionViewerCertificatePtrOutput) AcmCertificateArn() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-cloudfrontdefaultcertificate
 func (o DistributionViewerCertificatePtrOutput) CloudFrontDefaultCertificate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DistributionViewerCertificate) *bool {
 		if v == nil {
@@ -5426,7 +4932,6 @@ func (o DistributionViewerCertificatePtrOutput) CloudFrontDefaultCertificate() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-iamcertificateid
 func (o DistributionViewerCertificatePtrOutput) IamCertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionViewerCertificate) *string {
 		if v == nil {
@@ -5436,7 +4941,6 @@ func (o DistributionViewerCertificatePtrOutput) IamCertificateId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-minimumprotocolversion
 func (o DistributionViewerCertificatePtrOutput) MinimumProtocolVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionViewerCertificate) *string {
 		if v == nil {
@@ -5446,7 +4950,6 @@ func (o DistributionViewerCertificatePtrOutput) MinimumProtocolVersion() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-sslsupportmethod
 func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionViewerCertificate) *string {
 		if v == nil {
@@ -5456,11 +4959,8 @@ func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html
 type FunctionFunctionConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-comment
 	Comment string `pulumi:"comment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-runtime
 	Runtime string `pulumi:"runtime"`
 }
 
@@ -5475,11 +4975,8 @@ type FunctionFunctionConfigInput interface {
 	ToFunctionFunctionConfigOutputWithContext(context.Context) FunctionFunctionConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html
 type FunctionFunctionConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-comment
 	Comment pulumi.StringInput `pulumi:"comment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-runtime
 	Runtime pulumi.StringInput `pulumi:"runtime"`
 }
 
@@ -5536,7 +5033,6 @@ func (i *functionFunctionConfigPtrType) ToFunctionFunctionConfigPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionFunctionConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html
 type FunctionFunctionConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionFunctionConfigOutput) ElementType() reflect.Type {
@@ -5561,12 +5057,10 @@ func (o FunctionFunctionConfigOutput) ToFunctionFunctionConfigPtrOutputWithConte
 	}).(FunctionFunctionConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-comment
 func (o FunctionFunctionConfigOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionFunctionConfig) string { return v.Comment }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-runtime
 func (o FunctionFunctionConfigOutput) Runtime() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionFunctionConfig) string { return v.Runtime }).(pulumi.StringOutput)
 }
@@ -5595,7 +5089,6 @@ func (o FunctionFunctionConfigPtrOutput) Elem() FunctionFunctionConfigOutput {
 	}).(FunctionFunctionConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-comment
 func (o FunctionFunctionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionFunctionConfig) *string {
 		if v == nil {
@@ -5605,7 +5098,6 @@ func (o FunctionFunctionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html#cfn-cloudfront-function-functionconfig-runtime
 func (o FunctionFunctionConfigPtrOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionFunctionConfig) *string {
 		if v == nil {
@@ -5615,9 +5107,7 @@ func (o FunctionFunctionConfigPtrOutput) Runtime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionmetadata.html
 type FunctionFunctionMetadata struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionmetadata.html#cfn-cloudfront-function-functionmetadata-functionarn
 	FunctionARN *string `pulumi:"functionARN"`
 }
 
@@ -5632,9 +5122,7 @@ type FunctionFunctionMetadataInput interface {
 	ToFunctionFunctionMetadataOutputWithContext(context.Context) FunctionFunctionMetadataOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionmetadata.html
 type FunctionFunctionMetadataArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionmetadata.html#cfn-cloudfront-function-functionmetadata-functionarn
 	FunctionARN pulumi.StringPtrInput `pulumi:"functionARN"`
 }
 
@@ -5691,7 +5179,6 @@ func (i *functionFunctionMetadataPtrType) ToFunctionFunctionMetadataPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionFunctionMetadataPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionmetadata.html
 type FunctionFunctionMetadataOutput struct{ *pulumi.OutputState }
 
 func (FunctionFunctionMetadataOutput) ElementType() reflect.Type {
@@ -5716,7 +5203,6 @@ func (o FunctionFunctionMetadataOutput) ToFunctionFunctionMetadataPtrOutputWithC
 	}).(FunctionFunctionMetadataPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionmetadata.html#cfn-cloudfront-function-functionmetadata-functionarn
 func (o FunctionFunctionMetadataOutput) FunctionARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionFunctionMetadata) *string { return v.FunctionARN }).(pulumi.StringPtrOutput)
 }
@@ -5745,7 +5231,6 @@ func (o FunctionFunctionMetadataPtrOutput) Elem() FunctionFunctionMetadataOutput
 	}).(FunctionFunctionMetadataOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionmetadata.html#cfn-cloudfront-function-functionmetadata-functionarn
 func (o FunctionFunctionMetadataPtrOutput) FunctionARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionFunctionMetadata) *string {
 		if v == nil {
@@ -5755,14 +5240,10 @@ func (o FunctionFunctionMetadataPtrOutput) FunctionARN() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html
 type KeyGroupKeyGroupConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-comment
-	Comment *string `pulumi:"comment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-items
-	Items []string `pulumi:"items"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-name
-	Name string `pulumi:"name"`
+	Comment *string  `pulumi:"comment"`
+	Items   []string `pulumi:"items"`
+	Name    string   `pulumi:"name"`
 }
 
 // KeyGroupKeyGroupConfigInput is an input type that accepts KeyGroupKeyGroupConfigArgs and KeyGroupKeyGroupConfigOutput values.
@@ -5776,14 +5257,10 @@ type KeyGroupKeyGroupConfigInput interface {
 	ToKeyGroupKeyGroupConfigOutputWithContext(context.Context) KeyGroupKeyGroupConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html
 type KeyGroupKeyGroupConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-comment
-	Comment pulumi.StringPtrInput `pulumi:"comment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-items
-	Items pulumi.StringArrayInput `pulumi:"items"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-name
-	Name pulumi.StringInput `pulumi:"name"`
+	Comment pulumi.StringPtrInput   `pulumi:"comment"`
+	Items   pulumi.StringArrayInput `pulumi:"items"`
+	Name    pulumi.StringInput      `pulumi:"name"`
 }
 
 func (KeyGroupKeyGroupConfigArgs) ElementType() reflect.Type {
@@ -5839,7 +5316,6 @@ func (i *keyGroupKeyGroupConfigPtrType) ToKeyGroupKeyGroupConfigPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupKeyGroupConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html
 type KeyGroupKeyGroupConfigOutput struct{ *pulumi.OutputState }
 
 func (KeyGroupKeyGroupConfigOutput) ElementType() reflect.Type {
@@ -5864,17 +5340,14 @@ func (o KeyGroupKeyGroupConfigOutput) ToKeyGroupKeyGroupConfigPtrOutputWithConte
 	}).(KeyGroupKeyGroupConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-comment
 func (o KeyGroupKeyGroupConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyGroupKeyGroupConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-items
 func (o KeyGroupKeyGroupConfigOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KeyGroupKeyGroupConfig) []string { return v.Items }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-name
 func (o KeyGroupKeyGroupConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyGroupKeyGroupConfig) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5903,7 +5376,6 @@ func (o KeyGroupKeyGroupConfigPtrOutput) Elem() KeyGroupKeyGroupConfigOutput {
 	}).(KeyGroupKeyGroupConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-comment
 func (o KeyGroupKeyGroupConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyGroupKeyGroupConfig) *string {
 		if v == nil {
@@ -5913,7 +5385,6 @@ func (o KeyGroupKeyGroupConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-items
 func (o KeyGroupKeyGroupConfigPtrOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KeyGroupKeyGroupConfig) []string {
 		if v == nil {
@@ -5923,7 +5394,6 @@ func (o KeyGroupKeyGroupConfigPtrOutput) Items() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keygroup-keygroupconfig.html#cfn-cloudfront-keygroup-keygroupconfig-name
 func (o KeyGroupKeyGroupConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyGroupKeyGroupConfig) *string {
 		if v == nil {
@@ -5933,12 +5403,9 @@ func (o KeyGroupKeyGroupConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html
 type OriginRequestPolicyCookiesConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookiebehavior
-	CookieBehavior string `pulumi:"cookieBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookies
-	Cookies []string `pulumi:"cookies"`
+	CookieBehavior string   `pulumi:"cookieBehavior"`
+	Cookies        []string `pulumi:"cookies"`
 }
 
 // OriginRequestPolicyCookiesConfigInput is an input type that accepts OriginRequestPolicyCookiesConfigArgs and OriginRequestPolicyCookiesConfigOutput values.
@@ -5952,12 +5419,9 @@ type OriginRequestPolicyCookiesConfigInput interface {
 	ToOriginRequestPolicyCookiesConfigOutputWithContext(context.Context) OriginRequestPolicyCookiesConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html
 type OriginRequestPolicyCookiesConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookiebehavior
-	CookieBehavior pulumi.StringInput `pulumi:"cookieBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookies
-	Cookies pulumi.StringArrayInput `pulumi:"cookies"`
+	CookieBehavior pulumi.StringInput      `pulumi:"cookieBehavior"`
+	Cookies        pulumi.StringArrayInput `pulumi:"cookies"`
 }
 
 func (OriginRequestPolicyCookiesConfigArgs) ElementType() reflect.Type {
@@ -6013,7 +5477,6 @@ func (i *originRequestPolicyCookiesConfigPtrType) ToOriginRequestPolicyCookiesCo
 	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyCookiesConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html
 type OriginRequestPolicyCookiesConfigOutput struct{ *pulumi.OutputState }
 
 func (OriginRequestPolicyCookiesConfigOutput) ElementType() reflect.Type {
@@ -6038,12 +5501,10 @@ func (o OriginRequestPolicyCookiesConfigOutput) ToOriginRequestPolicyCookiesConf
 	}).(OriginRequestPolicyCookiesConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookiebehavior
 func (o OriginRequestPolicyCookiesConfigOutput) CookieBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginRequestPolicyCookiesConfig) string { return v.CookieBehavior }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookies
 func (o OriginRequestPolicyCookiesConfigOutput) Cookies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginRequestPolicyCookiesConfig) []string { return v.Cookies }).(pulumi.StringArrayOutput)
 }
@@ -6072,7 +5533,6 @@ func (o OriginRequestPolicyCookiesConfigPtrOutput) Elem() OriginRequestPolicyCoo
 	}).(OriginRequestPolicyCookiesConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookiebehavior
 func (o OriginRequestPolicyCookiesConfigPtrOutput) CookieBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) *string {
 		if v == nil {
@@ -6082,7 +5542,6 @@ func (o OriginRequestPolicyCookiesConfigPtrOutput) CookieBehavior() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-cookiesconfig.html#cfn-cloudfront-originrequestpolicy-cookiesconfig-cookies
 func (o OriginRequestPolicyCookiesConfigPtrOutput) Cookies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) []string {
 		if v == nil {
@@ -6092,12 +5551,9 @@ func (o OriginRequestPolicyCookiesConfigPtrOutput) Cookies() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html
 type OriginRequestPolicyHeadersConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headerbehavior
-	HeaderBehavior string `pulumi:"headerBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headers
-	Headers []string `pulumi:"headers"`
+	HeaderBehavior string   `pulumi:"headerBehavior"`
+	Headers        []string `pulumi:"headers"`
 }
 
 // OriginRequestPolicyHeadersConfigInput is an input type that accepts OriginRequestPolicyHeadersConfigArgs and OriginRequestPolicyHeadersConfigOutput values.
@@ -6111,12 +5567,9 @@ type OriginRequestPolicyHeadersConfigInput interface {
 	ToOriginRequestPolicyHeadersConfigOutputWithContext(context.Context) OriginRequestPolicyHeadersConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html
 type OriginRequestPolicyHeadersConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headerbehavior
-	HeaderBehavior pulumi.StringInput `pulumi:"headerBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headers
-	Headers pulumi.StringArrayInput `pulumi:"headers"`
+	HeaderBehavior pulumi.StringInput      `pulumi:"headerBehavior"`
+	Headers        pulumi.StringArrayInput `pulumi:"headers"`
 }
 
 func (OriginRequestPolicyHeadersConfigArgs) ElementType() reflect.Type {
@@ -6172,7 +5625,6 @@ func (i *originRequestPolicyHeadersConfigPtrType) ToOriginRequestPolicyHeadersCo
 	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyHeadersConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html
 type OriginRequestPolicyHeadersConfigOutput struct{ *pulumi.OutputState }
 
 func (OriginRequestPolicyHeadersConfigOutput) ElementType() reflect.Type {
@@ -6197,12 +5649,10 @@ func (o OriginRequestPolicyHeadersConfigOutput) ToOriginRequestPolicyHeadersConf
 	}).(OriginRequestPolicyHeadersConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headerbehavior
 func (o OriginRequestPolicyHeadersConfigOutput) HeaderBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginRequestPolicyHeadersConfig) string { return v.HeaderBehavior }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headers
 func (o OriginRequestPolicyHeadersConfigOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginRequestPolicyHeadersConfig) []string { return v.Headers }).(pulumi.StringArrayOutput)
 }
@@ -6231,7 +5681,6 @@ func (o OriginRequestPolicyHeadersConfigPtrOutput) Elem() OriginRequestPolicyHea
 	}).(OriginRequestPolicyHeadersConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headerbehavior
 func (o OriginRequestPolicyHeadersConfigPtrOutput) HeaderBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) *string {
 		if v == nil {
@@ -6241,7 +5690,6 @@ func (o OriginRequestPolicyHeadersConfigPtrOutput) HeaderBehavior() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-headersconfig.html#cfn-cloudfront-originrequestpolicy-headersconfig-headers
 func (o OriginRequestPolicyHeadersConfigPtrOutput) Headers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) []string {
 		if v == nil {
@@ -6251,17 +5699,11 @@ func (o OriginRequestPolicyHeadersConfigPtrOutput) Headers() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html
 type OriginRequestPolicyOriginRequestPolicyConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment
-	Comment *string `pulumi:"comment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
-	CookiesConfig OriginRequestPolicyCookiesConfig `pulumi:"cookiesConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig
-	HeadersConfig OriginRequestPolicyHeadersConfig `pulumi:"headersConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig
+	Comment            *string                               `pulumi:"comment"`
+	CookiesConfig      OriginRequestPolicyCookiesConfig      `pulumi:"cookiesConfig"`
+	HeadersConfig      OriginRequestPolicyHeadersConfig      `pulumi:"headersConfig"`
+	Name               string                                `pulumi:"name"`
 	QueryStringsConfig OriginRequestPolicyQueryStringsConfig `pulumi:"queryStringsConfig"`
 }
 
@@ -6276,17 +5718,11 @@ type OriginRequestPolicyOriginRequestPolicyConfigInput interface {
 	ToOriginRequestPolicyOriginRequestPolicyConfigOutputWithContext(context.Context) OriginRequestPolicyOriginRequestPolicyConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html
 type OriginRequestPolicyOriginRequestPolicyConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment
-	Comment pulumi.StringPtrInput `pulumi:"comment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
-	CookiesConfig OriginRequestPolicyCookiesConfigInput `pulumi:"cookiesConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig
-	HeadersConfig OriginRequestPolicyHeadersConfigInput `pulumi:"headersConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig
+	Comment            pulumi.StringPtrInput                      `pulumi:"comment"`
+	CookiesConfig      OriginRequestPolicyCookiesConfigInput      `pulumi:"cookiesConfig"`
+	HeadersConfig      OriginRequestPolicyHeadersConfigInput      `pulumi:"headersConfig"`
+	Name               pulumi.StringInput                         `pulumi:"name"`
 	QueryStringsConfig OriginRequestPolicyQueryStringsConfigInput `pulumi:"queryStringsConfig"`
 }
 
@@ -6343,7 +5779,6 @@ func (i *originRequestPolicyOriginRequestPolicyConfigPtrType) ToOriginRequestPol
 	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyOriginRequestPolicyConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html
 type OriginRequestPolicyOriginRequestPolicyConfigOutput struct{ *pulumi.OutputState }
 
 func (OriginRequestPolicyOriginRequestPolicyConfigOutput) ElementType() reflect.Type {
@@ -6368,31 +5803,26 @@ func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) ToOriginRequestPolic
 	}).(OriginRequestPolicyOriginRequestPolicyConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment
 func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginRequestPolicyOriginRequestPolicyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
 func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) CookiesConfig() OriginRequestPolicyCookiesConfigOutput {
 	return o.ApplyT(func(v OriginRequestPolicyOriginRequestPolicyConfig) OriginRequestPolicyCookiesConfig {
 		return v.CookiesConfig
 	}).(OriginRequestPolicyCookiesConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig
 func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) HeadersConfig() OriginRequestPolicyHeadersConfigOutput {
 	return o.ApplyT(func(v OriginRequestPolicyOriginRequestPolicyConfig) OriginRequestPolicyHeadersConfig {
 		return v.HeadersConfig
 	}).(OriginRequestPolicyHeadersConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name
 func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginRequestPolicyOriginRequestPolicyConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig
 func (o OriginRequestPolicyOriginRequestPolicyConfigOutput) QueryStringsConfig() OriginRequestPolicyQueryStringsConfigOutput {
 	return o.ApplyT(func(v OriginRequestPolicyOriginRequestPolicyConfig) OriginRequestPolicyQueryStringsConfig {
 		return v.QueryStringsConfig
@@ -6423,7 +5853,6 @@ func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) Elem() OriginRequ
 	}).(OriginRequestPolicyOriginRequestPolicyConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-comment
 func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) *string {
 		if v == nil {
@@ -6433,7 +5862,6 @@ func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) Comment() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-cookiesconfig
 func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) CookiesConfig() OriginRequestPolicyCookiesConfigPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) *OriginRequestPolicyCookiesConfig {
 		if v == nil {
@@ -6443,7 +5871,6 @@ func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) CookiesConfig() O
 	}).(OriginRequestPolicyCookiesConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-headersconfig
 func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) HeadersConfig() OriginRequestPolicyHeadersConfigPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) *OriginRequestPolicyHeadersConfig {
 		if v == nil {
@@ -6453,7 +5880,6 @@ func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) HeadersConfig() O
 	}).(OriginRequestPolicyHeadersConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-name
 func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) *string {
 		if v == nil {
@@ -6463,7 +5889,6 @@ func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) Name() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-originrequestpolicyconfig.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig-querystringsconfig
 func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) QueryStringsConfig() OriginRequestPolicyQueryStringsConfigPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyOriginRequestPolicyConfig) *OriginRequestPolicyQueryStringsConfig {
 		if v == nil {
@@ -6473,12 +5898,9 @@ func (o OriginRequestPolicyOriginRequestPolicyConfigPtrOutput) QueryStringsConfi
 	}).(OriginRequestPolicyQueryStringsConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html
 type OriginRequestPolicyQueryStringsConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystringbehavior
-	QueryStringBehavior string `pulumi:"queryStringBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystrings
-	QueryStrings []string `pulumi:"queryStrings"`
+	QueryStringBehavior string   `pulumi:"queryStringBehavior"`
+	QueryStrings        []string `pulumi:"queryStrings"`
 }
 
 // OriginRequestPolicyQueryStringsConfigInput is an input type that accepts OriginRequestPolicyQueryStringsConfigArgs and OriginRequestPolicyQueryStringsConfigOutput values.
@@ -6492,12 +5914,9 @@ type OriginRequestPolicyQueryStringsConfigInput interface {
 	ToOriginRequestPolicyQueryStringsConfigOutputWithContext(context.Context) OriginRequestPolicyQueryStringsConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html
 type OriginRequestPolicyQueryStringsConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystringbehavior
-	QueryStringBehavior pulumi.StringInput `pulumi:"queryStringBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystrings
-	QueryStrings pulumi.StringArrayInput `pulumi:"queryStrings"`
+	QueryStringBehavior pulumi.StringInput      `pulumi:"queryStringBehavior"`
+	QueryStrings        pulumi.StringArrayInput `pulumi:"queryStrings"`
 }
 
 func (OriginRequestPolicyQueryStringsConfigArgs) ElementType() reflect.Type {
@@ -6553,7 +5972,6 @@ func (i *originRequestPolicyQueryStringsConfigPtrType) ToOriginRequestPolicyQuer
 	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyQueryStringsConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html
 type OriginRequestPolicyQueryStringsConfigOutput struct{ *pulumi.OutputState }
 
 func (OriginRequestPolicyQueryStringsConfigOutput) ElementType() reflect.Type {
@@ -6578,12 +5996,10 @@ func (o OriginRequestPolicyQueryStringsConfigOutput) ToOriginRequestPolicyQueryS
 	}).(OriginRequestPolicyQueryStringsConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystringbehavior
 func (o OriginRequestPolicyQueryStringsConfigOutput) QueryStringBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfig) string { return v.QueryStringBehavior }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystrings
 func (o OriginRequestPolicyQueryStringsConfigOutput) QueryStrings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfig) []string { return v.QueryStrings }).(pulumi.StringArrayOutput)
 }
@@ -6612,7 +6028,6 @@ func (o OriginRequestPolicyQueryStringsConfigPtrOutput) Elem() OriginRequestPoli
 	}).(OriginRequestPolicyQueryStringsConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystringbehavior
 func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStringBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) *string {
 		if v == nil {
@@ -6622,7 +6037,6 @@ func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStringBehavior() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originrequestpolicy-querystringsconfig.html#cfn-cloudfront-originrequestpolicy-querystringsconfig-querystrings
 func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStrings() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) []string {
 		if v == nil {
@@ -6632,16 +6046,11 @@ func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStrings() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html
 type PublicKeyPublicKeyConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-callerreference
-	CallerReference string `pulumi:"callerReference"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-comment
-	Comment *string `pulumi:"comment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-encodedkey
-	EncodedKey string `pulumi:"encodedKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-name
-	Name string `pulumi:"name"`
+	CallerReference string  `pulumi:"callerReference"`
+	Comment         *string `pulumi:"comment"`
+	EncodedKey      string  `pulumi:"encodedKey"`
+	Name            string  `pulumi:"name"`
 }
 
 // PublicKeyPublicKeyConfigInput is an input type that accepts PublicKeyPublicKeyConfigArgs and PublicKeyPublicKeyConfigOutput values.
@@ -6655,16 +6064,11 @@ type PublicKeyPublicKeyConfigInput interface {
 	ToPublicKeyPublicKeyConfigOutputWithContext(context.Context) PublicKeyPublicKeyConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html
 type PublicKeyPublicKeyConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-callerreference
-	CallerReference pulumi.StringInput `pulumi:"callerReference"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-comment
-	Comment pulumi.StringPtrInput `pulumi:"comment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-encodedkey
-	EncodedKey pulumi.StringInput `pulumi:"encodedKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-name
-	Name pulumi.StringInput `pulumi:"name"`
+	CallerReference pulumi.StringInput    `pulumi:"callerReference"`
+	Comment         pulumi.StringPtrInput `pulumi:"comment"`
+	EncodedKey      pulumi.StringInput    `pulumi:"encodedKey"`
+	Name            pulumi.StringInput    `pulumi:"name"`
 }
 
 func (PublicKeyPublicKeyConfigArgs) ElementType() reflect.Type {
@@ -6720,7 +6124,6 @@ func (i *publicKeyPublicKeyConfigPtrType) ToPublicKeyPublicKeyConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyPublicKeyConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html
 type PublicKeyPublicKeyConfigOutput struct{ *pulumi.OutputState }
 
 func (PublicKeyPublicKeyConfigOutput) ElementType() reflect.Type {
@@ -6745,22 +6148,18 @@ func (o PublicKeyPublicKeyConfigOutput) ToPublicKeyPublicKeyConfigPtrOutputWithC
 	}).(PublicKeyPublicKeyConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-callerreference
 func (o PublicKeyPublicKeyConfigOutput) CallerReference() pulumi.StringOutput {
 	return o.ApplyT(func(v PublicKeyPublicKeyConfig) string { return v.CallerReference }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-comment
 func (o PublicKeyPublicKeyConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicKeyPublicKeyConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-encodedkey
 func (o PublicKeyPublicKeyConfigOutput) EncodedKey() pulumi.StringOutput {
 	return o.ApplyT(func(v PublicKeyPublicKeyConfig) string { return v.EncodedKey }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-name
 func (o PublicKeyPublicKeyConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PublicKeyPublicKeyConfig) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6789,7 +6188,6 @@ func (o PublicKeyPublicKeyConfigPtrOutput) Elem() PublicKeyPublicKeyConfigOutput
 	}).(PublicKeyPublicKeyConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-callerreference
 func (o PublicKeyPublicKeyConfigPtrOutput) CallerReference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicKeyPublicKeyConfig) *string {
 		if v == nil {
@@ -6799,7 +6197,6 @@ func (o PublicKeyPublicKeyConfigPtrOutput) CallerReference() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-comment
 func (o PublicKeyPublicKeyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicKeyPublicKeyConfig) *string {
 		if v == nil {
@@ -6809,7 +6206,6 @@ func (o PublicKeyPublicKeyConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-encodedkey
 func (o PublicKeyPublicKeyConfigPtrOutput) EncodedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicKeyPublicKeyConfig) *string {
 		if v == nil {
@@ -6819,7 +6215,6 @@ func (o PublicKeyPublicKeyConfigPtrOutput) EncodedKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-publickey-publickeyconfig.html#cfn-cloudfront-publickey-publickeyconfig-name
 func (o PublicKeyPublicKeyConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PublicKeyPublicKeyConfig) *string {
 		if v == nil {
@@ -6829,12 +6224,9 @@ func (o PublicKeyPublicKeyConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html
 type RealtimeLogConfigEndPoint struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig
 	KinesisStreamConfig RealtimeLogConfigKinesisStreamConfig `pulumi:"kinesisStreamConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-streamtype
-	StreamType string `pulumi:"streamType"`
+	StreamType          string                               `pulumi:"streamType"`
 }
 
 // RealtimeLogConfigEndPointInput is an input type that accepts RealtimeLogConfigEndPointArgs and RealtimeLogConfigEndPointOutput values.
@@ -6848,12 +6240,9 @@ type RealtimeLogConfigEndPointInput interface {
 	ToRealtimeLogConfigEndPointOutputWithContext(context.Context) RealtimeLogConfigEndPointOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html
 type RealtimeLogConfigEndPointArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig
 	KinesisStreamConfig RealtimeLogConfigKinesisStreamConfigInput `pulumi:"kinesisStreamConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-streamtype
-	StreamType pulumi.StringInput `pulumi:"streamType"`
+	StreamType          pulumi.StringInput                        `pulumi:"streamType"`
 }
 
 func (RealtimeLogConfigEndPointArgs) ElementType() reflect.Type {
@@ -6893,7 +6282,6 @@ func (i RealtimeLogConfigEndPointArray) ToRealtimeLogConfigEndPointArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigEndPointArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html
 type RealtimeLogConfigEndPointOutput struct{ *pulumi.OutputState }
 
 func (RealtimeLogConfigEndPointOutput) ElementType() reflect.Type {
@@ -6908,12 +6296,10 @@ func (o RealtimeLogConfigEndPointOutput) ToRealtimeLogConfigEndPointOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-kinesisstreamconfig
 func (o RealtimeLogConfigEndPointOutput) KinesisStreamConfig() RealtimeLogConfigKinesisStreamConfigOutput {
 	return o.ApplyT(func(v RealtimeLogConfigEndPoint) RealtimeLogConfigKinesisStreamConfig { return v.KinesisStreamConfig }).(RealtimeLogConfigKinesisStreamConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-endpoint.html#cfn-cloudfront-realtimelogconfig-endpoint-streamtype
 func (o RealtimeLogConfigEndPointOutput) StreamType() pulumi.StringOutput {
 	return o.ApplyT(func(v RealtimeLogConfigEndPoint) string { return v.StreamType }).(pulumi.StringOutput)
 }
@@ -6938,11 +6324,8 @@ func (o RealtimeLogConfigEndPointArrayOutput) Index(i pulumi.IntInput) RealtimeL
 	}).(RealtimeLogConfigEndPointOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html
 type RealtimeLogConfigKinesisStreamConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-streamarn
+	RoleArn   string `pulumi:"roleArn"`
 	StreamArn string `pulumi:"streamArn"`
 }
 
@@ -6957,11 +6340,8 @@ type RealtimeLogConfigKinesisStreamConfigInput interface {
 	ToRealtimeLogConfigKinesisStreamConfigOutputWithContext(context.Context) RealtimeLogConfigKinesisStreamConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html
 type RealtimeLogConfigKinesisStreamConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-streamarn
+	RoleArn   pulumi.StringInput `pulumi:"roleArn"`
 	StreamArn pulumi.StringInput `pulumi:"streamArn"`
 }
 
@@ -6977,7 +6357,6 @@ func (i RealtimeLogConfigKinesisStreamConfigArgs) ToRealtimeLogConfigKinesisStre
 	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigKinesisStreamConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html
 type RealtimeLogConfigKinesisStreamConfigOutput struct{ *pulumi.OutputState }
 
 func (RealtimeLogConfigKinesisStreamConfigOutput) ElementType() reflect.Type {
@@ -6992,12 +6371,10 @@ func (o RealtimeLogConfigKinesisStreamConfigOutput) ToRealtimeLogConfigKinesisSt
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-rolearn
 func (o RealtimeLogConfigKinesisStreamConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RealtimeLogConfigKinesisStreamConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-realtimelogconfig-kinesisstreamconfig.html#cfn-cloudfront-realtimelogconfig-kinesisstreamconfig-streamarn
 func (o RealtimeLogConfigKinesisStreamConfigOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RealtimeLogConfigKinesisStreamConfig) string { return v.StreamArn }).(pulumi.StringOutput)
 }
@@ -7060,6 +6437,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionS3OriginConfigOutput{})
 	pulumi.RegisterOutputType(DistributionS3OriginConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionStatusCodesOutput{})
+	pulumi.RegisterOutputType(DistributionTagOutput{})
+	pulumi.RegisterOutputType(DistributionTagArrayOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificateOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificatePtrOutput{})
 	pulumi.RegisterOutputType(FunctionFunctionConfigOutput{})

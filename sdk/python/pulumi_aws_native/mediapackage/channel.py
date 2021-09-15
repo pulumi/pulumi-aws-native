@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ChannelArgs', 'Channel']
@@ -17,20 +15,17 @@ __all__ = ['ChannelArgs', 'Channel']
 @pulumi.input_type
 class ChannelArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  egress_access_logs: Optional[pulumi.Input['ChannelLogConfigurationArgs']] = None,
                  ingress_access_logs: Optional[pulumi.Input['ChannelLogConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]] = None):
         """
         The set of arguments for constructing a Channel resource.
-        :param pulumi.Input[str] id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
-        :param pulumi.Input['ChannelLogConfigurationArgs'] egress_access_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
-        :param pulumi.Input['ChannelLogConfigurationArgs'] ingress_access_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
+        :param pulumi.Input[str] description: A short text description of the Channel.
+        :param pulumi.Input['ChannelLogConfigurationArgs'] egress_access_logs: The configuration parameters for egress access logging.
+        :param pulumi.Input['ChannelLogConfigurationArgs'] ingress_access_logs: The configuration parameters for egress access logging.
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]] tags: A collection of tags associated with a resource
         """
-        pulumi.set(__self__, "id", id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if egress_access_logs is not None:
@@ -42,21 +37,9 @@ class ChannelArgs:
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
+        A short text description of the Channel.
         """
         return pulumi.get(self, "description")
 
@@ -68,7 +51,7 @@ class ChannelArgs:
     @pulumi.getter(name="egressAccessLogs")
     def egress_access_logs(self) -> Optional[pulumi.Input['ChannelLogConfigurationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+        The configuration parameters for egress access logging.
         """
         return pulumi.get(self, "egress_access_logs")
 
@@ -80,7 +63,7 @@ class ChannelArgs:
     @pulumi.getter(name="ingressAccessLogs")
     def ingress_access_logs(self) -> Optional[pulumi.Input['ChannelLogConfigurationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+        The configuration parameters for egress access logging.
         """
         return pulumi.get(self, "ingress_access_logs")
 
@@ -90,14 +73,14 @@ class ChannelArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
+        A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -108,29 +91,27 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  egress_access_logs: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  ingress_access_logs: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html
+        Resource schema for AWS::MediaPackage::Channel
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
-        :param pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']] egress_access_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
-        :param pulumi.Input[str] id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
-        :param pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']] ingress_access_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
+        :param pulumi.Input[str] description: A short text description of the Channel.
+        :param pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']] egress_access_logs: The configuration parameters for egress access logging.
+        :param pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']] ingress_access_logs: The configuration parameters for egress access logging.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ChannelArgs,
+                 args: Optional[ChannelArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html
+        Resource schema for AWS::MediaPackage::Channel
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.
@@ -149,9 +130,8 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  egress_access_logs: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  ingress_access_logs: Optional[pulumi.Input[pulumi.InputType['ChannelLogConfigurationArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -166,12 +146,10 @@ class Channel(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["egress_access_logs"] = egress_access_logs
-            if id is None and not opts.urn:
-                raise TypeError("Missing required property 'id'")
-            __props__.__dict__["id"] = id
             __props__.__dict__["ingress_access_logs"] = ingress_access_logs
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["hls_ingest"] = None
         super(Channel, __self__).__init__(
             'aws-native:mediapackage:Channel',
             resource_name,
@@ -197,7 +175,7 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["egress_access_logs"] = None
-        __props__.__dict__["id"] = None
+        __props__.__dict__["hls_ingest"] = None
         __props__.__dict__["ingress_access_logs"] = None
         __props__.__dict__["tags"] = None
         return Channel(resource_name, opts=opts, __props__=__props__)
@@ -205,13 +183,16 @@ class Channel(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) assigned to the Channel.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
+        A short text description of the Channel.
         """
         return pulumi.get(self, "description")
 
@@ -219,31 +200,31 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="egressAccessLogs")
     def egress_access_logs(self) -> pulumi.Output[Optional['outputs.ChannelLogConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+        The configuration parameters for egress access logging.
         """
         return pulumi.get(self, "egress_access_logs")
 
     @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="hlsIngest")
+    def hls_ingest(self) -> pulumi.Output['outputs.ChannelHlsIngest']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
+        A short text description of the Channel.
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "hls_ingest")
 
     @property
     @pulumi.getter(name="ingressAccessLogs")
     def ingress_access_logs(self) -> pulumi.Output[Optional['outputs.ChannelLogConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+        The configuration parameters for egress access logging.
         """
         return pulumi.get(self, "ingress_access_logs")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ChannelTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
+        A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 

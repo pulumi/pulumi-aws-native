@@ -11,18 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html
+// Resource schema for AWS::AutoScaling::WarmPool.
 type WarmPool struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-autoscalinggroupname
-	AutoScalingGroupName pulumi.StringOutput `pulumi:"autoScalingGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-maxgrouppreparedcapacity
-	MaxGroupPreparedCapacity pulumi.IntPtrOutput `pulumi:"maxGroupPreparedCapacity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-minsize
-	MinSize pulumi.IntPtrOutput `pulumi:"minSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-poolstate
-	PoolState pulumi.StringPtrOutput `pulumi:"poolState"`
+	AutoScalingGroupName     pulumi.StringOutput    `pulumi:"autoScalingGroupName"`
+	MaxGroupPreparedCapacity pulumi.IntPtrOutput    `pulumi:"maxGroupPreparedCapacity"`
+	MinSize                  pulumi.IntPtrOutput    `pulumi:"minSize"`
+	PoolState                pulumi.StringPtrOutput `pulumi:"poolState"`
 }
 
 // NewWarmPool registers a new resource with the given unique name, arguments, and options.
@@ -67,26 +63,18 @@ func (WarmPoolState) ElementType() reflect.Type {
 }
 
 type warmPoolArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-autoscalinggroupname
-	AutoScalingGroupName string `pulumi:"autoScalingGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-maxgrouppreparedcapacity
-	MaxGroupPreparedCapacity *int `pulumi:"maxGroupPreparedCapacity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-minsize
-	MinSize *int `pulumi:"minSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-poolstate
-	PoolState *string `pulumi:"poolState"`
+	AutoScalingGroupName     string  `pulumi:"autoScalingGroupName"`
+	MaxGroupPreparedCapacity *int    `pulumi:"maxGroupPreparedCapacity"`
+	MinSize                  *int    `pulumi:"minSize"`
+	PoolState                *string `pulumi:"poolState"`
 }
 
 // The set of arguments for constructing a WarmPool resource.
 type WarmPoolArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-autoscalinggroupname
-	AutoScalingGroupName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-maxgrouppreparedcapacity
+	AutoScalingGroupName     pulumi.StringInput
 	MaxGroupPreparedCapacity pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-minsize
-	MinSize pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-poolstate
-	PoolState pulumi.StringPtrInput
+	MinSize                  pulumi.IntPtrInput
+	PoolState                pulumi.StringPtrInput
 }
 
 func (WarmPoolArgs) ElementType() reflect.Type {

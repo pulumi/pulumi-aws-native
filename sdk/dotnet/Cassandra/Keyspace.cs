@@ -10,22 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cassandra
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html
+    /// Resource schema for AWS::Cassandra::Keyspace
     /// </summary>
     [AwsNativeResourceType("aws-native:cassandra:Keyspace")]
     public partial class Keyspace : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
+        /// Name for Cassandra keyspace
         /// </summary>
         [Output("keyspaceName")]
         public Output<string?> KeyspaceName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.KeyspaceTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -73,20 +70,16 @@ namespace Pulumi.AwsNative.Cassandra
     public sealed class KeyspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
+        /// Name for Cassandra keyspace
         /// </summary>
         [Input("keyspaceName")]
         public Input<string>? KeyspaceName { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.KeyspaceTagArgs>? _tags;
+        public InputList<Inputs.KeyspaceTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.KeyspaceTagArgs>());
             set => _tags = value;
         }
 

@@ -11,18 +11,20 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html
+    /// &lt;p&gt;Wait policy to use when creating/updating dataset. Default is to wait for SPICE ingestion to finish with timeout of 36 hours.&lt;/p&gt;
     /// </summary>
     public sealed class DataSetIngestionWaitPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-ingestionwaittimeinhours
+        /// &lt;p&gt;The maximum time (in hours) to wait for Ingestion to complete. Default timeout is 36 hours.
+        ///  Applicable only when DataSetImportMode mode is set to SPICE and WaitForSpiceIngestion is set to true.&lt;/p&gt;
         /// </summary>
         [Input("ingestionWaitTimeInHours")]
         public Input<double>? IngestionWaitTimeInHours { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-waitforspiceingestion
+        /// &lt;p&gt;Wait for SPICE ingestion to finish to mark dataset creation/update successful. Default (true).
+        ///   Applicable only when DataSetImportMode mode is set to SPICE.&lt;/p&gt;
         /// </summary>
         [Input("waitForSpiceIngestion")]
         public Input<bool>? WaitForSpiceIngestion { get; set; }

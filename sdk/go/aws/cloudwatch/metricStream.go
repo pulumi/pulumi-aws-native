@@ -8,32 +8,35 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html
+// Resource Type definition for Metric Stream
 type MetricStream struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	// Amazon Resource Name of the metric stream.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The date of creation of the metric stream.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
+	// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
 	ExcludeFilters MetricStreamMetricStreamFilterArrayOutput `pulumi:"excludeFilters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
+	// The ARN of the Kinesis Firehose where to stream the data.
 	FirehoseArn pulumi.StringOutput `pulumi:"firehoseArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
+	// Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
 	IncludeFilters MetricStreamMetricStreamFilterArrayOutput `pulumi:"includeFilters"`
-	LastUpdateDate pulumi.StringOutput                       `pulumi:"lastUpdateDate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
+	// The date of the last update of the metric stream.
+	LastUpdateDate pulumi.StringOutput `pulumi:"lastUpdateDate"`
+	// Name of the metric stream.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
+	// The output format of the data streamed to the Kinesis Firehose.
 	OutputFormat pulumi.StringOutput `pulumi:"outputFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+	// The ARN of the role that provides access to the Kinesis Firehose.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	State   pulumi.StringOutput `pulumi:"state"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Displays the state of the Metric Stream.
+	State pulumi.StringOutput `pulumi:"state"`
+	// A set of tags to assign to the delivery stream.
+	Tags MetricStreamTagArrayOutput `pulumi:"tags"`
 }
 
 // NewMetricStream registers a new resource with the given unique name, arguments, and options.
@@ -84,38 +87,38 @@ func (MetricStreamState) ElementType() reflect.Type {
 }
 
 type metricStreamArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
+	// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
 	ExcludeFilters []MetricStreamMetricStreamFilter `pulumi:"excludeFilters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
+	// The ARN of the Kinesis Firehose where to stream the data.
 	FirehoseArn string `pulumi:"firehoseArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
+	// Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
 	IncludeFilters []MetricStreamMetricStreamFilter `pulumi:"includeFilters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
+	// Name of the metric stream.
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
+	// The output format of the data streamed to the Kinesis Firehose.
 	OutputFormat string `pulumi:"outputFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+	// The ARN of the role that provides access to the Kinesis Firehose.
 	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A set of tags to assign to the delivery stream.
+	Tags []MetricStreamTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MetricStream resource.
 type MetricStreamArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
+	// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
 	ExcludeFilters MetricStreamMetricStreamFilterArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
+	// The ARN of the Kinesis Firehose where to stream the data.
 	FirehoseArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
+	// Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
 	IncludeFilters MetricStreamMetricStreamFilterArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
+	// Name of the metric stream.
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
+	// The output format of the data streamed to the Kinesis Firehose.
 	OutputFormat pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+	// The ARN of the role that provides access to the Kinesis Firehose.
 	RoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
-	Tags aws.TagArrayInput
+	// A set of tags to assign to the delivery stream.
+	Tags MetricStreamTagArrayInput
 }
 
 func (MetricStreamArgs) ElementType() reflect.Type {

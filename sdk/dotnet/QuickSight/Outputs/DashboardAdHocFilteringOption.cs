@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-adhocfilteringoption.html
+    /// &lt;p&gt;Ad hoc (one-time) filtering option.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DashboardAdHocFilteringOption
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-adhocfilteringoption.html#cfn-quicksight-dashboard-adhocfilteringoption-availabilitystatus
-        /// </summary>
         public readonly string? AvailabilityStatus;
 
         [OutputConstructor]

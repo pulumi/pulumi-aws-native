@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html
+    /// The JupyterServer app settings.
     /// </summary>
     [OutputType]
     public sealed class UserProfileJupyterServerAppSettings
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html#cfn-sagemaker-userprofile-jupyterserverappsettings-defaultresourcespec
-        /// </summary>
         public readonly Outputs.UserProfileResourceSpec? DefaultResourceSpec;
 
         [OutputConstructor]

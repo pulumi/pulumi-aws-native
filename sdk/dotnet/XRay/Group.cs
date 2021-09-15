@@ -10,37 +10,34 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.XRay
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html
+    /// This schema provides construct and validation rules for AWS-XRay Group resource parameters.
     /// </summary>
     [AwsNativeResourceType("aws-native:xray:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-filterexpression
+        /// The filter expression defining criteria by which to group traces.
         /// </summary>
         [Output("filterExpression")]
         public Output<string?> FilterExpression { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the group that was generated on creation.
+        /// </summary>
         [Output("groupARN")]
         public Output<string> GroupARN { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-groupname
+        /// The case-sensitive name of the new group. Names must be unique.
         /// </summary>
         [Output("groupName")]
         public Output<string?> GroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-insightsconfiguration
-        /// </summary>
         [Output("insightsConfiguration")]
         public Output<Outputs.GroupInsightsConfiguration?> InsightsConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Union<System.Text.Json.JsonElement, string>>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<object>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -88,32 +85,25 @@ namespace Pulumi.AwsNative.XRay
     public sealed class GroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-filterexpression
+        /// The filter expression defining criteria by which to group traces.
         /// </summary>
         [Input("filterExpression")]
         public Input<string>? FilterExpression { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-groupname
+        /// The case-sensitive name of the new group. Names must be unique.
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-insightsconfiguration
-        /// </summary>
         [Input("insightsConfiguration")]
         public Input<Inputs.GroupInsightsConfigurationArgs>? InsightsConfiguration { get; set; }
 
         [Input("tags")]
-        private InputList<Union<System.Text.Json.JsonElement, string>>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-tags
-        /// </summary>
-        public InputList<Union<System.Text.Json.JsonElement, string>> Tags
+        private InputList<object>? _tags;
+        public InputList<object> Tags
         {
-            get => _tags ?? (_tags = new InputList<Union<System.Text.Json.JsonElement, string>>());
+            get => _tags ?? (_tags = new InputList<object>());
             set => _tags = value;
         }
 

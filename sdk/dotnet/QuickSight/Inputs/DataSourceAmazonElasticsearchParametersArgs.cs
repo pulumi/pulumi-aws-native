@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html
+    /// &lt;p&gt;Amazon Elasticsearch Service parameters.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceAmazonElasticsearchParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html#cfn-quicksight-datasource-amazonelasticsearchparameters-domain
+        /// &lt;p&gt;The Amazon Elasticsearch Service domain.&lt;/p&gt;
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;

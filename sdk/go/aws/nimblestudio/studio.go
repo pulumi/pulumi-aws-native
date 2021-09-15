@@ -11,26 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html
+// Resource schema for AWS::NimbleStudio::Studio.
 type Studio struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-adminrolearn
-	AdminRoleArn pulumi.StringOutput `pulumi:"adminRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-displayname
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	HomeRegion  pulumi.StringOutput `pulumi:"homeRegion"`
-	SsoClientId pulumi.StringOutput `pulumi:"ssoClientId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioencryptionconfiguration
+	AdminRoleArn                  pulumi.StringOutput                          `pulumi:"adminRoleArn"`
+	DisplayName                   pulumi.StringOutput                          `pulumi:"displayName"`
+	HomeRegion                    pulumi.StringOutput                          `pulumi:"homeRegion"`
+	SsoClientId                   pulumi.StringOutput                          `pulumi:"ssoClientId"`
 	StudioEncryptionConfiguration StudioStudioEncryptionConfigurationPtrOutput `pulumi:"studioEncryptionConfiguration"`
 	StudioId                      pulumi.StringOutput                          `pulumi:"studioId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioname
-	StudioName pulumi.StringOutput `pulumi:"studioName"`
-	StudioUrl  pulumi.StringOutput `pulumi:"studioUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-userrolearn
-	UserRoleArn pulumi.StringOutput `pulumi:"userRoleArn"`
+	StudioName                    pulumi.StringOutput                          `pulumi:"studioName"`
+	StudioUrl                     pulumi.StringOutput                          `pulumi:"studioUrl"`
+	Tags                          pulumi.AnyOutput                             `pulumi:"tags"`
+	UserRoleArn                   pulumi.StringOutput                          `pulumi:"userRoleArn"`
 }
 
 // NewStudio registers a new resource with the given unique name, arguments, and options.
@@ -84,34 +78,22 @@ func (StudioState) ElementType() reflect.Type {
 }
 
 type studioArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-adminrolearn
-	AdminRoleArn string `pulumi:"adminRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-displayname
-	DisplayName string `pulumi:"displayName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioencryptionconfiguration
+	AdminRoleArn                  string                               `pulumi:"adminRoleArn"`
+	DisplayName                   string                               `pulumi:"displayName"`
 	StudioEncryptionConfiguration *StudioStudioEncryptionConfiguration `pulumi:"studioEncryptionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioname
-	StudioName string `pulumi:"studioName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-tags
-	Tags map[string]string `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-userrolearn
-	UserRoleArn string `pulumi:"userRoleArn"`
+	StudioName                    string                               `pulumi:"studioName"`
+	Tags                          interface{}                          `pulumi:"tags"`
+	UserRoleArn                   string                               `pulumi:"userRoleArn"`
 }
 
 // The set of arguments for constructing a Studio resource.
 type StudioArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-adminrolearn
-	AdminRoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-displayname
-	DisplayName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioencryptionconfiguration
+	AdminRoleArn                  pulumi.StringInput
+	DisplayName                   pulumi.StringInput
 	StudioEncryptionConfiguration StudioStudioEncryptionConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioname
-	StudioName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-tags
-	Tags pulumi.StringMapInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-userrolearn
-	UserRoleArn pulumi.StringInput
+	StudioName                    pulumi.StringInput
+	Tags                          pulumi.Input
+	UserRoleArn                   pulumi.StringInput
 }
 
 func (StudioArgs) ElementType() reflect.Type {

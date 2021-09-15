@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html
+ * Resource Type definition for AWS::IAM::SAMLProvider
  */
 export class SAMLProvider extends pulumi.CustomResource {
     /**
@@ -35,19 +35,13 @@ export class SAMLProvider extends pulumi.CustomResource {
         return obj['__pulumiType'] === SAMLProvider.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the SAML provider
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-name
-     */
     public readonly name!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-samlmetadatadocument
-     */
     public readonly samlMetadataDocument!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.iam.SAMLProviderTag[] | undefined>;
 
     /**
      * Create a SAMLProvider resource with the given unique name, arguments, and options.
@@ -84,16 +78,7 @@ export class SAMLProvider extends pulumi.CustomResource {
  * The set of arguments for constructing a SAMLProvider resource.
  */
 export interface SAMLProviderArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-name
-     */
     name?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-samlmetadatadocument
-     */
     samlMetadataDocument: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.iam.SAMLProviderTagArgs>[]>;
 }

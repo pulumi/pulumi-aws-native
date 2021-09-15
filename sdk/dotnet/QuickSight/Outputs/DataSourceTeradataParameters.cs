@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html
+    /// &lt;p&gt;Teradata parameters.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSourceTeradataParameters
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-database
+        /// &lt;p&gt;Database.&lt;/p&gt;
         /// </summary>
         public readonly string Database;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-host
+        /// &lt;p&gt;Host.&lt;/p&gt;
         /// </summary>
         public readonly string Host;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-port
+        /// &lt;p&gt;Port.&lt;/p&gt;
         /// </summary>
         public readonly double Port;
 

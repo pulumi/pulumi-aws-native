@@ -10,24 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GreengrassV2.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html
-    /// </summary>
     [OutputType]
     public sealed class ComponentVersionComponentPlatform
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-attributes
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Attributes;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-name
-        /// </summary>
+        public readonly object? Attributes;
         public readonly string? Name;
 
         [OutputConstructor]
         private ComponentVersionComponentPlatform(
-            ImmutableDictionary<string, string>? attributes,
+            object? attributes,
 
             string? name)
         {

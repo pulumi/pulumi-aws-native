@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
+ * Resource schema for AWS::Route53::HealthCheck.
  */
 export class HealthCheck extends pulumi.CustomResource {
     /**
@@ -36,12 +36,12 @@ export class HealthCheck extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
+     * A complex type that contains information about the health check.
      */
-    public readonly healthCheckConfig!: pulumi.Output<any | string>;
+    public readonly healthCheckConfig!: pulumi.Output<any>;
     public /*out*/ readonly healthCheckId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
+     * An array of key-value pairs to apply to this resource.
      */
     public readonly healthCheckTags!: pulumi.Output<outputs.route53.HealthCheckHealthCheckTag[] | undefined>;
 
@@ -79,11 +79,11 @@ export class HealthCheck extends pulumi.CustomResource {
  */
 export interface HealthCheckArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
+     * A complex type that contains information about the health check.
      */
-    healthCheckConfig: pulumi.Input<any | string>;
+    healthCheckConfig: any;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
+     * An array of key-value pairs to apply to this resource.
      */
     healthCheckTags?: pulumi.Input<pulumi.Input<inputs.route53.HealthCheckHealthCheckTagArgs>[]>;
 }

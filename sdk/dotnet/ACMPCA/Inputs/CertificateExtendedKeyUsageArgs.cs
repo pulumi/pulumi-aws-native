@@ -11,19 +11,13 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html
+    /// Structure that contains X.509 ExtendedKeyUsage information.
     /// </summary>
     public sealed class CertificateExtendedKeyUsageArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusageobjectidentifier
-        /// </summary>
         [Input("extendedKeyUsageObjectIdentifier")]
         public Input<string>? ExtendedKeyUsageObjectIdentifier { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusagetype
-        /// </summary>
         [Input("extendedKeyUsageType")]
         public Input<string>? ExtendedKeyUsageType { get; set; }
 

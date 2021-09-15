@@ -11,25 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html
+// Resource Type definition for AWS::ElasticLoadBalancingV2::Listener
 type Listener struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
-	AlpnPolicy pulumi.StringArrayOutput `pulumi:"alpnPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
-	Certificates ListenerCertificateArrayOutput `pulumi:"certificates"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
-	DefaultActions ListenerActionArrayOutput `pulumi:"defaultActions"`
-	ListenerArn    pulumi.StringOutput       `pulumi:"listenerArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
-	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-	Port pulumi.IntPtrOutput `pulumi:"port"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
-	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
-	SslPolicy pulumi.StringPtrOutput `pulumi:"sslPolicy"`
+	AlpnPolicy      pulumi.StringArrayOutput       `pulumi:"alpnPolicy"`
+	Certificates    ListenerCertificateArrayOutput `pulumi:"certificates"`
+	DefaultActions  ListenerActionArrayOutput      `pulumi:"defaultActions"`
+	ListenerArn     pulumi.StringOutput            `pulumi:"listenerArn"`
+	LoadBalancerArn pulumi.StringOutput            `pulumi:"loadBalancerArn"`
+	Port            pulumi.IntPtrOutput            `pulumi:"port"`
+	Protocol        pulumi.StringPtrOutput         `pulumi:"protocol"`
+	SslPolicy       pulumi.StringPtrOutput         `pulumi:"sslPolicy"`
 }
 
 // NewListener registers a new resource with the given unique name, arguments, and options.
@@ -77,38 +70,24 @@ func (ListenerState) ElementType() reflect.Type {
 }
 
 type listenerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
-	AlpnPolicy []string `pulumi:"alpnPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
-	Certificates []ListenerCertificate `pulumi:"certificates"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
-	DefaultActions []ListenerAction `pulumi:"defaultActions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
-	LoadBalancerArn string `pulumi:"loadBalancerArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-	Port *int `pulumi:"port"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
-	Protocol *string `pulumi:"protocol"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
-	SslPolicy *string `pulumi:"sslPolicy"`
+	AlpnPolicy      []string              `pulumi:"alpnPolicy"`
+	Certificates    []ListenerCertificate `pulumi:"certificates"`
+	DefaultActions  []ListenerAction      `pulumi:"defaultActions"`
+	LoadBalancerArn string                `pulumi:"loadBalancerArn"`
+	Port            *int                  `pulumi:"port"`
+	Protocol        *string               `pulumi:"protocol"`
+	SslPolicy       *string               `pulumi:"sslPolicy"`
 }
 
 // The set of arguments for constructing a Listener resource.
 type ListenerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
-	AlpnPolicy pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
-	Certificates ListenerCertificateArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
-	DefaultActions ListenerActionArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
+	AlpnPolicy      pulumi.StringArrayInput
+	Certificates    ListenerCertificateArrayInput
+	DefaultActions  ListenerActionArrayInput
 	LoadBalancerArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-	Port pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
-	Protocol pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
-	SslPolicy pulumi.StringPtrInput
+	Port            pulumi.IntPtrInput
+	Protocol        pulumi.StringPtrInput
+	SslPolicy       pulumi.StringPtrInput
 }
 
 func (ListenerArgs) ElementType() reflect.Type {

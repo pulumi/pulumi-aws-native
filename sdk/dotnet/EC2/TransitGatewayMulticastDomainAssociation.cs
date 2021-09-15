@@ -10,34 +10,43 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html
+    /// The AWS::EC2::TransitGatewayMulticastDomainAssociation type
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayMulticastDomainAssociation")]
     public partial class TransitGatewayMulticastDomainAssociation : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ID of the resource.
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of resource, for example a VPC attachment.
+        /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
+        /// <summary>
+        /// The state of the subnet association.
+        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-subnetid
+        /// The IDs of the subnets to associate with the transit gateway multicast domain.
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewayattachmentid
+        /// The ID of the transit gateway attachment.
         /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewaymulticastdomainid
+        /// The ID of the transit gateway multicast domain.
         /// </summary>
         [Output("transitGatewayMulticastDomainId")]
         public Output<string> TransitGatewayMulticastDomainId { get; private set; } = null!;
@@ -88,19 +97,19 @@ namespace Pulumi.AwsNative.EC2
     public sealed class TransitGatewayMulticastDomainAssociationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-subnetid
+        /// The IDs of the subnets to associate with the transit gateway multicast domain.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewayattachmentid
+        /// The ID of the transit gateway attachment.
         /// </summary>
         [Input("transitGatewayAttachmentId", required: true)]
         public Input<string> TransitGatewayAttachmentId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewaymulticastdomainid
+        /// The ID of the transit gateway multicast domain.
         /// </summary>
         [Input("transitGatewayMulticastDomainId", required: true)]
         public Input<string> TransitGatewayMulticastDomainId { get; set; } = null!;

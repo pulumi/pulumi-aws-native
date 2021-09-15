@@ -10,13 +10,122 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html
+// Tag is a key-value pair associated with accelerator.
+type AcceleratorTag struct {
+	// Key of the tag. Value can be 1 to 127 characters.
+	Key string `pulumi:"key"`
+	// Value for the tag. Value can be 1 to 255 characters.
+	Value string `pulumi:"value"`
+}
+
+// AcceleratorTagInput is an input type that accepts AcceleratorTagArgs and AcceleratorTagOutput values.
+// You can construct a concrete instance of `AcceleratorTagInput` via:
+//
+//          AcceleratorTagArgs{...}
+type AcceleratorTagInput interface {
+	pulumi.Input
+
+	ToAcceleratorTagOutput() AcceleratorTagOutput
+	ToAcceleratorTagOutputWithContext(context.Context) AcceleratorTagOutput
+}
+
+// Tag is a key-value pair associated with accelerator.
+type AcceleratorTagArgs struct {
+	// Key of the tag. Value can be 1 to 127 characters.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value for the tag. Value can be 1 to 255 characters.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AcceleratorTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcceleratorTag)(nil)).Elem()
+}
+
+func (i AcceleratorTagArgs) ToAcceleratorTagOutput() AcceleratorTagOutput {
+	return i.ToAcceleratorTagOutputWithContext(context.Background())
+}
+
+func (i AcceleratorTagArgs) ToAcceleratorTagOutputWithContext(ctx context.Context) AcceleratorTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorTagOutput)
+}
+
+// AcceleratorTagArrayInput is an input type that accepts AcceleratorTagArray and AcceleratorTagArrayOutput values.
+// You can construct a concrete instance of `AcceleratorTagArrayInput` via:
+//
+//          AcceleratorTagArray{ AcceleratorTagArgs{...} }
+type AcceleratorTagArrayInput interface {
+	pulumi.Input
+
+	ToAcceleratorTagArrayOutput() AcceleratorTagArrayOutput
+	ToAcceleratorTagArrayOutputWithContext(context.Context) AcceleratorTagArrayOutput
+}
+
+type AcceleratorTagArray []AcceleratorTagInput
+
+func (AcceleratorTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AcceleratorTag)(nil)).Elem()
+}
+
+func (i AcceleratorTagArray) ToAcceleratorTagArrayOutput() AcceleratorTagArrayOutput {
+	return i.ToAcceleratorTagArrayOutputWithContext(context.Background())
+}
+
+func (i AcceleratorTagArray) ToAcceleratorTagArrayOutputWithContext(ctx context.Context) AcceleratorTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorTagArrayOutput)
+}
+
+// Tag is a key-value pair associated with accelerator.
+type AcceleratorTagOutput struct{ *pulumi.OutputState }
+
+func (AcceleratorTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AcceleratorTag)(nil)).Elem()
+}
+
+func (o AcceleratorTagOutput) ToAcceleratorTagOutput() AcceleratorTagOutput {
+	return o
+}
+
+func (o AcceleratorTagOutput) ToAcceleratorTagOutputWithContext(ctx context.Context) AcceleratorTagOutput {
+	return o
+}
+
+// Key of the tag. Value can be 1 to 127 characters.
+func (o AcceleratorTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AcceleratorTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Value for the tag. Value can be 1 to 255 characters.
+func (o AcceleratorTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AcceleratorTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AcceleratorTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AcceleratorTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AcceleratorTag)(nil)).Elem()
+}
+
+func (o AcceleratorTagArrayOutput) ToAcceleratorTagArrayOutput() AcceleratorTagArrayOutput {
+	return o
+}
+
+func (o AcceleratorTagArrayOutput) ToAcceleratorTagArrayOutputWithContext(ctx context.Context) AcceleratorTagArrayOutput {
+	return o
+}
+
+func (o AcceleratorTagArrayOutput) Index(i pulumi.IntInput) AcceleratorTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AcceleratorTag {
+		return vs[0].([]AcceleratorTag)[vs[1].(int)]
+	}).(AcceleratorTagOutput)
+}
+
+// The configuration for a given endpoint
 type EndpointGroupEndpointConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-clientippreservationenabled
+	// true if client ip should be preserved
 	ClientIPPreservationEnabled *bool `pulumi:"clientIPPreservationEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-endpointid
+	// Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
 	EndpointId string `pulumi:"endpointId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-weight
+	// The weight for the endpoint.
 	Weight *int `pulumi:"weight"`
 }
 
@@ -31,13 +140,13 @@ type EndpointGroupEndpointConfigurationInput interface {
 	ToEndpointGroupEndpointConfigurationOutputWithContext(context.Context) EndpointGroupEndpointConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html
+// The configuration for a given endpoint
 type EndpointGroupEndpointConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-clientippreservationenabled
+	// true if client ip should be preserved
 	ClientIPPreservationEnabled pulumi.BoolPtrInput `pulumi:"clientIPPreservationEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-endpointid
+	// Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
 	EndpointId pulumi.StringInput `pulumi:"endpointId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-weight
+	// The weight for the endpoint.
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
@@ -78,7 +187,7 @@ func (i EndpointGroupEndpointConfigurationArray) ToEndpointGroupEndpointConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupEndpointConfigurationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html
+// The configuration for a given endpoint
 type EndpointGroupEndpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EndpointGroupEndpointConfigurationOutput) ElementType() reflect.Type {
@@ -93,17 +202,17 @@ func (o EndpointGroupEndpointConfigurationOutput) ToEndpointGroupEndpointConfigu
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-clientippreservationenabled
+// true if client ip should be preserved
 func (o EndpointGroupEndpointConfigurationOutput) ClientIPPreservationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointGroupEndpointConfiguration) *bool { return v.ClientIPPreservationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-endpointid
+// Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
 func (o EndpointGroupEndpointConfigurationOutput) EndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointGroupEndpointConfiguration) string { return v.EndpointId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-weight
+// The weight for the endpoint.
 func (o EndpointGroupEndpointConfigurationOutput) Weight() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointGroupEndpointConfiguration) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
@@ -128,11 +237,9 @@ func (o EndpointGroupEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) 
 	}).(EndpointGroupEndpointConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html
+// listener to endpoint port mapping.
 type EndpointGroupPortOverride struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-endpointport
 	EndpointPort int `pulumi:"endpointPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-listenerport
 	ListenerPort int `pulumi:"listenerPort"`
 }
 
@@ -147,11 +254,9 @@ type EndpointGroupPortOverrideInput interface {
 	ToEndpointGroupPortOverrideOutputWithContext(context.Context) EndpointGroupPortOverrideOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html
+// listener to endpoint port mapping.
 type EndpointGroupPortOverrideArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-endpointport
 	EndpointPort pulumi.IntInput `pulumi:"endpointPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-listenerport
 	ListenerPort pulumi.IntInput `pulumi:"listenerPort"`
 }
 
@@ -192,7 +297,7 @@ func (i EndpointGroupPortOverrideArray) ToEndpointGroupPortOverrideArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGroupPortOverrideArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html
+// listener to endpoint port mapping.
 type EndpointGroupPortOverrideOutput struct{ *pulumi.OutputState }
 
 func (EndpointGroupPortOverrideOutput) ElementType() reflect.Type {
@@ -207,12 +312,10 @@ func (o EndpointGroupPortOverrideOutput) ToEndpointGroupPortOverrideOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-endpointport
 func (o EndpointGroupPortOverrideOutput) EndpointPort() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointGroupPortOverride) int { return v.EndpointPort }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-listenerport
 func (o EndpointGroupPortOverrideOutput) ListenerPort() pulumi.IntOutput {
 	return o.ApplyT(func(v EndpointGroupPortOverride) int { return v.ListenerPort }).(pulumi.IntOutput)
 }
@@ -237,12 +340,10 @@ func (o EndpointGroupPortOverrideArrayOutput) Index(i pulumi.IntInput) EndpointG
 	}).(EndpointGroupPortOverrideOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html
+// A port range to support for connections from  clients to your accelerator.
 type ListenerPortRange struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-fromport
 	FromPort int `pulumi:"fromPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-toport
-	ToPort int `pulumi:"toPort"`
+	ToPort   int `pulumi:"toPort"`
 }
 
 // ListenerPortRangeInput is an input type that accepts ListenerPortRangeArgs and ListenerPortRangeOutput values.
@@ -256,12 +357,10 @@ type ListenerPortRangeInput interface {
 	ToListenerPortRangeOutputWithContext(context.Context) ListenerPortRangeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html
+// A port range to support for connections from  clients to your accelerator.
 type ListenerPortRangeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-fromport
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-toport
-	ToPort pulumi.IntInput `pulumi:"toPort"`
+	ToPort   pulumi.IntInput `pulumi:"toPort"`
 }
 
 func (ListenerPortRangeArgs) ElementType() reflect.Type {
@@ -301,7 +400,7 @@ func (i ListenerPortRangeArray) ToListenerPortRangeArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerPortRangeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html
+// A port range to support for connections from  clients to your accelerator.
 type ListenerPortRangeOutput struct{ *pulumi.OutputState }
 
 func (ListenerPortRangeOutput) ElementType() reflect.Type {
@@ -316,12 +415,10 @@ func (o ListenerPortRangeOutput) ToListenerPortRangeOutputWithContext(ctx contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-fromport
 func (o ListenerPortRangeOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ListenerPortRange) int { return v.FromPort }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-toport
 func (o ListenerPortRangeOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v ListenerPortRange) int { return v.ToPort }).(pulumi.IntOutput)
 }
@@ -347,6 +444,8 @@ func (o ListenerPortRangeArrayOutput) Index(i pulumi.IntInput) ListenerPortRange
 }
 
 func init() {
+	pulumi.RegisterOutputType(AcceleratorTagOutput{})
+	pulumi.RegisterOutputType(AcceleratorTagArrayOutput{})
 	pulumi.RegisterOutputType(EndpointGroupEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(EndpointGroupEndpointConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(EndpointGroupPortOverrideOutput{})

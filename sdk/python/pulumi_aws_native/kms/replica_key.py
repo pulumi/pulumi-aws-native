@@ -7,28 +7,28 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ReplicaKeyArgs', 'ReplicaKey']
 
 @pulumi.input_type
 class ReplicaKeyArgs:
     def __init__(__self__, *,
-                 key_policy: pulumi.Input[Union[Any, str]],
+                 key_policy: Any,
                  primary_key_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicaKeyTagArgs']]]] = None):
         """
         The set of arguments for constructing a ReplicaKey resource.
-        :param pulumi.Input[Union[Any, str]] key_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-keypolicy
-        :param pulumi.Input[str] primary_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-primarykeyarn
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-description
-        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-enabled
-        :param pulumi.Input[int] pending_window_in_days: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-pendingwindowindays
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-tags
+        :param Any key_policy: The key policy that authorizes use of the CMK. The key policy must observe the following rules.
+        :param pulumi.Input[str] primary_key_arn: Identifies the primary CMK to create a replica of. Specify the Amazon Resource Name (ARN) of the CMK. You cannot specify an alias or key ID. For help finding the ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
+        :param pulumi.Input[str] description: A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
+        :param pulumi.Input[bool] enabled: Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
+        :param pulumi.Input[int] pending_window_in_days: Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicaKeyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "key_policy", key_policy)
         pulumi.set(__self__, "primary_key_arn", primary_key_arn)
@@ -43,21 +43,21 @@ class ReplicaKeyArgs:
 
     @property
     @pulumi.getter(name="keyPolicy")
-    def key_policy(self) -> pulumi.Input[Union[Any, str]]:
+    def key_policy(self) -> Any:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-keypolicy
+        The key policy that authorizes use of the CMK. The key policy must observe the following rules.
         """
         return pulumi.get(self, "key_policy")
 
     @key_policy.setter
-    def key_policy(self, value: pulumi.Input[Union[Any, str]]):
+    def key_policy(self, value: Any):
         pulumi.set(self, "key_policy", value)
 
     @property
     @pulumi.getter(name="primaryKeyArn")
     def primary_key_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-primarykeyarn
+        Identifies the primary CMK to create a replica of. Specify the Amazon Resource Name (ARN) of the CMK. You cannot specify an alias or key ID. For help finding the ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
         """
         return pulumi.get(self, "primary_key_arn")
 
@@ -69,7 +69,7 @@ class ReplicaKeyArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-description
+        A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
         """
         return pulumi.get(self, "description")
 
@@ -81,7 +81,7 @@ class ReplicaKeyArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-enabled
+        Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
         """
         return pulumi.get(self, "enabled")
 
@@ -93,7 +93,7 @@ class ReplicaKeyArgs:
     @pulumi.getter(name="pendingWindowInDays")
     def pending_window_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-pendingwindowindays
+        Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         """
         return pulumi.get(self, "pending_window_in_days")
 
@@ -103,14 +103,14 @@ class ReplicaKeyArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicaKeyTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicaKeyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -121,22 +121,22 @@ class ReplicaKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 key_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 key_policy: Optional[Any] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
                  primary_key_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicaKeyTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html
+        The AWS::KMS::ReplicaKey resource specifies a multi-region replica customer master key (CMK) in AWS Key Management Service (AWS KMS).
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-description
-        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-enabled
-        :param pulumi.Input[Union[Any, str]] key_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-keypolicy
-        :param pulumi.Input[int] pending_window_in_days: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-pendingwindowindays
-        :param pulumi.Input[str] primary_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-primarykeyarn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-tags
+        :param pulumi.Input[str] description: A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
+        :param pulumi.Input[bool] enabled: Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
+        :param Any key_policy: The key policy that authorizes use of the CMK. The key policy must observe the following rules.
+        :param pulumi.Input[int] pending_window_in_days: Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
+        :param pulumi.Input[str] primary_key_arn: Identifies the primary CMK to create a replica of. Specify the Amazon Resource Name (ARN) of the CMK. You cannot specify an alias or key ID. For help finding the ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicaKeyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -145,7 +145,7 @@ class ReplicaKey(pulumi.CustomResource):
                  args: ReplicaKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html
+        The AWS::KMS::ReplicaKey resource specifies a multi-region replica customer master key (CMK) in AWS Key Management Service (AWS KMS).
 
         :param str resource_name: The name of the resource.
         :param ReplicaKeyArgs args: The arguments to use to populate this resource's properties.
@@ -164,10 +164,10 @@ class ReplicaKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 key_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 key_policy: Optional[Any] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
                  primary_key_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicaKeyTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -233,7 +233,7 @@ class ReplicaKey(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-description
+        A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
         """
         return pulumi.get(self, "description")
 
@@ -241,7 +241,7 @@ class ReplicaKey(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-enabled
+        Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
         """
         return pulumi.get(self, "enabled")
 
@@ -252,9 +252,9 @@ class ReplicaKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyPolicy")
-    def key_policy(self) -> pulumi.Output[str]:
+    def key_policy(self) -> pulumi.Output[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-keypolicy
+        The key policy that authorizes use of the CMK. The key policy must observe the following rules.
         """
         return pulumi.get(self, "key_policy")
 
@@ -262,7 +262,7 @@ class ReplicaKey(pulumi.CustomResource):
     @pulumi.getter(name="pendingWindowInDays")
     def pending_window_in_days(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-pendingwindowindays
+        Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         """
         return pulumi.get(self, "pending_window_in_days")
 
@@ -270,15 +270,15 @@ class ReplicaKey(pulumi.CustomResource):
     @pulumi.getter(name="primaryKeyArn")
     def primary_key_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-primarykeyarn
+        Identifies the primary CMK to create a replica of. Specify the Amazon Resource Name (ARN) of the CMK. You cannot specify an alias or key ID. For help finding the ARN, see Finding the Key ID and ARN in the AWS Key Management Service Developer Guide.
         """
         return pulumi.get(self, "primary_key_arn")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ReplicaKeyTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-replicakey.html#cfn-kms-replicakey-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 

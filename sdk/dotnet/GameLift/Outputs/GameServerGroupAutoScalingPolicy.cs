@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html
+    /// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
     /// </summary>
     [OutputType]
     public sealed class GameServerGroupAutoScalingPolicy
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-estimatedinstancewarmup
-        /// </summary>
         public readonly double? EstimatedInstanceWarmup;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-targettrackingconfiguration
-        /// </summary>
         public readonly Outputs.GameServerGroupTargetTrackingConfiguration TargetTrackingConfiguration;
 
         [OutputConstructor]

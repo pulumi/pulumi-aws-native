@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['MissionProfileArgs', 'MissionProfile']
@@ -23,16 +21,13 @@ class MissionProfileArgs:
                  tracking_config_arn: pulumi.Input[str],
                  contact_post_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
                  contact_pre_pass_duration_seconds: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MissionProfileTagArgs']]]] = None):
         """
         The set of arguments for constructing a MissionProfile resource.
-        :param pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]] dataflow_edges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
-        :param pulumi.Input[int] minimum_viable_contact_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
-        :param pulumi.Input[str] tracking_config_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
-        :param pulumi.Input[int] contact_post_pass_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
-        :param pulumi.Input[int] contact_pre_pass_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
+        :param pulumi.Input[int] minimum_viable_contact_duration_seconds: Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
+        :param pulumi.Input[str] name: A name used to identify a mission profile.
+        :param pulumi.Input[int] contact_post_pass_duration_seconds: Post-pass time needed after the contact.
+        :param pulumi.Input[int] contact_pre_pass_duration_seconds: Pre-pass time needed before the contact.
         """
         pulumi.set(__self__, "dataflow_edges", dataflow_edges)
         pulumi.set(__self__, "minimum_viable_contact_duration_seconds", minimum_viable_contact_duration_seconds)
@@ -48,9 +43,6 @@ class MissionProfileArgs:
     @property
     @pulumi.getter(name="dataflowEdges")
     def dataflow_edges(self) -> pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
-        """
         return pulumi.get(self, "dataflow_edges")
 
     @dataflow_edges.setter
@@ -61,7 +53,7 @@ class MissionProfileArgs:
     @pulumi.getter(name="minimumViableContactDurationSeconds")
     def minimum_viable_contact_duration_seconds(self) -> pulumi.Input[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
+        Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
         """
         return pulumi.get(self, "minimum_viable_contact_duration_seconds")
 
@@ -73,7 +65,7 @@ class MissionProfileArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
+        A name used to identify a mission profile.
         """
         return pulumi.get(self, "name")
 
@@ -84,9 +76,6 @@ class MissionProfileArgs:
     @property
     @pulumi.getter(name="trackingConfigArn")
     def tracking_config_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
-        """
         return pulumi.get(self, "tracking_config_arn")
 
     @tracking_config_arn.setter
@@ -97,7 +86,7 @@ class MissionProfileArgs:
     @pulumi.getter(name="contactPostPassDurationSeconds")
     def contact_post_pass_duration_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
+        Post-pass time needed after the contact.
         """
         return pulumi.get(self, "contact_post_pass_duration_seconds")
 
@@ -109,7 +98,7 @@ class MissionProfileArgs:
     @pulumi.getter(name="contactPrePassDurationSeconds")
     def contact_pre_pass_duration_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
+        Pre-pass time needed before the contact.
         """
         return pulumi.get(self, "contact_pre_pass_duration_seconds")
 
@@ -119,14 +108,11 @@ class MissionProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MissionProfileTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MissionProfileTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -140,21 +126,18 @@ class MissionProfile(pulumi.CustomResource):
                  dataflow_edges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileDataflowEdgeArgs']]]]] = None,
                  minimum_viable_contact_duration_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileTagArgs']]]]] = None,
                  tracking_config_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html
+        AWS Ground Station Mission Profile resource type for CloudFormation.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] contact_post_pass_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
-        :param pulumi.Input[int] contact_pre_pass_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileDataflowEdgeArgs']]]] dataflow_edges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
-        :param pulumi.Input[int] minimum_viable_contact_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
-        :param pulumi.Input[str] tracking_config_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
+        :param pulumi.Input[int] contact_post_pass_duration_seconds: Post-pass time needed after the contact.
+        :param pulumi.Input[int] contact_pre_pass_duration_seconds: Pre-pass time needed before the contact.
+        :param pulumi.Input[int] minimum_viable_contact_duration_seconds: Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
+        :param pulumi.Input[str] name: A name used to identify a mission profile.
         """
         ...
     @overload
@@ -163,7 +146,7 @@ class MissionProfile(pulumi.CustomResource):
                  args: MissionProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html
+        AWS Ground Station Mission Profile resource type for CloudFormation.
 
         :param str resource_name: The name of the resource.
         :param MissionProfileArgs args: The arguments to use to populate this resource's properties.
@@ -185,7 +168,7 @@ class MissionProfile(pulumi.CustomResource):
                  dataflow_edges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileDataflowEdgeArgs']]]]] = None,
                  minimum_viable_contact_duration_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileTagArgs']]]]] = None,
                  tracking_config_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -215,7 +198,6 @@ class MissionProfile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'tracking_config_arn'")
             __props__.__dict__["tracking_config_arn"] = tracking_config_arn
             __props__.__dict__["arn"] = None
-            __props__.__dict__["id"] = None
             __props__.__dict__["region"] = None
         super(MissionProfile, __self__).__init__(
             'aws-native:groundstation:MissionProfile',
@@ -243,7 +225,6 @@ class MissionProfile(pulumi.CustomResource):
         __props__.__dict__["contact_post_pass_duration_seconds"] = None
         __props__.__dict__["contact_pre_pass_duration_seconds"] = None
         __props__.__dict__["dataflow_edges"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["minimum_viable_contact_duration_seconds"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["region"] = None
@@ -260,7 +241,7 @@ class MissionProfile(pulumi.CustomResource):
     @pulumi.getter(name="contactPostPassDurationSeconds")
     def contact_post_pass_duration_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
+        Post-pass time needed after the contact.
         """
         return pulumi.get(self, "contact_post_pass_duration_seconds")
 
@@ -268,28 +249,20 @@ class MissionProfile(pulumi.CustomResource):
     @pulumi.getter(name="contactPrePassDurationSeconds")
     def contact_pre_pass_duration_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
+        Pre-pass time needed before the contact.
         """
         return pulumi.get(self, "contact_pre_pass_duration_seconds")
 
     @property
     @pulumi.getter(name="dataflowEdges")
     def dataflow_edges(self) -> pulumi.Output[Sequence['outputs.MissionProfileDataflowEdge']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
-        """
         return pulumi.get(self, "dataflow_edges")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="minimumViableContactDurationSeconds")
     def minimum_viable_contact_duration_seconds(self) -> pulumi.Output[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
+        Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
         """
         return pulumi.get(self, "minimum_viable_contact_duration_seconds")
 
@@ -297,7 +270,7 @@ class MissionProfile(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
+        A name used to identify a mission profile.
         """
         return pulumi.get(self, "name")
 
@@ -308,17 +281,11 @@ class MissionProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MissionProfileTag']]]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="trackingConfigArn")
     def tracking_config_arn(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
-        """
         return pulumi.get(self, "tracking_config_arn")
 

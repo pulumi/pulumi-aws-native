@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ClusterArgs', 'Cluster']
@@ -63,58 +61,69 @@ class ClusterArgs:
                  snapshot_copy_manual: Optional[pulumi.Input[bool]] = None,
                  snapshot_copy_retention_period: Optional[pulumi.Input[int]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input[str] cluster_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustertype
-        :param pulumi.Input[str] d_b_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-dbname
-        :param pulumi.Input[str] master_user_password: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
-        :param pulumi.Input[str] master_username: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterusername
-        :param pulumi.Input[str] node_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
-        :param pulumi.Input[bool] allow_version_upgrade: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-allowversionupgrade
-        :param pulumi.Input[str] aqua_configuration_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
-        :param pulumi.Input[int] automated_snapshot_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
-        :param pulumi.Input[str] availability_zone: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzone
-        :param pulumi.Input[bool] availability_zone_relocation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
-        :param pulumi.Input[str] availability_zone_relocation_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
-        :param pulumi.Input[bool] classic: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
-        :param pulumi.Input[str] cluster_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusteridentifier
-        :param pulumi.Input[str] cluster_parameter_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterparametergroupname
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_security_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersecuritygroups
-        :param pulumi.Input[str] cluster_subnet_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersubnetgroupname
-        :param pulumi.Input[str] cluster_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterversion
-        :param pulumi.Input[bool] defer_maintenance: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
-        :param pulumi.Input[int] defer_maintenance_duration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
-        :param pulumi.Input[str] defer_maintenance_end_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
-        :param pulumi.Input[str] defer_maintenance_start_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
-        :param pulumi.Input[str] destination_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
-        :param pulumi.Input[str] elastic_ip: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
-        :param pulumi.Input[bool] encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-encrypted
-        :param pulumi.Input['ClusterEndpointArgs'] endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
-        :param pulumi.Input[bool] enhanced_vpc_routing: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
-        :param pulumi.Input[str] hsm_client_certificate_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
-        :param pulumi.Input[str] hsm_configuration_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-iamroles
-        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-kmskeyid
-        :param pulumi.Input['ClusterLoggingPropertiesArgs'] logging_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
-        :param pulumi.Input[str] maintenance_track_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
-        :param pulumi.Input[int] manual_snapshot_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
-        :param pulumi.Input[int] number_of_nodes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-numberofnodes
-        :param pulumi.Input[str] owner_account: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-owneraccount
-        :param pulumi.Input[int] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-port
-        :param pulumi.Input[str] preferred_maintenance_window: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-preferredmaintenancewindow
-        :param pulumi.Input[bool] publicly_accessible: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-publiclyaccessible
-        :param pulumi.Input[str] resource_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
-        :param pulumi.Input[str] revision_target: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
-        :param pulumi.Input[bool] rotate_encryption_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
-        :param pulumi.Input[str] snapshot_cluster_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier
-        :param pulumi.Input[str] snapshot_copy_grant_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
-        :param pulumi.Input[bool] snapshot_copy_manual: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
-        :param pulumi.Input[int] snapshot_copy_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
-        :param pulumi.Input[str] snapshot_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotidentifier
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-tags
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-vpcsecuritygroupids
+        :param pulumi.Input[str] cluster_type: The type of the cluster. When cluster type is specified as single-node, the NumberOfNodes parameter is not required and if multi-node, the NumberOfNodes parameter is required
+        :param pulumi.Input[str] d_b_name: The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
+        :param pulumi.Input[str] master_user_password: The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
+        :param pulumi.Input[str] master_username: The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
+        :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
+        :param pulumi.Input[bool] allow_version_upgrade: Major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default value is True
+        :param pulumi.Input[str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values include the following.
+               
+               enabled - Use AQUA if it is available for the current Region and Amazon Redshift node type.
+               disabled - Don't use AQUA.
+               auto - Amazon Redshift determines whether to use AQUA.
+        :param pulumi.Input[int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Default value is 1
+        :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. Default: A random, system-chosen Availability Zone in the region that is specified by the endpoint
+        :param pulumi.Input[bool] availability_zone_relocation: The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster modification is complete.
+        :param pulumi.Input[str] availability_zone_relocation_status: The availability zone relocation status of the cluster
+        :param pulumi.Input[bool] classic: A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to false , the resize type is elastic.
+        :param pulumi.Input[str] cluster_identifier: A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
+        :param pulumi.Input[str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_security_groups: A list of security groups to be associated with this cluster.
+        :param pulumi.Input[str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster.
+        :param pulumi.Input[str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
+        :param pulumi.Input[bool] defer_maintenance: A boolean indicating whether to enable the deferred maintenance window.
+        :param pulumi.Input[int] defer_maintenance_duration: An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
+        :param pulumi.Input[str] defer_maintenance_end_time: A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
+        :param pulumi.Input[str] defer_maintenance_start_time: A timestamp indicating the start time for the deferred maintenance window.
+        :param pulumi.Input[str] destination_region: The destination AWS Region that you want to copy snapshots to. Constraints: Must be the name of a valid AWS Region. For more information, see Regions and Endpoints in the Amazon Web Services [https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region] General Reference
+        :param pulumi.Input[str] elastic_ip: The Elastic IP (EIP) address for the cluster.
+        :param pulumi.Input[bool] encrypted: If true, the data in the cluster is encrypted at rest.
+        :param pulumi.Input[bool] enhanced_vpc_routing: An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
+               
+               If this option is true , enhanced VPC routing is enabled.
+               
+               Default: false
+        :param pulumi.Input[str] hsm_client_certificate_identifier: Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM
+        :param pulumi.Input[str] hsm_configuration_identifier: Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request
+        :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
+        :param pulumi.Input[str] maintenance_track_name: The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
+        :param pulumi.Input[int] manual_snapshot_retention_period: The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
+               
+               The value must be either -1 or an integer between 1 and 3,653.
+        :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
+        :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
+        :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network.
+        :param pulumi.Input[str] resource_action: The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+        :param pulumi.Input[str] revision_target: The identifier of the database revision. You can retrieve this value from the response to the DescribeClusterDbRevisions request.
+        :param pulumi.Input[bool] rotate_encryption_key: A boolean indicating if we want to rotate Encryption Keys.
+        :param pulumi.Input[str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
+        :param pulumi.Input[str] snapshot_copy_grant_name: The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
+        :param pulumi.Input[bool] snapshot_copy_manual: Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.
+        :param pulumi.Input[int] snapshot_copy_retention_period: The number of days to retain automated snapshots in the destination region after they are copied from the source region. 
+               
+                Default is 7. 
+               
+                Constraints: Must be at least 1 and no more than 35.
+        :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]] tags: The list of tags for the cluster parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         pulumi.set(__self__, "cluster_type", cluster_type)
         pulumi.set(__self__, "d_b_name", d_b_name)
@@ -212,7 +221,7 @@ class ClusterArgs:
     @pulumi.getter(name="clusterType")
     def cluster_type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustertype
+        The type of the cluster. When cluster type is specified as single-node, the NumberOfNodes parameter is not required and if multi-node, the NumberOfNodes parameter is required
         """
         return pulumi.get(self, "cluster_type")
 
@@ -224,7 +233,7 @@ class ClusterArgs:
     @pulumi.getter(name="dBName")
     def d_b_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-dbname
+        The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
         """
         return pulumi.get(self, "d_b_name")
 
@@ -236,7 +245,7 @@ class ClusterArgs:
     @pulumi.getter(name="masterUserPassword")
     def master_user_password(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
+        The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
         """
         return pulumi.get(self, "master_user_password")
 
@@ -248,7 +257,7 @@ class ClusterArgs:
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterusername
+        The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
         """
         return pulumi.get(self, "master_username")
 
@@ -260,7 +269,7 @@ class ClusterArgs:
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
+        The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
         """
         return pulumi.get(self, "node_type")
 
@@ -272,7 +281,7 @@ class ClusterArgs:
     @pulumi.getter(name="allowVersionUpgrade")
     def allow_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-allowversionupgrade
+        Major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default value is True
         """
         return pulumi.get(self, "allow_version_upgrade")
 
@@ -284,7 +293,11 @@ class ClusterArgs:
     @pulumi.getter(name="aquaConfigurationStatus")
     def aqua_configuration_status(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
+        The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values include the following.
+
+        enabled - Use AQUA if it is available for the current Region and Amazon Redshift node type.
+        disabled - Don't use AQUA.
+        auto - Amazon Redshift determines whether to use AQUA.
         """
         return pulumi.get(self, "aqua_configuration_status")
 
@@ -296,7 +309,7 @@ class ClusterArgs:
     @pulumi.getter(name="automatedSnapshotRetentionPeriod")
     def automated_snapshot_retention_period(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
+        The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Default value is 1
         """
         return pulumi.get(self, "automated_snapshot_retention_period")
 
@@ -308,7 +321,7 @@ class ClusterArgs:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzone
+        The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. Default: A random, system-chosen Availability Zone in the region that is specified by the endpoint
         """
         return pulumi.get(self, "availability_zone")
 
@@ -320,7 +333,7 @@ class ClusterArgs:
     @pulumi.getter(name="availabilityZoneRelocation")
     def availability_zone_relocation(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
+        The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster modification is complete.
         """
         return pulumi.get(self, "availability_zone_relocation")
 
@@ -332,7 +345,7 @@ class ClusterArgs:
     @pulumi.getter(name="availabilityZoneRelocationStatus")
     def availability_zone_relocation_status(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
+        The availability zone relocation status of the cluster
         """
         return pulumi.get(self, "availability_zone_relocation_status")
 
@@ -344,7 +357,7 @@ class ClusterArgs:
     @pulumi.getter
     def classic(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
+        A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to false , the resize type is elastic.
         """
         return pulumi.get(self, "classic")
 
@@ -356,7 +369,7 @@ class ClusterArgs:
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusteridentifier
+        A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
         """
         return pulumi.get(self, "cluster_identifier")
 
@@ -368,7 +381,7 @@ class ClusterArgs:
     @pulumi.getter(name="clusterParameterGroupName")
     def cluster_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterparametergroupname
+        The name of the parameter group to be associated with this cluster.
         """
         return pulumi.get(self, "cluster_parameter_group_name")
 
@@ -380,7 +393,7 @@ class ClusterArgs:
     @pulumi.getter(name="clusterSecurityGroups")
     def cluster_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersecuritygroups
+        A list of security groups to be associated with this cluster.
         """
         return pulumi.get(self, "cluster_security_groups")
 
@@ -392,7 +405,7 @@ class ClusterArgs:
     @pulumi.getter(name="clusterSubnetGroupName")
     def cluster_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersubnetgroupname
+        The name of a cluster subnet group to be associated with this cluster.
         """
         return pulumi.get(self, "cluster_subnet_group_name")
 
@@ -404,7 +417,7 @@ class ClusterArgs:
     @pulumi.getter(name="clusterVersion")
     def cluster_version(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterversion
+        The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
         """
         return pulumi.get(self, "cluster_version")
 
@@ -416,7 +429,7 @@ class ClusterArgs:
     @pulumi.getter(name="deferMaintenance")
     def defer_maintenance(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
+        A boolean indicating whether to enable the deferred maintenance window.
         """
         return pulumi.get(self, "defer_maintenance")
 
@@ -428,7 +441,7 @@ class ClusterArgs:
     @pulumi.getter(name="deferMaintenanceDuration")
     def defer_maintenance_duration(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
+        An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
         """
         return pulumi.get(self, "defer_maintenance_duration")
 
@@ -440,7 +453,7 @@ class ClusterArgs:
     @pulumi.getter(name="deferMaintenanceEndTime")
     def defer_maintenance_end_time(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
+        A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
         """
         return pulumi.get(self, "defer_maintenance_end_time")
 
@@ -452,7 +465,7 @@ class ClusterArgs:
     @pulumi.getter(name="deferMaintenanceStartTime")
     def defer_maintenance_start_time(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
+        A timestamp indicating the start time for the deferred maintenance window.
         """
         return pulumi.get(self, "defer_maintenance_start_time")
 
@@ -464,7 +477,7 @@ class ClusterArgs:
     @pulumi.getter(name="destinationRegion")
     def destination_region(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
+        The destination AWS Region that you want to copy snapshots to. Constraints: Must be the name of a valid AWS Region. For more information, see Regions and Endpoints in the Amazon Web Services [https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region] General Reference
         """
         return pulumi.get(self, "destination_region")
 
@@ -476,7 +489,7 @@ class ClusterArgs:
     @pulumi.getter(name="elasticIp")
     def elastic_ip(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
+        The Elastic IP (EIP) address for the cluster.
         """
         return pulumi.get(self, "elastic_ip")
 
@@ -488,7 +501,7 @@ class ClusterArgs:
     @pulumi.getter
     def encrypted(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-encrypted
+        If true, the data in the cluster is encrypted at rest.
         """
         return pulumi.get(self, "encrypted")
 
@@ -499,9 +512,6 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input['ClusterEndpointArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
-        """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
@@ -512,7 +522,11 @@ class ClusterArgs:
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
+        An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
+
+        If this option is true , enhanced VPC routing is enabled.
+
+        Default: false
         """
         return pulumi.get(self, "enhanced_vpc_routing")
 
@@ -524,7 +538,7 @@ class ClusterArgs:
     @pulumi.getter(name="hsmClientCertificateIdentifier")
     def hsm_client_certificate_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
+        Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM
         """
         return pulumi.get(self, "hsm_client_certificate_identifier")
 
@@ -536,7 +550,7 @@ class ClusterArgs:
     @pulumi.getter(name="hsmConfigurationIdentifier")
     def hsm_configuration_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
+        Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
         """
         return pulumi.get(self, "hsm_configuration_identifier")
 
@@ -548,7 +562,7 @@ class ClusterArgs:
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-iamroles
+        A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request
         """
         return pulumi.get(self, "iam_roles")
 
@@ -560,7 +574,7 @@ class ClusterArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-kmskeyid
+        The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -571,9 +585,6 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="loggingProperties")
     def logging_properties(self) -> Optional[pulumi.Input['ClusterLoggingPropertiesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
-        """
         return pulumi.get(self, "logging_properties")
 
     @logging_properties.setter
@@ -584,7 +595,7 @@ class ClusterArgs:
     @pulumi.getter(name="maintenanceTrackName")
     def maintenance_track_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
+        The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
         """
         return pulumi.get(self, "maintenance_track_name")
 
@@ -596,7 +607,9 @@ class ClusterArgs:
     @pulumi.getter(name="manualSnapshotRetentionPeriod")
     def manual_snapshot_retention_period(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
+        The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
+
+        The value must be either -1 or an integer between 1 and 3,653.
         """
         return pulumi.get(self, "manual_snapshot_retention_period")
 
@@ -608,7 +621,7 @@ class ClusterArgs:
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-numberofnodes
+        The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
         """
         return pulumi.get(self, "number_of_nodes")
 
@@ -619,9 +632,6 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="ownerAccount")
     def owner_account(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-owneraccount
-        """
         return pulumi.get(self, "owner_account")
 
     @owner_account.setter
@@ -632,7 +642,7 @@ class ClusterArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-port
+        The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
         """
         return pulumi.get(self, "port")
 
@@ -644,7 +654,7 @@ class ClusterArgs:
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-preferredmaintenancewindow
+        The weekly time range (in UTC) during which automated cluster maintenance can occur.
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
@@ -656,7 +666,7 @@ class ClusterArgs:
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-publiclyaccessible
+        If true, the cluster can be accessed from a public network.
         """
         return pulumi.get(self, "publicly_accessible")
 
@@ -668,7 +678,7 @@ class ClusterArgs:
     @pulumi.getter(name="resourceAction")
     def resource_action(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
+        The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
         """
         return pulumi.get(self, "resource_action")
 
@@ -680,7 +690,7 @@ class ClusterArgs:
     @pulumi.getter(name="revisionTarget")
     def revision_target(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
+        The identifier of the database revision. You can retrieve this value from the response to the DescribeClusterDbRevisions request.
         """
         return pulumi.get(self, "revision_target")
 
@@ -692,7 +702,7 @@ class ClusterArgs:
     @pulumi.getter(name="rotateEncryptionKey")
     def rotate_encryption_key(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
+        A boolean indicating if we want to rotate Encryption Keys.
         """
         return pulumi.get(self, "rotate_encryption_key")
 
@@ -704,7 +714,7 @@ class ClusterArgs:
     @pulumi.getter(name="snapshotClusterIdentifier")
     def snapshot_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier
+        The name of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
         """
         return pulumi.get(self, "snapshot_cluster_identifier")
 
@@ -716,7 +726,7 @@ class ClusterArgs:
     @pulumi.getter(name="snapshotCopyGrantName")
     def snapshot_copy_grant_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
+        The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
         """
         return pulumi.get(self, "snapshot_copy_grant_name")
 
@@ -728,7 +738,7 @@ class ClusterArgs:
     @pulumi.getter(name="snapshotCopyManual")
     def snapshot_copy_manual(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
+        Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.
         """
         return pulumi.get(self, "snapshot_copy_manual")
 
@@ -740,7 +750,11 @@ class ClusterArgs:
     @pulumi.getter(name="snapshotCopyRetentionPeriod")
     def snapshot_copy_retention_period(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
+        The number of days to retain automated snapshots in the destination region after they are copied from the source region. 
+
+         Default is 7. 
+
+         Constraints: Must be at least 1 and no more than 35.
         """
         return pulumi.get(self, "snapshot_copy_retention_period")
 
@@ -752,7 +766,7 @@ class ClusterArgs:
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotidentifier
+        The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
         """
         return pulumi.get(self, "snapshot_identifier")
 
@@ -762,21 +776,21 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-tags
+        The list of tags for the cluster parameter group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-vpcsecuritygroupids
+        A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -836,62 +850,73 @@ class Cluster(pulumi.CustomResource):
                  snapshot_copy_manual: Optional[pulumi.Input[bool]] = None,
                  snapshot_copy_retention_period: Optional[pulumi.Input[int]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allow_version_upgrade: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-allowversionupgrade
-        :param pulumi.Input[str] aqua_configuration_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
-        :param pulumi.Input[int] automated_snapshot_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
-        :param pulumi.Input[str] availability_zone: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzone
-        :param pulumi.Input[bool] availability_zone_relocation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
-        :param pulumi.Input[str] availability_zone_relocation_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
-        :param pulumi.Input[bool] classic: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
-        :param pulumi.Input[str] cluster_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusteridentifier
-        :param pulumi.Input[str] cluster_parameter_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterparametergroupname
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_security_groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersecuritygroups
-        :param pulumi.Input[str] cluster_subnet_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersubnetgroupname
-        :param pulumi.Input[str] cluster_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustertype
-        :param pulumi.Input[str] cluster_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterversion
-        :param pulumi.Input[str] d_b_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-dbname
-        :param pulumi.Input[bool] defer_maintenance: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
-        :param pulumi.Input[int] defer_maintenance_duration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
-        :param pulumi.Input[str] defer_maintenance_end_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
-        :param pulumi.Input[str] defer_maintenance_start_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
-        :param pulumi.Input[str] destination_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
-        :param pulumi.Input[str] elastic_ip: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
-        :param pulumi.Input[bool] encrypted: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-encrypted
-        :param pulumi.Input[pulumi.InputType['ClusterEndpointArgs']] endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
-        :param pulumi.Input[bool] enhanced_vpc_routing: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
-        :param pulumi.Input[str] hsm_client_certificate_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
-        :param pulumi.Input[str] hsm_configuration_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-iamroles
-        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-kmskeyid
-        :param pulumi.Input[pulumi.InputType['ClusterLoggingPropertiesArgs']] logging_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
-        :param pulumi.Input[str] maintenance_track_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
-        :param pulumi.Input[int] manual_snapshot_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
-        :param pulumi.Input[str] master_user_password: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
-        :param pulumi.Input[str] master_username: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterusername
-        :param pulumi.Input[str] node_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
-        :param pulumi.Input[int] number_of_nodes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-numberofnodes
-        :param pulumi.Input[str] owner_account: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-owneraccount
-        :param pulumi.Input[int] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-port
-        :param pulumi.Input[str] preferred_maintenance_window: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-preferredmaintenancewindow
-        :param pulumi.Input[bool] publicly_accessible: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-publiclyaccessible
-        :param pulumi.Input[str] resource_action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
-        :param pulumi.Input[str] revision_target: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
-        :param pulumi.Input[bool] rotate_encryption_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
-        :param pulumi.Input[str] snapshot_cluster_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier
-        :param pulumi.Input[str] snapshot_copy_grant_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
-        :param pulumi.Input[bool] snapshot_copy_manual: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
-        :param pulumi.Input[int] snapshot_copy_retention_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
-        :param pulumi.Input[str] snapshot_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotidentifier
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-tags
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-vpcsecuritygroupids
+        :param pulumi.Input[bool] allow_version_upgrade: Major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default value is True
+        :param pulumi.Input[str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values include the following.
+               
+               enabled - Use AQUA if it is available for the current Region and Amazon Redshift node type.
+               disabled - Don't use AQUA.
+               auto - Amazon Redshift determines whether to use AQUA.
+        :param pulumi.Input[int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Default value is 1
+        :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. Default: A random, system-chosen Availability Zone in the region that is specified by the endpoint
+        :param pulumi.Input[bool] availability_zone_relocation: The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster modification is complete.
+        :param pulumi.Input[str] availability_zone_relocation_status: The availability zone relocation status of the cluster
+        :param pulumi.Input[bool] classic: A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to false , the resize type is elastic.
+        :param pulumi.Input[str] cluster_identifier: A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
+        :param pulumi.Input[str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_security_groups: A list of security groups to be associated with this cluster.
+        :param pulumi.Input[str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster.
+        :param pulumi.Input[str] cluster_type: The type of the cluster. When cluster type is specified as single-node, the NumberOfNodes parameter is not required and if multi-node, the NumberOfNodes parameter is required
+        :param pulumi.Input[str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
+        :param pulumi.Input[str] d_b_name: The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
+        :param pulumi.Input[bool] defer_maintenance: A boolean indicating whether to enable the deferred maintenance window.
+        :param pulumi.Input[int] defer_maintenance_duration: An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
+        :param pulumi.Input[str] defer_maintenance_end_time: A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
+        :param pulumi.Input[str] defer_maintenance_start_time: A timestamp indicating the start time for the deferred maintenance window.
+        :param pulumi.Input[str] destination_region: The destination AWS Region that you want to copy snapshots to. Constraints: Must be the name of a valid AWS Region. For more information, see Regions and Endpoints in the Amazon Web Services [https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region] General Reference
+        :param pulumi.Input[str] elastic_ip: The Elastic IP (EIP) address for the cluster.
+        :param pulumi.Input[bool] encrypted: If true, the data in the cluster is encrypted at rest.
+        :param pulumi.Input[bool] enhanced_vpc_routing: An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
+               
+               If this option is true , enhanced VPC routing is enabled.
+               
+               Default: false
+        :param pulumi.Input[str] hsm_client_certificate_identifier: Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM
+        :param pulumi.Input[str] hsm_configuration_identifier: Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request
+        :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
+        :param pulumi.Input[str] maintenance_track_name: The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
+        :param pulumi.Input[int] manual_snapshot_retention_period: The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
+               
+               The value must be either -1 or an integer between 1 and 3,653.
+        :param pulumi.Input[str] master_user_password: The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
+        :param pulumi.Input[str] master_username: The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
+        :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
+        :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
+        :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
+        :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network.
+        :param pulumi.Input[str] resource_action: The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+        :param pulumi.Input[str] revision_target: The identifier of the database revision. You can retrieve this value from the response to the DescribeClusterDbRevisions request.
+        :param pulumi.Input[bool] rotate_encryption_key: A boolean indicating if we want to rotate Encryption Keys.
+        :param pulumi.Input[str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
+        :param pulumi.Input[str] snapshot_copy_grant_name: The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
+        :param pulumi.Input[bool] snapshot_copy_manual: Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.
+        :param pulumi.Input[int] snapshot_copy_retention_period: The number of days to retain automated snapshots in the destination region after they are copied from the source region. 
+               
+                Default is 7. 
+               
+                Constraints: Must be at least 1 and no more than 35.
+        :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]] tags: The list of tags for the cluster parameter group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         ...
     @overload
@@ -900,7 +925,7 @@ class Cluster(pulumi.CustomResource):
                  args: ClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -963,7 +988,7 @@ class Cluster(pulumi.CustomResource):
                  snapshot_copy_manual: Optional[pulumi.Input[bool]] = None,
                  snapshot_copy_retention_period: Optional[pulumi.Input[int]] = None,
                  snapshot_identifier: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterTagArgs']]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -1036,9 +1061,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["defer_maintenance_identifier"] = None
-            __props__.__dict__["endpoint_address"] = None
-            __props__.__dict__["endpoint_port"] = None
-            __props__.__dict__["id"] = None
         super(Cluster, __self__).__init__(
             'aws-native:redshift:Cluster',
             resource_name,
@@ -1084,13 +1106,10 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["elastic_ip"] = None
         __props__.__dict__["encrypted"] = None
         __props__.__dict__["endpoint"] = None
-        __props__.__dict__["endpoint_address"] = None
-        __props__.__dict__["endpoint_port"] = None
         __props__.__dict__["enhanced_vpc_routing"] = None
         __props__.__dict__["hsm_client_certificate_identifier"] = None
         __props__.__dict__["hsm_configuration_identifier"] = None
         __props__.__dict__["iam_roles"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["logging_properties"] = None
         __props__.__dict__["maintenance_track_name"] = None
@@ -1119,7 +1138,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="allowVersionUpgrade")
     def allow_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-allowversionupgrade
+        Major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default value is True
         """
         return pulumi.get(self, "allow_version_upgrade")
 
@@ -1127,7 +1146,11 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="aquaConfigurationStatus")
     def aqua_configuration_status(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-aquaconfigurationstatus
+        The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values include the following.
+
+        enabled - Use AQUA if it is available for the current Region and Amazon Redshift node type.
+        disabled - Don't use AQUA.
+        auto - Amazon Redshift determines whether to use AQUA.
         """
         return pulumi.get(self, "aqua_configuration_status")
 
@@ -1135,7 +1158,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="automatedSnapshotRetentionPeriod")
     def automated_snapshot_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
+        The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Default value is 1
         """
         return pulumi.get(self, "automated_snapshot_retention_period")
 
@@ -1143,7 +1166,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzone
+        The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. Default: A random, system-chosen Availability Zone in the region that is specified by the endpoint
         """
         return pulumi.get(self, "availability_zone")
 
@@ -1151,7 +1174,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZoneRelocation")
     def availability_zone_relocation(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocation
+        The option to enable relocation for an Amazon Redshift cluster between Availability Zones after the cluster modification is complete.
         """
         return pulumi.get(self, "availability_zone_relocation")
 
@@ -1159,7 +1182,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZoneRelocationStatus")
     def availability_zone_relocation_status(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzonerelocationstatus
+        The availability zone relocation status of the cluster
         """
         return pulumi.get(self, "availability_zone_relocation_status")
 
@@ -1167,7 +1190,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def classic(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-classic
+        A boolean value indicating whether the resize operation is using the classic resize process. If you don't provide this parameter or set the value to false , the resize type is elastic.
         """
         return pulumi.get(self, "classic")
 
@@ -1175,7 +1198,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusteridentifier
+        A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
         """
         return pulumi.get(self, "cluster_identifier")
 
@@ -1183,7 +1206,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterParameterGroupName")
     def cluster_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterparametergroupname
+        The name of the parameter group to be associated with this cluster.
         """
         return pulumi.get(self, "cluster_parameter_group_name")
 
@@ -1191,7 +1214,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterSecurityGroups")
     def cluster_security_groups(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersecuritygroups
+        A list of security groups to be associated with this cluster.
         """
         return pulumi.get(self, "cluster_security_groups")
 
@@ -1199,7 +1222,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterSubnetGroupName")
     def cluster_subnet_group_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersubnetgroupname
+        The name of a cluster subnet group to be associated with this cluster.
         """
         return pulumi.get(self, "cluster_subnet_group_name")
 
@@ -1207,7 +1230,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterType")
     def cluster_type(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustertype
+        The type of the cluster. When cluster type is specified as single-node, the NumberOfNodes parameter is not required and if multi-node, the NumberOfNodes parameter is required
         """
         return pulumi.get(self, "cluster_type")
 
@@ -1215,7 +1238,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterVersion")
     def cluster_version(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterversion
+        The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
         """
         return pulumi.get(self, "cluster_version")
 
@@ -1223,7 +1246,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="dBName")
     def d_b_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-dbname
+        The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
         """
         return pulumi.get(self, "d_b_name")
 
@@ -1231,7 +1254,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="deferMaintenance")
     def defer_maintenance(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenance
+        A boolean indicating whether to enable the deferred maintenance window.
         """
         return pulumi.get(self, "defer_maintenance")
 
@@ -1239,7 +1262,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="deferMaintenanceDuration")
     def defer_maintenance_duration(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceduration
+        An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
         """
         return pulumi.get(self, "defer_maintenance_duration")
 
@@ -1247,20 +1270,23 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="deferMaintenanceEndTime")
     def defer_maintenance_end_time(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenanceendtime
+        A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
         """
         return pulumi.get(self, "defer_maintenance_end_time")
 
     @property
     @pulumi.getter(name="deferMaintenanceIdentifier")
     def defer_maintenance_identifier(self) -> pulumi.Output[str]:
+        """
+        A unique identifier for the deferred maintenance window.
+        """
         return pulumi.get(self, "defer_maintenance_identifier")
 
     @property
     @pulumi.getter(name="deferMaintenanceStartTime")
     def defer_maintenance_start_time(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-defermaintenancestarttime
+        A timestamp indicating the start time for the deferred maintenance window.
         """
         return pulumi.get(self, "defer_maintenance_start_time")
 
@@ -1268,7 +1294,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="destinationRegion")
     def destination_region(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-destinationregion
+        The destination AWS Region that you want to copy snapshots to. Constraints: Must be the name of a valid AWS Region. For more information, see Regions and Endpoints in the Amazon Web Services [https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region] General Reference
         """
         return pulumi.get(self, "destination_region")
 
@@ -1276,7 +1302,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="elasticIp")
     def elastic_ip(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-elasticip
+        The Elastic IP (EIP) address for the cluster.
         """
         return pulumi.get(self, "elastic_ip")
 
@@ -1284,33 +1310,24 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def encrypted(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-encrypted
+        If true, the data in the cluster is encrypted at rest.
         """
         return pulumi.get(self, "encrypted")
 
     @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[Optional['outputs.ClusterEndpoint']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-endpoint
-        """
         return pulumi.get(self, "endpoint")
-
-    @property
-    @pulumi.getter(name="endpointAddress")
-    def endpoint_address(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "endpoint_address")
-
-    @property
-    @pulumi.getter(name="endpointPort")
-    def endpoint_port(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "endpoint_port")
 
     @property
     @pulumi.getter(name="enhancedVpcRouting")
     def enhanced_vpc_routing(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-enhancedvpcrouting
+        An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
+
+        If this option is true , enhanced VPC routing is enabled.
+
+        Default: false
         """
         return pulumi.get(self, "enhanced_vpc_routing")
 
@@ -1318,7 +1335,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="hsmClientCertificateIdentifier")
     def hsm_client_certificate_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertificateidentifier
+        Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM
         """
         return pulumi.get(self, "hsm_client_certificate_identifier")
 
@@ -1326,7 +1343,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="hsmConfigurationIdentifier")
     def hsm_configuration_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmconfigurationidentifier
+        Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
         """
         return pulumi.get(self, "hsm_configuration_identifier")
 
@@ -1334,36 +1351,28 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-iamroles
+        A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request
         """
         return pulumi.get(self, "iam_roles")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-kmskeyid
+        The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
         """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="loggingProperties")
     def logging_properties(self) -> pulumi.Output[Optional['outputs.ClusterLoggingProperties']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
-        """
         return pulumi.get(self, "logging_properties")
 
     @property
     @pulumi.getter(name="maintenanceTrackName")
     def maintenance_track_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-maintenancetrackname
+        The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
         """
         return pulumi.get(self, "maintenance_track_name")
 
@@ -1371,7 +1380,9 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="manualSnapshotRetentionPeriod")
     def manual_snapshot_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-manualsnapshotretentionperiod
+        The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
+
+        The value must be either -1 or an integer between 1 and 3,653.
         """
         return pulumi.get(self, "manual_snapshot_retention_period")
 
@@ -1379,7 +1390,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="masterUserPassword")
     def master_user_password(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
+        The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
         """
         return pulumi.get(self, "master_user_password")
 
@@ -1387,7 +1398,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masterusername
+        The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
         """
         return pulumi.get(self, "master_username")
 
@@ -1395,7 +1406,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
+        The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
         """
         return pulumi.get(self, "node_type")
 
@@ -1403,23 +1414,20 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-numberofnodes
+        The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
         """
         return pulumi.get(self, "number_of_nodes")
 
     @property
     @pulumi.getter(name="ownerAccount")
     def owner_account(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-owneraccount
-        """
         return pulumi.get(self, "owner_account")
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-port
+        The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
         """
         return pulumi.get(self, "port")
 
@@ -1427,7 +1435,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-preferredmaintenancewindow
+        The weekly time range (in UTC) during which automated cluster maintenance can occur.
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
@@ -1435,7 +1443,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-publiclyaccessible
+        If true, the cluster can be accessed from a public network.
         """
         return pulumi.get(self, "publicly_accessible")
 
@@ -1443,7 +1451,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="resourceAction")
     def resource_action(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-resourceaction
+        The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
         """
         return pulumi.get(self, "resource_action")
 
@@ -1451,7 +1459,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="revisionTarget")
     def revision_target(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-revisiontarget
+        The identifier of the database revision. You can retrieve this value from the response to the DescribeClusterDbRevisions request.
         """
         return pulumi.get(self, "revision_target")
 
@@ -1459,7 +1467,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="rotateEncryptionKey")
     def rotate_encryption_key(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-rotateencryptionkey
+        A boolean indicating if we want to rotate Encryption Keys.
         """
         return pulumi.get(self, "rotate_encryption_key")
 
@@ -1467,7 +1475,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="snapshotClusterIdentifier")
     def snapshot_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier
+        The name of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
         """
         return pulumi.get(self, "snapshot_cluster_identifier")
 
@@ -1475,7 +1483,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="snapshotCopyGrantName")
     def snapshot_copy_grant_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopygrantname
+        The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
         """
         return pulumi.get(self, "snapshot_copy_grant_name")
 
@@ -1483,7 +1491,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="snapshotCopyManual")
     def snapshot_copy_manual(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopymanual
+        Indicates whether to apply the snapshot retention period to newly copied manual snapshots instead of automated snapshots.
         """
         return pulumi.get(self, "snapshot_copy_manual")
 
@@ -1491,7 +1499,11 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="snapshotCopyRetentionPeriod")
     def snapshot_copy_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotcopyretentionperiod
+        The number of days to retain automated snapshots in the destination region after they are copied from the source region. 
+
+         Default is 7. 
+
+         Constraints: Must be at least 1 and no more than 35.
         """
         return pulumi.get(self, "snapshot_copy_retention_period")
 
@@ -1499,15 +1511,15 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotidentifier
+        The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.
         """
         return pulumi.get(self, "snapshot_identifier")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-tags
+        The list of tags for the cluster parameter group.
         """
         return pulumi.get(self, "tags")
 
@@ -1515,7 +1527,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-vpcsecuritygroupids
+        A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 

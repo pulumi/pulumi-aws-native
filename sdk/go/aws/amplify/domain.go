@@ -11,22 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html
+// The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
 type Domain struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid
-	AppId                         pulumi.StringOutput      `pulumi:"appId"`
-	Arn                           pulumi.StringOutput      `pulumi:"arn"`
-	AutoSubDomainCreationPatterns pulumi.StringArrayOutput `pulumi:"autoSubDomainCreationPatterns"`
-	AutoSubDomainIAMRole          pulumi.StringOutput      `pulumi:"autoSubDomainIAMRole"`
-	CertificateRecord             pulumi.StringOutput      `pulumi:"certificateRecord"`
-	DomainName                    pulumi.StringOutput      `pulumi:"domainName"`
-	DomainStatus                  pulumi.StringOutput      `pulumi:"domainStatus"`
-	EnableAutoSubDomain           pulumi.BoolOutput        `pulumi:"enableAutoSubDomain"`
-	StatusReason                  pulumi.StringOutput      `pulumi:"statusReason"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
-	SubDomainSettings DomainSubDomainSettingArrayOutput `pulumi:"subDomainSettings"`
+	AppId                         pulumi.StringOutput               `pulumi:"appId"`
+	Arn                           pulumi.StringOutput               `pulumi:"arn"`
+	AutoSubDomainCreationPatterns pulumi.StringArrayOutput          `pulumi:"autoSubDomainCreationPatterns"`
+	AutoSubDomainIAMRole          pulumi.StringPtrOutput            `pulumi:"autoSubDomainIAMRole"`
+	CertificateRecord             pulumi.StringOutput               `pulumi:"certificateRecord"`
+	DomainName                    pulumi.StringOutput               `pulumi:"domainName"`
+	DomainStatus                  pulumi.StringOutput               `pulumi:"domainStatus"`
+	EnableAutoSubDomain           pulumi.BoolPtrOutput              `pulumi:"enableAutoSubDomain"`
+	StatusReason                  pulumi.StringOutput               `pulumi:"statusReason"`
+	SubDomainSettings             DomainSubDomainSettingArrayOutput `pulumi:"subDomainSettings"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -77,34 +75,22 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid
-	AppId string `pulumi:"appId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns
-	AutoSubDomainCreationPatterns []string `pulumi:"autoSubDomainCreationPatterns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
-	AutoSubDomainIAMRole *string `pulumi:"autoSubDomainIAMRole"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname
-	DomainName string `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
-	EnableAutoSubDomain *bool `pulumi:"enableAutoSubDomain"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
-	SubDomainSettings []DomainSubDomainSetting `pulumi:"subDomainSettings"`
+	AppId                         string                   `pulumi:"appId"`
+	AutoSubDomainCreationPatterns []string                 `pulumi:"autoSubDomainCreationPatterns"`
+	AutoSubDomainIAMRole          *string                  `pulumi:"autoSubDomainIAMRole"`
+	DomainName                    string                   `pulumi:"domainName"`
+	EnableAutoSubDomain           *bool                    `pulumi:"enableAutoSubDomain"`
+	SubDomainSettings             []DomainSubDomainSetting `pulumi:"subDomainSettings"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid
-	AppId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns
+	AppId                         pulumi.StringInput
 	AutoSubDomainCreationPatterns pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
-	AutoSubDomainIAMRole pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname
-	DomainName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
-	EnableAutoSubDomain pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
-	SubDomainSettings DomainSubDomainSettingArrayInput
+	AutoSubDomainIAMRole          pulumi.StringPtrInput
+	DomainName                    pulumi.StringInput
+	EnableAutoSubDomain           pulumi.BoolPtrInput
+	SubDomainSettings             DomainSubDomainSettingArrayInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {

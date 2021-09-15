@@ -11,18 +11,15 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html
+    /// Code Configuration
     /// </summary>
     public sealed class ServiceCodeConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-codeconfigurationvalues
-        /// </summary>
         [Input("codeConfigurationValues")]
         public Input<Inputs.ServiceCodeConfigurationValuesArgs>? CodeConfigurationValues { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-configurationsource
+        /// Configuration Source
         /// </summary>
         [Input("configurationSource", required: true)]
         public Input<string> ConfigurationSource { get; set; } = null!;

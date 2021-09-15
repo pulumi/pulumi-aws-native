@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.SSMIncidents.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html
+    /// A parameter to set when starting the SSM automation document.
     /// </summary>
     [OutputType]
     public sealed class ResponsePlanSsmParameter
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-key
-        /// </summary>
         public readonly string Key;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-values
-        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

@@ -11,20 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html
+// An Amazon Lookout for Metrics Detector
 type AnomalyDetector struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig
+	// Configuration options for the AnomalyDetector
 	AnomalyDetectorConfig AnomalyDetectorAnomalyDetectorConfigOutput `pulumi:"anomalyDetectorConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectordescription
+	// A description for the AnomalyDetector.
 	AnomalyDetectorDescription pulumi.StringPtrOutput `pulumi:"anomalyDetectorDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorname
+	// Name for the Amazon Lookout for Metrics Anomaly Detector
 	AnomalyDetectorName pulumi.StringPtrOutput `pulumi:"anomalyDetectorName"`
 	Arn                 pulumi.StringOutput    `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-kmskeyarn
+	// KMS key used to encrypt the AnomalyDetector data
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-metricsetlist
+	// List of metric sets for anomaly detection
 	MetricSetList AnomalyDetectorMetricSetArrayOutput `pulumi:"metricSetList"`
 }
 
@@ -73,29 +73,29 @@ func (AnomalyDetectorState) ElementType() reflect.Type {
 }
 
 type anomalyDetectorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig
+	// Configuration options for the AnomalyDetector
 	AnomalyDetectorConfig AnomalyDetectorAnomalyDetectorConfig `pulumi:"anomalyDetectorConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectordescription
+	// A description for the AnomalyDetector.
 	AnomalyDetectorDescription *string `pulumi:"anomalyDetectorDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorname
+	// Name for the Amazon Lookout for Metrics Anomaly Detector
 	AnomalyDetectorName *string `pulumi:"anomalyDetectorName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-kmskeyarn
+	// KMS key used to encrypt the AnomalyDetector data
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-metricsetlist
+	// List of metric sets for anomaly detection
 	MetricSetList []AnomalyDetectorMetricSet `pulumi:"metricSetList"`
 }
 
 // The set of arguments for constructing a AnomalyDetector resource.
 type AnomalyDetectorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig
+	// Configuration options for the AnomalyDetector
 	AnomalyDetectorConfig AnomalyDetectorAnomalyDetectorConfigInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectordescription
+	// A description for the AnomalyDetector.
 	AnomalyDetectorDescription pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorname
+	// Name for the Amazon Lookout for Metrics Anomaly Detector
 	AnomalyDetectorName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-kmskeyarn
+	// KMS key used to encrypt the AnomalyDetector data
 	KmsKeyArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-metricsetlist
+	// List of metric sets for anomaly detection
 	MetricSetList AnomalyDetectorMetricSetArrayInput
 }
 

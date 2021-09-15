@@ -11,66 +11,24 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html
+    /// First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
     /// </summary>
     [OutputType]
     public sealed class WebACLStatement
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-andstatement
-        /// </summary>
         public readonly Outputs.WebACLAndStatement? AndStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-bytematchstatement
-        /// </summary>
         public readonly Outputs.WebACLByteMatchStatement? ByteMatchStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-geomatchstatement
-        /// </summary>
         public readonly Outputs.WebACLGeoMatchStatement? GeoMatchStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ipsetreferencestatement
-        /// </summary>
         public readonly Outputs.WebACLIPSetReferenceStatement? IPSetReferenceStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-labelmatchstatement
-        /// </summary>
         public readonly Outputs.WebACLLabelMatchStatement? LabelMatchStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-managedrulegroupstatement
-        /// </summary>
         public readonly Outputs.WebACLManagedRuleGroupStatement? ManagedRuleGroupStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-notstatement
-        /// </summary>
         public readonly Outputs.WebACLNotStatement? NotStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-orstatement
-        /// </summary>
         public readonly Outputs.WebACLOrStatement? OrStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ratebasedstatement
-        /// </summary>
         public readonly Outputs.WebACLRateBasedStatement? RateBasedStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-regexpatternsetreferencestatement
-        /// </summary>
         public readonly Outputs.WebACLRegexPatternSetReferenceStatement? RegexPatternSetReferenceStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-rulegroupreferencestatement
-        /// </summary>
         public readonly Outputs.WebACLRuleGroupReferenceStatement? RuleGroupReferenceStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sizeconstraintstatement
-        /// </summary>
         public readonly Outputs.WebACLSizeConstraintStatement? SizeConstraintStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sqlimatchstatement
-        /// </summary>
         public readonly Outputs.WebACLSqliMatchStatement? SqliMatchStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-xssmatchstatement
-        /// </summary>
         public readonly Outputs.WebACLXssMatchStatement? XssMatchStatement;
 
         [OutputConstructor]

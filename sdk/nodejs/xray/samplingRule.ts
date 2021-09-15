@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html
+ * This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
  */
 export class SamplingRule extends pulumi.CustomResource {
     /**
@@ -36,26 +36,11 @@ export class SamplingRule extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly ruleARN!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-rulename
-     */
     public readonly ruleName!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrule
-     */
     public readonly samplingRule!: pulumi.Output<outputs.xray.SamplingRuleSamplingRule | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrulerecord
-     */
     public readonly samplingRuleRecord!: pulumi.Output<outputs.xray.SamplingRuleSamplingRuleRecord | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingruleupdate
-     */
     public readonly samplingRuleUpdate!: pulumi.Output<outputs.xray.SamplingRuleSamplingRuleUpdate | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags
-     */
-    public readonly tags!: pulumi.Output<any | string[] | undefined>;
+    public readonly tags!: pulumi.Output<any[] | undefined>;
 
     /**
      * Create a SamplingRule resource with the given unique name, arguments, and options.
@@ -93,24 +78,9 @@ export class SamplingRule extends pulumi.CustomResource {
  * The set of arguments for constructing a SamplingRule resource.
  */
 export interface SamplingRuleArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-rulename
-     */
     ruleName?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrule
-     */
     samplingRule?: pulumi.Input<inputs.xray.SamplingRuleSamplingRuleArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrulerecord
-     */
     samplingRuleRecord?: pulumi.Input<inputs.xray.SamplingRuleSamplingRuleRecordArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingruleupdate
-     */
     samplingRuleUpdate?: pulumi.Input<inputs.xray.SamplingRuleSamplingRuleUpdateArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<any | string>[]>;
+    tags?: pulumi.Input<any[]>;
 }

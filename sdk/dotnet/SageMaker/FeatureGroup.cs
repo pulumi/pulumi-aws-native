@@ -10,64 +10,58 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html
+    /// Resource Type definition for AWS::SageMaker::FeatureGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:FeatureGroup")]
     public partial class FeatureGroup : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-description
+        /// Description about the FeatureGroup.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-eventtimefeaturename
+        /// The Event Time Feature Name.
         /// </summary>
         [Output("eventTimeFeatureName")]
         public Output<string> EventTimeFeatureName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuredefinitions
+        /// An Array of Feature Definition
         /// </summary>
         [Output("featureDefinitions")]
         public Output<ImmutableArray<Outputs.FeatureGroupFeatureDefinition>> FeatureDefinitions { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuregroupname
+        /// The Name of the FeatureGroup.
         /// </summary>
         [Output("featureGroupName")]
         public Output<string> FeatureGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-offlinestoreconfig
-        /// </summary>
         [Output("offlineStoreConfig")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> OfflineStoreConfig { get; private set; } = null!;
+        public Output<object?> OfflineStoreConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-onlinestoreconfig
-        /// </summary>
         [Output("onlineStoreConfig")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> OnlineStoreConfig { get; private set; } = null!;
+        public Output<object?> OnlineStoreConfig { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-recordidentifierfeaturename
+        /// The Record Identifier Feature Name.
         /// </summary>
         [Output("recordIdentifierFeatureName")]
         public Output<string> RecordIdentifierFeatureName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-rolearn
+        /// Role Arn
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-tags
+        /// An array of key-value pair to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FeatureGroupTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -115,13 +109,13 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class FeatureGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-description
+        /// Description about the FeatureGroup.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-eventtimefeaturename
+        /// The Event Time Feature Name.
         /// </summary>
         [Input("eventTimeFeatureName", required: true)]
         public Input<string> EventTimeFeatureName { get; set; } = null!;
@@ -130,7 +124,7 @@ namespace Pulumi.AwsNative.SageMaker
         private InputList<Inputs.FeatureGroupFeatureDefinitionArgs>? _featureDefinitions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuredefinitions
+        /// An Array of Feature Definition
         /// </summary>
         public InputList<Inputs.FeatureGroupFeatureDefinitionArgs> FeatureDefinitions
         {
@@ -139,44 +133,38 @@ namespace Pulumi.AwsNative.SageMaker
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuregroupname
+        /// The Name of the FeatureGroup.
         /// </summary>
         [Input("featureGroupName", required: true)]
         public Input<string> FeatureGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-offlinestoreconfig
-        /// </summary>
         [Input("offlineStoreConfig")]
-        public InputUnion<System.Text.Json.JsonElement, string>? OfflineStoreConfig { get; set; }
+        public Input<object>? OfflineStoreConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-onlinestoreconfig
-        /// </summary>
         [Input("onlineStoreConfig")]
-        public InputUnion<System.Text.Json.JsonElement, string>? OnlineStoreConfig { get; set; }
+        public Input<object>? OnlineStoreConfig { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-recordidentifierfeaturename
+        /// The Record Identifier Feature Name.
         /// </summary>
         [Input("recordIdentifierFeatureName", required: true)]
         public Input<string> RecordIdentifierFeatureName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-rolearn
+        /// Role Arn
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.FeatureGroupTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-tags
+        /// An array of key-value pair to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.FeatureGroupTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.FeatureGroupTagArgs>());
             set => _tags = value;
         }
 

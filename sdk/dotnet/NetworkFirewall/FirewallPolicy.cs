@@ -10,20 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html
+    /// Resource type definition for AWS::NetworkFirewall::FirewallPolicy
     /// </summary>
     [AwsNativeResourceType("aws-native:networkfirewall:FirewallPolicy")]
     public partial class FirewallPolicy : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
-        /// </summary>
         [Output("firewallPolicy")]
         public Output<Outputs.FirewallPolicyFirewallPolicy> FirewallPolicyValue { get; private set; } = null!;
 
@@ -33,17 +27,11 @@ namespace Pulumi.AwsNative.NetworkFirewall
         [Output("firewallPolicyId")]
         public Output<string> FirewallPolicyId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
-        /// </summary>
         [Output("firewallPolicyName")]
         public Output<string> FirewallPolicyName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FirewallPolicyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -90,33 +78,20 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class FirewallPolicyArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
-        /// </summary>
         [Input("firewallPolicy", required: true)]
         public Input<Inputs.FirewallPolicyFirewallPolicyArgs> FirewallPolicyValue { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
-        /// </summary>
         [Input("firewallPolicyName", required: true)]
         public Input<string> FirewallPolicyName { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.FirewallPolicyTagArgs>? _tags;
+        public InputList<Inputs.FirewallPolicyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.FirewallPolicyTagArgs>());
             set => _tags = value;
         }
 

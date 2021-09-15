@@ -21,12 +21,9 @@ class ApiDestinationArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ApiDestination resource.
-        :param pulumi.Input[str] connection_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-connectionarn
-        :param pulumi.Input[str] http_method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-httpmethod
-        :param pulumi.Input[str] invocation_endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationendpoint
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-description
-        :param pulumi.Input[int] invocation_rate_limit_per_second: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationratelimitpersecond
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-name
+        :param pulumi.Input[str] connection_arn: The arn of the connection.
+        :param pulumi.Input[str] invocation_endpoint: Url endpoint to invoke.
+        :param pulumi.Input[str] name: Name of the apiDestination.
         """
         pulumi.set(__self__, "connection_arn", connection_arn)
         pulumi.set(__self__, "http_method", http_method)
@@ -42,7 +39,7 @@ class ApiDestinationArgs:
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-connectionarn
+        The arn of the connection.
         """
         return pulumi.get(self, "connection_arn")
 
@@ -53,9 +50,6 @@ class ApiDestinationArgs:
     @property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-httpmethod
-        """
         return pulumi.get(self, "http_method")
 
     @http_method.setter
@@ -66,7 +60,7 @@ class ApiDestinationArgs:
     @pulumi.getter(name="invocationEndpoint")
     def invocation_endpoint(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationendpoint
+        Url endpoint to invoke.
         """
         return pulumi.get(self, "invocation_endpoint")
 
@@ -77,9 +71,6 @@ class ApiDestinationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -89,9 +80,6 @@ class ApiDestinationArgs:
     @property
     @pulumi.getter(name="invocationRateLimitPerSecond")
     def invocation_rate_limit_per_second(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationratelimitpersecond
-        """
         return pulumi.get(self, "invocation_rate_limit_per_second")
 
     @invocation_rate_limit_per_second.setter
@@ -102,7 +90,7 @@ class ApiDestinationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-name
+        Name of the apiDestination.
         """
         return pulumi.get(self, "name")
 
@@ -124,16 +112,13 @@ class ApiDestination(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html
+        Resource Type definition for AWS::Events::ApiDestination.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] connection_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-connectionarn
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-description
-        :param pulumi.Input[str] http_method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-httpmethod
-        :param pulumi.Input[str] invocation_endpoint: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationendpoint
-        :param pulumi.Input[int] invocation_rate_limit_per_second: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationratelimitpersecond
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-name
+        :param pulumi.Input[str] connection_arn: The arn of the connection.
+        :param pulumi.Input[str] invocation_endpoint: Url endpoint to invoke.
+        :param pulumi.Input[str] name: Name of the apiDestination.
         """
         ...
     @overload
@@ -142,7 +127,7 @@ class ApiDestination(pulumi.CustomResource):
                  args: ApiDestinationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html
+        Resource Type definition for AWS::Events::ApiDestination.
 
         :param str resource_name: The name of the resource.
         :param ApiDestinationArgs args: The arguments to use to populate this resource's properties.
@@ -224,53 +209,47 @@ class ApiDestination(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The arn of the api destination.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-connectionarn
+        The arn of the connection.
         """
         return pulumi.get(self, "connection_arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-description
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-httpmethod
-        """
         return pulumi.get(self, "http_method")
 
     @property
     @pulumi.getter(name="invocationEndpoint")
     def invocation_endpoint(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationendpoint
+        Url endpoint to invoke.
         """
         return pulumi.get(self, "invocation_endpoint")
 
     @property
     @pulumi.getter(name="invocationRateLimitPerSecond")
     def invocation_rate_limit_per_second(self) -> pulumi.Output[Optional[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationratelimitpersecond
-        """
         return pulumi.get(self, "invocation_rate_limit_per_second")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-name
+        Name of the apiDestination.
         """
         return pulumi.get(self, "name")
 

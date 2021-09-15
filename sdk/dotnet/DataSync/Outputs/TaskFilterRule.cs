@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.DataSync.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html
+    /// Specifies which files folders and objects to include or exclude when transferring files from source to destination.
     /// </summary>
     [OutputType]
     public sealed class TaskFilterRule
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-filtertype
+        /// The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
         /// </summary>
         public readonly string? FilterType;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-value
+        /// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|".
         /// </summary>
         public readonly string? Value;
 

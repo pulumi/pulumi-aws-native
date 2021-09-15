@@ -10,31 +10,28 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html
-    /// </summary>
     public sealed class DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-connectionborrowtimeout
+        /// The number of seconds for a proxy to wait for a connection to become available in the connection pool.
         /// </summary>
         [Input("connectionBorrowTimeout")]
         public Input<int>? ConnectionBorrowTimeout { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-initquery
+        /// One or more SQL statements for the proxy to run when opening each new database connection.
         /// </summary>
         [Input("initQuery")]
         public Input<string>? InitQuery { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxconnectionspercent
+        /// The maximum size of the connection pool for each target in a target group.
         /// </summary>
         [Input("maxConnectionsPercent")]
         public Input<int>? MaxConnectionsPercent { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxidleconnectionspercent
+        /// Controls how actively the proxy closes idle database connections in the connection pool.
         /// </summary>
         [Input("maxIdleConnectionsPercent")]
         public Input<int>? MaxIdleConnectionsPercent { get; set; }
@@ -43,7 +40,7 @@ namespace Pulumi.AwsNative.RDS.Inputs
         private InputList<string>? _sessionPinningFilters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-sessionpinningfilters
+        /// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
         /// </summary>
         public InputList<string> SessionPinningFilters
         {

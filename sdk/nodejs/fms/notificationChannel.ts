@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html
+ * Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
  */
 export class NotificationChannel extends pulumi.CustomResource {
     /**
@@ -34,13 +34,7 @@ export class NotificationChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === NotificationChannel.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
-     */
     public readonly snsRoleName!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
-     */
     public readonly snsTopicArn!: pulumi.Output<string>;
 
     /**
@@ -77,12 +71,6 @@ export class NotificationChannel extends pulumi.CustomResource {
  * The set of arguments for constructing a NotificationChannel resource.
  */
 export interface NotificationChannelArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
-     */
     snsRoleName: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
-     */
     snsTopicArn: pulumi.Input<string>;
 }

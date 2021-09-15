@@ -10,14 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html
 type ConfigurationAggregatorAccountAggregationSource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids
-	AccountIds []string `pulumi:"accountIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-allawsregions
-	AllAwsRegions *bool `pulumi:"allAwsRegions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-awsregions
-	AwsRegions []string `pulumi:"awsRegions"`
+	AccountIds    []string `pulumi:"accountIds"`
+	AllAwsRegions *bool    `pulumi:"allAwsRegions"`
+	AwsRegions    []string `pulumi:"awsRegions"`
 }
 
 // ConfigurationAggregatorAccountAggregationSourceInput is an input type that accepts ConfigurationAggregatorAccountAggregationSourceArgs and ConfigurationAggregatorAccountAggregationSourceOutput values.
@@ -31,14 +27,10 @@ type ConfigurationAggregatorAccountAggregationSourceInput interface {
 	ToConfigurationAggregatorAccountAggregationSourceOutputWithContext(context.Context) ConfigurationAggregatorAccountAggregationSourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html
 type ConfigurationAggregatorAccountAggregationSourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids
-	AccountIds pulumi.StringArrayInput `pulumi:"accountIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-allawsregions
-	AllAwsRegions pulumi.BoolPtrInput `pulumi:"allAwsRegions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-awsregions
-	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
+	AccountIds    pulumi.StringArrayInput `pulumi:"accountIds"`
+	AllAwsRegions pulumi.BoolPtrInput     `pulumi:"allAwsRegions"`
+	AwsRegions    pulumi.StringArrayInput `pulumi:"awsRegions"`
 }
 
 func (ConfigurationAggregatorAccountAggregationSourceArgs) ElementType() reflect.Type {
@@ -78,7 +70,6 @@ func (i ConfigurationAggregatorAccountAggregationSourceArray) ToConfigurationAgg
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorAccountAggregationSourceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html
 type ConfigurationAggregatorAccountAggregationSourceOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAggregatorAccountAggregationSourceOutput) ElementType() reflect.Type {
@@ -93,17 +84,14 @@ func (o ConfigurationAggregatorAccountAggregationSourceOutput) ToConfigurationAg
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids
 func (o ConfigurationAggregatorAccountAggregationSourceOutput) AccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-allawsregions
 func (o ConfigurationAggregatorAccountAggregationSourceOutput) AllAwsRegions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) *bool { return v.AllAwsRegions }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-awsregions
 func (o ConfigurationAggregatorAccountAggregationSourceOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
@@ -128,14 +116,10 @@ func (o ConfigurationAggregatorAccountAggregationSourceArrayOutput) Index(i pulu
 	}).(ConfigurationAggregatorAccountAggregationSourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html
 type ConfigurationAggregatorOrganizationAggregationSource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-allawsregions
-	AllAwsRegions *bool `pulumi:"allAwsRegions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-awsregions
-	AwsRegions []string `pulumi:"awsRegions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-rolearn
-	RoleArn string `pulumi:"roleArn"`
+	AllAwsRegions *bool    `pulumi:"allAwsRegions"`
+	AwsRegions    []string `pulumi:"awsRegions"`
+	RoleArn       string   `pulumi:"roleArn"`
 }
 
 // ConfigurationAggregatorOrganizationAggregationSourceInput is an input type that accepts ConfigurationAggregatorOrganizationAggregationSourceArgs and ConfigurationAggregatorOrganizationAggregationSourceOutput values.
@@ -149,14 +133,10 @@ type ConfigurationAggregatorOrganizationAggregationSourceInput interface {
 	ToConfigurationAggregatorOrganizationAggregationSourceOutputWithContext(context.Context) ConfigurationAggregatorOrganizationAggregationSourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html
 type ConfigurationAggregatorOrganizationAggregationSourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-allawsregions
-	AllAwsRegions pulumi.BoolPtrInput `pulumi:"allAwsRegions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-awsregions
-	AwsRegions pulumi.StringArrayInput `pulumi:"awsRegions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	AllAwsRegions pulumi.BoolPtrInput     `pulumi:"allAwsRegions"`
+	AwsRegions    pulumi.StringArrayInput `pulumi:"awsRegions"`
+	RoleArn       pulumi.StringInput      `pulumi:"roleArn"`
 }
 
 func (ConfigurationAggregatorOrganizationAggregationSourceArgs) ElementType() reflect.Type {
@@ -212,7 +192,6 @@ func (i *configurationAggregatorOrganizationAggregationSourcePtrType) ToConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html
 type ConfigurationAggregatorOrganizationAggregationSourceOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAggregatorOrganizationAggregationSourceOutput) ElementType() reflect.Type {
@@ -237,17 +216,14 @@ func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) ToConfigurat
 	}).(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-allawsregions
 func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) AllAwsRegions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) *bool { return v.AllAwsRegions }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-awsregions
 func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) []string { return v.AwsRegions }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-rolearn
 func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -276,7 +252,6 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) Elem() Co
 	}).(ConfigurationAggregatorOrganizationAggregationSourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-allawsregions
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) AllAwsRegions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) *bool {
 		if v == nil {
@@ -286,7 +261,6 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) AllAwsReg
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-awsregions
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) AwsRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) []string {
 		if v == nil {
@@ -296,7 +270,6 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) AwsRegion
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-rolearn
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) *string {
 		if v == nil {
@@ -306,11 +279,118 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) RoleArn()
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html
+// A key-value pair to associate with a resource.
+type ConfigurationAggregatorTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ConfigurationAggregatorTagInput is an input type that accepts ConfigurationAggregatorTagArgs and ConfigurationAggregatorTagOutput values.
+// You can construct a concrete instance of `ConfigurationAggregatorTagInput` via:
+//
+//          ConfigurationAggregatorTagArgs{...}
+type ConfigurationAggregatorTagInput interface {
+	pulumi.Input
+
+	ToConfigurationAggregatorTagOutput() ConfigurationAggregatorTagOutput
+	ToConfigurationAggregatorTagOutputWithContext(context.Context) ConfigurationAggregatorTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ConfigurationAggregatorTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ConfigurationAggregatorTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationAggregatorTag)(nil)).Elem()
+}
+
+func (i ConfigurationAggregatorTagArgs) ToConfigurationAggregatorTagOutput() ConfigurationAggregatorTagOutput {
+	return i.ToConfigurationAggregatorTagOutputWithContext(context.Background())
+}
+
+func (i ConfigurationAggregatorTagArgs) ToConfigurationAggregatorTagOutputWithContext(ctx context.Context) ConfigurationAggregatorTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorTagOutput)
+}
+
+// ConfigurationAggregatorTagArrayInput is an input type that accepts ConfigurationAggregatorTagArray and ConfigurationAggregatorTagArrayOutput values.
+// You can construct a concrete instance of `ConfigurationAggregatorTagArrayInput` via:
+//
+//          ConfigurationAggregatorTagArray{ ConfigurationAggregatorTagArgs{...} }
+type ConfigurationAggregatorTagArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationAggregatorTagArrayOutput() ConfigurationAggregatorTagArrayOutput
+	ToConfigurationAggregatorTagArrayOutputWithContext(context.Context) ConfigurationAggregatorTagArrayOutput
+}
+
+type ConfigurationAggregatorTagArray []ConfigurationAggregatorTagInput
+
+func (ConfigurationAggregatorTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationAggregatorTag)(nil)).Elem()
+}
+
+func (i ConfigurationAggregatorTagArray) ToConfigurationAggregatorTagArrayOutput() ConfigurationAggregatorTagArrayOutput {
+	return i.ToConfigurationAggregatorTagArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationAggregatorTagArray) ToConfigurationAggregatorTagArrayOutputWithContext(ctx context.Context) ConfigurationAggregatorTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ConfigurationAggregatorTagOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationAggregatorTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationAggregatorTag)(nil)).Elem()
+}
+
+func (o ConfigurationAggregatorTagOutput) ToConfigurationAggregatorTagOutput() ConfigurationAggregatorTagOutput {
+	return o
+}
+
+func (o ConfigurationAggregatorTagOutput) ToConfigurationAggregatorTagOutputWithContext(ctx context.Context) ConfigurationAggregatorTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ConfigurationAggregatorTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationAggregatorTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ConfigurationAggregatorTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationAggregatorTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ConfigurationAggregatorTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationAggregatorTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationAggregatorTag)(nil)).Elem()
+}
+
+func (o ConfigurationAggregatorTagArrayOutput) ToConfigurationAggregatorTagArrayOutput() ConfigurationAggregatorTagArrayOutput {
+	return o
+}
+
+func (o ConfigurationAggregatorTagArrayOutput) ToConfigurationAggregatorTagArrayOutputWithContext(ctx context.Context) ConfigurationAggregatorTagArrayOutput {
+	return o
+}
+
+func (o ConfigurationAggregatorTagArrayOutput) Index(i pulumi.IntInput) ConfigurationAggregatorTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationAggregatorTag {
+		return vs[0].([]ConfigurationAggregatorTag)[vs[1].(int)]
+	}).(ConfigurationAggregatorTagOutput)
+}
+
+// Input parameters in the form of key-value pairs for the conformance pack.
 type ConformancePackConformancePackInputParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametername
-	ParameterName string `pulumi:"parameterName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametervalue
+	ParameterName  string `pulumi:"parameterName"`
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -325,11 +405,9 @@ type ConformancePackConformancePackInputParameterInput interface {
 	ToConformancePackConformancePackInputParameterOutputWithContext(context.Context) ConformancePackConformancePackInputParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html
+// Input parameters in the form of key-value pairs for the conformance pack.
 type ConformancePackConformancePackInputParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametername
-	ParameterName pulumi.StringInput `pulumi:"parameterName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametervalue
+	ParameterName  pulumi.StringInput `pulumi:"parameterName"`
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -370,7 +448,7 @@ func (i ConformancePackConformancePackInputParameterArray) ToConformancePackConf
 	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackConformancePackInputParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html
+// Input parameters in the form of key-value pairs for the conformance pack.
 type ConformancePackConformancePackInputParameterOutput struct{ *pulumi.OutputState }
 
 func (ConformancePackConformancePackInputParameterOutput) ElementType() reflect.Type {
@@ -385,12 +463,10 @@ func (o ConformancePackConformancePackInputParameterOutput) ToConformancePackCon
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametername
 func (o ConformancePackConformancePackInputParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConformancePackConformancePackInputParameter) string { return v.ParameterName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametervalue
 func (o ConformancePackConformancePackInputParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v ConformancePackConformancePackInputParameter) string { return v.ParameterValue }).(pulumi.StringOutput)
 }
@@ -415,11 +491,9 @@ func (o ConformancePackConformancePackInputParameterArrayOutput) Index(i pulumi.
 	}).(ConformancePackConformancePackInputParameterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html
+// Input parameters in the form of key-value pairs for the conformance pack.
 type OrganizationConformancePackConformancePackInputParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametername
-	ParameterName string `pulumi:"parameterName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametervalue
+	ParameterName  string `pulumi:"parameterName"`
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -434,11 +508,9 @@ type OrganizationConformancePackConformancePackInputParameterInput interface {
 	ToOrganizationConformancePackConformancePackInputParameterOutputWithContext(context.Context) OrganizationConformancePackConformancePackInputParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html
+// Input parameters in the form of key-value pairs for the conformance pack.
 type OrganizationConformancePackConformancePackInputParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametername
-	ParameterName pulumi.StringInput `pulumi:"parameterName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametervalue
+	ParameterName  pulumi.StringInput `pulumi:"parameterName"`
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -479,7 +551,7 @@ func (i OrganizationConformancePackConformancePackInputParameterArray) ToOrganiz
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConformancePackConformancePackInputParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html
+// Input parameters in the form of key-value pairs for the conformance pack.
 type OrganizationConformancePackConformancePackInputParameterOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConformancePackConformancePackInputParameterOutput) ElementType() reflect.Type {
@@ -494,12 +566,10 @@ func (o OrganizationConformancePackConformancePackInputParameterOutput) ToOrgani
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametername
 func (o OrganizationConformancePackConformancePackInputParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationConformancePackConformancePackInputParameter) string { return v.ParameterName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametervalue
 func (o OrganizationConformancePackConformancePackInputParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v OrganizationConformancePackConformancePackInputParameter) string { return v.ParameterValue }).(pulumi.StringOutput)
 }
@@ -524,13 +594,126 @@ func (o OrganizationConformancePackConformancePackInputParameterArrayOutput) Ind
 	}).(OrganizationConformancePackConformancePackInputParameterOutput)
 }
 
+// A key-value pair to associate with a resource.
+type StoredQueryTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// StoredQueryTagInput is an input type that accepts StoredQueryTagArgs and StoredQueryTagOutput values.
+// You can construct a concrete instance of `StoredQueryTagInput` via:
+//
+//          StoredQueryTagArgs{...}
+type StoredQueryTagInput interface {
+	pulumi.Input
+
+	ToStoredQueryTagOutput() StoredQueryTagOutput
+	ToStoredQueryTagOutputWithContext(context.Context) StoredQueryTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type StoredQueryTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (StoredQueryTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StoredQueryTag)(nil)).Elem()
+}
+
+func (i StoredQueryTagArgs) ToStoredQueryTagOutput() StoredQueryTagOutput {
+	return i.ToStoredQueryTagOutputWithContext(context.Background())
+}
+
+func (i StoredQueryTagArgs) ToStoredQueryTagOutputWithContext(ctx context.Context) StoredQueryTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StoredQueryTagOutput)
+}
+
+// StoredQueryTagArrayInput is an input type that accepts StoredQueryTagArray and StoredQueryTagArrayOutput values.
+// You can construct a concrete instance of `StoredQueryTagArrayInput` via:
+//
+//          StoredQueryTagArray{ StoredQueryTagArgs{...} }
+type StoredQueryTagArrayInput interface {
+	pulumi.Input
+
+	ToStoredQueryTagArrayOutput() StoredQueryTagArrayOutput
+	ToStoredQueryTagArrayOutputWithContext(context.Context) StoredQueryTagArrayOutput
+}
+
+type StoredQueryTagArray []StoredQueryTagInput
+
+func (StoredQueryTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StoredQueryTag)(nil)).Elem()
+}
+
+func (i StoredQueryTagArray) ToStoredQueryTagArrayOutput() StoredQueryTagArrayOutput {
+	return i.ToStoredQueryTagArrayOutputWithContext(context.Background())
+}
+
+func (i StoredQueryTagArray) ToStoredQueryTagArrayOutputWithContext(ctx context.Context) StoredQueryTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StoredQueryTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type StoredQueryTagOutput struct{ *pulumi.OutputState }
+
+func (StoredQueryTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StoredQueryTag)(nil)).Elem()
+}
+
+func (o StoredQueryTagOutput) ToStoredQueryTagOutput() StoredQueryTagOutput {
+	return o
+}
+
+func (o StoredQueryTagOutput) ToStoredQueryTagOutputWithContext(ctx context.Context) StoredQueryTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o StoredQueryTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v StoredQueryTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o StoredQueryTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StoredQueryTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StoredQueryTagArrayOutput struct{ *pulumi.OutputState }
+
+func (StoredQueryTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StoredQueryTag)(nil)).Elem()
+}
+
+func (o StoredQueryTagArrayOutput) ToStoredQueryTagArrayOutput() StoredQueryTagArrayOutput {
+	return o
+}
+
+func (o StoredQueryTagArrayOutput) ToStoredQueryTagArrayOutputWithContext(ctx context.Context) StoredQueryTagArrayOutput {
+	return o
+}
+
+func (o StoredQueryTagArrayOutput) Index(i pulumi.IntInput) StoredQueryTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StoredQueryTag {
+		return vs[0].([]StoredQueryTag)[vs[1].(int)]
+	}).(StoredQueryTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ConfigurationAggregatorAccountAggregationSourceOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorAccountAggregationSourceArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorOrganizationAggregationSourceOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationAggregatorTagOutput{})
+	pulumi.RegisterOutputType(ConfigurationAggregatorTagArrayOutput{})
 	pulumi.RegisterOutputType(ConformancePackConformancePackInputParameterOutput{})
 	pulumi.RegisterOutputType(ConformancePackConformancePackInputParameterArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationConformancePackConformancePackInputParameterOutput{})
 	pulumi.RegisterOutputType(OrganizationConformancePackConformancePackInputParameterArrayOutput{})
+	pulumi.RegisterOutputType(StoredQueryTagOutput{})
+	pulumi.RegisterOutputType(StoredQueryTagArrayOutput{})
 }

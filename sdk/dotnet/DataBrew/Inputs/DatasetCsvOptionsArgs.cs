@@ -11,19 +11,13 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html
+    /// Csv options
     /// </summary>
     public sealed class DatasetCsvOptionsArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-delimiter
-        /// </summary>
         [Input("delimiter")]
         public Input<string>? Delimiter { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-headerrow
-        /// </summary>
         [Input("headerRow")]
         public Input<bool>? HeaderRow { get; set; }
 

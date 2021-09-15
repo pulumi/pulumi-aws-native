@@ -10,71 +10,70 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html
+    /// Definition of the AWS::QuickSight::DataSource Resource Type.
     /// </summary>
     [AwsNativeResourceType("aws-native:quicksight:DataSource")]
     public partial class DataSource : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-alternatedatasourceparameters
+        /// &lt;p&gt;A set of alternate data source parameters that you want to share for the credentials
+        ///             stored with this data source. The credentials are applied in tandem with the data source
+        ///             parameters when you copy a data source by using a create or update request. The API
+        ///             operation compares the &lt;code&gt;DataSourceParameters&lt;/code&gt; structure that's in the request
+        ///             with the structures in the &lt;code&gt;AlternateDataSourceParameters&lt;/code&gt; allow list. If the
+        ///             structures are an exact match, the request is allowed to use the credentials from this
+        ///             existing data source. If the &lt;code&gt;AlternateDataSourceParameters&lt;/code&gt; list is null,
+        ///             the &lt;code&gt;Credentials&lt;/code&gt; originally used with this &lt;code&gt;DataSourceParameters&lt;/code&gt;
+        ///             are automatically allowed.&lt;/p&gt;
         /// </summary>
         [Output("alternateDataSourceParameters")]
         public Output<ImmutableArray<Outputs.DataSourceDataSourceParameters>> AlternateDataSourceParameters { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the data source.&lt;/p&gt;
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-awsaccountid
-        /// </summary>
         [Output("awsAccountId")]
         public Output<string?> AwsAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The time that this data source was created.&lt;/p&gt;
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-credentials
-        /// </summary>
         [Output("credentials")]
         public Output<Outputs.DataSourceDataSourceCredentials?> Credentials { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceid
-        /// </summary>
         [Output("dataSourceId")]
         public Output<string?> DataSourceId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceparameters
-        /// </summary>
         [Output("dataSourceParameters")]
         public Output<Outputs.DataSourceDataSourceParameters?> DataSourceParameters { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-errorinfo
-        /// </summary>
         [Output("errorInfo")]
         public Output<Outputs.DataSourceDataSourceErrorInfo?> ErrorInfo { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The last time that this data source was updated.&lt;/p&gt;
+        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-name
+        /// &lt;p&gt;A display name for the data source.&lt;/p&gt;
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-permissions
+        /// &lt;p&gt;A list of resource permissions on the data source.&lt;/p&gt;
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.DataSourceResourcePermission>> Permissions { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-sslproperties
-        /// </summary>
         [Output("sslProperties")]
         public Output<Outputs.DataSourceSslProperties?> SslProperties { get; private set; } = null!;
 
@@ -82,20 +81,14 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-tags
+        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.&lt;/p&gt;
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DataSourceTag>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-type
-        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-vpcconnectionproperties
-        /// </summary>
         [Output("vpcConnectionProperties")]
         public Output<Outputs.DataSourceVpcConnectionProperties?> VpcConnectionProperties { get; private set; } = null!;
 
@@ -148,7 +141,15 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<Inputs.DataSourceDataSourceParametersArgs>? _alternateDataSourceParameters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-alternatedatasourceparameters
+        /// &lt;p&gt;A set of alternate data source parameters that you want to share for the credentials
+        ///             stored with this data source. The credentials are applied in tandem with the data source
+        ///             parameters when you copy a data source by using a create or update request. The API
+        ///             operation compares the &lt;code&gt;DataSourceParameters&lt;/code&gt; structure that's in the request
+        ///             with the structures in the &lt;code&gt;AlternateDataSourceParameters&lt;/code&gt; allow list. If the
+        ///             structures are an exact match, the request is allowed to use the credentials from this
+        ///             existing data source. If the &lt;code&gt;AlternateDataSourceParameters&lt;/code&gt; list is null,
+        ///             the &lt;code&gt;Credentials&lt;/code&gt; originally used with this &lt;code&gt;DataSourceParameters&lt;/code&gt;
+        ///             are automatically allowed.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.DataSourceDataSourceParametersArgs> AlternateDataSourceParameters
         {
@@ -156,38 +157,23 @@ namespace Pulumi.AwsNative.QuickSight
             set => _alternateDataSourceParameters = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-awsaccountid
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-credentials
-        /// </summary>
         [Input("credentials")]
         public Input<Inputs.DataSourceDataSourceCredentialsArgs>? Credentials { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceid
-        /// </summary>
         [Input("dataSourceId")]
         public Input<string>? DataSourceId { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceparameters
-        /// </summary>
         [Input("dataSourceParameters")]
         public Input<Inputs.DataSourceDataSourceParametersArgs>? DataSourceParameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-errorinfo
-        /// </summary>
         [Input("errorInfo")]
         public Input<Inputs.DataSourceDataSourceErrorInfoArgs>? ErrorInfo { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-name
+        /// &lt;p&gt;A display name for the data source.&lt;/p&gt;
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -196,7 +182,7 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<Inputs.DataSourceResourcePermissionArgs>? _permissions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-permissions
+        /// &lt;p&gt;A list of resource permissions on the data source.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.DataSourceResourcePermissionArgs> Permissions
         {
@@ -204,33 +190,24 @@ namespace Pulumi.AwsNative.QuickSight
             set => _permissions = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-sslproperties
-        /// </summary>
         [Input("sslProperties")]
         public Input<Inputs.DataSourceSslPropertiesArgs>? SslProperties { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.DataSourceTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-tags
+        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.&lt;/p&gt;
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.DataSourceTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.DataSourceTagArgs>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-type
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-vpcconnectionproperties
-        /// </summary>
         [Input("vpcConnectionProperties")]
         public Input<Inputs.DataSourceVpcConnectionPropertiesArgs>? VpcConnectionProperties { get; set; }
 

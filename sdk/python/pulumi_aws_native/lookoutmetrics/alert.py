@@ -22,11 +22,11 @@ class AlertArgs:
                  alert_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Alert resource.
-        :param pulumi.Input['AlertActionArgs'] action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-action
-        :param pulumi.Input[int] alert_sensitivity_threshold: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertsensitivitythreshold
-        :param pulumi.Input[str] anomaly_detector_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-anomalydetectorarn
-        :param pulumi.Input[str] alert_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertdescription
-        :param pulumi.Input[str] alert_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertname
+        :param pulumi.Input['AlertActionArgs'] action: The action to be taken by the alert when an anomaly is detected.
+        :param pulumi.Input[int] alert_sensitivity_threshold: A number between 0 and 100 (inclusive) that tunes the sensitivity of the alert.
+        :param pulumi.Input[str] anomaly_detector_arn: The Amazon resource name (ARN) of the Anomaly Detector to alert.
+        :param pulumi.Input[str] alert_description: A description for the alert.
+        :param pulumi.Input[str] alert_name: The name of the alert. If not provided, a name is generated automatically.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "alert_sensitivity_threshold", alert_sensitivity_threshold)
@@ -40,7 +40,7 @@ class AlertArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input['AlertActionArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-action
+        The action to be taken by the alert when an anomaly is detected.
         """
         return pulumi.get(self, "action")
 
@@ -52,7 +52,7 @@ class AlertArgs:
     @pulumi.getter(name="alertSensitivityThreshold")
     def alert_sensitivity_threshold(self) -> pulumi.Input[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertsensitivitythreshold
+        A number between 0 and 100 (inclusive) that tunes the sensitivity of the alert.
         """
         return pulumi.get(self, "alert_sensitivity_threshold")
 
@@ -64,7 +64,7 @@ class AlertArgs:
     @pulumi.getter(name="anomalyDetectorArn")
     def anomaly_detector_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-anomalydetectorarn
+        The Amazon resource name (ARN) of the Anomaly Detector to alert.
         """
         return pulumi.get(self, "anomaly_detector_arn")
 
@@ -76,7 +76,7 @@ class AlertArgs:
     @pulumi.getter(name="alertDescription")
     def alert_description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertdescription
+        A description for the alert.
         """
         return pulumi.get(self, "alert_description")
 
@@ -88,7 +88,7 @@ class AlertArgs:
     @pulumi.getter(name="alertName")
     def alert_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertname
+        The name of the alert. If not provided, a name is generated automatically.
         """
         return pulumi.get(self, "alert_name")
 
@@ -109,15 +109,15 @@ class Alert(pulumi.CustomResource):
                  anomaly_detector_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html
+        Resource Type definition for AWS::LookoutMetrics::Alert
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AlertActionArgs']] action: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-action
-        :param pulumi.Input[str] alert_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertdescription
-        :param pulumi.Input[str] alert_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertname
-        :param pulumi.Input[int] alert_sensitivity_threshold: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertsensitivitythreshold
-        :param pulumi.Input[str] anomaly_detector_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-anomalydetectorarn
+        :param pulumi.Input[pulumi.InputType['AlertActionArgs']] action: The action to be taken by the alert when an anomaly is detected.
+        :param pulumi.Input[str] alert_description: A description for the alert.
+        :param pulumi.Input[str] alert_name: The name of the alert. If not provided, a name is generated automatically.
+        :param pulumi.Input[int] alert_sensitivity_threshold: A number between 0 and 100 (inclusive) that tunes the sensitivity of the alert.
+        :param pulumi.Input[str] anomaly_detector_arn: The Amazon resource name (ARN) of the Anomaly Detector to alert.
         """
         ...
     @overload
@@ -126,7 +126,7 @@ class Alert(pulumi.CustomResource):
                  args: AlertArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html
+        Resource Type definition for AWS::LookoutMetrics::Alert
 
         :param str resource_name: The name of the resource.
         :param AlertArgs args: The arguments to use to populate this resource's properties.
@@ -206,7 +206,7 @@ class Alert(pulumi.CustomResource):
     @pulumi.getter
     def action(self) -> pulumi.Output['outputs.AlertAction']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-action
+        The action to be taken by the alert when an anomaly is detected.
         """
         return pulumi.get(self, "action")
 
@@ -214,7 +214,7 @@ class Alert(pulumi.CustomResource):
     @pulumi.getter(name="alertDescription")
     def alert_description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertdescription
+        A description for the alert.
         """
         return pulumi.get(self, "alert_description")
 
@@ -222,7 +222,7 @@ class Alert(pulumi.CustomResource):
     @pulumi.getter(name="alertName")
     def alert_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertname
+        The name of the alert. If not provided, a name is generated automatically.
         """
         return pulumi.get(self, "alert_name")
 
@@ -230,7 +230,7 @@ class Alert(pulumi.CustomResource):
     @pulumi.getter(name="alertSensitivityThreshold")
     def alert_sensitivity_threshold(self) -> pulumi.Output[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertsensitivitythreshold
+        A number between 0 and 100 (inclusive) that tunes the sensitivity of the alert.
         """
         return pulumi.get(self, "alert_sensitivity_threshold")
 
@@ -238,12 +238,15 @@ class Alert(pulumi.CustomResource):
     @pulumi.getter(name="anomalyDetectorArn")
     def anomaly_detector_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-anomalydetectorarn
+        The Amazon resource name (ARN) of the Anomaly Detector to alert.
         """
         return pulumi.get(self, "anomaly_detector_arn")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        ARN assigned to the alert.
+        """
         return pulumi.get(self, "arn")
 

@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ModelQualityJobDefinitionArgs', 'ModelQualityJobDefinition']
@@ -26,19 +24,11 @@ class ModelQualityJobDefinitionArgs:
                  model_quality_baseline_config: Optional[pulumi.Input['ModelQualityJobDefinitionModelQualityBaselineConfigArgs']] = None,
                  network_config: Optional[pulumi.Input['ModelQualityJobDefinitionNetworkConfigArgs']] = None,
                  stopping_condition: Optional[pulumi.Input['ModelQualityJobDefinitionStoppingConditionArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ModelQualityJobDefinitionTagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelQualityJobDefinition resource.
-        :param pulumi.Input['ModelQualityJobDefinitionMonitoringResourcesArgs'] job_resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobresources
-        :param pulumi.Input['ModelQualityJobDefinitionModelQualityAppSpecificationArgs'] model_quality_app_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification
-        :param pulumi.Input['ModelQualityJobDefinitionModelQualityJobInputArgs'] model_quality_job_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput
-        :param pulumi.Input['ModelQualityJobDefinitionMonitoringOutputConfigArgs'] model_quality_job_output_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjoboutputconfig
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-rolearn
-        :param pulumi.Input[str] job_definition_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobdefinitionname
-        :param pulumi.Input['ModelQualityJobDefinitionModelQualityBaselineConfigArgs'] model_quality_baseline_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig
-        :param pulumi.Input['ModelQualityJobDefinitionNetworkConfigArgs'] network_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig
-        :param pulumi.Input['ModelQualityJobDefinitionStoppingConditionArgs'] stopping_condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-tags
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input['ModelQualityJobDefinitionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "job_resources", job_resources)
         pulumi.set(__self__, "model_quality_app_specification", model_quality_app_specification)
@@ -59,9 +49,6 @@ class ModelQualityJobDefinitionArgs:
     @property
     @pulumi.getter(name="jobResources")
     def job_resources(self) -> pulumi.Input['ModelQualityJobDefinitionMonitoringResourcesArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobresources
-        """
         return pulumi.get(self, "job_resources")
 
     @job_resources.setter
@@ -71,9 +58,6 @@ class ModelQualityJobDefinitionArgs:
     @property
     @pulumi.getter(name="modelQualityAppSpecification")
     def model_quality_app_specification(self) -> pulumi.Input['ModelQualityJobDefinitionModelQualityAppSpecificationArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification
-        """
         return pulumi.get(self, "model_quality_app_specification")
 
     @model_quality_app_specification.setter
@@ -83,9 +67,6 @@ class ModelQualityJobDefinitionArgs:
     @property
     @pulumi.getter(name="modelQualityJobInput")
     def model_quality_job_input(self) -> pulumi.Input['ModelQualityJobDefinitionModelQualityJobInputArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput
-        """
         return pulumi.get(self, "model_quality_job_input")
 
     @model_quality_job_input.setter
@@ -95,9 +76,6 @@ class ModelQualityJobDefinitionArgs:
     @property
     @pulumi.getter(name="modelQualityJobOutputConfig")
     def model_quality_job_output_config(self) -> pulumi.Input['ModelQualityJobDefinitionMonitoringOutputConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjoboutputconfig
-        """
         return pulumi.get(self, "model_quality_job_output_config")
 
     @model_quality_job_output_config.setter
@@ -108,7 +86,7 @@ class ModelQualityJobDefinitionArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-rolearn
+        The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -119,9 +97,6 @@ class ModelQualityJobDefinitionArgs:
     @property
     @pulumi.getter(name="jobDefinitionName")
     def job_definition_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobdefinitionname
-        """
         return pulumi.get(self, "job_definition_name")
 
     @job_definition_name.setter
@@ -131,9 +106,6 @@ class ModelQualityJobDefinitionArgs:
     @property
     @pulumi.getter(name="modelQualityBaselineConfig")
     def model_quality_baseline_config(self) -> Optional[pulumi.Input['ModelQualityJobDefinitionModelQualityBaselineConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig
-        """
         return pulumi.get(self, "model_quality_baseline_config")
 
     @model_quality_baseline_config.setter
@@ -143,9 +115,6 @@ class ModelQualityJobDefinitionArgs:
     @property
     @pulumi.getter(name="networkConfig")
     def network_config(self) -> Optional[pulumi.Input['ModelQualityJobDefinitionNetworkConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig
-        """
         return pulumi.get(self, "network_config")
 
     @network_config.setter
@@ -155,9 +124,6 @@ class ModelQualityJobDefinitionArgs:
     @property
     @pulumi.getter(name="stoppingCondition")
     def stopping_condition(self) -> Optional[pulumi.Input['ModelQualityJobDefinitionStoppingConditionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition
-        """
         return pulumi.get(self, "stopping_condition")
 
     @stopping_condition.setter
@@ -166,14 +132,14 @@ class ModelQualityJobDefinitionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ModelQualityJobDefinitionTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ModelQualityJobDefinitionTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -191,23 +157,15 @@ class ModelQualityJobDefinition(pulumi.CustomResource):
                  network_config: Optional[pulumi.Input[pulumi.InputType['ModelQualityJobDefinitionNetworkConfigArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stopping_condition: Optional[pulumi.Input[pulumi.InputType['ModelQualityJobDefinitionStoppingConditionArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelQualityJobDefinitionTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html
+        Resource Type definition for AWS::SageMaker::ModelQualityJobDefinition
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] job_definition_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobdefinitionname
-        :param pulumi.Input[pulumi.InputType['ModelQualityJobDefinitionMonitoringResourcesArgs']] job_resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobresources
-        :param pulumi.Input[pulumi.InputType['ModelQualityJobDefinitionModelQualityAppSpecificationArgs']] model_quality_app_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification
-        :param pulumi.Input[pulumi.InputType['ModelQualityJobDefinitionModelQualityBaselineConfigArgs']] model_quality_baseline_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig
-        :param pulumi.Input[pulumi.InputType['ModelQualityJobDefinitionModelQualityJobInputArgs']] model_quality_job_input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput
-        :param pulumi.Input[pulumi.InputType['ModelQualityJobDefinitionMonitoringOutputConfigArgs']] model_quality_job_output_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjoboutputconfig
-        :param pulumi.Input[pulumi.InputType['ModelQualityJobDefinitionNetworkConfigArgs']] network_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-rolearn
-        :param pulumi.Input[pulumi.InputType['ModelQualityJobDefinitionStoppingConditionArgs']] stopping_condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-tags
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelQualityJobDefinitionTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -216,7 +174,7 @@ class ModelQualityJobDefinition(pulumi.CustomResource):
                  args: ModelQualityJobDefinitionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html
+        Resource Type definition for AWS::SageMaker::ModelQualityJobDefinition
 
         :param str resource_name: The name of the resource.
         :param ModelQualityJobDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -242,7 +200,7 @@ class ModelQualityJobDefinition(pulumi.CustomResource):
                  network_config: Optional[pulumi.Input[pulumi.InputType['ModelQualityJobDefinitionNetworkConfigArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stopping_condition: Optional[pulumi.Input[pulumi.InputType['ModelQualityJobDefinitionStoppingConditionArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelQualityJobDefinitionTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -316,90 +274,72 @@ class ModelQualityJobDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        The time at which the job definition was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="jobDefinitionArn")
     def job_definition_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of job definition.
+        """
         return pulumi.get(self, "job_definition_arn")
 
     @property
     @pulumi.getter(name="jobDefinitionName")
     def job_definition_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobdefinitionname
-        """
         return pulumi.get(self, "job_definition_name")
 
     @property
     @pulumi.getter(name="jobResources")
     def job_resources(self) -> pulumi.Output['outputs.ModelQualityJobDefinitionMonitoringResources']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-jobresources
-        """
         return pulumi.get(self, "job_resources")
 
     @property
     @pulumi.getter(name="modelQualityAppSpecification")
     def model_quality_app_specification(self) -> pulumi.Output['outputs.ModelQualityJobDefinitionModelQualityAppSpecification']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification
-        """
         return pulumi.get(self, "model_quality_app_specification")
 
     @property
     @pulumi.getter(name="modelQualityBaselineConfig")
     def model_quality_baseline_config(self) -> pulumi.Output[Optional['outputs.ModelQualityJobDefinitionModelQualityBaselineConfig']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig
-        """
         return pulumi.get(self, "model_quality_baseline_config")
 
     @property
     @pulumi.getter(name="modelQualityJobInput")
     def model_quality_job_input(self) -> pulumi.Output['outputs.ModelQualityJobDefinitionModelQualityJobInput']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjobinput
-        """
         return pulumi.get(self, "model_quality_job_input")
 
     @property
     @pulumi.getter(name="modelQualityJobOutputConfig")
     def model_quality_job_output_config(self) -> pulumi.Output['outputs.ModelQualityJobDefinitionMonitoringOutputConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityjoboutputconfig
-        """
         return pulumi.get(self, "model_quality_job_output_config")
 
     @property
     @pulumi.getter(name="networkConfig")
     def network_config(self) -> pulumi.Output[Optional['outputs.ModelQualityJobDefinitionNetworkConfig']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-networkconfig
-        """
         return pulumi.get(self, "network_config")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-rolearn
+        The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="stoppingCondition")
     def stopping_condition(self) -> pulumi.Output[Optional['outputs.ModelQualityJobDefinitionStoppingCondition']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition
-        """
         return pulumi.get(self, "stopping_condition")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ModelQualityJobDefinitionTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html#cfn-sagemaker-modelqualityjobdefinition-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 

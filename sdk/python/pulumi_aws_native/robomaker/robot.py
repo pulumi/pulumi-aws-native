@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['RobotArgs', 'Robot']
 
@@ -17,14 +19,13 @@ class RobotArgs:
                  greengrass_group_id: pulumi.Input[str],
                  fleet: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input['RobotTagsArgs']] = None):
         """
         The set of arguments for constructing a Robot resource.
-        :param pulumi.Input[str] architecture: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-architecture
-        :param pulumi.Input[str] greengrass_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-greengrassgroupid
-        :param pulumi.Input[str] fleet: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-fleet
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-name
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-tags
+        :param pulumi.Input[str] architecture: The target architecture of the robot.
+        :param pulumi.Input[str] greengrass_group_id: The Greengrass group id.
+        :param pulumi.Input[str] fleet: The Amazon Resource Name (ARN) of the fleet.
+        :param pulumi.Input[str] name: The name for the robot.
         """
         pulumi.set(__self__, "architecture", architecture)
         pulumi.set(__self__, "greengrass_group_id", greengrass_group_id)
@@ -39,7 +40,7 @@ class RobotArgs:
     @pulumi.getter
     def architecture(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-architecture
+        The target architecture of the robot.
         """
         return pulumi.get(self, "architecture")
 
@@ -51,7 +52,7 @@ class RobotArgs:
     @pulumi.getter(name="greengrassGroupId")
     def greengrass_group_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-greengrassgroupid
+        The Greengrass group id.
         """
         return pulumi.get(self, "greengrass_group_id")
 
@@ -63,7 +64,7 @@ class RobotArgs:
     @pulumi.getter
     def fleet(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-fleet
+        The Amazon Resource Name (ARN) of the fleet.
         """
         return pulumi.get(self, "fleet")
 
@@ -75,7 +76,7 @@ class RobotArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-name
+        The name for the robot.
         """
         return pulumi.get(self, "name")
 
@@ -85,14 +86,11 @@ class RobotArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-tags
-        """
+    def tags(self) -> Optional[pulumi.Input['RobotTagsArgs']]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def tags(self, value: Optional[pulumi.Input['RobotTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
@@ -105,18 +103,17 @@ class Robot(pulumi.CustomResource):
                  fleet: Optional[pulumi.Input[str]] = None,
                  greengrass_group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['RobotTagsArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html
+        AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] architecture: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-architecture
-        :param pulumi.Input[str] fleet: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-fleet
-        :param pulumi.Input[str] greengrass_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-greengrassgroupid
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-name
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-tags
+        :param pulumi.Input[str] architecture: The target architecture of the robot.
+        :param pulumi.Input[str] fleet: The Amazon Resource Name (ARN) of the fleet.
+        :param pulumi.Input[str] greengrass_group_id: The Greengrass group id.
+        :param pulumi.Input[str] name: The name for the robot.
         """
         ...
     @overload
@@ -125,7 +122,7 @@ class Robot(pulumi.CustomResource):
                  args: RobotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html
+        AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
 
         :param str resource_name: The name of the resource.
         :param RobotArgs args: The arguments to use to populate this resource's properties.
@@ -146,7 +143,7 @@ class Robot(pulumi.CustomResource):
                  fleet: Optional[pulumi.Input[str]] = None,
                  greengrass_group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['RobotTagsArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -203,7 +200,7 @@ class Robot(pulumi.CustomResource):
     @pulumi.getter
     def architecture(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-architecture
+        The target architecture of the robot.
         """
         return pulumi.get(self, "architecture")
 
@@ -216,7 +213,7 @@ class Robot(pulumi.CustomResource):
     @pulumi.getter
     def fleet(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-fleet
+        The Amazon Resource Name (ARN) of the fleet.
         """
         return pulumi.get(self, "fleet")
 
@@ -224,7 +221,7 @@ class Robot(pulumi.CustomResource):
     @pulumi.getter(name="greengrassGroupId")
     def greengrass_group_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-greengrassgroupid
+        The Greengrass group id.
         """
         return pulumi.get(self, "greengrass_group_id")
 
@@ -232,15 +229,12 @@ class Robot(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-name
+        The name for the robot.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-tags
-        """
+    def tags(self) -> pulumi.Output[Optional['outputs.RobotTags']]:
         return pulumi.get(self, "tags")
 

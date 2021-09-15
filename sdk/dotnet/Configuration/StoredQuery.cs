@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html
+    /// Resource Type definition for AWS::Config::StoredQuery
     /// </summary>
     [AwsNativeResourceType("aws-native:configuration:StoredQuery")]
     public partial class StoredQuery : Pulumi.CustomResource
@@ -18,32 +18,23 @@ namespace Pulumi.AwsNative.Configuration
         [Output("queryArn")]
         public Output<string> QueryArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-querydescription
-        /// </summary>
         [Output("queryDescription")]
         public Output<string?> QueryDescription { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-queryexpression
-        /// </summary>
         [Output("queryExpression")]
         public Output<string> QueryExpression { get; private set; } = null!;
 
         [Output("queryId")]
         public Output<string> QueryId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-queryname
-        /// </summary>
         [Output("queryName")]
         public Output<string> QueryName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-tags
+        /// The tags for the stored query.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.StoredQueryTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -90,33 +81,24 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class StoredQueryArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-querydescription
-        /// </summary>
         [Input("queryDescription")]
         public Input<string>? QueryDescription { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-queryexpression
-        /// </summary>
         [Input("queryExpression", required: true)]
         public Input<string> QueryExpression { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-queryname
-        /// </summary>
         [Input("queryName", required: true)]
         public Input<string> QueryName { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.StoredQueryTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-tags
+        /// The tags for the stored query.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.StoredQueryTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.StoredQueryTagArgs>());
             set => _tags = value;
         }
 

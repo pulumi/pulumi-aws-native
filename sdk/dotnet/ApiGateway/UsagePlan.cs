@@ -10,46 +10,43 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html
+    /// Resource Type definition for AWS::ApiGateway::UsagePlan
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:UsagePlan")]
     public partial class UsagePlan : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
+        /// The API stages to associate with this usage plan.
         /// </summary>
         [Output("apiStages")]
         public Output<ImmutableArray<Outputs.UsagePlanApiStage>> ApiStages { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
+        /// A description of the usage plan.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
+        /// Configures the number of requests that users can make within a given interval.
         /// </summary>
         [Output("quota")]
         public Output<Outputs.UsagePlanQuotaSettings?> Quota { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-tags
+        /// An array of arbitrary tags (key-value pairs) to associate with the usage plan.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.UsagePlanTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
+        /// Configures the overall request rate (average requests per second) and burst capacity.
         /// </summary>
         [Output("throttle")]
         public Output<Outputs.UsagePlanThrottleSettings?> Throttle { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
+        /// A name for the usage plan.
         /// </summary>
         [Output("usagePlanName")]
         public Output<string?> UsagePlanName { get; private set; } = null!;
@@ -103,7 +100,7 @@ namespace Pulumi.AwsNative.ApiGateway
         private InputList<Inputs.UsagePlanApiStageArgs>? _apiStages;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
+        /// The API stages to associate with this usage plan.
         /// </summary>
         public InputList<Inputs.UsagePlanApiStageArgs> ApiStages
         {
@@ -112,37 +109,37 @@ namespace Pulumi.AwsNative.ApiGateway
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
+        /// A description of the usage plan.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
+        /// Configures the number of requests that users can make within a given interval.
         /// </summary>
         [Input("quota")]
         public Input<Inputs.UsagePlanQuotaSettingsArgs>? Quota { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.UsagePlanTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-tags
+        /// An array of arbitrary tags (key-value pairs) to associate with the usage plan.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.UsagePlanTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.UsagePlanTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
+        /// Configures the overall request rate (average requests per second) and burst capacity.
         /// </summary>
         [Input("throttle")]
         public Input<Inputs.UsagePlanThrottleSettingsArgs>? Throttle { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
+        /// A name for the usage plan.
         /// </summary>
         [Input("usagePlanName")]
         public Input<string>? UsagePlanName { get; set; }

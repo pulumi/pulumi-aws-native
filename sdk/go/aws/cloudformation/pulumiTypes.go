@@ -10,11 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html
 type ResourceVersionLoggingConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-loggroupname
+	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-logrolearn
+	// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
 	LogRoleArn *string `pulumi:"logRoleArn"`
 }
 
@@ -29,11 +28,10 @@ type ResourceVersionLoggingConfigInput interface {
 	ToResourceVersionLoggingConfigOutputWithContext(context.Context) ResourceVersionLoggingConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html
 type ResourceVersionLoggingConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-loggroupname
+	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-logrolearn
+	// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
 	LogRoleArn pulumi.StringPtrInput `pulumi:"logRoleArn"`
 }
 
@@ -90,7 +88,6 @@ func (i *resourceVersionLoggingConfigPtrType) ToResourceVersionLoggingConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceVersionLoggingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html
 type ResourceVersionLoggingConfigOutput struct{ *pulumi.OutputState }
 
 func (ResourceVersionLoggingConfigOutput) ElementType() reflect.Type {
@@ -115,12 +112,12 @@ func (o ResourceVersionLoggingConfigOutput) ToResourceVersionLoggingConfigPtrOut
 	}).(ResourceVersionLoggingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-loggroupname
+// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 func (o ResourceVersionLoggingConfigOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceVersionLoggingConfig) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-logrolearn
+// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
 func (o ResourceVersionLoggingConfigOutput) LogRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceVersionLoggingConfig) *string { return v.LogRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -149,7 +146,7 @@ func (o ResourceVersionLoggingConfigPtrOutput) Elem() ResourceVersionLoggingConf
 	}).(ResourceVersionLoggingConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-loggroupname
+// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 func (o ResourceVersionLoggingConfigPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceVersionLoggingConfig) *string {
 		if v == nil {
@@ -159,7 +156,7 @@ func (o ResourceVersionLoggingConfigPtrOutput) LogGroupName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-logrolearn
+// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
 func (o ResourceVersionLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceVersionLoggingConfig) *string {
 		if v == nil {
@@ -169,11 +166,10 @@ func (o ResourceVersionLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html
 type StackSetAutoDeployment struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-enabled
+	// If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
 	Enabled *bool `pulumi:"enabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-retainstacksonaccountremoval
+	// If set to true, stack resources are retained when an account is removed from a target organization or OU. If set to false, stack resources are deleted. Specify only if Enabled is set to True.
 	RetainStacksOnAccountRemoval *bool `pulumi:"retainStacksOnAccountRemoval"`
 }
 
@@ -188,11 +184,10 @@ type StackSetAutoDeploymentInput interface {
 	ToStackSetAutoDeploymentOutputWithContext(context.Context) StackSetAutoDeploymentOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html
 type StackSetAutoDeploymentArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-enabled
+	// If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-retainstacksonaccountremoval
+	// If set to true, stack resources are retained when an account is removed from a target organization or OU. If set to false, stack resources are deleted. Specify only if Enabled is set to True.
 	RetainStacksOnAccountRemoval pulumi.BoolPtrInput `pulumi:"retainStacksOnAccountRemoval"`
 }
 
@@ -249,7 +244,6 @@ func (i *stackSetAutoDeploymentPtrType) ToStackSetAutoDeploymentPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetAutoDeploymentPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html
 type StackSetAutoDeploymentOutput struct{ *pulumi.OutputState }
 
 func (StackSetAutoDeploymentOutput) ElementType() reflect.Type {
@@ -274,12 +268,12 @@ func (o StackSetAutoDeploymentOutput) ToStackSetAutoDeploymentPtrOutputWithConte
 	}).(StackSetAutoDeploymentPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-enabled
+// If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
 func (o StackSetAutoDeploymentOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StackSetAutoDeployment) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-retainstacksonaccountremoval
+// If set to true, stack resources are retained when an account is removed from a target organization or OU. If set to false, stack resources are deleted. Specify only if Enabled is set to True.
 func (o StackSetAutoDeploymentOutput) RetainStacksOnAccountRemoval() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StackSetAutoDeployment) *bool { return v.RetainStacksOnAccountRemoval }).(pulumi.BoolPtrOutput)
 }
@@ -308,7 +302,7 @@ func (o StackSetAutoDeploymentPtrOutput) Elem() StackSetAutoDeploymentOutput {
 	}).(StackSetAutoDeploymentOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-enabled
+// If set to true, StackSets automatically deploys additional stack instances to AWS Organizations accounts that are added to a target organization or organizational unit (OU) in the specified Regions. If an account is removed from a target organization or OU, StackSets deletes stack instances from the account in the specified Regions.
 func (o StackSetAutoDeploymentPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StackSetAutoDeployment) *bool {
 		if v == nil {
@@ -318,7 +312,7 @@ func (o StackSetAutoDeploymentPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-autodeployment.html#cfn-cloudformation-stackset-autodeployment-retainstacksonaccountremoval
+// If set to true, stack resources are retained when an account is removed from a target organization or OU. If set to false, stack resources are deleted. Specify only if Enabled is set to True.
 func (o StackSetAutoDeploymentPtrOutput) RetainStacksOnAccountRemoval() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StackSetAutoDeployment) *bool {
 		if v == nil {
@@ -328,11 +322,11 @@ func (o StackSetAutoDeploymentPtrOutput) RetainStacksOnAccountRemoval() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html
+//  The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
 type StackSetDeploymentTargets struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
+	// AWS accounts that you want to create stack instances in the specified Region(s) for.
 	Accounts []string `pulumi:"accounts"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids
+	// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 	OrganizationalUnitIds []string `pulumi:"organizationalUnitIds"`
 }
 
@@ -347,11 +341,11 @@ type StackSetDeploymentTargetsInput interface {
 	ToStackSetDeploymentTargetsOutputWithContext(context.Context) StackSetDeploymentTargetsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html
+//  The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
 type StackSetDeploymentTargetsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
+	// AWS accounts that you want to create stack instances in the specified Region(s) for.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids
+	// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 	OrganizationalUnitIds pulumi.StringArrayInput `pulumi:"organizationalUnitIds"`
 }
 
@@ -367,7 +361,7 @@ func (i StackSetDeploymentTargetsArgs) ToStackSetDeploymentTargetsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetDeploymentTargetsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html
+//  The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
 type StackSetDeploymentTargetsOutput struct{ *pulumi.OutputState }
 
 func (StackSetDeploymentTargetsOutput) ElementType() reflect.Type {
@@ -382,30 +376,24 @@ func (o StackSetDeploymentTargetsOutput) ToStackSetDeploymentTargetsOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
+// AWS accounts that you want to create stack instances in the specified Region(s) for.
 func (o StackSetDeploymentTargetsOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StackSetDeploymentTargets) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids
+// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
 func (o StackSetDeploymentTargetsOutput) OrganizationalUnitIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StackSetDeploymentTargets) []string { return v.OrganizationalUnitIds }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html
+// The user-specified preferences for how AWS CloudFormation performs a stack set operation.
 type StackSetOperationPreferences struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
-	FailureToleranceCount *int `pulumi:"failureToleranceCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancepercentage
-	FailureTolerancePercentage *int `pulumi:"failureTolerancePercentage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentcount
-	MaxConcurrentCount *int `pulumi:"maxConcurrentCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
-	MaxConcurrentPercentage *int `pulumi:"maxConcurrentPercentage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionconcurrencytype
-	RegionConcurrencyType *string `pulumi:"regionConcurrencyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
-	RegionOrder []string `pulumi:"regionOrder"`
+	FailureToleranceCount      *int     `pulumi:"failureToleranceCount"`
+	FailureTolerancePercentage *int     `pulumi:"failureTolerancePercentage"`
+	MaxConcurrentCount         *int     `pulumi:"maxConcurrentCount"`
+	MaxConcurrentPercentage    *int     `pulumi:"maxConcurrentPercentage"`
+	RegionConcurrencyType      *string  `pulumi:"regionConcurrencyType"`
+	RegionOrder                []string `pulumi:"regionOrder"`
 }
 
 // StackSetOperationPreferencesInput is an input type that accepts StackSetOperationPreferencesArgs and StackSetOperationPreferencesOutput values.
@@ -419,20 +407,14 @@ type StackSetOperationPreferencesInput interface {
 	ToStackSetOperationPreferencesOutputWithContext(context.Context) StackSetOperationPreferencesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html
+// The user-specified preferences for how AWS CloudFormation performs a stack set operation.
 type StackSetOperationPreferencesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
-	FailureToleranceCount pulumi.IntPtrInput `pulumi:"failureToleranceCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancepercentage
-	FailureTolerancePercentage pulumi.IntPtrInput `pulumi:"failureTolerancePercentage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentcount
-	MaxConcurrentCount pulumi.IntPtrInput `pulumi:"maxConcurrentCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
-	MaxConcurrentPercentage pulumi.IntPtrInput `pulumi:"maxConcurrentPercentage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionconcurrencytype
-	RegionConcurrencyType pulumi.StringPtrInput `pulumi:"regionConcurrencyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
-	RegionOrder pulumi.StringArrayInput `pulumi:"regionOrder"`
+	FailureToleranceCount      pulumi.IntPtrInput      `pulumi:"failureToleranceCount"`
+	FailureTolerancePercentage pulumi.IntPtrInput      `pulumi:"failureTolerancePercentage"`
+	MaxConcurrentCount         pulumi.IntPtrInput      `pulumi:"maxConcurrentCount"`
+	MaxConcurrentPercentage    pulumi.IntPtrInput      `pulumi:"maxConcurrentPercentage"`
+	RegionConcurrencyType      pulumi.StringPtrInput   `pulumi:"regionConcurrencyType"`
+	RegionOrder                pulumi.StringArrayInput `pulumi:"regionOrder"`
 }
 
 func (StackSetOperationPreferencesArgs) ElementType() reflect.Type {
@@ -488,7 +470,7 @@ func (i *stackSetOperationPreferencesPtrType) ToStackSetOperationPreferencesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetOperationPreferencesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html
+// The user-specified preferences for how AWS CloudFormation performs a stack set operation.
 type StackSetOperationPreferencesOutput struct{ *pulumi.OutputState }
 
 func (StackSetOperationPreferencesOutput) ElementType() reflect.Type {
@@ -513,32 +495,26 @@ func (o StackSetOperationPreferencesOutput) ToStackSetOperationPreferencesPtrOut
 	}).(StackSetOperationPreferencesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
 func (o StackSetOperationPreferencesOutput) FailureToleranceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StackSetOperationPreferences) *int { return v.FailureToleranceCount }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancepercentage
 func (o StackSetOperationPreferencesOutput) FailureTolerancePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StackSetOperationPreferences) *int { return v.FailureTolerancePercentage }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentcount
 func (o StackSetOperationPreferencesOutput) MaxConcurrentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StackSetOperationPreferences) *int { return v.MaxConcurrentCount }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
 func (o StackSetOperationPreferencesOutput) MaxConcurrentPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StackSetOperationPreferences) *int { return v.MaxConcurrentPercentage }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionconcurrencytype
 func (o StackSetOperationPreferencesOutput) RegionConcurrencyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackSetOperationPreferences) *string { return v.RegionConcurrencyType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
 func (o StackSetOperationPreferencesOutput) RegionOrder() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StackSetOperationPreferences) []string { return v.RegionOrder }).(pulumi.StringArrayOutput)
 }
@@ -567,7 +543,6 @@ func (o StackSetOperationPreferencesPtrOutput) Elem() StackSetOperationPreferenc
 	}).(StackSetOperationPreferencesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
 func (o StackSetOperationPreferencesPtrOutput) FailureToleranceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StackSetOperationPreferences) *int {
 		if v == nil {
@@ -577,7 +552,6 @@ func (o StackSetOperationPreferencesPtrOutput) FailureToleranceCount() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancepercentage
 func (o StackSetOperationPreferencesPtrOutput) FailureTolerancePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StackSetOperationPreferences) *int {
 		if v == nil {
@@ -587,7 +561,6 @@ func (o StackSetOperationPreferencesPtrOutput) FailureTolerancePercentage() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentcount
 func (o StackSetOperationPreferencesPtrOutput) MaxConcurrentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StackSetOperationPreferences) *int {
 		if v == nil {
@@ -597,7 +570,6 @@ func (o StackSetOperationPreferencesPtrOutput) MaxConcurrentCount() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
 func (o StackSetOperationPreferencesPtrOutput) MaxConcurrentPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StackSetOperationPreferences) *int {
 		if v == nil {
@@ -607,7 +579,6 @@ func (o StackSetOperationPreferencesPtrOutput) MaxConcurrentPercentage() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionconcurrencytype
 func (o StackSetOperationPreferencesPtrOutput) RegionConcurrencyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StackSetOperationPreferences) *string {
 		if v == nil {
@@ -617,7 +588,6 @@ func (o StackSetOperationPreferencesPtrOutput) RegionConcurrencyType() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
 func (o StackSetOperationPreferencesPtrOutput) RegionOrder() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StackSetOperationPreferences) []string {
 		if v == nil {
@@ -627,11 +597,10 @@ func (o StackSetOperationPreferencesPtrOutput) RegionOrder() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html
 type StackSetParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parameterkey
+	// The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
 	ParameterKey string `pulumi:"parameterKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parametervalue
+	// The input value associated with the parameter.
 	ParameterValue string `pulumi:"parameterValue"`
 }
 
@@ -646,11 +615,10 @@ type StackSetParameterInput interface {
 	ToStackSetParameterOutputWithContext(context.Context) StackSetParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html
 type StackSetParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parameterkey
+	// The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
 	ParameterKey pulumi.StringInput `pulumi:"parameterKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parametervalue
+	// The input value associated with the parameter.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
 }
 
@@ -691,7 +659,6 @@ func (i StackSetParameterArray) ToStackSetParameterArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html
 type StackSetParameterOutput struct{ *pulumi.OutputState }
 
 func (StackSetParameterOutput) ElementType() reflect.Type {
@@ -706,12 +673,12 @@ func (o StackSetParameterOutput) ToStackSetParameterOutputWithContext(ctx contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parameterkey
+// The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.
 func (o StackSetParameterOutput) ParameterKey() pulumi.StringOutput {
 	return o.ApplyT(func(v StackSetParameter) string { return v.ParameterKey }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-parameter.html#cfn-cloudformation-stackset-parameter-parametervalue
+// The input value associated with the parameter.
 func (o StackSetParameterOutput) ParameterValue() pulumi.StringOutput {
 	return o.ApplyT(func(v StackSetParameter) string { return v.ParameterValue }).(pulumi.StringOutput)
 }
@@ -736,13 +703,12 @@ func (o StackSetParameterArrayOutput) Index(i pulumi.IntInput) StackSetParameter
 	}).(StackSetParameterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html
+// Stack instances in some specific accounts and Regions.
 type StackSetStackInstances struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
 	DeploymentTargets StackSetDeploymentTargets `pulumi:"deploymentTargets"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
+	// A list of stack set parameters whose values you want to override in the selected stack instances.
 	ParameterOverrides []StackSetParameter `pulumi:"parameterOverrides"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
+	// The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
 	Regions []string `pulumi:"regions"`
 }
 
@@ -757,13 +723,12 @@ type StackSetStackInstancesInput interface {
 	ToStackSetStackInstancesOutputWithContext(context.Context) StackSetStackInstancesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html
+// Stack instances in some specific accounts and Regions.
 type StackSetStackInstancesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
 	DeploymentTargets StackSetDeploymentTargetsInput `pulumi:"deploymentTargets"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
+	// A list of stack set parameters whose values you want to override in the selected stack instances.
 	ParameterOverrides StackSetParameterArrayInput `pulumi:"parameterOverrides"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
+	// The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
 }
 
@@ -804,7 +769,7 @@ func (i StackSetStackInstancesArray) ToStackSetStackInstancesArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetStackInstancesArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html
+// Stack instances in some specific accounts and Regions.
 type StackSetStackInstancesOutput struct{ *pulumi.OutputState }
 
 func (StackSetStackInstancesOutput) ElementType() reflect.Type {
@@ -819,17 +784,16 @@ func (o StackSetStackInstancesOutput) ToStackSetStackInstancesOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
 func (o StackSetStackInstancesOutput) DeploymentTargets() StackSetDeploymentTargetsOutput {
 	return o.ApplyT(func(v StackSetStackInstances) StackSetDeploymentTargets { return v.DeploymentTargets }).(StackSetDeploymentTargetsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
+// A list of stack set parameters whose values you want to override in the selected stack instances.
 func (o StackSetStackInstancesOutput) ParameterOverrides() StackSetParameterArrayOutput {
 	return o.ApplyT(func(v StackSetStackInstances) []StackSetParameter { return v.ParameterOverrides }).(StackSetParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
+// The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
 func (o StackSetStackInstancesOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StackSetStackInstances) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -854,11 +818,119 @@ func (o StackSetStackInstancesArrayOutput) Index(i pulumi.IntInput) StackSetStac
 	}).(StackSetStackInstancesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html
+// Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation StackSet.
+type StackSetTag struct {
+	// A string used to identify this tag. You can specify a maximum of 127 characters for a tag key.
+	Key string `pulumi:"key"`
+	// A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
+	Value string `pulumi:"value"`
+}
+
+// StackSetTagInput is an input type that accepts StackSetTagArgs and StackSetTagOutput values.
+// You can construct a concrete instance of `StackSetTagInput` via:
+//
+//          StackSetTagArgs{...}
+type StackSetTagInput interface {
+	pulumi.Input
+
+	ToStackSetTagOutput() StackSetTagOutput
+	ToStackSetTagOutputWithContext(context.Context) StackSetTagOutput
+}
+
+// Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation StackSet.
+type StackSetTagArgs struct {
+	// A string used to identify this tag. You can specify a maximum of 127 characters for a tag key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (StackSetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetTag)(nil)).Elem()
+}
+
+func (i StackSetTagArgs) ToStackSetTagOutput() StackSetTagOutput {
+	return i.ToStackSetTagOutputWithContext(context.Background())
+}
+
+func (i StackSetTagArgs) ToStackSetTagOutputWithContext(ctx context.Context) StackSetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetTagOutput)
+}
+
+// StackSetTagArrayInput is an input type that accepts StackSetTagArray and StackSetTagArrayOutput values.
+// You can construct a concrete instance of `StackSetTagArrayInput` via:
+//
+//          StackSetTagArray{ StackSetTagArgs{...} }
+type StackSetTagArrayInput interface {
+	pulumi.Input
+
+	ToStackSetTagArrayOutput() StackSetTagArrayOutput
+	ToStackSetTagArrayOutputWithContext(context.Context) StackSetTagArrayOutput
+}
+
+type StackSetTagArray []StackSetTagInput
+
+func (StackSetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackSetTag)(nil)).Elem()
+}
+
+func (i StackSetTagArray) ToStackSetTagArrayOutput() StackSetTagArrayOutput {
+	return i.ToStackSetTagArrayOutputWithContext(context.Background())
+}
+
+func (i StackSetTagArray) ToStackSetTagArrayOutputWithContext(ctx context.Context) StackSetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetTagArrayOutput)
+}
+
+// Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation StackSet.
+type StackSetTagOutput struct{ *pulumi.OutputState }
+
+func (StackSetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetTag)(nil)).Elem()
+}
+
+func (o StackSetTagOutput) ToStackSetTagOutput() StackSetTagOutput {
+	return o
+}
+
+func (o StackSetTagOutput) ToStackSetTagOutputWithContext(ctx context.Context) StackSetTagOutput {
+	return o
+}
+
+// A string used to identify this tag. You can specify a maximum of 127 characters for a tag key.
+func (o StackSetTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v StackSetTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
+func (o StackSetTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StackSetTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StackSetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (StackSetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StackSetTag)(nil)).Elem()
+}
+
+func (o StackSetTagArrayOutput) ToStackSetTagArrayOutput() StackSetTagArrayOutput {
+	return o
+}
+
+func (o StackSetTagArrayOutput) ToStackSetTagArrayOutputWithContext(ctx context.Context) StackSetTagArrayOutput {
+	return o
+}
+
+func (o StackSetTagArrayOutput) Index(i pulumi.IntInput) StackSetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StackSetTag {
+		return vs[0].([]StackSetTag)[vs[1].(int)]
+	}).(StackSetTagOutput)
+}
+
 type TypeActivationLoggingConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-loggroupname
+	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-logrolearn
+	// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
 	LogRoleArn *string `pulumi:"logRoleArn"`
 }
 
@@ -873,11 +945,10 @@ type TypeActivationLoggingConfigInput interface {
 	ToTypeActivationLoggingConfigOutputWithContext(context.Context) TypeActivationLoggingConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html
 type TypeActivationLoggingConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-loggroupname
+	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-logrolearn
+	// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
 	LogRoleArn pulumi.StringPtrInput `pulumi:"logRoleArn"`
 }
 
@@ -934,7 +1005,6 @@ func (i *typeActivationLoggingConfigPtrType) ToTypeActivationLoggingConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TypeActivationLoggingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html
 type TypeActivationLoggingConfigOutput struct{ *pulumi.OutputState }
 
 func (TypeActivationLoggingConfigOutput) ElementType() reflect.Type {
@@ -959,12 +1029,12 @@ func (o TypeActivationLoggingConfigOutput) ToTypeActivationLoggingConfigPtrOutpu
 	}).(TypeActivationLoggingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-loggroupname
+// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 func (o TypeActivationLoggingConfigOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TypeActivationLoggingConfig) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-logrolearn
+// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
 func (o TypeActivationLoggingConfigOutput) LogRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TypeActivationLoggingConfig) *string { return v.LogRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -993,7 +1063,7 @@ func (o TypeActivationLoggingConfigPtrOutput) Elem() TypeActivationLoggingConfig
 	}).(TypeActivationLoggingConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-loggroupname
+// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 func (o TypeActivationLoggingConfigPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TypeActivationLoggingConfig) *string {
 		if v == nil {
@@ -1003,7 +1073,7 @@ func (o TypeActivationLoggingConfigPtrOutput) LogGroupName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-logrolearn
+// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
 func (o TypeActivationLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TypeActivationLoggingConfig) *string {
 		if v == nil {
@@ -1025,6 +1095,8 @@ func init() {
 	pulumi.RegisterOutputType(StackSetParameterArrayOutput{})
 	pulumi.RegisterOutputType(StackSetStackInstancesOutput{})
 	pulumi.RegisterOutputType(StackSetStackInstancesArrayOutput{})
+	pulumi.RegisterOutputType(StackSetTagOutput{})
+	pulumi.RegisterOutputType(StackSetTagArrayOutput{})
 	pulumi.RegisterOutputType(TypeActivationLoggingConfigOutput{})
 	pulumi.RegisterOutputType(TypeActivationLoggingConfigPtrOutput{})
 }

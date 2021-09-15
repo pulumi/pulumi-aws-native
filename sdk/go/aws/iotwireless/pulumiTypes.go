@@ -10,36 +10,121 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html
+type DestinationTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// DestinationTagInput is an input type that accepts DestinationTagArgs and DestinationTagOutput values.
+// You can construct a concrete instance of `DestinationTagInput` via:
+//
+//          DestinationTagArgs{...}
+type DestinationTagInput interface {
+	pulumi.Input
+
+	ToDestinationTagOutput() DestinationTagOutput
+	ToDestinationTagOutputWithContext(context.Context) DestinationTagOutput
+}
+
+type DestinationTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DestinationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationTag)(nil)).Elem()
+}
+
+func (i DestinationTagArgs) ToDestinationTagOutput() DestinationTagOutput {
+	return i.ToDestinationTagOutputWithContext(context.Background())
+}
+
+func (i DestinationTagArgs) ToDestinationTagOutputWithContext(ctx context.Context) DestinationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationTagOutput)
+}
+
+// DestinationTagArrayInput is an input type that accepts DestinationTagArray and DestinationTagArrayOutput values.
+// You can construct a concrete instance of `DestinationTagArrayInput` via:
+//
+//          DestinationTagArray{ DestinationTagArgs{...} }
+type DestinationTagArrayInput interface {
+	pulumi.Input
+
+	ToDestinationTagArrayOutput() DestinationTagArrayOutput
+	ToDestinationTagArrayOutputWithContext(context.Context) DestinationTagArrayOutput
+}
+
+type DestinationTagArray []DestinationTagInput
+
+func (DestinationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DestinationTag)(nil)).Elem()
+}
+
+func (i DestinationTagArray) ToDestinationTagArrayOutput() DestinationTagArrayOutput {
+	return i.ToDestinationTagArrayOutputWithContext(context.Background())
+}
+
+func (i DestinationTagArray) ToDestinationTagArrayOutputWithContext(ctx context.Context) DestinationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationTagArrayOutput)
+}
+
+type DestinationTagOutput struct{ *pulumi.OutputState }
+
+func (DestinationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationTag)(nil)).Elem()
+}
+
+func (o DestinationTagOutput) ToDestinationTagOutput() DestinationTagOutput {
+	return o
+}
+
+func (o DestinationTagOutput) ToDestinationTagOutputWithContext(ctx context.Context) DestinationTagOutput {
+	return o
+}
+
+func (o DestinationTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DestinationTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DestinationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DestinationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DestinationTag)(nil)).Elem()
+}
+
+func (o DestinationTagArrayOutput) ToDestinationTagArrayOutput() DestinationTagArrayOutput {
+	return o
+}
+
+func (o DestinationTagArrayOutput) ToDestinationTagArrayOutputWithContext(ctx context.Context) DestinationTagArrayOutput {
+	return o
+}
+
+func (o DestinationTagArrayOutput) Index(i pulumi.IntInput) DestinationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DestinationTag {
+		return vs[0].([]DestinationTag)[vs[1].(int)]
+	}).(DestinationTagOutput)
+}
+
 type DeviceProfileLoRaWANDeviceProfile struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-classbtimeout
-	ClassBTimeout *int `pulumi:"classBTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-classctimeout
-	ClassCTimeout *int `pulumi:"classCTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-macversion
-	MacVersion *string `pulumi:"macVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-maxdutycycle
-	MaxDutyCycle *int `pulumi:"maxDutyCycle"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-maxeirp
-	MaxEirp *int `pulumi:"maxEirp"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotdr
-	PingSlotDr *int `pulumi:"pingSlotDr"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotfreq
-	PingSlotFreq *int `pulumi:"pingSlotFreq"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotperiod
-	PingSlotPeriod *int `pulumi:"pingSlotPeriod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-regparamsrevision
+	ClassBTimeout     *int    `pulumi:"classBTimeout"`
+	ClassCTimeout     *int    `pulumi:"classCTimeout"`
+	MacVersion        *string `pulumi:"macVersion"`
+	MaxDutyCycle      *int    `pulumi:"maxDutyCycle"`
+	MaxEirp           *int    `pulumi:"maxEirp"`
+	PingSlotDr        *int    `pulumi:"pingSlotDr"`
+	PingSlotFreq      *int    `pulumi:"pingSlotFreq"`
+	PingSlotPeriod    *int    `pulumi:"pingSlotPeriod"`
 	RegParamsRevision *string `pulumi:"regParamsRevision"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-rfregion
-	RfRegion *string `pulumi:"rfRegion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supports32bitfcnt
-	Supports32BitFCnt *bool `pulumi:"supports32BitFCnt"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsclassb
-	SupportsClassB *bool `pulumi:"supportsClassB"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsclassc
-	SupportsClassC *bool `pulumi:"supportsClassC"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsjoin
-	SupportsJoin *bool `pulumi:"supportsJoin"`
+	RfRegion          *string `pulumi:"rfRegion"`
+	Supports32BitFCnt *bool   `pulumi:"supports32BitFCnt"`
+	SupportsClassB    *bool   `pulumi:"supportsClassB"`
+	SupportsClassC    *bool   `pulumi:"supportsClassC"`
+	SupportsJoin      *bool   `pulumi:"supportsJoin"`
 }
 
 // DeviceProfileLoRaWANDeviceProfileInput is an input type that accepts DeviceProfileLoRaWANDeviceProfileArgs and DeviceProfileLoRaWANDeviceProfileOutput values.
@@ -53,36 +138,21 @@ type DeviceProfileLoRaWANDeviceProfileInput interface {
 	ToDeviceProfileLoRaWANDeviceProfileOutputWithContext(context.Context) DeviceProfileLoRaWANDeviceProfileOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html
 type DeviceProfileLoRaWANDeviceProfileArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-classbtimeout
-	ClassBTimeout pulumi.IntPtrInput `pulumi:"classBTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-classctimeout
-	ClassCTimeout pulumi.IntPtrInput `pulumi:"classCTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-macversion
-	MacVersion pulumi.StringPtrInput `pulumi:"macVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-maxdutycycle
-	MaxDutyCycle pulumi.IntPtrInput `pulumi:"maxDutyCycle"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-maxeirp
-	MaxEirp pulumi.IntPtrInput `pulumi:"maxEirp"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotdr
-	PingSlotDr pulumi.IntPtrInput `pulumi:"pingSlotDr"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotfreq
-	PingSlotFreq pulumi.IntPtrInput `pulumi:"pingSlotFreq"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotperiod
-	PingSlotPeriod pulumi.IntPtrInput `pulumi:"pingSlotPeriod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-regparamsrevision
+	ClassBTimeout     pulumi.IntPtrInput    `pulumi:"classBTimeout"`
+	ClassCTimeout     pulumi.IntPtrInput    `pulumi:"classCTimeout"`
+	MacVersion        pulumi.StringPtrInput `pulumi:"macVersion"`
+	MaxDutyCycle      pulumi.IntPtrInput    `pulumi:"maxDutyCycle"`
+	MaxEirp           pulumi.IntPtrInput    `pulumi:"maxEirp"`
+	PingSlotDr        pulumi.IntPtrInput    `pulumi:"pingSlotDr"`
+	PingSlotFreq      pulumi.IntPtrInput    `pulumi:"pingSlotFreq"`
+	PingSlotPeriod    pulumi.IntPtrInput    `pulumi:"pingSlotPeriod"`
 	RegParamsRevision pulumi.StringPtrInput `pulumi:"regParamsRevision"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-rfregion
-	RfRegion pulumi.StringPtrInput `pulumi:"rfRegion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supports32bitfcnt
-	Supports32BitFCnt pulumi.BoolPtrInput `pulumi:"supports32BitFCnt"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsclassb
-	SupportsClassB pulumi.BoolPtrInput `pulumi:"supportsClassB"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsclassc
-	SupportsClassC pulumi.BoolPtrInput `pulumi:"supportsClassC"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsjoin
-	SupportsJoin pulumi.BoolPtrInput `pulumi:"supportsJoin"`
+	RfRegion          pulumi.StringPtrInput `pulumi:"rfRegion"`
+	Supports32BitFCnt pulumi.BoolPtrInput   `pulumi:"supports32BitFCnt"`
+	SupportsClassB    pulumi.BoolPtrInput   `pulumi:"supportsClassB"`
+	SupportsClassC    pulumi.BoolPtrInput   `pulumi:"supportsClassC"`
+	SupportsJoin      pulumi.BoolPtrInput   `pulumi:"supportsJoin"`
 }
 
 func (DeviceProfileLoRaWANDeviceProfileArgs) ElementType() reflect.Type {
@@ -138,7 +208,6 @@ func (i *deviceProfileLoRaWANDeviceProfilePtrType) ToDeviceProfileLoRaWANDeviceP
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceProfileLoRaWANDeviceProfilePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html
 type DeviceProfileLoRaWANDeviceProfileOutput struct{ *pulumi.OutputState }
 
 func (DeviceProfileLoRaWANDeviceProfileOutput) ElementType() reflect.Type {
@@ -163,72 +232,58 @@ func (o DeviceProfileLoRaWANDeviceProfileOutput) ToDeviceProfileLoRaWANDevicePro
 	}).(DeviceProfileLoRaWANDeviceProfilePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-classbtimeout
 func (o DeviceProfileLoRaWANDeviceProfileOutput) ClassBTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.ClassBTimeout }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-classctimeout
 func (o DeviceProfileLoRaWANDeviceProfileOutput) ClassCTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.ClassCTimeout }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-macversion
 func (o DeviceProfileLoRaWANDeviceProfileOutput) MacVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *string { return v.MacVersion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-maxdutycycle
 func (o DeviceProfileLoRaWANDeviceProfileOutput) MaxDutyCycle() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.MaxDutyCycle }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-maxeirp
 func (o DeviceProfileLoRaWANDeviceProfileOutput) MaxEirp() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.MaxEirp }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotdr
 func (o DeviceProfileLoRaWANDeviceProfileOutput) PingSlotDr() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.PingSlotDr }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotfreq
 func (o DeviceProfileLoRaWANDeviceProfileOutput) PingSlotFreq() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.PingSlotFreq }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotperiod
 func (o DeviceProfileLoRaWANDeviceProfileOutput) PingSlotPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *int { return v.PingSlotPeriod }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-regparamsrevision
 func (o DeviceProfileLoRaWANDeviceProfileOutput) RegParamsRevision() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *string { return v.RegParamsRevision }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-rfregion
 func (o DeviceProfileLoRaWANDeviceProfileOutput) RfRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *string { return v.RfRegion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supports32bitfcnt
 func (o DeviceProfileLoRaWANDeviceProfileOutput) Supports32BitFCnt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *bool { return v.Supports32BitFCnt }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsclassb
 func (o DeviceProfileLoRaWANDeviceProfileOutput) SupportsClassB() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *bool { return v.SupportsClassB }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsclassc
 func (o DeviceProfileLoRaWANDeviceProfileOutput) SupportsClassC() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *bool { return v.SupportsClassC }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsjoin
 func (o DeviceProfileLoRaWANDeviceProfileOutput) SupportsJoin() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DeviceProfileLoRaWANDeviceProfile) *bool { return v.SupportsJoin }).(pulumi.BoolPtrOutput)
 }
@@ -257,7 +312,6 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) Elem() DeviceProfileLoRaWAND
 	}).(DeviceProfileLoRaWANDeviceProfileOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-classbtimeout
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) ClassBTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
 		if v == nil {
@@ -267,7 +321,6 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) ClassBTimeout() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-classctimeout
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) ClassCTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
 		if v == nil {
@@ -277,7 +330,6 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) ClassCTimeout() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-macversion
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) MacVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *string {
 		if v == nil {
@@ -287,7 +339,6 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) MacVersion() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-maxdutycycle
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) MaxDutyCycle() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
 		if v == nil {
@@ -297,7 +348,6 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) MaxDutyCycle() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-maxeirp
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) MaxEirp() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
 		if v == nil {
@@ -307,7 +357,6 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) MaxEirp() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotdr
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) PingSlotDr() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
 		if v == nil {
@@ -317,7 +366,6 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) PingSlotDr() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotfreq
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) PingSlotFreq() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
 		if v == nil {
@@ -327,7 +375,6 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) PingSlotFreq() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotperiod
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) PingSlotPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *int {
 		if v == nil {
@@ -337,7 +384,6 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) PingSlotPeriod() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-regparamsrevision
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RegParamsRevision() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *string {
 		if v == nil {
@@ -347,7 +393,6 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RegParamsRevision() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-rfregion
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RfRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *string {
 		if v == nil {
@@ -357,7 +402,6 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) RfRegion() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supports32bitfcnt
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) Supports32BitFCnt() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *bool {
 		if v == nil {
@@ -367,7 +411,6 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) Supports32BitFCnt() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsclassb
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) SupportsClassB() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *bool {
 		if v == nil {
@@ -377,7 +420,6 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) SupportsClassB() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsclassc
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) SupportsClassC() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *bool {
 		if v == nil {
@@ -387,7 +429,6 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) SupportsClassC() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsjoin
 func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) SupportsJoin() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DeviceProfileLoRaWANDeviceProfile) *bool {
 		if v == nil {
@@ -397,46 +438,126 @@ func (o DeviceProfileLoRaWANDeviceProfilePtrOutput) SupportsJoin() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html
+type DeviceProfileTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// DeviceProfileTagInput is an input type that accepts DeviceProfileTagArgs and DeviceProfileTagOutput values.
+// You can construct a concrete instance of `DeviceProfileTagInput` via:
+//
+//          DeviceProfileTagArgs{...}
+type DeviceProfileTagInput interface {
+	pulumi.Input
+
+	ToDeviceProfileTagOutput() DeviceProfileTagOutput
+	ToDeviceProfileTagOutputWithContext(context.Context) DeviceProfileTagOutput
+}
+
+type DeviceProfileTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DeviceProfileTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceProfileTag)(nil)).Elem()
+}
+
+func (i DeviceProfileTagArgs) ToDeviceProfileTagOutput() DeviceProfileTagOutput {
+	return i.ToDeviceProfileTagOutputWithContext(context.Background())
+}
+
+func (i DeviceProfileTagArgs) ToDeviceProfileTagOutputWithContext(ctx context.Context) DeviceProfileTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceProfileTagOutput)
+}
+
+// DeviceProfileTagArrayInput is an input type that accepts DeviceProfileTagArray and DeviceProfileTagArrayOutput values.
+// You can construct a concrete instance of `DeviceProfileTagArrayInput` via:
+//
+//          DeviceProfileTagArray{ DeviceProfileTagArgs{...} }
+type DeviceProfileTagArrayInput interface {
+	pulumi.Input
+
+	ToDeviceProfileTagArrayOutput() DeviceProfileTagArrayOutput
+	ToDeviceProfileTagArrayOutputWithContext(context.Context) DeviceProfileTagArrayOutput
+}
+
+type DeviceProfileTagArray []DeviceProfileTagInput
+
+func (DeviceProfileTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeviceProfileTag)(nil)).Elem()
+}
+
+func (i DeviceProfileTagArray) ToDeviceProfileTagArrayOutput() DeviceProfileTagArrayOutput {
+	return i.ToDeviceProfileTagArrayOutputWithContext(context.Background())
+}
+
+func (i DeviceProfileTagArray) ToDeviceProfileTagArrayOutputWithContext(ctx context.Context) DeviceProfileTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceProfileTagArrayOutput)
+}
+
+type DeviceProfileTagOutput struct{ *pulumi.OutputState }
+
+func (DeviceProfileTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceProfileTag)(nil)).Elem()
+}
+
+func (o DeviceProfileTagOutput) ToDeviceProfileTagOutput() DeviceProfileTagOutput {
+	return o
+}
+
+func (o DeviceProfileTagOutput) ToDeviceProfileTagOutputWithContext(ctx context.Context) DeviceProfileTagOutput {
+	return o
+}
+
+func (o DeviceProfileTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeviceProfileTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DeviceProfileTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeviceProfileTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DeviceProfileTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DeviceProfileTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeviceProfileTag)(nil)).Elem()
+}
+
+func (o DeviceProfileTagArrayOutput) ToDeviceProfileTagArrayOutput() DeviceProfileTagArrayOutput {
+	return o
+}
+
+func (o DeviceProfileTagArrayOutput) ToDeviceProfileTagArrayOutputWithContext(ctx context.Context) DeviceProfileTagArrayOutput {
+	return o
+}
+
+func (o DeviceProfileTagArrayOutput) Index(i pulumi.IntInput) DeviceProfileTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeviceProfileTag {
+		return vs[0].([]DeviceProfileTag)[vs[1].(int)]
+	}).(DeviceProfileTagOutput)
+}
+
 type ServiceProfileLoRaWANServiceProfile struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-addgwmetadata
-	AddGwMetadata *bool `pulumi:"addGwMetadata"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-channelmask
-	ChannelMask *string `pulumi:"channelMask"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-devstatusreqfreq
-	DevStatusReqFreq *int `pulumi:"devStatusReqFreq"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlbucketsize
-	DlBucketSize *int `pulumi:"dlBucketSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlrate
-	DlRate *int `pulumi:"dlRate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlratepolicy
-	DlRatePolicy *string `pulumi:"dlRatePolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-drmax
-	DrMax *int `pulumi:"drMax"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-drmin
-	DrMin *int `pulumi:"drMin"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-hrallowed
-	HrAllowed *bool `pulumi:"hrAllowed"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-mingwdiversity
-	MinGwDiversity *int `pulumi:"minGwDiversity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-nwkgeoloc
-	NwkGeoLoc *bool `pulumi:"nwkGeoLoc"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-prallowed
-	PrAllowed *bool `pulumi:"prAllowed"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-raallowed
-	RaAllowed *bool `pulumi:"raAllowed"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-reportdevstatusbattery
-	ReportDevStatusBattery *bool `pulumi:"reportDevStatusBattery"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-reportdevstatusmargin
-	ReportDevStatusMargin *bool `pulumi:"reportDevStatusMargin"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-targetper
-	TargetPer *int `pulumi:"targetPer"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulbucketsize
-	UlBucketSize *int `pulumi:"ulBucketSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulrate
-	UlRate *int `pulumi:"ulRate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulratepolicy
-	UlRatePolicy *string `pulumi:"ulRatePolicy"`
+	AddGwMetadata          *bool   `pulumi:"addGwMetadata"`
+	ChannelMask            *string `pulumi:"channelMask"`
+	DevStatusReqFreq       *int    `pulumi:"devStatusReqFreq"`
+	DlBucketSize           *int    `pulumi:"dlBucketSize"`
+	DlRate                 *int    `pulumi:"dlRate"`
+	DlRatePolicy           *string `pulumi:"dlRatePolicy"`
+	DrMax                  *int    `pulumi:"drMax"`
+	DrMin                  *int    `pulumi:"drMin"`
+	HrAllowed              *bool   `pulumi:"hrAllowed"`
+	MinGwDiversity         *int    `pulumi:"minGwDiversity"`
+	NwkGeoLoc              *bool   `pulumi:"nwkGeoLoc"`
+	PrAllowed              *bool   `pulumi:"prAllowed"`
+	RaAllowed              *bool   `pulumi:"raAllowed"`
+	ReportDevStatusBattery *bool   `pulumi:"reportDevStatusBattery"`
+	ReportDevStatusMargin  *bool   `pulumi:"reportDevStatusMargin"`
+	TargetPer              *int    `pulumi:"targetPer"`
+	UlBucketSize           *int    `pulumi:"ulBucketSize"`
+	UlRate                 *int    `pulumi:"ulRate"`
+	UlRatePolicy           *string `pulumi:"ulRatePolicy"`
 }
 
 // ServiceProfileLoRaWANServiceProfileInput is an input type that accepts ServiceProfileLoRaWANServiceProfileArgs and ServiceProfileLoRaWANServiceProfileOutput values.
@@ -450,46 +571,26 @@ type ServiceProfileLoRaWANServiceProfileInput interface {
 	ToServiceProfileLoRaWANServiceProfileOutputWithContext(context.Context) ServiceProfileLoRaWANServiceProfileOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html
 type ServiceProfileLoRaWANServiceProfileArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-addgwmetadata
-	AddGwMetadata pulumi.BoolPtrInput `pulumi:"addGwMetadata"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-channelmask
-	ChannelMask pulumi.StringPtrInput `pulumi:"channelMask"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-devstatusreqfreq
-	DevStatusReqFreq pulumi.IntPtrInput `pulumi:"devStatusReqFreq"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlbucketsize
-	DlBucketSize pulumi.IntPtrInput `pulumi:"dlBucketSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlrate
-	DlRate pulumi.IntPtrInput `pulumi:"dlRate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlratepolicy
-	DlRatePolicy pulumi.StringPtrInput `pulumi:"dlRatePolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-drmax
-	DrMax pulumi.IntPtrInput `pulumi:"drMax"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-drmin
-	DrMin pulumi.IntPtrInput `pulumi:"drMin"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-hrallowed
-	HrAllowed pulumi.BoolPtrInput `pulumi:"hrAllowed"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-mingwdiversity
-	MinGwDiversity pulumi.IntPtrInput `pulumi:"minGwDiversity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-nwkgeoloc
-	NwkGeoLoc pulumi.BoolPtrInput `pulumi:"nwkGeoLoc"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-prallowed
-	PrAllowed pulumi.BoolPtrInput `pulumi:"prAllowed"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-raallowed
-	RaAllowed pulumi.BoolPtrInput `pulumi:"raAllowed"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-reportdevstatusbattery
-	ReportDevStatusBattery pulumi.BoolPtrInput `pulumi:"reportDevStatusBattery"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-reportdevstatusmargin
-	ReportDevStatusMargin pulumi.BoolPtrInput `pulumi:"reportDevStatusMargin"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-targetper
-	TargetPer pulumi.IntPtrInput `pulumi:"targetPer"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulbucketsize
-	UlBucketSize pulumi.IntPtrInput `pulumi:"ulBucketSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulrate
-	UlRate pulumi.IntPtrInput `pulumi:"ulRate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulratepolicy
-	UlRatePolicy pulumi.StringPtrInput `pulumi:"ulRatePolicy"`
+	AddGwMetadata          pulumi.BoolPtrInput   `pulumi:"addGwMetadata"`
+	ChannelMask            pulumi.StringPtrInput `pulumi:"channelMask"`
+	DevStatusReqFreq       pulumi.IntPtrInput    `pulumi:"devStatusReqFreq"`
+	DlBucketSize           pulumi.IntPtrInput    `pulumi:"dlBucketSize"`
+	DlRate                 pulumi.IntPtrInput    `pulumi:"dlRate"`
+	DlRatePolicy           pulumi.StringPtrInput `pulumi:"dlRatePolicy"`
+	DrMax                  pulumi.IntPtrInput    `pulumi:"drMax"`
+	DrMin                  pulumi.IntPtrInput    `pulumi:"drMin"`
+	HrAllowed              pulumi.BoolPtrInput   `pulumi:"hrAllowed"`
+	MinGwDiversity         pulumi.IntPtrInput    `pulumi:"minGwDiversity"`
+	NwkGeoLoc              pulumi.BoolPtrInput   `pulumi:"nwkGeoLoc"`
+	PrAllowed              pulumi.BoolPtrInput   `pulumi:"prAllowed"`
+	RaAllowed              pulumi.BoolPtrInput   `pulumi:"raAllowed"`
+	ReportDevStatusBattery pulumi.BoolPtrInput   `pulumi:"reportDevStatusBattery"`
+	ReportDevStatusMargin  pulumi.BoolPtrInput   `pulumi:"reportDevStatusMargin"`
+	TargetPer              pulumi.IntPtrInput    `pulumi:"targetPer"`
+	UlBucketSize           pulumi.IntPtrInput    `pulumi:"ulBucketSize"`
+	UlRate                 pulumi.IntPtrInput    `pulumi:"ulRate"`
+	UlRatePolicy           pulumi.StringPtrInput `pulumi:"ulRatePolicy"`
 }
 
 func (ServiceProfileLoRaWANServiceProfileArgs) ElementType() reflect.Type {
@@ -545,7 +646,6 @@ func (i *serviceProfileLoRaWANServiceProfilePtrType) ToServiceProfileLoRaWANServ
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceProfileLoRaWANServiceProfilePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html
 type ServiceProfileLoRaWANServiceProfileOutput struct{ *pulumi.OutputState }
 
 func (ServiceProfileLoRaWANServiceProfileOutput) ElementType() reflect.Type {
@@ -570,97 +670,78 @@ func (o ServiceProfileLoRaWANServiceProfileOutput) ToServiceProfileLoRaWANServic
 	}).(ServiceProfileLoRaWANServiceProfilePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-addgwmetadata
 func (o ServiceProfileLoRaWANServiceProfileOutput) AddGwMetadata() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *bool { return v.AddGwMetadata }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-channelmask
 func (o ServiceProfileLoRaWANServiceProfileOutput) ChannelMask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *string { return v.ChannelMask }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-devstatusreqfreq
 func (o ServiceProfileLoRaWANServiceProfileOutput) DevStatusReqFreq() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.DevStatusReqFreq }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlbucketsize
 func (o ServiceProfileLoRaWANServiceProfileOutput) DlBucketSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.DlBucketSize }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlrate
 func (o ServiceProfileLoRaWANServiceProfileOutput) DlRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.DlRate }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlratepolicy
 func (o ServiceProfileLoRaWANServiceProfileOutput) DlRatePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *string { return v.DlRatePolicy }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-drmax
 func (o ServiceProfileLoRaWANServiceProfileOutput) DrMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.DrMax }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-drmin
 func (o ServiceProfileLoRaWANServiceProfileOutput) DrMin() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.DrMin }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-hrallowed
 func (o ServiceProfileLoRaWANServiceProfileOutput) HrAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *bool { return v.HrAllowed }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-mingwdiversity
 func (o ServiceProfileLoRaWANServiceProfileOutput) MinGwDiversity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.MinGwDiversity }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-nwkgeoloc
 func (o ServiceProfileLoRaWANServiceProfileOutput) NwkGeoLoc() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *bool { return v.NwkGeoLoc }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-prallowed
 func (o ServiceProfileLoRaWANServiceProfileOutput) PrAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *bool { return v.PrAllowed }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-raallowed
 func (o ServiceProfileLoRaWANServiceProfileOutput) RaAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *bool { return v.RaAllowed }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-reportdevstatusbattery
 func (o ServiceProfileLoRaWANServiceProfileOutput) ReportDevStatusBattery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *bool { return v.ReportDevStatusBattery }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-reportdevstatusmargin
 func (o ServiceProfileLoRaWANServiceProfileOutput) ReportDevStatusMargin() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *bool { return v.ReportDevStatusMargin }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-targetper
 func (o ServiceProfileLoRaWANServiceProfileOutput) TargetPer() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.TargetPer }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulbucketsize
 func (o ServiceProfileLoRaWANServiceProfileOutput) UlBucketSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.UlBucketSize }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulrate
 func (o ServiceProfileLoRaWANServiceProfileOutput) UlRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *int { return v.UlRate }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulratepolicy
 func (o ServiceProfileLoRaWANServiceProfileOutput) UlRatePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceProfileLoRaWANServiceProfile) *string { return v.UlRatePolicy }).(pulumi.StringPtrOutput)
 }
@@ -689,7 +770,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) Elem() ServiceProfileLoRaW
 	}).(ServiceProfileLoRaWANServiceProfileOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-addgwmetadata
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) AddGwMetadata() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *bool {
 		if v == nil {
@@ -699,7 +779,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) AddGwMetadata() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-channelmask
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ChannelMask() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *string {
 		if v == nil {
@@ -709,7 +788,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ChannelMask() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-devstatusreqfreq
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DevStatusReqFreq() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
 		if v == nil {
@@ -719,7 +797,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DevStatusReqFreq() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlbucketsize
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DlBucketSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
 		if v == nil {
@@ -729,7 +806,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DlBucketSize() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlrate
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DlRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
 		if v == nil {
@@ -739,7 +815,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DlRate() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlratepolicy
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DlRatePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *string {
 		if v == nil {
@@ -749,7 +824,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DlRatePolicy() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-drmax
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DrMax() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
 		if v == nil {
@@ -759,7 +833,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DrMax() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-drmin
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DrMin() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
 		if v == nil {
@@ -769,7 +842,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) DrMin() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-hrallowed
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) HrAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *bool {
 		if v == nil {
@@ -779,7 +851,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) HrAllowed() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-mingwdiversity
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) MinGwDiversity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
 		if v == nil {
@@ -789,7 +860,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) MinGwDiversity() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-nwkgeoloc
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) NwkGeoLoc() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *bool {
 		if v == nil {
@@ -799,7 +869,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) NwkGeoLoc() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-prallowed
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) PrAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *bool {
 		if v == nil {
@@ -809,7 +878,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) PrAllowed() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-raallowed
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) RaAllowed() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *bool {
 		if v == nil {
@@ -819,7 +887,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) RaAllowed() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-reportdevstatusbattery
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ReportDevStatusBattery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *bool {
 		if v == nil {
@@ -829,7 +896,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ReportDevStatusBattery() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-reportdevstatusmargin
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ReportDevStatusMargin() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *bool {
 		if v == nil {
@@ -839,7 +905,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) ReportDevStatusMargin() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-targetper
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) TargetPer() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
 		if v == nil {
@@ -849,7 +914,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) TargetPer() pulumi.IntPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulbucketsize
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) UlBucketSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
 		if v == nil {
@@ -859,7 +923,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) UlBucketSize() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulrate
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) UlRate() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *int {
 		if v == nil {
@@ -869,7 +932,6 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) UlRate() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulratepolicy
 func (o ServiceProfileLoRaWANServiceProfilePtrOutput) UlRatePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceProfileLoRaWANServiceProfile) *string {
 		if v == nil {
@@ -879,14 +941,110 @@ func (o ServiceProfileLoRaWANServiceProfilePtrOutput) UlRatePolicy() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html
+type ServiceProfileTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// ServiceProfileTagInput is an input type that accepts ServiceProfileTagArgs and ServiceProfileTagOutput values.
+// You can construct a concrete instance of `ServiceProfileTagInput` via:
+//
+//          ServiceProfileTagArgs{...}
+type ServiceProfileTagInput interface {
+	pulumi.Input
+
+	ToServiceProfileTagOutput() ServiceProfileTagOutput
+	ToServiceProfileTagOutputWithContext(context.Context) ServiceProfileTagOutput
+}
+
+type ServiceProfileTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ServiceProfileTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProfileTag)(nil)).Elem()
+}
+
+func (i ServiceProfileTagArgs) ToServiceProfileTagOutput() ServiceProfileTagOutput {
+	return i.ToServiceProfileTagOutputWithContext(context.Background())
+}
+
+func (i ServiceProfileTagArgs) ToServiceProfileTagOutputWithContext(ctx context.Context) ServiceProfileTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProfileTagOutput)
+}
+
+// ServiceProfileTagArrayInput is an input type that accepts ServiceProfileTagArray and ServiceProfileTagArrayOutput values.
+// You can construct a concrete instance of `ServiceProfileTagArrayInput` via:
+//
+//          ServiceProfileTagArray{ ServiceProfileTagArgs{...} }
+type ServiceProfileTagArrayInput interface {
+	pulumi.Input
+
+	ToServiceProfileTagArrayOutput() ServiceProfileTagArrayOutput
+	ToServiceProfileTagArrayOutputWithContext(context.Context) ServiceProfileTagArrayOutput
+}
+
+type ServiceProfileTagArray []ServiceProfileTagInput
+
+func (ServiceProfileTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceProfileTag)(nil)).Elem()
+}
+
+func (i ServiceProfileTagArray) ToServiceProfileTagArrayOutput() ServiceProfileTagArrayOutput {
+	return i.ToServiceProfileTagArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceProfileTagArray) ToServiceProfileTagArrayOutputWithContext(ctx context.Context) ServiceProfileTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProfileTagArrayOutput)
+}
+
+type ServiceProfileTagOutput struct{ *pulumi.OutputState }
+
+func (ServiceProfileTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProfileTag)(nil)).Elem()
+}
+
+func (o ServiceProfileTagOutput) ToServiceProfileTagOutput() ServiceProfileTagOutput {
+	return o
+}
+
+func (o ServiceProfileTagOutput) ToServiceProfileTagOutputWithContext(ctx context.Context) ServiceProfileTagOutput {
+	return o
+}
+
+func (o ServiceProfileTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceProfileTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceProfileTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceProfileTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ServiceProfileTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceProfileTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceProfileTag)(nil)).Elem()
+}
+
+func (o ServiceProfileTagArrayOutput) ToServiceProfileTagArrayOutput() ServiceProfileTagArrayOutput {
+	return o
+}
+
+func (o ServiceProfileTagArrayOutput) ToServiceProfileTagArrayOutputWithContext(ctx context.Context) ServiceProfileTagArrayOutput {
+	return o
+}
+
+func (o ServiceProfileTagArrayOutput) Index(i pulumi.IntInput) ServiceProfileTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceProfileTag {
+		return vs[0].([]ServiceProfileTag)[vs[1].(int)]
+	}).(ServiceProfileTagOutput)
+}
+
 type TaskDefinitionLoRaWANGatewayVersion struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-model
-	Model *string `pulumi:"model"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-packageversion
+	Model          *string `pulumi:"model"`
 	PackageVersion *string `pulumi:"packageVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-station
-	Station *string `pulumi:"station"`
+	Station        *string `pulumi:"station"`
 }
 
 // TaskDefinitionLoRaWANGatewayVersionInput is an input type that accepts TaskDefinitionLoRaWANGatewayVersionArgs and TaskDefinitionLoRaWANGatewayVersionOutput values.
@@ -900,14 +1058,10 @@ type TaskDefinitionLoRaWANGatewayVersionInput interface {
 	ToTaskDefinitionLoRaWANGatewayVersionOutputWithContext(context.Context) TaskDefinitionLoRaWANGatewayVersionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html
 type TaskDefinitionLoRaWANGatewayVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-model
-	Model pulumi.StringPtrInput `pulumi:"model"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-packageversion
+	Model          pulumi.StringPtrInput `pulumi:"model"`
 	PackageVersion pulumi.StringPtrInput `pulumi:"packageVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-station
-	Station pulumi.StringPtrInput `pulumi:"station"`
+	Station        pulumi.StringPtrInput `pulumi:"station"`
 }
 
 func (TaskDefinitionLoRaWANGatewayVersionArgs) ElementType() reflect.Type {
@@ -963,7 +1117,6 @@ func (i *taskDefinitionLoRaWANGatewayVersionPtrType) ToTaskDefinitionLoRaWANGate
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html
 type TaskDefinitionLoRaWANGatewayVersionOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionLoRaWANGatewayVersionOutput) ElementType() reflect.Type {
@@ -988,17 +1141,14 @@ func (o TaskDefinitionLoRaWANGatewayVersionOutput) ToTaskDefinitionLoRaWANGatewa
 	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-model
 func (o TaskDefinitionLoRaWANGatewayVersionOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWANGatewayVersion) *string { return v.Model }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-packageversion
 func (o TaskDefinitionLoRaWANGatewayVersionOutput) PackageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWANGatewayVersion) *string { return v.PackageVersion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-station
 func (o TaskDefinitionLoRaWANGatewayVersionOutput) Station() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWANGatewayVersion) *string { return v.Station }).(pulumi.StringPtrOutput)
 }
@@ -1027,7 +1177,6 @@ func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) Elem() TaskDefinitionLoRaW
 	}).(TaskDefinitionLoRaWANGatewayVersionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-model
 func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) Model() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWANGatewayVersion) *string {
 		if v == nil {
@@ -1037,7 +1186,6 @@ func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) Model() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-packageversion
 func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) PackageVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWANGatewayVersion) *string {
 		if v == nil {
@@ -1047,7 +1195,6 @@ func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) PackageVersion() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-station
 func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) Station() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWANGatewayVersion) *string {
 		if v == nil {
@@ -1057,16 +1204,11 @@ func (o TaskDefinitionLoRaWANGatewayVersionPtrOutput) Station() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html
 type TaskDefinitionLoRaWANUpdateGatewayTaskCreate struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-currentversion
-	CurrentVersion *TaskDefinitionLoRaWANGatewayVersion `pulumi:"currentVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-sigkeycrc
-	SigKeyCrc *int `pulumi:"sigKeyCrc"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updatesignature
-	UpdateSignature *string `pulumi:"updateSignature"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updateversion
-	UpdateVersion *TaskDefinitionLoRaWANGatewayVersion `pulumi:"updateVersion"`
+	CurrentVersion  *TaskDefinitionLoRaWANGatewayVersion `pulumi:"currentVersion"`
+	SigKeyCrc       *int                                 `pulumi:"sigKeyCrc"`
+	UpdateSignature *string                              `pulumi:"updateSignature"`
+	UpdateVersion   *TaskDefinitionLoRaWANGatewayVersion `pulumi:"updateVersion"`
 }
 
 // TaskDefinitionLoRaWANUpdateGatewayTaskCreateInput is an input type that accepts TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs and TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput values.
@@ -1080,16 +1222,11 @@ type TaskDefinitionLoRaWANUpdateGatewayTaskCreateInput interface {
 	ToTaskDefinitionLoRaWANUpdateGatewayTaskCreateOutputWithContext(context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html
 type TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-currentversion
-	CurrentVersion TaskDefinitionLoRaWANGatewayVersionPtrInput `pulumi:"currentVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-sigkeycrc
-	SigKeyCrc pulumi.IntPtrInput `pulumi:"sigKeyCrc"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updatesignature
-	UpdateSignature pulumi.StringPtrInput `pulumi:"updateSignature"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updateversion
-	UpdateVersion TaskDefinitionLoRaWANGatewayVersionPtrInput `pulumi:"updateVersion"`
+	CurrentVersion  TaskDefinitionLoRaWANGatewayVersionPtrInput `pulumi:"currentVersion"`
+	SigKeyCrc       pulumi.IntPtrInput                          `pulumi:"sigKeyCrc"`
+	UpdateSignature pulumi.StringPtrInput                       `pulumi:"updateSignature"`
+	UpdateVersion   TaskDefinitionLoRaWANGatewayVersionPtrInput `pulumi:"updateVersion"`
 }
 
 func (TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs) ElementType() reflect.Type {
@@ -1145,7 +1282,6 @@ func (i *taskDefinitionLoRaWANUpdateGatewayTaskCreatePtrType) ToTaskDefinitionLo
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html
 type TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) ElementType() reflect.Type {
@@ -1170,24 +1306,20 @@ func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) ToTaskDefinitionLoRa
 	}).(TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-currentversion
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) CurrentVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *TaskDefinitionLoRaWANGatewayVersion {
 		return v.CurrentVersion
 	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-sigkeycrc
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) SigKeyCrc() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *int { return v.SigKeyCrc }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updatesignature
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) UpdateSignature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *string { return v.UpdateSignature }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updateversion
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput) UpdateVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *TaskDefinitionLoRaWANGatewayVersion {
 		return v.UpdateVersion
@@ -1218,7 +1350,6 @@ func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) Elem() TaskDefini
 	}).(TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-currentversion
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) CurrentVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *TaskDefinitionLoRaWANGatewayVersion {
 		if v == nil {
@@ -1228,7 +1359,6 @@ func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) CurrentVersion() 
 	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-sigkeycrc
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) SigKeyCrc() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *int {
 		if v == nil {
@@ -1238,7 +1368,6 @@ func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) SigKeyCrc() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updatesignature
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) UpdateSignature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *string {
 		if v == nil {
@@ -1248,7 +1377,6 @@ func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) UpdateSignature()
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updateversion
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) UpdateVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWANUpdateGatewayTaskCreate) *TaskDefinitionLoRaWANGatewayVersion {
 		if v == nil {
@@ -1258,12 +1386,9 @@ func (o TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput) UpdateVersion() T
 	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html
 type TaskDefinitionLoRaWANUpdateGatewayTaskEntry struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-currentversion
 	CurrentVersion *TaskDefinitionLoRaWANGatewayVersion `pulumi:"currentVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-updateversion
-	UpdateVersion *TaskDefinitionLoRaWANGatewayVersion `pulumi:"updateVersion"`
+	UpdateVersion  *TaskDefinitionLoRaWANGatewayVersion `pulumi:"updateVersion"`
 }
 
 // TaskDefinitionLoRaWANUpdateGatewayTaskEntryInput is an input type that accepts TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs and TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput values.
@@ -1277,12 +1402,9 @@ type TaskDefinitionLoRaWANUpdateGatewayTaskEntryInput interface {
 	ToTaskDefinitionLoRaWANUpdateGatewayTaskEntryOutputWithContext(context.Context) TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html
 type TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-currentversion
 	CurrentVersion TaskDefinitionLoRaWANGatewayVersionPtrInput `pulumi:"currentVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-updateversion
-	UpdateVersion TaskDefinitionLoRaWANGatewayVersionPtrInput `pulumi:"updateVersion"`
+	UpdateVersion  TaskDefinitionLoRaWANGatewayVersionPtrInput `pulumi:"updateVersion"`
 }
 
 func (TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs) ElementType() reflect.Type {
@@ -1338,7 +1460,6 @@ func (i *taskDefinitionLoRaWANUpdateGatewayTaskEntryPtrType) ToTaskDefinitionLoR
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html
 type TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput) ElementType() reflect.Type {
@@ -1363,14 +1484,12 @@ func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput) ToTaskDefinitionLoRaW
 	}).(TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-currentversion
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput) CurrentVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWANUpdateGatewayTaskEntry) *TaskDefinitionLoRaWANGatewayVersion {
 		return v.CurrentVersion
 	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-updateversion
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput) UpdateVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWANUpdateGatewayTaskEntry) *TaskDefinitionLoRaWANGatewayVersion {
 		return v.UpdateVersion
@@ -1401,7 +1520,6 @@ func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput) Elem() TaskDefinit
 	}).(TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-currentversion
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput) CurrentVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWANUpdateGatewayTaskEntry) *TaskDefinitionLoRaWANGatewayVersion {
 		if v == nil {
@@ -1411,7 +1529,6 @@ func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput) CurrentVersion() T
 	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-updateversion
 func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput) UpdateVersion() TaskDefinitionLoRaWANGatewayVersionPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWANUpdateGatewayTaskEntry) *TaskDefinitionLoRaWANGatewayVersion {
 		if v == nil {
@@ -1421,14 +1538,110 @@ func (o TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput) UpdateVersion() Ta
 	}).(TaskDefinitionLoRaWANGatewayVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html
+type TaskDefinitionTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// TaskDefinitionTagInput is an input type that accepts TaskDefinitionTagArgs and TaskDefinitionTagOutput values.
+// You can construct a concrete instance of `TaskDefinitionTagInput` via:
+//
+//          TaskDefinitionTagArgs{...}
+type TaskDefinitionTagInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionTagOutput() TaskDefinitionTagOutput
+	ToTaskDefinitionTagOutputWithContext(context.Context) TaskDefinitionTagOutput
+}
+
+type TaskDefinitionTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TaskDefinitionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionTag)(nil)).Elem()
+}
+
+func (i TaskDefinitionTagArgs) ToTaskDefinitionTagOutput() TaskDefinitionTagOutput {
+	return i.ToTaskDefinitionTagOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionTagArgs) ToTaskDefinitionTagOutputWithContext(ctx context.Context) TaskDefinitionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTagOutput)
+}
+
+// TaskDefinitionTagArrayInput is an input type that accepts TaskDefinitionTagArray and TaskDefinitionTagArrayOutput values.
+// You can construct a concrete instance of `TaskDefinitionTagArrayInput` via:
+//
+//          TaskDefinitionTagArray{ TaskDefinitionTagArgs{...} }
+type TaskDefinitionTagArrayInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionTagArrayOutput() TaskDefinitionTagArrayOutput
+	ToTaskDefinitionTagArrayOutputWithContext(context.Context) TaskDefinitionTagArrayOutput
+}
+
+type TaskDefinitionTagArray []TaskDefinitionTagInput
+
+func (TaskDefinitionTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskDefinitionTag)(nil)).Elem()
+}
+
+func (i TaskDefinitionTagArray) ToTaskDefinitionTagArrayOutput() TaskDefinitionTagArrayOutput {
+	return i.ToTaskDefinitionTagArrayOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionTagArray) ToTaskDefinitionTagArrayOutputWithContext(ctx context.Context) TaskDefinitionTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionTagArrayOutput)
+}
+
+type TaskDefinitionTagOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionTag)(nil)).Elem()
+}
+
+func (o TaskDefinitionTagOutput) ToTaskDefinitionTagOutput() TaskDefinitionTagOutput {
+	return o
+}
+
+func (o TaskDefinitionTagOutput) ToTaskDefinitionTagOutputWithContext(ctx context.Context) TaskDefinitionTagOutput {
+	return o
+}
+
+func (o TaskDefinitionTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskDefinitionTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TaskDefinitionTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskDefinitionTag)(nil)).Elem()
+}
+
+func (o TaskDefinitionTagArrayOutput) ToTaskDefinitionTagArrayOutput() TaskDefinitionTagArrayOutput {
+	return o
+}
+
+func (o TaskDefinitionTagArrayOutput) ToTaskDefinitionTagArrayOutputWithContext(ctx context.Context) TaskDefinitionTagArrayOutput {
+	return o
+}
+
+func (o TaskDefinitionTagArrayOutput) Index(i pulumi.IntInput) TaskDefinitionTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskDefinitionTag {
+		return vs[0].([]TaskDefinitionTag)[vs[1].(int)]
+	}).(TaskDefinitionTagOutput)
+}
+
 type TaskDefinitionUpdateWirelessGatewayTaskCreate struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-lorawan
-	LoRaWAN *TaskDefinitionLoRaWANUpdateGatewayTaskCreate `pulumi:"loRaWAN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-updatedatarole
-	UpdateDataRole *string `pulumi:"updateDataRole"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-updatedatasource
-	UpdateDataSource *string `pulumi:"updateDataSource"`
+	LoRaWAN          *TaskDefinitionLoRaWANUpdateGatewayTaskCreate `pulumi:"loRaWAN"`
+	UpdateDataRole   *string                                       `pulumi:"updateDataRole"`
+	UpdateDataSource *string                                       `pulumi:"updateDataSource"`
 }
 
 // TaskDefinitionUpdateWirelessGatewayTaskCreateInput is an input type that accepts TaskDefinitionUpdateWirelessGatewayTaskCreateArgs and TaskDefinitionUpdateWirelessGatewayTaskCreateOutput values.
@@ -1442,14 +1655,10 @@ type TaskDefinitionUpdateWirelessGatewayTaskCreateInput interface {
 	ToTaskDefinitionUpdateWirelessGatewayTaskCreateOutputWithContext(context.Context) TaskDefinitionUpdateWirelessGatewayTaskCreateOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html
 type TaskDefinitionUpdateWirelessGatewayTaskCreateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-lorawan
-	LoRaWAN TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrInput `pulumi:"loRaWAN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-updatedatarole
-	UpdateDataRole pulumi.StringPtrInput `pulumi:"updateDataRole"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-updatedatasource
-	UpdateDataSource pulumi.StringPtrInput `pulumi:"updateDataSource"`
+	LoRaWAN          TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrInput `pulumi:"loRaWAN"`
+	UpdateDataRole   pulumi.StringPtrInput                                `pulumi:"updateDataRole"`
+	UpdateDataSource pulumi.StringPtrInput                                `pulumi:"updateDataSource"`
 }
 
 func (TaskDefinitionUpdateWirelessGatewayTaskCreateArgs) ElementType() reflect.Type {
@@ -1505,7 +1714,6 @@ func (i *taskDefinitionUpdateWirelessGatewayTaskCreatePtrType) ToTaskDefinitionU
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html
 type TaskDefinitionUpdateWirelessGatewayTaskCreateOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) ElementType() reflect.Type {
@@ -1530,19 +1738,16 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) ToTaskDefinitionUpd
 	}).(TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-lorawan
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) LoRaWAN() TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
 	return o.ApplyT(func(v TaskDefinitionUpdateWirelessGatewayTaskCreate) *TaskDefinitionLoRaWANUpdateGatewayTaskCreate {
 		return v.LoRaWAN
 	}).(TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-updatedatarole
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) UpdateDataRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionUpdateWirelessGatewayTaskCreate) *string { return v.UpdateDataRole }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-updatedatasource
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) UpdateDataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionUpdateWirelessGatewayTaskCreate) *string { return v.UpdateDataSource }).(pulumi.StringPtrOutput)
 }
@@ -1571,7 +1776,6 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) Elem() TaskDefin
 	}).(TaskDefinitionUpdateWirelessGatewayTaskCreateOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-lorawan
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) LoRaWAN() TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionUpdateWirelessGatewayTaskCreate) *TaskDefinitionLoRaWANUpdateGatewayTaskCreate {
 		if v == nil {
@@ -1581,7 +1785,6 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) LoRaWAN() TaskDe
 	}).(TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-updatedatarole
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) UpdateDataRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionUpdateWirelessGatewayTaskCreate) *string {
 		if v == nil {
@@ -1591,7 +1794,6 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) UpdateDataRole()
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-updatedatasource
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) UpdateDataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionUpdateWirelessGatewayTaskCreate) *string {
 		if v == nil {
@@ -1601,11 +1803,8 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) UpdateDataSource
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html
 type WirelessDeviceAbpV10x struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-devaddr
-	DevAddr string `pulumi:"devAddr"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-sessionkeys
+	DevAddr     string                           `pulumi:"devAddr"`
 	SessionKeys WirelessDeviceSessionKeysAbpV10x `pulumi:"sessionKeys"`
 }
 
@@ -1620,11 +1819,8 @@ type WirelessDeviceAbpV10xInput interface {
 	ToWirelessDeviceAbpV10xOutputWithContext(context.Context) WirelessDeviceAbpV10xOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html
 type WirelessDeviceAbpV10xArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-devaddr
-	DevAddr pulumi.StringInput `pulumi:"devAddr"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-sessionkeys
+	DevAddr     pulumi.StringInput                    `pulumi:"devAddr"`
 	SessionKeys WirelessDeviceSessionKeysAbpV10xInput `pulumi:"sessionKeys"`
 }
 
@@ -1681,7 +1877,6 @@ func (i *wirelessDeviceAbpV10xPtrType) ToWirelessDeviceAbpV10xPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceAbpV10xPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html
 type WirelessDeviceAbpV10xOutput struct{ *pulumi.OutputState }
 
 func (WirelessDeviceAbpV10xOutput) ElementType() reflect.Type {
@@ -1706,12 +1901,10 @@ func (o WirelessDeviceAbpV10xOutput) ToWirelessDeviceAbpV10xPtrOutputWithContext
 	}).(WirelessDeviceAbpV10xPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-devaddr
 func (o WirelessDeviceAbpV10xOutput) DevAddr() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceAbpV10x) string { return v.DevAddr }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-sessionkeys
 func (o WirelessDeviceAbpV10xOutput) SessionKeys() WirelessDeviceSessionKeysAbpV10xOutput {
 	return o.ApplyT(func(v WirelessDeviceAbpV10x) WirelessDeviceSessionKeysAbpV10x { return v.SessionKeys }).(WirelessDeviceSessionKeysAbpV10xOutput)
 }
@@ -1740,7 +1933,6 @@ func (o WirelessDeviceAbpV10xPtrOutput) Elem() WirelessDeviceAbpV10xOutput {
 	}).(WirelessDeviceAbpV10xOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-devaddr
 func (o WirelessDeviceAbpV10xPtrOutput) DevAddr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceAbpV10x) *string {
 		if v == nil {
@@ -1750,7 +1942,6 @@ func (o WirelessDeviceAbpV10xPtrOutput) DevAddr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-sessionkeys
 func (o WirelessDeviceAbpV10xPtrOutput) SessionKeys() WirelessDeviceSessionKeysAbpV10xPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceAbpV10x) *WirelessDeviceSessionKeysAbpV10x {
 		if v == nil {
@@ -1760,11 +1951,8 @@ func (o WirelessDeviceAbpV10xPtrOutput) SessionKeys() WirelessDeviceSessionKeysA
 	}).(WirelessDeviceSessionKeysAbpV10xPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html
 type WirelessDeviceAbpV11 struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-devaddr
-	DevAddr string `pulumi:"devAddr"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-sessionkeys
+	DevAddr     string                          `pulumi:"devAddr"`
 	SessionKeys WirelessDeviceSessionKeysAbpV11 `pulumi:"sessionKeys"`
 }
 
@@ -1779,11 +1967,8 @@ type WirelessDeviceAbpV11Input interface {
 	ToWirelessDeviceAbpV11OutputWithContext(context.Context) WirelessDeviceAbpV11Output
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html
 type WirelessDeviceAbpV11Args struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-devaddr
-	DevAddr pulumi.StringInput `pulumi:"devAddr"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-sessionkeys
+	DevAddr     pulumi.StringInput                   `pulumi:"devAddr"`
 	SessionKeys WirelessDeviceSessionKeysAbpV11Input `pulumi:"sessionKeys"`
 }
 
@@ -1840,7 +2025,6 @@ func (i *wirelessDeviceAbpV11PtrType) ToWirelessDeviceAbpV11PtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceAbpV11PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html
 type WirelessDeviceAbpV11Output struct{ *pulumi.OutputState }
 
 func (WirelessDeviceAbpV11Output) ElementType() reflect.Type {
@@ -1865,12 +2049,10 @@ func (o WirelessDeviceAbpV11Output) ToWirelessDeviceAbpV11PtrOutputWithContext(c
 	}).(WirelessDeviceAbpV11PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-devaddr
 func (o WirelessDeviceAbpV11Output) DevAddr() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceAbpV11) string { return v.DevAddr }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-sessionkeys
 func (o WirelessDeviceAbpV11Output) SessionKeys() WirelessDeviceSessionKeysAbpV11Output {
 	return o.ApplyT(func(v WirelessDeviceAbpV11) WirelessDeviceSessionKeysAbpV11 { return v.SessionKeys }).(WirelessDeviceSessionKeysAbpV11Output)
 }
@@ -1899,7 +2081,6 @@ func (o WirelessDeviceAbpV11PtrOutput) Elem() WirelessDeviceAbpV11Output {
 	}).(WirelessDeviceAbpV11Output)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-devaddr
 func (o WirelessDeviceAbpV11PtrOutput) DevAddr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceAbpV11) *string {
 		if v == nil {
@@ -1909,7 +2090,6 @@ func (o WirelessDeviceAbpV11PtrOutput) DevAddr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-sessionkeys
 func (o WirelessDeviceAbpV11PtrOutput) SessionKeys() WirelessDeviceSessionKeysAbpV11PtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceAbpV11) *WirelessDeviceSessionKeysAbpV11 {
 		if v == nil {
@@ -1919,22 +2099,14 @@ func (o WirelessDeviceAbpV11PtrOutput) SessionKeys() WirelessDeviceSessionKeysAb
 	}).(WirelessDeviceSessionKeysAbpV11PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html
 type WirelessDeviceLoRaWANDevice struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-abpv10x
-	AbpV10x *WirelessDeviceAbpV10x `pulumi:"abpV10x"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-abpv11
-	AbpV11 *WirelessDeviceAbpV11 `pulumi:"abpV11"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-deveui
-	DevEui *string `pulumi:"devEui"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-deviceprofileid
-	DeviceProfileId *string `pulumi:"deviceProfileId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-otaav10x
-	OtaaV10x *WirelessDeviceOtaaV10x `pulumi:"otaaV10x"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-otaav11
-	OtaaV11 *WirelessDeviceOtaaV11 `pulumi:"otaaV11"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-serviceprofileid
-	ServiceProfileId *string `pulumi:"serviceProfileId"`
+	AbpV10x          *WirelessDeviceAbpV10x  `pulumi:"abpV10x"`
+	AbpV11           *WirelessDeviceAbpV11   `pulumi:"abpV11"`
+	DevEui           *string                 `pulumi:"devEui"`
+	DeviceProfileId  *string                 `pulumi:"deviceProfileId"`
+	OtaaV10x         *WirelessDeviceOtaaV10x `pulumi:"otaaV10x"`
+	OtaaV11          *WirelessDeviceOtaaV11  `pulumi:"otaaV11"`
+	ServiceProfileId *string                 `pulumi:"serviceProfileId"`
 }
 
 // WirelessDeviceLoRaWANDeviceInput is an input type that accepts WirelessDeviceLoRaWANDeviceArgs and WirelessDeviceLoRaWANDeviceOutput values.
@@ -1948,22 +2120,14 @@ type WirelessDeviceLoRaWANDeviceInput interface {
 	ToWirelessDeviceLoRaWANDeviceOutputWithContext(context.Context) WirelessDeviceLoRaWANDeviceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html
 type WirelessDeviceLoRaWANDeviceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-abpv10x
-	AbpV10x WirelessDeviceAbpV10xPtrInput `pulumi:"abpV10x"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-abpv11
-	AbpV11 WirelessDeviceAbpV11PtrInput `pulumi:"abpV11"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-deveui
-	DevEui pulumi.StringPtrInput `pulumi:"devEui"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-deviceprofileid
-	DeviceProfileId pulumi.StringPtrInput `pulumi:"deviceProfileId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-otaav10x
-	OtaaV10x WirelessDeviceOtaaV10xPtrInput `pulumi:"otaaV10x"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-otaav11
-	OtaaV11 WirelessDeviceOtaaV11PtrInput `pulumi:"otaaV11"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-serviceprofileid
-	ServiceProfileId pulumi.StringPtrInput `pulumi:"serviceProfileId"`
+	AbpV10x          WirelessDeviceAbpV10xPtrInput  `pulumi:"abpV10x"`
+	AbpV11           WirelessDeviceAbpV11PtrInput   `pulumi:"abpV11"`
+	DevEui           pulumi.StringPtrInput          `pulumi:"devEui"`
+	DeviceProfileId  pulumi.StringPtrInput          `pulumi:"deviceProfileId"`
+	OtaaV10x         WirelessDeviceOtaaV10xPtrInput `pulumi:"otaaV10x"`
+	OtaaV11          WirelessDeviceOtaaV11PtrInput  `pulumi:"otaaV11"`
+	ServiceProfileId pulumi.StringPtrInput          `pulumi:"serviceProfileId"`
 }
 
 func (WirelessDeviceLoRaWANDeviceArgs) ElementType() reflect.Type {
@@ -2019,7 +2183,6 @@ func (i *wirelessDeviceLoRaWANDevicePtrType) ToWirelessDeviceLoRaWANDevicePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceLoRaWANDevicePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html
 type WirelessDeviceLoRaWANDeviceOutput struct{ *pulumi.OutputState }
 
 func (WirelessDeviceLoRaWANDeviceOutput) ElementType() reflect.Type {
@@ -2044,37 +2207,30 @@ func (o WirelessDeviceLoRaWANDeviceOutput) ToWirelessDeviceLoRaWANDevicePtrOutpu
 	}).(WirelessDeviceLoRaWANDevicePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-abpv10x
 func (o WirelessDeviceLoRaWANDeviceOutput) AbpV10x() WirelessDeviceAbpV10xPtrOutput {
 	return o.ApplyT(func(v WirelessDeviceLoRaWANDevice) *WirelessDeviceAbpV10x { return v.AbpV10x }).(WirelessDeviceAbpV10xPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-abpv11
 func (o WirelessDeviceLoRaWANDeviceOutput) AbpV11() WirelessDeviceAbpV11PtrOutput {
 	return o.ApplyT(func(v WirelessDeviceLoRaWANDevice) *WirelessDeviceAbpV11 { return v.AbpV11 }).(WirelessDeviceAbpV11PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-deveui
 func (o WirelessDeviceLoRaWANDeviceOutput) DevEui() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WirelessDeviceLoRaWANDevice) *string { return v.DevEui }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-deviceprofileid
 func (o WirelessDeviceLoRaWANDeviceOutput) DeviceProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WirelessDeviceLoRaWANDevice) *string { return v.DeviceProfileId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-otaav10x
 func (o WirelessDeviceLoRaWANDeviceOutput) OtaaV10x() WirelessDeviceOtaaV10xPtrOutput {
 	return o.ApplyT(func(v WirelessDeviceLoRaWANDevice) *WirelessDeviceOtaaV10x { return v.OtaaV10x }).(WirelessDeviceOtaaV10xPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-otaav11
 func (o WirelessDeviceLoRaWANDeviceOutput) OtaaV11() WirelessDeviceOtaaV11PtrOutput {
 	return o.ApplyT(func(v WirelessDeviceLoRaWANDevice) *WirelessDeviceOtaaV11 { return v.OtaaV11 }).(WirelessDeviceOtaaV11PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-serviceprofileid
 func (o WirelessDeviceLoRaWANDeviceOutput) ServiceProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WirelessDeviceLoRaWANDevice) *string { return v.ServiceProfileId }).(pulumi.StringPtrOutput)
 }
@@ -2103,7 +2259,6 @@ func (o WirelessDeviceLoRaWANDevicePtrOutput) Elem() WirelessDeviceLoRaWANDevice
 	}).(WirelessDeviceLoRaWANDeviceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-abpv10x
 func (o WirelessDeviceLoRaWANDevicePtrOutput) AbpV10x() WirelessDeviceAbpV10xPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceLoRaWANDevice) *WirelessDeviceAbpV10x {
 		if v == nil {
@@ -2113,7 +2268,6 @@ func (o WirelessDeviceLoRaWANDevicePtrOutput) AbpV10x() WirelessDeviceAbpV10xPtr
 	}).(WirelessDeviceAbpV10xPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-abpv11
 func (o WirelessDeviceLoRaWANDevicePtrOutput) AbpV11() WirelessDeviceAbpV11PtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceLoRaWANDevice) *WirelessDeviceAbpV11 {
 		if v == nil {
@@ -2123,7 +2277,6 @@ func (o WirelessDeviceLoRaWANDevicePtrOutput) AbpV11() WirelessDeviceAbpV11PtrOu
 	}).(WirelessDeviceAbpV11PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-deveui
 func (o WirelessDeviceLoRaWANDevicePtrOutput) DevEui() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceLoRaWANDevice) *string {
 		if v == nil {
@@ -2133,7 +2286,6 @@ func (o WirelessDeviceLoRaWANDevicePtrOutput) DevEui() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-deviceprofileid
 func (o WirelessDeviceLoRaWANDevicePtrOutput) DeviceProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceLoRaWANDevice) *string {
 		if v == nil {
@@ -2143,7 +2295,6 @@ func (o WirelessDeviceLoRaWANDevicePtrOutput) DeviceProfileId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-otaav10x
 func (o WirelessDeviceLoRaWANDevicePtrOutput) OtaaV10x() WirelessDeviceOtaaV10xPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceLoRaWANDevice) *WirelessDeviceOtaaV10x {
 		if v == nil {
@@ -2153,7 +2304,6 @@ func (o WirelessDeviceLoRaWANDevicePtrOutput) OtaaV10x() WirelessDeviceOtaaV10xP
 	}).(WirelessDeviceOtaaV10xPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-otaav11
 func (o WirelessDeviceLoRaWANDevicePtrOutput) OtaaV11() WirelessDeviceOtaaV11PtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceLoRaWANDevice) *WirelessDeviceOtaaV11 {
 		if v == nil {
@@ -2163,7 +2313,6 @@ func (o WirelessDeviceLoRaWANDevicePtrOutput) OtaaV11() WirelessDeviceOtaaV11Ptr
 	}).(WirelessDeviceOtaaV11PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-serviceprofileid
 func (o WirelessDeviceLoRaWANDevicePtrOutput) ServiceProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceLoRaWANDevice) *string {
 		if v == nil {
@@ -2173,11 +2322,8 @@ func (o WirelessDeviceLoRaWANDevicePtrOutput) ServiceProfileId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html
 type WirelessDeviceOtaaV10x struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appeui
 	AppEui string `pulumi:"appEui"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appkey
 	AppKey string `pulumi:"appKey"`
 }
 
@@ -2192,11 +2338,8 @@ type WirelessDeviceOtaaV10xInput interface {
 	ToWirelessDeviceOtaaV10xOutputWithContext(context.Context) WirelessDeviceOtaaV10xOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html
 type WirelessDeviceOtaaV10xArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appeui
 	AppEui pulumi.StringInput `pulumi:"appEui"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appkey
 	AppKey pulumi.StringInput `pulumi:"appKey"`
 }
 
@@ -2253,7 +2396,6 @@ func (i *wirelessDeviceOtaaV10xPtrType) ToWirelessDeviceOtaaV10xPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceOtaaV10xPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html
 type WirelessDeviceOtaaV10xOutput struct{ *pulumi.OutputState }
 
 func (WirelessDeviceOtaaV10xOutput) ElementType() reflect.Type {
@@ -2278,12 +2420,10 @@ func (o WirelessDeviceOtaaV10xOutput) ToWirelessDeviceOtaaV10xPtrOutputWithConte
 	}).(WirelessDeviceOtaaV10xPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appeui
 func (o WirelessDeviceOtaaV10xOutput) AppEui() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceOtaaV10x) string { return v.AppEui }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appkey
 func (o WirelessDeviceOtaaV10xOutput) AppKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceOtaaV10x) string { return v.AppKey }).(pulumi.StringOutput)
 }
@@ -2312,7 +2452,6 @@ func (o WirelessDeviceOtaaV10xPtrOutput) Elem() WirelessDeviceOtaaV10xOutput {
 	}).(WirelessDeviceOtaaV10xOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appeui
 func (o WirelessDeviceOtaaV10xPtrOutput) AppEui() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceOtaaV10x) *string {
 		if v == nil {
@@ -2322,7 +2461,6 @@ func (o WirelessDeviceOtaaV10xPtrOutput) AppEui() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appkey
 func (o WirelessDeviceOtaaV10xPtrOutput) AppKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceOtaaV10x) *string {
 		if v == nil {
@@ -2332,14 +2470,10 @@ func (o WirelessDeviceOtaaV10xPtrOutput) AppKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html
 type WirelessDeviceOtaaV11 struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-appkey
-	AppKey string `pulumi:"appKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-joineui
+	AppKey  string `pulumi:"appKey"`
 	JoinEui string `pulumi:"joinEui"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-nwkkey
-	NwkKey string `pulumi:"nwkKey"`
+	NwkKey  string `pulumi:"nwkKey"`
 }
 
 // WirelessDeviceOtaaV11Input is an input type that accepts WirelessDeviceOtaaV11Args and WirelessDeviceOtaaV11Output values.
@@ -2353,14 +2487,10 @@ type WirelessDeviceOtaaV11Input interface {
 	ToWirelessDeviceOtaaV11OutputWithContext(context.Context) WirelessDeviceOtaaV11Output
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html
 type WirelessDeviceOtaaV11Args struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-appkey
-	AppKey pulumi.StringInput `pulumi:"appKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-joineui
+	AppKey  pulumi.StringInput `pulumi:"appKey"`
 	JoinEui pulumi.StringInput `pulumi:"joinEui"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-nwkkey
-	NwkKey pulumi.StringInput `pulumi:"nwkKey"`
+	NwkKey  pulumi.StringInput `pulumi:"nwkKey"`
 }
 
 func (WirelessDeviceOtaaV11Args) ElementType() reflect.Type {
@@ -2416,7 +2546,6 @@ func (i *wirelessDeviceOtaaV11PtrType) ToWirelessDeviceOtaaV11PtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceOtaaV11PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html
 type WirelessDeviceOtaaV11Output struct{ *pulumi.OutputState }
 
 func (WirelessDeviceOtaaV11Output) ElementType() reflect.Type {
@@ -2441,17 +2570,14 @@ func (o WirelessDeviceOtaaV11Output) ToWirelessDeviceOtaaV11PtrOutputWithContext
 	}).(WirelessDeviceOtaaV11PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-appkey
 func (o WirelessDeviceOtaaV11Output) AppKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceOtaaV11) string { return v.AppKey }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-joineui
 func (o WirelessDeviceOtaaV11Output) JoinEui() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceOtaaV11) string { return v.JoinEui }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-nwkkey
 func (o WirelessDeviceOtaaV11Output) NwkKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceOtaaV11) string { return v.NwkKey }).(pulumi.StringOutput)
 }
@@ -2480,7 +2606,6 @@ func (o WirelessDeviceOtaaV11PtrOutput) Elem() WirelessDeviceOtaaV11Output {
 	}).(WirelessDeviceOtaaV11Output)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-appkey
 func (o WirelessDeviceOtaaV11PtrOutput) AppKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceOtaaV11) *string {
 		if v == nil {
@@ -2490,7 +2615,6 @@ func (o WirelessDeviceOtaaV11PtrOutput) AppKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-joineui
 func (o WirelessDeviceOtaaV11PtrOutput) JoinEui() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceOtaaV11) *string {
 		if v == nil {
@@ -2500,7 +2624,6 @@ func (o WirelessDeviceOtaaV11PtrOutput) JoinEui() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-nwkkey
 func (o WirelessDeviceOtaaV11PtrOutput) NwkKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceOtaaV11) *string {
 		if v == nil {
@@ -2510,11 +2633,8 @@ func (o WirelessDeviceOtaaV11PtrOutput) NwkKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html
 type WirelessDeviceSessionKeysAbpV10x struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv10x-appskey
 	AppSKey string `pulumi:"appSKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv10x-nwkskey
 	NwkSKey string `pulumi:"nwkSKey"`
 }
 
@@ -2529,11 +2649,8 @@ type WirelessDeviceSessionKeysAbpV10xInput interface {
 	ToWirelessDeviceSessionKeysAbpV10xOutputWithContext(context.Context) WirelessDeviceSessionKeysAbpV10xOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html
 type WirelessDeviceSessionKeysAbpV10xArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv10x-appskey
 	AppSKey pulumi.StringInput `pulumi:"appSKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv10x-nwkskey
 	NwkSKey pulumi.StringInput `pulumi:"nwkSKey"`
 }
 
@@ -2590,7 +2707,6 @@ func (i *wirelessDeviceSessionKeysAbpV10xPtrType) ToWirelessDeviceSessionKeysAbp
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceSessionKeysAbpV10xPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html
 type WirelessDeviceSessionKeysAbpV10xOutput struct{ *pulumi.OutputState }
 
 func (WirelessDeviceSessionKeysAbpV10xOutput) ElementType() reflect.Type {
@@ -2615,12 +2731,10 @@ func (o WirelessDeviceSessionKeysAbpV10xOutput) ToWirelessDeviceSessionKeysAbpV1
 	}).(WirelessDeviceSessionKeysAbpV10xPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv10x-appskey
 func (o WirelessDeviceSessionKeysAbpV10xOutput) AppSKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceSessionKeysAbpV10x) string { return v.AppSKey }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv10x-nwkskey
 func (o WirelessDeviceSessionKeysAbpV10xOutput) NwkSKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceSessionKeysAbpV10x) string { return v.NwkSKey }).(pulumi.StringOutput)
 }
@@ -2649,7 +2763,6 @@ func (o WirelessDeviceSessionKeysAbpV10xPtrOutput) Elem() WirelessDeviceSessionK
 	}).(WirelessDeviceSessionKeysAbpV10xOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv10x-appskey
 func (o WirelessDeviceSessionKeysAbpV10xPtrOutput) AppSKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceSessionKeysAbpV10x) *string {
 		if v == nil {
@@ -2659,7 +2772,6 @@ func (o WirelessDeviceSessionKeysAbpV10xPtrOutput) AppSKey() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv10x-nwkskey
 func (o WirelessDeviceSessionKeysAbpV10xPtrOutput) NwkSKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceSessionKeysAbpV10x) *string {
 		if v == nil {
@@ -2669,15 +2781,10 @@ func (o WirelessDeviceSessionKeysAbpV10xPtrOutput) NwkSKey() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html
 type WirelessDeviceSessionKeysAbpV11 struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-appskey
-	AppSKey string `pulumi:"appSKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-fnwksintkey
+	AppSKey     string `pulumi:"appSKey"`
 	FNwkSIntKey string `pulumi:"fNwkSIntKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-nwksenckey
-	NwkSEncKey string `pulumi:"nwkSEncKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-snwksintkey
+	NwkSEncKey  string `pulumi:"nwkSEncKey"`
 	SNwkSIntKey string `pulumi:"sNwkSIntKey"`
 }
 
@@ -2692,15 +2799,10 @@ type WirelessDeviceSessionKeysAbpV11Input interface {
 	ToWirelessDeviceSessionKeysAbpV11OutputWithContext(context.Context) WirelessDeviceSessionKeysAbpV11Output
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html
 type WirelessDeviceSessionKeysAbpV11Args struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-appskey
-	AppSKey pulumi.StringInput `pulumi:"appSKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-fnwksintkey
+	AppSKey     pulumi.StringInput `pulumi:"appSKey"`
 	FNwkSIntKey pulumi.StringInput `pulumi:"fNwkSIntKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-nwksenckey
-	NwkSEncKey pulumi.StringInput `pulumi:"nwkSEncKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-snwksintkey
+	NwkSEncKey  pulumi.StringInput `pulumi:"nwkSEncKey"`
 	SNwkSIntKey pulumi.StringInput `pulumi:"sNwkSIntKey"`
 }
 
@@ -2757,7 +2859,6 @@ func (i *wirelessDeviceSessionKeysAbpV11PtrType) ToWirelessDeviceSessionKeysAbpV
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceSessionKeysAbpV11PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html
 type WirelessDeviceSessionKeysAbpV11Output struct{ *pulumi.OutputState }
 
 func (WirelessDeviceSessionKeysAbpV11Output) ElementType() reflect.Type {
@@ -2782,22 +2883,18 @@ func (o WirelessDeviceSessionKeysAbpV11Output) ToWirelessDeviceSessionKeysAbpV11
 	}).(WirelessDeviceSessionKeysAbpV11PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-appskey
 func (o WirelessDeviceSessionKeysAbpV11Output) AppSKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceSessionKeysAbpV11) string { return v.AppSKey }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-fnwksintkey
 func (o WirelessDeviceSessionKeysAbpV11Output) FNwkSIntKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceSessionKeysAbpV11) string { return v.FNwkSIntKey }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-nwksenckey
 func (o WirelessDeviceSessionKeysAbpV11Output) NwkSEncKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceSessionKeysAbpV11) string { return v.NwkSEncKey }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-snwksintkey
 func (o WirelessDeviceSessionKeysAbpV11Output) SNwkSIntKey() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessDeviceSessionKeysAbpV11) string { return v.SNwkSIntKey }).(pulumi.StringOutput)
 }
@@ -2826,7 +2923,6 @@ func (o WirelessDeviceSessionKeysAbpV11PtrOutput) Elem() WirelessDeviceSessionKe
 	}).(WirelessDeviceSessionKeysAbpV11Output)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-appskey
 func (o WirelessDeviceSessionKeysAbpV11PtrOutput) AppSKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceSessionKeysAbpV11) *string {
 		if v == nil {
@@ -2836,7 +2932,6 @@ func (o WirelessDeviceSessionKeysAbpV11PtrOutput) AppSKey() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-fnwksintkey
 func (o WirelessDeviceSessionKeysAbpV11PtrOutput) FNwkSIntKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceSessionKeysAbpV11) *string {
 		if v == nil {
@@ -2846,7 +2941,6 @@ func (o WirelessDeviceSessionKeysAbpV11PtrOutput) FNwkSIntKey() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-nwksenckey
 func (o WirelessDeviceSessionKeysAbpV11PtrOutput) NwkSEncKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceSessionKeysAbpV11) *string {
 		if v == nil {
@@ -2856,7 +2950,6 @@ func (o WirelessDeviceSessionKeysAbpV11PtrOutput) NwkSEncKey() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-snwksintkey
 func (o WirelessDeviceSessionKeysAbpV11PtrOutput) SNwkSIntKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceSessionKeysAbpV11) *string {
 		if v == nil {
@@ -2866,12 +2959,109 @@ func (o WirelessDeviceSessionKeysAbpV11PtrOutput) SNwkSIntKey() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html
+type WirelessDeviceTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// WirelessDeviceTagInput is an input type that accepts WirelessDeviceTagArgs and WirelessDeviceTagOutput values.
+// You can construct a concrete instance of `WirelessDeviceTagInput` via:
+//
+//          WirelessDeviceTagArgs{...}
+type WirelessDeviceTagInput interface {
+	pulumi.Input
+
+	ToWirelessDeviceTagOutput() WirelessDeviceTagOutput
+	ToWirelessDeviceTagOutputWithContext(context.Context) WirelessDeviceTagOutput
+}
+
+type WirelessDeviceTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (WirelessDeviceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessDeviceTag)(nil)).Elem()
+}
+
+func (i WirelessDeviceTagArgs) ToWirelessDeviceTagOutput() WirelessDeviceTagOutput {
+	return i.ToWirelessDeviceTagOutputWithContext(context.Background())
+}
+
+func (i WirelessDeviceTagArgs) ToWirelessDeviceTagOutputWithContext(ctx context.Context) WirelessDeviceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceTagOutput)
+}
+
+// WirelessDeviceTagArrayInput is an input type that accepts WirelessDeviceTagArray and WirelessDeviceTagArrayOutput values.
+// You can construct a concrete instance of `WirelessDeviceTagArrayInput` via:
+//
+//          WirelessDeviceTagArray{ WirelessDeviceTagArgs{...} }
+type WirelessDeviceTagArrayInput interface {
+	pulumi.Input
+
+	ToWirelessDeviceTagArrayOutput() WirelessDeviceTagArrayOutput
+	ToWirelessDeviceTagArrayOutputWithContext(context.Context) WirelessDeviceTagArrayOutput
+}
+
+type WirelessDeviceTagArray []WirelessDeviceTagInput
+
+func (WirelessDeviceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WirelessDeviceTag)(nil)).Elem()
+}
+
+func (i WirelessDeviceTagArray) ToWirelessDeviceTagArrayOutput() WirelessDeviceTagArrayOutput {
+	return i.ToWirelessDeviceTagArrayOutputWithContext(context.Background())
+}
+
+func (i WirelessDeviceTagArray) ToWirelessDeviceTagArrayOutputWithContext(ctx context.Context) WirelessDeviceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceTagArrayOutput)
+}
+
+type WirelessDeviceTagOutput struct{ *pulumi.OutputState }
+
+func (WirelessDeviceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessDeviceTag)(nil)).Elem()
+}
+
+func (o WirelessDeviceTagOutput) ToWirelessDeviceTagOutput() WirelessDeviceTagOutput {
+	return o
+}
+
+func (o WirelessDeviceTagOutput) ToWirelessDeviceTagOutputWithContext(ctx context.Context) WirelessDeviceTagOutput {
+	return o
+}
+
+func (o WirelessDeviceTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WirelessDeviceTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o WirelessDeviceTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WirelessDeviceTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type WirelessDeviceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (WirelessDeviceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WirelessDeviceTag)(nil)).Elem()
+}
+
+func (o WirelessDeviceTagArrayOutput) ToWirelessDeviceTagArrayOutput() WirelessDeviceTagArrayOutput {
+	return o
+}
+
+func (o WirelessDeviceTagArrayOutput) ToWirelessDeviceTagArrayOutputWithContext(ctx context.Context) WirelessDeviceTagArrayOutput {
+	return o
+}
+
+func (o WirelessDeviceTagArrayOutput) Index(i pulumi.IntInput) WirelessDeviceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WirelessDeviceTag {
+		return vs[0].([]WirelessDeviceTag)[vs[1].(int)]
+	}).(WirelessDeviceTagOutput)
+}
+
 type WirelessGatewayLoRaWANGateway struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-gatewayeui
 	GatewayEui string `pulumi:"gatewayEui"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-rfregion
-	RfRegion string `pulumi:"rfRegion"`
+	RfRegion   string `pulumi:"rfRegion"`
 }
 
 // WirelessGatewayLoRaWANGatewayInput is an input type that accepts WirelessGatewayLoRaWANGatewayArgs and WirelessGatewayLoRaWANGatewayOutput values.
@@ -2885,12 +3075,9 @@ type WirelessGatewayLoRaWANGatewayInput interface {
 	ToWirelessGatewayLoRaWANGatewayOutputWithContext(context.Context) WirelessGatewayLoRaWANGatewayOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html
 type WirelessGatewayLoRaWANGatewayArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-gatewayeui
 	GatewayEui pulumi.StringInput `pulumi:"gatewayEui"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-rfregion
-	RfRegion pulumi.StringInput `pulumi:"rfRegion"`
+	RfRegion   pulumi.StringInput `pulumi:"rfRegion"`
 }
 
 func (WirelessGatewayLoRaWANGatewayArgs) ElementType() reflect.Type {
@@ -2946,7 +3133,6 @@ func (i *wirelessGatewayLoRaWANGatewayPtrType) ToWirelessGatewayLoRaWANGatewayPt
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessGatewayLoRaWANGatewayPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html
 type WirelessGatewayLoRaWANGatewayOutput struct{ *pulumi.OutputState }
 
 func (WirelessGatewayLoRaWANGatewayOutput) ElementType() reflect.Type {
@@ -2971,12 +3157,10 @@ func (o WirelessGatewayLoRaWANGatewayOutput) ToWirelessGatewayLoRaWANGatewayPtrO
 	}).(WirelessGatewayLoRaWANGatewayPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-gatewayeui
 func (o WirelessGatewayLoRaWANGatewayOutput) GatewayEui() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessGatewayLoRaWANGateway) string { return v.GatewayEui }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-rfregion
 func (o WirelessGatewayLoRaWANGatewayOutput) RfRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v WirelessGatewayLoRaWANGateway) string { return v.RfRegion }).(pulumi.StringOutput)
 }
@@ -3005,7 +3189,6 @@ func (o WirelessGatewayLoRaWANGatewayPtrOutput) Elem() WirelessGatewayLoRaWANGat
 	}).(WirelessGatewayLoRaWANGatewayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-gatewayeui
 func (o WirelessGatewayLoRaWANGatewayPtrOutput) GatewayEui() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessGatewayLoRaWANGateway) *string {
 		if v == nil {
@@ -3015,7 +3198,6 @@ func (o WirelessGatewayLoRaWANGatewayPtrOutput) GatewayEui() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-rfregion
 func (o WirelessGatewayLoRaWANGatewayPtrOutput) RfRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessGatewayLoRaWANGateway) *string {
 		if v == nil {
@@ -3025,17 +3207,125 @@ func (o WirelessGatewayLoRaWANGatewayPtrOutput) RfRegion() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type WirelessGatewayTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// WirelessGatewayTagInput is an input type that accepts WirelessGatewayTagArgs and WirelessGatewayTagOutput values.
+// You can construct a concrete instance of `WirelessGatewayTagInput` via:
+//
+//          WirelessGatewayTagArgs{...}
+type WirelessGatewayTagInput interface {
+	pulumi.Input
+
+	ToWirelessGatewayTagOutput() WirelessGatewayTagOutput
+	ToWirelessGatewayTagOutputWithContext(context.Context) WirelessGatewayTagOutput
+}
+
+type WirelessGatewayTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (WirelessGatewayTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessGatewayTag)(nil)).Elem()
+}
+
+func (i WirelessGatewayTagArgs) ToWirelessGatewayTagOutput() WirelessGatewayTagOutput {
+	return i.ToWirelessGatewayTagOutputWithContext(context.Background())
+}
+
+func (i WirelessGatewayTagArgs) ToWirelessGatewayTagOutputWithContext(ctx context.Context) WirelessGatewayTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WirelessGatewayTagOutput)
+}
+
+// WirelessGatewayTagArrayInput is an input type that accepts WirelessGatewayTagArray and WirelessGatewayTagArrayOutput values.
+// You can construct a concrete instance of `WirelessGatewayTagArrayInput` via:
+//
+//          WirelessGatewayTagArray{ WirelessGatewayTagArgs{...} }
+type WirelessGatewayTagArrayInput interface {
+	pulumi.Input
+
+	ToWirelessGatewayTagArrayOutput() WirelessGatewayTagArrayOutput
+	ToWirelessGatewayTagArrayOutputWithContext(context.Context) WirelessGatewayTagArrayOutput
+}
+
+type WirelessGatewayTagArray []WirelessGatewayTagInput
+
+func (WirelessGatewayTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WirelessGatewayTag)(nil)).Elem()
+}
+
+func (i WirelessGatewayTagArray) ToWirelessGatewayTagArrayOutput() WirelessGatewayTagArrayOutput {
+	return i.ToWirelessGatewayTagArrayOutputWithContext(context.Background())
+}
+
+func (i WirelessGatewayTagArray) ToWirelessGatewayTagArrayOutputWithContext(ctx context.Context) WirelessGatewayTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WirelessGatewayTagArrayOutput)
+}
+
+type WirelessGatewayTagOutput struct{ *pulumi.OutputState }
+
+func (WirelessGatewayTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessGatewayTag)(nil)).Elem()
+}
+
+func (o WirelessGatewayTagOutput) ToWirelessGatewayTagOutput() WirelessGatewayTagOutput {
+	return o
+}
+
+func (o WirelessGatewayTagOutput) ToWirelessGatewayTagOutputWithContext(ctx context.Context) WirelessGatewayTagOutput {
+	return o
+}
+
+func (o WirelessGatewayTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WirelessGatewayTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o WirelessGatewayTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WirelessGatewayTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type WirelessGatewayTagArrayOutput struct{ *pulumi.OutputState }
+
+func (WirelessGatewayTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WirelessGatewayTag)(nil)).Elem()
+}
+
+func (o WirelessGatewayTagArrayOutput) ToWirelessGatewayTagArrayOutput() WirelessGatewayTagArrayOutput {
+	return o
+}
+
+func (o WirelessGatewayTagArrayOutput) ToWirelessGatewayTagArrayOutputWithContext(ctx context.Context) WirelessGatewayTagArrayOutput {
+	return o
+}
+
+func (o WirelessGatewayTagArrayOutput) Index(i pulumi.IntInput) WirelessGatewayTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WirelessGatewayTag {
+		return vs[0].([]WirelessGatewayTag)[vs[1].(int)]
+	}).(WirelessGatewayTagOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(DestinationTagOutput{})
+	pulumi.RegisterOutputType(DestinationTagArrayOutput{})
 	pulumi.RegisterOutputType(DeviceProfileLoRaWANDeviceProfileOutput{})
 	pulumi.RegisterOutputType(DeviceProfileLoRaWANDeviceProfilePtrOutput{})
+	pulumi.RegisterOutputType(DeviceProfileTagOutput{})
+	pulumi.RegisterOutputType(DeviceProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(ServiceProfileLoRaWANServiceProfileOutput{})
 	pulumi.RegisterOutputType(ServiceProfileLoRaWANServiceProfilePtrOutput{})
+	pulumi.RegisterOutputType(ServiceProfileTagOutput{})
+	pulumi.RegisterOutputType(ServiceProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionLoRaWANGatewayVersionOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionLoRaWANGatewayVersionPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionLoRaWANUpdateGatewayTaskCreateOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionLoRaWANUpdateGatewayTaskCreatePtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionLoRaWANUpdateGatewayTaskEntryOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionLoRaWANUpdateGatewayTaskEntryPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionTagOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionUpdateWirelessGatewayTaskCreateOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceAbpV10xOutput{})
@@ -3052,6 +3342,10 @@ func init() {
 	pulumi.RegisterOutputType(WirelessDeviceSessionKeysAbpV10xPtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceSessionKeysAbpV11Output{})
 	pulumi.RegisterOutputType(WirelessDeviceSessionKeysAbpV11PtrOutput{})
+	pulumi.RegisterOutputType(WirelessDeviceTagOutput{})
+	pulumi.RegisterOutputType(WirelessDeviceTagArrayOutput{})
 	pulumi.RegisterOutputType(WirelessGatewayLoRaWANGatewayOutput{})
 	pulumi.RegisterOutputType(WirelessGatewayLoRaWANGatewayPtrOutput{})
+	pulumi.RegisterOutputType(WirelessGatewayTagOutput{})
+	pulumi.RegisterOutputType(WirelessGatewayTagArrayOutput{})
 }

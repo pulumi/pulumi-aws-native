@@ -10,23 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Budgets.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html
-    /// </summary>
     [OutputType]
     public sealed class BudgetsActionDefinition
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-iamactiondefinition
-        /// </summary>
         public readonly Outputs.BudgetsActionIamActionDefinition? IamActionDefinition;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-scpactiondefinition
-        /// </summary>
         public readonly Outputs.BudgetsActionScpActionDefinition? ScpActionDefinition;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-ssmactiondefinition
-        /// </summary>
         public readonly Outputs.BudgetsActionSsmActionDefinition? SsmActionDefinition;
 
         [OutputConstructor]

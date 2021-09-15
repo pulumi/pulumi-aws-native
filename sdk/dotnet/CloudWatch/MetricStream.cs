@@ -10,64 +10,76 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudWatch
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html
+    /// Resource Type definition for Metric Stream
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudwatch:MetricStream")]
     public partial class MetricStream : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name of the metric stream.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The date of creation of the metric stream.
+        /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
+        /// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         /// </summary>
         [Output("excludeFilters")]
         public Output<ImmutableArray<Outputs.MetricStreamMetricStreamFilter>> ExcludeFilters { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
+        /// The ARN of the Kinesis Firehose where to stream the data.
         /// </summary>
         [Output("firehoseArn")]
         public Output<string> FirehoseArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
+        /// Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         /// </summary>
         [Output("includeFilters")]
         public Output<ImmutableArray<Outputs.MetricStreamMetricStreamFilter>> IncludeFilters { get; private set; } = null!;
 
+        /// <summary>
+        /// The date of the last update of the metric stream.
+        /// </summary>
         [Output("lastUpdateDate")]
         public Output<string> LastUpdateDate { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
+        /// Name of the metric stream.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
+        /// The output format of the data streamed to the Kinesis Firehose.
         /// </summary>
         [Output("outputFormat")]
         public Output<string> OutputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+        /// The ARN of the role that provides access to the Kinesis Firehose.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Displays the state of the Metric Stream.
+        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
+        /// A set of tags to assign to the delivery stream.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MetricStreamTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -118,7 +130,7 @@ namespace Pulumi.AwsNative.CloudWatch
         private InputList<Inputs.MetricStreamMetricStreamFilterArgs>? _excludeFilters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
+        /// Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         /// </summary>
         public InputList<Inputs.MetricStreamMetricStreamFilterArgs> ExcludeFilters
         {
@@ -127,7 +139,7 @@ namespace Pulumi.AwsNative.CloudWatch
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
+        /// The ARN of the Kinesis Firehose where to stream the data.
         /// </summary>
         [Input("firehoseArn", required: true)]
         public Input<string> FirehoseArn { get; set; } = null!;
@@ -136,7 +148,7 @@ namespace Pulumi.AwsNative.CloudWatch
         private InputList<Inputs.MetricStreamMetricStreamFilterArgs>? _includeFilters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
+        /// Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         /// </summary>
         public InputList<Inputs.MetricStreamMetricStreamFilterArgs> IncludeFilters
         {
@@ -145,32 +157,32 @@ namespace Pulumi.AwsNative.CloudWatch
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
+        /// Name of the metric stream.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
+        /// The output format of the data streamed to the Kinesis Firehose.
         /// </summary>
         [Input("outputFormat", required: true)]
         public Input<string> OutputFormat { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+        /// The ARN of the role that provides access to the Kinesis Firehose.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.MetricStreamTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
+        /// A set of tags to assign to the delivery stream.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.MetricStreamTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.MetricStreamTagArgs>());
             set => _tags = value;
         }
 

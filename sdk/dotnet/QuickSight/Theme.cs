@@ -10,67 +10,78 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html
+    /// Definition of the AWS::QuickSight::Theme Resource Type.
     /// </summary>
     [AwsNativeResourceType("aws-native:quicksight:Theme")]
     public partial class Theme : Pulumi.CustomResource
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the theme.&lt;/p&gt;
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-awsaccountid
-        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-basethemeid
+        /// &lt;p&gt;The ID of the theme that a custom theme will inherit from. All themes inherit from one of
+        /// 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
+        /// 				&lt;code&gt;ListThemes&lt;/code&gt; or choose &lt;b&gt;Themes&lt;/b&gt; from
+        /// 			within a QuickSight analysis. &lt;/p&gt;
         /// </summary>
         [Output("baseThemeId")]
         public Output<string?> BaseThemeId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-configuration
-        /// </summary>
         [Output("configuration")]
         public Output<Outputs.ThemeThemeConfiguration?> Configuration { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The date and time that the theme was created.&lt;/p&gt;
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The date and time that the theme was last updated.&lt;/p&gt;
+        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-name
+        /// &lt;p&gt;A display name for the theme.&lt;/p&gt;
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-permissions
+        /// &lt;p&gt;A valid grouping of resource permissions to apply to the new theme.
+        /// 			&lt;/p&gt;
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.ThemeResourcePermission>> Permissions { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-tags
+        /// &lt;p&gt;A map of the key-value pairs for the resource tag or tags that you want to add to the
+        /// 			resource.&lt;/p&gt;
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ThemeTag>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-themeid
-        /// </summary>
         [Output("themeId")]
         public Output<string> ThemeId { get; private set; } = null!;
 
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        [Output("version")]
+        public Output<Outputs.ThemeThemeVersion> Version { get; private set; } = null!;
+
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-versiondescription
+        /// &lt;p&gt;A description of the first version of the theme that you're creating. Every time
+        /// 				&lt;code&gt;UpdateTheme&lt;/code&gt; is called, a new version is created. Each version of the
+        /// 			theme has a description of the version in the &lt;code&gt;VersionDescription&lt;/code&gt;
+        /// 			field.&lt;/p&gt;
         /// </summary>
         [Output("versionDescription")]
         public Output<string?> VersionDescription { get; private set; } = null!;
@@ -120,26 +131,23 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class ThemeArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-awsaccountid
-        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-basethemeid
+        /// &lt;p&gt;The ID of the theme that a custom theme will inherit from. All themes inherit from one of
+        /// 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
+        /// 				&lt;code&gt;ListThemes&lt;/code&gt; or choose &lt;b&gt;Themes&lt;/b&gt; from
+        /// 			within a QuickSight analysis. &lt;/p&gt;
         /// </summary>
         [Input("baseThemeId")]
         public Input<string>? BaseThemeId { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-configuration
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.ThemeThemeConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-name
+        /// &lt;p&gt;A display name for the theme.&lt;/p&gt;
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -148,7 +156,8 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<Inputs.ThemeResourcePermissionArgs>? _permissions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-permissions
+        /// &lt;p&gt;A valid grouping of resource permissions to apply to the new theme.
+        /// 			&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.ThemeResourcePermissionArgs> Permissions
         {
@@ -157,25 +166,26 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.ThemeTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-tags
+        /// &lt;p&gt;A map of the key-value pairs for the resource tag or tags that you want to add to the
+        /// 			resource.&lt;/p&gt;
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.ThemeTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ThemeTagArgs>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-themeid
-        /// </summary>
         [Input("themeId", required: true)]
         public Input<string> ThemeId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-versiondescription
+        /// &lt;p&gt;A description of the first version of the theme that you're creating. Every time
+        /// 				&lt;code&gt;UpdateTheme&lt;/code&gt; is called, a new version is created. Each version of the
+        /// 			theme has a description of the version in the &lt;code&gt;VersionDescription&lt;/code&gt;
+        /// 			field.&lt;/p&gt;
         /// </summary>
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }

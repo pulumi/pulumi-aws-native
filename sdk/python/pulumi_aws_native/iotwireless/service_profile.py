@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ServiceProfileArgs', 'ServiceProfile']
@@ -19,12 +17,12 @@ class ServiceProfileArgs:
     def __init__(__self__, *,
                  lo_ra_wan: Optional[pulumi.Input['ServiceProfileLoRaWANServiceProfileArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceProfileTagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceProfile resource.
-        :param pulumi.Input['ServiceProfileLoRaWANServiceProfileArgs'] lo_ra_wan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-lorawan
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-name
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-tags
+        :param pulumi.Input['ServiceProfileLoRaWANServiceProfileArgs'] lo_ra_wan: LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
+        :param pulumi.Input[str] name: Name of service profile
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceProfileTagArgs']]] tags: A list of key-value pairs that contain metadata for the service profile.
         """
         if lo_ra_wan is not None:
             pulumi.set(__self__, "lo_ra_wan", lo_ra_wan)
@@ -37,7 +35,7 @@ class ServiceProfileArgs:
     @pulumi.getter(name="loRaWAN")
     def lo_ra_wan(self) -> Optional[pulumi.Input['ServiceProfileLoRaWANServiceProfileArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-lorawan
+        LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
         """
         return pulumi.get(self, "lo_ra_wan")
 
@@ -49,7 +47,7 @@ class ServiceProfileArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-name
+        Name of service profile
         """
         return pulumi.get(self, "name")
 
@@ -59,14 +57,14 @@ class ServiceProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceProfileTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-tags
+        A list of key-value pairs that contain metadata for the service profile.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceProfileTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -77,16 +75,16 @@ class ServiceProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['ServiceProfileLoRaWANServiceProfileArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceProfileTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceProfileLoRaWANServiceProfileArgs']] lo_ra_wan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-lorawan
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-tags
+        :param pulumi.Input[pulumi.InputType['ServiceProfileLoRaWANServiceProfileArgs']] lo_ra_wan: LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
+        :param pulumi.Input[str] name: Name of service profile
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceProfileTagArgs']]]] tags: A list of key-value pairs that contain metadata for the service profile.
         """
         ...
     @overload
@@ -95,7 +93,7 @@ class ServiceProfile(pulumi.CustomResource):
                  args: Optional[ServiceProfileArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param ServiceProfileArgs args: The arguments to use to populate this resource's properties.
@@ -114,7 +112,7 @@ class ServiceProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['ServiceProfileLoRaWANServiceProfileArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceProfileTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -131,25 +129,6 @@ class ServiceProfile(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-            __props__.__dict__["id"] = None
-            __props__.__dict__["lo_ra_wan_channel_mask"] = None
-            __props__.__dict__["lo_ra_wan_dev_status_req_freq"] = None
-            __props__.__dict__["lo_ra_wan_dl_bucket_size"] = None
-            __props__.__dict__["lo_ra_wan_dl_rate"] = None
-            __props__.__dict__["lo_ra_wan_dl_rate_policy"] = None
-            __props__.__dict__["lo_ra_wan_dr_max"] = None
-            __props__.__dict__["lo_ra_wan_dr_min"] = None
-            __props__.__dict__["lo_ra_wan_hr_allowed"] = None
-            __props__.__dict__["lo_ra_wan_min_gw_diversity"] = None
-            __props__.__dict__["lo_ra_wan_nwk_geo_loc"] = None
-            __props__.__dict__["lo_ra_wan_pr_allowed"] = None
-            __props__.__dict__["lo_ra_wan_ra_allowed"] = None
-            __props__.__dict__["lo_ra_wan_report_dev_status_battery"] = None
-            __props__.__dict__["lo_ra_wan_report_dev_status_margin"] = None
-            __props__.__dict__["lo_ra_wan_target_per"] = None
-            __props__.__dict__["lo_ra_wan_ul_bucket_size"] = None
-            __props__.__dict__["lo_ra_wan_ul_rate"] = None
-            __props__.__dict__["lo_ra_wan_ul_rate_policy"] = None
         super(ServiceProfile, __self__).__init__(
             'aws-native:iotwireless:ServiceProfile',
             resource_name,
@@ -173,26 +152,7 @@ class ServiceProfile(pulumi.CustomResource):
         __props__ = ServiceProfileArgs.__new__(ServiceProfileArgs)
 
         __props__.__dict__["arn"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["lo_ra_wan"] = None
-        __props__.__dict__["lo_ra_wan_channel_mask"] = None
-        __props__.__dict__["lo_ra_wan_dev_status_req_freq"] = None
-        __props__.__dict__["lo_ra_wan_dl_bucket_size"] = None
-        __props__.__dict__["lo_ra_wan_dl_rate"] = None
-        __props__.__dict__["lo_ra_wan_dl_rate_policy"] = None
-        __props__.__dict__["lo_ra_wan_dr_max"] = None
-        __props__.__dict__["lo_ra_wan_dr_min"] = None
-        __props__.__dict__["lo_ra_wan_hr_allowed"] = None
-        __props__.__dict__["lo_ra_wan_min_gw_diversity"] = None
-        __props__.__dict__["lo_ra_wan_nwk_geo_loc"] = None
-        __props__.__dict__["lo_ra_wan_pr_allowed"] = None
-        __props__.__dict__["lo_ra_wan_ra_allowed"] = None
-        __props__.__dict__["lo_ra_wan_report_dev_status_battery"] = None
-        __props__.__dict__["lo_ra_wan_report_dev_status_margin"] = None
-        __props__.__dict__["lo_ra_wan_target_per"] = None
-        __props__.__dict__["lo_ra_wan_ul_bucket_size"] = None
-        __props__.__dict__["lo_ra_wan_ul_rate"] = None
-        __props__.__dict__["lo_ra_wan_ul_rate_policy"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return ServiceProfile(resource_name, opts=opts, __props__=__props__)
@@ -200,124 +160,32 @@ class ServiceProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Service profile Arn. Returned after successful create.
+        """
         return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="loRaWAN")
     def lo_ra_wan(self) -> pulumi.Output[Optional['outputs.ServiceProfileLoRaWANServiceProfile']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-lorawan
+        LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
         """
         return pulumi.get(self, "lo_ra_wan")
-
-    @property
-    @pulumi.getter(name="loRaWANChannelMask")
-    def lo_ra_wan_channel_mask(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "lo_ra_wan_channel_mask")
-
-    @property
-    @pulumi.getter(name="loRaWANDevStatusReqFreq")
-    def lo_ra_wan_dev_status_req_freq(self) -> pulumi.Output[int]:
-        return pulumi.get(self, "lo_ra_wan_dev_status_req_freq")
-
-    @property
-    @pulumi.getter(name="loRaWANDlBucketSize")
-    def lo_ra_wan_dl_bucket_size(self) -> pulumi.Output[int]:
-        return pulumi.get(self, "lo_ra_wan_dl_bucket_size")
-
-    @property
-    @pulumi.getter(name="loRaWANDlRate")
-    def lo_ra_wan_dl_rate(self) -> pulumi.Output[int]:
-        return pulumi.get(self, "lo_ra_wan_dl_rate")
-
-    @property
-    @pulumi.getter(name="loRaWANDlRatePolicy")
-    def lo_ra_wan_dl_rate_policy(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "lo_ra_wan_dl_rate_policy")
-
-    @property
-    @pulumi.getter(name="loRaWANDrMax")
-    def lo_ra_wan_dr_max(self) -> pulumi.Output[int]:
-        return pulumi.get(self, "lo_ra_wan_dr_max")
-
-    @property
-    @pulumi.getter(name="loRaWANDrMin")
-    def lo_ra_wan_dr_min(self) -> pulumi.Output[int]:
-        return pulumi.get(self, "lo_ra_wan_dr_min")
-
-    @property
-    @pulumi.getter(name="loRaWANHrAllowed")
-    def lo_ra_wan_hr_allowed(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "lo_ra_wan_hr_allowed")
-
-    @property
-    @pulumi.getter(name="loRaWANMinGwDiversity")
-    def lo_ra_wan_min_gw_diversity(self) -> pulumi.Output[int]:
-        return pulumi.get(self, "lo_ra_wan_min_gw_diversity")
-
-    @property
-    @pulumi.getter(name="loRaWANNwkGeoLoc")
-    def lo_ra_wan_nwk_geo_loc(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "lo_ra_wan_nwk_geo_loc")
-
-    @property
-    @pulumi.getter(name="loRaWANPrAllowed")
-    def lo_ra_wan_pr_allowed(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "lo_ra_wan_pr_allowed")
-
-    @property
-    @pulumi.getter(name="loRaWANRaAllowed")
-    def lo_ra_wan_ra_allowed(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "lo_ra_wan_ra_allowed")
-
-    @property
-    @pulumi.getter(name="loRaWANReportDevStatusBattery")
-    def lo_ra_wan_report_dev_status_battery(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "lo_ra_wan_report_dev_status_battery")
-
-    @property
-    @pulumi.getter(name="loRaWANReportDevStatusMargin")
-    def lo_ra_wan_report_dev_status_margin(self) -> pulumi.Output[bool]:
-        return pulumi.get(self, "lo_ra_wan_report_dev_status_margin")
-
-    @property
-    @pulumi.getter(name="loRaWANTargetPer")
-    def lo_ra_wan_target_per(self) -> pulumi.Output[int]:
-        return pulumi.get(self, "lo_ra_wan_target_per")
-
-    @property
-    @pulumi.getter(name="loRaWANUlBucketSize")
-    def lo_ra_wan_ul_bucket_size(self) -> pulumi.Output[int]:
-        return pulumi.get(self, "lo_ra_wan_ul_bucket_size")
-
-    @property
-    @pulumi.getter(name="loRaWANUlRate")
-    def lo_ra_wan_ul_rate(self) -> pulumi.Output[int]:
-        return pulumi.get(self, "lo_ra_wan_ul_rate")
-
-    @property
-    @pulumi.getter(name="loRaWANUlRatePolicy")
-    def lo_ra_wan_ul_rate_policy(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "lo_ra_wan_ul_rate_policy")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-name
+        Name of service profile
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceProfileTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-tags
+        A list of key-value pairs that contain metadata for the service profile.
         """
         return pulumi.get(self, "tags")
 

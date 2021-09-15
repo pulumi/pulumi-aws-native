@@ -11,58 +11,22 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html
+    /// First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
     /// </summary>
     [OutputType]
     public sealed class RuleGroupStatement
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-andstatement
-        /// </summary>
         public readonly Outputs.RuleGroupAndStatement? AndStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-bytematchstatement
-        /// </summary>
         public readonly Outputs.RuleGroupByteMatchStatement? ByteMatchStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-geomatchstatement
-        /// </summary>
         public readonly Outputs.RuleGroupGeoMatchStatement? GeoMatchStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ipsetreferencestatement
-        /// </summary>
         public readonly Outputs.RuleGroupIPSetReferenceStatement? IPSetReferenceStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-labelmatchstatement
-        /// </summary>
         public readonly Outputs.RuleGroupLabelMatchStatement? LabelMatchStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-notstatement
-        /// </summary>
         public readonly Outputs.RuleGroupNotStatement? NotStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-orstatement
-        /// </summary>
         public readonly Outputs.RuleGroupOrStatement? OrStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ratebasedstatement
-        /// </summary>
         public readonly Outputs.RuleGroupRateBasedStatement? RateBasedStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-regexpatternsetreferencestatement
-        /// </summary>
         public readonly Outputs.RuleGroupRegexPatternSetReferenceStatement? RegexPatternSetReferenceStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sizeconstraintstatement
-        /// </summary>
         public readonly Outputs.RuleGroupSizeConstraintStatement? SizeConstraintStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sqlimatchstatement
-        /// </summary>
         public readonly Outputs.RuleGroupSqliMatchStatement? SqliMatchStatement;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-xssmatchstatement
-        /// </summary>
         public readonly Outputs.RuleGroupXssMatchStatement? XssMatchStatement;
 
         [OutputConstructor]

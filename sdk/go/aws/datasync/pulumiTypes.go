@@ -10,11 +10,120 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html
+// A key-value pair to associate with a resource.
+type AgentTag struct {
+	// The key for an AWS resource tag.
+	Key string `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value string `pulumi:"value"`
+}
+
+// AgentTagInput is an input type that accepts AgentTagArgs and AgentTagOutput values.
+// You can construct a concrete instance of `AgentTagInput` via:
+//
+//          AgentTagArgs{...}
+type AgentTagInput interface {
+	pulumi.Input
+
+	ToAgentTagOutput() AgentTagOutput
+	ToAgentTagOutputWithContext(context.Context) AgentTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type AgentTagArgs struct {
+	// The key for an AWS resource tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AgentTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentTag)(nil)).Elem()
+}
+
+func (i AgentTagArgs) ToAgentTagOutput() AgentTagOutput {
+	return i.ToAgentTagOutputWithContext(context.Background())
+}
+
+func (i AgentTagArgs) ToAgentTagOutputWithContext(ctx context.Context) AgentTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentTagOutput)
+}
+
+// AgentTagArrayInput is an input type that accepts AgentTagArray and AgentTagArrayOutput values.
+// You can construct a concrete instance of `AgentTagArrayInput` via:
+//
+//          AgentTagArray{ AgentTagArgs{...} }
+type AgentTagArrayInput interface {
+	pulumi.Input
+
+	ToAgentTagArrayOutput() AgentTagArrayOutput
+	ToAgentTagArrayOutputWithContext(context.Context) AgentTagArrayOutput
+}
+
+type AgentTagArray []AgentTagInput
+
+func (AgentTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentTag)(nil)).Elem()
+}
+
+func (i AgentTagArray) ToAgentTagArrayOutput() AgentTagArrayOutput {
+	return i.ToAgentTagArrayOutputWithContext(context.Background())
+}
+
+func (i AgentTagArray) ToAgentTagArrayOutputWithContext(ctx context.Context) AgentTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type AgentTagOutput struct{ *pulumi.OutputState }
+
+func (AgentTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentTag)(nil)).Elem()
+}
+
+func (o AgentTagOutput) ToAgentTagOutput() AgentTagOutput {
+	return o
+}
+
+func (o AgentTagOutput) ToAgentTagOutputWithContext(ctx context.Context) AgentTagOutput {
+	return o
+}
+
+// The key for an AWS resource tag.
+func (o AgentTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for an AWS resource tag.
+func (o AgentTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AgentTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AgentTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AgentTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AgentTag)(nil)).Elem()
+}
+
+func (o AgentTagArrayOutput) ToAgentTagArrayOutput() AgentTagArrayOutput {
+	return o
+}
+
+func (o AgentTagArrayOutput) ToAgentTagArrayOutputWithContext(ctx context.Context) AgentTagArrayOutput {
+	return o
+}
+
+func (o AgentTagArrayOutput) Index(i pulumi.IntInput) AgentTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AgentTag {
+		return vs[0].([]AgentTag)[vs[1].(int)]
+	}).(AgentTagOutput)
+}
+
+// The subnet and security group that DataSync uses to access target EFS file system.
 type LocationEFSEc2Config struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-securitygrouparns
+	// The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-subnetarn
+	// The ARN of the subnet that DataSync uses to access the target EFS file system.
 	SubnetArn string `pulumi:"subnetArn"`
 }
 
@@ -29,11 +138,11 @@ type LocationEFSEc2ConfigInput interface {
 	ToLocationEFSEc2ConfigOutputWithContext(context.Context) LocationEFSEc2ConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html
+// The subnet and security group that DataSync uses to access target EFS file system.
 type LocationEFSEc2ConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-securitygrouparns
+	// The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
 	SecurityGroupArns pulumi.StringArrayInput `pulumi:"securityGroupArns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-subnetarn
+	// The ARN of the subnet that DataSync uses to access the target EFS file system.
 	SubnetArn pulumi.StringInput `pulumi:"subnetArn"`
 }
 
@@ -90,7 +199,7 @@ func (i *locationEFSEc2ConfigPtrType) ToLocationEFSEc2ConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(LocationEFSEc2ConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html
+// The subnet and security group that DataSync uses to access target EFS file system.
 type LocationEFSEc2ConfigOutput struct{ *pulumi.OutputState }
 
 func (LocationEFSEc2ConfigOutput) ElementType() reflect.Type {
@@ -115,12 +224,12 @@ func (o LocationEFSEc2ConfigOutput) ToLocationEFSEc2ConfigPtrOutputWithContext(c
 	}).(LocationEFSEc2ConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-securitygrouparns
+// The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
 func (o LocationEFSEc2ConfigOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LocationEFSEc2Config) []string { return v.SecurityGroupArns }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-subnetarn
+// The ARN of the subnet that DataSync uses to access the target EFS file system.
 func (o LocationEFSEc2ConfigOutput) SubnetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationEFSEc2Config) string { return v.SubnetArn }).(pulumi.StringOutput)
 }
@@ -149,7 +258,7 @@ func (o LocationEFSEc2ConfigPtrOutput) Elem() LocationEFSEc2ConfigOutput {
 	}).(LocationEFSEc2ConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-securitygrouparns
+// The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
 func (o LocationEFSEc2ConfigPtrOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocationEFSEc2Config) []string {
 		if v == nil {
@@ -159,7 +268,7 @@ func (o LocationEFSEc2ConfigPtrOutput) SecurityGroupArns() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-subnetarn
+// The ARN of the subnet that DataSync uses to access the target EFS file system.
 func (o LocationEFSEc2ConfigPtrOutput) SubnetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationEFSEc2Config) *string {
 		if v == nil {
@@ -169,9 +278,227 @@ func (o LocationEFSEc2ConfigPtrOutput) SubnetArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-mountoptions.html
+// A key-value pair to associate with a resource.
+type LocationEFSTag struct {
+	// The key for an AWS resource tag.
+	Key string `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value string `pulumi:"value"`
+}
+
+// LocationEFSTagInput is an input type that accepts LocationEFSTagArgs and LocationEFSTagOutput values.
+// You can construct a concrete instance of `LocationEFSTagInput` via:
+//
+//          LocationEFSTagArgs{...}
+type LocationEFSTagInput interface {
+	pulumi.Input
+
+	ToLocationEFSTagOutput() LocationEFSTagOutput
+	ToLocationEFSTagOutputWithContext(context.Context) LocationEFSTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type LocationEFSTagArgs struct {
+	// The key for an AWS resource tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LocationEFSTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationEFSTag)(nil)).Elem()
+}
+
+func (i LocationEFSTagArgs) ToLocationEFSTagOutput() LocationEFSTagOutput {
+	return i.ToLocationEFSTagOutputWithContext(context.Background())
+}
+
+func (i LocationEFSTagArgs) ToLocationEFSTagOutputWithContext(ctx context.Context) LocationEFSTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationEFSTagOutput)
+}
+
+// LocationEFSTagArrayInput is an input type that accepts LocationEFSTagArray and LocationEFSTagArrayOutput values.
+// You can construct a concrete instance of `LocationEFSTagArrayInput` via:
+//
+//          LocationEFSTagArray{ LocationEFSTagArgs{...} }
+type LocationEFSTagArrayInput interface {
+	pulumi.Input
+
+	ToLocationEFSTagArrayOutput() LocationEFSTagArrayOutput
+	ToLocationEFSTagArrayOutputWithContext(context.Context) LocationEFSTagArrayOutput
+}
+
+type LocationEFSTagArray []LocationEFSTagInput
+
+func (LocationEFSTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationEFSTag)(nil)).Elem()
+}
+
+func (i LocationEFSTagArray) ToLocationEFSTagArrayOutput() LocationEFSTagArrayOutput {
+	return i.ToLocationEFSTagArrayOutputWithContext(context.Background())
+}
+
+func (i LocationEFSTagArray) ToLocationEFSTagArrayOutputWithContext(ctx context.Context) LocationEFSTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationEFSTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LocationEFSTagOutput struct{ *pulumi.OutputState }
+
+func (LocationEFSTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationEFSTag)(nil)).Elem()
+}
+
+func (o LocationEFSTagOutput) ToLocationEFSTagOutput() LocationEFSTagOutput {
+	return o
+}
+
+func (o LocationEFSTagOutput) ToLocationEFSTagOutputWithContext(ctx context.Context) LocationEFSTagOutput {
+	return o
+}
+
+// The key for an AWS resource tag.
+func (o LocationEFSTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationEFSTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for an AWS resource tag.
+func (o LocationEFSTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationEFSTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LocationEFSTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LocationEFSTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationEFSTag)(nil)).Elem()
+}
+
+func (o LocationEFSTagArrayOutput) ToLocationEFSTagArrayOutput() LocationEFSTagArrayOutput {
+	return o
+}
+
+func (o LocationEFSTagArrayOutput) ToLocationEFSTagArrayOutputWithContext(ctx context.Context) LocationEFSTagArrayOutput {
+	return o
+}
+
+func (o LocationEFSTagArrayOutput) Index(i pulumi.IntInput) LocationEFSTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationEFSTag {
+		return vs[0].([]LocationEFSTag)[vs[1].(int)]
+	}).(LocationEFSTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LocationFSxWindowsTag struct {
+	// The key for an AWS resource tag.
+	Key string `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value string `pulumi:"value"`
+}
+
+// LocationFSxWindowsTagInput is an input type that accepts LocationFSxWindowsTagArgs and LocationFSxWindowsTagOutput values.
+// You can construct a concrete instance of `LocationFSxWindowsTagInput` via:
+//
+//          LocationFSxWindowsTagArgs{...}
+type LocationFSxWindowsTagInput interface {
+	pulumi.Input
+
+	ToLocationFSxWindowsTagOutput() LocationFSxWindowsTagOutput
+	ToLocationFSxWindowsTagOutputWithContext(context.Context) LocationFSxWindowsTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type LocationFSxWindowsTagArgs struct {
+	// The key for an AWS resource tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LocationFSxWindowsTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxWindowsTag)(nil)).Elem()
+}
+
+func (i LocationFSxWindowsTagArgs) ToLocationFSxWindowsTagOutput() LocationFSxWindowsTagOutput {
+	return i.ToLocationFSxWindowsTagOutputWithContext(context.Background())
+}
+
+func (i LocationFSxWindowsTagArgs) ToLocationFSxWindowsTagOutputWithContext(ctx context.Context) LocationFSxWindowsTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxWindowsTagOutput)
+}
+
+// LocationFSxWindowsTagArrayInput is an input type that accepts LocationFSxWindowsTagArray and LocationFSxWindowsTagArrayOutput values.
+// You can construct a concrete instance of `LocationFSxWindowsTagArrayInput` via:
+//
+//          LocationFSxWindowsTagArray{ LocationFSxWindowsTagArgs{...} }
+type LocationFSxWindowsTagArrayInput interface {
+	pulumi.Input
+
+	ToLocationFSxWindowsTagArrayOutput() LocationFSxWindowsTagArrayOutput
+	ToLocationFSxWindowsTagArrayOutputWithContext(context.Context) LocationFSxWindowsTagArrayOutput
+}
+
+type LocationFSxWindowsTagArray []LocationFSxWindowsTagInput
+
+func (LocationFSxWindowsTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationFSxWindowsTag)(nil)).Elem()
+}
+
+func (i LocationFSxWindowsTagArray) ToLocationFSxWindowsTagArrayOutput() LocationFSxWindowsTagArrayOutput {
+	return i.ToLocationFSxWindowsTagArrayOutputWithContext(context.Background())
+}
+
+func (i LocationFSxWindowsTagArray) ToLocationFSxWindowsTagArrayOutputWithContext(ctx context.Context) LocationFSxWindowsTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxWindowsTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LocationFSxWindowsTagOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxWindowsTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationFSxWindowsTag)(nil)).Elem()
+}
+
+func (o LocationFSxWindowsTagOutput) ToLocationFSxWindowsTagOutput() LocationFSxWindowsTagOutput {
+	return o
+}
+
+func (o LocationFSxWindowsTagOutput) ToLocationFSxWindowsTagOutputWithContext(ctx context.Context) LocationFSxWindowsTagOutput {
+	return o
+}
+
+// The key for an AWS resource tag.
+func (o LocationFSxWindowsTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationFSxWindowsTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for an AWS resource tag.
+func (o LocationFSxWindowsTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationFSxWindowsTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LocationFSxWindowsTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxWindowsTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationFSxWindowsTag)(nil)).Elem()
+}
+
+func (o LocationFSxWindowsTagArrayOutput) ToLocationFSxWindowsTagArrayOutput() LocationFSxWindowsTagArrayOutput {
+	return o
+}
+
+func (o LocationFSxWindowsTagArrayOutput) ToLocationFSxWindowsTagArrayOutputWithContext(ctx context.Context) LocationFSxWindowsTagArrayOutput {
+	return o
+}
+
+func (o LocationFSxWindowsTagArrayOutput) Index(i pulumi.IntInput) LocationFSxWindowsTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationFSxWindowsTag {
+		return vs[0].([]LocationFSxWindowsTag)[vs[1].(int)]
+	}).(LocationFSxWindowsTagOutput)
+}
+
+// The NFS mount options that DataSync can use to mount your NFS share.
 type LocationNFSMountOptions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-mountoptions.html#cfn-datasync-locationnfs-mountoptions-version
+	// The specific NFS version that you want DataSync to use to mount your NFS share.
 	Version *string `pulumi:"version"`
 }
 
@@ -186,9 +513,9 @@ type LocationNFSMountOptionsInput interface {
 	ToLocationNFSMountOptionsOutputWithContext(context.Context) LocationNFSMountOptionsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-mountoptions.html
+// The NFS mount options that DataSync can use to mount your NFS share.
 type LocationNFSMountOptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-mountoptions.html#cfn-datasync-locationnfs-mountoptions-version
+	// The specific NFS version that you want DataSync to use to mount your NFS share.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -245,7 +572,7 @@ func (i *locationNFSMountOptionsPtrType) ToLocationNFSMountOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LocationNFSMountOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-mountoptions.html
+// The NFS mount options that DataSync can use to mount your NFS share.
 type LocationNFSMountOptionsOutput struct{ *pulumi.OutputState }
 
 func (LocationNFSMountOptionsOutput) ElementType() reflect.Type {
@@ -270,7 +597,7 @@ func (o LocationNFSMountOptionsOutput) ToLocationNFSMountOptionsPtrOutputWithCon
 	}).(LocationNFSMountOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-mountoptions.html#cfn-datasync-locationnfs-mountoptions-version
+// The specific NFS version that you want DataSync to use to mount your NFS share.
 func (o LocationNFSMountOptionsOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationNFSMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -299,7 +626,7 @@ func (o LocationNFSMountOptionsPtrOutput) Elem() LocationNFSMountOptionsOutput {
 	}).(LocationNFSMountOptionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-mountoptions.html#cfn-datasync-locationnfs-mountoptions-version
+// The specific NFS version that you want DataSync to use to mount your NFS share.
 func (o LocationNFSMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationNFSMountOptions) *string {
 		if v == nil {
@@ -309,9 +636,9 @@ func (o LocationNFSMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html
+// Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect an NFS server.
 type LocationNFSOnPremConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html#cfn-datasync-locationnfs-onpremconfig-agentarns
+	// ARN(s) of the agent(s) to use for an NFS location.
 	AgentArns []string `pulumi:"agentArns"`
 }
 
@@ -326,9 +653,9 @@ type LocationNFSOnPremConfigInput interface {
 	ToLocationNFSOnPremConfigOutputWithContext(context.Context) LocationNFSOnPremConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html
+// Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect an NFS server.
 type LocationNFSOnPremConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html#cfn-datasync-locationnfs-onpremconfig-agentarns
+	// ARN(s) of the agent(s) to use for an NFS location.
 	AgentArns pulumi.StringArrayInput `pulumi:"agentArns"`
 }
 
@@ -385,7 +712,7 @@ func (i *locationNFSOnPremConfigPtrType) ToLocationNFSOnPremConfigPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LocationNFSOnPremConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html
+// Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect an NFS server.
 type LocationNFSOnPremConfigOutput struct{ *pulumi.OutputState }
 
 func (LocationNFSOnPremConfigOutput) ElementType() reflect.Type {
@@ -410,7 +737,7 @@ func (o LocationNFSOnPremConfigOutput) ToLocationNFSOnPremConfigPtrOutputWithCon
 	}).(LocationNFSOnPremConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html#cfn-datasync-locationnfs-onpremconfig-agentarns
+// ARN(s) of the agent(s) to use for an NFS location.
 func (o LocationNFSOnPremConfigOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LocationNFSOnPremConfig) []string { return v.AgentArns }).(pulumi.StringArrayOutput)
 }
@@ -439,7 +766,7 @@ func (o LocationNFSOnPremConfigPtrOutput) Elem() LocationNFSOnPremConfigOutput {
 	}).(LocationNFSOnPremConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html#cfn-datasync-locationnfs-onpremconfig-agentarns
+// ARN(s) of the agent(s) to use for an NFS location.
 func (o LocationNFSOnPremConfigPtrOutput) AgentArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocationNFSOnPremConfig) []string {
 		if v == nil {
@@ -449,9 +776,227 @@ func (o LocationNFSOnPremConfigPtrOutput) AgentArns() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html
+// A key-value pair to associate with a resource.
+type LocationNFSTag struct {
+	// The key for an AWS resource tag.
+	Key string `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value string `pulumi:"value"`
+}
+
+// LocationNFSTagInput is an input type that accepts LocationNFSTagArgs and LocationNFSTagOutput values.
+// You can construct a concrete instance of `LocationNFSTagInput` via:
+//
+//          LocationNFSTagArgs{...}
+type LocationNFSTagInput interface {
+	pulumi.Input
+
+	ToLocationNFSTagOutput() LocationNFSTagOutput
+	ToLocationNFSTagOutputWithContext(context.Context) LocationNFSTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type LocationNFSTagArgs struct {
+	// The key for an AWS resource tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LocationNFSTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationNFSTag)(nil)).Elem()
+}
+
+func (i LocationNFSTagArgs) ToLocationNFSTagOutput() LocationNFSTagOutput {
+	return i.ToLocationNFSTagOutputWithContext(context.Background())
+}
+
+func (i LocationNFSTagArgs) ToLocationNFSTagOutputWithContext(ctx context.Context) LocationNFSTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationNFSTagOutput)
+}
+
+// LocationNFSTagArrayInput is an input type that accepts LocationNFSTagArray and LocationNFSTagArrayOutput values.
+// You can construct a concrete instance of `LocationNFSTagArrayInput` via:
+//
+//          LocationNFSTagArray{ LocationNFSTagArgs{...} }
+type LocationNFSTagArrayInput interface {
+	pulumi.Input
+
+	ToLocationNFSTagArrayOutput() LocationNFSTagArrayOutput
+	ToLocationNFSTagArrayOutputWithContext(context.Context) LocationNFSTagArrayOutput
+}
+
+type LocationNFSTagArray []LocationNFSTagInput
+
+func (LocationNFSTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationNFSTag)(nil)).Elem()
+}
+
+func (i LocationNFSTagArray) ToLocationNFSTagArrayOutput() LocationNFSTagArrayOutput {
+	return i.ToLocationNFSTagArrayOutputWithContext(context.Background())
+}
+
+func (i LocationNFSTagArray) ToLocationNFSTagArrayOutputWithContext(ctx context.Context) LocationNFSTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationNFSTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LocationNFSTagOutput struct{ *pulumi.OutputState }
+
+func (LocationNFSTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationNFSTag)(nil)).Elem()
+}
+
+func (o LocationNFSTagOutput) ToLocationNFSTagOutput() LocationNFSTagOutput {
+	return o
+}
+
+func (o LocationNFSTagOutput) ToLocationNFSTagOutputWithContext(ctx context.Context) LocationNFSTagOutput {
+	return o
+}
+
+// The key for an AWS resource tag.
+func (o LocationNFSTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationNFSTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for an AWS resource tag.
+func (o LocationNFSTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationNFSTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LocationNFSTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LocationNFSTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationNFSTag)(nil)).Elem()
+}
+
+func (o LocationNFSTagArrayOutput) ToLocationNFSTagArrayOutput() LocationNFSTagArrayOutput {
+	return o
+}
+
+func (o LocationNFSTagArrayOutput) ToLocationNFSTagArrayOutputWithContext(ctx context.Context) LocationNFSTagArrayOutput {
+	return o
+}
+
+func (o LocationNFSTagArrayOutput) Index(i pulumi.IntInput) LocationNFSTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationNFSTag {
+		return vs[0].([]LocationNFSTag)[vs[1].(int)]
+	}).(LocationNFSTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LocationObjectStorageTag struct {
+	// The key for an AWS resource tag.
+	Key string `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value string `pulumi:"value"`
+}
+
+// LocationObjectStorageTagInput is an input type that accepts LocationObjectStorageTagArgs and LocationObjectStorageTagOutput values.
+// You can construct a concrete instance of `LocationObjectStorageTagInput` via:
+//
+//          LocationObjectStorageTagArgs{...}
+type LocationObjectStorageTagInput interface {
+	pulumi.Input
+
+	ToLocationObjectStorageTagOutput() LocationObjectStorageTagOutput
+	ToLocationObjectStorageTagOutputWithContext(context.Context) LocationObjectStorageTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type LocationObjectStorageTagArgs struct {
+	// The key for an AWS resource tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LocationObjectStorageTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationObjectStorageTag)(nil)).Elem()
+}
+
+func (i LocationObjectStorageTagArgs) ToLocationObjectStorageTagOutput() LocationObjectStorageTagOutput {
+	return i.ToLocationObjectStorageTagOutputWithContext(context.Background())
+}
+
+func (i LocationObjectStorageTagArgs) ToLocationObjectStorageTagOutputWithContext(ctx context.Context) LocationObjectStorageTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageTagOutput)
+}
+
+// LocationObjectStorageTagArrayInput is an input type that accepts LocationObjectStorageTagArray and LocationObjectStorageTagArrayOutput values.
+// You can construct a concrete instance of `LocationObjectStorageTagArrayInput` via:
+//
+//          LocationObjectStorageTagArray{ LocationObjectStorageTagArgs{...} }
+type LocationObjectStorageTagArrayInput interface {
+	pulumi.Input
+
+	ToLocationObjectStorageTagArrayOutput() LocationObjectStorageTagArrayOutput
+	ToLocationObjectStorageTagArrayOutputWithContext(context.Context) LocationObjectStorageTagArrayOutput
+}
+
+type LocationObjectStorageTagArray []LocationObjectStorageTagInput
+
+func (LocationObjectStorageTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationObjectStorageTag)(nil)).Elem()
+}
+
+func (i LocationObjectStorageTagArray) ToLocationObjectStorageTagArrayOutput() LocationObjectStorageTagArrayOutput {
+	return i.ToLocationObjectStorageTagArrayOutputWithContext(context.Background())
+}
+
+func (i LocationObjectStorageTagArray) ToLocationObjectStorageTagArrayOutputWithContext(ctx context.Context) LocationObjectStorageTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LocationObjectStorageTagOutput struct{ *pulumi.OutputState }
+
+func (LocationObjectStorageTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationObjectStorageTag)(nil)).Elem()
+}
+
+func (o LocationObjectStorageTagOutput) ToLocationObjectStorageTagOutput() LocationObjectStorageTagOutput {
+	return o
+}
+
+func (o LocationObjectStorageTagOutput) ToLocationObjectStorageTagOutputWithContext(ctx context.Context) LocationObjectStorageTagOutput {
+	return o
+}
+
+// The key for an AWS resource tag.
+func (o LocationObjectStorageTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationObjectStorageTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for an AWS resource tag.
+func (o LocationObjectStorageTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationObjectStorageTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LocationObjectStorageTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LocationObjectStorageTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationObjectStorageTag)(nil)).Elem()
+}
+
+func (o LocationObjectStorageTagArrayOutput) ToLocationObjectStorageTagArrayOutput() LocationObjectStorageTagArrayOutput {
+	return o
+}
+
+func (o LocationObjectStorageTagArrayOutput) ToLocationObjectStorageTagArrayOutputWithContext(ctx context.Context) LocationObjectStorageTagArrayOutput {
+	return o
+}
+
+func (o LocationObjectStorageTagArrayOutput) Index(i pulumi.IntInput) LocationObjectStorageTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationObjectStorageTag {
+		return vs[0].([]LocationObjectStorageTag)[vs[1].(int)]
+	}).(LocationObjectStorageTagOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
 type LocationS3S3Config struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html#cfn-datasync-locations3-s3config-bucketaccessrolearn
+	// The ARN of the IAM role of the Amazon S3 bucket.
 	BucketAccessRoleArn string `pulumi:"bucketAccessRoleArn"`
 }
 
@@ -466,9 +1011,9 @@ type LocationS3S3ConfigInput interface {
 	ToLocationS3S3ConfigOutputWithContext(context.Context) LocationS3S3ConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html
+// The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
 type LocationS3S3ConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html#cfn-datasync-locations3-s3config-bucketaccessrolearn
+	// The ARN of the IAM role of the Amazon S3 bucket.
 	BucketAccessRoleArn pulumi.StringInput `pulumi:"bucketAccessRoleArn"`
 }
 
@@ -525,7 +1070,7 @@ func (i *locationS3S3ConfigPtrType) ToLocationS3S3ConfigPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LocationS3S3ConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html
+// The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
 type LocationS3S3ConfigOutput struct{ *pulumi.OutputState }
 
 func (LocationS3S3ConfigOutput) ElementType() reflect.Type {
@@ -550,7 +1095,7 @@ func (o LocationS3S3ConfigOutput) ToLocationS3S3ConfigPtrOutputWithContext(ctx c
 	}).(LocationS3S3ConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html#cfn-datasync-locations3-s3config-bucketaccessrolearn
+// The ARN of the IAM role of the Amazon S3 bucket.
 func (o LocationS3S3ConfigOutput) BucketAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationS3S3Config) string { return v.BucketAccessRoleArn }).(pulumi.StringOutput)
 }
@@ -579,7 +1124,7 @@ func (o LocationS3S3ConfigPtrOutput) Elem() LocationS3S3ConfigOutput {
 	}).(LocationS3S3ConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html#cfn-datasync-locations3-s3config-bucketaccessrolearn
+// The ARN of the IAM role of the Amazon S3 bucket.
 func (o LocationS3S3ConfigPtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationS3S3Config) *string {
 		if v == nil {
@@ -589,9 +1134,118 @@ func (o LocationS3S3ConfigPtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html
+// A key-value pair to associate with a resource.
+type LocationS3Tag struct {
+	// The key for an AWS resource tag.
+	Key string `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value string `pulumi:"value"`
+}
+
+// LocationS3TagInput is an input type that accepts LocationS3TagArgs and LocationS3TagOutput values.
+// You can construct a concrete instance of `LocationS3TagInput` via:
+//
+//          LocationS3TagArgs{...}
+type LocationS3TagInput interface {
+	pulumi.Input
+
+	ToLocationS3TagOutput() LocationS3TagOutput
+	ToLocationS3TagOutputWithContext(context.Context) LocationS3TagOutput
+}
+
+// A key-value pair to associate with a resource.
+type LocationS3TagArgs struct {
+	// The key for an AWS resource tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LocationS3TagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationS3Tag)(nil)).Elem()
+}
+
+func (i LocationS3TagArgs) ToLocationS3TagOutput() LocationS3TagOutput {
+	return i.ToLocationS3TagOutputWithContext(context.Background())
+}
+
+func (i LocationS3TagArgs) ToLocationS3TagOutputWithContext(ctx context.Context) LocationS3TagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationS3TagOutput)
+}
+
+// LocationS3TagArrayInput is an input type that accepts LocationS3TagArray and LocationS3TagArrayOutput values.
+// You can construct a concrete instance of `LocationS3TagArrayInput` via:
+//
+//          LocationS3TagArray{ LocationS3TagArgs{...} }
+type LocationS3TagArrayInput interface {
+	pulumi.Input
+
+	ToLocationS3TagArrayOutput() LocationS3TagArrayOutput
+	ToLocationS3TagArrayOutputWithContext(context.Context) LocationS3TagArrayOutput
+}
+
+type LocationS3TagArray []LocationS3TagInput
+
+func (LocationS3TagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationS3Tag)(nil)).Elem()
+}
+
+func (i LocationS3TagArray) ToLocationS3TagArrayOutput() LocationS3TagArrayOutput {
+	return i.ToLocationS3TagArrayOutputWithContext(context.Background())
+}
+
+func (i LocationS3TagArray) ToLocationS3TagArrayOutputWithContext(ctx context.Context) LocationS3TagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationS3TagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LocationS3TagOutput struct{ *pulumi.OutputState }
+
+func (LocationS3TagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationS3Tag)(nil)).Elem()
+}
+
+func (o LocationS3TagOutput) ToLocationS3TagOutput() LocationS3TagOutput {
+	return o
+}
+
+func (o LocationS3TagOutput) ToLocationS3TagOutputWithContext(ctx context.Context) LocationS3TagOutput {
+	return o
+}
+
+// The key for an AWS resource tag.
+func (o LocationS3TagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationS3Tag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for an AWS resource tag.
+func (o LocationS3TagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationS3Tag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LocationS3TagArrayOutput struct{ *pulumi.OutputState }
+
+func (LocationS3TagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationS3Tag)(nil)).Elem()
+}
+
+func (o LocationS3TagArrayOutput) ToLocationS3TagArrayOutput() LocationS3TagArrayOutput {
+	return o
+}
+
+func (o LocationS3TagArrayOutput) ToLocationS3TagArrayOutputWithContext(ctx context.Context) LocationS3TagArrayOutput {
+	return o
+}
+
+func (o LocationS3TagArrayOutput) Index(i pulumi.IntInput) LocationS3TagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationS3Tag {
+		return vs[0].([]LocationS3Tag)[vs[1].(int)]
+	}).(LocationS3TagOutput)
+}
+
+// The mount options used by DataSync to access the SMB server.
 type LocationSMBMountOptions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html#cfn-datasync-locationsmb-mountoptions-version
+	// The specific SMB version that you want DataSync to use to mount your SMB share.
 	Version *string `pulumi:"version"`
 }
 
@@ -606,9 +1260,9 @@ type LocationSMBMountOptionsInput interface {
 	ToLocationSMBMountOptionsOutputWithContext(context.Context) LocationSMBMountOptionsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html
+// The mount options used by DataSync to access the SMB server.
 type LocationSMBMountOptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html#cfn-datasync-locationsmb-mountoptions-version
+	// The specific SMB version that you want DataSync to use to mount your SMB share.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -665,7 +1319,7 @@ func (i *locationSMBMountOptionsPtrType) ToLocationSMBMountOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LocationSMBMountOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html
+// The mount options used by DataSync to access the SMB server.
 type LocationSMBMountOptionsOutput struct{ *pulumi.OutputState }
 
 func (LocationSMBMountOptionsOutput) ElementType() reflect.Type {
@@ -690,7 +1344,7 @@ func (o LocationSMBMountOptionsOutput) ToLocationSMBMountOptionsPtrOutputWithCon
 	}).(LocationSMBMountOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html#cfn-datasync-locationsmb-mountoptions-version
+// The specific SMB version that you want DataSync to use to mount your SMB share.
 func (o LocationSMBMountOptionsOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationSMBMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -719,7 +1373,7 @@ func (o LocationSMBMountOptionsPtrOutput) Elem() LocationSMBMountOptionsOutput {
 	}).(LocationSMBMountOptionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html#cfn-datasync-locationsmb-mountoptions-version
+// The specific SMB version that you want DataSync to use to mount your SMB share.
 func (o LocationSMBMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationSMBMountOptions) *string {
 		if v == nil {
@@ -729,11 +1383,120 @@ func (o LocationSMBMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html
+// A key-value pair to associate with a resource.
+type LocationSMBTag struct {
+	// The key for an AWS resource tag.
+	Key string `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value string `pulumi:"value"`
+}
+
+// LocationSMBTagInput is an input type that accepts LocationSMBTagArgs and LocationSMBTagOutput values.
+// You can construct a concrete instance of `LocationSMBTagInput` via:
+//
+//          LocationSMBTagArgs{...}
+type LocationSMBTagInput interface {
+	pulumi.Input
+
+	ToLocationSMBTagOutput() LocationSMBTagOutput
+	ToLocationSMBTagOutputWithContext(context.Context) LocationSMBTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type LocationSMBTagArgs struct {
+	// The key for an AWS resource tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LocationSMBTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationSMBTag)(nil)).Elem()
+}
+
+func (i LocationSMBTagArgs) ToLocationSMBTagOutput() LocationSMBTagOutput {
+	return i.ToLocationSMBTagOutputWithContext(context.Background())
+}
+
+func (i LocationSMBTagArgs) ToLocationSMBTagOutputWithContext(ctx context.Context) LocationSMBTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationSMBTagOutput)
+}
+
+// LocationSMBTagArrayInput is an input type that accepts LocationSMBTagArray and LocationSMBTagArrayOutput values.
+// You can construct a concrete instance of `LocationSMBTagArrayInput` via:
+//
+//          LocationSMBTagArray{ LocationSMBTagArgs{...} }
+type LocationSMBTagArrayInput interface {
+	pulumi.Input
+
+	ToLocationSMBTagArrayOutput() LocationSMBTagArrayOutput
+	ToLocationSMBTagArrayOutputWithContext(context.Context) LocationSMBTagArrayOutput
+}
+
+type LocationSMBTagArray []LocationSMBTagInput
+
+func (LocationSMBTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationSMBTag)(nil)).Elem()
+}
+
+func (i LocationSMBTagArray) ToLocationSMBTagArrayOutput() LocationSMBTagArrayOutput {
+	return i.ToLocationSMBTagArrayOutputWithContext(context.Background())
+}
+
+func (i LocationSMBTagArray) ToLocationSMBTagArrayOutputWithContext(ctx context.Context) LocationSMBTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationSMBTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type LocationSMBTagOutput struct{ *pulumi.OutputState }
+
+func (LocationSMBTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationSMBTag)(nil)).Elem()
+}
+
+func (o LocationSMBTagOutput) ToLocationSMBTagOutput() LocationSMBTagOutput {
+	return o
+}
+
+func (o LocationSMBTagOutput) ToLocationSMBTagOutputWithContext(ctx context.Context) LocationSMBTagOutput {
+	return o
+}
+
+// The key for an AWS resource tag.
+func (o LocationSMBTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationSMBTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for an AWS resource tag.
+func (o LocationSMBTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationSMBTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LocationSMBTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LocationSMBTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LocationSMBTag)(nil)).Elem()
+}
+
+func (o LocationSMBTagArrayOutput) ToLocationSMBTagArrayOutput() LocationSMBTagArrayOutput {
+	return o
+}
+
+func (o LocationSMBTagArrayOutput) ToLocationSMBTagArrayOutputWithContext(ctx context.Context) LocationSMBTagArrayOutput {
+	return o
+}
+
+func (o LocationSMBTagArrayOutput) Index(i pulumi.IntInput) LocationSMBTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LocationSMBTag {
+		return vs[0].([]LocationSMBTag)[vs[1].(int)]
+	}).(LocationSMBTagOutput)
+}
+
+// Specifies which files folders and objects to include or exclude when transferring files from source to destination.
 type TaskFilterRule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-filtertype
+	// The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
 	FilterType *string `pulumi:"filterType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-value
+	// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|".
 	Value *string `pulumi:"value"`
 }
 
@@ -748,11 +1511,11 @@ type TaskFilterRuleInput interface {
 	ToTaskFilterRuleOutputWithContext(context.Context) TaskFilterRuleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html
+// Specifies which files folders and objects to include or exclude when transferring files from source to destination.
 type TaskFilterRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-filtertype
+	// The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
 	FilterType pulumi.StringPtrInput `pulumi:"filterType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-value
+	// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|".
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -793,7 +1556,7 @@ func (i TaskFilterRuleArray) ToTaskFilterRuleArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TaskFilterRuleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html
+// Specifies which files folders and objects to include or exclude when transferring files from source to destination.
 type TaskFilterRuleOutput struct{ *pulumi.OutputState }
 
 func (TaskFilterRuleOutput) ElementType() reflect.Type {
@@ -808,12 +1571,12 @@ func (o TaskFilterRuleOutput) ToTaskFilterRuleOutputWithContext(ctx context.Cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-filtertype
+// The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
 func (o TaskFilterRuleOutput) FilterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskFilterRule) *string { return v.FilterType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html#cfn-datasync-task-filterrule-value
+// A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|".
 func (o TaskFilterRuleOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskFilterRule) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -838,35 +1601,35 @@ func (o TaskFilterRuleArrayOutput) Index(i pulumi.IntInput) TaskFilterRuleOutput
 	}).(TaskFilterRuleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html
+// Represents the options that are available to control the behavior of a StartTaskExecution operation.
 type TaskOptions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-atime
+	// A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
 	Atime *string `pulumi:"atime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-bytespersecond
+	// A value that limits the bandwidth used by AWS DataSync.
 	BytesPerSecond *int `pulumi:"bytesPerSecond"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-gid
+	// The group ID (GID) of the file's owners.
 	Gid *string `pulumi:"gid"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-loglevel
+	// A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
 	LogLevel *string `pulumi:"logLevel"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-mtime
+	// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
 	Mtime *string `pulumi:"mtime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-overwritemode
+	// A value that determines whether files at the destination should be overwritten or preserved when copying files.
 	OverwriteMode *string `pulumi:"overwriteMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-posixpermissions
+	// A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
 	PosixPermissions *string `pulumi:"posixPermissions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedeletedfiles
+	// A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
 	PreserveDeletedFiles *string `pulumi:"preserveDeletedFiles"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedevices
+	// A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
 	PreserveDevices *string `pulumi:"preserveDevices"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-securitydescriptorcopyflags
+	// A value that determines which components of the SMB security descriptor are copied during transfer.
 	SecurityDescriptorCopyFlags *string `pulumi:"securityDescriptorCopyFlags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-taskqueueing
+	// A value that determines whether tasks should be queued before executing the tasks.
 	TaskQueueing *string `pulumi:"taskQueueing"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-transfermode
+	// A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
 	TransferMode *string `pulumi:"transferMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-uid
+	// The user ID (UID) of the file's owner.
 	Uid *string `pulumi:"uid"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-verifymode
+	// A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
 	VerifyMode *string `pulumi:"verifyMode"`
 }
 
@@ -881,35 +1644,35 @@ type TaskOptionsInput interface {
 	ToTaskOptionsOutputWithContext(context.Context) TaskOptionsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html
+// Represents the options that are available to control the behavior of a StartTaskExecution operation.
 type TaskOptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-atime
+	// A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
 	Atime pulumi.StringPtrInput `pulumi:"atime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-bytespersecond
+	// A value that limits the bandwidth used by AWS DataSync.
 	BytesPerSecond pulumi.IntPtrInput `pulumi:"bytesPerSecond"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-gid
+	// The group ID (GID) of the file's owners.
 	Gid pulumi.StringPtrInput `pulumi:"gid"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-loglevel
+	// A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
 	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-mtime
+	// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
 	Mtime pulumi.StringPtrInput `pulumi:"mtime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-overwritemode
+	// A value that determines whether files at the destination should be overwritten or preserved when copying files.
 	OverwriteMode pulumi.StringPtrInput `pulumi:"overwriteMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-posixpermissions
+	// A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
 	PosixPermissions pulumi.StringPtrInput `pulumi:"posixPermissions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedeletedfiles
+	// A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
 	PreserveDeletedFiles pulumi.StringPtrInput `pulumi:"preserveDeletedFiles"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedevices
+	// A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
 	PreserveDevices pulumi.StringPtrInput `pulumi:"preserveDevices"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-securitydescriptorcopyflags
+	// A value that determines which components of the SMB security descriptor are copied during transfer.
 	SecurityDescriptorCopyFlags pulumi.StringPtrInput `pulumi:"securityDescriptorCopyFlags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-taskqueueing
+	// A value that determines whether tasks should be queued before executing the tasks.
 	TaskQueueing pulumi.StringPtrInput `pulumi:"taskQueueing"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-transfermode
+	// A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
 	TransferMode pulumi.StringPtrInput `pulumi:"transferMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-uid
+	// The user ID (UID) of the file's owner.
 	Uid pulumi.StringPtrInput `pulumi:"uid"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-verifymode
+	// A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
 	VerifyMode pulumi.StringPtrInput `pulumi:"verifyMode"`
 }
 
@@ -966,7 +1729,7 @@ func (i *taskOptionsPtrType) ToTaskOptionsPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(TaskOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html
+// Represents the options that are available to control the behavior of a StartTaskExecution operation.
 type TaskOptionsOutput struct{ *pulumi.OutputState }
 
 func (TaskOptionsOutput) ElementType() reflect.Type {
@@ -991,72 +1754,72 @@ func (o TaskOptionsOutput) ToTaskOptionsPtrOutputWithContext(ctx context.Context
 	}).(TaskOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-atime
+// A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
 func (o TaskOptionsOutput) Atime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.Atime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-bytespersecond
+// A value that limits the bandwidth used by AWS DataSync.
 func (o TaskOptionsOutput) BytesPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *int { return v.BytesPerSecond }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-gid
+// The group ID (GID) of the file's owners.
 func (o TaskOptionsOutput) Gid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.Gid }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-loglevel
+// A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
 func (o TaskOptionsOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-mtime
+// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
 func (o TaskOptionsOutput) Mtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.Mtime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-overwritemode
+// A value that determines whether files at the destination should be overwritten or preserved when copying files.
 func (o TaskOptionsOutput) OverwriteMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.OverwriteMode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-posixpermissions
+// A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
 func (o TaskOptionsOutput) PosixPermissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.PosixPermissions }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedeletedfiles
+// A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
 func (o TaskOptionsOutput) PreserveDeletedFiles() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.PreserveDeletedFiles }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedevices
+// A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
 func (o TaskOptionsOutput) PreserveDevices() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.PreserveDevices }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-securitydescriptorcopyflags
+// A value that determines which components of the SMB security descriptor are copied during transfer.
 func (o TaskOptionsOutput) SecurityDescriptorCopyFlags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.SecurityDescriptorCopyFlags }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-taskqueueing
+// A value that determines whether tasks should be queued before executing the tasks.
 func (o TaskOptionsOutput) TaskQueueing() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.TaskQueueing }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-transfermode
+// A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
 func (o TaskOptionsOutput) TransferMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.TransferMode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-uid
+// The user ID (UID) of the file's owner.
 func (o TaskOptionsOutput) Uid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.Uid }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-verifymode
+// A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
 func (o TaskOptionsOutput) VerifyMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *string { return v.VerifyMode }).(pulumi.StringPtrOutput)
 }
@@ -1085,7 +1848,7 @@ func (o TaskOptionsPtrOutput) Elem() TaskOptionsOutput {
 	}).(TaskOptionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-atime
+// A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
 func (o TaskOptionsPtrOutput) Atime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -1095,7 +1858,7 @@ func (o TaskOptionsPtrOutput) Atime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-bytespersecond
+// A value that limits the bandwidth used by AWS DataSync.
 func (o TaskOptionsPtrOutput) BytesPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *int {
 		if v == nil {
@@ -1105,7 +1868,7 @@ func (o TaskOptionsPtrOutput) BytesPerSecond() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-gid
+// The group ID (GID) of the file's owners.
 func (o TaskOptionsPtrOutput) Gid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -1115,7 +1878,7 @@ func (o TaskOptionsPtrOutput) Gid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-loglevel
+// A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
 func (o TaskOptionsPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -1125,7 +1888,7 @@ func (o TaskOptionsPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-mtime
+// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
 func (o TaskOptionsPtrOutput) Mtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -1135,7 +1898,7 @@ func (o TaskOptionsPtrOutput) Mtime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-overwritemode
+// A value that determines whether files at the destination should be overwritten or preserved when copying files.
 func (o TaskOptionsPtrOutput) OverwriteMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -1145,7 +1908,7 @@ func (o TaskOptionsPtrOutput) OverwriteMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-posixpermissions
+// A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
 func (o TaskOptionsPtrOutput) PosixPermissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -1155,7 +1918,7 @@ func (o TaskOptionsPtrOutput) PosixPermissions() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedeletedfiles
+// A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
 func (o TaskOptionsPtrOutput) PreserveDeletedFiles() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -1165,7 +1928,7 @@ func (o TaskOptionsPtrOutput) PreserveDeletedFiles() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedevices
+// A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
 func (o TaskOptionsPtrOutput) PreserveDevices() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -1175,7 +1938,7 @@ func (o TaskOptionsPtrOutput) PreserveDevices() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-securitydescriptorcopyflags
+// A value that determines which components of the SMB security descriptor are copied during transfer.
 func (o TaskOptionsPtrOutput) SecurityDescriptorCopyFlags() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -1185,7 +1948,7 @@ func (o TaskOptionsPtrOutput) SecurityDescriptorCopyFlags() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-taskqueueing
+// A value that determines whether tasks should be queued before executing the tasks.
 func (o TaskOptionsPtrOutput) TaskQueueing() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -1195,7 +1958,7 @@ func (o TaskOptionsPtrOutput) TaskQueueing() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-transfermode
+// A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
 func (o TaskOptionsPtrOutput) TransferMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -1205,7 +1968,7 @@ func (o TaskOptionsPtrOutput) TransferMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-uid
+// The user ID (UID) of the file's owner.
 func (o TaskOptionsPtrOutput) Uid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -1215,7 +1978,7 @@ func (o TaskOptionsPtrOutput) Uid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-verifymode
+// A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
 func (o TaskOptionsPtrOutput) VerifyMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskOptions) *string {
 		if v == nil {
@@ -1225,9 +1988,118 @@ func (o TaskOptionsPtrOutput) VerifyMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html
+// A key-value pair to associate with a resource.
+type TaskTag struct {
+	// The key for an AWS resource tag.
+	Key string `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value string `pulumi:"value"`
+}
+
+// TaskTagInput is an input type that accepts TaskTagArgs and TaskTagOutput values.
+// You can construct a concrete instance of `TaskTagInput` via:
+//
+//          TaskTagArgs{...}
+type TaskTagInput interface {
+	pulumi.Input
+
+	ToTaskTagOutput() TaskTagOutput
+	ToTaskTagOutputWithContext(context.Context) TaskTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type TaskTagArgs struct {
+	// The key for an AWS resource tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for an AWS resource tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TaskTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTag)(nil)).Elem()
+}
+
+func (i TaskTagArgs) ToTaskTagOutput() TaskTagOutput {
+	return i.ToTaskTagOutputWithContext(context.Background())
+}
+
+func (i TaskTagArgs) ToTaskTagOutputWithContext(ctx context.Context) TaskTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTagOutput)
+}
+
+// TaskTagArrayInput is an input type that accepts TaskTagArray and TaskTagArrayOutput values.
+// You can construct a concrete instance of `TaskTagArrayInput` via:
+//
+//          TaskTagArray{ TaskTagArgs{...} }
+type TaskTagArrayInput interface {
+	pulumi.Input
+
+	ToTaskTagArrayOutput() TaskTagArrayOutput
+	ToTaskTagArrayOutputWithContext(context.Context) TaskTagArrayOutput
+}
+
+type TaskTagArray []TaskTagInput
+
+func (TaskTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskTag)(nil)).Elem()
+}
+
+func (i TaskTagArray) ToTaskTagArrayOutput() TaskTagArrayOutput {
+	return i.ToTaskTagArrayOutputWithContext(context.Background())
+}
+
+func (i TaskTagArray) ToTaskTagArrayOutputWithContext(ctx context.Context) TaskTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type TaskTagOutput struct{ *pulumi.OutputState }
+
+func (TaskTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTag)(nil)).Elem()
+}
+
+func (o TaskTagOutput) ToTaskTagOutput() TaskTagOutput {
+	return o
+}
+
+func (o TaskTagOutput) ToTaskTagOutputWithContext(ctx context.Context) TaskTagOutput {
+	return o
+}
+
+// The key for an AWS resource tag.
+func (o TaskTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for an AWS resource tag.
+func (o TaskTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TaskTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskTag)(nil)).Elem()
+}
+
+func (o TaskTagArrayOutput) ToTaskTagArrayOutput() TaskTagArrayOutput {
+	return o
+}
+
+func (o TaskTagArrayOutput) ToTaskTagArrayOutputWithContext(ctx context.Context) TaskTagArrayOutput {
+	return o
+}
+
+func (o TaskTagArrayOutput) Index(i pulumi.IntInput) TaskTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskTag {
+		return vs[0].([]TaskTag)[vs[1].(int)]
+	}).(TaskTagOutput)
+}
+
+// Specifies the schedule you want your task to use for repeated executions.
 type TaskTaskSchedule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html#cfn-datasync-task-taskschedule-scheduleexpression
+	// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
 	ScheduleExpression string `pulumi:"scheduleExpression"`
 }
 
@@ -1242,9 +2114,9 @@ type TaskTaskScheduleInput interface {
 	ToTaskTaskScheduleOutputWithContext(context.Context) TaskTaskScheduleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html
+// Specifies the schedule you want your task to use for repeated executions.
 type TaskTaskScheduleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html#cfn-datasync-task-taskschedule-scheduleexpression
+	// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
 }
 
@@ -1301,7 +2173,7 @@ func (i *taskTaskSchedulePtrType) ToTaskTaskSchedulePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskSchedulePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html
+// Specifies the schedule you want your task to use for repeated executions.
 type TaskTaskScheduleOutput struct{ *pulumi.OutputState }
 
 func (TaskTaskScheduleOutput) ElementType() reflect.Type {
@@ -1326,7 +2198,7 @@ func (o TaskTaskScheduleOutput) ToTaskTaskSchedulePtrOutputWithContext(ctx conte
 	}).(TaskTaskSchedulePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html#cfn-datasync-task-taskschedule-scheduleexpression
+// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
 func (o TaskTaskScheduleOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskTaskSchedule) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
@@ -1355,7 +2227,7 @@ func (o TaskTaskSchedulePtrOutput) Elem() TaskTaskScheduleOutput {
 	}).(TaskTaskScheduleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html#cfn-datasync-task-taskschedule-scheduleexpression
+// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
 func (o TaskTaskSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTaskSchedule) *string {
 		if v == nil {
@@ -1366,20 +2238,36 @@ func (o TaskTaskSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AgentTagOutput{})
+	pulumi.RegisterOutputType(AgentTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationEFSEc2ConfigOutput{})
 	pulumi.RegisterOutputType(LocationEFSEc2ConfigPtrOutput{})
+	pulumi.RegisterOutputType(LocationEFSTagOutput{})
+	pulumi.RegisterOutputType(LocationEFSTagArrayOutput{})
+	pulumi.RegisterOutputType(LocationFSxWindowsTagOutput{})
+	pulumi.RegisterOutputType(LocationFSxWindowsTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationNFSMountOptionsOutput{})
 	pulumi.RegisterOutputType(LocationNFSMountOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LocationNFSOnPremConfigOutput{})
 	pulumi.RegisterOutputType(LocationNFSOnPremConfigPtrOutput{})
+	pulumi.RegisterOutputType(LocationNFSTagOutput{})
+	pulumi.RegisterOutputType(LocationNFSTagArrayOutput{})
+	pulumi.RegisterOutputType(LocationObjectStorageTagOutput{})
+	pulumi.RegisterOutputType(LocationObjectStorageTagArrayOutput{})
 	pulumi.RegisterOutputType(LocationS3S3ConfigOutput{})
 	pulumi.RegisterOutputType(LocationS3S3ConfigPtrOutput{})
+	pulumi.RegisterOutputType(LocationS3TagOutput{})
+	pulumi.RegisterOutputType(LocationS3TagArrayOutput{})
 	pulumi.RegisterOutputType(LocationSMBMountOptionsOutput{})
 	pulumi.RegisterOutputType(LocationSMBMountOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LocationSMBTagOutput{})
+	pulumi.RegisterOutputType(LocationSMBTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskFilterRuleOutput{})
 	pulumi.RegisterOutputType(TaskFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(TaskOptionsOutput{})
 	pulumi.RegisterOutputType(TaskOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TaskTagOutput{})
+	pulumi.RegisterOutputType(TaskTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskTaskScheduleOutput{})
 	pulumi.RegisterOutputType(TaskTaskSchedulePtrOutput{})
 }

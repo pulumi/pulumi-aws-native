@@ -17,8 +17,8 @@ class ResourcePolicyArgs:
                  policy_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a ResourcePolicy resource.
-        :param pulumi.Input[str] policy_document: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policydocument
-        :param pulumi.Input[str] policy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policyname
+        :param pulumi.Input[str] policy_document: The policy document
+        :param pulumi.Input[str] policy_name: A name for resource policy
         """
         pulumi.set(__self__, "policy_document", policy_document)
         pulumi.set(__self__, "policy_name", policy_name)
@@ -27,7 +27,7 @@ class ResourcePolicyArgs:
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policydocument
+        The policy document
         """
         return pulumi.get(self, "policy_document")
 
@@ -39,7 +39,7 @@ class ResourcePolicyArgs:
     @pulumi.getter(name="policyName")
     def policy_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policyname
+        A name for resource policy
         """
         return pulumi.get(self, "policy_name")
 
@@ -57,12 +57,12 @@ class ResourcePolicy(pulumi.CustomResource):
                  policy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html
+        The resource schema for AWSLogs ResourcePolicy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy_document: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policydocument
-        :param pulumi.Input[str] policy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policyname
+        :param pulumi.Input[str] policy_document: The policy document
+        :param pulumi.Input[str] policy_name: A name for resource policy
         """
         ...
     @overload
@@ -71,7 +71,7 @@ class ResourcePolicy(pulumi.CustomResource):
                  args: ResourcePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html
+        The resource schema for AWSLogs ResourcePolicy
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.
@@ -138,7 +138,7 @@ class ResourcePolicy(pulumi.CustomResource):
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policydocument
+        The policy document
         """
         return pulumi.get(self, "policy_document")
 
@@ -146,7 +146,7 @@ class ResourcePolicy(pulumi.CustomResource):
     @pulumi.getter(name="policyName")
     def policy_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policyname
+        A name for resource policy
         """
         return pulumi.get(self, "policy_name")
 

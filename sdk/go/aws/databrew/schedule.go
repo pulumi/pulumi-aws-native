@@ -8,22 +8,19 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html
+// Resource schema for AWS::DataBrew::Schedule.
 type Schedule struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-cronexpression
-	CronExpression pulumi.StringOutput `pulumi:"cronExpression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-jobnames
-	JobNames pulumi.StringArrayOutput `pulumi:"jobNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Schedule cron
+	CronExpression pulumi.StringOutput      `pulumi:"cronExpression"`
+	JobNames       pulumi.StringArrayOutput `pulumi:"jobNames"`
+	// Schedule Name
+	Name pulumi.StringOutput    `pulumi:"name"`
+	Tags ScheduleTagArrayOutput `pulumi:"tags"`
 }
 
 // NewSchedule registers a new resource with the given unique name, arguments, and options.
@@ -71,26 +68,22 @@ func (ScheduleState) ElementType() reflect.Type {
 }
 
 type scheduleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-cronexpression
-	CronExpression string `pulumi:"cronExpression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-jobnames
-	JobNames []string `pulumi:"jobNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// Schedule cron
+	CronExpression string   `pulumi:"cronExpression"`
+	JobNames       []string `pulumi:"jobNames"`
+	// Schedule Name
+	Name string        `pulumi:"name"`
+	Tags []ScheduleTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Schedule resource.
 type ScheduleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-cronexpression
+	// Schedule cron
 	CronExpression pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-jobnames
-	JobNames pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-name
+	JobNames       pulumi.StringArrayInput
+	// Schedule Name
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-tags
-	Tags aws.TagArrayInput
+	Tags ScheduleTagArrayInput
 }
 
 func (ScheduleArgs) ElementType() reflect.Type {

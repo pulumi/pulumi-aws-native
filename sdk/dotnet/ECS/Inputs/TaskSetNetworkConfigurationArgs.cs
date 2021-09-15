@@ -11,13 +11,10 @@ namespace Pulumi.AwsNative.ECS.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html
+    /// An object representing the network configuration for a task or service.
     /// </summary>
     public sealed class TaskSetNetworkConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html#cfn-ecs-taskset-networkconfiguration-awsvpcconfiguration
-        /// </summary>
         [Input("awsVpcConfiguration")]
         public Input<Inputs.TaskSetAwsVpcConfigurationArgs>? AwsVpcConfiguration { get; set; }
 

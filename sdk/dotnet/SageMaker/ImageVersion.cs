@@ -10,14 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html
+    /// Resource Type definition for AWS::SageMaker::ImageVersion
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:ImageVersion")]
     public partial class ImageVersion : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-baseimage
-        /// </summary>
         [Output("baseImage")]
         public Output<string> BaseImage { get; private set; } = null!;
 
@@ -27,9 +24,6 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("imageArn")]
         public Output<string> ImageArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-imagename
-        /// </summary>
         [Output("imageName")]
         public Output<string> ImageName { get; private set; } = null!;
 
@@ -84,15 +78,9 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class ImageVersionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-baseimage
-        /// </summary>
         [Input("baseImage", required: true)]
         public Input<string> BaseImage { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-imagename
-        /// </summary>
         [Input("imageName", required: true)]
         public Input<string> ImageName { get; set; } = null!;
 

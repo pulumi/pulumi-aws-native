@@ -10,103 +10,93 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html
+    /// Definition of the AWS::QuickSight::DataSet Resource Type.
     /// </summary>
     [AwsNativeResourceType("aws-native:quicksight:DataSet")]
     public partial class DataSet : Pulumi.CustomResource
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the resource.&lt;/p&gt;
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-awsaccountid
-        /// </summary>
         [Output("awsAccountId")]
         public Output<string?> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columngroups
+        /// &lt;p&gt;Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.&lt;/p&gt;
         /// </summary>
         [Output("columnGroups")]
         public Output<ImmutableArray<Outputs.DataSetColumnGroup>> ColumnGroups { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
-        /// </summary>
         [Output("columnLevelPermissionRules")]
         public Output<ImmutableArray<Outputs.DataSetColumnLevelPermissionRule>> ColumnLevelPermissionRules { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
+        ///             imported into SPICE.&lt;/p&gt;
+        /// </summary>
         [Output("consumedSpiceCapacityInBytes")]
         public Output<double> ConsumedSpiceCapacityInBytes { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The time that this dataset was created.&lt;/p&gt;
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
-        /// </summary>
         [Output("dataSetId")]
         public Output<string?> DataSetId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
-        /// </summary>
         [Output("fieldFolders")]
-        public Output<ImmutableDictionary<string, Outputs.DataSetFieldFolder>?> FieldFolders { get; private set; } = null!;
+        public Output<Outputs.DataSetFieldFolderMap?> FieldFolders { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-importmode
-        /// </summary>
         [Output("importMode")]
         public Output<string?> ImportMode { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-ingestionwaitpolicy
-        /// </summary>
         [Output("ingestionWaitPolicy")]
         public Output<Outputs.DataSetIngestionWaitPolicy?> IngestionWaitPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The last time that this dataset was updated.&lt;/p&gt;
+        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
-        /// </summary>
         [Output("logicalTableMap")]
-        public Output<ImmutableDictionary<string, Outputs.DataSetLogicalTable>?> LogicalTableMap { get; private set; } = null!;
+        public Output<Outputs.DataSetLogicalTableMap?> LogicalTableMap { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
+        /// &lt;p&gt;The display name for the dataset.&lt;/p&gt;
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The list of columns after all transforms. These columns are available in templates,
+        ///             analyses, and dashboards.&lt;/p&gt;
+        /// </summary>
         [Output("outputColumns")]
         public Output<ImmutableArray<Outputs.DataSetOutputColumn>> OutputColumns { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
+        /// &lt;p&gt;A list of resource permissions on the dataset.&lt;/p&gt;
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.DataSetResourcePermission>> Permissions { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap
-        /// </summary>
         [Output("physicalTableMap")]
-        public Output<ImmutableDictionary<string, Outputs.DataSetPhysicalTable>?> PhysicalTableMap { get; private set; } = null!;
+        public Output<Outputs.DataSetPhysicalTableMap?> PhysicalTableMap { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
-        /// </summary>
         [Output("rowLevelPermissionDataSet")]
         public Output<Outputs.DataSetRowLevelPermissionDataSet?> RowLevelPermissionDataSet { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
+        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.&lt;/p&gt;
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DataSetTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -153,9 +143,6 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class DataSetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-awsaccountid
-        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -163,7 +150,7 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<Inputs.DataSetColumnGroupArgs>? _columnGroups;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columngroups
+        /// &lt;p&gt;Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.DataSetColumnGroupArgs> ColumnGroups
         {
@@ -173,60 +160,29 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("columnLevelPermissionRules")]
         private InputList<Inputs.DataSetColumnLevelPermissionRuleArgs>? _columnLevelPermissionRules;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
-        /// </summary>
         public InputList<Inputs.DataSetColumnLevelPermissionRuleArgs> ColumnLevelPermissionRules
         {
             get => _columnLevelPermissionRules ?? (_columnLevelPermissionRules = new InputList<Inputs.DataSetColumnLevelPermissionRuleArgs>());
             set => _columnLevelPermissionRules = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
-        /// </summary>
         [Input("dataSetId")]
         public Input<string>? DataSetId { get; set; }
 
         [Input("fieldFolders")]
-        private InputMap<Inputs.DataSetFieldFolderArgs>? _fieldFolders;
+        public Input<Inputs.DataSetFieldFolderMapArgs>? FieldFolders { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
-        /// </summary>
-        public InputMap<Inputs.DataSetFieldFolderArgs> FieldFolders
-        {
-            get => _fieldFolders ?? (_fieldFolders = new InputMap<Inputs.DataSetFieldFolderArgs>());
-            set => _fieldFolders = value;
-        }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-importmode
-        /// </summary>
         [Input("importMode")]
         public Input<string>? ImportMode { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-ingestionwaitpolicy
-        /// </summary>
         [Input("ingestionWaitPolicy")]
         public Input<Inputs.DataSetIngestionWaitPolicyArgs>? IngestionWaitPolicy { get; set; }
 
         [Input("logicalTableMap")]
-        private InputMap<Inputs.DataSetLogicalTableArgs>? _logicalTableMap;
+        public Input<Inputs.DataSetLogicalTableMapArgs>? LogicalTableMap { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
-        /// </summary>
-        public InputMap<Inputs.DataSetLogicalTableArgs> LogicalTableMap
-        {
-            get => _logicalTableMap ?? (_logicalTableMap = new InputMap<Inputs.DataSetLogicalTableArgs>());
-            set => _logicalTableMap = value;
-        }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
+        /// &lt;p&gt;The display name for the dataset.&lt;/p&gt;
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -235,7 +191,7 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<Inputs.DataSetResourcePermissionArgs>? _permissions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
+        /// &lt;p&gt;A list of resource permissions on the dataset.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.DataSetResourcePermissionArgs> Permissions
         {
@@ -244,32 +200,20 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         [Input("physicalTableMap")]
-        private InputMap<Inputs.DataSetPhysicalTableArgs>? _physicalTableMap;
+        public Input<Inputs.DataSetPhysicalTableMapArgs>? PhysicalTableMap { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap
-        /// </summary>
-        public InputMap<Inputs.DataSetPhysicalTableArgs> PhysicalTableMap
-        {
-            get => _physicalTableMap ?? (_physicalTableMap = new InputMap<Inputs.DataSetPhysicalTableArgs>());
-            set => _physicalTableMap = value;
-        }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
-        /// </summary>
         [Input("rowLevelPermissionDataSet")]
         public Input<Inputs.DataSetRowLevelPermissionDataSetArgs>? RowLevelPermissionDataSet { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.DataSetTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
+        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.&lt;/p&gt;
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.DataSetTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.DataSetTagArgs>());
             set => _tags = value;
         }
 

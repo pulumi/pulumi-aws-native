@@ -11,24 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html
+// Resource schema for AWS::NimbleStudio::StreamingImage.
 type StreamingImage struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-ec2imageid
-	Ec2ImageId pulumi.StringOutput      `pulumi:"ec2ImageId"`
-	EulaIds    pulumi.StringArrayOutput `pulumi:"eulaIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-name
-	Name             pulumi.StringOutput `pulumi:"name"`
-	Owner            pulumi.StringOutput `pulumi:"owner"`
-	Platform         pulumi.StringOutput `pulumi:"platform"`
-	StreamingImageId pulumi.StringOutput `pulumi:"streamingImageId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-studioid
-	StudioId pulumi.StringOutput `pulumi:"studioId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Description             pulumi.StringPtrOutput                                    `pulumi:"description"`
+	Ec2ImageId              pulumi.StringOutput                                       `pulumi:"ec2ImageId"`
+	EncryptionConfiguration StreamingImageStreamingImageEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
+	EulaIds                 pulumi.StringArrayOutput                                  `pulumi:"eulaIds"`
+	Name                    pulumi.StringOutput                                       `pulumi:"name"`
+	Owner                   pulumi.StringOutput                                       `pulumi:"owner"`
+	Platform                pulumi.StringOutput                                       `pulumi:"platform"`
+	StreamingImageId        pulumi.StringOutput                                       `pulumi:"streamingImageId"`
+	StudioId                pulumi.StringOutput                                       `pulumi:"studioId"`
+	Tags                    pulumi.AnyOutput                                          `pulumi:"tags"`
 }
 
 // NewStreamingImage registers a new resource with the given unique name, arguments, and options.
@@ -79,30 +75,20 @@ func (StreamingImageState) ElementType() reflect.Type {
 }
 
 type streamingImageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-ec2imageid
-	Ec2ImageId string `pulumi:"ec2ImageId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-studioid
-	StudioId string `pulumi:"studioId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-tags
-	Tags map[string]string `pulumi:"tags"`
+	Description *string     `pulumi:"description"`
+	Ec2ImageId  string      `pulumi:"ec2ImageId"`
+	Name        string      `pulumi:"name"`
+	StudioId    string      `pulumi:"studioId"`
+	Tags        interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StreamingImage resource.
 type StreamingImageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-description
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-ec2imageid
-	Ec2ImageId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-name
-	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-studioid
-	StudioId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-tags
-	Tags pulumi.StringMapInput
+	Ec2ImageId  pulumi.StringInput
+	Name        pulumi.StringInput
+	StudioId    pulumi.StringInput
+	Tags        pulumi.Input
 }
 
 func (StreamingImageArgs) ElementType() reflect.Type {

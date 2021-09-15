@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html
+    /// A hierarchy specifies allowed parent/child asset relationships.
     /// </summary>
     [OutputType]
     public sealed class AssetAssetHierarchy
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-childassetid
+        /// The ID of the child asset to be associated.
         /// </summary>
         public readonly string ChildAssetId;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-logicalid
+        /// The LogicalID of a hierarchy in the parent asset's model.
         /// </summary>
         public readonly string LogicalId;
 

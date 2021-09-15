@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['LocationSMBArgs', 'LocationSMB']
@@ -24,17 +22,16 @@ class LocationSMBArgs:
                  user: pulumi.Input[str],
                  domain: Optional[pulumi.Input[str]] = None,
                  mount_options: Optional[pulumi.Input['LocationSMBMountOptionsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationSMBTagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationSMB resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-agentarns
-        :param pulumi.Input[str] password: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-password
-        :param pulumi.Input[str] server_hostname: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-serverhostname
-        :param pulumi.Input[str] subdirectory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-subdirectory
-        :param pulumi.Input[str] user: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-user
-        :param pulumi.Input[str] domain: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-domain
-        :param pulumi.Input['LocationSMBMountOptionsArgs'] mount_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-mountoptions
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-tags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
+        :param pulumi.Input[str] password: The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
+        :param pulumi.Input[str] server_hostname: The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
+        :param pulumi.Input[str] subdirectory: The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
+        :param pulumi.Input[str] user: The user who can mount the share, has the permissions to access files and folders in the SMB share.
+        :param pulumi.Input[str] domain: The name of the Windows domain that the SMB server belongs to.
+        :param pulumi.Input[Sequence[pulumi.Input['LocationSMBTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
         pulumi.set(__self__, "password", password)
@@ -52,7 +49,7 @@ class LocationSMBArgs:
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-agentarns
+        The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
         """
         return pulumi.get(self, "agent_arns")
 
@@ -64,7 +61,7 @@ class LocationSMBArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-password
+        The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         """
         return pulumi.get(self, "password")
 
@@ -76,7 +73,7 @@ class LocationSMBArgs:
     @pulumi.getter(name="serverHostname")
     def server_hostname(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-serverhostname
+        The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         """
         return pulumi.get(self, "server_hostname")
 
@@ -88,7 +85,7 @@ class LocationSMBArgs:
     @pulumi.getter
     def subdirectory(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-subdirectory
+        The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
         """
         return pulumi.get(self, "subdirectory")
 
@@ -100,7 +97,7 @@ class LocationSMBArgs:
     @pulumi.getter
     def user(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-user
+        The user who can mount the share, has the permissions to access files and folders in the SMB share.
         """
         return pulumi.get(self, "user")
 
@@ -112,7 +109,7 @@ class LocationSMBArgs:
     @pulumi.getter
     def domain(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-domain
+        The name of the Windows domain that the SMB server belongs to.
         """
         return pulumi.get(self, "domain")
 
@@ -123,9 +120,6 @@ class LocationSMBArgs:
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> Optional[pulumi.Input['LocationSMBMountOptionsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-mountoptions
-        """
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
@@ -134,14 +128,14 @@ class LocationSMBArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationSMBTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationSMBTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -156,22 +150,21 @@ class LocationSMB(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationSMBTagArgs']]]]] = None,
                  user: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html
+        Resource schema for AWS::DataSync::LocationSMB.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-agentarns
-        :param pulumi.Input[str] domain: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-domain
-        :param pulumi.Input[pulumi.InputType['LocationSMBMountOptionsArgs']] mount_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-mountoptions
-        :param pulumi.Input[str] password: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-password
-        :param pulumi.Input[str] server_hostname: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-serverhostname
-        :param pulumi.Input[str] subdirectory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-subdirectory
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-tags
-        :param pulumi.Input[str] user: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-user
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
+        :param pulumi.Input[str] domain: The name of the Windows domain that the SMB server belongs to.
+        :param pulumi.Input[str] password: The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
+        :param pulumi.Input[str] server_hostname: The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
+        :param pulumi.Input[str] subdirectory: The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationSMBTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] user: The user who can mount the share, has the permissions to access files and folders in the SMB share.
         """
         ...
     @overload
@@ -180,7 +173,7 @@ class LocationSMB(pulumi.CustomResource):
                  args: LocationSMBArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html
+        Resource schema for AWS::DataSync::LocationSMB.
 
         :param str resource_name: The name of the resource.
         :param LocationSMBArgs args: The arguments to use to populate this resource's properties.
@@ -203,7 +196,7 @@ class LocationSMB(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationSMBTagArgs']]]]] = None,
                  user: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -275,7 +268,7 @@ class LocationSMB(pulumi.CustomResource):
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Output[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-agentarns
+        The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
         """
         return pulumi.get(self, "agent_arns")
 
@@ -283,33 +276,36 @@ class LocationSMB(pulumi.CustomResource):
     @pulumi.getter
     def domain(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-domain
+        The name of the Windows domain that the SMB server belongs to.
         """
         return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter(name="locationArn")
     def location_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the SMB location that is created.
+        """
         return pulumi.get(self, "location_arn")
 
     @property
     @pulumi.getter(name="locationUri")
     def location_uri(self) -> pulumi.Output[str]:
+        """
+        The URL of the SMB location that was described.
+        """
         return pulumi.get(self, "location_uri")
 
     @property
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> pulumi.Output[Optional['outputs.LocationSMBMountOptions']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-mountoptions
-        """
         return pulumi.get(self, "mount_options")
 
     @property
     @pulumi.getter
     def password(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-password
+        The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         """
         return pulumi.get(self, "password")
 
@@ -317,7 +313,7 @@ class LocationSMB(pulumi.CustomResource):
     @pulumi.getter(name="serverHostname")
     def server_hostname(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-serverhostname
+        The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         """
         return pulumi.get(self, "server_hostname")
 
@@ -325,15 +321,15 @@ class LocationSMB(pulumi.CustomResource):
     @pulumi.getter
     def subdirectory(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-subdirectory
+        The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
         """
         return pulumi.get(self, "subdirectory")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationSMBTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
@@ -341,7 +337,7 @@ class LocationSMB(pulumi.CustomResource):
     @pulumi.getter
     def user(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-user
+        The user who can mount the share, has the permissions to access files and folders in the SMB share.
         """
         return pulumi.get(self, "user")
 

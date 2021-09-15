@@ -11,53 +11,32 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html
+    /// Defines the monitoring job.
     /// </summary>
     [OutputType]
     public sealed class MonitoringScheduleMonitoringJobDefinition
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig
-        /// </summary>
         public readonly Outputs.MonitoringScheduleBaselineConfig? BaselineConfig;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
+        /// Sets the environment variables in the Docker container
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Environment;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
-        /// </summary>
+        public readonly object? Environment;
         public readonly Outputs.MonitoringScheduleMonitoringAppSpecification MonitoringAppSpecification;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
-        /// </summary>
         public readonly ImmutableArray<Outputs.MonitoringScheduleMonitoringInput> MonitoringInputs;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
-        /// </summary>
         public readonly Outputs.MonitoringScheduleMonitoringOutputConfig MonitoringOutputConfig;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
-        /// </summary>
         public readonly Outputs.MonitoringScheduleMonitoringResources MonitoringResources;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-networkconfig
-        /// </summary>
         public readonly Outputs.MonitoringScheduleNetworkConfig? NetworkConfig;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-rolearn
+        /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
         /// </summary>
         public readonly string RoleArn;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-stoppingcondition
-        /// </summary>
         public readonly Outputs.MonitoringScheduleStoppingCondition? StoppingCondition;
 
         [OutputConstructor]
         private MonitoringScheduleMonitoringJobDefinition(
             Outputs.MonitoringScheduleBaselineConfig? baselineConfig,
 
-            ImmutableDictionary<string, string>? environment,
+            object? environment,
 
             Outputs.MonitoringScheduleMonitoringAppSpecification monitoringAppSpecification,
 

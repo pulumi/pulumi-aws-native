@@ -10,46 +10,49 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Macie
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html
+    /// Macie FindingsFilter resource schema.
     /// </summary>
     [AwsNativeResourceType("aws-native:macie:FindingsFilter")]
     public partial class FindingsFilter : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-action
+        /// Findings filter action.
         /// </summary>
         [Output("action")]
         public Output<string?> Action { get; private set; } = null!;
 
+        /// <summary>
+        /// Findings filter ARN.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description
+        /// Findings filter description
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
+        /// Findings filter criteria.
         /// </summary>
         [Output("findingCriteria")]
         public Output<Outputs.FindingsFilterFindingCriteria> FindingCriteria { get; private set; } = null!;
 
+        /// <summary>
+        /// Findings filters list.
+        /// </summary>
         [Output("findingsFilterListItems")]
         public Output<ImmutableArray<Outputs.FindingsFilterFindingsFilterListItem>> FindingsFilterListItems { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
+        /// Findings filter name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
+        /// Findings filter position.
         /// </summary>
         [Output("position")]
         public Output<int?> Position { get; private set; } = null!;
@@ -100,31 +103,31 @@ namespace Pulumi.AwsNative.Macie
     public sealed class FindingsFilterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-action
+        /// Findings filter action.
         /// </summary>
         [Input("action")]
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description
+        /// Findings filter description
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
+        /// Findings filter criteria.
         /// </summary>
         [Input("findingCriteria", required: true)]
         public Input<Inputs.FindingsFilterFindingCriteriaArgs> FindingCriteria { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
+        /// Findings filter name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
+        /// Findings filter position.
         /// </summary>
         [Input("position")]
         public Input<int>? Position { get; set; }

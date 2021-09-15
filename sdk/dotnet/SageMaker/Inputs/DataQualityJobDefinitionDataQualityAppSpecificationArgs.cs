@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html
+    /// Container image configuration object for the monitoring job.
     /// </summary>
     public sealed class DataQualityJobDefinitionDataQualityAppSpecificationArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         private InputList<string>? _containerArguments;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerarguments
+        /// An array of arguments for the container used to run the monitoring job.
         /// </summary>
         public InputList<string> ContainerArguments
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         private InputList<string>? _containerEntrypoint;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-containerentrypoint
+        /// Specifies the entrypoint for a container used to run the monitoring job.
         /// </summary>
         public InputList<string> ContainerEntrypoint
         {
@@ -39,32 +39,26 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
             set => _containerEntrypoint = value;
         }
 
-        [Input("environment")]
-        private InputMap<string>? _environment;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-environment
+        /// Sets the environment variables in the Docker container
         /// </summary>
-        public InputMap<string> Environment
-        {
-            get => _environment ?? (_environment = new InputMap<string>());
-            set => _environment = value;
-        }
+        [Input("environment")]
+        public Input<object>? Environment { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-imageuri
+        /// The container image to be run by the monitoring job.
         /// </summary>
         [Input("imageUri", required: true)]
         public Input<string> ImageUri { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-postanalyticsprocessorsourceuri
+        /// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
         /// </summary>
         [Input("postAnalyticsProcessorSourceUri")]
         public Input<string>? PostAnalyticsProcessorSourceUri { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification-recordpreprocessorsourceuri
+        /// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
         /// </summary>
         [Input("recordPreprocessorSourceUri")]
         public Input<string>? RecordPreprocessorSourceUri { get; set; }

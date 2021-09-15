@@ -10,47 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html
-    /// </summary>
     [OutputType]
     public sealed class BackupPlanBackupRuleResourceType
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-completionwindowminutes
-        /// </summary>
         public readonly double? CompletionWindowMinutes;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions
-        /// </summary>
         public readonly ImmutableArray<Outputs.BackupPlanCopyActionResourceType> CopyActions;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-enablecontinuousbackup
-        /// </summary>
         public readonly bool? EnableContinuousBackup;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
-        /// </summary>
         public readonly Outputs.BackupPlanLifecycleResourceType? Lifecycle;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? RecoveryPointTags;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename
-        /// </summary>
+        public readonly object? RecoveryPointTags;
         public readonly string RuleName;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression
-        /// </summary>
         public readonly string? ScheduleExpression;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-startwindowminutes
-        /// </summary>
         public readonly double? StartWindowMinutes;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-targetbackupvault
-        /// </summary>
         public readonly string TargetBackupVault;
 
         [OutputConstructor]
@@ -63,7 +33,7 @@ namespace Pulumi.AwsNative.Backup.Outputs
 
             Outputs.BackupPlanLifecycleResourceType? lifecycle,
 
-            ImmutableDictionary<string, string>? recoveryPointTags,
+            object? recoveryPointTags,
 
             string ruleName,
 

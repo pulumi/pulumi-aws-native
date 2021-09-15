@@ -11,20 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html
+// Resource schema for AWS::Athena::NamedQuery
 type NamedQuery struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database
+	// The database to which the query belongs.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description
+	// The query description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name
-	Name         pulumi.StringPtrOutput `pulumi:"name"`
-	NamedQueryId pulumi.StringOutput    `pulumi:"namedQueryId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
+	// The query name.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The unique ID of the query.
+	NamedQueryId pulumi.StringOutput `pulumi:"namedQueryId"`
+	// The contents of the query with all query statements.
 	QueryString pulumi.StringOutput `pulumi:"queryString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
+	// The name of the workgroup that contains the named query.
 	WorkGroup pulumi.StringPtrOutput `pulumi:"workGroup"`
 }
 
@@ -73,29 +74,29 @@ func (NamedQueryState) ElementType() reflect.Type {
 }
 
 type namedQueryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database
+	// The database to which the query belongs.
 	Database string `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description
+	// The query description.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name
+	// The query name.
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
+	// The contents of the query with all query statements.
 	QueryString string `pulumi:"queryString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
+	// The name of the workgroup that contains the named query.
 	WorkGroup *string `pulumi:"workGroup"`
 }
 
 // The set of arguments for constructing a NamedQuery resource.
 type NamedQueryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database
+	// The database to which the query belongs.
 	Database pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description
+	// The query description.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name
+	// The query name.
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
+	// The contents of the query with all query statements.
 	QueryString pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
+	// The name of the workgroup that contains the named query.
 	WorkGroup pulumi.StringPtrInput
 }
 

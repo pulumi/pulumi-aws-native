@@ -11,19 +11,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html
+    /// &lt;p&gt;The source entity of the template.&lt;/p&gt;
     /// </summary>
     public sealed class TemplateTemplateSourceEntityArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourceanalysis
-        /// </summary>
         [Input("sourceAnalysis")]
         public Input<Inputs.TemplateTemplateSourceAnalysisArgs>? SourceAnalysis { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourcetemplate
-        /// </summary>
         [Input("sourceTemplate")]
         public Input<Inputs.TemplateTemplateSourceTemplateArgs>? SourceTemplate { get; set; }
 

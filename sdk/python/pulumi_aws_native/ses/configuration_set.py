@@ -16,7 +16,7 @@ class ConfigurationSetArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ConfigurationSet resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-name
+        :param pulumi.Input[str] name: The name of the configuration set.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -25,7 +25,7 @@ class ConfigurationSetArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-name
+        The name of the configuration set.
         """
         return pulumi.get(self, "name")
 
@@ -42,11 +42,11 @@ class ConfigurationSet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html
+        Resource schema for AWS::SES::ConfigurationSet.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-name
+        :param pulumi.Input[str] name: The name of the configuration set.
         """
         ...
     @overload
@@ -55,7 +55,7 @@ class ConfigurationSet(pulumi.CustomResource):
                  args: Optional[ConfigurationSetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html
+        Resource schema for AWS::SES::ConfigurationSet.
 
         :param str resource_name: The name of the resource.
         :param ConfigurationSetArgs args: The arguments to use to populate this resource's properties.
@@ -115,7 +115,7 @@ class ConfigurationSet(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-name
+        The name of the configuration set.
         """
         return pulumi.get(self, "name")
 

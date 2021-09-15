@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html
+ * Definition of the AWS::QuickSight::Analysis Resource Type.
  */
 export class Analysis extends pulumi.CustomResource {
     /**
@@ -35,46 +35,55 @@ export class Analysis extends pulumi.CustomResource {
         return obj['__pulumiType'] === Analysis.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-analysisid
-     */
     public readonly analysisId!: pulumi.Output<string>;
-    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-awsaccountid
+     * <p>The Amazon Resource Name (ARN) of the analysis.</p>
      */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly awsAccountId!: pulumi.Output<string>;
+    /**
+     * <p>The time that the analysis was created.</p>
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * <p>The ARNs of the datasets of the analysis.</p>
+     */
     public /*out*/ readonly dataSetArns!: pulumi.Output<string[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-errors
+     * <p>Errors associated with the analysis.</p>
      */
     public readonly errors!: pulumi.Output<outputs.quicksight.AnalysisAnalysisError[] | undefined>;
+    /**
+     * <p>The time that the analysis was last updated.</p>
+     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
+     * <p>The descriptive name of the analysis.</p>
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-parameters
-     */
     public readonly parameters!: pulumi.Output<outputs.quicksight.AnalysisParameters | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-permissions
+     * <p>A structure that describes the principals and the resource-level permissions on an
+     *             analysis. You can use the <code>Permissions</code> structure to grant permissions by
+     *             providing a list of AWS Identity and Access Management (IAM) action information for each
+     *             principal listed by Amazon Resource Name (ARN). </p>
+     *
+     *         <p>To specify no permissions, omit <code>Permissions</code>.</p>
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.AnalysisResourcePermission[] | undefined>;
-    public /*out*/ readonly sheets!: pulumi.Output<outputs.quicksight.AnalysisSheet[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-sourceentity
+     * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
      */
+    public /*out*/ readonly sheets!: pulumi.Output<outputs.quicksight.AnalysisSheet[]>;
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisAnalysisSourceEntity | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-tags
+     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+     *             analysis.</p>
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.quicksight.AnalysisTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-themearn
+     * <p>The ARN of the theme of the analysis.</p>
      */
     public readonly themeArn!: pulumi.Output<string | undefined>;
 
@@ -138,40 +147,34 @@ export class Analysis extends pulumi.CustomResource {
  * The set of arguments for constructing a Analysis resource.
  */
 export interface AnalysisArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-analysisid
-     */
     analysisId: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-awsaccountid
-     */
     awsAccountId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-errors
+     * <p>Errors associated with the analysis.</p>
      */
     errors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisAnalysisErrorArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
+     * <p>The descriptive name of the analysis.</p>
      */
     name?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-parameters
-     */
     parameters?: pulumi.Input<inputs.quicksight.AnalysisParametersArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-permissions
+     * <p>A structure that describes the principals and the resource-level permissions on an
+     *             analysis. You can use the <code>Permissions</code> structure to grant permissions by
+     *             providing a list of AWS Identity and Access Management (IAM) action information for each
+     *             principal listed by Amazon Resource Name (ARN). </p>
+     *
+     *         <p>To specify no permissions, omit <code>Permissions</code>.</p>
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisResourcePermissionArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-sourceentity
-     */
     sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisAnalysisSourceEntityArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-tags
+     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+     *             analysis.</p>
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-themearn
+     * <p>The ARN of the theme of the analysis.</p>
      */
     themeArn?: pulumi.Input<string>;
 }

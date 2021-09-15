@@ -10,13 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html
 type AliasRoutingStrategy struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-fleetid
+	// A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.
 	FleetId *string `pulumi:"fleetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message
+	// The message text to be used with a terminal routing strategy. If you specify TERMINAL for the Type property, you must specify this property.
 	Message *string `pulumi:"message"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
+	// Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
 	Type string `pulumi:"type"`
 }
 
@@ -31,13 +30,12 @@ type AliasRoutingStrategyInput interface {
 	ToAliasRoutingStrategyOutputWithContext(context.Context) AliasRoutingStrategyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html
 type AliasRoutingStrategyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-fleetid
+	// A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.
 	FleetId pulumi.StringPtrInput `pulumi:"fleetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message
+	// The message text to be used with a terminal routing strategy. If you specify TERMINAL for the Type property, you must specify this property.
 	Message pulumi.StringPtrInput `pulumi:"message"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
+	// Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -94,7 +92,6 @@ func (i *aliasRoutingStrategyPtrType) ToAliasRoutingStrategyPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingStrategyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html
 type AliasRoutingStrategyOutput struct{ *pulumi.OutputState }
 
 func (AliasRoutingStrategyOutput) ElementType() reflect.Type {
@@ -119,17 +116,17 @@ func (o AliasRoutingStrategyOutput) ToAliasRoutingStrategyPtrOutputWithContext(c
 	}).(AliasRoutingStrategyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-fleetid
+// A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.
 func (o AliasRoutingStrategyOutput) FleetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AliasRoutingStrategy) *string { return v.FleetId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message
+// The message text to be used with a terminal routing strategy. If you specify TERMINAL for the Type property, you must specify this property.
 func (o AliasRoutingStrategyOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AliasRoutingStrategy) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
+// Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
 func (o AliasRoutingStrategyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AliasRoutingStrategy) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -158,7 +155,7 @@ func (o AliasRoutingStrategyPtrOutput) Elem() AliasRoutingStrategyOutput {
 	}).(AliasRoutingStrategyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-fleetid
+// A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.
 func (o AliasRoutingStrategyPtrOutput) FleetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
 		if v == nil {
@@ -168,7 +165,7 @@ func (o AliasRoutingStrategyPtrOutput) FleetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message
+// The message text to be used with a terminal routing strategy. If you specify TERMINAL for the Type property, you must specify this property.
 func (o AliasRoutingStrategyPtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
 		if v == nil {
@@ -178,7 +175,7 @@ func (o AliasRoutingStrategyPtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
+// Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
 func (o AliasRoutingStrategyPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
 		if v == nil {
@@ -188,9 +185,8 @@ func (o AliasRoutingStrategyPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html
+// Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
 type FleetCertificateConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html#cfn-gamelift-fleet-certificateconfiguration-certificatetype
 	CertificateType string `pulumi:"certificateType"`
 }
 
@@ -205,9 +201,8 @@ type FleetCertificateConfigurationInput interface {
 	ToFleetCertificateConfigurationOutputWithContext(context.Context) FleetCertificateConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html
+// Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
 type FleetCertificateConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html#cfn-gamelift-fleet-certificateconfiguration-certificatetype
 	CertificateType pulumi.StringInput `pulumi:"certificateType"`
 }
 
@@ -264,7 +259,7 @@ func (i *fleetCertificateConfigurationPtrType) ToFleetCertificateConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(FleetCertificateConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html
+// Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
 type FleetCertificateConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FleetCertificateConfigurationOutput) ElementType() reflect.Type {
@@ -289,7 +284,6 @@ func (o FleetCertificateConfigurationOutput) ToFleetCertificateConfigurationPtrO
 	}).(FleetCertificateConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html#cfn-gamelift-fleet-certificateconfiguration-certificatetype
 func (o FleetCertificateConfigurationOutput) CertificateType() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetCertificateConfiguration) string { return v.CertificateType }).(pulumi.StringOutput)
 }
@@ -318,7 +312,6 @@ func (o FleetCertificateConfigurationPtrOutput) Elem() FleetCertificateConfigura
 	}).(FleetCertificateConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html#cfn-gamelift-fleet-certificateconfiguration-certificatetype
 func (o FleetCertificateConfigurationPtrOutput) CertificateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetCertificateConfiguration) *string {
 		if v == nil {
@@ -328,15 +321,15 @@ func (o FleetCertificateConfigurationPtrOutput) CertificateType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html
+// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
 type FleetIpPermission struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-fromport
+	// A starting value for a range of allowed port numbers.
 	FromPort int `pulumi:"fromPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-iprange
+	// A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
 	IpRange string `pulumi:"ipRange"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-protocol
+	// The network communication protocol used by the fleet.
 	Protocol string `pulumi:"protocol"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-toport
+	// An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
 	ToPort int `pulumi:"toPort"`
 }
 
@@ -351,15 +344,15 @@ type FleetIpPermissionInput interface {
 	ToFleetIpPermissionOutputWithContext(context.Context) FleetIpPermissionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html
+// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
 type FleetIpPermissionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-fromport
+	// A starting value for a range of allowed port numbers.
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-iprange
+	// A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
 	IpRange pulumi.StringInput `pulumi:"ipRange"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-protocol
+	// The network communication protocol used by the fleet.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-toport
+	// An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
 	ToPort pulumi.IntInput `pulumi:"toPort"`
 }
 
@@ -400,7 +393,7 @@ func (i FleetIpPermissionArray) ToFleetIpPermissionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FleetIpPermissionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html
+// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
 type FleetIpPermissionOutput struct{ *pulumi.OutputState }
 
 func (FleetIpPermissionOutput) ElementType() reflect.Type {
@@ -415,22 +408,22 @@ func (o FleetIpPermissionOutput) ToFleetIpPermissionOutputWithContext(ctx contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-fromport
+// A starting value for a range of allowed port numbers.
 func (o FleetIpPermissionOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v FleetIpPermission) int { return v.FromPort }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-iprange
+// A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
 func (o FleetIpPermissionOutput) IpRange() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetIpPermission) string { return v.IpRange }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-protocol
+// The network communication protocol used by the fleet.
 func (o FleetIpPermissionOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetIpPermission) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ippermission.html#cfn-gamelift-fleet-ippermission-toport
+// An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
 func (o FleetIpPermissionOutput) ToPort() pulumi.IntOutput {
 	return o.ApplyT(func(v FleetIpPermission) int { return v.ToPort }).(pulumi.IntOutput)
 }
@@ -455,13 +448,13 @@ func (o FleetIpPermissionArrayOutput) Index(i pulumi.IntInput) FleetIpPermission
 	}).(FleetIpPermissionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html
+// Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
 type FleetLocationCapacity struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-desiredec2instances
+	// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
 	DesiredEC2Instances int `pulumi:"desiredEC2Instances"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-maxsize
+	// The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
 	MaxSize int `pulumi:"maxSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-minsize
+	// The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
 	MinSize int `pulumi:"minSize"`
 }
 
@@ -476,13 +469,13 @@ type FleetLocationCapacityInput interface {
 	ToFleetLocationCapacityOutputWithContext(context.Context) FleetLocationCapacityOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html
+// Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
 type FleetLocationCapacityArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-desiredec2instances
+	// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
 	DesiredEC2Instances pulumi.IntInput `pulumi:"desiredEC2Instances"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-maxsize
+	// The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
 	MaxSize pulumi.IntInput `pulumi:"maxSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-minsize
+	// The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
 	MinSize pulumi.IntInput `pulumi:"minSize"`
 }
 
@@ -539,7 +532,7 @@ func (i *fleetLocationCapacityPtrType) ToFleetLocationCapacityPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FleetLocationCapacityPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html
+// Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
 type FleetLocationCapacityOutput struct{ *pulumi.OutputState }
 
 func (FleetLocationCapacityOutput) ElementType() reflect.Type {
@@ -564,17 +557,17 @@ func (o FleetLocationCapacityOutput) ToFleetLocationCapacityPtrOutputWithContext
 	}).(FleetLocationCapacityPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-desiredec2instances
+// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
 func (o FleetLocationCapacityOutput) DesiredEC2Instances() pulumi.IntOutput {
 	return o.ApplyT(func(v FleetLocationCapacity) int { return v.DesiredEC2Instances }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-maxsize
+// The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
 func (o FleetLocationCapacityOutput) MaxSize() pulumi.IntOutput {
 	return o.ApplyT(func(v FleetLocationCapacity) int { return v.MaxSize }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-minsize
+// The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
 func (o FleetLocationCapacityOutput) MinSize() pulumi.IntOutput {
 	return o.ApplyT(func(v FleetLocationCapacity) int { return v.MinSize }).(pulumi.IntOutput)
 }
@@ -603,7 +596,7 @@ func (o FleetLocationCapacityPtrOutput) Elem() FleetLocationCapacityOutput {
 	}).(FleetLocationCapacityOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-desiredec2instances
+// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
 func (o FleetLocationCapacityPtrOutput) DesiredEC2Instances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLocationCapacity) *int {
 		if v == nil {
@@ -613,7 +606,7 @@ func (o FleetLocationCapacityPtrOutput) DesiredEC2Instances() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-maxsize
+// The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
 func (o FleetLocationCapacityPtrOutput) MaxSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLocationCapacity) *int {
 		if v == nil {
@@ -623,7 +616,7 @@ func (o FleetLocationCapacityPtrOutput) MaxSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-minsize
+// The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
 func (o FleetLocationCapacityPtrOutput) MinSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetLocationCapacity) *int {
 		if v == nil {
@@ -633,11 +626,9 @@ func (o FleetLocationCapacityPtrOutput) MinSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html
+// A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
 type FleetLocationConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-location
-	Location string `pulumi:"location"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-locationcapacity
+	Location         string                 `pulumi:"location"`
 	LocationCapacity *FleetLocationCapacity `pulumi:"locationCapacity"`
 }
 
@@ -652,11 +643,9 @@ type FleetLocationConfigurationInput interface {
 	ToFleetLocationConfigurationOutputWithContext(context.Context) FleetLocationConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html
+// A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
 type FleetLocationConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-location
-	Location pulumi.StringInput `pulumi:"location"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-locationcapacity
+	Location         pulumi.StringInput            `pulumi:"location"`
 	LocationCapacity FleetLocationCapacityPtrInput `pulumi:"locationCapacity"`
 }
 
@@ -697,7 +686,7 @@ func (i FleetLocationConfigurationArray) ToFleetLocationConfigurationArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FleetLocationConfigurationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html
+// A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
 type FleetLocationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FleetLocationConfigurationOutput) ElementType() reflect.Type {
@@ -712,12 +701,10 @@ func (o FleetLocationConfigurationOutput) ToFleetLocationConfigurationOutputWith
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-location
 func (o FleetLocationConfigurationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetLocationConfiguration) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-locationcapacity
 func (o FleetLocationConfigurationOutput) LocationCapacity() FleetLocationCapacityPtrOutput {
 	return o.ApplyT(func(v FleetLocationConfiguration) *FleetLocationCapacity { return v.LocationCapacity }).(FleetLocationCapacityPtrOutput)
 }
@@ -742,11 +729,13 @@ func (o FleetLocationConfigurationArrayOutput) Index(i pulumi.IntInput) FleetLoc
 	}).(FleetLocationConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html
+// A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
+//
+// The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
 type FleetResourceCreationLimitPolicy struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-newgamesessionspercreator
+	// The maximum number of game sessions that an individual can create during the policy period.
 	NewGameSessionsPerCreator *int `pulumi:"newGameSessionsPerCreator"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-policyperiodinminutes
+	// The time span used in evaluating the resource creation limit policy.
 	PolicyPeriodInMinutes *int `pulumi:"policyPeriodInMinutes"`
 }
 
@@ -761,11 +750,13 @@ type FleetResourceCreationLimitPolicyInput interface {
 	ToFleetResourceCreationLimitPolicyOutputWithContext(context.Context) FleetResourceCreationLimitPolicyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html
+// A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
+//
+// The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
 type FleetResourceCreationLimitPolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-newgamesessionspercreator
+	// The maximum number of game sessions that an individual can create during the policy period.
 	NewGameSessionsPerCreator pulumi.IntPtrInput `pulumi:"newGameSessionsPerCreator"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-policyperiodinminutes
+	// The time span used in evaluating the resource creation limit policy.
 	PolicyPeriodInMinutes pulumi.IntPtrInput `pulumi:"policyPeriodInMinutes"`
 }
 
@@ -822,7 +813,9 @@ func (i *fleetResourceCreationLimitPolicyPtrType) ToFleetResourceCreationLimitPo
 	return pulumi.ToOutputWithContext(ctx, i).(FleetResourceCreationLimitPolicyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html
+// A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
+//
+// The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
 type FleetResourceCreationLimitPolicyOutput struct{ *pulumi.OutputState }
 
 func (FleetResourceCreationLimitPolicyOutput) ElementType() reflect.Type {
@@ -847,12 +840,12 @@ func (o FleetResourceCreationLimitPolicyOutput) ToFleetResourceCreationLimitPoli
 	}).(FleetResourceCreationLimitPolicyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-newgamesessionspercreator
+// The maximum number of game sessions that an individual can create during the policy period.
 func (o FleetResourceCreationLimitPolicyOutput) NewGameSessionsPerCreator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetResourceCreationLimitPolicy) *int { return v.NewGameSessionsPerCreator }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-policyperiodinminutes
+// The time span used in evaluating the resource creation limit policy.
 func (o FleetResourceCreationLimitPolicyOutput) PolicyPeriodInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetResourceCreationLimitPolicy) *int { return v.PolicyPeriodInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -881,7 +874,7 @@ func (o FleetResourceCreationLimitPolicyPtrOutput) Elem() FleetResourceCreationL
 	}).(FleetResourceCreationLimitPolicyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-newgamesessionspercreator
+// The maximum number of game sessions that an individual can create during the policy period.
 func (o FleetResourceCreationLimitPolicyPtrOutput) NewGameSessionsPerCreator() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetResourceCreationLimitPolicy) *int {
 		if v == nil {
@@ -891,7 +884,7 @@ func (o FleetResourceCreationLimitPolicyPtrOutput) NewGameSessionsPerCreator() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-resourcecreationlimitpolicy.html#cfn-gamelift-fleet-resourcecreationlimitpolicy-policyperiodinminutes
+// The time span used in evaluating the resource creation limit policy.
 func (o FleetResourceCreationLimitPolicyPtrOutput) PolicyPeriodInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetResourceCreationLimitPolicy) *int {
 		if v == nil {
@@ -901,13 +894,17 @@ func (o FleetResourceCreationLimitPolicyPtrOutput) PolicyPeriodInMinutes() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html
+// A collection of server process configurations that describe the processes to run on each instance in a fleet. All fleets must have a runtime configuration. Each instance in the fleet maintains server processes as specified in the runtime configuration, launching new ones as existing processes end. Each instance regularly checks for an updated runtime configuration makes adjustments as called for.
+//
+// The runtime configuration enables the instances in a fleet to run multiple processes simultaneously. Potential scenarios are as follows: (1) Run multiple processes of a single game server executable to maximize usage of your hosting resources. (2) Run one or more processes of different executables, such as your game server and a metrics tracking program. (3) Run multiple processes of a single game server but with different launch parameters, for example to run one process on each instance in debug mode.
+//
+// An Amazon GameLift instance is limited to 50 processes running simultaneously. A runtime configuration must specify fewer than this limit. To calculate the total number of processes specified in a runtime configuration, add the values of the ConcurrentExecutions parameter for each ServerProcess object in the runtime configuration.
 type FleetRuntimeConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-gamesessionactivationtimeoutseconds
+	// The maximum amount of time (in seconds) that a game session can remain in status ACTIVATING. If the game session is not active before the timeout, activation is terminated and the game session status is changed to TERMINATED.
 	GameSessionActivationTimeoutSeconds *int `pulumi:"gameSessionActivationTimeoutSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-maxconcurrentgamesessionactivations
+	// The maximum number of game sessions with status ACTIVATING to allow on an instance simultaneously. This setting limits the amount of instance resources that can be used for new game activations at any one time.
 	MaxConcurrentGameSessionActivations *int `pulumi:"maxConcurrentGameSessionActivations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-serverprocesses
+	// A collection of server process configurations that describe which server processes to run on each instance in a fleet.
 	ServerProcesses []FleetServerProcess `pulumi:"serverProcesses"`
 }
 
@@ -922,13 +919,17 @@ type FleetRuntimeConfigurationInput interface {
 	ToFleetRuntimeConfigurationOutputWithContext(context.Context) FleetRuntimeConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html
+// A collection of server process configurations that describe the processes to run on each instance in a fleet. All fleets must have a runtime configuration. Each instance in the fleet maintains server processes as specified in the runtime configuration, launching new ones as existing processes end. Each instance regularly checks for an updated runtime configuration makes adjustments as called for.
+//
+// The runtime configuration enables the instances in a fleet to run multiple processes simultaneously. Potential scenarios are as follows: (1) Run multiple processes of a single game server executable to maximize usage of your hosting resources. (2) Run one or more processes of different executables, such as your game server and a metrics tracking program. (3) Run multiple processes of a single game server but with different launch parameters, for example to run one process on each instance in debug mode.
+//
+// An Amazon GameLift instance is limited to 50 processes running simultaneously. A runtime configuration must specify fewer than this limit. To calculate the total number of processes specified in a runtime configuration, add the values of the ConcurrentExecutions parameter for each ServerProcess object in the runtime configuration.
 type FleetRuntimeConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-gamesessionactivationtimeoutseconds
+	// The maximum amount of time (in seconds) that a game session can remain in status ACTIVATING. If the game session is not active before the timeout, activation is terminated and the game session status is changed to TERMINATED.
 	GameSessionActivationTimeoutSeconds pulumi.IntPtrInput `pulumi:"gameSessionActivationTimeoutSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-maxconcurrentgamesessionactivations
+	// The maximum number of game sessions with status ACTIVATING to allow on an instance simultaneously. This setting limits the amount of instance resources that can be used for new game activations at any one time.
 	MaxConcurrentGameSessionActivations pulumi.IntPtrInput `pulumi:"maxConcurrentGameSessionActivations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-serverprocesses
+	// A collection of server process configurations that describe which server processes to run on each instance in a fleet.
 	ServerProcesses FleetServerProcessArrayInput `pulumi:"serverProcesses"`
 }
 
@@ -985,7 +986,11 @@ func (i *fleetRuntimeConfigurationPtrType) ToFleetRuntimeConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(FleetRuntimeConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html
+// A collection of server process configurations that describe the processes to run on each instance in a fleet. All fleets must have a runtime configuration. Each instance in the fleet maintains server processes as specified in the runtime configuration, launching new ones as existing processes end. Each instance regularly checks for an updated runtime configuration makes adjustments as called for.
+//
+// The runtime configuration enables the instances in a fleet to run multiple processes simultaneously. Potential scenarios are as follows: (1) Run multiple processes of a single game server executable to maximize usage of your hosting resources. (2) Run one or more processes of different executables, such as your game server and a metrics tracking program. (3) Run multiple processes of a single game server but with different launch parameters, for example to run one process on each instance in debug mode.
+//
+// An Amazon GameLift instance is limited to 50 processes running simultaneously. A runtime configuration must specify fewer than this limit. To calculate the total number of processes specified in a runtime configuration, add the values of the ConcurrentExecutions parameter for each ServerProcess object in the runtime configuration.
 type FleetRuntimeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FleetRuntimeConfigurationOutput) ElementType() reflect.Type {
@@ -1010,17 +1015,17 @@ func (o FleetRuntimeConfigurationOutput) ToFleetRuntimeConfigurationPtrOutputWit
 	}).(FleetRuntimeConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-gamesessionactivationtimeoutseconds
+// The maximum amount of time (in seconds) that a game session can remain in status ACTIVATING. If the game session is not active before the timeout, activation is terminated and the game session status is changed to TERMINATED.
 func (o FleetRuntimeConfigurationOutput) GameSessionActivationTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetRuntimeConfiguration) *int { return v.GameSessionActivationTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-maxconcurrentgamesessionactivations
+// The maximum number of game sessions with status ACTIVATING to allow on an instance simultaneously. This setting limits the amount of instance resources that can be used for new game activations at any one time.
 func (o FleetRuntimeConfigurationOutput) MaxConcurrentGameSessionActivations() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetRuntimeConfiguration) *int { return v.MaxConcurrentGameSessionActivations }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-serverprocesses
+// A collection of server process configurations that describe which server processes to run on each instance in a fleet.
 func (o FleetRuntimeConfigurationOutput) ServerProcesses() FleetServerProcessArrayOutput {
 	return o.ApplyT(func(v FleetRuntimeConfiguration) []FleetServerProcess { return v.ServerProcesses }).(FleetServerProcessArrayOutput)
 }
@@ -1049,7 +1054,7 @@ func (o FleetRuntimeConfigurationPtrOutput) Elem() FleetRuntimeConfigurationOutp
 	}).(FleetRuntimeConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-gamesessionactivationtimeoutseconds
+// The maximum amount of time (in seconds) that a game session can remain in status ACTIVATING. If the game session is not active before the timeout, activation is terminated and the game session status is changed to TERMINATED.
 func (o FleetRuntimeConfigurationPtrOutput) GameSessionActivationTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetRuntimeConfiguration) *int {
 		if v == nil {
@@ -1059,7 +1064,7 @@ func (o FleetRuntimeConfigurationPtrOutput) GameSessionActivationTimeoutSeconds(
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-maxconcurrentgamesessionactivations
+// The maximum number of game sessions with status ACTIVATING to allow on an instance simultaneously. This setting limits the amount of instance resources that can be used for new game activations at any one time.
 func (o FleetRuntimeConfigurationPtrOutput) MaxConcurrentGameSessionActivations() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetRuntimeConfiguration) *int {
 		if v == nil {
@@ -1069,7 +1074,7 @@ func (o FleetRuntimeConfigurationPtrOutput) MaxConcurrentGameSessionActivations(
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-runtimeconfiguration.html#cfn-gamelift-fleet-runtimeconfiguration-serverprocesses
+// A collection of server process configurations that describe which server processes to run on each instance in a fleet.
 func (o FleetRuntimeConfigurationPtrOutput) ServerProcesses() FleetServerProcessArrayOutput {
 	return o.ApplyT(func(v *FleetRuntimeConfiguration) []FleetServerProcess {
 		if v == nil {
@@ -1079,13 +1084,17 @@ func (o FleetRuntimeConfigurationPtrOutput) ServerProcesses() FleetServerProcess
 	}).(FleetServerProcessArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html
+// A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's RuntimeConfiguration.
 type FleetServerProcess struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-concurrentexecutions
+	// The number of server processes that use this configuration to run concurrently on an instance.
 	ConcurrentExecutions int `pulumi:"concurrentExecutions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-launchpath
+	// The location of the server executable in a custom game build or the name of the Realtime script file that contains the Init() function. Game builds and Realtime scripts are installed on instances at the root:
+	//
+	// Windows (for custom game builds only): C:\game. Example: "C:\game\MyGame\server.exe"
+	//
+	// Linux: /local/game. Examples: "/local/game/MyGame/server.exe" or "/local/game/MyRealtimeScript.js"
 	LaunchPath string `pulumi:"launchPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-parameters
+	// An optional list of parameters to pass to the server executable or Realtime script on launch.
 	Parameters *string `pulumi:"parameters"`
 }
 
@@ -1100,13 +1109,17 @@ type FleetServerProcessInput interface {
 	ToFleetServerProcessOutputWithContext(context.Context) FleetServerProcessOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html
+// A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's RuntimeConfiguration.
 type FleetServerProcessArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-concurrentexecutions
+	// The number of server processes that use this configuration to run concurrently on an instance.
 	ConcurrentExecutions pulumi.IntInput `pulumi:"concurrentExecutions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-launchpath
+	// The location of the server executable in a custom game build or the name of the Realtime script file that contains the Init() function. Game builds and Realtime scripts are installed on instances at the root:
+	//
+	// Windows (for custom game builds only): C:\game. Example: "C:\game\MyGame\server.exe"
+	//
+	// Linux: /local/game. Examples: "/local/game/MyGame/server.exe" or "/local/game/MyRealtimeScript.js"
 	LaunchPath pulumi.StringInput `pulumi:"launchPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-parameters
+	// An optional list of parameters to pass to the server executable or Realtime script on launch.
 	Parameters pulumi.StringPtrInput `pulumi:"parameters"`
 }
 
@@ -1147,7 +1160,7 @@ func (i FleetServerProcessArray) ToFleetServerProcessArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FleetServerProcessArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html
+// A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's RuntimeConfiguration.
 type FleetServerProcessOutput struct{ *pulumi.OutputState }
 
 func (FleetServerProcessOutput) ElementType() reflect.Type {
@@ -1162,17 +1175,21 @@ func (o FleetServerProcessOutput) ToFleetServerProcessOutputWithContext(ctx cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-concurrentexecutions
+// The number of server processes that use this configuration to run concurrently on an instance.
 func (o FleetServerProcessOutput) ConcurrentExecutions() pulumi.IntOutput {
 	return o.ApplyT(func(v FleetServerProcess) int { return v.ConcurrentExecutions }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-launchpath
+// The location of the server executable in a custom game build or the name of the Realtime script file that contains the Init() function. Game builds and Realtime scripts are installed on instances at the root:
+//
+// Windows (for custom game builds only): C:\game. Example: "C:\game\MyGame\server.exe"
+//
+// Linux: /local/game. Examples: "/local/game/MyGame/server.exe" or "/local/game/MyRealtimeScript.js"
 func (o FleetServerProcessOutput) LaunchPath() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetServerProcess) string { return v.LaunchPath }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-parameters
+// An optional list of parameters to pass to the server executable or Realtime script on launch.
 func (o FleetServerProcessOutput) Parameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetServerProcess) *string { return v.Parameters }).(pulumi.StringPtrOutput)
 }
@@ -1197,11 +1214,9 @@ func (o FleetServerProcessArrayOutput) Index(i pulumi.IntInput) FleetServerProce
 	}).(FleetServerProcessOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html
+// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
 type GameServerGroupAutoScalingPolicy struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-estimatedinstancewarmup
-	EstimatedInstanceWarmup *float64 `pulumi:"estimatedInstanceWarmup"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-targettrackingconfiguration
+	EstimatedInstanceWarmup     *float64                                   `pulumi:"estimatedInstanceWarmup"`
 	TargetTrackingConfiguration GameServerGroupTargetTrackingConfiguration `pulumi:"targetTrackingConfiguration"`
 }
 
@@ -1216,11 +1231,9 @@ type GameServerGroupAutoScalingPolicyInput interface {
 	ToGameServerGroupAutoScalingPolicyOutputWithContext(context.Context) GameServerGroupAutoScalingPolicyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html
+// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
 type GameServerGroupAutoScalingPolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-estimatedinstancewarmup
-	EstimatedInstanceWarmup pulumi.Float64PtrInput `pulumi:"estimatedInstanceWarmup"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-targettrackingconfiguration
+	EstimatedInstanceWarmup     pulumi.Float64PtrInput                          `pulumi:"estimatedInstanceWarmup"`
 	TargetTrackingConfiguration GameServerGroupTargetTrackingConfigurationInput `pulumi:"targetTrackingConfiguration"`
 }
 
@@ -1277,7 +1290,7 @@ func (i *gameServerGroupAutoScalingPolicyPtrType) ToGameServerGroupAutoScalingPo
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupAutoScalingPolicyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html
+// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
 type GameServerGroupAutoScalingPolicyOutput struct{ *pulumi.OutputState }
 
 func (GameServerGroupAutoScalingPolicyOutput) ElementType() reflect.Type {
@@ -1302,12 +1315,10 @@ func (o GameServerGroupAutoScalingPolicyOutput) ToGameServerGroupAutoScalingPoli
 	}).(GameServerGroupAutoScalingPolicyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-estimatedinstancewarmup
 func (o GameServerGroupAutoScalingPolicyOutput) EstimatedInstanceWarmup() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v GameServerGroupAutoScalingPolicy) *float64 { return v.EstimatedInstanceWarmup }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-targettrackingconfiguration
 func (o GameServerGroupAutoScalingPolicyOutput) TargetTrackingConfiguration() GameServerGroupTargetTrackingConfigurationOutput {
 	return o.ApplyT(func(v GameServerGroupAutoScalingPolicy) GameServerGroupTargetTrackingConfiguration {
 		return v.TargetTrackingConfiguration
@@ -1338,7 +1349,6 @@ func (o GameServerGroupAutoScalingPolicyPtrOutput) Elem() GameServerGroupAutoSca
 	}).(GameServerGroupAutoScalingPolicyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-estimatedinstancewarmup
 func (o GameServerGroupAutoScalingPolicyPtrOutput) EstimatedInstanceWarmup() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GameServerGroupAutoScalingPolicy) *float64 {
 		if v == nil {
@@ -1348,7 +1358,6 @@ func (o GameServerGroupAutoScalingPolicyPtrOutput) EstimatedInstanceWarmup() pul
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-autoscalingpolicy.html#cfn-gamelift-gameservergroup-autoscalingpolicy-targettrackingconfiguration
 func (o GameServerGroupAutoScalingPolicyPtrOutput) TargetTrackingConfiguration() GameServerGroupTargetTrackingConfigurationPtrOutput {
 	return o.ApplyT(func(v *GameServerGroupAutoScalingPolicy) *GameServerGroupTargetTrackingConfiguration {
 		if v == nil {
@@ -1358,11 +1367,9 @@ func (o GameServerGroupAutoScalingPolicyPtrOutput) TargetTrackingConfiguration()
 	}).(GameServerGroupTargetTrackingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html
+// An allowed instance type for your game server group.
 type GameServerGroupInstanceDefinition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-instancetype
-	InstanceType string `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-weightedcapacity
+	InstanceType     string  `pulumi:"instanceType"`
 	WeightedCapacity *string `pulumi:"weightedCapacity"`
 }
 
@@ -1377,11 +1384,9 @@ type GameServerGroupInstanceDefinitionInput interface {
 	ToGameServerGroupInstanceDefinitionOutputWithContext(context.Context) GameServerGroupInstanceDefinitionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html
+// An allowed instance type for your game server group.
 type GameServerGroupInstanceDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-instancetype
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-weightedcapacity
+	InstanceType     pulumi.StringInput    `pulumi:"instanceType"`
 	WeightedCapacity pulumi.StringPtrInput `pulumi:"weightedCapacity"`
 }
 
@@ -1422,7 +1427,7 @@ func (i GameServerGroupInstanceDefinitionArray) ToGameServerGroupInstanceDefinit
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupInstanceDefinitionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html
+// An allowed instance type for your game server group.
 type GameServerGroupInstanceDefinitionOutput struct{ *pulumi.OutputState }
 
 func (GameServerGroupInstanceDefinitionOutput) ElementType() reflect.Type {
@@ -1437,12 +1442,10 @@ func (o GameServerGroupInstanceDefinitionOutput) ToGameServerGroupInstanceDefini
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-instancetype
 func (o GameServerGroupInstanceDefinitionOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v GameServerGroupInstanceDefinition) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-weightedcapacity
 func (o GameServerGroupInstanceDefinitionOutput) WeightedCapacity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GameServerGroupInstanceDefinition) *string { return v.WeightedCapacity }).(pulumi.StringPtrOutput)
 }
@@ -1467,14 +1470,11 @@ func (o GameServerGroupInstanceDefinitionArrayOutput) Index(i pulumi.IntInput) G
 	}).(GameServerGroupInstanceDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html
+// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
 type GameServerGroupLaunchTemplate struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplateid
-	LaunchTemplateId *string `pulumi:"launchTemplateId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplatename
+	LaunchTemplateId   *string `pulumi:"launchTemplateId"`
 	LaunchTemplateName *string `pulumi:"launchTemplateName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-version
-	Version *string `pulumi:"version"`
+	Version            *string `pulumi:"version"`
 }
 
 // GameServerGroupLaunchTemplateInput is an input type that accepts GameServerGroupLaunchTemplateArgs and GameServerGroupLaunchTemplateOutput values.
@@ -1488,14 +1488,11 @@ type GameServerGroupLaunchTemplateInput interface {
 	ToGameServerGroupLaunchTemplateOutputWithContext(context.Context) GameServerGroupLaunchTemplateOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html
+// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
 type GameServerGroupLaunchTemplateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplateid
-	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplatename
+	LaunchTemplateId   pulumi.StringPtrInput `pulumi:"launchTemplateId"`
 	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-version
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Version            pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (GameServerGroupLaunchTemplateArgs) ElementType() reflect.Type {
@@ -1551,7 +1548,7 @@ func (i *gameServerGroupLaunchTemplatePtrType) ToGameServerGroupLaunchTemplatePt
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupLaunchTemplatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html
+// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
 type GameServerGroupLaunchTemplateOutput struct{ *pulumi.OutputState }
 
 func (GameServerGroupLaunchTemplateOutput) ElementType() reflect.Type {
@@ -1576,17 +1573,14 @@ func (o GameServerGroupLaunchTemplateOutput) ToGameServerGroupLaunchTemplatePtrO
 	}).(GameServerGroupLaunchTemplatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplateid
 func (o GameServerGroupLaunchTemplateOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplatename
 func (o GameServerGroupLaunchTemplateOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-version
 func (o GameServerGroupLaunchTemplateOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GameServerGroupLaunchTemplate) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1615,7 +1609,6 @@ func (o GameServerGroupLaunchTemplatePtrOutput) Elem() GameServerGroupLaunchTemp
 	}).(GameServerGroupLaunchTemplateOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplateid
 func (o GameServerGroupLaunchTemplatePtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
 		if v == nil {
@@ -1625,7 +1618,6 @@ func (o GameServerGroupLaunchTemplatePtrOutput) LaunchTemplateId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplatename
 func (o GameServerGroupLaunchTemplatePtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
 		if v == nil {
@@ -1635,7 +1627,6 @@ func (o GameServerGroupLaunchTemplatePtrOutput) LaunchTemplateName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-version
 func (o GameServerGroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GameServerGroupLaunchTemplate) *string {
 		if v == nil {
@@ -1645,9 +1636,114 @@ func (o GameServerGroupLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html
+type GameServerGroupTag struct {
+	// The key for a developer-defined key:value pair for tagging an AWS resource.
+	Key *string `pulumi:"key"`
+	// The value for a developer-defined key:value pair for tagging an AWS resource.
+	Value *string `pulumi:"value"`
+}
+
+// GameServerGroupTagInput is an input type that accepts GameServerGroupTagArgs and GameServerGroupTagOutput values.
+// You can construct a concrete instance of `GameServerGroupTagInput` via:
+//
+//          GameServerGroupTagArgs{...}
+type GameServerGroupTagInput interface {
+	pulumi.Input
+
+	ToGameServerGroupTagOutput() GameServerGroupTagOutput
+	ToGameServerGroupTagOutputWithContext(context.Context) GameServerGroupTagOutput
+}
+
+type GameServerGroupTagArgs struct {
+	// The key for a developer-defined key:value pair for tagging an AWS resource.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The value for a developer-defined key:value pair for tagging an AWS resource.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (GameServerGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupTag)(nil)).Elem()
+}
+
+func (i GameServerGroupTagArgs) ToGameServerGroupTagOutput() GameServerGroupTagOutput {
+	return i.ToGameServerGroupTagOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupTagArgs) ToGameServerGroupTagOutputWithContext(ctx context.Context) GameServerGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupTagOutput)
+}
+
+// GameServerGroupTagArrayInput is an input type that accepts GameServerGroupTagArray and GameServerGroupTagArrayOutput values.
+// You can construct a concrete instance of `GameServerGroupTagArrayInput` via:
+//
+//          GameServerGroupTagArray{ GameServerGroupTagArgs{...} }
+type GameServerGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToGameServerGroupTagArrayOutput() GameServerGroupTagArrayOutput
+	ToGameServerGroupTagArrayOutputWithContext(context.Context) GameServerGroupTagArrayOutput
+}
+
+type GameServerGroupTagArray []GameServerGroupTagInput
+
+func (GameServerGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameServerGroupTag)(nil)).Elem()
+}
+
+func (i GameServerGroupTagArray) ToGameServerGroupTagArrayOutput() GameServerGroupTagArrayOutput {
+	return i.ToGameServerGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i GameServerGroupTagArray) ToGameServerGroupTagArrayOutputWithContext(ctx context.Context) GameServerGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupTagArrayOutput)
+}
+
+type GameServerGroupTagOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameServerGroupTag)(nil)).Elem()
+}
+
+func (o GameServerGroupTagOutput) ToGameServerGroupTagOutput() GameServerGroupTagOutput {
+	return o
+}
+
+func (o GameServerGroupTagOutput) ToGameServerGroupTagOutputWithContext(ctx context.Context) GameServerGroupTagOutput {
+	return o
+}
+
+// The key for a developer-defined key:value pair for tagging an AWS resource.
+func (o GameServerGroupTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GameServerGroupTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The value for a developer-defined key:value pair for tagging an AWS resource.
+func (o GameServerGroupTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GameServerGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type GameServerGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GameServerGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameServerGroupTag)(nil)).Elem()
+}
+
+func (o GameServerGroupTagArrayOutput) ToGameServerGroupTagArrayOutput() GameServerGroupTagArrayOutput {
+	return o
+}
+
+func (o GameServerGroupTagArrayOutput) ToGameServerGroupTagArrayOutputWithContext(ctx context.Context) GameServerGroupTagArrayOutput {
+	return o
+}
+
+func (o GameServerGroupTagArrayOutput) Index(i pulumi.IntInput) GameServerGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GameServerGroupTag {
+		return vs[0].([]GameServerGroupTag)[vs[1].(int)]
+	}).(GameServerGroupTagOutput)
+}
+
+// Settings for a target-based scaling policy applied to Auto Scaling group.
 type GameServerGroupTargetTrackingConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
 	TargetValue float64 `pulumi:"targetValue"`
 }
 
@@ -1662,9 +1758,8 @@ type GameServerGroupTargetTrackingConfigurationInput interface {
 	ToGameServerGroupTargetTrackingConfigurationOutputWithContext(context.Context) GameServerGroupTargetTrackingConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html
+// Settings for a target-based scaling policy applied to Auto Scaling group.
 type GameServerGroupTargetTrackingConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
 	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
 }
 
@@ -1721,7 +1816,7 @@ func (i *gameServerGroupTargetTrackingConfigurationPtrType) ToGameServerGroupTar
 	return pulumi.ToOutputWithContext(ctx, i).(GameServerGroupTargetTrackingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html
+// Settings for a target-based scaling policy applied to Auto Scaling group.
 type GameServerGroupTargetTrackingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GameServerGroupTargetTrackingConfigurationOutput) ElementType() reflect.Type {
@@ -1746,7 +1841,6 @@ func (o GameServerGroupTargetTrackingConfigurationOutput) ToGameServerGroupTarge
 	}).(GameServerGroupTargetTrackingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
 func (o GameServerGroupTargetTrackingConfigurationOutput) TargetValue() pulumi.Float64Output {
 	return o.ApplyT(func(v GameServerGroupTargetTrackingConfiguration) float64 { return v.TargetValue }).(pulumi.Float64Output)
 }
@@ -1775,7 +1869,6 @@ func (o GameServerGroupTargetTrackingConfigurationPtrOutput) Elem() GameServerGr
 	}).(GameServerGroupTargetTrackingConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
 func (o GameServerGroupTargetTrackingConfigurationPtrOutput) TargetValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GameServerGroupTargetTrackingConfiguration) *float64 {
 		if v == nil {
@@ -1808,6 +1901,8 @@ func init() {
 	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(GameServerGroupLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(GameServerGroupLaunchTemplatePtrOutput{})
+	pulumi.RegisterOutputType(GameServerGroupTagOutput{})
+	pulumi.RegisterOutputType(GameServerGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(GameServerGroupTargetTrackingConfigurationOutput{})
 	pulumi.RegisterOutputType(GameServerGroupTargetTrackingConfigurationPtrOutput{})
 }

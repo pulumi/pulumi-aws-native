@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html
 type ClusterClusterEndpoint struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html#cfn-route53recoverycontrol-cluster-clusterendpoint-endpoint
 	Endpoint *string `pulumi:"endpoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html#cfn-route53recoverycontrol-cluster-clusterendpoint-region
-	Region *string `pulumi:"region"`
+	Region   *string `pulumi:"region"`
 }
 
 // ClusterClusterEndpointInput is an input type that accepts ClusterClusterEndpointArgs and ClusterClusterEndpointOutput values.
@@ -29,12 +26,9 @@ type ClusterClusterEndpointInput interface {
 	ToClusterClusterEndpointOutputWithContext(context.Context) ClusterClusterEndpointOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html
 type ClusterClusterEndpointArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html#cfn-route53recoverycontrol-cluster-clusterendpoint-endpoint
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html#cfn-route53recoverycontrol-cluster-clusterendpoint-region
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region   pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (ClusterClusterEndpointArgs) ElementType() reflect.Type {
@@ -74,7 +68,6 @@ func (i ClusterClusterEndpointArray) ToClusterClusterEndpointArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterEndpointArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html
 type ClusterClusterEndpointOutput struct{ *pulumi.OutputState }
 
 func (ClusterClusterEndpointOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o ClusterClusterEndpointOutput) ToClusterClusterEndpointOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html#cfn-route53recoverycontrol-cluster-clusterendpoint-endpoint
 func (o ClusterClusterEndpointOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterEndpoint) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html#cfn-route53recoverycontrol-cluster-clusterendpoint-region
 func (o ClusterClusterEndpointOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterEndpoint) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -119,11 +110,11 @@ func (o ClusterClusterEndpointArrayOutput) Index(i pulumi.IntInput) ClusterClust
 	}).(ClusterClusterEndpointOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html
+// An assertion rule enforces that, when a routing control state is changed, that the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.
 type SafetyRuleAssertionRule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule-assertedcontrols
+	// The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed. For example, you might include three routing controls, one for each of three AWS Regions.
 	AssertedControls []string `pulumi:"assertedControls"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule-waitperiodms
+	// An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
 	WaitPeriodMs int `pulumi:"waitPeriodMs"`
 }
 
@@ -138,11 +129,11 @@ type SafetyRuleAssertionRuleInput interface {
 	ToSafetyRuleAssertionRuleOutputWithContext(context.Context) SafetyRuleAssertionRuleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html
+// An assertion rule enforces that, when a routing control state is changed, that the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.
 type SafetyRuleAssertionRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule-assertedcontrols
+	// The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed. For example, you might include three routing controls, one for each of three AWS Regions.
 	AssertedControls pulumi.StringArrayInput `pulumi:"assertedControls"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule-waitperiodms
+	// An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
 	WaitPeriodMs pulumi.IntInput `pulumi:"waitPeriodMs"`
 }
 
@@ -199,7 +190,7 @@ func (i *safetyRuleAssertionRulePtrType) ToSafetyRuleAssertionRulePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleAssertionRulePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html
+// An assertion rule enforces that, when a routing control state is changed, that the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.
 type SafetyRuleAssertionRuleOutput struct{ *pulumi.OutputState }
 
 func (SafetyRuleAssertionRuleOutput) ElementType() reflect.Type {
@@ -224,12 +215,12 @@ func (o SafetyRuleAssertionRuleOutput) ToSafetyRuleAssertionRulePtrOutputWithCon
 	}).(SafetyRuleAssertionRulePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule-assertedcontrols
+// The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed. For example, you might include three routing controls, one for each of three AWS Regions.
 func (o SafetyRuleAssertionRuleOutput) AssertedControls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SafetyRuleAssertionRule) []string { return v.AssertedControls }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule-waitperiodms
+// An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
 func (o SafetyRuleAssertionRuleOutput) WaitPeriodMs() pulumi.IntOutput {
 	return o.ApplyT(func(v SafetyRuleAssertionRule) int { return v.WaitPeriodMs }).(pulumi.IntOutput)
 }
@@ -258,7 +249,7 @@ func (o SafetyRuleAssertionRulePtrOutput) Elem() SafetyRuleAssertionRuleOutput {
 	}).(SafetyRuleAssertionRuleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule-assertedcontrols
+// The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed. For example, you might include three routing controls, one for each of three AWS Regions.
 func (o SafetyRuleAssertionRulePtrOutput) AssertedControls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SafetyRuleAssertionRule) []string {
 		if v == nil {
@@ -268,7 +259,7 @@ func (o SafetyRuleAssertionRulePtrOutput) AssertedControls() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-assertionrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule-waitperiodms
+// An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
 func (o SafetyRuleAssertionRulePtrOutput) WaitPeriodMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SafetyRuleAssertionRule) *int {
 		if v == nil {
@@ -278,13 +269,14 @@ func (o SafetyRuleAssertionRulePtrOutput) WaitPeriodMs() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html
+// A gating rule verifies that a set of gating controls evaluates as true, based on a rule configuration that you specify. If the gating rule evaluates to true, Amazon Route 53 Application Recovery Controller allows a set of routing control state changes to run and complete against the set of target controls.
 type SafetyRuleGatingRule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-gatingcontrols
+	// The gating controls for the gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
 	GatingControls []string `pulumi:"gatingControls"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-targetcontrols
+	// Routing controls that can only be set or unset if the specified RuleConfig evaluates to true for the specified GatingControls. For example, say you have three gating controls, one for each of three AWS Regions. Now you specify AtLeast 2 as your RuleConfig. With these settings, you can only change (set or unset) the routing controls that you have specified as TargetControls if that rule evaluates to true.
+	// In other words, your ability to change the routing controls that you have specified as TargetControls is gated by the rule that you set for the routing controls in GatingControls.
 	TargetControls []string `pulumi:"targetControls"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-waitperiodms
+	// An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
 	WaitPeriodMs int `pulumi:"waitPeriodMs"`
 }
 
@@ -299,13 +291,14 @@ type SafetyRuleGatingRuleInput interface {
 	ToSafetyRuleGatingRuleOutputWithContext(context.Context) SafetyRuleGatingRuleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html
+// A gating rule verifies that a set of gating controls evaluates as true, based on a rule configuration that you specify. If the gating rule evaluates to true, Amazon Route 53 Application Recovery Controller allows a set of routing control state changes to run and complete against the set of target controls.
 type SafetyRuleGatingRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-gatingcontrols
+	// The gating controls for the gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
 	GatingControls pulumi.StringArrayInput `pulumi:"gatingControls"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-targetcontrols
+	// Routing controls that can only be set or unset if the specified RuleConfig evaluates to true for the specified GatingControls. For example, say you have three gating controls, one for each of three AWS Regions. Now you specify AtLeast 2 as your RuleConfig. With these settings, you can only change (set or unset) the routing controls that you have specified as TargetControls if that rule evaluates to true.
+	// In other words, your ability to change the routing controls that you have specified as TargetControls is gated by the rule that you set for the routing controls in GatingControls.
 	TargetControls pulumi.StringArrayInput `pulumi:"targetControls"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-waitperiodms
+	// An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
 	WaitPeriodMs pulumi.IntInput `pulumi:"waitPeriodMs"`
 }
 
@@ -362,7 +355,7 @@ func (i *safetyRuleGatingRulePtrType) ToSafetyRuleGatingRulePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleGatingRulePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html
+// A gating rule verifies that a set of gating controls evaluates as true, based on a rule configuration that you specify. If the gating rule evaluates to true, Amazon Route 53 Application Recovery Controller allows a set of routing control state changes to run and complete against the set of target controls.
 type SafetyRuleGatingRuleOutput struct{ *pulumi.OutputState }
 
 func (SafetyRuleGatingRuleOutput) ElementType() reflect.Type {
@@ -387,17 +380,18 @@ func (o SafetyRuleGatingRuleOutput) ToSafetyRuleGatingRulePtrOutputWithContext(c
 	}).(SafetyRuleGatingRulePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-gatingcontrols
+// The gating controls for the gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
 func (o SafetyRuleGatingRuleOutput) GatingControls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SafetyRuleGatingRule) []string { return v.GatingControls }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-targetcontrols
+// Routing controls that can only be set or unset if the specified RuleConfig evaluates to true for the specified GatingControls. For example, say you have three gating controls, one for each of three AWS Regions. Now you specify AtLeast 2 as your RuleConfig. With these settings, you can only change (set or unset) the routing controls that you have specified as TargetControls if that rule evaluates to true.
+// In other words, your ability to change the routing controls that you have specified as TargetControls is gated by the rule that you set for the routing controls in GatingControls.
 func (o SafetyRuleGatingRuleOutput) TargetControls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SafetyRuleGatingRule) []string { return v.TargetControls }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-waitperiodms
+// An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
 func (o SafetyRuleGatingRuleOutput) WaitPeriodMs() pulumi.IntOutput {
 	return o.ApplyT(func(v SafetyRuleGatingRule) int { return v.WaitPeriodMs }).(pulumi.IntOutput)
 }
@@ -426,7 +420,7 @@ func (o SafetyRuleGatingRulePtrOutput) Elem() SafetyRuleGatingRuleOutput {
 	}).(SafetyRuleGatingRuleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-gatingcontrols
+// The gating controls for the gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
 func (o SafetyRuleGatingRulePtrOutput) GatingControls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SafetyRuleGatingRule) []string {
 		if v == nil {
@@ -436,7 +430,8 @@ func (o SafetyRuleGatingRulePtrOutput) GatingControls() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-targetcontrols
+// Routing controls that can only be set or unset if the specified RuleConfig evaluates to true for the specified GatingControls. For example, say you have three gating controls, one for each of three AWS Regions. Now you specify AtLeast 2 as your RuleConfig. With these settings, you can only change (set or unset) the routing controls that you have specified as TargetControls if that rule evaluates to true.
+// In other words, your ability to change the routing controls that you have specified as TargetControls is gated by the rule that you set for the routing controls in GatingControls.
 func (o SafetyRuleGatingRulePtrOutput) TargetControls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SafetyRuleGatingRule) []string {
 		if v == nil {
@@ -446,7 +441,7 @@ func (o SafetyRuleGatingRulePtrOutput) TargetControls() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-gatingrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule-waitperiodms
+// An evaluation period, in milliseconds (ms), during which any request against the target routing controls will fail. This helps prevent "flapping" of state. The wait period is 5000 ms by default, but you can choose a custom value.
 func (o SafetyRuleGatingRulePtrOutput) WaitPeriodMs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SafetyRuleGatingRule) *int {
 		if v == nil {
@@ -456,14 +451,13 @@ func (o SafetyRuleGatingRulePtrOutput) WaitPeriodMs() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html
+// The rule configuration for an assertion rule or gating rule. This is the criteria that you set for specific assertion controls (routing controls) or gating controls. This configuration specifies how many controls must be enabled after a transaction completes.
 type SafetyRuleRuleConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-inverted
+	// Logical negation of the rule. If the rule would usually evaluate true, it's evaluated as false, and vice versa.
 	Inverted bool `pulumi:"inverted"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-threshold
-	Threshold int `pulumi:"threshold"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-type
-	Type string `pulumi:"type"`
+	// The value of N, when you specify an ATLEAST rule type. That is, Threshold is the number of controls that must be set when you specify an ATLEAST type.
+	Threshold int    `pulumi:"threshold"`
+	Type      string `pulumi:"type"`
 }
 
 // SafetyRuleRuleConfigInput is an input type that accepts SafetyRuleRuleConfigArgs and SafetyRuleRuleConfigOutput values.
@@ -477,14 +471,13 @@ type SafetyRuleRuleConfigInput interface {
 	ToSafetyRuleRuleConfigOutputWithContext(context.Context) SafetyRuleRuleConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html
+// The rule configuration for an assertion rule or gating rule. This is the criteria that you set for specific assertion controls (routing controls) or gating controls. This configuration specifies how many controls must be enabled after a transaction completes.
 type SafetyRuleRuleConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-inverted
+	// Logical negation of the rule. If the rule would usually evaluate true, it's evaluated as false, and vice versa.
 	Inverted pulumi.BoolInput `pulumi:"inverted"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-threshold
-	Threshold pulumi.IntInput `pulumi:"threshold"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-type
-	Type pulumi.StringInput `pulumi:"type"`
+	// The value of N, when you specify an ATLEAST rule type. That is, Threshold is the number of controls that must be set when you specify an ATLEAST type.
+	Threshold pulumi.IntInput    `pulumi:"threshold"`
+	Type      pulumi.StringInput `pulumi:"type"`
 }
 
 func (SafetyRuleRuleConfigArgs) ElementType() reflect.Type {
@@ -540,7 +533,7 @@ func (i *safetyRuleRuleConfigPtrType) ToSafetyRuleRuleConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleRuleConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html
+// The rule configuration for an assertion rule or gating rule. This is the criteria that you set for specific assertion controls (routing controls) or gating controls. This configuration specifies how many controls must be enabled after a transaction completes.
 type SafetyRuleRuleConfigOutput struct{ *pulumi.OutputState }
 
 func (SafetyRuleRuleConfigOutput) ElementType() reflect.Type {
@@ -565,17 +558,16 @@ func (o SafetyRuleRuleConfigOutput) ToSafetyRuleRuleConfigPtrOutputWithContext(c
 	}).(SafetyRuleRuleConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-inverted
+// Logical negation of the rule. If the rule would usually evaluate true, it's evaluated as false, and vice versa.
 func (o SafetyRuleRuleConfigOutput) Inverted() pulumi.BoolOutput {
 	return o.ApplyT(func(v SafetyRuleRuleConfig) bool { return v.Inverted }).(pulumi.BoolOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-threshold
+// The value of N, when you specify an ATLEAST rule type. That is, Threshold is the number of controls that must be set when you specify an ATLEAST type.
 func (o SafetyRuleRuleConfigOutput) Threshold() pulumi.IntOutput {
 	return o.ApplyT(func(v SafetyRuleRuleConfig) int { return v.Threshold }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-type
 func (o SafetyRuleRuleConfigOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SafetyRuleRuleConfig) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -604,7 +596,7 @@ func (o SafetyRuleRuleConfigPtrOutput) Elem() SafetyRuleRuleConfigOutput {
 	}).(SafetyRuleRuleConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-inverted
+// Logical negation of the rule. If the rule would usually evaluate true, it's evaluated as false, and vice versa.
 func (o SafetyRuleRuleConfigPtrOutput) Inverted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SafetyRuleRuleConfig) *bool {
 		if v == nil {
@@ -614,7 +606,7 @@ func (o SafetyRuleRuleConfigPtrOutput) Inverted() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-threshold
+// The value of N, when you specify an ATLEAST rule type. That is, Threshold is the number of controls that must be set when you specify an ATLEAST type.
 func (o SafetyRuleRuleConfigPtrOutput) Threshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SafetyRuleRuleConfig) *int {
 		if v == nil {
@@ -624,7 +616,6 @@ func (o SafetyRuleRuleConfigPtrOutput) Threshold() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-safetyrule-ruleconfig.html#cfn-route53recoverycontrol-safetyrule-ruleconfig-type
 func (o SafetyRuleRuleConfigPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SafetyRuleRuleConfig) *string {
 		if v == nil {

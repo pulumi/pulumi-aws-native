@@ -11,13 +11,10 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html
+    /// Block traffic towards application.
     /// </summary>
     public sealed class WebACLBlockActionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html#cfn-wafv2-webacl-blockaction-customresponse
-        /// </summary>
         [Input("customResponse")]
         public Input<Inputs.WebACLCustomResponseArgs>? CustomResponse { get; set; }
 

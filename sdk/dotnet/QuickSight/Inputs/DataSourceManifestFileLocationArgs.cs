@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html
+    /// &lt;p&gt;Amazon S3 manifest file location.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceManifestFileLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-bucket
+        /// &lt;p&gt;Amazon S3 bucket.&lt;/p&gt;
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-key
+        /// &lt;p&gt;Amazon S3 key that identifies an object.&lt;/p&gt;
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;

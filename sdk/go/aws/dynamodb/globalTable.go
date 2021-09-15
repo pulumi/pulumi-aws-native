@@ -11,34 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html
+// Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
 type GlobalTable struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-attributedefinitions
-	AttributeDefinitions GlobalTableAttributeDefinitionArrayOutput `pulumi:"attributeDefinitions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-billingmode
-	BillingMode pulumi.StringPtrOutput `pulumi:"billingMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
-	GlobalSecondaryIndexes GlobalTableGlobalSecondaryIndexArrayOutput `pulumi:"globalSecondaryIndexes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema
-	KeySchema GlobalTableKeySchemaArrayOutput `pulumi:"keySchema"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes
-	LocalSecondaryIndexes GlobalTableLocalSecondaryIndexArrayOutput `pulumi:"localSecondaryIndexes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
-	Replicas GlobalTableReplicaSpecificationArrayOutput `pulumi:"replicas"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-ssespecification
-	SSESpecification GlobalTableSSESpecificationPtrOutput `pulumi:"sSESpecification"`
-	StreamArn        pulumi.StringOutput                  `pulumi:"streamArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
-	StreamSpecification GlobalTableStreamSpecificationPtrOutput `pulumi:"streamSpecification"`
-	TableId             pulumi.StringOutput                     `pulumi:"tableId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
-	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
-	TimeToLiveSpecification GlobalTableTimeToLiveSpecificationPtrOutput `pulumi:"timeToLiveSpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings
+	Arn                                pulumi.StringOutput                                    `pulumi:"arn"`
+	AttributeDefinitions               GlobalTableAttributeDefinitionArrayOutput              `pulumi:"attributeDefinitions"`
+	BillingMode                        pulumi.StringPtrOutput                                 `pulumi:"billingMode"`
+	GlobalSecondaryIndexes             GlobalTableGlobalSecondaryIndexArrayOutput             `pulumi:"globalSecondaryIndexes"`
+	KeySchema                          GlobalTableKeySchemaArrayOutput                        `pulumi:"keySchema"`
+	LocalSecondaryIndexes              GlobalTableLocalSecondaryIndexArrayOutput              `pulumi:"localSecondaryIndexes"`
+	Replicas                           GlobalTableReplicaSpecificationArrayOutput             `pulumi:"replicas"`
+	SSESpecification                   GlobalTableSSESpecificationPtrOutput                   `pulumi:"sSESpecification"`
+	StreamArn                          pulumi.StringOutput                                    `pulumi:"streamArn"`
+	StreamSpecification                GlobalTableStreamSpecificationPtrOutput                `pulumi:"streamSpecification"`
+	TableId                            pulumi.StringOutput                                    `pulumi:"tableId"`
+	TableName                          pulumi.StringPtrOutput                                 `pulumi:"tableName"`
+	TimeToLiveSpecification            GlobalTableTimeToLiveSpecificationPtrOutput            `pulumi:"timeToLiveSpecification"`
 	WriteProvisionedThroughputSettings GlobalTableWriteProvisionedThroughputSettingsPtrOutput `pulumi:"writeProvisionedThroughputSettings"`
 }
 
@@ -90,53 +79,31 @@ func (GlobalTableState) ElementType() reflect.Type {
 }
 
 type globalTableArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-attributedefinitions
-	AttributeDefinitions []GlobalTableAttributeDefinition `pulumi:"attributeDefinitions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-billingmode
-	BillingMode *string `pulumi:"billingMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
-	GlobalSecondaryIndexes []GlobalTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema
-	KeySchema []GlobalTableKeySchema `pulumi:"keySchema"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes
-	LocalSecondaryIndexes []GlobalTableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
-	Replicas []GlobalTableReplicaSpecification `pulumi:"replicas"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-ssespecification
-	SSESpecification *GlobalTableSSESpecification `pulumi:"sSESpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
-	StreamSpecification *GlobalTableStreamSpecification `pulumi:"streamSpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
-	TableName *string `pulumi:"tableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
-	TimeToLiveSpecification *GlobalTableTimeToLiveSpecification `pulumi:"timeToLiveSpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings
+	AttributeDefinitions               []GlobalTableAttributeDefinition               `pulumi:"attributeDefinitions"`
+	BillingMode                        *string                                        `pulumi:"billingMode"`
+	GlobalSecondaryIndexes             []GlobalTableGlobalSecondaryIndex              `pulumi:"globalSecondaryIndexes"`
+	KeySchema                          []GlobalTableKeySchema                         `pulumi:"keySchema"`
+	LocalSecondaryIndexes              []GlobalTableLocalSecondaryIndex               `pulumi:"localSecondaryIndexes"`
+	Replicas                           []GlobalTableReplicaSpecification              `pulumi:"replicas"`
+	SSESpecification                   *GlobalTableSSESpecification                   `pulumi:"sSESpecification"`
+	StreamSpecification                *GlobalTableStreamSpecification                `pulumi:"streamSpecification"`
+	TableName                          *string                                        `pulumi:"tableName"`
+	TimeToLiveSpecification            *GlobalTableTimeToLiveSpecification            `pulumi:"timeToLiveSpecification"`
 	WriteProvisionedThroughputSettings *GlobalTableWriteProvisionedThroughputSettings `pulumi:"writeProvisionedThroughputSettings"`
 }
 
 // The set of arguments for constructing a GlobalTable resource.
 type GlobalTableArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-attributedefinitions
-	AttributeDefinitions GlobalTableAttributeDefinitionArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-billingmode
-	BillingMode pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
-	GlobalSecondaryIndexes GlobalTableGlobalSecondaryIndexArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema
-	KeySchema GlobalTableKeySchemaArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes
-	LocalSecondaryIndexes GlobalTableLocalSecondaryIndexArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
-	Replicas GlobalTableReplicaSpecificationArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-ssespecification
-	SSESpecification GlobalTableSSESpecificationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
-	StreamSpecification GlobalTableStreamSpecificationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
-	TableName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
-	TimeToLiveSpecification GlobalTableTimeToLiveSpecificationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings
+	AttributeDefinitions               GlobalTableAttributeDefinitionArrayInput
+	BillingMode                        pulumi.StringPtrInput
+	GlobalSecondaryIndexes             GlobalTableGlobalSecondaryIndexArrayInput
+	KeySchema                          GlobalTableKeySchemaArrayInput
+	LocalSecondaryIndexes              GlobalTableLocalSecondaryIndexArrayInput
+	Replicas                           GlobalTableReplicaSpecificationArrayInput
+	SSESpecification                   GlobalTableSSESpecificationPtrInput
+	StreamSpecification                GlobalTableStreamSpecificationPtrInput
+	TableName                          pulumi.StringPtrInput
+	TimeToLiveSpecification            GlobalTableTimeToLiveSpecificationPtrInput
 	WriteProvisionedThroughputSettings GlobalTableWriteProvisionedThroughputSettingsPtrInput
 }
 

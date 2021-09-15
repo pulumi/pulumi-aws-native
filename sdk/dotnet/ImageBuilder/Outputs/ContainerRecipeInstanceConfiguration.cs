@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html
+    /// A group of options that can be used to configure an instance for building and testing container images.
     /// </summary>
     [OutputType]
     public sealed class ContainerRecipeInstanceConfiguration
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings
+        /// Defines the block devices to attach for building an instance from this Image Builder AMI.
         /// </summary>
         public readonly ImmutableArray<Outputs.ContainerRecipeInstanceBlockDeviceMapping> BlockDeviceMappings;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-image
+        /// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
         /// </summary>
         public readonly string? Image;
 

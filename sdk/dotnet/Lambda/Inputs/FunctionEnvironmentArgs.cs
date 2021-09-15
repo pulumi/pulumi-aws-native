@@ -11,21 +11,15 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html
+    /// A function's environment variable settings.
     /// </summary>
     public sealed class FunctionEnvironmentArgs : Pulumi.ResourceArgs
     {
-        [Input("variables")]
-        private InputMap<string>? _variables;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html#cfn-lambda-function-environment-variables
+        /// Environment variable key-value pairs.
         /// </summary>
-        public InputMap<string> Variables
-        {
-            get => _variables ?? (_variables = new InputMap<string>());
-            set => _variables = value;
-        }
+        [Input("variables")]
+        public Input<object>? Variables { get; set; }
 
         public FunctionEnvironmentArgs()
         {

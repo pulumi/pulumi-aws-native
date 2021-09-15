@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html
+ * Resource Type definition for AWS::EventSchemas::RegistryPolicy
  */
 export class RegistryPolicy extends pulumi.CustomResource {
     /**
@@ -34,18 +34,8 @@ export class RegistryPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RegistryPolicy.__pulumiType;
     }
 
-    public /*out*/ readonly id!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
-     */
-    public readonly policy!: pulumi.Output<any | string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
-     */
+    public readonly policy!: pulumi.Output<any>;
     public readonly registryName!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid
-     */
     public readonly revisionId!: pulumi.Output<string | undefined>;
 
     /**
@@ -68,9 +58,7 @@ export class RegistryPolicy extends pulumi.CustomResource {
             inputs["policy"] = args ? args.policy : undefined;
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["revisionId"] = args ? args.revisionId : undefined;
-            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["id"] = undefined /*out*/;
             inputs["policy"] = undefined /*out*/;
             inputs["registryName"] = undefined /*out*/;
             inputs["revisionId"] = undefined /*out*/;
@@ -86,16 +74,7 @@ export class RegistryPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a RegistryPolicy resource.
  */
 export interface RegistryPolicyArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
-     */
-    policy: pulumi.Input<any | string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
-     */
+    policy: any;
     registryName: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid
-     */
     revisionId?: pulumi.Input<string>;
 }

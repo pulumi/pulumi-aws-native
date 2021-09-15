@@ -10,11 +10,120 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html
-type FargateProfileLabel struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-key
+// A key-value pair to associate with a resource.
+type AddonTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-value
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// AddonTagInput is an input type that accepts AddonTagArgs and AddonTagOutput values.
+// You can construct a concrete instance of `AddonTagInput` via:
+//
+//          AddonTagArgs{...}
+type AddonTagInput interface {
+	pulumi.Input
+
+	ToAddonTagOutput() AddonTagOutput
+	ToAddonTagOutputWithContext(context.Context) AddonTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type AddonTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AddonTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddonTag)(nil)).Elem()
+}
+
+func (i AddonTagArgs) ToAddonTagOutput() AddonTagOutput {
+	return i.ToAddonTagOutputWithContext(context.Background())
+}
+
+func (i AddonTagArgs) ToAddonTagOutputWithContext(ctx context.Context) AddonTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddonTagOutput)
+}
+
+// AddonTagArrayInput is an input type that accepts AddonTagArray and AddonTagArrayOutput values.
+// You can construct a concrete instance of `AddonTagArrayInput` via:
+//
+//          AddonTagArray{ AddonTagArgs{...} }
+type AddonTagArrayInput interface {
+	pulumi.Input
+
+	ToAddonTagArrayOutput() AddonTagArrayOutput
+	ToAddonTagArrayOutputWithContext(context.Context) AddonTagArrayOutput
+}
+
+type AddonTagArray []AddonTagInput
+
+func (AddonTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AddonTag)(nil)).Elem()
+}
+
+func (i AddonTagArray) ToAddonTagArrayOutput() AddonTagArrayOutput {
+	return i.ToAddonTagArrayOutputWithContext(context.Background())
+}
+
+func (i AddonTagArray) ToAddonTagArrayOutputWithContext(ctx context.Context) AddonTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AddonTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type AddonTagOutput struct{ *pulumi.OutputState }
+
+func (AddonTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AddonTag)(nil)).Elem()
+}
+
+func (o AddonTagOutput) ToAddonTagOutput() AddonTagOutput {
+	return o
+}
+
+func (o AddonTagOutput) ToAddonTagOutputWithContext(ctx context.Context) AddonTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o AddonTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AddonTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o AddonTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AddonTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AddonTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AddonTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AddonTag)(nil)).Elem()
+}
+
+func (o AddonTagArrayOutput) ToAddonTagArrayOutput() AddonTagArrayOutput {
+	return o
+}
+
+func (o AddonTagArrayOutput) ToAddonTagArrayOutputWithContext(ctx context.Context) AddonTagArrayOutput {
+	return o
+}
+
+func (o AddonTagArrayOutput) Index(i pulumi.IntInput) AddonTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AddonTag {
+		return vs[0].([]AddonTag)[vs[1].(int)]
+	}).(AddonTagOutput)
+}
+
+// A key-value pair to associate with a pod.
+type FargateProfileLabel struct {
+	// The key name of the label.
+	Key string `pulumi:"key"`
+	// The value for the label.
 	Value string `pulumi:"value"`
 }
 
@@ -29,11 +138,11 @@ type FargateProfileLabelInput interface {
 	ToFargateProfileLabelOutputWithContext(context.Context) FargateProfileLabelOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html
+// A key-value pair to associate with a pod.
 type FargateProfileLabelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-key
+	// The key name of the label.
 	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-value
+	// The value for the label.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -74,7 +183,7 @@ func (i FargateProfileLabelArray) ToFargateProfileLabelArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileLabelArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html
+// A key-value pair to associate with a pod.
 type FargateProfileLabelOutput struct{ *pulumi.OutputState }
 
 func (FargateProfileLabelOutput) ElementType() reflect.Type {
@@ -89,12 +198,12 @@ func (o FargateProfileLabelOutput) ToFargateProfileLabelOutputWithContext(ctx co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-key
+// The key name of the label.
 func (o FargateProfileLabelOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v FargateProfileLabel) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-value
+// The value for the label.
 func (o FargateProfileLabelOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FargateProfileLabel) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -119,12 +228,9 @@ func (o FargateProfileLabelArrayOutput) Index(i pulumi.IntInput) FargateProfileL
 	}).(FargateProfileLabelOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html
 type FargateProfileSelector struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-labels
-	Labels []FargateProfileLabel `pulumi:"labels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-namespace
-	Namespace string `pulumi:"namespace"`
+	Labels    []FargateProfileLabel `pulumi:"labels"`
+	Namespace string                `pulumi:"namespace"`
 }
 
 // FargateProfileSelectorInput is an input type that accepts FargateProfileSelectorArgs and FargateProfileSelectorOutput values.
@@ -138,12 +244,9 @@ type FargateProfileSelectorInput interface {
 	ToFargateProfileSelectorOutputWithContext(context.Context) FargateProfileSelectorOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html
 type FargateProfileSelectorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-labels
-	Labels FargateProfileLabelArrayInput `pulumi:"labels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-namespace
-	Namespace pulumi.StringInput `pulumi:"namespace"`
+	Labels    FargateProfileLabelArrayInput `pulumi:"labels"`
+	Namespace pulumi.StringInput            `pulumi:"namespace"`
 }
 
 func (FargateProfileSelectorArgs) ElementType() reflect.Type {
@@ -183,7 +286,6 @@ func (i FargateProfileSelectorArray) ToFargateProfileSelectorArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileSelectorArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html
 type FargateProfileSelectorOutput struct{ *pulumi.OutputState }
 
 func (FargateProfileSelectorOutput) ElementType() reflect.Type {
@@ -198,12 +300,10 @@ func (o FargateProfileSelectorOutput) ToFargateProfileSelectorOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-labels
 func (o FargateProfileSelectorOutput) Labels() FargateProfileLabelArrayOutput {
 	return o.ApplyT(func(v FargateProfileSelector) []FargateProfileLabel { return v.Labels }).(FargateProfileLabelArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-selector.html#cfn-eks-fargateprofile-selector-namespace
 func (o FargateProfileSelectorOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v FargateProfileSelector) string { return v.Namespace }).(pulumi.StringOutput)
 }
@@ -228,9 +328,122 @@ func (o FargateProfileSelectorArrayOutput) Index(i pulumi.IntInput) FargateProfi
 	}).(FargateProfileSelectorOutput)
 }
 
+// A key-value pair to associate with a resource.
+type FargateProfileTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// FargateProfileTagInput is an input type that accepts FargateProfileTagArgs and FargateProfileTagOutput values.
+// You can construct a concrete instance of `FargateProfileTagInput` via:
+//
+//          FargateProfileTagArgs{...}
+type FargateProfileTagInput interface {
+	pulumi.Input
+
+	ToFargateProfileTagOutput() FargateProfileTagOutput
+	ToFargateProfileTagOutputWithContext(context.Context) FargateProfileTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type FargateProfileTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FargateProfileTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FargateProfileTag)(nil)).Elem()
+}
+
+func (i FargateProfileTagArgs) ToFargateProfileTagOutput() FargateProfileTagOutput {
+	return i.ToFargateProfileTagOutputWithContext(context.Background())
+}
+
+func (i FargateProfileTagArgs) ToFargateProfileTagOutputWithContext(ctx context.Context) FargateProfileTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileTagOutput)
+}
+
+// FargateProfileTagArrayInput is an input type that accepts FargateProfileTagArray and FargateProfileTagArrayOutput values.
+// You can construct a concrete instance of `FargateProfileTagArrayInput` via:
+//
+//          FargateProfileTagArray{ FargateProfileTagArgs{...} }
+type FargateProfileTagArrayInput interface {
+	pulumi.Input
+
+	ToFargateProfileTagArrayOutput() FargateProfileTagArrayOutput
+	ToFargateProfileTagArrayOutputWithContext(context.Context) FargateProfileTagArrayOutput
+}
+
+type FargateProfileTagArray []FargateProfileTagInput
+
+func (FargateProfileTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FargateProfileTag)(nil)).Elem()
+}
+
+func (i FargateProfileTagArray) ToFargateProfileTagArrayOutput() FargateProfileTagArrayOutput {
+	return i.ToFargateProfileTagArrayOutputWithContext(context.Background())
+}
+
+func (i FargateProfileTagArray) ToFargateProfileTagArrayOutputWithContext(ctx context.Context) FargateProfileTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type FargateProfileTagOutput struct{ *pulumi.OutputState }
+
+func (FargateProfileTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FargateProfileTag)(nil)).Elem()
+}
+
+func (o FargateProfileTagOutput) ToFargateProfileTagOutput() FargateProfileTagOutput {
+	return o
+}
+
+func (o FargateProfileTagOutput) ToFargateProfileTagOutputWithContext(ctx context.Context) FargateProfileTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o FargateProfileTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FargateProfileTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o FargateProfileTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FargateProfileTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FargateProfileTagArrayOutput struct{ *pulumi.OutputState }
+
+func (FargateProfileTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FargateProfileTag)(nil)).Elem()
+}
+
+func (o FargateProfileTagArrayOutput) ToFargateProfileTagArrayOutput() FargateProfileTagArrayOutput {
+	return o
+}
+
+func (o FargateProfileTagArrayOutput) ToFargateProfileTagArrayOutputWithContext(ctx context.Context) FargateProfileTagArrayOutput {
+	return o
+}
+
+func (o FargateProfileTagArrayOutput) Index(i pulumi.IntInput) FargateProfileTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FargateProfileTag {
+		return vs[0].([]FargateProfileTag)[vs[1].(int)]
+	}).(FargateProfileTagOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(AddonTagOutput{})
+	pulumi.RegisterOutputType(AddonTagArrayOutput{})
 	pulumi.RegisterOutputType(FargateProfileLabelOutput{})
 	pulumi.RegisterOutputType(FargateProfileLabelArrayOutput{})
 	pulumi.RegisterOutputType(FargateProfileSelectorOutput{})
 	pulumi.RegisterOutputType(FargateProfileSelectorArrayOutput{})
+	pulumi.RegisterOutputType(FargateProfileTagOutput{})
+	pulumi.RegisterOutputType(FargateProfileTagArrayOutput{})
 }

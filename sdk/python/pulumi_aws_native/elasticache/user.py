@@ -21,12 +21,12 @@ class UserArgs:
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a User resource.
-        :param pulumi.Input[str] engine: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
-        :param pulumi.Input[str] user_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
-        :param pulumi.Input[str] user_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
-        :param pulumi.Input[str] access_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
-        :param pulumi.Input[bool] no_password_required: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
+        :param pulumi.Input[str] engine: Must be redis.
+        :param pulumi.Input[str] user_id: The ID of the user.
+        :param pulumi.Input[str] user_name: The username of the user.
+        :param pulumi.Input[str] access_string: Access permissions string used for this user account.
+        :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user account. You can create up to two passwords for each user.
         """
         pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "user_id", user_id)
@@ -42,7 +42,7 @@ class UserArgs:
     @pulumi.getter
     def engine(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
+        Must be redis.
         """
         return pulumi.get(self, "engine")
 
@@ -54,7 +54,7 @@ class UserArgs:
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
+        The ID of the user.
         """
         return pulumi.get(self, "user_id")
 
@@ -66,7 +66,7 @@ class UserArgs:
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
+        The username of the user.
         """
         return pulumi.get(self, "user_name")
 
@@ -78,7 +78,7 @@ class UserArgs:
     @pulumi.getter(name="accessString")
     def access_string(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
+        Access permissions string used for this user account.
         """
         return pulumi.get(self, "access_string")
 
@@ -90,7 +90,7 @@ class UserArgs:
     @pulumi.getter(name="noPasswordRequired")
     def no_password_required(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
+        Indicates a password is not required for this user account.
         """
         return pulumi.get(self, "no_password_required")
 
@@ -102,7 +102,7 @@ class UserArgs:
     @pulumi.getter
     def passwords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
+        Passwords used for this user account. You can create up to two passwords for each user.
         """
         return pulumi.get(self, "passwords")
 
@@ -124,16 +124,16 @@ class User(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html
+        Resource Type definition for AWS::ElastiCache::User
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
-        :param pulumi.Input[str] engine: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
-        :param pulumi.Input[bool] no_password_required: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
-        :param pulumi.Input[str] user_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
-        :param pulumi.Input[str] user_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
+        :param pulumi.Input[str] access_string: Access permissions string used for this user account.
+        :param pulumi.Input[str] engine: Must be redis.
+        :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user account.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user account. You can create up to two passwords for each user.
+        :param pulumi.Input[str] user_id: The ID of the user.
+        :param pulumi.Input[str] user_name: The username of the user.
         """
         ...
     @overload
@@ -142,7 +142,7 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html
+        Resource Type definition for AWS::ElastiCache::User
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
@@ -227,20 +227,23 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="accessString")
     def access_string(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
+        Access permissions string used for this user account.
         """
         return pulumi.get(self, "access_string")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the user account.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def engine(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
+        Must be redis.
         """
         return pulumi.get(self, "engine")
 
@@ -248,7 +251,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="noPasswordRequired")
     def no_password_required(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
+        Indicates a password is not required for this user account.
         """
         return pulumi.get(self, "no_password_required")
 
@@ -256,20 +259,23 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def passwords(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
+        Passwords used for this user account. You can create up to two passwords for each user.
         """
         return pulumi.get(self, "passwords")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        Indicates the user status. Can be "active", "modifying" or "deleting".
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="userId")
     def user_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
+        The ID of the user.
         """
         return pulumi.get(self, "user_id")
 
@@ -277,7 +283,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
+        The username of the user.
         """
         return pulumi.get(self, "user_name")
 

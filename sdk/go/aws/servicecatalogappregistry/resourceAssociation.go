@@ -11,18 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html
+// Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
 type ResourceAssociation struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-application
+	// The name or the Id of the Application.
 	Application    pulumi.StringOutput `pulumi:"application"`
 	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
-	Id             pulumi.StringOutput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resource
+	// The name or the Id of the Resource.
 	Resource    pulumi.StringOutput `pulumi:"resource"`
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resourcetype
+	// The type of the CFN Resource for now it's enum CFN_STACK.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 }
 
@@ -74,21 +73,21 @@ func (ResourceAssociationState) ElementType() reflect.Type {
 }
 
 type resourceAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-application
+	// The name or the Id of the Application.
 	Application string `pulumi:"application"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resource
+	// The name or the Id of the Resource.
 	Resource string `pulumi:"resource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resourcetype
+	// The type of the CFN Resource for now it's enum CFN_STACK.
 	ResourceType string `pulumi:"resourceType"`
 }
 
 // The set of arguments for constructing a ResourceAssociation resource.
 type ResourceAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-application
+	// The name or the Id of the Application.
 	Application pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resource
+	// The name or the Id of the Resource.
 	Resource pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resourcetype
+	// The type of the CFN Resource for now it's enum CFN_STACK.
 	ResourceType pulumi.StringInput
 }
 

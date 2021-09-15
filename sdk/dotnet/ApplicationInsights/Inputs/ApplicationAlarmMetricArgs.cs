@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html
+    /// A metric to be monitored for the component.
     /// </summary>
     public sealed class ApplicationAlarmMetricArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname
+        /// The name of the metric to be monitored for the component.
         /// </summary>
         [Input("alarmMetricName", required: true)]
         public Input<string> AlarmMetricName { get; set; } = null!;

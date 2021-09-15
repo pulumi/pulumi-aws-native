@@ -10,20 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html
-    /// </summary>
     public sealed class AnomalyDetectorFileFormatDescriptorArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-csvformatdescriptor
-        /// </summary>
         [Input("csvFormatDescriptor")]
         public Input<Inputs.AnomalyDetectorCsvFormatDescriptorArgs>? CsvFormatDescriptor { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-jsonformatdescriptor
-        /// </summary>
         [Input("jsonFormatDescriptor")]
         public Input<Inputs.AnomalyDetectorJsonFormatDescriptorArgs>? JsonFormatDescriptor { get; set; }
 

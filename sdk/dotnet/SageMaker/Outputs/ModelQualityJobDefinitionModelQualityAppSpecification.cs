@@ -11,37 +11,34 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html
+    /// Container image configuration object for the monitoring job.
     /// </summary>
     [OutputType]
     public sealed class ModelQualityJobDefinitionModelQualityAppSpecification
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerarguments
+        /// An array of arguments for the container used to run the monitoring job.
         /// </summary>
         public readonly ImmutableArray<string> ContainerArguments;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-containerentrypoint
+        /// Specifies the entrypoint for a container used to run the monitoring job.
         /// </summary>
         public readonly ImmutableArray<string> ContainerEntrypoint;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-environment
+        /// Sets the environment variables in the Docker container
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Environment;
+        public readonly object? Environment;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-imageuri
+        /// The container image to be run by the monitoring job.
         /// </summary>
         public readonly string ImageUri;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-postanalyticsprocessorsourceuri
+        /// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
         /// </summary>
         public readonly string? PostAnalyticsProcessorSourceUri;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-problemtype
-        /// </summary>
         public readonly string ProblemType;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html#cfn-sagemaker-modelqualityjobdefinition-modelqualityappspecification-recordpreprocessorsourceuri
+        /// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
         /// </summary>
         public readonly string? RecordPreprocessorSourceUri;
 
@@ -51,7 +48,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             ImmutableArray<string> containerEntrypoint,
 
-            ImmutableDictionary<string, string>? environment,
+            object? environment,
 
             string imageUri,
 

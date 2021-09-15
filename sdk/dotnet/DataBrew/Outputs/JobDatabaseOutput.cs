@@ -10,22 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html
-    /// </summary>
     [OutputType]
     public sealed class JobDatabaseOutput
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoptions
-        /// </summary>
         public readonly Outputs.JobDatabaseTableOutputOptions DatabaseOptions;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoutputmode
+        /// Database table name
         /// </summary>
         public readonly string? DatabaseOutputMode;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-glueconnectionname
+        /// Glue connection name
         /// </summary>
         public readonly string GlueConnectionName;
 

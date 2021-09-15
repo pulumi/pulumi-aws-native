@@ -10,43 +10,40 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html
+    /// Resource Type definition for AWS::SageMaker::ModelPackageGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:ModelPackageGroup")]
     public partial class ModelPackageGroup : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The time at which the model package group was created.
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
         [Output("modelPackageGroupArn")]
         public Output<string> ModelPackageGroupArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
-        /// </summary>
         [Output("modelPackageGroupDescription")]
         public Output<string?> ModelPackageGroupDescription { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
-        /// </summary>
         [Output("modelPackageGroupName")]
         public Output<string> ModelPackageGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
-        /// </summary>
         [Output("modelPackageGroupPolicy")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> ModelPackageGroupPolicy { get; private set; } = null!;
+        public Output<object?> ModelPackageGroupPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of a modelpackage group job.
+        /// </summary>
         [Output("modelPackageGroupStatus")]
         public Output<string> ModelPackageGroupStatus { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ModelPackageGroupTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -93,33 +90,24 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class ModelPackageGroupArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
-        /// </summary>
         [Input("modelPackageGroupDescription")]
         public Input<string>? ModelPackageGroupDescription { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
-        /// </summary>
         [Input("modelPackageGroupName", required: true)]
         public Input<string> ModelPackageGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
-        /// </summary>
         [Input("modelPackageGroupPolicy")]
-        public InputUnion<System.Text.Json.JsonElement, string>? ModelPackageGroupPolicy { get; set; }
+        public Input<object>? ModelPackageGroupPolicy { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.ModelPackageGroupTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.ModelPackageGroupTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ModelPackageGroupTagArgs>());
             set => _tags = value;
         }
 

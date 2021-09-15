@@ -8,21 +8,21 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html
+// Aws Route53 Recovery Readiness Check Schema and API specification.
 type ReadinessCheck struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the readiness check.
 	ReadinessCheckArn pulumi.StringOutput `pulumi:"readinessCheckArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-readinesscheckname
+	// Name of the ReadinessCheck to create.
 	ReadinessCheckName pulumi.StringOutput `pulumi:"readinessCheckName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-resourcesetname
+	// The name of the resource set to check.
 	ResourceSetName pulumi.StringPtrOutput `pulumi:"resourceSetName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A collection of tags associated with a resource.
+	Tags ReadinessCheckTagArrayOutput `pulumi:"tags"`
 }
 
 // NewReadinessCheck registers a new resource with the given unique name, arguments, and options.
@@ -67,22 +67,22 @@ func (ReadinessCheckState) ElementType() reflect.Type {
 }
 
 type readinessCheckArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-readinesscheckname
+	// Name of the ReadinessCheck to create.
 	ReadinessCheckName string `pulumi:"readinessCheckName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-resourcesetname
+	// The name of the resource set to check.
 	ResourceSetName *string `pulumi:"resourceSetName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A collection of tags associated with a resource.
+	Tags []ReadinessCheckTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ReadinessCheck resource.
 type ReadinessCheckArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-readinesscheckname
+	// Name of the ReadinessCheck to create.
 	ReadinessCheckName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-resourcesetname
+	// The name of the resource set to check.
 	ResourceSetName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-tags
-	Tags aws.TagArrayInput
+	// A collection of tags associated with a resource.
+	Tags ReadinessCheckTagArrayInput
 }
 
 func (ReadinessCheckArgs) ElementType() reflect.Type {

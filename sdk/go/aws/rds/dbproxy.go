@@ -11,32 +11,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html
+// Resource schema for AWS::RDS::DBProxy
 type DBProxy struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
-	Auth       DBProxyAuthFormatArrayOutput `pulumi:"auth"`
-	DBProxyArn pulumi.StringOutput          `pulumi:"dBProxyArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
+	// The authorization mechanism that the proxy uses.
+	Auth DBProxyAuthFormatArrayOutput `pulumi:"auth"`
+	// The Amazon Resource Name (ARN) for the proxy.
+	DBProxyArn pulumi.StringOutput `pulumi:"dBProxyArn"`
+	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
 	DBProxyName pulumi.StringOutput `pulumi:"dBProxyName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
+	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging pulumi.BoolPtrOutput `pulumi:"debugLogging"`
-	Endpoint     pulumi.StringOutput  `pulumi:"endpoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
+	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// The kinds of databases that the proxy can connect to.
 	EngineFamily pulumi.StringOutput `pulumi:"engineFamily"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
+	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	IdleClientTimeout pulumi.IntPtrOutput `pulumi:"idleClientTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
+	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
 	RequireTLS pulumi.BoolPtrOutput `pulumi:"requireTLS"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
+	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
-	Tags  DBProxyTagFormatArrayOutput `pulumi:"tags"`
-	VpcId pulumi.StringOutput         `pulumi:"vpcId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
+	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
+	Tags DBProxyTagFormatArrayOutput `pulumi:"tags"`
+	// VPC ID to associate with the new DB proxy.
+	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	// VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
+	// VPC subnet IDs to associate with the new proxy.
 	VpcSubnetIds pulumi.StringArrayOutput `pulumi:"vpcSubnetIds"`
 }
 
@@ -94,49 +97,49 @@ func (DBProxyState) ElementType() reflect.Type {
 }
 
 type dbproxyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
+	// The authorization mechanism that the proxy uses.
 	Auth []DBProxyAuthFormat `pulumi:"auth"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
+	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
 	DBProxyName string `pulumi:"dBProxyName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
+	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging *bool `pulumi:"debugLogging"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
+	// The kinds of databases that the proxy can connect to.
 	EngineFamily string `pulumi:"engineFamily"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
+	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	IdleClientTimeout *int `pulumi:"idleClientTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
+	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
 	RequireTLS *bool `pulumi:"requireTLS"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
+	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
+	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 	Tags []DBProxyTagFormat `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
+	// VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
+	// VPC subnet IDs to associate with the new proxy.
 	VpcSubnetIds []string `pulumi:"vpcSubnetIds"`
 }
 
 // The set of arguments for constructing a DBProxy resource.
 type DBProxyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
+	// The authorization mechanism that the proxy uses.
 	Auth DBProxyAuthFormatArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
+	// The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
 	DBProxyName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
+	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
+	// The kinds of databases that the proxy can connect to.
 	EngineFamily pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
+	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	IdleClientTimeout pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
+	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
 	RequireTLS pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
+	// The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	RoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
+	// An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
 	Tags DBProxyTagFormatArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
+	// VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
+	// VPC subnet IDs to associate with the new proxy.
 	VpcSubnetIds pulumi.StringArrayInput
 }
 

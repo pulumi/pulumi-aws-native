@@ -10,19 +10,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html
+// Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
 type ResolverQueryLoggingConfigAssociation struct {
 	pulumi.CustomResourceState
 
+	// Rfc3339TimeString
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	Error        pulumi.StringOutput `pulumi:"error"`
+	// ResolverQueryLogConfigAssociationError
+	Error pulumi.StringOutput `pulumi:"error"`
+	// ResolverQueryLogConfigAssociationErrorMessage
 	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
-	Id           pulumi.StringOutput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
+	// ResolverQueryLogConfigId
 	ResolverQueryLogConfigId pulumi.StringPtrOutput `pulumi:"resolverQueryLogConfigId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
+	// ResourceId
 	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
-	Status     pulumi.StringOutput    `pulumi:"status"`
+	// ResolverQueryLogConfigAssociationStatus
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewResolverQueryLoggingConfigAssociation registers a new resource with the given unique name, arguments, and options.
@@ -64,17 +67,17 @@ func (ResolverQueryLoggingConfigAssociationState) ElementType() reflect.Type {
 }
 
 type resolverQueryLoggingConfigAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
+	// ResolverQueryLogConfigId
 	ResolverQueryLogConfigId *string `pulumi:"resolverQueryLogConfigId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
+	// ResourceId
 	ResourceId *string `pulumi:"resourceId"`
 }
 
 // The set of arguments for constructing a ResolverQueryLoggingConfigAssociation resource.
 type ResolverQueryLoggingConfigAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
+	// ResolverQueryLogConfigId
 	ResolverQueryLogConfigId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
+	// ResourceId
 	ResourceId pulumi.StringPtrInput
 }
 

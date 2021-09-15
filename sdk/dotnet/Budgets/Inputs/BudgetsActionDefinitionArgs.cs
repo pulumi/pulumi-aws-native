@@ -10,26 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Budgets.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html
-    /// </summary>
     public sealed class BudgetsActionDefinitionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-iamactiondefinition
-        /// </summary>
         [Input("iamActionDefinition")]
         public Input<Inputs.BudgetsActionIamActionDefinitionArgs>? IamActionDefinition { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-scpactiondefinition
-        /// </summary>
         [Input("scpActionDefinition")]
         public Input<Inputs.BudgetsActionScpActionDefinitionArgs>? ScpActionDefinition { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-ssmactiondefinition
-        /// </summary>
         [Input("ssmActionDefinition")]
         public Input<Inputs.BudgetsActionSsmActionDefinitionArgs>? SsmActionDefinition { get; set; }
 

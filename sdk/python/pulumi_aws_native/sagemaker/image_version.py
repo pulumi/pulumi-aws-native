@@ -17,8 +17,6 @@ class ImageVersionArgs:
                  image_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a ImageVersion resource.
-        :param pulumi.Input[str] base_image: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-baseimage
-        :param pulumi.Input[str] image_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-imagename
         """
         pulumi.set(__self__, "base_image", base_image)
         pulumi.set(__self__, "image_name", image_name)
@@ -26,9 +24,6 @@ class ImageVersionArgs:
     @property
     @pulumi.getter(name="baseImage")
     def base_image(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-baseimage
-        """
         return pulumi.get(self, "base_image")
 
     @base_image.setter
@@ -38,9 +33,6 @@ class ImageVersionArgs:
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-imagename
-        """
         return pulumi.get(self, "image_name")
 
     @image_name.setter
@@ -57,12 +49,10 @@ class ImageVersion(pulumi.CustomResource):
                  image_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html
+        Resource Type definition for AWS::SageMaker::ImageVersion
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] base_image: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-baseimage
-        :param pulumi.Input[str] image_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-imagename
         """
         ...
     @overload
@@ -71,7 +61,7 @@ class ImageVersion(pulumi.CustomResource):
                  args: ImageVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html
+        Resource Type definition for AWS::SageMaker::ImageVersion
 
         :param str resource_name: The name of the resource.
         :param ImageVersionArgs args: The arguments to use to populate this resource's properties.
@@ -145,9 +135,6 @@ class ImageVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="baseImage")
     def base_image(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-baseimage
-        """
         return pulumi.get(self, "base_image")
 
     @property
@@ -163,9 +150,6 @@ class ImageVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="imageName")
     def image_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-imagename
-        """
         return pulumi.get(self, "image_name")
 
     @property

@@ -17,8 +17,8 @@ class SessionArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Session resource.
-        :param pulumi.Input[str] finding_publishing_frequency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
+        :param pulumi.Input[str] finding_publishing_frequency: A enumeration value that specifies how frequently finding updates are published.
+        :param pulumi.Input[str] status: A enumeration value that specifies the status of the Macie Session.
         """
         if finding_publishing_frequency is not None:
             pulumi.set(__self__, "finding_publishing_frequency", finding_publishing_frequency)
@@ -29,7 +29,7 @@ class SessionArgs:
     @pulumi.getter(name="findingPublishingFrequency")
     def finding_publishing_frequency(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
+        A enumeration value that specifies how frequently finding updates are published.
         """
         return pulumi.get(self, "finding_publishing_frequency")
 
@@ -41,7 +41,7 @@ class SessionArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
+        A enumeration value that specifies the status of the Macie Session.
         """
         return pulumi.get(self, "status")
 
@@ -59,12 +59,12 @@ class Session(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html
+        The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] finding_publishing_frequency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
+        :param pulumi.Input[str] finding_publishing_frequency: A enumeration value that specifies how frequently finding updates are published.
+        :param pulumi.Input[str] status: A enumeration value that specifies the status of the Macie Session.
         """
         ...
     @overload
@@ -73,7 +73,7 @@ class Session(pulumi.CustomResource):
                  args: Optional[SessionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html
+        The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
 
         :param str resource_name: The name of the resource.
         :param SessionArgs args: The arguments to use to populate this resource's properties.
@@ -139,26 +139,32 @@ class Session(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[str]:
+        """
+        AWS account ID of customer
+        """
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter(name="findingPublishingFrequency")
     def finding_publishing_frequency(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
+        A enumeration value that specifies how frequently finding updates are published.
         """
         return pulumi.get(self, "finding_publishing_frequency")
 
     @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Output[str]:
+        """
+        Service role used by Macie
+        """
         return pulumi.get(self, "service_role")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
+        A enumeration value that specifies the status of the Macie Session.
         """
         return pulumi.get(self, "status")
 

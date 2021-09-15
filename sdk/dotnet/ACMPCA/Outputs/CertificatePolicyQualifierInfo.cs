@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html
+    /// Structure that contains X.509 Policy qualifier information.
     /// </summary>
     [OutputType]
     public sealed class CertificatePolicyQualifierInfo
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-policyqualifierid
-        /// </summary>
         public readonly string PolicyQualifierId;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-qualifier
-        /// </summary>
         public readonly Outputs.CertificateQualifier Qualifier;
 
         [OutputConstructor]

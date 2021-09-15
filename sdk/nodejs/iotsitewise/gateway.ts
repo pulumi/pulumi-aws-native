@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html
+ * Resource schema for AWS::IoTSiteWise::Gateway
  */
 export class Gateway extends pulumi.CustomResource {
     /**
@@ -36,22 +36,25 @@ export class Gateway extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
+     * A list of gateway capability summaries that each contain a namespace and status.
      */
     public readonly gatewayCapabilitySummaries!: pulumi.Output<outputs.iotsitewise.GatewayGatewayCapabilitySummary[] | undefined>;
+    /**
+     * The ID of the gateway device.
+     */
     public /*out*/ readonly gatewayId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
+     * A unique, friendly name for the gateway.
      */
     public readonly gatewayName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
+     * The gateway's platform. You can only specify one platform in a gateway.
      */
     public readonly gatewayPlatform!: pulumi.Output<outputs.iotsitewise.GatewayGatewayPlatform>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
+     * A list of key-value pairs that contain metadata for the gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.iotsitewise.GatewayTag[] | undefined>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -94,19 +97,19 @@ export class Gateway extends pulumi.CustomResource {
  */
 export interface GatewayArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
+     * A list of gateway capability summaries that each contain a namespace and status.
      */
     gatewayCapabilitySummaries?: pulumi.Input<pulumi.Input<inputs.iotsitewise.GatewayGatewayCapabilitySummaryArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
+     * A unique, friendly name for the gateway.
      */
     gatewayName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
+     * The gateway's platform. You can only specify one platform in a gateway.
      */
     gatewayPlatform: pulumi.Input<inputs.iotsitewise.GatewayGatewayPlatformArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
+     * A list of key-value pairs that contain metadata for the gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.iotsitewise.GatewayTagArgs>[]>;
 }

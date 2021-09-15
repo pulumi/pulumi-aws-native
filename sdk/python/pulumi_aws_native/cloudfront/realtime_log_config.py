@@ -21,10 +21,6 @@ class RealtimeLogConfigArgs:
                  sampling_rate: pulumi.Input[float]):
         """
         The set of arguments for constructing a RealtimeLogConfig resource.
-        :param pulumi.Input[Sequence[pulumi.Input['RealtimeLogConfigEndPointArgs']]] end_points: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] fields: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-        :param pulumi.Input[float] sampling_rate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
         """
         pulumi.set(__self__, "end_points", end_points)
         pulumi.set(__self__, "fields", fields)
@@ -34,9 +30,6 @@ class RealtimeLogConfigArgs:
     @property
     @pulumi.getter(name="endPoints")
     def end_points(self) -> pulumi.Input[Sequence[pulumi.Input['RealtimeLogConfigEndPointArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-        """
         return pulumi.get(self, "end_points")
 
     @end_points.setter
@@ -46,9 +39,6 @@ class RealtimeLogConfigArgs:
     @property
     @pulumi.getter
     def fields(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-        """
         return pulumi.get(self, "fields")
 
     @fields.setter
@@ -58,9 +48,6 @@ class RealtimeLogConfigArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -70,9 +57,6 @@ class RealtimeLogConfigArgs:
     @property
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> pulumi.Input[float]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
-        """
         return pulumi.get(self, "sampling_rate")
 
     @sampling_rate.setter
@@ -91,14 +75,10 @@ class RealtimeLogConfig(pulumi.CustomResource):
                  sampling_rate: Optional[pulumi.Input[float]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html
+        Resource Type definition for AWS::CloudFront::RealtimeLogConfig
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RealtimeLogConfigEndPointArgs']]]] end_points: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] fields: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-        :param pulumi.Input[float] sampling_rate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
         """
         ...
     @overload
@@ -107,7 +87,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
                  args: RealtimeLogConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html
+        Resource Type definition for AWS::CloudFront::RealtimeLogConfig
 
         :param str resource_name: The name of the resource.
         :param RealtimeLogConfigArgs args: The arguments to use to populate this resource's properties.
@@ -190,32 +170,20 @@ class RealtimeLogConfig(pulumi.CustomResource):
     @property
     @pulumi.getter(name="endPoints")
     def end_points(self) -> pulumi.Output[Sequence['outputs.RealtimeLogConfigEndPoint']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-        """
         return pulumi.get(self, "end_points")
 
     @property
     @pulumi.getter
     def fields(self) -> pulumi.Output[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-        """
         return pulumi.get(self, "fields")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> pulumi.Output[float]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
-        """
         return pulumi.get(self, "sampling_rate")
 

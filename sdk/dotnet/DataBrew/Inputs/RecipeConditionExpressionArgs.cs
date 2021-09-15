@@ -11,24 +11,24 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html
+    /// Condition expressions applied to the step action
     /// </summary>
     public sealed class RecipeConditionExpressionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-condition
+        /// Input condition to be applied to the target column
         /// </summary>
         [Input("condition", required: true)]
         public Input<string> Condition { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-targetcolumn
+        /// Name of the target column
         /// </summary>
         [Input("targetColumn", required: true)]
         public Input<string> TargetColumn { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-value
+        /// Value of the condition
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

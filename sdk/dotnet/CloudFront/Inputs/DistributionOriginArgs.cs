@@ -10,68 +10,37 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html
-    /// </summary>
     public sealed class DistributionOriginArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-connectionattempts
-        /// </summary>
         [Input("connectionAttempts")]
         public Input<int>? ConnectionAttempts { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-connectiontimeout
-        /// </summary>
         [Input("connectionTimeout")]
         public Input<int>? ConnectionTimeout { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-customoriginconfig
-        /// </summary>
         [Input("customOriginConfig")]
         public Input<Inputs.DistributionCustomOriginConfigArgs>? CustomOriginConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-domainname
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-id
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
         [Input("originCustomHeaders")]
         private InputList<Inputs.DistributionOriginCustomHeaderArgs>? _originCustomHeaders;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-origincustomheaders
-        /// </summary>
         public InputList<Inputs.DistributionOriginCustomHeaderArgs> OriginCustomHeaders
         {
             get => _originCustomHeaders ?? (_originCustomHeaders = new InputList<Inputs.DistributionOriginCustomHeaderArgs>());
             set => _originCustomHeaders = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originpath
-        /// </summary>
         [Input("originPath")]
         public Input<string>? OriginPath { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originshield
-        /// </summary>
         [Input("originShield")]
         public Input<Inputs.DistributionOriginShieldArgs>? OriginShield { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3originconfig
-        /// </summary>
         [Input("s3OriginConfig")]
         public Input<Inputs.DistributionS3OriginConfigArgs>? S3OriginConfig { get; set; }
 

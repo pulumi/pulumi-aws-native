@@ -10,37 +10,37 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Detective
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html
+    /// Resource schema for AWS::Detective::MemberInvitation
     /// </summary>
     [AwsNativeResourceType("aws-native:detective:MemberInvitation")]
     public partial class MemberInvitation : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
+        /// When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
         /// </summary>
         [Output("disableEmailNotification")]
         public Output<bool?> DisableEmailNotification { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
+        /// The ARN of the graph to which the member account will be invited
         /// </summary>
         [Output("graphArn")]
         public Output<string> GraphArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
+        /// The root email address for the account to be invited, for validation. Updating this field has no effect.
         /// </summary>
         [Output("memberEmailAddress")]
         public Output<string> MemberEmailAddress { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
+        /// The AWS account ID to be invited to join the graph as a member
         /// </summary>
         [Output("memberId")]
         public Output<string> MemberId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
+        /// A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
         /// </summary>
         [Output("message")]
         public Output<string?> Message { get; private set; } = null!;
@@ -91,31 +91,31 @@ namespace Pulumi.AwsNative.Detective
     public sealed class MemberInvitationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
+        /// When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
         /// </summary>
         [Input("disableEmailNotification")]
         public Input<bool>? DisableEmailNotification { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
+        /// The ARN of the graph to which the member account will be invited
         /// </summary>
         [Input("graphArn", required: true)]
         public Input<string> GraphArn { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
+        /// The root email address for the account to be invited, for validation. Updating this field has no effect.
         /// </summary>
         [Input("memberEmailAddress", required: true)]
         public Input<string> MemberEmailAddress { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
+        /// The AWS account ID to be invited to join the graph as a member
         /// </summary>
         [Input("memberId", required: true)]
         public Input<string> MemberId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
+        /// A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
         /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }

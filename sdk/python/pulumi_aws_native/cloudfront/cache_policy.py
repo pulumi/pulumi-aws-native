@@ -18,16 +18,12 @@ class CachePolicyArgs:
                  cache_policy_config: pulumi.Input['CachePolicyCachePolicyConfigArgs']):
         """
         The set of arguments for constructing a CachePolicy resource.
-        :param pulumi.Input['CachePolicyCachePolicyConfigArgs'] cache_policy_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
         """
         pulumi.set(__self__, "cache_policy_config", cache_policy_config)
 
     @property
     @pulumi.getter(name="cachePolicyConfig")
     def cache_policy_config(self) -> pulumi.Input['CachePolicyCachePolicyConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
-        """
         return pulumi.get(self, "cache_policy_config")
 
     @cache_policy_config.setter
@@ -43,11 +39,10 @@ class CachePolicy(pulumi.CustomResource):
                  cache_policy_config: Optional[pulumi.Input[pulumi.InputType['CachePolicyCachePolicyConfigArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html
+        Resource Type definition for AWS::CloudFront::CachePolicy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CachePolicyCachePolicyConfigArgs']] cache_policy_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
         """
         ...
     @overload
@@ -56,7 +51,7 @@ class CachePolicy(pulumi.CustomResource):
                  args: CachePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html
+        Resource Type definition for AWS::CloudFront::CachePolicy
 
         :param str resource_name: The name of the resource.
         :param CachePolicyArgs args: The arguments to use to populate this resource's properties.
@@ -89,7 +84,6 @@ class CachePolicy(pulumi.CustomResource):
             if cache_policy_config is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_policy_config'")
             __props__.__dict__["cache_policy_config"] = cache_policy_config
-            __props__.__dict__["id"] = None
             __props__.__dict__["last_modified_time"] = None
         super(CachePolicy, __self__).__init__(
             'aws-native:cloudfront:CachePolicy',
@@ -114,22 +108,13 @@ class CachePolicy(pulumi.CustomResource):
         __props__ = CachePolicyArgs.__new__(CachePolicyArgs)
 
         __props__.__dict__["cache_policy_config"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["last_modified_time"] = None
         return CachePolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="cachePolicyConfig")
     def cache_policy_config(self) -> pulumi.Output['outputs.CachePolicyCachePolicyConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
-        """
         return pulumi.get(self, "cache_policy_config")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")

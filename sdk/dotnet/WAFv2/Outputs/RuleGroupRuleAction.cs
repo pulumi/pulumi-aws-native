@@ -11,31 +11,31 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html
+    /// Action taken when Rule matches its condition.
     /// </summary>
     [OutputType]
     public sealed class RuleGroupRuleAction
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-allow
+        /// Allow traffic towards application.
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? Allow;
+        public readonly object? Allow;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-block
+        /// Block traffic towards application.
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? Block;
+        public readonly object? Block;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-count
+        /// Count traffic towards application.
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? Count;
+        public readonly object? Count;
 
         [OutputConstructor]
         private RuleGroupRuleAction(
-            Union<System.Text.Json.JsonElement, string>? allow,
+            object? allow,
 
-            Union<System.Text.Json.JsonElement, string>? block,
+            object? block,
 
-            Union<System.Text.Json.JsonElement, string>? count)
+            object? count)
         {
             Allow = allow;
             Block = block;

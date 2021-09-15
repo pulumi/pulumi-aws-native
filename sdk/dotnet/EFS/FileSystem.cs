@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EFS
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
+    /// Resource Type definition for AWS::EFS::FileSystem
     /// </summary>
     [AwsNativeResourceType("aws-native:efs:FileSystem")]
     public partial class FileSystem : Pulumi.CustomResource
@@ -18,72 +18,42 @@ namespace Pulumi.AwsNative.EFS
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
-        /// </summary>
         [Output("availabilityZoneName")]
         public Output<string?> AvailabilityZoneName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
-        /// </summary>
         [Output("backupPolicy")]
         public Output<Outputs.FileSystemBackupPolicy?> BackupPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
+        /// Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false
         /// </summary>
         [Output("bypassPolicyLockoutSafetyCheck")]
         public Output<bool?> BypassPolicyLockoutSafetyCheck { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
-        /// </summary>
         [Output("encrypted")]
         public Output<bool?> Encrypted { get; private set; } = null!;
 
         [Output("fileSystemId")]
         public Output<string> FileSystemId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
-        /// </summary>
         [Output("fileSystemPolicy")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> FileSystemPolicy { get; private set; } = null!;
+        public Output<object?> FileSystemPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
-        /// </summary>
         [Output("fileSystemTags")]
         public Output<ImmutableArray<Outputs.FileSystemElasticFileSystemTag>> FileSystemTags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
-        /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
-        /// </summary>
         [Output("lifecyclePolicies")]
         public Output<ImmutableArray<Outputs.FileSystemLifecyclePolicy>> LifecyclePolicies { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
-        /// </summary>
         [Output("performanceMode")]
         public Output<string?> PerformanceMode { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
-        /// </summary>
         [Output("provisionedThroughputInMibps")]
         public Output<double?> ProvisionedThroughputInMibps { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
-        /// </summary>
         [Output("throughputMode")]
         public Output<string?> ThroughputMode { get; private set; } = null!;
 
@@ -132,81 +102,49 @@ namespace Pulumi.AwsNative.EFS
 
     public sealed class FileSystemArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
-        /// </summary>
         [Input("availabilityZoneName")]
         public Input<string>? AvailabilityZoneName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
-        /// </summary>
         [Input("backupPolicy")]
         public Input<Inputs.FileSystemBackupPolicyArgs>? BackupPolicy { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
+        /// Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false
         /// </summary>
         [Input("bypassPolicyLockoutSafetyCheck")]
         public Input<bool>? BypassPolicyLockoutSafetyCheck { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
-        /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
-        /// </summary>
         [Input("fileSystemPolicy")]
-        public InputUnion<System.Text.Json.JsonElement, string>? FileSystemPolicy { get; set; }
+        public Input<object>? FileSystemPolicy { get; set; }
 
         [Input("fileSystemTags")]
         private InputList<Inputs.FileSystemElasticFileSystemTagArgs>? _fileSystemTags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
-        /// </summary>
         public InputList<Inputs.FileSystemElasticFileSystemTagArgs> FileSystemTags
         {
             get => _fileSystemTags ?? (_fileSystemTags = new InputList<Inputs.FileSystemElasticFileSystemTagArgs>());
             set => _fileSystemTags = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         [Input("lifecyclePolicies")]
         private InputList<Inputs.FileSystemLifecyclePolicyArgs>? _lifecyclePolicies;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
-        /// </summary>
         public InputList<Inputs.FileSystemLifecyclePolicyArgs> LifecyclePolicies
         {
             get => _lifecyclePolicies ?? (_lifecyclePolicies = new InputList<Inputs.FileSystemLifecyclePolicyArgs>());
             set => _lifecyclePolicies = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
-        /// </summary>
         [Input("performanceMode")]
         public Input<string>? PerformanceMode { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
-        /// </summary>
         [Input("provisionedThroughputInMibps")]
         public Input<double>? ProvisionedThroughputInMibps { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
-        /// </summary>
         [Input("throughputMode")]
         public Input<string>? ThroughputMode { get; set; }
 

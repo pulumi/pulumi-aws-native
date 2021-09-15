@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html
+ * Resource Type definition for AWS::EC2::InternetGateway
  */
 export class InternetGateway extends pulumi.CustomResource {
     /**
@@ -35,10 +35,7 @@ export class InternetGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === InternetGateway.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html#cfn-ec2-internetgateway-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.ec2.InternetGatewayTag[] | undefined>;
 
     /**
      * Create a InternetGateway resource with the given unique name, arguments, and options.
@@ -66,8 +63,5 @@ export class InternetGateway extends pulumi.CustomResource {
  * The set of arguments for constructing a InternetGateway resource.
  */
 export interface InternetGatewayArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html#cfn-ec2-internetgateway-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ec2.InternetGatewayTagArgs>[]>;
 }

@@ -17,18 +17,11 @@ __all__ = [
 class MapMapConfigurationArgs:
     def __init__(__self__, *,
                  style: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html
-        :param pulumi.Input[str] style: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html#cfn-location-map-mapconfiguration-style
-        """
         pulumi.set(__self__, "style", style)
 
     @property
     @pulumi.getter
     def style(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html#cfn-location-map-mapconfiguration-style
-        """
         return pulumi.get(self, "style")
 
     @style.setter
@@ -40,19 +33,12 @@ class MapMapConfigurationArgs:
 class PlaceIndexDataSourceConfigurationArgs:
     def __init__(__self__, *,
                  intended_use: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html
-        :param pulumi.Input[str] intended_use: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html#cfn-location-placeindex-datasourceconfiguration-intendeduse
-        """
         if intended_use is not None:
             pulumi.set(__self__, "intended_use", intended_use)
 
     @property
     @pulumi.getter(name="intendedUse")
     def intended_use(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html#cfn-location-placeindex-datasourceconfiguration-intendeduse
-        """
         return pulumi.get(self, "intended_use")
 
     @intended_use.setter

@@ -21,6 +21,7 @@ __all__ = [
     'FunctionEnvironmentArgs',
     'FunctionFileSystemConfigArgs',
     'FunctionImageConfigArgs',
+    'FunctionTagArgs',
     'FunctionTracingConfigArgs',
     'FunctionVpcConfigArgs',
 ]
@@ -30,8 +31,8 @@ class CodeSigningConfigAllowedPublishersArgs:
     def __init__(__self__, *,
                  signing_profile_version_arns: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] signing_profile_version_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html#cfn-lambda-codesigningconfig-allowedpublishers-signingprofileversionarns
+        When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] signing_profile_version_arns: List of Signing profile version Arns
         """
         pulumi.set(__self__, "signing_profile_version_arns", signing_profile_version_arns)
 
@@ -39,7 +40,7 @@ class CodeSigningConfigAllowedPublishersArgs:
     @pulumi.getter(name="signingProfileVersionArns")
     def signing_profile_version_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-allowedpublishers.html#cfn-lambda-codesigningconfig-allowedpublishers-signingprofileversionarns
+        List of Signing profile version Arns
         """
         return pulumi.get(self, "signing_profile_version_arns")
 
@@ -53,8 +54,8 @@ class CodeSigningConfigCodeSigningPoliciesArgs:
     def __init__(__self__, *,
                  untrusted_artifact_on_deployment: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html
-        :param pulumi.Input[str] untrusted_artifact_on_deployment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html#cfn-lambda-codesigningconfig-codesigningpolicies-untrustedartifactondeployment
+        Policies to control how to act if a signature is invalid
+        :param pulumi.Input[str] untrusted_artifact_on_deployment: Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
         """
         pulumi.set(__self__, "untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
 
@@ -62,7 +63,7 @@ class CodeSigningConfigCodeSigningPoliciesArgs:
     @pulumi.getter(name="untrustedArtifactOnDeployment")
     def untrusted_artifact_on_deployment(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html#cfn-lambda-codesigningconfig-codesigningpolicies-untrustedartifactondeployment
+        Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
         """
         return pulumi.get(self, "untrusted_artifact_on_deployment")
 
@@ -76,8 +77,8 @@ class EventSourceMappingDestinationConfigArgs:
     def __init__(__self__, *,
                  on_failure: Optional[pulumi.Input['EventSourceMappingOnFailureArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html
-        :param pulumi.Input['EventSourceMappingOnFailureArgs'] on_failure: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure
+        (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+        :param pulumi.Input['EventSourceMappingOnFailureArgs'] on_failure: The destination configuration for failed invocations.
         """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
@@ -86,7 +87,7 @@ class EventSourceMappingDestinationConfigArgs:
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional[pulumi.Input['EventSourceMappingOnFailureArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure
+        The destination configuration for failed invocations.
         """
         return pulumi.get(self, "on_failure")
 
@@ -100,8 +101,8 @@ class EventSourceMappingEndpointsArgs:
     def __init__(__self__, *,
                  kafka_bootstrap_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] kafka_bootstrap_servers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html#cfn-lambda-eventsourcemapping-endpoints-kafkabootstrapservers
+        The endpoints used by AWS Lambda to access a self-managed event source.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] kafka_bootstrap_servers: A list of Kafka server endpoints.
         """
         if kafka_bootstrap_servers is not None:
             pulumi.set(__self__, "kafka_bootstrap_servers", kafka_bootstrap_servers)
@@ -110,7 +111,7 @@ class EventSourceMappingEndpointsArgs:
     @pulumi.getter(name="kafkaBootstrapServers")
     def kafka_bootstrap_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html#cfn-lambda-eventsourcemapping-endpoints-kafkabootstrapservers
+        A list of Kafka server endpoints.
         """
         return pulumi.get(self, "kafka_bootstrap_servers")
 
@@ -124,8 +125,8 @@ class EventSourceMappingOnFailureArgs:
     def __init__(__self__, *,
                  destination: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html
-        :param pulumi.Input[str] destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html#cfn-lambda-eventsourcemapping-onfailure-destination
+        A destination for events that failed processing.
+        :param pulumi.Input[str] destination: The Amazon Resource Name (ARN) of the destination resource.
         """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
@@ -134,7 +135,7 @@ class EventSourceMappingOnFailureArgs:
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html#cfn-lambda-eventsourcemapping-onfailure-destination
+        The Amazon Resource Name (ARN) of the destination resource.
         """
         return pulumi.get(self, "destination")
 
@@ -148,8 +149,8 @@ class EventSourceMappingSelfManagedEventSourceArgs:
     def __init__(__self__, *,
                  endpoints: Optional[pulumi.Input['EventSourceMappingEndpointsArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html
-        :param pulumi.Input['EventSourceMappingEndpointsArgs'] endpoints: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource-endpoints
+        The configuration used by AWS Lambda to access a self-managed event source.
+        :param pulumi.Input['EventSourceMappingEndpointsArgs'] endpoints: The endpoints for a self-managed event source.
         """
         if endpoints is not None:
             pulumi.set(__self__, "endpoints", endpoints)
@@ -158,7 +159,7 @@ class EventSourceMappingSelfManagedEventSourceArgs:
     @pulumi.getter
     def endpoints(self) -> Optional[pulumi.Input['EventSourceMappingEndpointsArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource-endpoints
+        The endpoints for a self-managed event source.
         """
         return pulumi.get(self, "endpoints")
 
@@ -173,9 +174,9 @@ class EventSourceMappingSourceAccessConfigurationArgs:
                  type: Optional[pulumi.Input[str]] = None,
                  u_ri: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-type
-        :param pulumi.Input[str] u_ri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-uri
+        The configuration used by AWS Lambda to access event source
+        :param pulumi.Input[str] type: The type of source access configuration.
+        :param pulumi.Input[str] u_ri: The URI for the source access configuration resource.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -186,7 +187,7 @@ class EventSourceMappingSourceAccessConfigurationArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-type
+        The type of source access configuration.
         """
         return pulumi.get(self, "type")
 
@@ -198,7 +199,7 @@ class EventSourceMappingSourceAccessConfigurationArgs:
     @pulumi.getter(name="uRI")
     def u_ri(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html#cfn-lambda-eventsourcemapping-sourceaccessconfiguration-uri
+        The URI for the source access configuration resource.
         """
         return pulumi.get(self, "u_ri")
 
@@ -216,12 +217,11 @@ class FunctionCodeArgs:
                  s3_object_version: Optional[pulumi.Input[str]] = None,
                  zip_file: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html
-        :param pulumi.Input[str] image_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-imageuri
-        :param pulumi.Input[str] s3_bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3bucket
-        :param pulumi.Input[str] s3_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3key
-        :param pulumi.Input[str] s3_object_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3objectversion
-        :param pulumi.Input[str] zip_file: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-zipfile
+        :param pulumi.Input[str] image_uri: ImageUri.
+        :param pulumi.Input[str] s3_bucket: An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+        :param pulumi.Input[str] s3_key: The Amazon S3 key of the deployment package.
+        :param pulumi.Input[str] s3_object_version: For versioned objects, the version of the deployment package object to use.
+        :param pulumi.Input[str] zip_file: The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
         """
         if image_uri is not None:
             pulumi.set(__self__, "image_uri", image_uri)
@@ -238,7 +238,7 @@ class FunctionCodeArgs:
     @pulumi.getter(name="imageUri")
     def image_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-imageuri
+        ImageUri.
         """
         return pulumi.get(self, "image_uri")
 
@@ -250,7 +250,7 @@ class FunctionCodeArgs:
     @pulumi.getter(name="s3Bucket")
     def s3_bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3bucket
+        An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
         """
         return pulumi.get(self, "s3_bucket")
 
@@ -262,7 +262,7 @@ class FunctionCodeArgs:
     @pulumi.getter(name="s3Key")
     def s3_key(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3key
+        The Amazon S3 key of the deployment package.
         """
         return pulumi.get(self, "s3_key")
 
@@ -274,7 +274,7 @@ class FunctionCodeArgs:
     @pulumi.getter(name="s3ObjectVersion")
     def s3_object_version(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3objectversion
+        For versioned objects, the version of the deployment package object to use.
         """
         return pulumi.get(self, "s3_object_version")
 
@@ -286,7 +286,7 @@ class FunctionCodeArgs:
     @pulumi.getter(name="zipFile")
     def zip_file(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-zipfile
+        The source code of your Lambda function. If you include your function source inline with this parameter, AWS CloudFormation places it in a file named index and zips it to create a deployment package..
         """
         return pulumi.get(self, "zip_file")
 
@@ -300,8 +300,8 @@ class FunctionDeadLetterConfigArgs:
     def __init__(__self__, *,
                  target_arn: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-deadletterconfig.html
-        :param pulumi.Input[str] target_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-deadletterconfig.html#cfn-lambda-function-deadletterconfig-targetarn
+        The dead-letter queue for failed asynchronous invocations.
+        :param pulumi.Input[str] target_arn: The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
         """
         if target_arn is not None:
             pulumi.set(__self__, "target_arn", target_arn)
@@ -310,7 +310,7 @@ class FunctionDeadLetterConfigArgs:
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-deadletterconfig.html#cfn-lambda-function-deadletterconfig-targetarn
+        The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
         """
         return pulumi.get(self, "target_arn")
 
@@ -322,24 +322,24 @@ class FunctionDeadLetterConfigArgs:
 @pulumi.input_type
 class FunctionEnvironmentArgs:
     def __init__(__self__, *,
-                 variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 variables: Optional[Any] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html#cfn-lambda-function-environment-variables
+        A function's environment variable settings.
+        :param Any variables: Environment variable key-value pairs.
         """
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
 
     @property
     @pulumi.getter
-    def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def variables(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html#cfn-lambda-function-environment-variables
+        Environment variable key-value pairs.
         """
         return pulumi.get(self, "variables")
 
     @variables.setter
-    def variables(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def variables(self, value: Optional[Any]):
         pulumi.set(self, "variables", value)
 
 
@@ -349,9 +349,8 @@ class FunctionFileSystemConfigArgs:
                  arn: pulumi.Input[str],
                  local_mount_path: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html
-        :param pulumi.Input[str] arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-arn
-        :param pulumi.Input[str] local_mount_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-localmountpath
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
+        :param pulumi.Input[str] local_mount_path: The path where the function can access the file system, starting with /mnt/.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "local_mount_path", local_mount_path)
@@ -360,7 +359,7 @@ class FunctionFileSystemConfigArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-arn
+        The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
         """
         return pulumi.get(self, "arn")
 
@@ -372,7 +371,7 @@ class FunctionFileSystemConfigArgs:
     @pulumi.getter(name="localMountPath")
     def local_mount_path(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-localmountpath
+        The path where the function can access the file system, starting with /mnt/.
         """
         return pulumi.get(self, "local_mount_path")
 
@@ -388,10 +387,9 @@ class FunctionImageConfigArgs:
                  entry_point: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] command: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-command
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] entry_point: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-entrypoint
-        :param pulumi.Input[str] working_directory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-workingdirectory
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command: Command.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] entry_point: EntryPoint.
+        :param pulumi.Input[str] working_directory: WorkingDirectory.
         """
         if command is not None:
             pulumi.set(__self__, "command", command)
@@ -404,7 +402,7 @@ class FunctionImageConfigArgs:
     @pulumi.getter
     def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-command
+        Command.
         """
         return pulumi.get(self, "command")
 
@@ -416,7 +414,7 @@ class FunctionImageConfigArgs:
     @pulumi.getter(name="entryPoint")
     def entry_point(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-entrypoint
+        EntryPoint.
         """
         return pulumi.get(self, "entry_point")
 
@@ -428,7 +426,7 @@ class FunctionImageConfigArgs:
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-workingdirectory
+        WorkingDirectory.
         """
         return pulumi.get(self, "working_directory")
 
@@ -438,12 +436,50 @@ class FunctionImageConfigArgs:
 
 
 @pulumi.input_type
+class FunctionTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class FunctionTracingConfigArgs:
     def __init__(__self__, *,
                  mode: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html
-        :param pulumi.Input[str] mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html#cfn-lambda-function-tracingconfig-mode
+        The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
+        :param pulumi.Input[str] mode: The tracing mode.
         """
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
@@ -452,7 +488,7 @@ class FunctionTracingConfigArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html#cfn-lambda-function-tracingconfig-mode
+        The tracing mode.
         """
         return pulumi.get(self, "mode")
 
@@ -467,9 +503,9 @@ class FunctionVpcConfigArgs:
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-securitygroupids
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-subnetids
+        The VPC security groups and subnets that are attached to a Lambda function. When you connect a function to a VPC, Lambda creates an elastic network interface for each combination of security group and subnet in the function's VPC configuration. The function can only access resources and the internet through that VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of VPC security groups IDs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of VPC subnet IDs.
         """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -480,7 +516,7 @@ class FunctionVpcConfigArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-securitygroupids
+        A list of VPC security groups IDs.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -492,7 +528,7 @@ class FunctionVpcConfigArgs:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-subnetids
+        A list of VPC subnet IDs.
         """
         return pulumi.get(self, "subnet_ids")
 

@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html
+    /// When entering this state, perform these `actions` if the `condition` is `TRUE`.
     /// </summary>
     public sealed class DetectorModelOnEnterArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         private InputList<Inputs.DetectorModelEventArgs>? _events;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html#cfn-iotevents-detectormodel-onenter-events
+        /// Specifies the `actions` that are performed when the state is entered and the `condition` is `TRUE`.
         /// </summary>
         public InputList<Inputs.DetectorModelEventArgs> Events
         {

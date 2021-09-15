@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html
+ * This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
  */
 export class ProfilingGroup extends pulumi.CustomResource {
     /**
@@ -36,26 +36,29 @@ export class ProfilingGroup extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
+     * The agent permissions attached to this profiling group.
      */
-    public readonly agentPermissions!: pulumi.Output<any | string | undefined>;
+    public readonly agentPermissions!: pulumi.Output<any | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
+     * Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
      */
     public readonly anomalyDetectionNotificationConfiguration!: pulumi.Output<outputs.codeguruprofiler.ProfilingGroupChannel[] | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the specified profiling group.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
+     * The compute platform of the profiling group.
      */
     public readonly computePlatform!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
+     * The name of the profiling group.
      */
     public readonly profilingGroupName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
+     * The tags associated with a profiling group.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.codeguruprofiler.ProfilingGroupTag[] | undefined>;
 
     /**
      * Create a ProfilingGroup resource with the given unique name, arguments, and options.
@@ -97,23 +100,23 @@ export class ProfilingGroup extends pulumi.CustomResource {
  */
 export interface ProfilingGroupArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
+     * The agent permissions attached to this profiling group.
      */
-    agentPermissions?: pulumi.Input<any | string>;
+    agentPermissions?: any;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-anomalydetectionnotificationconfiguration
+     * Configuration for Notification Channels for Anomaly Detection feature in CodeGuru Profiler which enables customers to detect anomalies in the application profile for those methods that represent the highest proportion of CPU time or latency
      */
     anomalyDetectionNotificationConfiguration?: pulumi.Input<pulumi.Input<inputs.codeguruprofiler.ProfilingGroupChannelArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
+     * The compute platform of the profiling group.
      */
     computePlatform?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
+     * The name of the profiling group.
      */
     profilingGroupName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-tags
+     * The tags associated with a profiling group.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.codeguruprofiler.ProfilingGroupTagArgs>[]>;
 }

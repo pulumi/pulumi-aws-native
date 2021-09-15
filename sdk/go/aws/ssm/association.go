@@ -11,43 +11,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
+// The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
 type Association struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
 	ApplyOnlyAtCronInterval pulumi.BoolPtrOutput `pulumi:"applyOnlyAtCronInterval"`
-	AssociationId           pulumi.StringOutput  `pulumi:"associationId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
-	AssociationName pulumi.StringPtrOutput `pulumi:"associationName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
-	AutomationTargetParameterName pulumi.StringPtrOutput `pulumi:"automationTargetParameterName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames
-	CalendarNames pulumi.StringArrayOutput `pulumi:"calendarNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
-	ComplianceSeverity pulumi.StringPtrOutput `pulumi:"complianceSeverity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
+	// Unique identifier of the association.
+	AssociationId pulumi.StringOutput `pulumi:"associationId"`
+	// The name of the association.
+	AssociationName               pulumi.StringPtrOutput   `pulumi:"associationName"`
+	AutomationTargetParameterName pulumi.StringPtrOutput   `pulumi:"automationTargetParameterName"`
+	CalendarNames                 pulumi.StringArrayOutput `pulumi:"calendarNames"`
+	ComplianceSeverity            pulumi.StringPtrOutput   `pulumi:"complianceSeverity"`
+	// The version of the SSM document to associate with the target.
 	DocumentVersion pulumi.StringPtrOutput `pulumi:"documentVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
-	InstanceId pulumi.StringPtrOutput `pulumi:"instanceId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
+	// The ID of the instance that the SSM document is associated with.
+	InstanceId     pulumi.StringPtrOutput `pulumi:"instanceId"`
 	MaxConcurrency pulumi.StringPtrOutput `pulumi:"maxConcurrency"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
-	MaxErrors pulumi.StringPtrOutput `pulumi:"maxErrors"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
+	MaxErrors      pulumi.StringPtrOutput `pulumi:"maxErrors"`
+	// The name of the SSM document.
+	Name           pulumi.StringOutput                                   `pulumi:"name"`
 	OutputLocation AssociationInstanceAssociationOutputLocationPtrOutput `pulumi:"outputLocation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-	Parameters pulumi.MapOutput `pulumi:"parameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
+	// Parameter values that the SSM document uses at runtime.
+	Parameters pulumi.AnyOutput `pulumi:"parameters"`
+	// A Cron or Rate expression that specifies when the association is applied to the target.
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
-	SyncCompliance pulumi.StringPtrOutput `pulumi:"syncCompliance"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
-	Targets AssociationTargetArrayOutput `pulumi:"targets"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
-	WaitForSuccessTimeoutSeconds pulumi.IntPtrOutput `pulumi:"waitForSuccessTimeoutSeconds"`
+	SyncCompliance     pulumi.StringPtrOutput `pulumi:"syncCompliance"`
+	// The targets that the SSM document sends commands to.
+	Targets                      AssociationTargetArrayOutput `pulumi:"targets"`
+	WaitForSuccessTimeoutSeconds pulumi.IntPtrOutput          `pulumi:"waitForSuccessTimeoutSeconds"`
 }
 
 // NewAssociation registers a new resource with the given unique name, arguments, and options.
@@ -92,73 +84,55 @@ func (AssociationState) ElementType() reflect.Type {
 }
 
 type associationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
 	ApplyOnlyAtCronInterval *bool `pulumi:"applyOnlyAtCronInterval"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
-	AssociationName *string `pulumi:"associationName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
-	AutomationTargetParameterName *string `pulumi:"automationTargetParameterName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames
-	CalendarNames []string `pulumi:"calendarNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
-	ComplianceSeverity *string `pulumi:"complianceSeverity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
+	// The name of the association.
+	AssociationName               *string  `pulumi:"associationName"`
+	AutomationTargetParameterName *string  `pulumi:"automationTargetParameterName"`
+	CalendarNames                 []string `pulumi:"calendarNames"`
+	ComplianceSeverity            *string  `pulumi:"complianceSeverity"`
+	// The version of the SSM document to associate with the target.
 	DocumentVersion *string `pulumi:"documentVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
-	InstanceId *string `pulumi:"instanceId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
+	// The ID of the instance that the SSM document is associated with.
+	InstanceId     *string `pulumi:"instanceId"`
 	MaxConcurrency *string `pulumi:"maxConcurrency"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
-	MaxErrors *string `pulumi:"maxErrors"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
+	MaxErrors      *string `pulumi:"maxErrors"`
+	// The name of the SSM document.
+	Name           string                                        `pulumi:"name"`
 	OutputLocation *AssociationInstanceAssociationOutputLocation `pulumi:"outputLocation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-	Parameters map[string]interface{} `pulumi:"parameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
+	// Parameter values that the SSM document uses at runtime.
+	Parameters interface{} `pulumi:"parameters"`
+	// A Cron or Rate expression that specifies when the association is applied to the target.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
-	SyncCompliance *string `pulumi:"syncCompliance"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
-	Targets []AssociationTarget `pulumi:"targets"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
-	WaitForSuccessTimeoutSeconds *int `pulumi:"waitForSuccessTimeoutSeconds"`
+	SyncCompliance     *string `pulumi:"syncCompliance"`
+	// The targets that the SSM document sends commands to.
+	Targets                      []AssociationTarget `pulumi:"targets"`
+	WaitForSuccessTimeoutSeconds *int                `pulumi:"waitForSuccessTimeoutSeconds"`
 }
 
 // The set of arguments for constructing a Association resource.
 type AssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
 	ApplyOnlyAtCronInterval pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
-	AssociationName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
+	// The name of the association.
+	AssociationName               pulumi.StringPtrInput
 	AutomationTargetParameterName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames
-	CalendarNames pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
-	ComplianceSeverity pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
+	CalendarNames                 pulumi.StringArrayInput
+	ComplianceSeverity            pulumi.StringPtrInput
+	// The version of the SSM document to associate with the target.
 	DocumentVersion pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
-	InstanceId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
+	// The ID of the instance that the SSM document is associated with.
+	InstanceId     pulumi.StringPtrInput
 	MaxConcurrency pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
-	MaxErrors pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
-	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
+	MaxErrors      pulumi.StringPtrInput
+	// The name of the SSM document.
+	Name           pulumi.StringInput
 	OutputLocation AssociationInstanceAssociationOutputLocationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-	Parameters pulumi.MapInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
+	// Parameter values that the SSM document uses at runtime.
+	Parameters pulumi.Input
+	// A Cron or Rate expression that specifies when the association is applied to the target.
 	ScheduleExpression pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
-	SyncCompliance pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
-	Targets AssociationTargetArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
+	SyncCompliance     pulumi.StringPtrInput
+	// The targets that the SSM document sends commands to.
+	Targets                      AssociationTargetArrayInput
 	WaitForSuccessTimeoutSeconds pulumi.IntPtrInput
 }
 

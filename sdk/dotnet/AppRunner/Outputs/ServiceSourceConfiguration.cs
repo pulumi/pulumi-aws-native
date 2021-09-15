@@ -11,26 +11,17 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html
+    /// Source Code configuration
     /// </summary>
     [OutputType]
     public sealed class ServiceSourceConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-authenticationconfiguration
-        /// </summary>
         public readonly Outputs.ServiceAuthenticationConfiguration? AuthenticationConfiguration;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-autodeploymentsenabled
+        /// Auto Deployment enabled
         /// </summary>
         public readonly bool? AutoDeploymentsEnabled;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-coderepository
-        /// </summary>
         public readonly Outputs.ServiceCodeRepository? CodeRepository;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-imagerepository
-        /// </summary>
         public readonly Outputs.ServiceImageRepository? ImageRepository;
 
         [OutputConstructor]

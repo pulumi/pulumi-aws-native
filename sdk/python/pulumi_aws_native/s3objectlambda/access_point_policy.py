@@ -14,11 +14,11 @@ __all__ = ['AccessPointPolicyArgs', 'AccessPointPolicy']
 class AccessPointPolicyArgs:
     def __init__(__self__, *,
                  object_lambda_access_point: pulumi.Input[str],
-                 policy_document: pulumi.Input[Union[Any, str]]):
+                 policy_document: Any):
         """
         The set of arguments for constructing a AccessPointPolicy resource.
-        :param pulumi.Input[str] object_lambda_access_point: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-objectlambdaaccesspoint
-        :param pulumi.Input[Union[Any, str]] policy_document: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-policydocument
+        :param pulumi.Input[str] object_lambda_access_point: The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
+        :param Any policy_document: A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide. 
         """
         pulumi.set(__self__, "object_lambda_access_point", object_lambda_access_point)
         pulumi.set(__self__, "policy_document", policy_document)
@@ -27,7 +27,7 @@ class AccessPointPolicyArgs:
     @pulumi.getter(name="objectLambdaAccessPoint")
     def object_lambda_access_point(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-objectlambdaaccesspoint
+        The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
         """
         return pulumi.get(self, "object_lambda_access_point")
 
@@ -37,14 +37,14 @@ class AccessPointPolicyArgs:
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> pulumi.Input[Union[Any, str]]:
+    def policy_document(self) -> Any:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-policydocument
+        A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide. 
         """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: pulumi.Input[Union[Any, str]]):
+    def policy_document(self, value: Any):
         pulumi.set(self, "policy_document", value)
 
 
@@ -54,15 +54,15 @@ class AccessPointPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  object_lambda_access_point: Optional[pulumi.Input[str]] = None,
-                 policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy_document: Optional[Any] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html
+        AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] object_lambda_access_point: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-objectlambdaaccesspoint
-        :param pulumi.Input[Union[Any, str]] policy_document: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-policydocument
+        :param pulumi.Input[str] object_lambda_access_point: The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
+        :param Any policy_document: A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide. 
         """
         ...
     @overload
@@ -71,7 +71,7 @@ class AccessPointPolicy(pulumi.CustomResource):
                  args: AccessPointPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html
+        AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
 
         :param str resource_name: The name of the resource.
         :param AccessPointPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -89,7 +89,7 @@ class AccessPointPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  object_lambda_access_point: Optional[pulumi.Input[str]] = None,
-                 policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy_document: Optional[Any] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -138,15 +138,15 @@ class AccessPointPolicy(pulumi.CustomResource):
     @pulumi.getter(name="objectLambdaAccessPoint")
     def object_lambda_access_point(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-objectlambdaaccesspoint
+        The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
         """
         return pulumi.get(self, "object_lambda_access_point")
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> pulumi.Output[str]:
+    def policy_document(self) -> pulumi.Output[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-policydocument
+        A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide. 
         """
         return pulumi.get(self, "policy_document")
 

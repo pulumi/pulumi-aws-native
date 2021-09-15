@@ -10,28 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html
+    /// Resource Type definition for AWS::CloudFront::Distribution
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:Distribution")]
     public partial class Distribution : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
-        /// </summary>
         [Output("distributionConfig")]
         public Output<Outputs.DistributionDistributionConfig> DistributionConfig { get; private set; } = null!;
 
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DistributionTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -78,21 +69,14 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class DistributionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
-        /// </summary>
         [Input("distributionConfig", required: true)]
         public Input<Inputs.DistributionDistributionConfigArgs> DistributionConfig { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.DistributionTagArgs>? _tags;
+        public InputList<Inputs.DistributionTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.DistributionTagArgs>());
             set => _tags = value;
         }
 

@@ -10,34 +10,40 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ImageBuilder
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html
+    /// Resource schema for AWS::ImageBuilder::DistributionConfiguration
     /// </summary>
     [AwsNativeResourceType("aws-native:imagebuilder:DistributionConfiguration")]
     public partial class DistributionConfiguration : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the distribution configuration.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-description
+        /// The description of the distribution configuration.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-distributions
+        /// The distributions of the distribution configuration.
         /// </summary>
         [Output("distributions")]
         public Output<ImmutableArray<Outputs.DistributionConfigurationDistribution>> Distributions { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the distribution configuration.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-tags
+        /// The tags associated with the component.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<object?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,7 +91,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     public sealed class DistributionConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-description
+        /// The description of the distribution configuration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -94,7 +100,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         private InputList<Inputs.DistributionConfigurationDistributionArgs>? _distributions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-distributions
+        /// The distributions of the distribution configuration.
         /// </summary>
         public InputList<Inputs.DistributionConfigurationDistributionArgs> Distributions
         {
@@ -103,22 +109,16 @@ namespace Pulumi.AwsNative.ImageBuilder
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-name
+        /// The name of the distribution configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-tags
+        /// The tags associated with the component.
         /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
+        [Input("tags")]
+        public Input<object>? Tags { get; set; }
 
         public DistributionConfigurationArgs()
         {

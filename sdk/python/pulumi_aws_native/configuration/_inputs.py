@@ -11,8 +11,10 @@ from .. import _utilities
 __all__ = [
     'ConfigurationAggregatorAccountAggregationSourceArgs',
     'ConfigurationAggregatorOrganizationAggregationSourceArgs',
+    'ConfigurationAggregatorTagArgs',
     'ConformancePackConformancePackInputParameterArgs',
     'OrganizationConformancePackConformancePackInputParameterArgs',
+    'StoredQueryTagArgs',
 ]
 
 @pulumi.input_type
@@ -21,12 +23,6 @@ class ConfigurationAggregatorAccountAggregationSourceArgs:
                  account_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  all_aws_regions: Optional[pulumi.Input[bool]] = None,
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] account_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids
-        :param pulumi.Input[bool] all_aws_regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-allawsregions
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-awsregions
-        """
         pulumi.set(__self__, "account_ids", account_ids)
         if all_aws_regions is not None:
             pulumi.set(__self__, "all_aws_regions", all_aws_regions)
@@ -36,9 +32,6 @@ class ConfigurationAggregatorAccountAggregationSourceArgs:
     @property
     @pulumi.getter(name="accountIds")
     def account_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids
-        """
         return pulumi.get(self, "account_ids")
 
     @account_ids.setter
@@ -48,9 +41,6 @@ class ConfigurationAggregatorAccountAggregationSourceArgs:
     @property
     @pulumi.getter(name="allAwsRegions")
     def all_aws_regions(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-allawsregions
-        """
         return pulumi.get(self, "all_aws_regions")
 
     @all_aws_regions.setter
@@ -60,9 +50,6 @@ class ConfigurationAggregatorAccountAggregationSourceArgs:
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-awsregions
-        """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
@@ -76,12 +63,6 @@ class ConfigurationAggregatorOrganizationAggregationSourceArgs:
                  role_arn: pulumi.Input[str],
                  all_aws_regions: Optional[pulumi.Input[bool]] = None,
                  aws_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-rolearn
-        :param pulumi.Input[bool] all_aws_regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-allawsregions
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] aws_regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-awsregions
-        """
         pulumi.set(__self__, "role_arn", role_arn)
         if all_aws_regions is not None:
             pulumi.set(__self__, "all_aws_regions", all_aws_regions)
@@ -91,9 +72,6 @@ class ConfigurationAggregatorOrganizationAggregationSourceArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-rolearn
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -103,9 +81,6 @@ class ConfigurationAggregatorOrganizationAggregationSourceArgs:
     @property
     @pulumi.getter(name="allAwsRegions")
     def all_aws_regions(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-allawsregions
-        """
         return pulumi.get(self, "all_aws_regions")
 
     @all_aws_regions.setter
@@ -115,9 +90,6 @@ class ConfigurationAggregatorOrganizationAggregationSourceArgs:
     @property
     @pulumi.getter(name="awsRegions")
     def aws_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html#cfn-config-configurationaggregator-organizationaggregationsource-awsregions
-        """
         return pulumi.get(self, "aws_regions")
 
     @aws_regions.setter
@@ -126,14 +98,50 @@ class ConfigurationAggregatorOrganizationAggregationSourceArgs:
 
 
 @pulumi.input_type
+class ConfigurationAggregatorTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class ConformancePackConformancePackInputParameterArgs:
     def __init__(__self__, *,
                  parameter_name: pulumi.Input[str],
                  parameter_value: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html
-        :param pulumi.Input[str] parameter_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametername
-        :param pulumi.Input[str] parameter_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametervalue
+        Input parameters in the form of key-value pairs for the conformance pack.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -141,9 +149,6 @@ class ConformancePackConformancePackInputParameterArgs:
     @property
     @pulumi.getter(name="parameterName")
     def parameter_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametername
-        """
         return pulumi.get(self, "parameter_name")
 
     @parameter_name.setter
@@ -153,9 +158,6 @@ class ConformancePackConformancePackInputParameterArgs:
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametervalue
-        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
@@ -169,9 +171,7 @@ class OrganizationConformancePackConformancePackInputParameterArgs:
                  parameter_name: pulumi.Input[str],
                  parameter_value: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html
-        :param pulumi.Input[str] parameter_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametername
-        :param pulumi.Input[str] parameter_value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametervalue
+        Input parameters in the form of key-value pairs for the conformance pack.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
         pulumi.set(__self__, "parameter_value", parameter_value)
@@ -179,9 +179,6 @@ class OrganizationConformancePackConformancePackInputParameterArgs:
     @property
     @pulumi.getter(name="parameterName")
     def parameter_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametername
-        """
         return pulumi.get(self, "parameter_name")
 
     @parameter_name.setter
@@ -191,13 +188,48 @@ class OrganizationConformancePackConformancePackInputParameterArgs:
     @property
     @pulumi.getter(name="parameterValue")
     def parameter_value(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametervalue
-        """
         return pulumi.get(self, "parameter_value")
 
     @parameter_value.setter
     def parameter_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "parameter_value", value)
+
+
+@pulumi.input_type
+class StoredQueryTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 

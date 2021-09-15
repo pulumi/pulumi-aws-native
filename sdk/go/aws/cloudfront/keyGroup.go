@@ -11,12 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
+// Resource Type definition for AWS::CloudFront::KeyGroup
 type KeyGroup struct {
 	pulumi.CustomResourceState
 
-	Id pulumi.StringOutput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
 	KeyGroupConfig   KeyGroupKeyGroupConfigOutput `pulumi:"keyGroupConfig"`
 	LastModifiedTime pulumi.StringOutput          `pulumi:"lastModifiedTime"`
 }
@@ -63,13 +61,11 @@ func (KeyGroupState) ElementType() reflect.Type {
 }
 
 type keyGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
 	KeyGroupConfig KeyGroupKeyGroupConfig `pulumi:"keyGroupConfig"`
 }
 
 // The set of arguments for constructing a KeyGroup resource.
 type KeyGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
 	KeyGroupConfig KeyGroupKeyGroupConfigInput
 }
 

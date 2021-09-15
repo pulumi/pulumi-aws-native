@@ -19,10 +19,10 @@ class CertificateAuthorityActivationArgs:
                  status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CertificateAuthorityActivation resource.
-        :param pulumi.Input[str] certificate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
-        :param pulumi.Input[str] certificate_authority_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
-        :param pulumi.Input[str] certificate_chain: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
+        :param pulumi.Input[str] certificate: Certificate Authority certificate that will be installed in the Certificate Authority.
+        :param pulumi.Input[str] certificate_authority_arn: Arn of the Certificate Authority.
+        :param pulumi.Input[str] certificate_chain: Certificate chain for the Certificate Authority certificate.
+        :param pulumi.Input[str] status: The status of the Certificate Authority.
         """
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
@@ -35,7 +35,7 @@ class CertificateAuthorityActivationArgs:
     @pulumi.getter
     def certificate(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
+        Certificate Authority certificate that will be installed in the Certificate Authority.
         """
         return pulumi.get(self, "certificate")
 
@@ -47,7 +47,7 @@ class CertificateAuthorityActivationArgs:
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
+        Arn of the Certificate Authority.
         """
         return pulumi.get(self, "certificate_authority_arn")
 
@@ -59,7 +59,7 @@ class CertificateAuthorityActivationArgs:
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
+        Certificate chain for the Certificate Authority certificate.
         """
         return pulumi.get(self, "certificate_chain")
 
@@ -71,7 +71,7 @@ class CertificateAuthorityActivationArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
+        The status of the Certificate Authority.
         """
         return pulumi.get(self, "status")
 
@@ -91,14 +91,14 @@ class CertificateAuthorityActivation(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html
+        Used to install the certificate authority certificate and update the certificate authority status.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
-        :param pulumi.Input[str] certificate_authority_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
-        :param pulumi.Input[str] certificate_chain: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
+        :param pulumi.Input[str] certificate: Certificate Authority certificate that will be installed in the Certificate Authority.
+        :param pulumi.Input[str] certificate_authority_arn: Arn of the Certificate Authority.
+        :param pulumi.Input[str] certificate_chain: Certificate chain for the Certificate Authority certificate.
+        :param pulumi.Input[str] status: The status of the Certificate Authority.
         """
         ...
     @overload
@@ -107,7 +107,7 @@ class CertificateAuthorityActivation(pulumi.CustomResource):
                  args: CertificateAuthorityActivationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html
+        Used to install the certificate authority certificate and update the certificate authority status.
 
         :param str resource_name: The name of the resource.
         :param CertificateAuthorityActivationArgs args: The arguments to use to populate this resource's properties.
@@ -182,7 +182,7 @@ class CertificateAuthorityActivation(pulumi.CustomResource):
     @pulumi.getter
     def certificate(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
+        Certificate Authority certificate that will be installed in the Certificate Authority.
         """
         return pulumi.get(self, "certificate")
 
@@ -190,7 +190,7 @@ class CertificateAuthorityActivation(pulumi.CustomResource):
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
+        Arn of the Certificate Authority.
         """
         return pulumi.get(self, "certificate_authority_arn")
 
@@ -198,20 +198,23 @@ class CertificateAuthorityActivation(pulumi.CustomResource):
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
+        Certificate chain for the Certificate Authority certificate.
         """
         return pulumi.get(self, "certificate_chain")
 
     @property
     @pulumi.getter(name="completeCertificateChain")
     def complete_certificate_chain(self) -> pulumi.Output[str]:
+        """
+        The complete certificate chain, including the Certificate Authority certificate.
+        """
         return pulumi.get(self, "complete_certificate_chain")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
+        The status of the Certificate Authority.
         """
         return pulumi.get(self, "status")
 

@@ -10,28 +10,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html
 type AppAutoBranchCreationConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-autobranchcreationpatterns
-	AutoBranchCreationPatterns []string `pulumi:"autoBranchCreationPatterns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-basicauthconfig
-	BasicAuthConfig *AppBasicAuthConfig `pulumi:"basicAuthConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-buildspec
-	BuildSpec *string `pulumi:"buildSpec"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobranchcreation
-	EnableAutoBranchCreation *bool `pulumi:"enableAutoBranchCreation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobuild
-	EnableAutoBuild *bool `pulumi:"enableAutoBuild"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableperformancemode
-	EnablePerformanceMode *bool `pulumi:"enablePerformanceMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enablepullrequestpreview
-	EnablePullRequestPreview *bool `pulumi:"enablePullRequestPreview"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-environmentvariables
-	EnvironmentVariables []AppEnvironmentVariable `pulumi:"environmentVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-pullrequestenvironmentname
-	PullRequestEnvironmentName *string `pulumi:"pullRequestEnvironmentName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-stage
-	Stage *string `pulumi:"stage"`
+	AutoBranchCreationPatterns []string                 `pulumi:"autoBranchCreationPatterns"`
+	BasicAuthConfig            *AppBasicAuthConfig      `pulumi:"basicAuthConfig"`
+	BuildSpec                  *string                  `pulumi:"buildSpec"`
+	EnableAutoBranchCreation   *bool                    `pulumi:"enableAutoBranchCreation"`
+	EnableAutoBuild            *bool                    `pulumi:"enableAutoBuild"`
+	EnablePerformanceMode      *bool                    `pulumi:"enablePerformanceMode"`
+	EnablePullRequestPreview   *bool                    `pulumi:"enablePullRequestPreview"`
+	EnvironmentVariables       []AppEnvironmentVariable `pulumi:"environmentVariables"`
+	PullRequestEnvironmentName *string                  `pulumi:"pullRequestEnvironmentName"`
+	Stage                      *string                  `pulumi:"stage"`
 }
 
 // AppAutoBranchCreationConfigInput is an input type that accepts AppAutoBranchCreationConfigArgs and AppAutoBranchCreationConfigOutput values.
@@ -45,28 +34,17 @@ type AppAutoBranchCreationConfigInput interface {
 	ToAppAutoBranchCreationConfigOutputWithContext(context.Context) AppAutoBranchCreationConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html
 type AppAutoBranchCreationConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-autobranchcreationpatterns
-	AutoBranchCreationPatterns pulumi.StringArrayInput `pulumi:"autoBranchCreationPatterns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-basicauthconfig
-	BasicAuthConfig AppBasicAuthConfigPtrInput `pulumi:"basicAuthConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-buildspec
-	BuildSpec pulumi.StringPtrInput `pulumi:"buildSpec"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobranchcreation
-	EnableAutoBranchCreation pulumi.BoolPtrInput `pulumi:"enableAutoBranchCreation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobuild
-	EnableAutoBuild pulumi.BoolPtrInput `pulumi:"enableAutoBuild"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableperformancemode
-	EnablePerformanceMode pulumi.BoolPtrInput `pulumi:"enablePerformanceMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enablepullrequestpreview
-	EnablePullRequestPreview pulumi.BoolPtrInput `pulumi:"enablePullRequestPreview"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-environmentvariables
-	EnvironmentVariables AppEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-pullrequestenvironmentname
-	PullRequestEnvironmentName pulumi.StringPtrInput `pulumi:"pullRequestEnvironmentName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-stage
-	Stage pulumi.StringPtrInput `pulumi:"stage"`
+	AutoBranchCreationPatterns pulumi.StringArrayInput          `pulumi:"autoBranchCreationPatterns"`
+	BasicAuthConfig            AppBasicAuthConfigPtrInput       `pulumi:"basicAuthConfig"`
+	BuildSpec                  pulumi.StringPtrInput            `pulumi:"buildSpec"`
+	EnableAutoBranchCreation   pulumi.BoolPtrInput              `pulumi:"enableAutoBranchCreation"`
+	EnableAutoBuild            pulumi.BoolPtrInput              `pulumi:"enableAutoBuild"`
+	EnablePerformanceMode      pulumi.BoolPtrInput              `pulumi:"enablePerformanceMode"`
+	EnablePullRequestPreview   pulumi.BoolPtrInput              `pulumi:"enablePullRequestPreview"`
+	EnvironmentVariables       AppEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
+	PullRequestEnvironmentName pulumi.StringPtrInput            `pulumi:"pullRequestEnvironmentName"`
+	Stage                      pulumi.StringPtrInput            `pulumi:"stage"`
 }
 
 func (AppAutoBranchCreationConfigArgs) ElementType() reflect.Type {
@@ -122,7 +100,6 @@ func (i *appAutoBranchCreationConfigPtrType) ToAppAutoBranchCreationConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AppAutoBranchCreationConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html
 type AppAutoBranchCreationConfigOutput struct{ *pulumi.OutputState }
 
 func (AppAutoBranchCreationConfigOutput) ElementType() reflect.Type {
@@ -147,52 +124,42 @@ func (o AppAutoBranchCreationConfigOutput) ToAppAutoBranchCreationConfigPtrOutpu
 	}).(AppAutoBranchCreationConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-autobranchcreationpatterns
 func (o AppAutoBranchCreationConfigOutput) AutoBranchCreationPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) []string { return v.AutoBranchCreationPatterns }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-basicauthconfig
 func (o AppAutoBranchCreationConfigOutput) BasicAuthConfig() AppBasicAuthConfigPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *AppBasicAuthConfig { return v.BasicAuthConfig }).(AppBasicAuthConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-buildspec
 func (o AppAutoBranchCreationConfigOutput) BuildSpec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *string { return v.BuildSpec }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobranchcreation
 func (o AppAutoBranchCreationConfigOutput) EnableAutoBranchCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *bool { return v.EnableAutoBranchCreation }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobuild
 func (o AppAutoBranchCreationConfigOutput) EnableAutoBuild() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *bool { return v.EnableAutoBuild }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableperformancemode
 func (o AppAutoBranchCreationConfigOutput) EnablePerformanceMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *bool { return v.EnablePerformanceMode }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enablepullrequestpreview
 func (o AppAutoBranchCreationConfigOutput) EnablePullRequestPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *bool { return v.EnablePullRequestPreview }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-environmentvariables
 func (o AppAutoBranchCreationConfigOutput) EnvironmentVariables() AppEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) []AppEnvironmentVariable { return v.EnvironmentVariables }).(AppEnvironmentVariableArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-pullrequestenvironmentname
 func (o AppAutoBranchCreationConfigOutput) PullRequestEnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *string { return v.PullRequestEnvironmentName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-stage
 func (o AppAutoBranchCreationConfigOutput) Stage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *string { return v.Stage }).(pulumi.StringPtrOutput)
 }
@@ -221,7 +188,6 @@ func (o AppAutoBranchCreationConfigPtrOutput) Elem() AppAutoBranchCreationConfig
 	}).(AppAutoBranchCreationConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-autobranchcreationpatterns
 func (o AppAutoBranchCreationConfigPtrOutput) AutoBranchCreationPatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) []string {
 		if v == nil {
@@ -231,7 +197,6 @@ func (o AppAutoBranchCreationConfigPtrOutput) AutoBranchCreationPatterns() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-basicauthconfig
 func (o AppAutoBranchCreationConfigPtrOutput) BasicAuthConfig() AppBasicAuthConfigPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *AppBasicAuthConfig {
 		if v == nil {
@@ -241,7 +206,6 @@ func (o AppAutoBranchCreationConfigPtrOutput) BasicAuthConfig() AppBasicAuthConf
 	}).(AppBasicAuthConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-buildspec
 func (o AppAutoBranchCreationConfigPtrOutput) BuildSpec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *string {
 		if v == nil {
@@ -251,7 +215,6 @@ func (o AppAutoBranchCreationConfigPtrOutput) BuildSpec() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobranchcreation
 func (o AppAutoBranchCreationConfigPtrOutput) EnableAutoBranchCreation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *bool {
 		if v == nil {
@@ -261,7 +224,6 @@ func (o AppAutoBranchCreationConfigPtrOutput) EnableAutoBranchCreation() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobuild
 func (o AppAutoBranchCreationConfigPtrOutput) EnableAutoBuild() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *bool {
 		if v == nil {
@@ -271,7 +233,6 @@ func (o AppAutoBranchCreationConfigPtrOutput) EnableAutoBuild() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableperformancemode
 func (o AppAutoBranchCreationConfigPtrOutput) EnablePerformanceMode() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *bool {
 		if v == nil {
@@ -281,7 +242,6 @@ func (o AppAutoBranchCreationConfigPtrOutput) EnablePerformanceMode() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enablepullrequestpreview
 func (o AppAutoBranchCreationConfigPtrOutput) EnablePullRequestPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *bool {
 		if v == nil {
@@ -291,7 +251,6 @@ func (o AppAutoBranchCreationConfigPtrOutput) EnablePullRequestPreview() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-environmentvariables
 func (o AppAutoBranchCreationConfigPtrOutput) EnvironmentVariables() AppEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) []AppEnvironmentVariable {
 		if v == nil {
@@ -301,7 +260,6 @@ func (o AppAutoBranchCreationConfigPtrOutput) EnvironmentVariables() AppEnvironm
 	}).(AppEnvironmentVariableArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-pullrequestenvironmentname
 func (o AppAutoBranchCreationConfigPtrOutput) PullRequestEnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *string {
 		if v == nil {
@@ -311,7 +269,6 @@ func (o AppAutoBranchCreationConfigPtrOutput) PullRequestEnvironmentName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-stage
 func (o AppAutoBranchCreationConfigPtrOutput) Stage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *string {
 		if v == nil {
@@ -321,14 +278,10 @@ func (o AppAutoBranchCreationConfigPtrOutput) Stage() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html
 type AppBasicAuthConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-enablebasicauth
-	EnableBasicAuth *bool `pulumi:"enableBasicAuth"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-password
-	Password *string `pulumi:"password"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-username
-	Username *string `pulumi:"username"`
+	EnableBasicAuth *bool   `pulumi:"enableBasicAuth"`
+	Password        *string `pulumi:"password"`
+	Username        *string `pulumi:"username"`
 }
 
 // AppBasicAuthConfigInput is an input type that accepts AppBasicAuthConfigArgs and AppBasicAuthConfigOutput values.
@@ -342,14 +295,10 @@ type AppBasicAuthConfigInput interface {
 	ToAppBasicAuthConfigOutputWithContext(context.Context) AppBasicAuthConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html
 type AppBasicAuthConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-enablebasicauth
-	EnableBasicAuth pulumi.BoolPtrInput `pulumi:"enableBasicAuth"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-password
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-username
-	Username pulumi.StringPtrInput `pulumi:"username"`
+	EnableBasicAuth pulumi.BoolPtrInput   `pulumi:"enableBasicAuth"`
+	Password        pulumi.StringPtrInput `pulumi:"password"`
+	Username        pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (AppBasicAuthConfigArgs) ElementType() reflect.Type {
@@ -405,7 +354,6 @@ func (i *appBasicAuthConfigPtrType) ToAppBasicAuthConfigPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AppBasicAuthConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html
 type AppBasicAuthConfigOutput struct{ *pulumi.OutputState }
 
 func (AppBasicAuthConfigOutput) ElementType() reflect.Type {
@@ -430,17 +378,14 @@ func (o AppBasicAuthConfigOutput) ToAppBasicAuthConfigPtrOutputWithContext(ctx c
 	}).(AppBasicAuthConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-enablebasicauth
 func (o AppBasicAuthConfigOutput) EnableBasicAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppBasicAuthConfig) *bool { return v.EnableBasicAuth }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-password
 func (o AppBasicAuthConfigOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppBasicAuthConfig) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-username
 func (o AppBasicAuthConfigOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppBasicAuthConfig) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -469,7 +414,6 @@ func (o AppBasicAuthConfigPtrOutput) Elem() AppBasicAuthConfigOutput {
 	}).(AppBasicAuthConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-enablebasicauth
 func (o AppBasicAuthConfigPtrOutput) EnableBasicAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppBasicAuthConfig) *bool {
 		if v == nil {
@@ -479,7 +423,6 @@ func (o AppBasicAuthConfigPtrOutput) EnableBasicAuth() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-password
 func (o AppBasicAuthConfigPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppBasicAuthConfig) *string {
 		if v == nil {
@@ -489,7 +432,6 @@ func (o AppBasicAuthConfigPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-username
 func (o AppBasicAuthConfigPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppBasicAuthConfig) *string {
 		if v == nil {
@@ -499,16 +441,11 @@ func (o AppBasicAuthConfigPtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html
 type AppCustomRule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-condition
 	Condition *string `pulumi:"condition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-source
-	Source string `pulumi:"source"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-status
-	Status *string `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-target
-	Target string `pulumi:"target"`
+	Source    string  `pulumi:"source"`
+	Status    *string `pulumi:"status"`
+	Target    string  `pulumi:"target"`
 }
 
 // AppCustomRuleInput is an input type that accepts AppCustomRuleArgs and AppCustomRuleOutput values.
@@ -522,16 +459,11 @@ type AppCustomRuleInput interface {
 	ToAppCustomRuleOutputWithContext(context.Context) AppCustomRuleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html
 type AppCustomRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-condition
 	Condition pulumi.StringPtrInput `pulumi:"condition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-source
-	Source pulumi.StringInput `pulumi:"source"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-status
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-target
-	Target pulumi.StringInput `pulumi:"target"`
+	Source    pulumi.StringInput    `pulumi:"source"`
+	Status    pulumi.StringPtrInput `pulumi:"status"`
+	Target    pulumi.StringInput    `pulumi:"target"`
 }
 
 func (AppCustomRuleArgs) ElementType() reflect.Type {
@@ -571,7 +503,6 @@ func (i AppCustomRuleArray) ToAppCustomRuleArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AppCustomRuleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html
 type AppCustomRuleOutput struct{ *pulumi.OutputState }
 
 func (AppCustomRuleOutput) ElementType() reflect.Type {
@@ -586,22 +517,18 @@ func (o AppCustomRuleOutput) ToAppCustomRuleOutputWithContext(ctx context.Contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-condition
 func (o AppCustomRuleOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppCustomRule) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-source
 func (o AppCustomRuleOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v AppCustomRule) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-status
 func (o AppCustomRuleOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppCustomRule) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-target
 func (o AppCustomRuleOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v AppCustomRule) string { return v.Target }).(pulumi.StringOutput)
 }
@@ -626,11 +553,8 @@ func (o AppCustomRuleArrayOutput) Index(i pulumi.IntInput) AppCustomRuleOutput {
 	}).(AppCustomRuleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html
 type AppEnvironmentVariable struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html#cfn-amplify-app-environmentvariable-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html#cfn-amplify-app-environmentvariable-value
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -645,11 +569,8 @@ type AppEnvironmentVariableInput interface {
 	ToAppEnvironmentVariableOutputWithContext(context.Context) AppEnvironmentVariableOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html
 type AppEnvironmentVariableArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html#cfn-amplify-app-environmentvariable-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html#cfn-amplify-app-environmentvariable-value
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -690,7 +611,6 @@ func (i AppEnvironmentVariableArray) ToAppEnvironmentVariableArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AppEnvironmentVariableArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html
 type AppEnvironmentVariableOutput struct{ *pulumi.OutputState }
 
 func (AppEnvironmentVariableOutput) ElementType() reflect.Type {
@@ -705,12 +625,10 @@ func (o AppEnvironmentVariableOutput) ToAppEnvironmentVariableOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html#cfn-amplify-app-environmentvariable-name
 func (o AppEnvironmentVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppEnvironmentVariable) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html#cfn-amplify-app-environmentvariable-value
 func (o AppEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AppEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -735,14 +653,110 @@ func (o AppEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) AppEnvironme
 	}).(AppEnvironmentVariableOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html
+type AppTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// AppTagInput is an input type that accepts AppTagArgs and AppTagOutput values.
+// You can construct a concrete instance of `AppTagInput` via:
+//
+//          AppTagArgs{...}
+type AppTagInput interface {
+	pulumi.Input
+
+	ToAppTagOutput() AppTagOutput
+	ToAppTagOutputWithContext(context.Context) AppTagOutput
+}
+
+type AppTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AppTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTag)(nil)).Elem()
+}
+
+func (i AppTagArgs) ToAppTagOutput() AppTagOutput {
+	return i.ToAppTagOutputWithContext(context.Background())
+}
+
+func (i AppTagArgs) ToAppTagOutputWithContext(ctx context.Context) AppTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTagOutput)
+}
+
+// AppTagArrayInput is an input type that accepts AppTagArray and AppTagArrayOutput values.
+// You can construct a concrete instance of `AppTagArrayInput` via:
+//
+//          AppTagArray{ AppTagArgs{...} }
+type AppTagArrayInput interface {
+	pulumi.Input
+
+	ToAppTagArrayOutput() AppTagArrayOutput
+	ToAppTagArrayOutputWithContext(context.Context) AppTagArrayOutput
+}
+
+type AppTagArray []AppTagInput
+
+func (AppTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTag)(nil)).Elem()
+}
+
+func (i AppTagArray) ToAppTagArrayOutput() AppTagArrayOutput {
+	return i.ToAppTagArrayOutputWithContext(context.Background())
+}
+
+func (i AppTagArray) ToAppTagArrayOutputWithContext(ctx context.Context) AppTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppTagArrayOutput)
+}
+
+type AppTagOutput struct{ *pulumi.OutputState }
+
+func (AppTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppTag)(nil)).Elem()
+}
+
+func (o AppTagOutput) ToAppTagOutput() AppTagOutput {
+	return o
+}
+
+func (o AppTagOutput) ToAppTagOutputWithContext(ctx context.Context) AppTagOutput {
+	return o
+}
+
+func (o AppTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o AppTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AppTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AppTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AppTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppTag)(nil)).Elem()
+}
+
+func (o AppTagArrayOutput) ToAppTagArrayOutput() AppTagArrayOutput {
+	return o
+}
+
+func (o AppTagArrayOutput) ToAppTagArrayOutputWithContext(ctx context.Context) AppTagArrayOutput {
+	return o
+}
+
+func (o AppTagArrayOutput) Index(i pulumi.IntInput) AppTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppTag {
+		return vs[0].([]AppTag)[vs[1].(int)]
+	}).(AppTagOutput)
+}
+
 type BranchBasicAuthConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-enablebasicauth
-	EnableBasicAuth *bool `pulumi:"enableBasicAuth"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-password
-	Password string `pulumi:"password"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-username
-	Username string `pulumi:"username"`
+	EnableBasicAuth *bool  `pulumi:"enableBasicAuth"`
+	Password        string `pulumi:"password"`
+	Username        string `pulumi:"username"`
 }
 
 // BranchBasicAuthConfigInput is an input type that accepts BranchBasicAuthConfigArgs and BranchBasicAuthConfigOutput values.
@@ -756,14 +770,10 @@ type BranchBasicAuthConfigInput interface {
 	ToBranchBasicAuthConfigOutputWithContext(context.Context) BranchBasicAuthConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html
 type BranchBasicAuthConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-enablebasicauth
 	EnableBasicAuth pulumi.BoolPtrInput `pulumi:"enableBasicAuth"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-password
-	Password pulumi.StringInput `pulumi:"password"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-username
-	Username pulumi.StringInput `pulumi:"username"`
+	Password        pulumi.StringInput  `pulumi:"password"`
+	Username        pulumi.StringInput  `pulumi:"username"`
 }
 
 func (BranchBasicAuthConfigArgs) ElementType() reflect.Type {
@@ -819,7 +829,6 @@ func (i *branchBasicAuthConfigPtrType) ToBranchBasicAuthConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(BranchBasicAuthConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html
 type BranchBasicAuthConfigOutput struct{ *pulumi.OutputState }
 
 func (BranchBasicAuthConfigOutput) ElementType() reflect.Type {
@@ -844,17 +853,14 @@ func (o BranchBasicAuthConfigOutput) ToBranchBasicAuthConfigPtrOutputWithContext
 	}).(BranchBasicAuthConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-enablebasicauth
 func (o BranchBasicAuthConfigOutput) EnableBasicAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchBasicAuthConfig) *bool { return v.EnableBasicAuth }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-password
 func (o BranchBasicAuthConfigOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v BranchBasicAuthConfig) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-username
 func (o BranchBasicAuthConfigOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v BranchBasicAuthConfig) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -883,7 +889,6 @@ func (o BranchBasicAuthConfigPtrOutput) Elem() BranchBasicAuthConfigOutput {
 	}).(BranchBasicAuthConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-enablebasicauth
 func (o BranchBasicAuthConfigPtrOutput) EnableBasicAuth() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchBasicAuthConfig) *bool {
 		if v == nil {
@@ -893,7 +898,6 @@ func (o BranchBasicAuthConfigPtrOutput) EnableBasicAuth() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-password
 func (o BranchBasicAuthConfigPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BranchBasicAuthConfig) *string {
 		if v == nil {
@@ -903,7 +907,6 @@ func (o BranchBasicAuthConfigPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-username
 func (o BranchBasicAuthConfigPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BranchBasicAuthConfig) *string {
 		if v == nil {
@@ -913,11 +916,8 @@ func (o BranchBasicAuthConfigPtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html
 type BranchEnvironmentVariable struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html#cfn-amplify-branch-environmentvariable-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html#cfn-amplify-branch-environmentvariable-value
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -932,11 +932,8 @@ type BranchEnvironmentVariableInput interface {
 	ToBranchEnvironmentVariableOutputWithContext(context.Context) BranchEnvironmentVariableOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html
 type BranchEnvironmentVariableArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html#cfn-amplify-branch-environmentvariable-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html#cfn-amplify-branch-environmentvariable-value
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -977,7 +974,6 @@ func (i BranchEnvironmentVariableArray) ToBranchEnvironmentVariableArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BranchEnvironmentVariableArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html
 type BranchEnvironmentVariableOutput struct{ *pulumi.OutputState }
 
 func (BranchEnvironmentVariableOutput) ElementType() reflect.Type {
@@ -992,12 +988,10 @@ func (o BranchEnvironmentVariableOutput) ToBranchEnvironmentVariableOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html#cfn-amplify-branch-environmentvariable-name
 func (o BranchEnvironmentVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BranchEnvironmentVariable) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html#cfn-amplify-branch-environmentvariable-value
 func (o BranchEnvironmentVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v BranchEnvironmentVariable) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1022,12 +1016,109 @@ func (o BranchEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) BranchEnv
 	}).(BranchEnvironmentVariableOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html
+type BranchTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// BranchTagInput is an input type that accepts BranchTagArgs and BranchTagOutput values.
+// You can construct a concrete instance of `BranchTagInput` via:
+//
+//          BranchTagArgs{...}
+type BranchTagInput interface {
+	pulumi.Input
+
+	ToBranchTagOutput() BranchTagOutput
+	ToBranchTagOutputWithContext(context.Context) BranchTagOutput
+}
+
+type BranchTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (BranchTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchTag)(nil)).Elem()
+}
+
+func (i BranchTagArgs) ToBranchTagOutput() BranchTagOutput {
+	return i.ToBranchTagOutputWithContext(context.Background())
+}
+
+func (i BranchTagArgs) ToBranchTagOutputWithContext(ctx context.Context) BranchTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchTagOutput)
+}
+
+// BranchTagArrayInput is an input type that accepts BranchTagArray and BranchTagArrayOutput values.
+// You can construct a concrete instance of `BranchTagArrayInput` via:
+//
+//          BranchTagArray{ BranchTagArgs{...} }
+type BranchTagArrayInput interface {
+	pulumi.Input
+
+	ToBranchTagArrayOutput() BranchTagArrayOutput
+	ToBranchTagArrayOutputWithContext(context.Context) BranchTagArrayOutput
+}
+
+type BranchTagArray []BranchTagInput
+
+func (BranchTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchTag)(nil)).Elem()
+}
+
+func (i BranchTagArray) ToBranchTagArrayOutput() BranchTagArrayOutput {
+	return i.ToBranchTagArrayOutputWithContext(context.Background())
+}
+
+func (i BranchTagArray) ToBranchTagArrayOutputWithContext(ctx context.Context) BranchTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchTagArrayOutput)
+}
+
+type BranchTagOutput struct{ *pulumi.OutputState }
+
+func (BranchTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchTag)(nil)).Elem()
+}
+
+func (o BranchTagOutput) ToBranchTagOutput() BranchTagOutput {
+	return o
+}
+
+func (o BranchTagOutput) ToBranchTagOutputWithContext(ctx context.Context) BranchTagOutput {
+	return o
+}
+
+func (o BranchTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BranchTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o BranchTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v BranchTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type BranchTagArrayOutput struct{ *pulumi.OutputState }
+
+func (BranchTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchTag)(nil)).Elem()
+}
+
+func (o BranchTagArrayOutput) ToBranchTagArrayOutput() BranchTagArrayOutput {
+	return o
+}
+
+func (o BranchTagArrayOutput) ToBranchTagArrayOutputWithContext(ctx context.Context) BranchTagArrayOutput {
+	return o
+}
+
+func (o BranchTagArrayOutput) Index(i pulumi.IntInput) BranchTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchTag {
+		return vs[0].([]BranchTag)[vs[1].(int)]
+	}).(BranchTagOutput)
+}
+
 type DomainSubDomainSetting struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-branchname
 	BranchName string `pulumi:"branchName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-prefix
-	Prefix string `pulumi:"prefix"`
+	Prefix     string `pulumi:"prefix"`
 }
 
 // DomainSubDomainSettingInput is an input type that accepts DomainSubDomainSettingArgs and DomainSubDomainSettingOutput values.
@@ -1041,12 +1132,9 @@ type DomainSubDomainSettingInput interface {
 	ToDomainSubDomainSettingOutputWithContext(context.Context) DomainSubDomainSettingOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html
 type DomainSubDomainSettingArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-branchname
 	BranchName pulumi.StringInput `pulumi:"branchName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-prefix
-	Prefix pulumi.StringInput `pulumi:"prefix"`
+	Prefix     pulumi.StringInput `pulumi:"prefix"`
 }
 
 func (DomainSubDomainSettingArgs) ElementType() reflect.Type {
@@ -1086,7 +1174,6 @@ func (i DomainSubDomainSettingArray) ToDomainSubDomainSettingArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSubDomainSettingArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html
 type DomainSubDomainSettingOutput struct{ *pulumi.OutputState }
 
 func (DomainSubDomainSettingOutput) ElementType() reflect.Type {
@@ -1101,12 +1188,10 @@ func (o DomainSubDomainSettingOutput) ToDomainSubDomainSettingOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-branchname
 func (o DomainSubDomainSettingOutput) BranchName() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainSubDomainSetting) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-prefix
 func (o DomainSubDomainSettingOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainSubDomainSetting) string { return v.Prefix }).(pulumi.StringOutput)
 }
@@ -1140,10 +1225,14 @@ func init() {
 	pulumi.RegisterOutputType(AppCustomRuleArrayOutput{})
 	pulumi.RegisterOutputType(AppEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(AppEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(AppTagOutput{})
+	pulumi.RegisterOutputType(AppTagArrayOutput{})
 	pulumi.RegisterOutputType(BranchBasicAuthConfigOutput{})
 	pulumi.RegisterOutputType(BranchBasicAuthConfigPtrOutput{})
 	pulumi.RegisterOutputType(BranchEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(BranchEnvironmentVariableArrayOutput{})
+	pulumi.RegisterOutputType(BranchTagOutput{})
+	pulumi.RegisterOutputType(BranchTagArrayOutput{})
 	pulumi.RegisterOutputType(DomainSubDomainSettingOutput{})
 	pulumi.RegisterOutputType(DomainSubDomainSettingArrayOutput{})
 }

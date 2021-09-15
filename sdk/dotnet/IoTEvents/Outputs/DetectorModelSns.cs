@@ -11,17 +11,14 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html
+    /// Information required to publish the Amazon SNS message.
     /// </summary>
     [OutputType]
     public sealed class DetectorModelSns
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-payload
-        /// </summary>
         public readonly Outputs.DetectorModelPayload? Payload;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
+        /// The ARN of the Amazon SNS target where the message is sent.
         /// </summary>
         public readonly string TargetArn;
 

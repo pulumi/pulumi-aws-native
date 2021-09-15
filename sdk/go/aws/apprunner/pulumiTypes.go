@@ -10,11 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html
+// Authentication Configuration
 type ServiceAuthenticationConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-accessrolearn
+	// Access Role Arn
 	AccessRoleArn *string `pulumi:"accessRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-connectionarn
+	// Connection Arn
 	ConnectionArn *string `pulumi:"connectionArn"`
 }
 
@@ -29,11 +29,11 @@ type ServiceAuthenticationConfigurationInput interface {
 	ToServiceAuthenticationConfigurationOutputWithContext(context.Context) ServiceAuthenticationConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html
+// Authentication Configuration
 type ServiceAuthenticationConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-accessrolearn
+	// Access Role Arn
 	AccessRoleArn pulumi.StringPtrInput `pulumi:"accessRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-connectionarn
+	// Connection Arn
 	ConnectionArn pulumi.StringPtrInput `pulumi:"connectionArn"`
 }
 
@@ -90,7 +90,7 @@ func (i *serviceAuthenticationConfigurationPtrType) ToServiceAuthenticationConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthenticationConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html
+// Authentication Configuration
 type ServiceAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceAuthenticationConfigurationOutput) ElementType() reflect.Type {
@@ -115,12 +115,12 @@ func (o ServiceAuthenticationConfigurationOutput) ToServiceAuthenticationConfigu
 	}).(ServiceAuthenticationConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-accessrolearn
+// Access Role Arn
 func (o ServiceAuthenticationConfigurationOutput) AccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceAuthenticationConfiguration) *string { return v.AccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-connectionarn
+// Connection Arn
 func (o ServiceAuthenticationConfigurationOutput) ConnectionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceAuthenticationConfiguration) *string { return v.ConnectionArn }).(pulumi.StringPtrOutput)
 }
@@ -149,7 +149,7 @@ func (o ServiceAuthenticationConfigurationPtrOutput) Elem() ServiceAuthenticatio
 	}).(ServiceAuthenticationConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-accessrolearn
+// Access Role Arn
 func (o ServiceAuthenticationConfigurationPtrOutput) AccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceAuthenticationConfiguration) *string {
 		if v == nil {
@@ -159,7 +159,7 @@ func (o ServiceAuthenticationConfigurationPtrOutput) AccessRoleArn() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-connectionarn
+// Connection Arn
 func (o ServiceAuthenticationConfigurationPtrOutput) ConnectionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceAuthenticationConfiguration) *string {
 		if v == nil {
@@ -169,11 +169,10 @@ func (o ServiceAuthenticationConfigurationPtrOutput) ConnectionArn() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html
+// Code Configuration
 type ServiceCodeConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-codeconfigurationvalues
 	CodeConfigurationValues *ServiceCodeConfigurationValues `pulumi:"codeConfigurationValues"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-configurationsource
+	// Configuration Source
 	ConfigurationSource string `pulumi:"configurationSource"`
 }
 
@@ -188,11 +187,10 @@ type ServiceCodeConfigurationInput interface {
 	ToServiceCodeConfigurationOutputWithContext(context.Context) ServiceCodeConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html
+// Code Configuration
 type ServiceCodeConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-codeconfigurationvalues
 	CodeConfigurationValues ServiceCodeConfigurationValuesPtrInput `pulumi:"codeConfigurationValues"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-configurationsource
+	// Configuration Source
 	ConfigurationSource pulumi.StringInput `pulumi:"configurationSource"`
 }
 
@@ -249,7 +247,7 @@ func (i *serviceCodeConfigurationPtrType) ToServiceCodeConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCodeConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html
+// Code Configuration
 type ServiceCodeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceCodeConfigurationOutput) ElementType() reflect.Type {
@@ -274,12 +272,11 @@ func (o ServiceCodeConfigurationOutput) ToServiceCodeConfigurationPtrOutputWithC
 	}).(ServiceCodeConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-codeconfigurationvalues
 func (o ServiceCodeConfigurationOutput) CodeConfigurationValues() ServiceCodeConfigurationValuesPtrOutput {
 	return o.ApplyT(func(v ServiceCodeConfiguration) *ServiceCodeConfigurationValues { return v.CodeConfigurationValues }).(ServiceCodeConfigurationValuesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-configurationsource
+// Configuration Source
 func (o ServiceCodeConfigurationOutput) ConfigurationSource() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceCodeConfiguration) string { return v.ConfigurationSource }).(pulumi.StringOutput)
 }
@@ -308,7 +305,6 @@ func (o ServiceCodeConfigurationPtrOutput) Elem() ServiceCodeConfigurationOutput
 	}).(ServiceCodeConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-codeconfigurationvalues
 func (o ServiceCodeConfigurationPtrOutput) CodeConfigurationValues() ServiceCodeConfigurationValuesPtrOutput {
 	return o.ApplyT(func(v *ServiceCodeConfiguration) *ServiceCodeConfigurationValues {
 		if v == nil {
@@ -318,7 +314,7 @@ func (o ServiceCodeConfigurationPtrOutput) CodeConfigurationValues() ServiceCode
 	}).(ServiceCodeConfigurationValuesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-configurationsource
+// Configuration Source
 func (o ServiceCodeConfigurationPtrOutput) ConfigurationSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceCodeConfiguration) *string {
 		if v == nil {
@@ -328,17 +324,16 @@ func (o ServiceCodeConfigurationPtrOutput) ConfigurationSource() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html
+// Code Configuration Values
 type ServiceCodeConfigurationValues struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-buildcommand
+	// Build Command
 	BuildCommand *string `pulumi:"buildCommand"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-port
+	// Port
 	Port *string `pulumi:"port"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtime
-	Runtime string `pulumi:"runtime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtimeenvironmentvariables
+	// Runtime
+	Runtime                     string                `pulumi:"runtime"`
 	RuntimeEnvironmentVariables []ServiceKeyValuePair `pulumi:"runtimeEnvironmentVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-startcommand
+	// Start Command
 	StartCommand *string `pulumi:"startCommand"`
 }
 
@@ -353,17 +348,16 @@ type ServiceCodeConfigurationValuesInput interface {
 	ToServiceCodeConfigurationValuesOutputWithContext(context.Context) ServiceCodeConfigurationValuesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html
+// Code Configuration Values
 type ServiceCodeConfigurationValuesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-buildcommand
+	// Build Command
 	BuildCommand pulumi.StringPtrInput `pulumi:"buildCommand"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-port
+	// Port
 	Port pulumi.StringPtrInput `pulumi:"port"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtime
-	Runtime pulumi.StringInput `pulumi:"runtime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtimeenvironmentvariables
+	// Runtime
+	Runtime                     pulumi.StringInput            `pulumi:"runtime"`
 	RuntimeEnvironmentVariables ServiceKeyValuePairArrayInput `pulumi:"runtimeEnvironmentVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-startcommand
+	// Start Command
 	StartCommand pulumi.StringPtrInput `pulumi:"startCommand"`
 }
 
@@ -420,7 +414,7 @@ func (i *serviceCodeConfigurationValuesPtrType) ToServiceCodeConfigurationValues
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCodeConfigurationValuesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html
+// Code Configuration Values
 type ServiceCodeConfigurationValuesOutput struct{ *pulumi.OutputState }
 
 func (ServiceCodeConfigurationValuesOutput) ElementType() reflect.Type {
@@ -445,27 +439,26 @@ func (o ServiceCodeConfigurationValuesOutput) ToServiceCodeConfigurationValuesPt
 	}).(ServiceCodeConfigurationValuesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-buildcommand
+// Build Command
 func (o ServiceCodeConfigurationValuesOutput) BuildCommand() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceCodeConfigurationValues) *string { return v.BuildCommand }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-port
+// Port
 func (o ServiceCodeConfigurationValuesOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceCodeConfigurationValues) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtime
+// Runtime
 func (o ServiceCodeConfigurationValuesOutput) Runtime() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceCodeConfigurationValues) string { return v.Runtime }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtimeenvironmentvariables
 func (o ServiceCodeConfigurationValuesOutput) RuntimeEnvironmentVariables() ServiceKeyValuePairArrayOutput {
 	return o.ApplyT(func(v ServiceCodeConfigurationValues) []ServiceKeyValuePair { return v.RuntimeEnvironmentVariables }).(ServiceKeyValuePairArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-startcommand
+// Start Command
 func (o ServiceCodeConfigurationValuesOutput) StartCommand() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceCodeConfigurationValues) *string { return v.StartCommand }).(pulumi.StringPtrOutput)
 }
@@ -494,7 +487,7 @@ func (o ServiceCodeConfigurationValuesPtrOutput) Elem() ServiceCodeConfiguration
 	}).(ServiceCodeConfigurationValuesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-buildcommand
+// Build Command
 func (o ServiceCodeConfigurationValuesPtrOutput) BuildCommand() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceCodeConfigurationValues) *string {
 		if v == nil {
@@ -504,7 +497,7 @@ func (o ServiceCodeConfigurationValuesPtrOutput) BuildCommand() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-port
+// Port
 func (o ServiceCodeConfigurationValuesPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceCodeConfigurationValues) *string {
 		if v == nil {
@@ -514,7 +507,7 @@ func (o ServiceCodeConfigurationValuesPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtime
+// Runtime
 func (o ServiceCodeConfigurationValuesPtrOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceCodeConfigurationValues) *string {
 		if v == nil {
@@ -524,7 +517,6 @@ func (o ServiceCodeConfigurationValuesPtrOutput) Runtime() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtimeenvironmentvariables
 func (o ServiceCodeConfigurationValuesPtrOutput) RuntimeEnvironmentVariables() ServiceKeyValuePairArrayOutput {
 	return o.ApplyT(func(v *ServiceCodeConfigurationValues) []ServiceKeyValuePair {
 		if v == nil {
@@ -534,7 +526,7 @@ func (o ServiceCodeConfigurationValuesPtrOutput) RuntimeEnvironmentVariables() S
 	}).(ServiceKeyValuePairArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-startcommand
+// Start Command
 func (o ServiceCodeConfigurationValuesPtrOutput) StartCommand() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceCodeConfigurationValues) *string {
 		if v == nil {
@@ -544,13 +536,11 @@ func (o ServiceCodeConfigurationValuesPtrOutput) StartCommand() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html
+// Source Code Repository
 type ServiceCodeRepository struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-codeconfiguration
 	CodeConfiguration *ServiceCodeConfiguration `pulumi:"codeConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-repositoryurl
-	RepositoryUrl string `pulumi:"repositoryUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-sourcecodeversion
+	// Repository Url
+	RepositoryUrl     string                   `pulumi:"repositoryUrl"`
 	SourceCodeVersion ServiceSourceCodeVersion `pulumi:"sourceCodeVersion"`
 }
 
@@ -565,13 +555,11 @@ type ServiceCodeRepositoryInput interface {
 	ToServiceCodeRepositoryOutputWithContext(context.Context) ServiceCodeRepositoryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html
+// Source Code Repository
 type ServiceCodeRepositoryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-codeconfiguration
 	CodeConfiguration ServiceCodeConfigurationPtrInput `pulumi:"codeConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-repositoryurl
-	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-sourcecodeversion
+	// Repository Url
+	RepositoryUrl     pulumi.StringInput            `pulumi:"repositoryUrl"`
 	SourceCodeVersion ServiceSourceCodeVersionInput `pulumi:"sourceCodeVersion"`
 }
 
@@ -628,7 +616,7 @@ func (i *serviceCodeRepositoryPtrType) ToServiceCodeRepositoryPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCodeRepositoryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html
+// Source Code Repository
 type ServiceCodeRepositoryOutput struct{ *pulumi.OutputState }
 
 func (ServiceCodeRepositoryOutput) ElementType() reflect.Type {
@@ -653,17 +641,15 @@ func (o ServiceCodeRepositoryOutput) ToServiceCodeRepositoryPtrOutputWithContext
 	}).(ServiceCodeRepositoryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-codeconfiguration
 func (o ServiceCodeRepositoryOutput) CodeConfiguration() ServiceCodeConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceCodeRepository) *ServiceCodeConfiguration { return v.CodeConfiguration }).(ServiceCodeConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-repositoryurl
+// Repository Url
 func (o ServiceCodeRepositoryOutput) RepositoryUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceCodeRepository) string { return v.RepositoryUrl }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-sourcecodeversion
 func (o ServiceCodeRepositoryOutput) SourceCodeVersion() ServiceSourceCodeVersionOutput {
 	return o.ApplyT(func(v ServiceCodeRepository) ServiceSourceCodeVersion { return v.SourceCodeVersion }).(ServiceSourceCodeVersionOutput)
 }
@@ -692,7 +678,6 @@ func (o ServiceCodeRepositoryPtrOutput) Elem() ServiceCodeRepositoryOutput {
 	}).(ServiceCodeRepositoryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-codeconfiguration
 func (o ServiceCodeRepositoryPtrOutput) CodeConfiguration() ServiceCodeConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceCodeRepository) *ServiceCodeConfiguration {
 		if v == nil {
@@ -702,7 +687,7 @@ func (o ServiceCodeRepositoryPtrOutput) CodeConfiguration() ServiceCodeConfigura
 	}).(ServiceCodeConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-repositoryurl
+// Repository Url
 func (o ServiceCodeRepositoryPtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceCodeRepository) *string {
 		if v == nil {
@@ -712,7 +697,6 @@ func (o ServiceCodeRepositoryPtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-sourcecodeversion
 func (o ServiceCodeRepositoryPtrOutput) SourceCodeVersion() ServiceSourceCodeVersionPtrOutput {
 	return o.ApplyT(func(v *ServiceCodeRepository) *ServiceSourceCodeVersion {
 		if v == nil {
@@ -722,9 +706,9 @@ func (o ServiceCodeRepositoryPtrOutput) SourceCodeVersion() ServiceSourceCodeVer
 	}).(ServiceSourceCodeVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-encryptionconfiguration.html
+// Encryption configuration (KMS key)
 type ServiceEncryptionConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-encryptionconfiguration.html#cfn-apprunner-service-encryptionconfiguration-kmskey
+	// The KMS Key
 	KmsKey string `pulumi:"kmsKey"`
 }
 
@@ -739,9 +723,9 @@ type ServiceEncryptionConfigurationInput interface {
 	ToServiceEncryptionConfigurationOutputWithContext(context.Context) ServiceEncryptionConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-encryptionconfiguration.html
+// Encryption configuration (KMS key)
 type ServiceEncryptionConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-encryptionconfiguration.html#cfn-apprunner-service-encryptionconfiguration-kmskey
+	// The KMS Key
 	KmsKey pulumi.StringInput `pulumi:"kmsKey"`
 }
 
@@ -798,7 +782,7 @@ func (i *serviceEncryptionConfigurationPtrType) ToServiceEncryptionConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEncryptionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-encryptionconfiguration.html
+// Encryption configuration (KMS key)
 type ServiceEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -823,7 +807,7 @@ func (o ServiceEncryptionConfigurationOutput) ToServiceEncryptionConfigurationPt
 	}).(ServiceEncryptionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-encryptionconfiguration.html#cfn-apprunner-service-encryptionconfiguration-kmskey
+// The KMS Key
 func (o ServiceEncryptionConfigurationOutput) KmsKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEncryptionConfiguration) string { return v.KmsKey }).(pulumi.StringOutput)
 }
@@ -852,7 +836,7 @@ func (o ServiceEncryptionConfigurationPtrOutput) Elem() ServiceEncryptionConfigu
 	}).(ServiceEncryptionConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-encryptionconfiguration.html#cfn-apprunner-service-encryptionconfiguration-kmskey
+// The KMS Key
 func (o ServiceEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEncryptionConfiguration) *string {
 		if v == nil {
@@ -862,19 +846,19 @@ func (o ServiceEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html
+// Health check configuration
 type ServiceHealthCheckConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-healthythreshold
+	// Health check Healthy Threshold
 	HealthyThreshold *int `pulumi:"healthyThreshold"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-interval
+	// Health check Interval
 	Interval *int `pulumi:"interval"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-path
+	// Health check Path
 	Path *string `pulumi:"path"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-protocol
+	// Health Check Protocol
 	Protocol *string `pulumi:"protocol"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-timeout
+	// Health check Timeout
 	Timeout *int `pulumi:"timeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-unhealthythreshold
+	// Health check Unhealthy Threshold
 	UnhealthyThreshold *int `pulumi:"unhealthyThreshold"`
 }
 
@@ -889,19 +873,19 @@ type ServiceHealthCheckConfigurationInput interface {
 	ToServiceHealthCheckConfigurationOutputWithContext(context.Context) ServiceHealthCheckConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html
+// Health check configuration
 type ServiceHealthCheckConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-healthythreshold
+	// Health check Healthy Threshold
 	HealthyThreshold pulumi.IntPtrInput `pulumi:"healthyThreshold"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-interval
+	// Health check Interval
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-path
+	// Health check Path
 	Path pulumi.StringPtrInput `pulumi:"path"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-protocol
+	// Health Check Protocol
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-timeout
+	// Health check Timeout
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-unhealthythreshold
+	// Health check Unhealthy Threshold
 	UnhealthyThreshold pulumi.IntPtrInput `pulumi:"unhealthyThreshold"`
 }
 
@@ -958,7 +942,7 @@ func (i *serviceHealthCheckConfigurationPtrType) ToServiceHealthCheckConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceHealthCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html
+// Health check configuration
 type ServiceHealthCheckConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceHealthCheckConfigurationOutput) ElementType() reflect.Type {
@@ -983,32 +967,32 @@ func (o ServiceHealthCheckConfigurationOutput) ToServiceHealthCheckConfiguration
 	}).(ServiceHealthCheckConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-healthythreshold
+// Health check Healthy Threshold
 func (o ServiceHealthCheckConfigurationOutput) HealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceHealthCheckConfiguration) *int { return v.HealthyThreshold }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-interval
+// Health check Interval
 func (o ServiceHealthCheckConfigurationOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceHealthCheckConfiguration) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-path
+// Health check Path
 func (o ServiceHealthCheckConfigurationOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHealthCheckConfiguration) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-protocol
+// Health Check Protocol
 func (o ServiceHealthCheckConfigurationOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHealthCheckConfiguration) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-timeout
+// Health check Timeout
 func (o ServiceHealthCheckConfigurationOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceHealthCheckConfiguration) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-unhealthythreshold
+// Health check Unhealthy Threshold
 func (o ServiceHealthCheckConfigurationOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceHealthCheckConfiguration) *int { return v.UnhealthyThreshold }).(pulumi.IntPtrOutput)
 }
@@ -1037,7 +1021,7 @@ func (o ServiceHealthCheckConfigurationPtrOutput) Elem() ServiceHealthCheckConfi
 	}).(ServiceHealthCheckConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-healthythreshold
+// Health check Healthy Threshold
 func (o ServiceHealthCheckConfigurationPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceHealthCheckConfiguration) *int {
 		if v == nil {
@@ -1047,7 +1031,7 @@ func (o ServiceHealthCheckConfigurationPtrOutput) HealthyThreshold() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-interval
+// Health check Interval
 func (o ServiceHealthCheckConfigurationPtrOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceHealthCheckConfiguration) *int {
 		if v == nil {
@@ -1057,7 +1041,7 @@ func (o ServiceHealthCheckConfigurationPtrOutput) Interval() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-path
+// Health check Path
 func (o ServiceHealthCheckConfigurationPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceHealthCheckConfiguration) *string {
 		if v == nil {
@@ -1067,7 +1051,7 @@ func (o ServiceHealthCheckConfigurationPtrOutput) Path() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-protocol
+// Health Check Protocol
 func (o ServiceHealthCheckConfigurationPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceHealthCheckConfiguration) *string {
 		if v == nil {
@@ -1077,7 +1061,7 @@ func (o ServiceHealthCheckConfigurationPtrOutput) Protocol() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-timeout
+// Health check Timeout
 func (o ServiceHealthCheckConfigurationPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceHealthCheckConfiguration) *int {
 		if v == nil {
@@ -1087,7 +1071,7 @@ func (o ServiceHealthCheckConfigurationPtrOutput) Timeout() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-healthcheckconfiguration.html#cfn-apprunner-service-healthcheckconfiguration-unhealthythreshold
+// Health check Unhealthy Threshold
 func (o ServiceHealthCheckConfigurationPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceHealthCheckConfiguration) *int {
 		if v == nil {
@@ -1097,13 +1081,12 @@ func (o ServiceHealthCheckConfigurationPtrOutput) UnhealthyThreshold() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html
+// Image Configuration
 type ServiceImageConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
-	Port *string `pulumi:"port"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-runtimeenvironmentvariables
+	// Port
+	Port                        *string               `pulumi:"port"`
 	RuntimeEnvironmentVariables []ServiceKeyValuePair `pulumi:"runtimeEnvironmentVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-startcommand
+	// Start Command
 	StartCommand *string `pulumi:"startCommand"`
 }
 
@@ -1118,13 +1101,12 @@ type ServiceImageConfigurationInput interface {
 	ToServiceImageConfigurationOutputWithContext(context.Context) ServiceImageConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html
+// Image Configuration
 type ServiceImageConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
-	Port pulumi.StringPtrInput `pulumi:"port"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-runtimeenvironmentvariables
+	// Port
+	Port                        pulumi.StringPtrInput         `pulumi:"port"`
 	RuntimeEnvironmentVariables ServiceKeyValuePairArrayInput `pulumi:"runtimeEnvironmentVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-startcommand
+	// Start Command
 	StartCommand pulumi.StringPtrInput `pulumi:"startCommand"`
 }
 
@@ -1181,7 +1163,7 @@ func (i *serviceImageConfigurationPtrType) ToServiceImageConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceImageConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html
+// Image Configuration
 type ServiceImageConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceImageConfigurationOutput) ElementType() reflect.Type {
@@ -1206,17 +1188,16 @@ func (o ServiceImageConfigurationOutput) ToServiceImageConfigurationPtrOutputWit
 	}).(ServiceImageConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
+// Port
 func (o ServiceImageConfigurationOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceImageConfiguration) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-runtimeenvironmentvariables
 func (o ServiceImageConfigurationOutput) RuntimeEnvironmentVariables() ServiceKeyValuePairArrayOutput {
 	return o.ApplyT(func(v ServiceImageConfiguration) []ServiceKeyValuePair { return v.RuntimeEnvironmentVariables }).(ServiceKeyValuePairArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-startcommand
+// Start Command
 func (o ServiceImageConfigurationOutput) StartCommand() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceImageConfiguration) *string { return v.StartCommand }).(pulumi.StringPtrOutput)
 }
@@ -1245,7 +1226,7 @@ func (o ServiceImageConfigurationPtrOutput) Elem() ServiceImageConfigurationOutp
 	}).(ServiceImageConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
+// Port
 func (o ServiceImageConfigurationPtrOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceImageConfiguration) *string {
 		if v == nil {
@@ -1255,7 +1236,6 @@ func (o ServiceImageConfigurationPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-runtimeenvironmentvariables
 func (o ServiceImageConfigurationPtrOutput) RuntimeEnvironmentVariables() ServiceKeyValuePairArrayOutput {
 	return o.ApplyT(func(v *ServiceImageConfiguration) []ServiceKeyValuePair {
 		if v == nil {
@@ -1265,7 +1245,7 @@ func (o ServiceImageConfigurationPtrOutput) RuntimeEnvironmentVariables() Servic
 	}).(ServiceKeyValuePairArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-startcommand
+// Start Command
 func (o ServiceImageConfigurationPtrOutput) StartCommand() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceImageConfiguration) *string {
 		if v == nil {
@@ -1275,13 +1255,12 @@ func (o ServiceImageConfigurationPtrOutput) StartCommand() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html
+// Image Repository
 type ServiceImageRepository struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageconfiguration
 	ImageConfiguration *ServiceImageConfiguration `pulumi:"imageConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageidentifier
+	// Image Identifier
 	ImageIdentifier string `pulumi:"imageIdentifier"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imagerepositorytype
+	// Image Repository Type
 	ImageRepositoryType string `pulumi:"imageRepositoryType"`
 }
 
@@ -1296,13 +1275,12 @@ type ServiceImageRepositoryInput interface {
 	ToServiceImageRepositoryOutputWithContext(context.Context) ServiceImageRepositoryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html
+// Image Repository
 type ServiceImageRepositoryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageconfiguration
 	ImageConfiguration ServiceImageConfigurationPtrInput `pulumi:"imageConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageidentifier
+	// Image Identifier
 	ImageIdentifier pulumi.StringInput `pulumi:"imageIdentifier"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imagerepositorytype
+	// Image Repository Type
 	ImageRepositoryType pulumi.StringInput `pulumi:"imageRepositoryType"`
 }
 
@@ -1359,7 +1337,7 @@ func (i *serviceImageRepositoryPtrType) ToServiceImageRepositoryPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceImageRepositoryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html
+// Image Repository
 type ServiceImageRepositoryOutput struct{ *pulumi.OutputState }
 
 func (ServiceImageRepositoryOutput) ElementType() reflect.Type {
@@ -1384,17 +1362,16 @@ func (o ServiceImageRepositoryOutput) ToServiceImageRepositoryPtrOutputWithConte
 	}).(ServiceImageRepositoryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageconfiguration
 func (o ServiceImageRepositoryOutput) ImageConfiguration() ServiceImageConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceImageRepository) *ServiceImageConfiguration { return v.ImageConfiguration }).(ServiceImageConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageidentifier
+// Image Identifier
 func (o ServiceImageRepositoryOutput) ImageIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceImageRepository) string { return v.ImageIdentifier }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imagerepositorytype
+// Image Repository Type
 func (o ServiceImageRepositoryOutput) ImageRepositoryType() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceImageRepository) string { return v.ImageRepositoryType }).(pulumi.StringOutput)
 }
@@ -1423,7 +1400,6 @@ func (o ServiceImageRepositoryPtrOutput) Elem() ServiceImageRepositoryOutput {
 	}).(ServiceImageRepositoryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageconfiguration
 func (o ServiceImageRepositoryPtrOutput) ImageConfiguration() ServiceImageConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceImageRepository) *ServiceImageConfiguration {
 		if v == nil {
@@ -1433,7 +1409,7 @@ func (o ServiceImageRepositoryPtrOutput) ImageConfiguration() ServiceImageConfig
 	}).(ServiceImageConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageidentifier
+// Image Identifier
 func (o ServiceImageRepositoryPtrOutput) ImageIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceImageRepository) *string {
 		if v == nil {
@@ -1443,7 +1419,7 @@ func (o ServiceImageRepositoryPtrOutput) ImageIdentifier() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imagerepositorytype
+// Image Repository Type
 func (o ServiceImageRepositoryPtrOutput) ImageRepositoryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceImageRepository) *string {
 		if v == nil {
@@ -1453,13 +1429,13 @@ func (o ServiceImageRepositoryPtrOutput) ImageRepositoryType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html
+// Instance Configuration
 type ServiceInstanceConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-cpu
+	// CPU
 	Cpu *string `pulumi:"cpu"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-instancerolearn
+	// Instance Role Arn
 	InstanceRoleArn *string `pulumi:"instanceRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-memory
+	// Memory
 	Memory *string `pulumi:"memory"`
 }
 
@@ -1474,13 +1450,13 @@ type ServiceInstanceConfigurationInput interface {
 	ToServiceInstanceConfigurationOutputWithContext(context.Context) ServiceInstanceConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html
+// Instance Configuration
 type ServiceInstanceConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-cpu
+	// CPU
 	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-instancerolearn
+	// Instance Role Arn
 	InstanceRoleArn pulumi.StringPtrInput `pulumi:"instanceRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-memory
+	// Memory
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
 }
 
@@ -1537,7 +1513,7 @@ func (i *serviceInstanceConfigurationPtrType) ToServiceInstanceConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceInstanceConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html
+// Instance Configuration
 type ServiceInstanceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceInstanceConfigurationOutput) ElementType() reflect.Type {
@@ -1562,17 +1538,17 @@ func (o ServiceInstanceConfigurationOutput) ToServiceInstanceConfigurationPtrOut
 	}).(ServiceInstanceConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-cpu
+// CPU
 func (o ServiceInstanceConfigurationOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceInstanceConfiguration) *string { return v.Cpu }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-instancerolearn
+// Instance Role Arn
 func (o ServiceInstanceConfigurationOutput) InstanceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceInstanceConfiguration) *string { return v.InstanceRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-memory
+// Memory
 func (o ServiceInstanceConfigurationOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceInstanceConfiguration) *string { return v.Memory }).(pulumi.StringPtrOutput)
 }
@@ -1601,7 +1577,7 @@ func (o ServiceInstanceConfigurationPtrOutput) Elem() ServiceInstanceConfigurati
 	}).(ServiceInstanceConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-cpu
+// CPU
 func (o ServiceInstanceConfigurationPtrOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceInstanceConfiguration) *string {
 		if v == nil {
@@ -1611,7 +1587,7 @@ func (o ServiceInstanceConfigurationPtrOutput) Cpu() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-instancerolearn
+// Instance Role Arn
 func (o ServiceInstanceConfigurationPtrOutput) InstanceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceInstanceConfiguration) *string {
 		if v == nil {
@@ -1621,7 +1597,7 @@ func (o ServiceInstanceConfigurationPtrOutput) InstanceRoleArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-instanceconfiguration.html#cfn-apprunner-service-instanceconfiguration-memory
+// Memory
 func (o ServiceInstanceConfigurationPtrOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceInstanceConfiguration) *string {
 		if v == nil {
@@ -1631,11 +1607,8 @@ func (o ServiceInstanceConfigurationPtrOutput) Memory() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html
 type ServiceKeyValuePair struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-value
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -1650,11 +1623,8 @@ type ServiceKeyValuePairInput interface {
 	ToServiceKeyValuePairOutputWithContext(context.Context) ServiceKeyValuePairOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html
 type ServiceKeyValuePairArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-value
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1695,7 +1665,6 @@ func (i ServiceKeyValuePairArray) ToServiceKeyValuePairArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceKeyValuePairArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html
 type ServiceKeyValuePairOutput struct{ *pulumi.OutputState }
 
 func (ServiceKeyValuePairOutput) ElementType() reflect.Type {
@@ -1710,12 +1679,10 @@ func (o ServiceKeyValuePairOutput) ToServiceKeyValuePairOutputWithContext(ctx co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-name
 func (o ServiceKeyValuePairOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceKeyValuePair) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-keyvaluepair.html#cfn-apprunner-service-keyvaluepair-value
 func (o ServiceKeyValuePairOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceKeyValuePair) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1740,11 +1707,11 @@ func (o ServiceKeyValuePairArrayOutput) Index(i pulumi.IntInput) ServiceKeyValue
 	}).(ServiceKeyValuePairOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html
+// Source Code Version
 type ServiceSourceCodeVersion struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html#cfn-apprunner-service-sourcecodeversion-type
+	// Source Code Version Type
 	Type string `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html#cfn-apprunner-service-sourcecodeversion-value
+	// Source Code Version Value
 	Value string `pulumi:"value"`
 }
 
@@ -1759,11 +1726,11 @@ type ServiceSourceCodeVersionInput interface {
 	ToServiceSourceCodeVersionOutputWithContext(context.Context) ServiceSourceCodeVersionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html
+// Source Code Version
 type ServiceSourceCodeVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html#cfn-apprunner-service-sourcecodeversion-type
+	// Source Code Version Type
 	Type pulumi.StringInput `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html#cfn-apprunner-service-sourcecodeversion-value
+	// Source Code Version Value
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1820,7 +1787,7 @@ func (i *serviceSourceCodeVersionPtrType) ToServiceSourceCodeVersionPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSourceCodeVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html
+// Source Code Version
 type ServiceSourceCodeVersionOutput struct{ *pulumi.OutputState }
 
 func (ServiceSourceCodeVersionOutput) ElementType() reflect.Type {
@@ -1845,12 +1812,12 @@ func (o ServiceSourceCodeVersionOutput) ToServiceSourceCodeVersionPtrOutputWithC
 	}).(ServiceSourceCodeVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html#cfn-apprunner-service-sourcecodeversion-type
+// Source Code Version Type
 func (o ServiceSourceCodeVersionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSourceCodeVersion) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html#cfn-apprunner-service-sourcecodeversion-value
+// Source Code Version Value
 func (o ServiceSourceCodeVersionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSourceCodeVersion) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1879,7 +1846,7 @@ func (o ServiceSourceCodeVersionPtrOutput) Elem() ServiceSourceCodeVersionOutput
 	}).(ServiceSourceCodeVersionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html#cfn-apprunner-service-sourcecodeversion-type
+// Source Code Version Type
 func (o ServiceSourceCodeVersionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceCodeVersion) *string {
 		if v == nil {
@@ -1889,7 +1856,7 @@ func (o ServiceSourceCodeVersionPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html#cfn-apprunner-service-sourcecodeversion-value
+// Source Code Version Value
 func (o ServiceSourceCodeVersionPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceCodeVersion) *string {
 		if v == nil {
@@ -1899,16 +1866,13 @@ func (o ServiceSourceCodeVersionPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html
+// Source Code configuration
 type ServiceSourceConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-authenticationconfiguration
 	AuthenticationConfiguration *ServiceAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-autodeploymentsenabled
-	AutoDeploymentsEnabled *bool `pulumi:"autoDeploymentsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-coderepository
-	CodeRepository *ServiceCodeRepository `pulumi:"codeRepository"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-imagerepository
-	ImageRepository *ServiceImageRepository `pulumi:"imageRepository"`
+	// Auto Deployment enabled
+	AutoDeploymentsEnabled *bool                   `pulumi:"autoDeploymentsEnabled"`
+	CodeRepository         *ServiceCodeRepository  `pulumi:"codeRepository"`
+	ImageRepository        *ServiceImageRepository `pulumi:"imageRepository"`
 }
 
 // ServiceSourceConfigurationInput is an input type that accepts ServiceSourceConfigurationArgs and ServiceSourceConfigurationOutput values.
@@ -1922,16 +1886,13 @@ type ServiceSourceConfigurationInput interface {
 	ToServiceSourceConfigurationOutputWithContext(context.Context) ServiceSourceConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html
+// Source Code configuration
 type ServiceSourceConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-authenticationconfiguration
 	AuthenticationConfiguration ServiceAuthenticationConfigurationPtrInput `pulumi:"authenticationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-autodeploymentsenabled
-	AutoDeploymentsEnabled pulumi.BoolPtrInput `pulumi:"autoDeploymentsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-coderepository
-	CodeRepository ServiceCodeRepositoryPtrInput `pulumi:"codeRepository"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-imagerepository
-	ImageRepository ServiceImageRepositoryPtrInput `pulumi:"imageRepository"`
+	// Auto Deployment enabled
+	AutoDeploymentsEnabled pulumi.BoolPtrInput            `pulumi:"autoDeploymentsEnabled"`
+	CodeRepository         ServiceCodeRepositoryPtrInput  `pulumi:"codeRepository"`
+	ImageRepository        ServiceImageRepositoryPtrInput `pulumi:"imageRepository"`
 }
 
 func (ServiceSourceConfigurationArgs) ElementType() reflect.Type {
@@ -1987,7 +1948,7 @@ func (i *serviceSourceConfigurationPtrType) ToServiceSourceConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSourceConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html
+// Source Code configuration
 type ServiceSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceSourceConfigurationOutput) ElementType() reflect.Type {
@@ -2012,24 +1973,21 @@ func (o ServiceSourceConfigurationOutput) ToServiceSourceConfigurationPtrOutputW
 	}).(ServiceSourceConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-authenticationconfiguration
 func (o ServiceSourceConfigurationOutput) AuthenticationConfiguration() ServiceAuthenticationConfigurationPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfiguration) *ServiceAuthenticationConfiguration {
 		return v.AuthenticationConfiguration
 	}).(ServiceAuthenticationConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-autodeploymentsenabled
+// Auto Deployment enabled
 func (o ServiceSourceConfigurationOutput) AutoDeploymentsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfiguration) *bool { return v.AutoDeploymentsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-coderepository
 func (o ServiceSourceConfigurationOutput) CodeRepository() ServiceCodeRepositoryPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfiguration) *ServiceCodeRepository { return v.CodeRepository }).(ServiceCodeRepositoryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-imagerepository
 func (o ServiceSourceConfigurationOutput) ImageRepository() ServiceImageRepositoryPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfiguration) *ServiceImageRepository { return v.ImageRepository }).(ServiceImageRepositoryPtrOutput)
 }
@@ -2058,7 +2016,6 @@ func (o ServiceSourceConfigurationPtrOutput) Elem() ServiceSourceConfigurationOu
 	}).(ServiceSourceConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-authenticationconfiguration
 func (o ServiceSourceConfigurationPtrOutput) AuthenticationConfiguration() ServiceAuthenticationConfigurationPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceAuthenticationConfiguration {
 		if v == nil {
@@ -2068,7 +2025,7 @@ func (o ServiceSourceConfigurationPtrOutput) AuthenticationConfiguration() Servi
 	}).(ServiceAuthenticationConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-autodeploymentsenabled
+// Auto Deployment enabled
 func (o ServiceSourceConfigurationPtrOutput) AutoDeploymentsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfiguration) *bool {
 		if v == nil {
@@ -2078,7 +2035,6 @@ func (o ServiceSourceConfigurationPtrOutput) AutoDeploymentsEnabled() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-coderepository
 func (o ServiceSourceConfigurationPtrOutput) CodeRepository() ServiceCodeRepositoryPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceCodeRepository {
 		if v == nil {
@@ -2088,7 +2044,6 @@ func (o ServiceSourceConfigurationPtrOutput) CodeRepository() ServiceCodeReposit
 	}).(ServiceCodeRepositoryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourceconfiguration.html#cfn-apprunner-service-sourceconfiguration-imagerepository
 func (o ServiceSourceConfigurationPtrOutput) ImageRepository() ServiceImageRepositoryPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceImageRepository {
 		if v == nil {
@@ -2096,6 +2051,106 @@ func (o ServiceSourceConfigurationPtrOutput) ImageRepository() ServiceImageRepos
 		}
 		return v.ImageRepository
 	}).(ServiceImageRepositoryPtrOutput)
+}
+
+type ServiceTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// ServiceTagInput is an input type that accepts ServiceTagArgs and ServiceTagOutput values.
+// You can construct a concrete instance of `ServiceTagInput` via:
+//
+//          ServiceTagArgs{...}
+type ServiceTagInput interface {
+	pulumi.Input
+
+	ToServiceTagOutput() ServiceTagOutput
+	ToServiceTagOutputWithContext(context.Context) ServiceTagOutput
+}
+
+type ServiceTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ServiceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTag)(nil)).Elem()
+}
+
+func (i ServiceTagArgs) ToServiceTagOutput() ServiceTagOutput {
+	return i.ToServiceTagOutputWithContext(context.Background())
+}
+
+func (i ServiceTagArgs) ToServiceTagOutputWithContext(ctx context.Context) ServiceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTagOutput)
+}
+
+// ServiceTagArrayInput is an input type that accepts ServiceTagArray and ServiceTagArrayOutput values.
+// You can construct a concrete instance of `ServiceTagArrayInput` via:
+//
+//          ServiceTagArray{ ServiceTagArgs{...} }
+type ServiceTagArrayInput interface {
+	pulumi.Input
+
+	ToServiceTagArrayOutput() ServiceTagArrayOutput
+	ToServiceTagArrayOutputWithContext(context.Context) ServiceTagArrayOutput
+}
+
+type ServiceTagArray []ServiceTagInput
+
+func (ServiceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceTag)(nil)).Elem()
+}
+
+func (i ServiceTagArray) ToServiceTagArrayOutput() ServiceTagArrayOutput {
+	return i.ToServiceTagArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceTagArray) ToServiceTagArrayOutputWithContext(ctx context.Context) ServiceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTagArrayOutput)
+}
+
+type ServiceTagOutput struct{ *pulumi.OutputState }
+
+func (ServiceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTag)(nil)).Elem()
+}
+
+func (o ServiceTagOutput) ToServiceTagOutput() ServiceTagOutput {
+	return o
+}
+
+func (o ServiceTagOutput) ToServiceTagOutputWithContext(ctx context.Context) ServiceTagOutput {
+	return o
+}
+
+func (o ServiceTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ServiceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceTag)(nil)).Elem()
+}
+
+func (o ServiceTagArrayOutput) ToServiceTagArrayOutput() ServiceTagArrayOutput {
+	return o
+}
+
+func (o ServiceTagArrayOutput) ToServiceTagArrayOutputWithContext(ctx context.Context) ServiceTagArrayOutput {
+	return o
+}
+
+func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceTag {
+		return vs[0].([]ServiceTag)[vs[1].(int)]
+	}).(ServiceTagOutput)
 }
 
 func init() {
@@ -2123,4 +2178,6 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSourceCodeVersionPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceTagOutput{})
+	pulumi.RegisterOutputType(ServiceTagArrayOutput{})
 }

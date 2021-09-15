@@ -10,23 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html
-    /// </summary>
     public sealed class DatasetExcelOptionsArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-headerrow
-        /// </summary>
         [Input("headerRow")]
         public Input<bool>? HeaderRow { get; set; }
 
         [Input("sheetIndexes")]
         private InputList<int>? _sheetIndexes;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetindexes
-        /// </summary>
         public InputList<int> SheetIndexes
         {
             get => _sheetIndexes ?? (_sheetIndexes = new InputList<int>());
@@ -35,10 +25,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
 
         [Input("sheetNames")]
         private InputList<string>? _sheetNames;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetnames
-        /// </summary>
         public InputList<string> SheetNames
         {
             get => _sheetNames ?? (_sheetNames = new InputList<string>());

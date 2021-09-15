@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['FirewallDomainListArgs', 'FirewallDomainList']
 
@@ -18,13 +18,12 @@ class FirewallDomainListArgs:
                  domain_file_url: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallDomainListTagArgs']]]] = None):
         """
         The set of arguments for constructing a FirewallDomainList resource.
-        :param pulumi.Input[str] domain_file_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domainfileurl
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domains
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-name
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-tags
+        :param pulumi.Input[str] domain_file_url: S3 URL to import domains from.
+        :param pulumi.Input[str] name: FirewallDomainListName
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallDomainListTagArgs']]] tags: Tags
         """
         if domain_file_url is not None:
             pulumi.set(__self__, "domain_file_url", domain_file_url)
@@ -39,7 +38,7 @@ class FirewallDomainListArgs:
     @pulumi.getter(name="domainFileUrl")
     def domain_file_url(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domainfileurl
+        S3 URL to import domains from.
         """
         return pulumi.get(self, "domain_file_url")
 
@@ -50,9 +49,6 @@ class FirewallDomainListArgs:
     @property
     @pulumi.getter
     def domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domains
-        """
         return pulumi.get(self, "domains")
 
     @domains.setter
@@ -63,7 +59,7 @@ class FirewallDomainListArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-name
+        FirewallDomainListName
         """
         return pulumi.get(self, "name")
 
@@ -73,14 +69,14 @@ class FirewallDomainListArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallDomainListTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-tags
+        Tags
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallDomainListTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -92,17 +88,16 @@ class FirewallDomainList(pulumi.CustomResource):
                  domain_file_url: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallDomainListTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html
+        Resource schema for AWS::Route53Resolver::FirewallDomainList.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] domain_file_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domainfileurl
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domains
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-tags
+        :param pulumi.Input[str] domain_file_url: S3 URL to import domains from.
+        :param pulumi.Input[str] name: FirewallDomainListName
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallDomainListTagArgs']]]] tags: Tags
         """
         ...
     @overload
@@ -111,7 +106,7 @@ class FirewallDomainList(pulumi.CustomResource):
                  args: Optional[FirewallDomainListArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html
+        Resource schema for AWS::Route53Resolver::FirewallDomainList.
 
         :param str resource_name: The name of the resource.
         :param FirewallDomainListArgs args: The arguments to use to populate this resource's properties.
@@ -131,7 +126,7 @@ class FirewallDomainList(pulumi.CustomResource):
                  domain_file_url: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallDomainListTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -152,7 +147,6 @@ class FirewallDomainList(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["creator_request_id"] = None
             __props__.__dict__["domain_count"] = None
-            __props__.__dict__["id"] = None
             __props__.__dict__["managed_owner_name"] = None
             __props__.__dict__["modification_time"] = None
             __props__.__dict__["status"] = None
@@ -185,7 +179,6 @@ class FirewallDomainList(pulumi.CustomResource):
         __props__.__dict__["domain_count"] = None
         __props__.__dict__["domain_file_url"] = None
         __props__.__dict__["domains"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["managed_owner_name"] = None
         __props__.__dict__["modification_time"] = None
         __props__.__dict__["name"] = None
@@ -197,77 +190,93 @@ class FirewallDomainList(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Arn
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        Rfc3339TimeString
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="creatorRequestId")
     def creator_request_id(self) -> pulumi.Output[str]:
+        """
+        The id of the creator request.
+        """
         return pulumi.get(self, "creator_request_id")
 
     @property
     @pulumi.getter(name="domainCount")
     def domain_count(self) -> pulumi.Output[int]:
+        """
+        Count
+        """
         return pulumi.get(self, "domain_count")
 
     @property
     @pulumi.getter(name="domainFileUrl")
     def domain_file_url(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domainfileurl
+        S3 URL to import domains from.
         """
         return pulumi.get(self, "domain_file_url")
 
     @property
     @pulumi.getter
     def domains(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domains
-        """
         return pulumi.get(self, "domains")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="managedOwnerName")
     def managed_owner_name(self) -> pulumi.Output[str]:
+        """
+        ServicePrincipal
+        """
         return pulumi.get(self, "managed_owner_name")
 
     @property
     @pulumi.getter(name="modificationTime")
     def modification_time(self) -> pulumi.Output[str]:
+        """
+        Rfc3339TimeString
+        """
         return pulumi.get(self, "modification_time")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-name
+        FirewallDomainListName
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        ResolverFirewallDomainList, possible values are COMPLETE, DELETING, UPDATING, COMPLETE_IMPORT_FAILED, IMPORTING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> pulumi.Output[str]:
+        """
+        FirewallDomainListAssociationStatus
+        """
         return pulumi.get(self, "status_message")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FirewallDomainListTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-tags
+        Tags
         """
         return pulumi.get(self, "tags")
 

@@ -9,11 +9,15 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'DestinationTagArgs',
     'DeviceProfileLoRaWANDeviceProfileArgs',
+    'DeviceProfileTagArgs',
     'ServiceProfileLoRaWANServiceProfileArgs',
+    'ServiceProfileTagArgs',
     'TaskDefinitionLoRaWANGatewayVersionArgs',
     'TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs',
     'TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs',
+    'TaskDefinitionTagArgs',
     'TaskDefinitionUpdateWirelessGatewayTaskCreateArgs',
     'WirelessDeviceAbpV10xArgs',
     'WirelessDeviceAbpV11Args',
@@ -22,8 +26,39 @@ __all__ = [
     'WirelessDeviceOtaaV11Args',
     'WirelessDeviceSessionKeysAbpV10xArgs',
     'WirelessDeviceSessionKeysAbpV11Args',
+    'WirelessDeviceTagArgs',
     'WirelessGatewayLoRaWANGatewayArgs',
+    'WirelessGatewayTagArgs',
 ]
+
+@pulumi.input_type
+class DestinationTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class DeviceProfileLoRaWANDeviceProfileArgs:
@@ -42,23 +77,6 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
                  supports_class_b: Optional[pulumi.Input[bool]] = None,
                  supports_class_c: Optional[pulumi.Input[bool]] = None,
                  supports_join: Optional[pulumi.Input[bool]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html
-        :param pulumi.Input[int] class_b_timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-classbtimeout
-        :param pulumi.Input[int] class_c_timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-classctimeout
-        :param pulumi.Input[str] mac_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-macversion
-        :param pulumi.Input[int] max_duty_cycle: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-maxdutycycle
-        :param pulumi.Input[int] max_eirp: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-maxeirp
-        :param pulumi.Input[int] ping_slot_dr: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotdr
-        :param pulumi.Input[int] ping_slot_freq: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotfreq
-        :param pulumi.Input[int] ping_slot_period: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotperiod
-        :param pulumi.Input[str] reg_params_revision: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-regparamsrevision
-        :param pulumi.Input[str] rf_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-rfregion
-        :param pulumi.Input[bool] supports32_bit_f_cnt: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supports32bitfcnt
-        :param pulumi.Input[bool] supports_class_b: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsclassb
-        :param pulumi.Input[bool] supports_class_c: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsclassc
-        :param pulumi.Input[bool] supports_join: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsjoin
-        """
         if class_b_timeout is not None:
             pulumi.set(__self__, "class_b_timeout", class_b_timeout)
         if class_c_timeout is not None:
@@ -91,9 +109,6 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     @property
     @pulumi.getter(name="classBTimeout")
     def class_b_timeout(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-classbtimeout
-        """
         return pulumi.get(self, "class_b_timeout")
 
     @class_b_timeout.setter
@@ -103,9 +118,6 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     @property
     @pulumi.getter(name="classCTimeout")
     def class_c_timeout(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-classctimeout
-        """
         return pulumi.get(self, "class_c_timeout")
 
     @class_c_timeout.setter
@@ -115,9 +127,6 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     @property
     @pulumi.getter(name="macVersion")
     def mac_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-macversion
-        """
         return pulumi.get(self, "mac_version")
 
     @mac_version.setter
@@ -127,9 +136,6 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     @property
     @pulumi.getter(name="maxDutyCycle")
     def max_duty_cycle(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-maxdutycycle
-        """
         return pulumi.get(self, "max_duty_cycle")
 
     @max_duty_cycle.setter
@@ -139,9 +145,6 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     @property
     @pulumi.getter(name="maxEirp")
     def max_eirp(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-maxeirp
-        """
         return pulumi.get(self, "max_eirp")
 
     @max_eirp.setter
@@ -151,9 +154,6 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     @property
     @pulumi.getter(name="pingSlotDr")
     def ping_slot_dr(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotdr
-        """
         return pulumi.get(self, "ping_slot_dr")
 
     @ping_slot_dr.setter
@@ -163,9 +163,6 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     @property
     @pulumi.getter(name="pingSlotFreq")
     def ping_slot_freq(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotfreq
-        """
         return pulumi.get(self, "ping_slot_freq")
 
     @ping_slot_freq.setter
@@ -175,9 +172,6 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     @property
     @pulumi.getter(name="pingSlotPeriod")
     def ping_slot_period(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotperiod
-        """
         return pulumi.get(self, "ping_slot_period")
 
     @ping_slot_period.setter
@@ -187,9 +181,6 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     @property
     @pulumi.getter(name="regParamsRevision")
     def reg_params_revision(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-regparamsrevision
-        """
         return pulumi.get(self, "reg_params_revision")
 
     @reg_params_revision.setter
@@ -199,9 +190,6 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     @property
     @pulumi.getter(name="rfRegion")
     def rf_region(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-rfregion
-        """
         return pulumi.get(self, "rf_region")
 
     @rf_region.setter
@@ -211,9 +199,6 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     @property
     @pulumi.getter(name="supports32BitFCnt")
     def supports32_bit_f_cnt(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supports32bitfcnt
-        """
         return pulumi.get(self, "supports32_bit_f_cnt")
 
     @supports32_bit_f_cnt.setter
@@ -223,9 +208,6 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     @property
     @pulumi.getter(name="supportsClassB")
     def supports_class_b(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsclassb
-        """
         return pulumi.get(self, "supports_class_b")
 
     @supports_class_b.setter
@@ -235,9 +217,6 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     @property
     @pulumi.getter(name="supportsClassC")
     def supports_class_c(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsclassc
-        """
         return pulumi.get(self, "supports_class_c")
 
     @supports_class_c.setter
@@ -247,14 +226,40 @@ class DeviceProfileLoRaWANDeviceProfileArgs:
     @property
     @pulumi.getter(name="supportsJoin")
     def supports_join(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsjoin
-        """
         return pulumi.get(self, "supports_join")
 
     @supports_join.setter
     def supports_join(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "supports_join", value)
+
+
+@pulumi.input_type
+class DeviceProfileTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -279,28 +284,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
                  ul_bucket_size: Optional[pulumi.Input[int]] = None,
                  ul_rate: Optional[pulumi.Input[int]] = None,
                  ul_rate_policy: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html
-        :param pulumi.Input[bool] add_gw_metadata: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-addgwmetadata
-        :param pulumi.Input[str] channel_mask: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-channelmask
-        :param pulumi.Input[int] dev_status_req_freq: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-devstatusreqfreq
-        :param pulumi.Input[int] dl_bucket_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlbucketsize
-        :param pulumi.Input[int] dl_rate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlrate
-        :param pulumi.Input[str] dl_rate_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlratepolicy
-        :param pulumi.Input[int] dr_max: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-drmax
-        :param pulumi.Input[int] dr_min: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-drmin
-        :param pulumi.Input[bool] hr_allowed: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-hrallowed
-        :param pulumi.Input[int] min_gw_diversity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-mingwdiversity
-        :param pulumi.Input[bool] nwk_geo_loc: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-nwkgeoloc
-        :param pulumi.Input[bool] pr_allowed: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-prallowed
-        :param pulumi.Input[bool] ra_allowed: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-raallowed
-        :param pulumi.Input[bool] report_dev_status_battery: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-reportdevstatusbattery
-        :param pulumi.Input[bool] report_dev_status_margin: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-reportdevstatusmargin
-        :param pulumi.Input[int] target_per: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-targetper
-        :param pulumi.Input[int] ul_bucket_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulbucketsize
-        :param pulumi.Input[int] ul_rate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulrate
-        :param pulumi.Input[str] ul_rate_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulratepolicy
-        """
         if add_gw_metadata is not None:
             pulumi.set(__self__, "add_gw_metadata", add_gw_metadata)
         if channel_mask is not None:
@@ -343,9 +326,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="addGwMetadata")
     def add_gw_metadata(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-addgwmetadata
-        """
         return pulumi.get(self, "add_gw_metadata")
 
     @add_gw_metadata.setter
@@ -355,9 +335,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="channelMask")
     def channel_mask(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-channelmask
-        """
         return pulumi.get(self, "channel_mask")
 
     @channel_mask.setter
@@ -367,9 +344,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="devStatusReqFreq")
     def dev_status_req_freq(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-devstatusreqfreq
-        """
         return pulumi.get(self, "dev_status_req_freq")
 
     @dev_status_req_freq.setter
@@ -379,9 +353,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="dlBucketSize")
     def dl_bucket_size(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlbucketsize
-        """
         return pulumi.get(self, "dl_bucket_size")
 
     @dl_bucket_size.setter
@@ -391,9 +362,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="dlRate")
     def dl_rate(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlrate
-        """
         return pulumi.get(self, "dl_rate")
 
     @dl_rate.setter
@@ -403,9 +371,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="dlRatePolicy")
     def dl_rate_policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlratepolicy
-        """
         return pulumi.get(self, "dl_rate_policy")
 
     @dl_rate_policy.setter
@@ -415,9 +380,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="drMax")
     def dr_max(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-drmax
-        """
         return pulumi.get(self, "dr_max")
 
     @dr_max.setter
@@ -427,9 +389,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="drMin")
     def dr_min(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-drmin
-        """
         return pulumi.get(self, "dr_min")
 
     @dr_min.setter
@@ -439,9 +398,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="hrAllowed")
     def hr_allowed(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-hrallowed
-        """
         return pulumi.get(self, "hr_allowed")
 
     @hr_allowed.setter
@@ -451,9 +407,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="minGwDiversity")
     def min_gw_diversity(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-mingwdiversity
-        """
         return pulumi.get(self, "min_gw_diversity")
 
     @min_gw_diversity.setter
@@ -463,9 +416,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="nwkGeoLoc")
     def nwk_geo_loc(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-nwkgeoloc
-        """
         return pulumi.get(self, "nwk_geo_loc")
 
     @nwk_geo_loc.setter
@@ -475,9 +425,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="prAllowed")
     def pr_allowed(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-prallowed
-        """
         return pulumi.get(self, "pr_allowed")
 
     @pr_allowed.setter
@@ -487,9 +434,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="raAllowed")
     def ra_allowed(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-raallowed
-        """
         return pulumi.get(self, "ra_allowed")
 
     @ra_allowed.setter
@@ -499,9 +443,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="reportDevStatusBattery")
     def report_dev_status_battery(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-reportdevstatusbattery
-        """
         return pulumi.get(self, "report_dev_status_battery")
 
     @report_dev_status_battery.setter
@@ -511,9 +452,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="reportDevStatusMargin")
     def report_dev_status_margin(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-reportdevstatusmargin
-        """
         return pulumi.get(self, "report_dev_status_margin")
 
     @report_dev_status_margin.setter
@@ -523,9 +461,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="targetPer")
     def target_per(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-targetper
-        """
         return pulumi.get(self, "target_per")
 
     @target_per.setter
@@ -535,9 +470,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="ulBucketSize")
     def ul_bucket_size(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulbucketsize
-        """
         return pulumi.get(self, "ul_bucket_size")
 
     @ul_bucket_size.setter
@@ -547,9 +479,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="ulRate")
     def ul_rate(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulrate
-        """
         return pulumi.get(self, "ul_rate")
 
     @ul_rate.setter
@@ -559,9 +488,6 @@ class ServiceProfileLoRaWANServiceProfileArgs:
     @property
     @pulumi.getter(name="ulRatePolicy")
     def ul_rate_policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulratepolicy
-        """
         return pulumi.get(self, "ul_rate_policy")
 
     @ul_rate_policy.setter
@@ -570,17 +496,40 @@ class ServiceProfileLoRaWANServiceProfileArgs:
 
 
 @pulumi.input_type
+class ServiceProfileTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class TaskDefinitionLoRaWANGatewayVersionArgs:
     def __init__(__self__, *,
                  model: Optional[pulumi.Input[str]] = None,
                  package_version: Optional[pulumi.Input[str]] = None,
                  station: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html
-        :param pulumi.Input[str] model: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-model
-        :param pulumi.Input[str] package_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-packageversion
-        :param pulumi.Input[str] station: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-station
-        """
         if model is not None:
             pulumi.set(__self__, "model", model)
         if package_version is not None:
@@ -591,9 +540,6 @@ class TaskDefinitionLoRaWANGatewayVersionArgs:
     @property
     @pulumi.getter
     def model(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-model
-        """
         return pulumi.get(self, "model")
 
     @model.setter
@@ -603,9 +549,6 @@ class TaskDefinitionLoRaWANGatewayVersionArgs:
     @property
     @pulumi.getter(name="packageVersion")
     def package_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-packageversion
-        """
         return pulumi.get(self, "package_version")
 
     @package_version.setter
@@ -615,9 +558,6 @@ class TaskDefinitionLoRaWANGatewayVersionArgs:
     @property
     @pulumi.getter
     def station(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawangatewayversion.html#cfn-iotwireless-taskdefinition-lorawangatewayversion-station
-        """
         return pulumi.get(self, "station")
 
     @station.setter
@@ -632,13 +572,6 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs:
                  sig_key_crc: Optional[pulumi.Input[int]] = None,
                  update_signature: Optional[pulumi.Input[str]] = None,
                  update_version: Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html
-        :param pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs'] current_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-currentversion
-        :param pulumi.Input[int] sig_key_crc: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-sigkeycrc
-        :param pulumi.Input[str] update_signature: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updatesignature
-        :param pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs'] update_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updateversion
-        """
         if current_version is not None:
             pulumi.set(__self__, "current_version", current_version)
         if sig_key_crc is not None:
@@ -651,9 +584,6 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs:
     @property
     @pulumi.getter(name="currentVersion")
     def current_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-currentversion
-        """
         return pulumi.get(self, "current_version")
 
     @current_version.setter
@@ -663,9 +593,6 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs:
     @property
     @pulumi.getter(name="sigKeyCrc")
     def sig_key_crc(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-sigkeycrc
-        """
         return pulumi.get(self, "sig_key_crc")
 
     @sig_key_crc.setter
@@ -675,9 +602,6 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs:
     @property
     @pulumi.getter(name="updateSignature")
     def update_signature(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updatesignature
-        """
         return pulumi.get(self, "update_signature")
 
     @update_signature.setter
@@ -687,9 +611,6 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs:
     @property
     @pulumi.getter(name="updateVersion")
     def update_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updateversion
-        """
         return pulumi.get(self, "update_version")
 
     @update_version.setter
@@ -702,11 +623,6 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs:
     def __init__(__self__, *,
                  current_version: Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']] = None,
                  update_version: Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html
-        :param pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs'] current_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-currentversion
-        :param pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs'] update_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-updateversion
-        """
         if current_version is not None:
             pulumi.set(__self__, "current_version", current_version)
         if update_version is not None:
@@ -715,9 +631,6 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs:
     @property
     @pulumi.getter(name="currentVersion")
     def current_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-currentversion
-        """
         return pulumi.get(self, "current_version")
 
     @current_version.setter
@@ -727,9 +640,6 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs:
     @property
     @pulumi.getter(name="updateVersion")
     def update_version(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWANGatewayVersionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-updateversion
-        """
         return pulumi.get(self, "update_version")
 
     @update_version.setter
@@ -738,17 +648,40 @@ class TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs:
 
 
 @pulumi.input_type
+class TaskDefinitionTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs:
     def __init__(__self__, *,
                  lo_ra_wan: Optional[pulumi.Input['TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs']] = None,
                  update_data_role: Optional[pulumi.Input[str]] = None,
                  update_data_source: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html
-        :param pulumi.Input['TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs'] lo_ra_wan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-lorawan
-        :param pulumi.Input[str] update_data_role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-updatedatarole
-        :param pulumi.Input[str] update_data_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-updatedatasource
-        """
         if lo_ra_wan is not None:
             pulumi.set(__self__, "lo_ra_wan", lo_ra_wan)
         if update_data_role is not None:
@@ -759,9 +692,6 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs:
     @property
     @pulumi.getter(name="loRaWAN")
     def lo_ra_wan(self) -> Optional[pulumi.Input['TaskDefinitionLoRaWANUpdateGatewayTaskCreateArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-lorawan
-        """
         return pulumi.get(self, "lo_ra_wan")
 
     @lo_ra_wan.setter
@@ -771,9 +701,6 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs:
     @property
     @pulumi.getter(name="updateDataRole")
     def update_data_role(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-updatedatarole
-        """
         return pulumi.get(self, "update_data_role")
 
     @update_data_role.setter
@@ -783,9 +710,6 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs:
     @property
     @pulumi.getter(name="updateDataSource")
     def update_data_source(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate.html#cfn-iotwireless-taskdefinition-updatewirelessgatewaytaskcreate-updatedatasource
-        """
         return pulumi.get(self, "update_data_source")
 
     @update_data_source.setter
@@ -798,20 +722,12 @@ class WirelessDeviceAbpV10xArgs:
     def __init__(__self__, *,
                  dev_addr: pulumi.Input[str],
                  session_keys: pulumi.Input['WirelessDeviceSessionKeysAbpV10xArgs']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html
-        :param pulumi.Input[str] dev_addr: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-devaddr
-        :param pulumi.Input['WirelessDeviceSessionKeysAbpV10xArgs'] session_keys: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-sessionkeys
-        """
         pulumi.set(__self__, "dev_addr", dev_addr)
         pulumi.set(__self__, "session_keys", session_keys)
 
     @property
     @pulumi.getter(name="devAddr")
     def dev_addr(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-devaddr
-        """
         return pulumi.get(self, "dev_addr")
 
     @dev_addr.setter
@@ -821,9 +737,6 @@ class WirelessDeviceAbpV10xArgs:
     @property
     @pulumi.getter(name="sessionKeys")
     def session_keys(self) -> pulumi.Input['WirelessDeviceSessionKeysAbpV10xArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv10x.html#cfn-iotwireless-wirelessdevice-abpv10x-sessionkeys
-        """
         return pulumi.get(self, "session_keys")
 
     @session_keys.setter
@@ -836,20 +749,12 @@ class WirelessDeviceAbpV11Args:
     def __init__(__self__, *,
                  dev_addr: pulumi.Input[str],
                  session_keys: pulumi.Input['WirelessDeviceSessionKeysAbpV11Args']):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html
-        :param pulumi.Input[str] dev_addr: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-devaddr
-        :param pulumi.Input['WirelessDeviceSessionKeysAbpV11Args'] session_keys: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-sessionkeys
-        """
         pulumi.set(__self__, "dev_addr", dev_addr)
         pulumi.set(__self__, "session_keys", session_keys)
 
     @property
     @pulumi.getter(name="devAddr")
     def dev_addr(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-devaddr
-        """
         return pulumi.get(self, "dev_addr")
 
     @dev_addr.setter
@@ -859,9 +764,6 @@ class WirelessDeviceAbpV11Args:
     @property
     @pulumi.getter(name="sessionKeys")
     def session_keys(self) -> pulumi.Input['WirelessDeviceSessionKeysAbpV11Args']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-abpv11.html#cfn-iotwireless-wirelessdevice-abpv11-sessionkeys
-        """
         return pulumi.get(self, "session_keys")
 
     @session_keys.setter
@@ -879,16 +781,6 @@ class WirelessDeviceLoRaWANDeviceArgs:
                  otaa_v10x: Optional[pulumi.Input['WirelessDeviceOtaaV10xArgs']] = None,
                  otaa_v11: Optional[pulumi.Input['WirelessDeviceOtaaV11Args']] = None,
                  service_profile_id: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html
-        :param pulumi.Input['WirelessDeviceAbpV10xArgs'] abp_v10x: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-abpv10x
-        :param pulumi.Input['WirelessDeviceAbpV11Args'] abp_v11: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-abpv11
-        :param pulumi.Input[str] dev_eui: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-deveui
-        :param pulumi.Input[str] device_profile_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-deviceprofileid
-        :param pulumi.Input['WirelessDeviceOtaaV10xArgs'] otaa_v10x: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-otaav10x
-        :param pulumi.Input['WirelessDeviceOtaaV11Args'] otaa_v11: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-otaav11
-        :param pulumi.Input[str] service_profile_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-serviceprofileid
-        """
         if abp_v10x is not None:
             pulumi.set(__self__, "abp_v10x", abp_v10x)
         if abp_v11 is not None:
@@ -907,9 +799,6 @@ class WirelessDeviceLoRaWANDeviceArgs:
     @property
     @pulumi.getter(name="abpV10x")
     def abp_v10x(self) -> Optional[pulumi.Input['WirelessDeviceAbpV10xArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-abpv10x
-        """
         return pulumi.get(self, "abp_v10x")
 
     @abp_v10x.setter
@@ -919,9 +808,6 @@ class WirelessDeviceLoRaWANDeviceArgs:
     @property
     @pulumi.getter(name="abpV11")
     def abp_v11(self) -> Optional[pulumi.Input['WirelessDeviceAbpV11Args']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-abpv11
-        """
         return pulumi.get(self, "abp_v11")
 
     @abp_v11.setter
@@ -931,9 +817,6 @@ class WirelessDeviceLoRaWANDeviceArgs:
     @property
     @pulumi.getter(name="devEui")
     def dev_eui(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-deveui
-        """
         return pulumi.get(self, "dev_eui")
 
     @dev_eui.setter
@@ -943,9 +826,6 @@ class WirelessDeviceLoRaWANDeviceArgs:
     @property
     @pulumi.getter(name="deviceProfileId")
     def device_profile_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-deviceprofileid
-        """
         return pulumi.get(self, "device_profile_id")
 
     @device_profile_id.setter
@@ -955,9 +835,6 @@ class WirelessDeviceLoRaWANDeviceArgs:
     @property
     @pulumi.getter(name="otaaV10x")
     def otaa_v10x(self) -> Optional[pulumi.Input['WirelessDeviceOtaaV10xArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-otaav10x
-        """
         return pulumi.get(self, "otaa_v10x")
 
     @otaa_v10x.setter
@@ -967,9 +844,6 @@ class WirelessDeviceLoRaWANDeviceArgs:
     @property
     @pulumi.getter(name="otaaV11")
     def otaa_v11(self) -> Optional[pulumi.Input['WirelessDeviceOtaaV11Args']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-otaav11
-        """
         return pulumi.get(self, "otaa_v11")
 
     @otaa_v11.setter
@@ -979,9 +853,6 @@ class WirelessDeviceLoRaWANDeviceArgs:
     @property
     @pulumi.getter(name="serviceProfileId")
     def service_profile_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-lorawandevice.html#cfn-iotwireless-wirelessdevice-lorawandevice-serviceprofileid
-        """
         return pulumi.get(self, "service_profile_id")
 
     @service_profile_id.setter
@@ -994,20 +865,12 @@ class WirelessDeviceOtaaV10xArgs:
     def __init__(__self__, *,
                  app_eui: pulumi.Input[str],
                  app_key: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html
-        :param pulumi.Input[str] app_eui: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appeui
-        :param pulumi.Input[str] app_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appkey
-        """
         pulumi.set(__self__, "app_eui", app_eui)
         pulumi.set(__self__, "app_key", app_key)
 
     @property
     @pulumi.getter(name="appEui")
     def app_eui(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appeui
-        """
         return pulumi.get(self, "app_eui")
 
     @app_eui.setter
@@ -1017,9 +880,6 @@ class WirelessDeviceOtaaV10xArgs:
     @property
     @pulumi.getter(name="appKey")
     def app_key(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html#cfn-iotwireless-wirelessdevice-otaav10x-appkey
-        """
         return pulumi.get(self, "app_key")
 
     @app_key.setter
@@ -1033,12 +893,6 @@ class WirelessDeviceOtaaV11Args:
                  app_key: pulumi.Input[str],
                  join_eui: pulumi.Input[str],
                  nwk_key: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html
-        :param pulumi.Input[str] app_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-appkey
-        :param pulumi.Input[str] join_eui: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-joineui
-        :param pulumi.Input[str] nwk_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-nwkkey
-        """
         pulumi.set(__self__, "app_key", app_key)
         pulumi.set(__self__, "join_eui", join_eui)
         pulumi.set(__self__, "nwk_key", nwk_key)
@@ -1046,9 +900,6 @@ class WirelessDeviceOtaaV11Args:
     @property
     @pulumi.getter(name="appKey")
     def app_key(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-appkey
-        """
         return pulumi.get(self, "app_key")
 
     @app_key.setter
@@ -1058,9 +909,6 @@ class WirelessDeviceOtaaV11Args:
     @property
     @pulumi.getter(name="joinEui")
     def join_eui(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-joineui
-        """
         return pulumi.get(self, "join_eui")
 
     @join_eui.setter
@@ -1070,9 +918,6 @@ class WirelessDeviceOtaaV11Args:
     @property
     @pulumi.getter(name="nwkKey")
     def nwk_key(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav11.html#cfn-iotwireless-wirelessdevice-otaav11-nwkkey
-        """
         return pulumi.get(self, "nwk_key")
 
     @nwk_key.setter
@@ -1085,20 +930,12 @@ class WirelessDeviceSessionKeysAbpV10xArgs:
     def __init__(__self__, *,
                  app_s_key: pulumi.Input[str],
                  nwk_s_key: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html
-        :param pulumi.Input[str] app_s_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv10x-appskey
-        :param pulumi.Input[str] nwk_s_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv10x-nwkskey
-        """
         pulumi.set(__self__, "app_s_key", app_s_key)
         pulumi.set(__self__, "nwk_s_key", nwk_s_key)
 
     @property
     @pulumi.getter(name="appSKey")
     def app_s_key(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv10x-appskey
-        """
         return pulumi.get(self, "app_s_key")
 
     @app_s_key.setter
@@ -1108,9 +945,6 @@ class WirelessDeviceSessionKeysAbpV10xArgs:
     @property
     @pulumi.getter(name="nwkSKey")
     def nwk_s_key(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv10x.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv10x-nwkskey
-        """
         return pulumi.get(self, "nwk_s_key")
 
     @nwk_s_key.setter
@@ -1125,13 +959,6 @@ class WirelessDeviceSessionKeysAbpV11Args:
                  f_nwk_s_int_key: pulumi.Input[str],
                  nwk_s_enc_key: pulumi.Input[str],
                  s_nwk_s_int_key: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html
-        :param pulumi.Input[str] app_s_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-appskey
-        :param pulumi.Input[str] f_nwk_s_int_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-fnwksintkey
-        :param pulumi.Input[str] nwk_s_enc_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-nwksenckey
-        :param pulumi.Input[str] s_nwk_s_int_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-snwksintkey
-        """
         pulumi.set(__self__, "app_s_key", app_s_key)
         pulumi.set(__self__, "f_nwk_s_int_key", f_nwk_s_int_key)
         pulumi.set(__self__, "nwk_s_enc_key", nwk_s_enc_key)
@@ -1140,9 +967,6 @@ class WirelessDeviceSessionKeysAbpV11Args:
     @property
     @pulumi.getter(name="appSKey")
     def app_s_key(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-appskey
-        """
         return pulumi.get(self, "app_s_key")
 
     @app_s_key.setter
@@ -1152,9 +976,6 @@ class WirelessDeviceSessionKeysAbpV11Args:
     @property
     @pulumi.getter(name="fNwkSIntKey")
     def f_nwk_s_int_key(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-fnwksintkey
-        """
         return pulumi.get(self, "f_nwk_s_int_key")
 
     @f_nwk_s_int_key.setter
@@ -1164,9 +985,6 @@ class WirelessDeviceSessionKeysAbpV11Args:
     @property
     @pulumi.getter(name="nwkSEncKey")
     def nwk_s_enc_key(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-nwksenckey
-        """
         return pulumi.get(self, "nwk_s_enc_key")
 
     @nwk_s_enc_key.setter
@@ -1176,9 +994,6 @@ class WirelessDeviceSessionKeysAbpV11Args:
     @property
     @pulumi.getter(name="sNwkSIntKey")
     def s_nwk_s_int_key(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-sessionkeysabpv11.html#cfn-iotwireless-wirelessdevice-sessionkeysabpv11-snwksintkey
-        """
         return pulumi.get(self, "s_nwk_s_int_key")
 
     @s_nwk_s_int_key.setter
@@ -1187,24 +1002,45 @@ class WirelessDeviceSessionKeysAbpV11Args:
 
 
 @pulumi.input_type
+class WirelessDeviceTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class WirelessGatewayLoRaWANGatewayArgs:
     def __init__(__self__, *,
                  gateway_eui: pulumi.Input[str],
                  rf_region: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html
-        :param pulumi.Input[str] gateway_eui: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-gatewayeui
-        :param pulumi.Input[str] rf_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-rfregion
-        """
         pulumi.set(__self__, "gateway_eui", gateway_eui)
         pulumi.set(__self__, "rf_region", rf_region)
 
     @property
     @pulumi.getter(name="gatewayEui")
     def gateway_eui(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-gatewayeui
-        """
         return pulumi.get(self, "gateway_eui")
 
     @gateway_eui.setter
@@ -1214,13 +1050,39 @@ class WirelessGatewayLoRaWANGatewayArgs:
     @property
     @pulumi.getter(name="rfRegion")
     def rf_region(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html#cfn-iotwireless-wirelessgateway-lorawangateway-rfregion
-        """
         return pulumi.get(self, "rf_region")
 
     @rf_region.setter
     def rf_region(self, value: pulumi.Input[str]):
         pulumi.set(self, "rf_region", value)
+
+
+@pulumi.input_type
+class WirelessGatewayTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 

@@ -10,12 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html
+// Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
 type ProfilingGroupChannel struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channelid
-	ChannelId *string `pulumi:"channelId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channeluri
-	ChannelUri string `pulumi:"channelUri"`
+	ChannelId  *string `pulumi:"channelId"`
+	ChannelUri string  `pulumi:"channelUri"`
 }
 
 // ProfilingGroupChannelInput is an input type that accepts ProfilingGroupChannelArgs and ProfilingGroupChannelOutput values.
@@ -29,12 +27,10 @@ type ProfilingGroupChannelInput interface {
 	ToProfilingGroupChannelOutputWithContext(context.Context) ProfilingGroupChannelOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html
+// Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
 type ProfilingGroupChannelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channelid
-	ChannelId pulumi.StringPtrInput `pulumi:"channelId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channeluri
-	ChannelUri pulumi.StringInput `pulumi:"channelUri"`
+	ChannelId  pulumi.StringPtrInput `pulumi:"channelId"`
+	ChannelUri pulumi.StringInput    `pulumi:"channelUri"`
 }
 
 func (ProfilingGroupChannelArgs) ElementType() reflect.Type {
@@ -74,7 +70,7 @@ func (i ProfilingGroupChannelArray) ToProfilingGroupChannelArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ProfilingGroupChannelArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html
+// Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
 type ProfilingGroupChannelOutput struct{ *pulumi.OutputState }
 
 func (ProfilingGroupChannelOutput) ElementType() reflect.Type {
@@ -89,12 +85,10 @@ func (o ProfilingGroupChannelOutput) ToProfilingGroupChannelOutputWithContext(ct
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channelid
 func (o ProfilingGroupChannelOutput) ChannelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfilingGroupChannel) *string { return v.ChannelId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channeluri
 func (o ProfilingGroupChannelOutput) ChannelUri() pulumi.StringOutput {
 	return o.ApplyT(func(v ProfilingGroupChannel) string { return v.ChannelUri }).(pulumi.StringOutput)
 }
@@ -119,7 +113,118 @@ func (o ProfilingGroupChannelArrayOutput) Index(i pulumi.IntInput) ProfilingGrou
 	}).(ProfilingGroupChannelOutput)
 }
 
+// A key-value pair to associate with a resource.
+type ProfilingGroupTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+	Value string `pulumi:"value"`
+}
+
+// ProfilingGroupTagInput is an input type that accepts ProfilingGroupTagArgs and ProfilingGroupTagOutput values.
+// You can construct a concrete instance of `ProfilingGroupTagInput` via:
+//
+//          ProfilingGroupTagArgs{...}
+type ProfilingGroupTagInput interface {
+	pulumi.Input
+
+	ToProfilingGroupTagOutput() ProfilingGroupTagOutput
+	ToProfilingGroupTagOutputWithContext(context.Context) ProfilingGroupTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ProfilingGroupTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ProfilingGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfilingGroupTag)(nil)).Elem()
+}
+
+func (i ProfilingGroupTagArgs) ToProfilingGroupTagOutput() ProfilingGroupTagOutput {
+	return i.ToProfilingGroupTagOutputWithContext(context.Background())
+}
+
+func (i ProfilingGroupTagArgs) ToProfilingGroupTagOutputWithContext(ctx context.Context) ProfilingGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfilingGroupTagOutput)
+}
+
+// ProfilingGroupTagArrayInput is an input type that accepts ProfilingGroupTagArray and ProfilingGroupTagArrayOutput values.
+// You can construct a concrete instance of `ProfilingGroupTagArrayInput` via:
+//
+//          ProfilingGroupTagArray{ ProfilingGroupTagArgs{...} }
+type ProfilingGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToProfilingGroupTagArrayOutput() ProfilingGroupTagArrayOutput
+	ToProfilingGroupTagArrayOutputWithContext(context.Context) ProfilingGroupTagArrayOutput
+}
+
+type ProfilingGroupTagArray []ProfilingGroupTagInput
+
+func (ProfilingGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfilingGroupTag)(nil)).Elem()
+}
+
+func (i ProfilingGroupTagArray) ToProfilingGroupTagArrayOutput() ProfilingGroupTagArrayOutput {
+	return i.ToProfilingGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i ProfilingGroupTagArray) ToProfilingGroupTagArrayOutputWithContext(ctx context.Context) ProfilingGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfilingGroupTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ProfilingGroupTagOutput struct{ *pulumi.OutputState }
+
+func (ProfilingGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfilingGroupTag)(nil)).Elem()
+}
+
+func (o ProfilingGroupTagOutput) ToProfilingGroupTagOutput() ProfilingGroupTagOutput {
+	return o
+}
+
+func (o ProfilingGroupTagOutput) ToProfilingGroupTagOutputWithContext(ctx context.Context) ProfilingGroupTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+func (o ProfilingGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfilingGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
+func (o ProfilingGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ProfilingGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ProfilingGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfilingGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfilingGroupTag)(nil)).Elem()
+}
+
+func (o ProfilingGroupTagArrayOutput) ToProfilingGroupTagArrayOutput() ProfilingGroupTagArrayOutput {
+	return o
+}
+
+func (o ProfilingGroupTagArrayOutput) ToProfilingGroupTagArrayOutputWithContext(ctx context.Context) ProfilingGroupTagArrayOutput {
+	return o
+}
+
+func (o ProfilingGroupTagArrayOutput) Index(i pulumi.IntInput) ProfilingGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfilingGroupTag {
+		return vs[0].([]ProfilingGroupTag)[vs[1].(int)]
+	}).(ProfilingGroupTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProfilingGroupChannelOutput{})
 	pulumi.RegisterOutputType(ProfilingGroupChannelArrayOutput{})
+	pulumi.RegisterOutputType(ProfilingGroupTagOutput{})
+	pulumi.RegisterOutputType(ProfilingGroupTagArrayOutput{})
 }

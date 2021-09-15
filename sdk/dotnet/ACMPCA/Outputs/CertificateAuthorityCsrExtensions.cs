@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html
+    /// Structure that contains CSR pass though extensions information.
     /// </summary>
     [OutputType]
     public sealed class CertificateAuthorityCsrExtensions
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-keyusage
-        /// </summary>
         public readonly Outputs.CertificateAuthorityKeyUsage? KeyUsage;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html#cfn-acmpca-certificateauthority-csrextensions-subjectinformationaccess
-        /// </summary>
         public readonly ImmutableArray<Outputs.CertificateAuthorityAccessDescription> SubjectInformationAccess;
 
         [OutputConstructor]

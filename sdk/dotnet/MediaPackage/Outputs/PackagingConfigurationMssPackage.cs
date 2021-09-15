@@ -11,22 +11,16 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html
+    /// A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
     /// </summary>
     [OutputType]
     public sealed class PackagingConfigurationMssPackage
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-encryption
-        /// </summary>
         public readonly Outputs.PackagingConfigurationMssEncryption? Encryption;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-mssmanifests
+        /// A list of MSS manifest configurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.PackagingConfigurationMssManifest> MssManifests;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-segmentdurationseconds
-        /// </summary>
         public readonly int? SegmentDurationSeconds;
 
         [OutputConstructor]

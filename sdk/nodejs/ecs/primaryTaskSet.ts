@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html
+ * A pseudo-resource that manages which of your ECS task sets is primary.
  */
 export class PrimaryTaskSet extends pulumi.CustomResource {
     /**
@@ -35,15 +35,15 @@ export class PrimaryTaskSet extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
+     * The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
      */
     public readonly cluster!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
+     * The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
      */
     public readonly service!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
+     * The ID or full Amazon Resource Name (ARN) of the task set.
      */
     public readonly taskSetId!: pulumi.Output<string>;
 
@@ -87,15 +87,15 @@ export class PrimaryTaskSet extends pulumi.CustomResource {
  */
 export interface PrimaryTaskSetArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
+     * The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
      */
     cluster: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
+     * The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
      */
     service: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
+     * The ID or full Amazon Resource Name (ARN) of the task set.
      */
     taskSetId: pulumi.Input<string>;
 }

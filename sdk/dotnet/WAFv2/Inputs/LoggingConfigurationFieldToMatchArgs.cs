@@ -11,39 +11,39 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html
+    /// A key-value pair to associate with a resource.
     /// </summary>
     public sealed class LoggingConfigurationFieldToMatchArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
+        /// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form. 
         /// </summary>
         [Input("jsonBody")]
-        public InputUnion<System.Text.Json.JsonElement, string>? JsonBody { get; set; }
+        public Input<object>? JsonBody { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-method
+        /// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform. 
         /// </summary>
         [Input("method")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Method { get; set; }
+        public Input<object>? Method { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-querystring
+        /// Inspect the query string. This is the part of a URL that appears after a ? character, if any. 
         /// </summary>
         [Input("queryString")]
-        public InputUnion<System.Text.Json.JsonElement, string>? QueryString { get; set; }
+        public Input<object>? QueryString { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-singleheader
+        /// Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
         /// </summary>
         [Input("singleHeader")]
-        public InputUnion<System.Text.Json.JsonElement, string>? SingleHeader { get; set; }
+        public Input<object>? SingleHeader { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-uripath
+        /// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg. 
         /// </summary>
         [Input("uriPath")]
-        public InputUnion<System.Text.Json.JsonElement, string>? UriPath { get; set; }
+        public Input<object>? UriPath { get; set; }
 
         public LoggingConfigurationFieldToMatchArgs()
         {

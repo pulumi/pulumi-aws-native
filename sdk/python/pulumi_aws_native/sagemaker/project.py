@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ProjectArgs', 'Project']
 
@@ -16,15 +16,13 @@ __all__ = ['ProjectArgs', 'Project']
 class ProjectArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[str],
-                 service_catalog_provisioning_details: pulumi.Input[Union[Any, str]],
+                 service_catalog_provisioning_details: Any,
                  project_description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]] = None):
         """
         The set of arguments for constructing a Project resource.
-        :param pulumi.Input[str] project_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
-        :param pulumi.Input[Union[Any, str]] service_catalog_provisioning_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
-        :param pulumi.Input[str] project_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
+        :param Any service_catalog_provisioning_details: Input ServiceCatalog Provisioning Details
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "service_catalog_provisioning_details", service_catalog_provisioning_details)
@@ -36,9 +34,6 @@ class ProjectArgs:
     @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
-        """
         return pulumi.get(self, "project_name")
 
     @project_name.setter
@@ -47,22 +42,19 @@ class ProjectArgs:
 
     @property
     @pulumi.getter(name="serviceCatalogProvisioningDetails")
-    def service_catalog_provisioning_details(self) -> pulumi.Input[Union[Any, str]]:
+    def service_catalog_provisioning_details(self) -> Any:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
+        Input ServiceCatalog Provisioning Details
         """
         return pulumi.get(self, "service_catalog_provisioning_details")
 
     @service_catalog_provisioning_details.setter
-    def service_catalog_provisioning_details(self, value: pulumi.Input[Union[Any, str]]):
+    def service_catalog_provisioning_details(self, value: Any):
         pulumi.set(self, "service_catalog_provisioning_details", value)
 
     @property
     @pulumi.getter(name="projectDescription")
     def project_description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
-        """
         return pulumi.get(self, "project_description")
 
     @project_description.setter
@@ -71,14 +63,14 @@ class ProjectArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -89,18 +81,16 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 service_catalog_provisioning_details: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 service_catalog_provisioning_details: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html
+        Resource Type definition for AWS::SageMaker::Project
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] project_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
-        :param pulumi.Input[str] project_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
-        :param pulumi.Input[Union[Any, str]] service_catalog_provisioning_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
+        :param Any service_catalog_provisioning_details: Input ServiceCatalog Provisioning Details
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -109,7 +99,7 @@ class Project(pulumi.CustomResource):
                  args: ProjectArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html
+        Resource Type definition for AWS::SageMaker::Project
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.
@@ -128,8 +118,8 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 service_catalog_provisioning_details: Optional[pulumi.Input[Union[Any, str]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 service_catalog_provisioning_details: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProjectTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -154,6 +144,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["project_arn"] = None
             __props__.__dict__["project_id"] = None
             __props__.__dict__["project_status"] = None
+            __props__.__dict__["service_catalog_provisioned_product_details"] = None
         super(Project, __self__).__init__(
             'aws-native:sagemaker:Project',
             resource_name,
@@ -182,6 +173,7 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["project_id"] = None
         __props__.__dict__["project_name"] = None
         __props__.__dict__["project_status"] = None
+        __props__.__dict__["service_catalog_provisioned_product_details"] = None
         __props__.__dict__["service_catalog_provisioning_details"] = None
         __props__.__dict__["tags"] = None
         return Project(resource_name, opts=opts, __props__=__props__)
@@ -189,6 +181,9 @@ class Project(pulumi.CustomResource):
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        The time at which the project was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
@@ -199,9 +194,6 @@ class Project(pulumi.CustomResource):
     @property
     @pulumi.getter(name="projectDescription")
     def project_description(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
-        """
         return pulumi.get(self, "project_description")
 
     @property
@@ -212,29 +204,37 @@ class Project(pulumi.CustomResource):
     @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
-        """
         return pulumi.get(self, "project_name")
 
     @property
     @pulumi.getter(name="projectStatus")
     def project_status(self) -> pulumi.Output[str]:
+        """
+        The status of a project.
+        """
         return pulumi.get(self, "project_status")
 
     @property
-    @pulumi.getter(name="serviceCatalogProvisioningDetails")
-    def service_catalog_provisioning_details(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="serviceCatalogProvisionedProductDetails")
+    def service_catalog_provisioned_product_details(self) -> pulumi.Output[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
+        Provisioned ServiceCatalog  Details
+        """
+        return pulumi.get(self, "service_catalog_provisioned_product_details")
+
+    @property
+    @pulumi.getter(name="serviceCatalogProvisioningDetails")
+    def service_catalog_provisioning_details(self) -> pulumi.Output[Any]:
+        """
+        Input ServiceCatalog Provisioning Details
         """
         return pulumi.get(self, "service_catalog_provisioning_details")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ProjectTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 

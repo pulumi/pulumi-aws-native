@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-deadletterconfig.html
+    /// The dead-letter queue for failed asynchronous invocations.
     /// </summary>
     [OutputType]
     public sealed class FunctionDeadLetterConfig
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-deadletterconfig.html#cfn-lambda-function-deadletterconfig-targetarn
+        /// The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.
         /// </summary>
         public readonly string? TargetArn;
 

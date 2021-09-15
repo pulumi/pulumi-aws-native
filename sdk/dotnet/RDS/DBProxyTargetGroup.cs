@@ -10,40 +10,34 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html
+    /// Resource schema for AWS::RDS::DBProxyTargetGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:rds:DBProxyTargetGroup")]
     public partial class DBProxyTargetGroup : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
-        /// </summary>
         [Output("connectionPoolConfigurationInfo")]
         public Output<Outputs.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat?> ConnectionPoolConfigurationInfo { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
-        /// </summary>
         [Output("dBClusterIdentifiers")]
         public Output<ImmutableArray<string>> DBClusterIdentifiers { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
-        /// </summary>
         [Output("dBInstanceIdentifiers")]
         public Output<ImmutableArray<string>> DBInstanceIdentifiers { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
+        /// The identifier for the proxy.
         /// </summary>
         [Output("dBProxyName")]
         public Output<string> DBProxyName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) representing the target group.
+        /// </summary>
         [Output("targetGroupArn")]
         public Output<string> TargetGroupArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
+        /// The identifier for the DBProxyTargetGroup
         /// </summary>
         [Output("targetGroupName")]
         public Output<string> TargetGroupName { get; private set; } = null!;
@@ -93,18 +87,11 @@ namespace Pulumi.AwsNative.RDS
 
     public sealed class DBProxyTargetGroupArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
-        /// </summary>
         [Input("connectionPoolConfigurationInfo")]
         public Input<Inputs.DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs>? ConnectionPoolConfigurationInfo { get; set; }
 
         [Input("dBClusterIdentifiers")]
         private InputList<string>? _dBClusterIdentifiers;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
-        /// </summary>
         public InputList<string> DBClusterIdentifiers
         {
             get => _dBClusterIdentifiers ?? (_dBClusterIdentifiers = new InputList<string>());
@@ -113,10 +100,6 @@ namespace Pulumi.AwsNative.RDS
 
         [Input("dBInstanceIdentifiers")]
         private InputList<string>? _dBInstanceIdentifiers;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
-        /// </summary>
         public InputList<string> DBInstanceIdentifiers
         {
             get => _dBInstanceIdentifiers ?? (_dBInstanceIdentifiers = new InputList<string>());
@@ -124,13 +107,13 @@ namespace Pulumi.AwsNative.RDS
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
+        /// The identifier for the proxy.
         /// </summary>
         [Input("dBProxyName", required: true)]
         public Input<string> DBProxyName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
+        /// The identifier for the DBProxyTargetGroup
         /// </summary>
         [Input("targetGroupName", required: true)]
         public Input<string> TargetGroupName { get; set; } = null!;

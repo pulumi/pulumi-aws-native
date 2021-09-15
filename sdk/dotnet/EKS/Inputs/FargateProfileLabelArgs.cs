@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.EKS.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html
+    /// A key-value pair to associate with a pod.
     /// </summary>
     public sealed class FargateProfileLabelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-key
+        /// The key name of the label.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-fargateprofile-label.html#cfn-eks-fargateprofile-label-value
+        /// The value for the label. 
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

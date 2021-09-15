@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.SSMIncidents.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html
+    /// The automation configuration to launch.
     /// </summary>
     [OutputType]
     public sealed class ResponsePlanAction
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html#cfn-ssmincidents-responseplan-action-ssmautomation
-        /// </summary>
         public readonly Outputs.ResponsePlanSsmAutomation? SsmAutomation;
 
         [OutputConstructor]

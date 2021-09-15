@@ -11,22 +11,18 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html
+    /// The pattern to look for in the JSON body.
     /// </summary>
     public sealed class WebACLJsonMatchPatternArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-all
+        /// Inspect all parts of the web request's JSON body.
         /// </summary>
         [Input("all")]
-        public InputUnion<System.Text.Json.JsonElement, string>? All { get; set; }
+        public Input<object>? All { get; set; }
 
         [Input("includedPaths")]
         private InputList<string>? _includedPaths;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-includedpaths
-        /// </summary>
         public InputList<string> IncludedPaths
         {
             get => _includedPaths ?? (_includedPaths = new InputList<string>());

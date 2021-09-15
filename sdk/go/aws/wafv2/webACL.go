@@ -8,33 +8,24 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html
+// Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
 type WebACL struct {
 	pulumi.CustomResourceState
 
-	Arn      pulumi.StringOutput `pulumi:"arn"`
-	Capacity pulumi.IntOutput    `pulumi:"capacity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
-	CustomResponseBodies WebACLCustomResponseBodyMapOutput `pulumi:"customResponseBodies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
-	DefaultAction WebACLDefaultActionOutput `pulumi:"defaultAction"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
-	Description    pulumi.StringPtrOutput `pulumi:"description"`
-	Id             pulumi.StringOutput    `pulumi:"id"`
-	LabelNamespace pulumi.StringOutput    `pulumi:"labelNamespace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
-	Rules WebACLRuleArrayOutput `pulumi:"rules"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
-	Scope pulumi.StringOutput `pulumi:"scope"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
+	Arn                  pulumi.StringOutput                 `pulumi:"arn"`
+	Capacity             pulumi.IntOutput                    `pulumi:"capacity"`
+	CustomResponseBodies WebACLCustomResponseBodiesPtrOutput `pulumi:"customResponseBodies"`
+	DefaultAction        WebACLDefaultActionOutput           `pulumi:"defaultAction"`
+	Description          pulumi.StringPtrOutput              `pulumi:"description"`
+	LabelNamespace       pulumi.StringOutput                 `pulumi:"labelNamespace"`
+	Name                 pulumi.StringPtrOutput              `pulumi:"name"`
+	// Collection of Rules.
+	Rules            WebACLRuleArrayOutput        `pulumi:"rules"`
+	Scope            pulumi.StringOutput          `pulumi:"scope"`
+	Tags             WebACLTagArrayOutput         `pulumi:"tags"`
 	VisibilityConfig WebACLVisibilityConfigOutput `pulumi:"visibilityConfig"`
 }
 
@@ -86,41 +77,27 @@ func (WebACLState) ElementType() reflect.Type {
 }
 
 type webACLArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
-	CustomResponseBodies map[string]WebACLCustomResponseBody `pulumi:"customResponseBodies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
-	DefaultAction WebACLDefaultAction `pulumi:"defaultAction"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
-	Rules []WebACLRule `pulumi:"rules"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
-	Scope string `pulumi:"scope"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
+	CustomResponseBodies *WebACLCustomResponseBodies `pulumi:"customResponseBodies"`
+	DefaultAction        WebACLDefaultAction         `pulumi:"defaultAction"`
+	Description          *string                     `pulumi:"description"`
+	Name                 *string                     `pulumi:"name"`
+	// Collection of Rules.
+	Rules            []WebACLRule           `pulumi:"rules"`
+	Scope            string                 `pulumi:"scope"`
+	Tags             []WebACLTag            `pulumi:"tags"`
 	VisibilityConfig WebACLVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
 // The set of arguments for constructing a WebACL resource.
 type WebACLArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
-	CustomResponseBodies WebACLCustomResponseBodyMapInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
-	DefaultAction WebACLDefaultActionInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
-	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
-	Rules WebACLRuleArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
-	Scope pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
+	CustomResponseBodies WebACLCustomResponseBodiesPtrInput
+	DefaultAction        WebACLDefaultActionInput
+	Description          pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	// Collection of Rules.
+	Rules            WebACLRuleArrayInput
+	Scope            pulumi.StringInput
+	Tags             WebACLTagArrayInput
 	VisibilityConfig WebACLVisibilityConfigInput
 }
 

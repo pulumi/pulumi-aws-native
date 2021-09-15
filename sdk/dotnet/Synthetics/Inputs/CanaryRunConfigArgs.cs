@@ -10,37 +10,28 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Synthetics.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html
-    /// </summary>
     public sealed class CanaryRunConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
+        /// Enable active tracing if set to true
         /// </summary>
         [Input("activeTracing")]
         public Input<bool>? ActiveTracing { get; set; }
 
-        [Input("environmentVariables")]
-        private InputMap<string>? _environmentVariables;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
+        /// Environment variable key-value pairs.
         /// </summary>
-        public InputMap<string> EnvironmentVariables
-        {
-            get => _environmentVariables ?? (_environmentVariables = new InputMap<string>());
-            set => _environmentVariables = value;
-        }
+        [Input("environmentVariables")]
+        public Input<object>? EnvironmentVariables { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
+        /// Provide maximum memory available for canary in MB
         /// </summary>
         [Input("memoryInMB")]
         public Input<int>? MemoryInMB { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
+        /// Provide maximum canary timeout per run in seconds
         /// </summary>
         [Input("timeoutInSeconds")]
         public Input<int>? TimeoutInSeconds { get; set; }

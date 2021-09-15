@@ -10,70 +10,85 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html
+    /// Resource Type definition for AWS::SageMaker::Domain
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-appnetworkaccesstype
+        /// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
         /// </summary>
         [Output("appNetworkAccessType")]
         public Output<string?> AppNetworkAccessType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-authmode
+        /// The mode of authentication that members use to access the domain.
         /// </summary>
         [Output("authMode")]
         public Output<string> AuthMode { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-defaultusersettings
+        /// The default user settings.
         /// </summary>
         [Output("defaultUserSettings")]
         public Output<Outputs.DomainUserSettings> DefaultUserSettings { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the created domain.
+        /// </summary>
         [Output("domainArn")]
         public Output<string> DomainArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The domain name.
+        /// </summary>
         [Output("domainId")]
         public Output<string> DomainId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-domainname
+        /// A name for the domain.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Amazon Elastic File System (EFS) managed by this Domain.
+        /// </summary>
         [Output("homeEfsFileSystemId")]
         public Output<string> HomeEfsFileSystemId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-kmskeyid
+        /// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
+        /// <summary>
+        /// The SSO managed application instance ID.
+        /// </summary>
         [Output("singleSignOnManagedApplicationInstanceId")]
         public Output<string> SingleSignOnManagedApplicationInstanceId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-subnetids
+        /// The VPC subnets that Studio uses for communication.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-tags
+        /// A list of tags to apply to the user profile.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DomainTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The URL to the created domain.
+        /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-vpcid
+        /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -124,31 +139,31 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class DomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-appnetworkaccesstype
+        /// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
         /// </summary>
         [Input("appNetworkAccessType")]
         public Input<string>? AppNetworkAccessType { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-authmode
+        /// The mode of authentication that members use to access the domain.
         /// </summary>
         [Input("authMode", required: true)]
         public Input<string> AuthMode { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-defaultusersettings
+        /// The default user settings.
         /// </summary>
         [Input("defaultUserSettings", required: true)]
         public Input<Inputs.DomainUserSettingsArgs> DefaultUserSettings { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-domainname
+        /// A name for the domain.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-kmskeyid
+        /// SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -157,7 +172,7 @@ namespace Pulumi.AwsNative.SageMaker
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-subnetids
+        /// The VPC subnets that Studio uses for communication.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -166,19 +181,19 @@ namespace Pulumi.AwsNative.SageMaker
         }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.DomainTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-tags
+        /// A list of tags to apply to the user profile.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.DomainTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.DomainTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-vpcid
+        /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;

@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html
+    /// Json options
     /// </summary>
     [OutputType]
     public sealed class DatasetJsonOptions
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html#cfn-databrew-dataset-jsonoptions-multiline
-        /// </summary>
         public readonly bool? MultiLine;
 
         [OutputConstructor]

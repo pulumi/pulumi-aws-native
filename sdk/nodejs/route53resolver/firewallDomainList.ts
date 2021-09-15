@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html
+ * Resource schema for AWS::Route53Resolver::FirewallDomainList.
  */
 export class FirewallDomainList extends pulumi.CustomResource {
     /**
@@ -35,31 +35,51 @@ export class FirewallDomainList extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallDomainList.__pulumiType;
     }
 
+    /**
+     * Arn
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Rfc3339TimeString
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The id of the creator request.
+     */
     public /*out*/ readonly creatorRequestId!: pulumi.Output<string>;
+    /**
+     * Count
+     */
     public /*out*/ readonly domainCount!: pulumi.Output<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domainfileurl
+     * S3 URL to import domains from.
      */
     public readonly domainFileUrl!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domains
-     */
     public readonly domains!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
+    /**
+     * ServicePrincipal
+     */
     public /*out*/ readonly managedOwnerName!: pulumi.Output<string>;
+    /**
+     * Rfc3339TimeString
+     */
     public /*out*/ readonly modificationTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-name
+     * FirewallDomainListName
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * ResolverFirewallDomainList, possible values are COMPLETE, DELETING, UPDATING, COMPLETE_IMPORT_FAILED, IMPORTING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * FirewallDomainListAssociationStatus
+     */
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-tags
+     * Tags
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.route53resolver.FirewallDomainListTag[] | undefined>;
 
     /**
      * Create a FirewallDomainList resource with the given unique name, arguments, and options.
@@ -80,7 +100,6 @@ export class FirewallDomainList extends pulumi.CustomResource {
             inputs["creationTime"] = undefined /*out*/;
             inputs["creatorRequestId"] = undefined /*out*/;
             inputs["domainCount"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["managedOwnerName"] = undefined /*out*/;
             inputs["modificationTime"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
@@ -92,7 +111,6 @@ export class FirewallDomainList extends pulumi.CustomResource {
             inputs["domainCount"] = undefined /*out*/;
             inputs["domainFileUrl"] = undefined /*out*/;
             inputs["domains"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["managedOwnerName"] = undefined /*out*/;
             inputs["modificationTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -112,19 +130,16 @@ export class FirewallDomainList extends pulumi.CustomResource {
  */
 export interface FirewallDomainListArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domainfileurl
+     * S3 URL to import domains from.
      */
     domainFileUrl?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domains
-     */
     domains?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-name
+     * FirewallDomainListName
      */
     name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-tags
+     * Tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.route53resolver.FirewallDomainListTagArgs>[]>;
 }

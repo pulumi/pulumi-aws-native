@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html
+ * Resource Type definition for AWS::CloudFront::CachePolicy
  */
 export class CachePolicy extends pulumi.CustomResource {
     /**
@@ -35,11 +35,7 @@ export class CachePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === CachePolicy.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
-     */
     public readonly cachePolicyConfig!: pulumi.Output<outputs.cloudfront.CachePolicyCachePolicyConfig>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
 
     /**
@@ -57,11 +53,9 @@ export class CachePolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'cachePolicyConfig'");
             }
             inputs["cachePolicyConfig"] = args ? args.cachePolicyConfig : undefined;
-            inputs["id"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
         } else {
             inputs["cachePolicyConfig"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -75,8 +69,5 @@ export class CachePolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a CachePolicy resource.
  */
 export interface CachePolicyArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
-     */
     cachePolicyConfig: pulumi.Input<inputs.cloudfront.CachePolicyCachePolicyConfigArgs>;
 }

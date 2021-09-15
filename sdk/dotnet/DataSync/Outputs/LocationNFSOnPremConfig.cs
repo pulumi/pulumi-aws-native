@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.DataSync.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html
+    /// Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect an NFS server.
     /// </summary>
     [OutputType]
     public sealed class LocationNFSOnPremConfig
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html#cfn-datasync-locationnfs-onpremconfig-agentarns
+        /// ARN(s) of the agent(s) to use for an NFS location.
         /// </summary>
         public readonly ImmutableArray<string> AgentArns;
 

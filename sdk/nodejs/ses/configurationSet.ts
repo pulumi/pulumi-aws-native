@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html
+ * Resource schema for AWS::SES::ConfigurationSet.
  */
 export class ConfigurationSet extends pulumi.CustomResource {
     /**
@@ -35,7 +35,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-name
+     * The name of the configuration set.
      */
     public readonly name!: pulumi.Output<string | undefined>;
 
@@ -66,7 +66,7 @@ export class ConfigurationSet extends pulumi.CustomResource {
  */
 export interface ConfigurationSetArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-name
+     * The name of the configuration set.
      */
     name?: pulumi.Input<string>;
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AuditManager
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html
+    /// An entity that defines the scope of audit evidence collected by AWS Audit Manager.
     /// </summary>
     [AwsNativeResourceType("aws-native:auditmanager:Assessment")]
     public partial class Assessment : Pulumi.CustomResource
@@ -21,65 +21,47 @@ namespace Pulumi.AwsNative.AuditManager
         [Output("assessmentId")]
         public Output<string> AssessmentId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
-        /// </summary>
         [Output("assessmentReportsDestination")]
         public Output<Outputs.AssessmentAssessmentReportsDestination?> AssessmentReportsDestination { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
-        /// </summary>
         [Output("awsAccount")]
         public Output<Outputs.AssessmentAWSAccount?> AwsAccount { get; private set; } = null!;
 
         [Output("creationTime")]
         public Output<double> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of delegations.
+        /// </summary>
         [Output("delegations")]
         public Output<ImmutableArray<Outputs.AssessmentDelegation>> Delegations { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
-        /// </summary>
         [Output("frameworkId")]
         public Output<string?> FrameworkId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
-        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
+        /// The list of roles for the specified assessment.
         /// </summary>
         [Output("roles")]
         public Output<ImmutableArray<Outputs.AssessmentRole>> Roles { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
-        /// </summary>
         [Output("scope")]
         public Output<Outputs.AssessmentScope?> Scope { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
-        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
+        /// The tags associated with the assessment.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AssessmentTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -126,33 +108,18 @@ namespace Pulumi.AwsNative.AuditManager
 
     public sealed class AssessmentArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
-        /// </summary>
         [Input("assessmentReportsDestination")]
         public Input<Inputs.AssessmentAssessmentReportsDestinationArgs>? AssessmentReportsDestination { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
-        /// </summary>
         [Input("awsAccount")]
         public Input<Inputs.AssessmentAWSAccountArgs>? AwsAccount { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
-        /// </summary>
         [Input("frameworkId")]
         public Input<string>? FrameworkId { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -160,7 +127,7 @@ namespace Pulumi.AwsNative.AuditManager
         private InputList<Inputs.AssessmentRoleArgs>? _roles;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
+        /// The list of roles for the specified assessment.
         /// </summary>
         public InputList<Inputs.AssessmentRoleArgs> Roles
         {
@@ -168,27 +135,21 @@ namespace Pulumi.AwsNative.AuditManager
             set => _roles = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
-        /// </summary>
         [Input("scope")]
         public Input<Inputs.AssessmentScopeArgs>? Scope { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.AssessmentTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
+        /// The tags associated with the assessment.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.AssessmentTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.AssessmentTagArgs>());
             set => _tags = value;
         }
 

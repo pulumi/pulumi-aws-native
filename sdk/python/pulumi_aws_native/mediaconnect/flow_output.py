@@ -30,19 +30,19 @@ class FlowOutputArgs:
                  vpc_interface_attachment: Optional[pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs']] = None):
         """
         The set of arguments for constructing a FlowOutput resource.
-        :param pulumi.Input[str] flow_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-flowarn
-        :param pulumi.Input[str] protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-protocol
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_allow_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-cidrallowlist
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-description
-        :param pulumi.Input[str] destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-destination
-        :param pulumi.Input['FlowOutputEncryptionArgs'] encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-encryption
-        :param pulumi.Input[int] max_latency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-maxlatency
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name
-        :param pulumi.Input[int] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-port
-        :param pulumi.Input[str] remote_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-remoteid
-        :param pulumi.Input[int] smoothing_latency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-smoothinglatency
-        :param pulumi.Input[str] stream_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-streamid
-        :param pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs'] vpc_interface_attachment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment
+        :param pulumi.Input[str] flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
+        :param pulumi.Input[str] protocol: The protocol that is used by the source or output.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_allow_list: The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+        :param pulumi.Input[str] description: A description of the output.
+        :param pulumi.Input[str] destination: The address where you want to send the output.
+        :param pulumi.Input['FlowOutputEncryptionArgs'] encryption: The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+        :param pulumi.Input[str] name: The name of the output. This value must be unique within the current flow.
+        :param pulumi.Input[int] port: The port to use when content is distributed to this output.
+        :param pulumi.Input[str] remote_id: The remote ID for the Zixi-pull stream.
+        :param pulumi.Input[int] smoothing_latency: The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
+        :param pulumi.Input[str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+        :param pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs'] vpc_interface_attachment: The name of the VPC interface attachment to use for this output.
         """
         pulumi.set(__self__, "flow_arn", flow_arn)
         pulumi.set(__self__, "protocol", protocol)
@@ -73,7 +73,7 @@ class FlowOutputArgs:
     @pulumi.getter(name="flowArn")
     def flow_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-flowarn
+        The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         """
         return pulumi.get(self, "flow_arn")
 
@@ -85,7 +85,7 @@ class FlowOutputArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-protocol
+        The protocol that is used by the source or output.
         """
         return pulumi.get(self, "protocol")
 
@@ -97,7 +97,7 @@ class FlowOutputArgs:
     @pulumi.getter(name="cidrAllowList")
     def cidr_allow_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-cidrallowlist
+        The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         """
         return pulumi.get(self, "cidr_allow_list")
 
@@ -109,7 +109,7 @@ class FlowOutputArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-description
+        A description of the output.
         """
         return pulumi.get(self, "description")
 
@@ -121,7 +121,7 @@ class FlowOutputArgs:
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-destination
+        The address where you want to send the output.
         """
         return pulumi.get(self, "destination")
 
@@ -133,7 +133,7 @@ class FlowOutputArgs:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['FlowOutputEncryptionArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-encryption
+        The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
         return pulumi.get(self, "encryption")
 
@@ -145,7 +145,7 @@ class FlowOutputArgs:
     @pulumi.getter(name="maxLatency")
     def max_latency(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-maxlatency
+        The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         """
         return pulumi.get(self, "max_latency")
 
@@ -157,7 +157,7 @@ class FlowOutputArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name
+        The name of the output. This value must be unique within the current flow.
         """
         return pulumi.get(self, "name")
 
@@ -169,7 +169,7 @@ class FlowOutputArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-port
+        The port to use when content is distributed to this output.
         """
         return pulumi.get(self, "port")
 
@@ -181,7 +181,7 @@ class FlowOutputArgs:
     @pulumi.getter(name="remoteId")
     def remote_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-remoteid
+        The remote ID for the Zixi-pull stream.
         """
         return pulumi.get(self, "remote_id")
 
@@ -193,7 +193,7 @@ class FlowOutputArgs:
     @pulumi.getter(name="smoothingLatency")
     def smoothing_latency(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-smoothinglatency
+        The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
         """
         return pulumi.get(self, "smoothing_latency")
 
@@ -205,7 +205,7 @@ class FlowOutputArgs:
     @pulumi.getter(name="streamId")
     def stream_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-streamid
+        The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         """
         return pulumi.get(self, "stream_id")
 
@@ -217,7 +217,7 @@ class FlowOutputArgs:
     @pulumi.getter(name="vpcInterfaceAttachment")
     def vpc_interface_attachment(self) -> Optional[pulumi.Input['FlowOutputVpcInterfaceAttachmentArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment
+        The name of the VPC interface attachment to use for this output.
         """
         return pulumi.get(self, "vpc_interface_attachment")
 
@@ -246,23 +246,23 @@ class FlowOutput(pulumi.CustomResource):
                  vpc_interface_attachment: Optional[pulumi.Input[pulumi.InputType['FlowOutputVpcInterfaceAttachmentArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html
+        Resource schema for AWS::MediaConnect::FlowOutput
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_allow_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-cidrallowlist
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-description
-        :param pulumi.Input[str] destination: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-destination
-        :param pulumi.Input[pulumi.InputType['FlowOutputEncryptionArgs']] encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-encryption
-        :param pulumi.Input[str] flow_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-flowarn
-        :param pulumi.Input[int] max_latency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-maxlatency
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name
-        :param pulumi.Input[int] port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-port
-        :param pulumi.Input[str] protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-protocol
-        :param pulumi.Input[str] remote_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-remoteid
-        :param pulumi.Input[int] smoothing_latency: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-smoothinglatency
-        :param pulumi.Input[str] stream_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-streamid
-        :param pulumi.Input[pulumi.InputType['FlowOutputVpcInterfaceAttachmentArgs']] vpc_interface_attachment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_allow_list: The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
+        :param pulumi.Input[str] description: A description of the output.
+        :param pulumi.Input[str] destination: The address where you want to send the output.
+        :param pulumi.Input[pulumi.InputType['FlowOutputEncryptionArgs']] encryption: The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        :param pulumi.Input[str] flow_arn: The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
+        :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
+        :param pulumi.Input[str] name: The name of the output. This value must be unique within the current flow.
+        :param pulumi.Input[int] port: The port to use when content is distributed to this output.
+        :param pulumi.Input[str] protocol: The protocol that is used by the source or output.
+        :param pulumi.Input[str] remote_id: The remote ID for the Zixi-pull stream.
+        :param pulumi.Input[int] smoothing_latency: The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
+        :param pulumi.Input[str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
+        :param pulumi.Input[pulumi.InputType['FlowOutputVpcInterfaceAttachmentArgs']] vpc_interface_attachment: The name of the VPC interface attachment to use for this output.
         """
         ...
     @overload
@@ -271,7 +271,7 @@ class FlowOutput(pulumi.CustomResource):
                  args: FlowOutputArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html
+        Resource schema for AWS::MediaConnect::FlowOutput
 
         :param str resource_name: The name of the resource.
         :param FlowOutputArgs args: The arguments to use to populate this resource's properties.
@@ -373,7 +373,7 @@ class FlowOutput(pulumi.CustomResource):
     @pulumi.getter(name="cidrAllowList")
     def cidr_allow_list(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-cidrallowlist
+        The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         """
         return pulumi.get(self, "cidr_allow_list")
 
@@ -381,7 +381,7 @@ class FlowOutput(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-description
+        A description of the output.
         """
         return pulumi.get(self, "description")
 
@@ -389,7 +389,7 @@ class FlowOutput(pulumi.CustomResource):
     @pulumi.getter
     def destination(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-destination
+        The address where you want to send the output.
         """
         return pulumi.get(self, "destination")
 
@@ -397,7 +397,7 @@ class FlowOutput(pulumi.CustomResource):
     @pulumi.getter
     def encryption(self) -> pulumi.Output[Optional['outputs.FlowOutputEncryption']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-encryption
+        The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
         return pulumi.get(self, "encryption")
 
@@ -405,7 +405,7 @@ class FlowOutput(pulumi.CustomResource):
     @pulumi.getter(name="flowArn")
     def flow_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-flowarn
+        The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         """
         return pulumi.get(self, "flow_arn")
 
@@ -413,7 +413,7 @@ class FlowOutput(pulumi.CustomResource):
     @pulumi.getter(name="maxLatency")
     def max_latency(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-maxlatency
+        The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         """
         return pulumi.get(self, "max_latency")
 
@@ -421,20 +421,23 @@ class FlowOutput(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name
+        The name of the output. This value must be unique within the current flow.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="outputArn")
     def output_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the output.
+        """
         return pulumi.get(self, "output_arn")
 
     @property
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-port
+        The port to use when content is distributed to this output.
         """
         return pulumi.get(self, "port")
 
@@ -442,7 +445,7 @@ class FlowOutput(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-protocol
+        The protocol that is used by the source or output.
         """
         return pulumi.get(self, "protocol")
 
@@ -450,7 +453,7 @@ class FlowOutput(pulumi.CustomResource):
     @pulumi.getter(name="remoteId")
     def remote_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-remoteid
+        The remote ID for the Zixi-pull stream.
         """
         return pulumi.get(self, "remote_id")
 
@@ -458,7 +461,7 @@ class FlowOutput(pulumi.CustomResource):
     @pulumi.getter(name="smoothingLatency")
     def smoothing_latency(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-smoothinglatency
+        The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
         """
         return pulumi.get(self, "smoothing_latency")
 
@@ -466,7 +469,7 @@ class FlowOutput(pulumi.CustomResource):
     @pulumi.getter(name="streamId")
     def stream_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-streamid
+        The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         """
         return pulumi.get(self, "stream_id")
 
@@ -474,7 +477,7 @@ class FlowOutput(pulumi.CustomResource):
     @pulumi.getter(name="vpcInterfaceAttachment")
     def vpc_interface_attachment(self) -> pulumi.Output[Optional['outputs.FlowOutputVpcInterfaceAttachment']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment
+        The name of the VPC interface attachment to use for this output.
         """
         return pulumi.get(self, "vpc_interface_attachment")
 

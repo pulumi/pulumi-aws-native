@@ -10,16 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html
+    /// Resource Type definition for AWS::EC2::InternetGateway
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:InternetGateway")]
     public partial class InternetGateway : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html#cfn-ec2-internetgateway-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.InternetGatewayTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -67,14 +64,10 @@ namespace Pulumi.AwsNative.EC2
     public sealed class InternetGatewayArgs : Pulumi.ResourceArgs
     {
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html#cfn-ec2-internetgateway-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.InternetGatewayTagArgs>? _tags;
+        public InputList<Inputs.InternetGatewayTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.InternetGatewayTagArgs>());
             set => _tags = value;
         }
 

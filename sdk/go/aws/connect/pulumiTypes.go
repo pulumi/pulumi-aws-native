@@ -10,9 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html
+// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
 type QuickConnectPhoneNumberQuickConnectConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html#cfn-connect-quickconnect-phonenumberquickconnectconfig-phonenumber
 	PhoneNumber string `pulumi:"phoneNumber"`
 }
 
@@ -27,9 +26,8 @@ type QuickConnectPhoneNumberQuickConnectConfigInput interface {
 	ToQuickConnectPhoneNumberQuickConnectConfigOutputWithContext(context.Context) QuickConnectPhoneNumberQuickConnectConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html
+// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
 type QuickConnectPhoneNumberQuickConnectConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html#cfn-connect-quickconnect-phonenumberquickconnectconfig-phonenumber
 	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
 }
 
@@ -86,7 +84,7 @@ func (i *quickConnectPhoneNumberQuickConnectConfigPtrType) ToQuickConnectPhoneNu
 	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectPhoneNumberQuickConnectConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html
+// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
 type QuickConnectPhoneNumberQuickConnectConfigOutput struct{ *pulumi.OutputState }
 
 func (QuickConnectPhoneNumberQuickConnectConfigOutput) ElementType() reflect.Type {
@@ -111,7 +109,6 @@ func (o QuickConnectPhoneNumberQuickConnectConfigOutput) ToQuickConnectPhoneNumb
 	}).(QuickConnectPhoneNumberQuickConnectConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html#cfn-connect-quickconnect-phonenumberquickconnectconfig-phonenumber
 func (o QuickConnectPhoneNumberQuickConnectConfigOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v QuickConnectPhoneNumberQuickConnectConfig) string { return v.PhoneNumber }).(pulumi.StringOutput)
 }
@@ -140,7 +137,6 @@ func (o QuickConnectPhoneNumberQuickConnectConfigPtrOutput) Elem() QuickConnectP
 	}).(QuickConnectPhoneNumberQuickConnectConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html#cfn-connect-quickconnect-phonenumberquickconnectconfig-phonenumber
 func (o QuickConnectPhoneNumberQuickConnectConfigPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuickConnectPhoneNumberQuickConnectConfig) *string {
 		if v == nil {
@@ -150,12 +146,10 @@ func (o QuickConnectPhoneNumberQuickConnectConfigPtrOutput) PhoneNumber() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html
+// The queue configuration. This is required only if QuickConnectType is QUEUE.
 type QuickConnectQueueQuickConnectConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html#cfn-connect-quickconnect-queuequickconnectconfig-contactflowarn
 	ContactFlowArn string `pulumi:"contactFlowArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html#cfn-connect-quickconnect-queuequickconnectconfig-queuearn
-	QueueArn string `pulumi:"queueArn"`
+	QueueArn       string `pulumi:"queueArn"`
 }
 
 // QuickConnectQueueQuickConnectConfigInput is an input type that accepts QuickConnectQueueQuickConnectConfigArgs and QuickConnectQueueQuickConnectConfigOutput values.
@@ -169,12 +163,10 @@ type QuickConnectQueueQuickConnectConfigInput interface {
 	ToQuickConnectQueueQuickConnectConfigOutputWithContext(context.Context) QuickConnectQueueQuickConnectConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html
+// The queue configuration. This is required only if QuickConnectType is QUEUE.
 type QuickConnectQueueQuickConnectConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html#cfn-connect-quickconnect-queuequickconnectconfig-contactflowarn
 	ContactFlowArn pulumi.StringInput `pulumi:"contactFlowArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html#cfn-connect-quickconnect-queuequickconnectconfig-queuearn
-	QueueArn pulumi.StringInput `pulumi:"queueArn"`
+	QueueArn       pulumi.StringInput `pulumi:"queueArn"`
 }
 
 func (QuickConnectQueueQuickConnectConfigArgs) ElementType() reflect.Type {
@@ -230,7 +222,7 @@ func (i *quickConnectQueueQuickConnectConfigPtrType) ToQuickConnectQueueQuickCon
 	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectQueueQuickConnectConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html
+// The queue configuration. This is required only if QuickConnectType is QUEUE.
 type QuickConnectQueueQuickConnectConfigOutput struct{ *pulumi.OutputState }
 
 func (QuickConnectQueueQuickConnectConfigOutput) ElementType() reflect.Type {
@@ -255,12 +247,10 @@ func (o QuickConnectQueueQuickConnectConfigOutput) ToQuickConnectQueueQuickConne
 	}).(QuickConnectQueueQuickConnectConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html#cfn-connect-quickconnect-queuequickconnectconfig-contactflowarn
 func (o QuickConnectQueueQuickConnectConfigOutput) ContactFlowArn() pulumi.StringOutput {
 	return o.ApplyT(func(v QuickConnectQueueQuickConnectConfig) string { return v.ContactFlowArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html#cfn-connect-quickconnect-queuequickconnectconfig-queuearn
 func (o QuickConnectQueueQuickConnectConfigOutput) QueueArn() pulumi.StringOutput {
 	return o.ApplyT(func(v QuickConnectQueueQuickConnectConfig) string { return v.QueueArn }).(pulumi.StringOutput)
 }
@@ -289,7 +279,6 @@ func (o QuickConnectQueueQuickConnectConfigPtrOutput) Elem() QuickConnectQueueQu
 	}).(QuickConnectQueueQuickConnectConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html#cfn-connect-quickconnect-queuequickconnectconfig-contactflowarn
 func (o QuickConnectQueueQuickConnectConfigPtrOutput) ContactFlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuickConnectQueueQuickConnectConfig) *string {
 		if v == nil {
@@ -299,7 +288,6 @@ func (o QuickConnectQueueQuickConnectConfigPtrOutput) ContactFlowArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html#cfn-connect-quickconnect-queuequickconnectconfig-queuearn
 func (o QuickConnectQueueQuickConnectConfigPtrOutput) QueueArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuickConnectQueueQuickConnectConfig) *string {
 		if v == nil {
@@ -309,16 +297,12 @@ func (o QuickConnectQueueQuickConnectConfigPtrOutput) QueueArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html
+// Configuration settings for the quick connect.
 type QuickConnectQuickConnectConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-phoneconfig
-	PhoneConfig *QuickConnectPhoneNumberQuickConnectConfig `pulumi:"phoneConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-queueconfig
-	QueueConfig *QuickConnectQueueQuickConnectConfig `pulumi:"queueConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-quickconnecttype
-	QuickConnectType string `pulumi:"quickConnectType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-userconfig
-	UserConfig *QuickConnectUserQuickConnectConfig `pulumi:"userConfig"`
+	PhoneConfig      *QuickConnectPhoneNumberQuickConnectConfig `pulumi:"phoneConfig"`
+	QueueConfig      *QuickConnectQueueQuickConnectConfig       `pulumi:"queueConfig"`
+	QuickConnectType string                                     `pulumi:"quickConnectType"`
+	UserConfig       *QuickConnectUserQuickConnectConfig        `pulumi:"userConfig"`
 }
 
 // QuickConnectQuickConnectConfigInput is an input type that accepts QuickConnectQuickConnectConfigArgs and QuickConnectQuickConnectConfigOutput values.
@@ -332,16 +316,12 @@ type QuickConnectQuickConnectConfigInput interface {
 	ToQuickConnectQuickConnectConfigOutputWithContext(context.Context) QuickConnectQuickConnectConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html
+// Configuration settings for the quick connect.
 type QuickConnectQuickConnectConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-phoneconfig
-	PhoneConfig QuickConnectPhoneNumberQuickConnectConfigPtrInput `pulumi:"phoneConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-queueconfig
-	QueueConfig QuickConnectQueueQuickConnectConfigPtrInput `pulumi:"queueConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-quickconnecttype
-	QuickConnectType pulumi.StringInput `pulumi:"quickConnectType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-userconfig
-	UserConfig QuickConnectUserQuickConnectConfigPtrInput `pulumi:"userConfig"`
+	PhoneConfig      QuickConnectPhoneNumberQuickConnectConfigPtrInput `pulumi:"phoneConfig"`
+	QueueConfig      QuickConnectQueueQuickConnectConfigPtrInput       `pulumi:"queueConfig"`
+	QuickConnectType pulumi.StringInput                                `pulumi:"quickConnectType"`
+	UserConfig       QuickConnectUserQuickConnectConfigPtrInput        `pulumi:"userConfig"`
 }
 
 func (QuickConnectQuickConnectConfigArgs) ElementType() reflect.Type {
@@ -397,7 +377,7 @@ func (i *quickConnectQuickConnectConfigPtrType) ToQuickConnectQuickConnectConfig
 	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectQuickConnectConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html
+// Configuration settings for the quick connect.
 type QuickConnectQuickConnectConfigOutput struct{ *pulumi.OutputState }
 
 func (QuickConnectQuickConnectConfigOutput) ElementType() reflect.Type {
@@ -422,24 +402,20 @@ func (o QuickConnectQuickConnectConfigOutput) ToQuickConnectQuickConnectConfigPt
 	}).(QuickConnectQuickConnectConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-phoneconfig
 func (o QuickConnectQuickConnectConfigOutput) PhoneConfig() QuickConnectPhoneNumberQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v QuickConnectQuickConnectConfig) *QuickConnectPhoneNumberQuickConnectConfig {
 		return v.PhoneConfig
 	}).(QuickConnectPhoneNumberQuickConnectConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-queueconfig
 func (o QuickConnectQuickConnectConfigOutput) QueueConfig() QuickConnectQueueQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v QuickConnectQuickConnectConfig) *QuickConnectQueueQuickConnectConfig { return v.QueueConfig }).(QuickConnectQueueQuickConnectConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-quickconnecttype
 func (o QuickConnectQuickConnectConfigOutput) QuickConnectType() pulumi.StringOutput {
 	return o.ApplyT(func(v QuickConnectQuickConnectConfig) string { return v.QuickConnectType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-userconfig
 func (o QuickConnectQuickConnectConfigOutput) UserConfig() QuickConnectUserQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v QuickConnectQuickConnectConfig) *QuickConnectUserQuickConnectConfig { return v.UserConfig }).(QuickConnectUserQuickConnectConfigPtrOutput)
 }
@@ -468,7 +444,6 @@ func (o QuickConnectQuickConnectConfigPtrOutput) Elem() QuickConnectQuickConnect
 	}).(QuickConnectQuickConnectConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-phoneconfig
 func (o QuickConnectQuickConnectConfigPtrOutput) PhoneConfig() QuickConnectPhoneNumberQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v *QuickConnectQuickConnectConfig) *QuickConnectPhoneNumberQuickConnectConfig {
 		if v == nil {
@@ -478,7 +453,6 @@ func (o QuickConnectQuickConnectConfigPtrOutput) PhoneConfig() QuickConnectPhone
 	}).(QuickConnectPhoneNumberQuickConnectConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-queueconfig
 func (o QuickConnectQuickConnectConfigPtrOutput) QueueConfig() QuickConnectQueueQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v *QuickConnectQuickConnectConfig) *QuickConnectQueueQuickConnectConfig {
 		if v == nil {
@@ -488,7 +462,6 @@ func (o QuickConnectQuickConnectConfigPtrOutput) QueueConfig() QuickConnectQueue
 	}).(QuickConnectQueueQuickConnectConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-quickconnecttype
 func (o QuickConnectQuickConnectConfigPtrOutput) QuickConnectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuickConnectQuickConnectConfig) *string {
 		if v == nil {
@@ -498,7 +471,6 @@ func (o QuickConnectQuickConnectConfigPtrOutput) QuickConnectType() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-userconfig
 func (o QuickConnectQuickConnectConfigPtrOutput) UserConfig() QuickConnectUserQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v *QuickConnectQuickConnectConfig) *QuickConnectUserQuickConnectConfig {
 		if v == nil {
@@ -508,12 +480,119 @@ func (o QuickConnectQuickConnectConfigPtrOutput) UserConfig() QuickConnectUserQu
 	}).(QuickConnectUserQuickConnectConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html
+// A key-value pair to associate with a resource.
+type QuickConnectTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// QuickConnectTagInput is an input type that accepts QuickConnectTagArgs and QuickConnectTagOutput values.
+// You can construct a concrete instance of `QuickConnectTagInput` via:
+//
+//          QuickConnectTagArgs{...}
+type QuickConnectTagInput interface {
+	pulumi.Input
+
+	ToQuickConnectTagOutput() QuickConnectTagOutput
+	ToQuickConnectTagOutputWithContext(context.Context) QuickConnectTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type QuickConnectTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (QuickConnectTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuickConnectTag)(nil)).Elem()
+}
+
+func (i QuickConnectTagArgs) ToQuickConnectTagOutput() QuickConnectTagOutput {
+	return i.ToQuickConnectTagOutputWithContext(context.Background())
+}
+
+func (i QuickConnectTagArgs) ToQuickConnectTagOutputWithContext(ctx context.Context) QuickConnectTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectTagOutput)
+}
+
+// QuickConnectTagArrayInput is an input type that accepts QuickConnectTagArray and QuickConnectTagArrayOutput values.
+// You can construct a concrete instance of `QuickConnectTagArrayInput` via:
+//
+//          QuickConnectTagArray{ QuickConnectTagArgs{...} }
+type QuickConnectTagArrayInput interface {
+	pulumi.Input
+
+	ToQuickConnectTagArrayOutput() QuickConnectTagArrayOutput
+	ToQuickConnectTagArrayOutputWithContext(context.Context) QuickConnectTagArrayOutput
+}
+
+type QuickConnectTagArray []QuickConnectTagInput
+
+func (QuickConnectTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QuickConnectTag)(nil)).Elem()
+}
+
+func (i QuickConnectTagArray) ToQuickConnectTagArrayOutput() QuickConnectTagArrayOutput {
+	return i.ToQuickConnectTagArrayOutputWithContext(context.Background())
+}
+
+func (i QuickConnectTagArray) ToQuickConnectTagArrayOutputWithContext(ctx context.Context) QuickConnectTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type QuickConnectTagOutput struct{ *pulumi.OutputState }
+
+func (QuickConnectTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuickConnectTag)(nil)).Elem()
+}
+
+func (o QuickConnectTagOutput) ToQuickConnectTagOutput() QuickConnectTagOutput {
+	return o
+}
+
+func (o QuickConnectTagOutput) ToQuickConnectTagOutputWithContext(ctx context.Context) QuickConnectTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o QuickConnectTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v QuickConnectTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o QuickConnectTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v QuickConnectTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type QuickConnectTagArrayOutput struct{ *pulumi.OutputState }
+
+func (QuickConnectTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]QuickConnectTag)(nil)).Elem()
+}
+
+func (o QuickConnectTagArrayOutput) ToQuickConnectTagArrayOutput() QuickConnectTagArrayOutput {
+	return o
+}
+
+func (o QuickConnectTagArrayOutput) ToQuickConnectTagArrayOutputWithContext(ctx context.Context) QuickConnectTagArrayOutput {
+	return o
+}
+
+func (o QuickConnectTagArrayOutput) Index(i pulumi.IntInput) QuickConnectTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) QuickConnectTag {
+		return vs[0].([]QuickConnectTag)[vs[1].(int)]
+	}).(QuickConnectTagOutput)
+}
+
+// The user configuration. This is required only if QuickConnectType is USER.
 type QuickConnectUserQuickConnectConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-contactflowarn
 	ContactFlowArn string `pulumi:"contactFlowArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-userarn
-	UserArn string `pulumi:"userArn"`
+	UserArn        string `pulumi:"userArn"`
 }
 
 // QuickConnectUserQuickConnectConfigInput is an input type that accepts QuickConnectUserQuickConnectConfigArgs and QuickConnectUserQuickConnectConfigOutput values.
@@ -527,12 +606,10 @@ type QuickConnectUserQuickConnectConfigInput interface {
 	ToQuickConnectUserQuickConnectConfigOutputWithContext(context.Context) QuickConnectUserQuickConnectConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html
+// The user configuration. This is required only if QuickConnectType is USER.
 type QuickConnectUserQuickConnectConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-contactflowarn
 	ContactFlowArn pulumi.StringInput `pulumi:"contactFlowArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-userarn
-	UserArn pulumi.StringInput `pulumi:"userArn"`
+	UserArn        pulumi.StringInput `pulumi:"userArn"`
 }
 
 func (QuickConnectUserQuickConnectConfigArgs) ElementType() reflect.Type {
@@ -588,7 +665,7 @@ func (i *quickConnectUserQuickConnectConfigPtrType) ToQuickConnectUserQuickConne
 	return pulumi.ToOutputWithContext(ctx, i).(QuickConnectUserQuickConnectConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html
+// The user configuration. This is required only if QuickConnectType is USER.
 type QuickConnectUserQuickConnectConfigOutput struct{ *pulumi.OutputState }
 
 func (QuickConnectUserQuickConnectConfigOutput) ElementType() reflect.Type {
@@ -613,12 +690,10 @@ func (o QuickConnectUserQuickConnectConfigOutput) ToQuickConnectUserQuickConnect
 	}).(QuickConnectUserQuickConnectConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-contactflowarn
 func (o QuickConnectUserQuickConnectConfigOutput) ContactFlowArn() pulumi.StringOutput {
 	return o.ApplyT(func(v QuickConnectUserQuickConnectConfig) string { return v.ContactFlowArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-userarn
 func (o QuickConnectUserQuickConnectConfigOutput) UserArn() pulumi.StringOutput {
 	return o.ApplyT(func(v QuickConnectUserQuickConnectConfig) string { return v.UserArn }).(pulumi.StringOutput)
 }
@@ -647,7 +722,6 @@ func (o QuickConnectUserQuickConnectConfigPtrOutput) Elem() QuickConnectUserQuic
 	}).(QuickConnectUserQuickConnectConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-contactflowarn
 func (o QuickConnectUserQuickConnectConfigPtrOutput) ContactFlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuickConnectUserQuickConnectConfig) *string {
 		if v == nil {
@@ -657,7 +731,6 @@ func (o QuickConnectUserQuickConnectConfigPtrOutput) ContactFlowArn() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-userarn
 func (o QuickConnectUserQuickConnectConfigPtrOutput) UserArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *QuickConnectUserQuickConnectConfig) *string {
 		if v == nil {
@@ -674,6 +747,8 @@ func init() {
 	pulumi.RegisterOutputType(QuickConnectQueueQuickConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectQuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectQuickConnectConfigPtrOutput{})
+	pulumi.RegisterOutputType(QuickConnectTagOutput{})
+	pulumi.RegisterOutputType(QuickConnectTagArrayOutput{})
 	pulumi.RegisterOutputType(QuickConnectUserQuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectUserQuickConnectConfigPtrOutput{})
 }

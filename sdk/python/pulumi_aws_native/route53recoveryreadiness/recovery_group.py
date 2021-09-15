@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['RecoveryGroupArgs', 'RecoveryGroup']
 
@@ -17,12 +17,12 @@ class RecoveryGroupArgs:
     def __init__(__self__, *,
                  recovery_group_name: pulumi.Input[str],
                  cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a RecoveryGroup resource.
-        :param pulumi.Input[str] recovery_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-recoverygroupname
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-cells
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-tags
+        :param pulumi.Input[str] recovery_group_name: The name of the recovery group to create.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: A list of the cell Amazon Resource Names (ARNs) in the recovery group.
+        :param pulumi.Input[Sequence[pulumi.Input['RecoveryGroupTagArgs']]] tags: A collection of tags associated with a resource.
         """
         pulumi.set(__self__, "recovery_group_name", recovery_group_name)
         if cells is not None:
@@ -34,7 +34,7 @@ class RecoveryGroupArgs:
     @pulumi.getter(name="recoveryGroupName")
     def recovery_group_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-recoverygroupname
+        The name of the recovery group to create.
         """
         return pulumi.get(self, "recovery_group_name")
 
@@ -46,7 +46,7 @@ class RecoveryGroupArgs:
     @pulumi.getter
     def cells(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-cells
+        A list of the cell Amazon Resource Names (ARNs) in the recovery group.
         """
         return pulumi.get(self, "cells")
 
@@ -56,14 +56,14 @@ class RecoveryGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryGroupTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-tags
+        A collection of tags associated with a resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryGroupTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -74,16 +74,16 @@ class RecoveryGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  recovery_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecoveryGroupTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html
+        AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-cells
-        :param pulumi.Input[str] recovery_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-recoverygroupname
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-tags
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cells: A list of the cell Amazon Resource Names (ARNs) in the recovery group.
+        :param pulumi.Input[str] recovery_group_name: The name of the recovery group to create.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecoveryGroupTagArgs']]]] tags: A collection of tags associated with a resource.
         """
         ...
     @overload
@@ -92,7 +92,7 @@ class RecoveryGroup(pulumi.CustomResource):
                  args: RecoveryGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html
+        AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
 
         :param str resource_name: The name of the resource.
         :param RecoveryGroupArgs args: The arguments to use to populate this resource's properties.
@@ -111,7 +111,7 @@ class RecoveryGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  recovery_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecoveryGroupTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -162,28 +162,31 @@ class RecoveryGroup(pulumi.CustomResource):
     @pulumi.getter
     def cells(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-cells
+        A list of the cell Amazon Resource Names (ARNs) in the recovery group.
         """
         return pulumi.get(self, "cells")
 
     @property
     @pulumi.getter(name="recoveryGroupArn")
     def recovery_group_arn(self) -> pulumi.Output[str]:
+        """
+        A collection of tags associated with a resource.
+        """
         return pulumi.get(self, "recovery_group_arn")
 
     @property
     @pulumi.getter(name="recoveryGroupName")
     def recovery_group_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-recoverygroupname
+        The name of the recovery group to create.
         """
         return pulumi.get(self, "recovery_group_name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RecoveryGroupTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-tags
+        A collection of tags associated with a resource.
         """
         return pulumi.get(self, "tags")
 

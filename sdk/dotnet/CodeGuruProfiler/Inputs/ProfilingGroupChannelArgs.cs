@@ -11,19 +11,13 @@ namespace Pulumi.AwsNative.CodeGuruProfiler.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html
+    /// Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
     /// </summary>
     public sealed class ProfilingGroupChannelArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channelid
-        /// </summary>
         [Input("channelId")]
         public Input<string>? ChannelId { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channeluri
-        /// </summary>
         [Input("channelUri", required: true)]
         public Input<string> ChannelUri { get; set; } = null!;
 

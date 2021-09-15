@@ -10,88 +10,91 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaConnect
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html
+    /// Resource schema for AWS::MediaConnect::FlowOutput
     /// </summary>
     [AwsNativeResourceType("aws-native:mediaconnect:FlowOutput")]
     public partial class FlowOutput : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-cidrallowlist
+        /// The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         /// </summary>
         [Output("cidrAllowList")]
         public Output<ImmutableArray<string>> CidrAllowList { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-description
+        /// A description of the output.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-destination
+        /// The address where you want to send the output.
         /// </summary>
         [Output("destination")]
         public Output<string?> Destination { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-encryption
+        /// The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.FlowOutputEncryption?> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-flowarn
+        /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         /// </summary>
         [Output("flowArn")]
         public Output<string> FlowArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-maxlatency
+        /// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         /// </summary>
         [Output("maxLatency")]
         public Output<int?> MaxLatency { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name
+        /// The name of the output. This value must be unique within the current flow.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the output.
+        /// </summary>
         [Output("outputArn")]
         public Output<string> OutputArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-port
+        /// The port to use when content is distributed to this output.
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-protocol
+        /// The protocol that is used by the source or output.
         /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-remoteid
+        /// The remote ID for the Zixi-pull stream.
         /// </summary>
         [Output("remoteId")]
         public Output<string?> RemoteId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-smoothinglatency
+        /// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
         /// </summary>
         [Output("smoothingLatency")]
         public Output<int?> SmoothingLatency { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-streamid
+        /// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         /// </summary>
         [Output("streamId")]
         public Output<string?> StreamId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment
+        /// The name of the VPC interface attachment to use for this output.
         /// </summary>
         [Output("vpcInterfaceAttachment")]
         public Output<Outputs.FlowOutputVpcInterfaceAttachment?> VpcInterfaceAttachment { get; private set; } = null!;
@@ -145,7 +148,7 @@ namespace Pulumi.AwsNative.MediaConnect
         private InputList<string>? _cidrAllowList;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-cidrallowlist
+        /// The range of IP addresses that should be allowed to initiate output requests to this flow. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
         /// </summary>
         public InputList<string> CidrAllowList
         {
@@ -154,73 +157,73 @@ namespace Pulumi.AwsNative.MediaConnect
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-description
+        /// A description of the output.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-destination
+        /// The address where you want to send the output.
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-encryption
+        /// The type of key used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.FlowOutputEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-flowarn
+        /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         /// </summary>
         [Input("flowArn", required: true)]
         public Input<string> FlowArn { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-maxlatency
+        /// The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         /// </summary>
         [Input("maxLatency")]
         public Input<int>? MaxLatency { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-name
+        /// The name of the output. This value must be unique within the current flow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-port
+        /// The port to use when content is distributed to this output.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-protocol
+        /// The protocol that is used by the source or output.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-remoteid
+        /// The remote ID for the Zixi-pull stream.
         /// </summary>
         [Input("remoteId")]
         public Input<string>? RemoteId { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-smoothinglatency
+        /// The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC streams.
         /// </summary>
         [Input("smoothingLatency")]
         public Input<int>? SmoothingLatency { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-streamid
+        /// The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         /// </summary>
         [Input("streamId")]
         public Input<string>? StreamId { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment
+        /// The name of the VPC interface attachment to use for this output.
         /// </summary>
         [Input("vpcInterfaceAttachment")]
         public Input<Inputs.FlowOutputVpcInterfaceAttachmentArgs>? VpcInterfaceAttachment { get; set; }

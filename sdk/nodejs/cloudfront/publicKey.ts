@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html
+ * Resource Type definition for AWS::CloudFront::PublicKey
  */
 export class PublicKey extends pulumi.CustomResource {
     /**
@@ -36,10 +36,6 @@ export class PublicKey extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
-     */
     public readonly publicKeyConfig!: pulumi.Output<outputs.cloudfront.PublicKeyPublicKeyConfig>;
 
     /**
@@ -58,10 +54,8 @@ export class PublicKey extends pulumi.CustomResource {
             }
             inputs["publicKeyConfig"] = args ? args.publicKeyConfig : undefined;
             inputs["createdTime"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
         } else {
             inputs["createdTime"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["publicKeyConfig"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -75,8 +69,5 @@ export class PublicKey extends pulumi.CustomResource {
  * The set of arguments for constructing a PublicKey resource.
  */
 export interface PublicKeyArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
-     */
     publicKeyConfig: pulumi.Input<inputs.cloudfront.PublicKeyPublicKeyConfigArgs>;
 }

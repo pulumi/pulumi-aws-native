@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.StepFunctions.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html
-    /// </summary>
     public sealed class StateMachineLogDestinationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html#cfn-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup
-        /// </summary>
         [Input("cloudWatchLogsLogGroup")]
         public Input<Inputs.StateMachineCloudWatchLogsLogGroupArgs>? CloudWatchLogsLogGroup { get; set; }
 

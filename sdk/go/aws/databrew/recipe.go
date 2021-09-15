@@ -8,22 +8,19 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html
+// Resource schema for AWS::DataBrew::Recipe.
 type Recipe struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-description
+	// Description of the recipe
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-steps
+	// Recipe name
+	Name  pulumi.StringOutput         `pulumi:"name"`
 	Steps RecipeRecipeStepArrayOutput `pulumi:"steps"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags  RecipeTagArrayOutput        `pulumi:"tags"`
 }
 
 // NewRecipe registers a new resource with the given unique name, arguments, and options.
@@ -71,26 +68,22 @@ func (RecipeState) ElementType() reflect.Type {
 }
 
 type recipeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-description
+	// Description of the recipe
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-steps
+	// Recipe name
+	Name  string             `pulumi:"name"`
 	Steps []RecipeRecipeStep `pulumi:"steps"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags  []RecipeTag        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Recipe resource.
 type RecipeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-description
+	// Description of the recipe
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-name
-	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-steps
+	// Recipe name
+	Name  pulumi.StringInput
 	Steps RecipeRecipeStepArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-tags
-	Tags aws.TagArrayInput
+	Tags  RecipeTagArrayInput
 }
 
 func (RecipeArgs) ElementType() reflect.Type {

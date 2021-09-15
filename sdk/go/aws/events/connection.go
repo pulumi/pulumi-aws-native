@@ -11,20 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html
+// Resource Type definition for AWS::Events::Connection.
 type Connection struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authparameters
-	AuthParameters pulumi.AnyOutput `pulumi:"authParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authorizationtype
+	// The arn of the connection resource.
+	Arn               pulumi.StringOutput `pulumi:"arn"`
+	AuthParameters    pulumi.AnyOutput    `pulumi:"authParameters"`
 	AuthorizationType pulumi.StringOutput `pulumi:"authorizationType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-description
+	// Description of the connection.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-name
-	Name      pulumi.StringPtrOutput `pulumi:"name"`
-	SecretArn pulumi.StringOutput    `pulumi:"secretArn"`
+	// Name of the connection.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The arn of the secrets manager secret created in the customer account.
+	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -72,25 +72,21 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authparameters
-	AuthParameters interface{} `pulumi:"authParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authorizationtype
-	AuthorizationType string `pulumi:"authorizationType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-description
+	AuthParameters    interface{} `pulumi:"authParameters"`
+	AuthorizationType string      `pulumi:"authorizationType"`
+	// Description of the connection.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-name
+	// Name of the connection.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authparameters
-	AuthParameters pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authorizationtype
+	AuthParameters    pulumi.Input
 	AuthorizationType pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-description
+	// Description of the connection.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-name
+	// Name of the connection.
 	Name pulumi.StringPtrInput
 }
 

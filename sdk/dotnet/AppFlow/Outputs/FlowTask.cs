@@ -10,30 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html
-    /// </summary>
     [OutputType]
     public sealed class FlowTask
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-connectoroperator
+        /// Operation to be performed on provided source fields
         /// </summary>
         public readonly Outputs.FlowConnectorOperator? ConnectorOperator;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-destinationfield
+        /// A field value on which source field should be validated
         /// </summary>
         public readonly string? DestinationField;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-sourcefields
+        /// Source fields on which particular task will be applied
         /// </summary>
         public readonly ImmutableArray<string> SourceFields;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-taskproperties
+        /// A Map used to store task related info
         /// </summary>
         public readonly ImmutableArray<Outputs.FlowTaskPropertiesObject> TaskProperties;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-tasktype
+        /// Type of task
         /// </summary>
         public readonly string TaskType;
 

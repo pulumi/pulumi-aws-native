@@ -11,11 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html
+// Resource used to control (enable/disable) DNSSEC in a specific hosted zone.
 type DNSSEC struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html#cfn-route53-dnssec-hostedzoneid
+	// The unique string (ID) used to identify a hosted zone.
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
 }
 
@@ -61,13 +61,13 @@ func (DNSSECState) ElementType() reflect.Type {
 }
 
 type dnssecArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html#cfn-route53-dnssec-hostedzoneid
+	// The unique string (ID) used to identify a hosted zone.
 	HostedZoneId string `pulumi:"hostedZoneId"`
 }
 
 // The set of arguments for constructing a DNSSEC resource.
 type DNSSECArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html#cfn-route53-dnssec-hostedzoneid
+	// The unique string (ID) used to identify a hosted zone.
 	HostedZoneId pulumi.StringInput
 }
 

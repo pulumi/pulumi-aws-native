@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['TableArgs', 'Table']
@@ -25,18 +23,16 @@ class TableArgs:
                  point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None,
                  regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None):
         """
         The set of arguments for constructing a Table resource.
-        :param pulumi.Input[str] keyspace_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
-        :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] partition_key_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
-        :param pulumi.Input['TableBillingModeArgs'] billing_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
-        :param pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]] clustering_key_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
-        :param pulumi.Input['TableEncryptionSpecificationArgs'] encryption_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
-        :param pulumi.Input[bool] point_in_time_recovery_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
-        :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] regular_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
-        :param pulumi.Input[str] table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
+        :param pulumi.Input[str] keyspace_name: Name for Cassandra keyspace
+        :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] partition_key_columns: Partition key columns of the table
+        :param pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]] clustering_key_columns: Clustering key columns of the table
+        :param pulumi.Input[bool] point_in_time_recovery_enabled: Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
+        :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] regular_columns: Non-key columns of the table
+        :param pulumi.Input[str] table_name: Name for Cassandra table
+        :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: An array of key-value pairs to apply to this resource
         """
         pulumi.set(__self__, "keyspace_name", keyspace_name)
         pulumi.set(__self__, "partition_key_columns", partition_key_columns)
@@ -59,7 +55,7 @@ class TableArgs:
     @pulumi.getter(name="keyspaceName")
     def keyspace_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
+        Name for Cassandra keyspace
         """
         return pulumi.get(self, "keyspace_name")
 
@@ -71,7 +67,7 @@ class TableArgs:
     @pulumi.getter(name="partitionKeyColumns")
     def partition_key_columns(self) -> pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
+        Partition key columns of the table
         """
         return pulumi.get(self, "partition_key_columns")
 
@@ -82,9 +78,6 @@ class TableArgs:
     @property
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> Optional[pulumi.Input['TableBillingModeArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
-        """
         return pulumi.get(self, "billing_mode")
 
     @billing_mode.setter
@@ -95,7 +88,7 @@ class TableArgs:
     @pulumi.getter(name="clusteringKeyColumns")
     def clustering_key_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
+        Clustering key columns of the table
         """
         return pulumi.get(self, "clustering_key_columns")
 
@@ -106,9 +99,6 @@ class TableArgs:
     @property
     @pulumi.getter(name="encryptionSpecification")
     def encryption_specification(self) -> Optional[pulumi.Input['TableEncryptionSpecificationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
-        """
         return pulumi.get(self, "encryption_specification")
 
     @encryption_specification.setter
@@ -119,7 +109,7 @@ class TableArgs:
     @pulumi.getter(name="pointInTimeRecoveryEnabled")
     def point_in_time_recovery_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
+        Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
         """
         return pulumi.get(self, "point_in_time_recovery_enabled")
 
@@ -131,7 +121,7 @@ class TableArgs:
     @pulumi.getter(name="regularColumns")
     def regular_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
+        Non-key columns of the table
         """
         return pulumi.get(self, "regular_columns")
 
@@ -143,7 +133,7 @@ class TableArgs:
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
+        Name for Cassandra table
         """
         return pulumi.get(self, "table_name")
 
@@ -153,14 +143,14 @@ class TableArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
+        An array of key-value pairs to apply to this resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -177,22 +167,20 @@ class Table(pulumi.CustomResource):
                  point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None,
                  regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html
+        Resource schema for AWS::Cassandra::Table
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TableBillingModeArgs']] billing_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableClusteringKeyColumnArgs']]]] clustering_key_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
-        :param pulumi.Input[pulumi.InputType['TableEncryptionSpecificationArgs']] encryption_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
-        :param pulumi.Input[str] keyspace_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] partition_key_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
-        :param pulumi.Input[bool] point_in_time_recovery_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] regular_columns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
-        :param pulumi.Input[str] table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableClusteringKeyColumnArgs']]]] clustering_key_columns: Clustering key columns of the table
+        :param pulumi.Input[str] keyspace_name: Name for Cassandra keyspace
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] partition_key_columns: Partition key columns of the table
+        :param pulumi.Input[bool] point_in_time_recovery_enabled: Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] regular_columns: Non-key columns of the table
+        :param pulumi.Input[str] table_name: Name for Cassandra table
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]] tags: An array of key-value pairs to apply to this resource
         """
         ...
     @overload
@@ -201,7 +189,7 @@ class Table(pulumi.CustomResource):
                  args: TableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html
+        Resource schema for AWS::Cassandra::Table
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.
@@ -226,7 +214,7 @@ class Table(pulumi.CustomResource):
                  point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None,
                  regular_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -288,32 +276,26 @@ class Table(pulumi.CustomResource):
     @property
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> pulumi.Output[Optional['outputs.TableBillingMode']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
-        """
         return pulumi.get(self, "billing_mode")
 
     @property
     @pulumi.getter(name="clusteringKeyColumns")
     def clustering_key_columns(self) -> pulumi.Output[Optional[Sequence['outputs.TableClusteringKeyColumn']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
+        Clustering key columns of the table
         """
         return pulumi.get(self, "clustering_key_columns")
 
     @property
     @pulumi.getter(name="encryptionSpecification")
     def encryption_specification(self) -> pulumi.Output[Optional['outputs.TableEncryptionSpecification']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
-        """
         return pulumi.get(self, "encryption_specification")
 
     @property
     @pulumi.getter(name="keyspaceName")
     def keyspace_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
+        Name for Cassandra keyspace
         """
         return pulumi.get(self, "keyspace_name")
 
@@ -321,7 +303,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="partitionKeyColumns")
     def partition_key_columns(self) -> pulumi.Output[Sequence['outputs.TableColumn']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
+        Partition key columns of the table
         """
         return pulumi.get(self, "partition_key_columns")
 
@@ -329,7 +311,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="pointInTimeRecoveryEnabled")
     def point_in_time_recovery_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
+        Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
         """
         return pulumi.get(self, "point_in_time_recovery_enabled")
 
@@ -337,7 +319,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="regularColumns")
     def regular_columns(self) -> pulumi.Output[Optional[Sequence['outputs.TableColumn']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
+        Non-key columns of the table
         """
         return pulumi.get(self, "regular_columns")
 
@@ -345,15 +327,15 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
+        Name for Cassandra table
         """
         return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TableTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
+        An array of key-value pairs to apply to this resource
         """
         return pulumi.get(self, "tags")
 

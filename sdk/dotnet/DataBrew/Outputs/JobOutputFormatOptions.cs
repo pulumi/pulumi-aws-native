@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html
+    /// Format options for job Output
     /// </summary>
     [OutputType]
     public sealed class JobOutputFormatOptions
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html#cfn-databrew-job-outputformatoptions-csv
-        /// </summary>
         public readonly Outputs.JobCsvOutputOptions? Csv;
 
         [OutputConstructor]

@@ -11,42 +11,42 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html
+    /// The monitoring setting of the component.
     /// </summary>
     public sealed class ApplicationComponentMonitoringSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentarn
+        /// The ARN of the compnonent.
         /// </summary>
         [Input("componentARN")]
         public Input<string>? ComponentARN { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
+        /// The component monitoring configuration mode.
         /// </summary>
         [Input("componentConfigurationMode", required: true)]
         public Input<string> ComponentConfigurationMode { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentname
+        /// The name of the component.
         /// </summary>
         [Input("componentName")]
         public Input<string>? ComponentName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-customcomponentconfiguration
+        /// The monitoring configuration of the component.
         /// </summary>
         [Input("customComponentConfiguration")]
         public Input<Inputs.ApplicationComponentConfigurationArgs>? CustomComponentConfiguration { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-defaultoverwritecomponentconfiguration
+        /// The overwritten settings on default component monitoring configuration.
         /// </summary>
         [Input("defaultOverwriteComponentConfiguration")]
         public Input<Inputs.ApplicationComponentConfigurationArgs>? DefaultOverwriteComponentConfiguration { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
+        /// The tier of the application component.
         /// </summary>
         [Input("tier", required: true)]
         public Input<string> Tier { get; set; } = null!;

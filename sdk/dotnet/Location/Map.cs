@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Location
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html
+    /// Definition of AWS::Location::Map Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:location:Map")]
     public partial class Map : Pulumi.CustomResource
@@ -18,9 +18,6 @@ namespace Pulumi.AwsNative.Location
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-configuration
-        /// </summary>
         [Output("configuration")]
         public Output<Outputs.MapMapConfiguration> Configuration { get; private set; } = null!;
 
@@ -30,24 +27,15 @@ namespace Pulumi.AwsNative.Location
         [Output("dataSource")]
         public Output<string> DataSource { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-description
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("mapArn")]
         public Output<string> MapArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-mapname
-        /// </summary>
         [Output("mapName")]
         public Output<string> MapName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-pricingplan
-        /// </summary>
         [Output("pricingPlan")]
         public Output<string> PricingPlan { get; private set; } = null!;
 
@@ -99,27 +87,15 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class MapArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-configuration
-        /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.MapMapConfigurationArgs> Configuration { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-description
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-mapname
-        /// </summary>
         [Input("mapName", required: true)]
         public Input<string> MapName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-pricingplan
-        /// </summary>
         [Input("pricingPlan", required: true)]
         public Input<string> PricingPlan { get; set; } = null!;
 

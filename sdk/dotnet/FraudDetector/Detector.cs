@@ -10,79 +10,76 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.FraudDetector
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html
+    /// A resource schema for a Detector in Amazon Fraud Detector.
     /// </summary>
     [AwsNativeResourceType("aws-native:frauddetector:Detector")]
     public partial class Detector : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the detector.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-associatedmodels
+        /// The models to associate with this detector.
         /// </summary>
         [Output("associatedModels")]
         public Output<ImmutableArray<Outputs.DetectorModel>> AssociatedModels { get; private set; } = null!;
 
+        /// <summary>
+        /// The time when the detector was created.
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-description
+        /// The description of the detector.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorid
+        /// The ID of the detector
         /// </summary>
         [Output("detectorId")]
         public Output<string> DetectorId { get; private set; } = null!;
 
+        /// <summary>
+        /// The active version ID of the detector
+        /// </summary>
         [Output("detectorVersionId")]
         public Output<string> DetectorVersionId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorversionstatus
+        /// The desired detector version status for the detector
         /// </summary>
         [Output("detectorVersionStatus")]
         public Output<string?> DetectorVersionStatus { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-eventtype
+        /// The event type to associate this detector with.
         /// </summary>
         [Output("eventType")]
         public Output<Outputs.DetectorEventType> EventType { get; private set; } = null!;
 
-        [Output("eventTypeArn")]
-        public Output<string> EventTypeArn { get; private set; } = null!;
-
-        [Output("eventTypeCreatedTime")]
-        public Output<string> EventTypeCreatedTime { get; private set; } = null!;
-
-        [Output("eventTypeLastUpdatedTime")]
-        public Output<string> EventTypeLastUpdatedTime { get; private set; } = null!;
-
+        /// <summary>
+        /// The time when the detector was last updated.
+        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-ruleexecutionmode
-        /// </summary>
         [Output("ruleExecutionMode")]
         public Output<string?> RuleExecutionMode { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-rules
-        /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.DetectorRule>> Rules { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-tags
+        /// Tags associated with this detector.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DetectorTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -133,7 +130,7 @@ namespace Pulumi.AwsNative.FraudDetector
         private InputList<Inputs.DetectorModelArgs>? _associatedModels;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-associatedmodels
+        /// The models to associate with this detector.
         /// </summary>
         public InputList<Inputs.DetectorModelArgs> AssociatedModels
         {
@@ -142,41 +139,34 @@ namespace Pulumi.AwsNative.FraudDetector
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-description
+        /// The description of the detector.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorid
+        /// The ID of the detector
         /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorversionstatus
+        /// The desired detector version status for the detector
         /// </summary>
         [Input("detectorVersionStatus")]
         public Input<string>? DetectorVersionStatus { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-eventtype
+        /// The event type to associate this detector with.
         /// </summary>
         [Input("eventType", required: true)]
         public Input<Inputs.DetectorEventTypeArgs> EventType { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-ruleexecutionmode
-        /// </summary>
         [Input("ruleExecutionMode")]
         public Input<string>? RuleExecutionMode { get; set; }
 
         [Input("rules", required: true)]
         private InputList<Inputs.DetectorRuleArgs>? _rules;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-rules
-        /// </summary>
         public InputList<Inputs.DetectorRuleArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.DetectorRuleArgs>());
@@ -184,14 +174,14 @@ namespace Pulumi.AwsNative.FraudDetector
         }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.DetectorTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-tags
+        /// Tags associated with this detector.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.DetectorTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.DetectorTagArgs>());
             set => _tags = value;
         }
 

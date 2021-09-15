@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html
+    /// The endpoint URL used to access an Asset using one PackagingConfiguration.
     /// </summary>
     [OutputType]
     public sealed class AssetEgressEndpoint
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-packagingconfigurationid
+        /// The ID of the PackagingConfiguration being applied to the Asset.
         /// </summary>
         public readonly string PackagingConfigurationId;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-url
+        /// The URL of the parent manifest for the repackaged Asset.
         /// </summary>
         public readonly string Url;
 

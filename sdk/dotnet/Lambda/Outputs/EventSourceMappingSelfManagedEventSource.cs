@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html
+    /// The configuration used by AWS Lambda to access a self-managed event source.
     /// </summary>
     [OutputType]
     public sealed class EventSourceMappingSelfManagedEventSource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedeventsource.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource-endpoints
+        /// The endpoints for a self-managed event source.
         /// </summary>
         public readonly Outputs.EventSourceMappingEndpoints? Endpoints;
 

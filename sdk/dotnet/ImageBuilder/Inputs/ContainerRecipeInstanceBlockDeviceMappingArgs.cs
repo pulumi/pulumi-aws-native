@@ -11,30 +11,30 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html
+    /// Defines block device mappings for the instance used to configure your image. 
     /// </summary>
     public sealed class ContainerRecipeInstanceBlockDeviceMappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-devicename
+        /// The device to which these mappings apply.
         /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-ebs
+        /// Use to manage Amazon EBS-specific configuration for this mapping.
         /// </summary>
         [Input("ebs")]
         public Input<Inputs.ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs>? Ebs { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-nodevice
+        /// Use to remove a mapping from the parent image.
         /// </summary>
         [Input("noDevice")]
         public Input<string>? NoDevice { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-virtualname
+        /// Use to manage instance ephemeral devices.
         /// </summary>
         [Input("virtualName")]
         public Input<string>? VirtualName { get; set; }

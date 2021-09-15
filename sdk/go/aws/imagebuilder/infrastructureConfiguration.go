@@ -11,33 +11,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html
+// Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
 type InfrastructureConfiguration struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the infrastructure configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-description
+	// The description of the infrastructure configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instanceprofilename
+	// The instance profile of the infrastructure configuration.
 	InstanceProfileName pulumi.StringOutput `pulumi:"instanceProfileName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancetypes
+	// The instance types of the infrastructure configuration.
 	InstanceTypes pulumi.StringArrayOutput `pulumi:"instanceTypes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
+	// The EC2 key pair of the infrastructure configuration..
 	KeyPair pulumi.StringPtrOutput `pulumi:"keyPair"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
-	Logging pulumi.AnyOutput    `pulumi:"logging"`
-	Name    pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
-	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
+	// The logging configuration of the infrastructure configuration.
+	Logging InfrastructureConfigurationLoggingPtrOutput `pulumi:"logging"`
+	// The name of the infrastructure configuration.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The tags attached to the resource created by Image Builder.
+	ResourceTags pulumi.AnyOutput `pulumi:"resourceTags"`
+	// The security group IDs of the infrastructure configuration.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
+	// The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
 	SnsTopicArn pulumi.StringPtrOutput `pulumi:"snsTopicArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-subnetid
+	// The subnet ID of the infrastructure configuration.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-terminateinstanceonfailure
+	// The tags associated with the component.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
+	// The terminate instance on failure configuration of the infrastructure configuration.
 	TerminateInstanceOnFailure pulumi.BoolPtrOutput `pulumi:"terminateInstanceOnFailure"`
 }
 
@@ -86,57 +88,57 @@ func (InfrastructureConfigurationState) ElementType() reflect.Type {
 }
 
 type infrastructureConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-description
+	// The description of the infrastructure configuration.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instanceprofilename
+	// The instance profile of the infrastructure configuration.
 	InstanceProfileName string `pulumi:"instanceProfileName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancetypes
+	// The instance types of the infrastructure configuration.
 	InstanceTypes []string `pulumi:"instanceTypes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
+	// The EC2 key pair of the infrastructure configuration..
 	KeyPair *string `pulumi:"keyPair"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
-	Logging interface{} `pulumi:"logging"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
+	// The logging configuration of the infrastructure configuration.
+	Logging *InfrastructureConfigurationLogging `pulumi:"logging"`
+	// The name of the infrastructure configuration.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
-	ResourceTags map[string]string `pulumi:"resourceTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
+	// The tags attached to the resource created by Image Builder.
+	ResourceTags interface{} `pulumi:"resourceTags"`
+	// The security group IDs of the infrastructure configuration.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
+	// The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-subnetid
+	// The subnet ID of the infrastructure configuration.
 	SubnetId *string `pulumi:"subnetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
-	Tags map[string]string `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-terminateinstanceonfailure
+	// The tags associated with the component.
+	Tags interface{} `pulumi:"tags"`
+	// The terminate instance on failure configuration of the infrastructure configuration.
 	TerminateInstanceOnFailure *bool `pulumi:"terminateInstanceOnFailure"`
 }
 
 // The set of arguments for constructing a InfrastructureConfiguration resource.
 type InfrastructureConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-description
+	// The description of the infrastructure configuration.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instanceprofilename
+	// The instance profile of the infrastructure configuration.
 	InstanceProfileName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancetypes
+	// The instance types of the infrastructure configuration.
 	InstanceTypes pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
+	// The EC2 key pair of the infrastructure configuration..
 	KeyPair pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
-	Logging pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
+	// The logging configuration of the infrastructure configuration.
+	Logging InfrastructureConfigurationLoggingPtrInput
+	// The name of the infrastructure configuration.
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
-	ResourceTags pulumi.StringMapInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
+	// The tags attached to the resource created by Image Builder.
+	ResourceTags pulumi.Input
+	// The security group IDs of the infrastructure configuration.
 	SecurityGroupIds pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
+	// The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
 	SnsTopicArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-subnetid
+	// The subnet ID of the infrastructure configuration.
 	SubnetId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
-	Tags pulumi.StringMapInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-terminateinstanceonfailure
+	// The tags associated with the component.
+	Tags pulumi.Input
+	// The terminate instance on failure configuration of the infrastructure configuration.
 	TerminateInstanceOnFailure pulumi.BoolPtrInput
 }
 

@@ -10,40 +10,43 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSMContacts
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html
+    /// Resource Type definition for AWS::SSMContacts::ContactChannel
     /// </summary>
     [AwsNativeResourceType("aws-native:ssmcontacts:ContactChannel")]
     public partial class ContactChannel : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the engagement to a contact channel.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeladdress
+        /// The details that SSM Incident Manager uses when trying to engage the contact channel.
         /// </summary>
         [Output("channelAddress")]
-        public Output<string> ChannelAddress { get; private set; } = null!;
+        public Output<string?> ChannelAddress { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channelname
+        /// The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
         /// </summary>
         [Output("channelName")]
-        public Output<string> ChannelName { get; private set; } = null!;
+        public Output<string?> ChannelName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeltype
+        /// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
         /// </summary>
         [Output("channelType")]
-        public Output<string> ChannelType { get; private set; } = null!;
+        public Output<string?> ChannelType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-contactid
+        /// ARN of the contact resource
         /// </summary>
         [Output("contactId")]
-        public Output<string> ContactId { get; private set; } = null!;
+        public Output<string?> ContactId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-deferactivation
+        /// If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
         /// </summary>
         [Output("deferActivation")]
         public Output<bool?> DeferActivation { get; private set; } = null!;
@@ -56,7 +59,7 @@ namespace Pulumi.AwsNative.SSMContacts
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ContactChannel(string name, ContactChannelArgs args, CustomResourceOptions? options = null)
+        public ContactChannel(string name, ContactChannelArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:ssmcontacts:ContactChannel", name, args ?? new ContactChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -94,31 +97,31 @@ namespace Pulumi.AwsNative.SSMContacts
     public sealed class ContactChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeladdress
+        /// The details that SSM Incident Manager uses when trying to engage the contact channel.
         /// </summary>
-        [Input("channelAddress", required: true)]
-        public Input<string> ChannelAddress { get; set; } = null!;
+        [Input("channelAddress")]
+        public Input<string>? ChannelAddress { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channelname
+        /// The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
         /// </summary>
-        [Input("channelName", required: true)]
-        public Input<string> ChannelName { get; set; } = null!;
+        [Input("channelName")]
+        public Input<string>? ChannelName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeltype
+        /// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
         /// </summary>
-        [Input("channelType", required: true)]
-        public Input<string> ChannelType { get; set; } = null!;
+        [Input("channelType")]
+        public Input<string>? ChannelType { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-contactid
+        /// ARN of the contact resource
         /// </summary>
-        [Input("contactId", required: true)]
-        public Input<string> ContactId { get; set; } = null!;
+        [Input("contactId")]
+        public Input<string>? ContactId { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-deferactivation
+        /// If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
         /// </summary>
         [Input("deferActivation")]
         public Input<bool>? DeferActivation { get; set; }

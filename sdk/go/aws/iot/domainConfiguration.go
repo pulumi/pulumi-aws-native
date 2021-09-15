@@ -7,33 +7,24 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html
+// Create and manage a Domain Configuration
 type DomainConfiguration struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authorizerconfig
-	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrOutput `pulumi:"authorizerConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationname
-	DomainConfigurationName pulumi.StringPtrOutput `pulumi:"domainConfigurationName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationstatus
-	DomainConfigurationStatus pulumi.StringPtrOutput `pulumi:"domainConfigurationStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainname
-	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
-	DomainType pulumi.StringOutput    `pulumi:"domainType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificatearns
-	ServerCertificateArns pulumi.StringArrayOutput                               `pulumi:"serverCertificateArns"`
-	ServerCertificates    DomainConfigurationServerCertificateSummaryArrayOutput `pulumi:"serverCertificates"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servicetype
-	ServiceType pulumi.StringPtrOutput `pulumi:"serviceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-validationcertificatearn
-	ValidationCertificateArn pulumi.StringPtrOutput `pulumi:"validationCertificateArn"`
+	Arn                       pulumi.StringOutput                                    `pulumi:"arn"`
+	AuthorizerConfig          DomainConfigurationAuthorizerConfigPtrOutput           `pulumi:"authorizerConfig"`
+	DomainConfigurationName   pulumi.StringPtrOutput                                 `pulumi:"domainConfigurationName"`
+	DomainConfigurationStatus pulumi.StringPtrOutput                                 `pulumi:"domainConfigurationStatus"`
+	DomainName                pulumi.StringPtrOutput                                 `pulumi:"domainName"`
+	DomainType                pulumi.StringOutput                                    `pulumi:"domainType"`
+	ServerCertificateArns     pulumi.StringArrayOutput                               `pulumi:"serverCertificateArns"`
+	ServerCertificates        DomainConfigurationServerCertificateSummaryArrayOutput `pulumi:"serverCertificates"`
+	ServiceType               pulumi.StringPtrOutput                                 `pulumi:"serviceType"`
+	Tags                      DomainConfigurationTagArrayOutput                      `pulumi:"tags"`
+	ValidationCertificateArn  pulumi.StringPtrOutput                                 `pulumi:"validationCertificateArn"`
 }
 
 // NewDomainConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -75,42 +66,26 @@ func (DomainConfigurationState) ElementType() reflect.Type {
 }
 
 type domainConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authorizerconfig
-	AuthorizerConfig *DomainConfigurationAuthorizerConfig `pulumi:"authorizerConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationname
-	DomainConfigurationName *string `pulumi:"domainConfigurationName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationstatus
-	DomainConfigurationStatus *string `pulumi:"domainConfigurationStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainname
-	DomainName *string `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificatearns
-	ServerCertificateArns []string `pulumi:"serverCertificateArns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servicetype
-	ServiceType *string `pulumi:"serviceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-validationcertificatearn
-	ValidationCertificateArn *string `pulumi:"validationCertificateArn"`
+	AuthorizerConfig          *DomainConfigurationAuthorizerConfig `pulumi:"authorizerConfig"`
+	DomainConfigurationName   *string                              `pulumi:"domainConfigurationName"`
+	DomainConfigurationStatus *string                              `pulumi:"domainConfigurationStatus"`
+	DomainName                *string                              `pulumi:"domainName"`
+	ServerCertificateArns     []string                             `pulumi:"serverCertificateArns"`
+	ServiceType               *string                              `pulumi:"serviceType"`
+	Tags                      []DomainConfigurationTag             `pulumi:"tags"`
+	ValidationCertificateArn  *string                              `pulumi:"validationCertificateArn"`
 }
 
 // The set of arguments for constructing a DomainConfiguration resource.
 type DomainConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authorizerconfig
-	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationname
-	DomainConfigurationName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationstatus
+	AuthorizerConfig          DomainConfigurationAuthorizerConfigPtrInput
+	DomainConfigurationName   pulumi.StringPtrInput
 	DomainConfigurationStatus pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainname
-	DomainName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificatearns
-	ServerCertificateArns pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servicetype
-	ServiceType pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-validationcertificatearn
-	ValidationCertificateArn pulumi.StringPtrInput
+	DomainName                pulumi.StringPtrInput
+	ServerCertificateArns     pulumi.StringArrayInput
+	ServiceType               pulumi.StringPtrInput
+	Tags                      DomainConfigurationTagArrayInput
+	ValidationCertificateArn  pulumi.StringPtrInput
 }
 
 func (DomainConfigurationArgs) ElementType() reflect.Type {

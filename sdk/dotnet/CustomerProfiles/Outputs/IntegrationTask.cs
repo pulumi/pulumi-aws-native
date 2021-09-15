@@ -10,31 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html
-    /// </summary>
     [OutputType]
     public sealed class IntegrationTask
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-connectoroperator
-        /// </summary>
         public readonly Outputs.IntegrationConnectorOperator? ConnectorOperator;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-destinationfield
-        /// </summary>
         public readonly string? DestinationField;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-sourcefields
-        /// </summary>
         public readonly ImmutableArray<string> SourceFields;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-taskproperties
-        /// </summary>
         public readonly ImmutableArray<Outputs.IntegrationTaskPropertiesMap> TaskProperties;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-tasktype
-        /// </summary>
         public readonly string TaskType;
 
         [OutputConstructor]

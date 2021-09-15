@@ -10,11 +10,253 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html
+// A key-value pair to associate with a resource.
+type FleetTags struct {
+}
+
+// FleetTagsInput is an input type that accepts FleetTagsArgs and FleetTagsOutput values.
+// You can construct a concrete instance of `FleetTagsInput` via:
+//
+//          FleetTagsArgs{...}
+type FleetTagsInput interface {
+	pulumi.Input
+
+	ToFleetTagsOutput() FleetTagsOutput
+	ToFleetTagsOutputWithContext(context.Context) FleetTagsOutput
+}
+
+// A key-value pair to associate with a resource.
+type FleetTagsArgs struct {
+}
+
+func (FleetTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetTags)(nil)).Elem()
+}
+
+func (i FleetTagsArgs) ToFleetTagsOutput() FleetTagsOutput {
+	return i.ToFleetTagsOutputWithContext(context.Background())
+}
+
+func (i FleetTagsArgs) ToFleetTagsOutputWithContext(ctx context.Context) FleetTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetTagsOutput)
+}
+
+func (i FleetTagsArgs) ToFleetTagsPtrOutput() FleetTagsPtrOutput {
+	return i.ToFleetTagsPtrOutputWithContext(context.Background())
+}
+
+func (i FleetTagsArgs) ToFleetTagsPtrOutputWithContext(ctx context.Context) FleetTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetTagsOutput).ToFleetTagsPtrOutputWithContext(ctx)
+}
+
+// FleetTagsPtrInput is an input type that accepts FleetTagsArgs, FleetTagsPtr and FleetTagsPtrOutput values.
+// You can construct a concrete instance of `FleetTagsPtrInput` via:
+//
+//          FleetTagsArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetTagsPtrInput interface {
+	pulumi.Input
+
+	ToFleetTagsPtrOutput() FleetTagsPtrOutput
+	ToFleetTagsPtrOutputWithContext(context.Context) FleetTagsPtrOutput
+}
+
+type fleetTagsPtrType FleetTagsArgs
+
+func FleetTagsPtr(v *FleetTagsArgs) FleetTagsPtrInput {
+	return (*fleetTagsPtrType)(v)
+}
+
+func (*fleetTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetTags)(nil)).Elem()
+}
+
+func (i *fleetTagsPtrType) ToFleetTagsPtrOutput() FleetTagsPtrOutput {
+	return i.ToFleetTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetTagsPtrType) ToFleetTagsPtrOutputWithContext(ctx context.Context) FleetTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetTagsPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type FleetTagsOutput struct{ *pulumi.OutputState }
+
+func (FleetTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetTags)(nil)).Elem()
+}
+
+func (o FleetTagsOutput) ToFleetTagsOutput() FleetTagsOutput {
+	return o
+}
+
+func (o FleetTagsOutput) ToFleetTagsOutputWithContext(ctx context.Context) FleetTagsOutput {
+	return o
+}
+
+func (o FleetTagsOutput) ToFleetTagsPtrOutput() FleetTagsPtrOutput {
+	return o.ToFleetTagsPtrOutputWithContext(context.Background())
+}
+
+func (o FleetTagsOutput) ToFleetTagsPtrOutputWithContext(ctx context.Context) FleetTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetTags) *FleetTags {
+		return &v
+	}).(FleetTagsPtrOutput)
+}
+
+type FleetTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetTags)(nil)).Elem()
+}
+
+func (o FleetTagsPtrOutput) ToFleetTagsPtrOutput() FleetTagsPtrOutput {
+	return o
+}
+
+func (o FleetTagsPtrOutput) ToFleetTagsPtrOutputWithContext(ctx context.Context) FleetTagsPtrOutput {
+	return o
+}
+
+func (o FleetTagsPtrOutput) Elem() FleetTagsOutput {
+	return o.ApplyT(func(v *FleetTags) FleetTags {
+		if v != nil {
+			return *v
+		}
+		var ret FleetTags
+		return ret
+	}).(FleetTagsOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RobotTags struct {
+}
+
+// RobotTagsInput is an input type that accepts RobotTagsArgs and RobotTagsOutput values.
+// You can construct a concrete instance of `RobotTagsInput` via:
+//
+//          RobotTagsArgs{...}
+type RobotTagsInput interface {
+	pulumi.Input
+
+	ToRobotTagsOutput() RobotTagsOutput
+	ToRobotTagsOutputWithContext(context.Context) RobotTagsOutput
+}
+
+// A key-value pair to associate with a resource.
+type RobotTagsArgs struct {
+}
+
+func (RobotTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RobotTags)(nil)).Elem()
+}
+
+func (i RobotTagsArgs) ToRobotTagsOutput() RobotTagsOutput {
+	return i.ToRobotTagsOutputWithContext(context.Background())
+}
+
+func (i RobotTagsArgs) ToRobotTagsOutputWithContext(ctx context.Context) RobotTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RobotTagsOutput)
+}
+
+func (i RobotTagsArgs) ToRobotTagsPtrOutput() RobotTagsPtrOutput {
+	return i.ToRobotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i RobotTagsArgs) ToRobotTagsPtrOutputWithContext(ctx context.Context) RobotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RobotTagsOutput).ToRobotTagsPtrOutputWithContext(ctx)
+}
+
+// RobotTagsPtrInput is an input type that accepts RobotTagsArgs, RobotTagsPtr and RobotTagsPtrOutput values.
+// You can construct a concrete instance of `RobotTagsPtrInput` via:
+//
+//          RobotTagsArgs{...}
+//
+//  or:
+//
+//          nil
+type RobotTagsPtrInput interface {
+	pulumi.Input
+
+	ToRobotTagsPtrOutput() RobotTagsPtrOutput
+	ToRobotTagsPtrOutputWithContext(context.Context) RobotTagsPtrOutput
+}
+
+type robotTagsPtrType RobotTagsArgs
+
+func RobotTagsPtr(v *RobotTagsArgs) RobotTagsPtrInput {
+	return (*robotTagsPtrType)(v)
+}
+
+func (*robotTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RobotTags)(nil)).Elem()
+}
+
+func (i *robotTagsPtrType) ToRobotTagsPtrOutput() RobotTagsPtrOutput {
+	return i.ToRobotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *robotTagsPtrType) ToRobotTagsPtrOutputWithContext(ctx context.Context) RobotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RobotTagsPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RobotTagsOutput struct{ *pulumi.OutputState }
+
+func (RobotTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RobotTags)(nil)).Elem()
+}
+
+func (o RobotTagsOutput) ToRobotTagsOutput() RobotTagsOutput {
+	return o
+}
+
+func (o RobotTagsOutput) ToRobotTagsOutputWithContext(ctx context.Context) RobotTagsOutput {
+	return o
+}
+
+func (o RobotTagsOutput) ToRobotTagsPtrOutput() RobotTagsPtrOutput {
+	return o.ToRobotTagsPtrOutputWithContext(context.Background())
+}
+
+func (o RobotTagsOutput) ToRobotTagsPtrOutputWithContext(ctx context.Context) RobotTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RobotTags) *RobotTags {
+		return &v
+	}).(RobotTagsPtrOutput)
+}
+
+type RobotTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (RobotTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RobotTags)(nil)).Elem()
+}
+
+func (o RobotTagsPtrOutput) ToRobotTagsPtrOutput() RobotTagsPtrOutput {
+	return o
+}
+
+func (o RobotTagsPtrOutput) ToRobotTagsPtrOutputWithContext(ctx context.Context) RobotTagsPtrOutput {
+	return o
+}
+
+func (o RobotTagsPtrOutput) Elem() RobotTagsOutput {
+	return o.ApplyT(func(v *RobotTags) RobotTags {
+		if v != nil {
+			return *v
+		}
+		var ret RobotTags
+		return ret
+	}).(RobotTagsOutput)
+}
+
+// Information about a rendering engine.
 type SimulationApplicationRenderingEngine struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-name
+	// The name of the rendering engine.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-version
+	// The version of the rendering engine.
 	Version string `pulumi:"version"`
 }
 
@@ -29,11 +271,11 @@ type SimulationApplicationRenderingEngineInput interface {
 	ToSimulationApplicationRenderingEngineOutputWithContext(context.Context) SimulationApplicationRenderingEngineOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html
+// Information about a rendering engine.
 type SimulationApplicationRenderingEngineArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-name
+	// The name of the rendering engine.
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-version
+	// The version of the rendering engine.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -90,7 +332,7 @@ func (i *simulationApplicationRenderingEnginePtrType) ToSimulationApplicationRen
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationRenderingEnginePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html
+// Information about a rendering engine.
 type SimulationApplicationRenderingEngineOutput struct{ *pulumi.OutputState }
 
 func (SimulationApplicationRenderingEngineOutput) ElementType() reflect.Type {
@@ -115,12 +357,12 @@ func (o SimulationApplicationRenderingEngineOutput) ToSimulationApplicationRende
 	}).(SimulationApplicationRenderingEnginePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-name
+// The name of the rendering engine.
 func (o SimulationApplicationRenderingEngineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SimulationApplicationRenderingEngine) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-version
+// The version of the rendering engine.
 func (o SimulationApplicationRenderingEngineOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v SimulationApplicationRenderingEngine) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -149,7 +391,7 @@ func (o SimulationApplicationRenderingEnginePtrOutput) Elem() SimulationApplicat
 	}).(SimulationApplicationRenderingEngineOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-name
+// The name of the rendering engine.
 func (o SimulationApplicationRenderingEnginePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SimulationApplicationRenderingEngine) *string {
 		if v == nil {
@@ -159,7 +401,7 @@ func (o SimulationApplicationRenderingEnginePtrOutput) Name() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-version
+// The version of the rendering engine.
 func (o SimulationApplicationRenderingEnginePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SimulationApplicationRenderingEngine) *string {
 		if v == nil {
@@ -169,11 +411,11 @@ func (o SimulationApplicationRenderingEnginePtrOutput) Version() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html
+// Information about a robot software suite (ROS distribution).
 type SimulationApplicationRobotSoftwareSuite struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html#cfn-robomaker-simulationapplication-robotsoftwaresuite-name
+	// The name of the robot software suite (ROS distribution).
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html#cfn-robomaker-simulationapplication-robotsoftwaresuite-version
+	// The version of the robot software suite (ROS distribution).
 	Version string `pulumi:"version"`
 }
 
@@ -188,11 +430,11 @@ type SimulationApplicationRobotSoftwareSuiteInput interface {
 	ToSimulationApplicationRobotSoftwareSuiteOutputWithContext(context.Context) SimulationApplicationRobotSoftwareSuiteOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html
+// Information about a robot software suite (ROS distribution).
 type SimulationApplicationRobotSoftwareSuiteArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html#cfn-robomaker-simulationapplication-robotsoftwaresuite-name
+	// The name of the robot software suite (ROS distribution).
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html#cfn-robomaker-simulationapplication-robotsoftwaresuite-version
+	// The version of the robot software suite (ROS distribution).
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -249,7 +491,7 @@ func (i *simulationApplicationRobotSoftwareSuitePtrType) ToSimulationApplication
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationRobotSoftwareSuitePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html
+// Information about a robot software suite (ROS distribution).
 type SimulationApplicationRobotSoftwareSuiteOutput struct{ *pulumi.OutputState }
 
 func (SimulationApplicationRobotSoftwareSuiteOutput) ElementType() reflect.Type {
@@ -274,12 +516,12 @@ func (o SimulationApplicationRobotSoftwareSuiteOutput) ToSimulationApplicationRo
 	}).(SimulationApplicationRobotSoftwareSuitePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html#cfn-robomaker-simulationapplication-robotsoftwaresuite-name
+// The name of the robot software suite (ROS distribution).
 func (o SimulationApplicationRobotSoftwareSuiteOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SimulationApplicationRobotSoftwareSuite) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html#cfn-robomaker-simulationapplication-robotsoftwaresuite-version
+// The version of the robot software suite (ROS distribution).
 func (o SimulationApplicationRobotSoftwareSuiteOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v SimulationApplicationRobotSoftwareSuite) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -308,7 +550,7 @@ func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Elem() SimulationAppli
 	}).(SimulationApplicationRobotSoftwareSuiteOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html#cfn-robomaker-simulationapplication-robotsoftwaresuite-name
+// The name of the robot software suite (ROS distribution).
 func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SimulationApplicationRobotSoftwareSuite) *string {
 		if v == nil {
@@ -318,7 +560,7 @@ func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Name() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html#cfn-robomaker-simulationapplication-robotsoftwaresuite-version
+// The version of the robot software suite (ROS distribution).
 func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SimulationApplicationRobotSoftwareSuite) *string {
 		if v == nil {
@@ -328,11 +570,11 @@ func (o SimulationApplicationRobotSoftwareSuitePtrOutput) Version() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html
+// Information about a simulation software suite.
 type SimulationApplicationSimulationSoftwareSuite struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-name
+	// The name of the simulation software suite.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-version
+	// The version of the simulation software suite.
 	Version string `pulumi:"version"`
 }
 
@@ -347,11 +589,11 @@ type SimulationApplicationSimulationSoftwareSuiteInput interface {
 	ToSimulationApplicationSimulationSoftwareSuiteOutputWithContext(context.Context) SimulationApplicationSimulationSoftwareSuiteOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html
+// Information about a simulation software suite.
 type SimulationApplicationSimulationSoftwareSuiteArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-name
+	// The name of the simulation software suite.
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-version
+	// The version of the simulation software suite.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -408,7 +650,7 @@ func (i *simulationApplicationSimulationSoftwareSuitePtrType) ToSimulationApplic
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationSimulationSoftwareSuitePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html
+// Information about a simulation software suite.
 type SimulationApplicationSimulationSoftwareSuiteOutput struct{ *pulumi.OutputState }
 
 func (SimulationApplicationSimulationSoftwareSuiteOutput) ElementType() reflect.Type {
@@ -433,12 +675,12 @@ func (o SimulationApplicationSimulationSoftwareSuiteOutput) ToSimulationApplicat
 	}).(SimulationApplicationSimulationSoftwareSuitePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-name
+// The name of the simulation software suite.
 func (o SimulationApplicationSimulationSoftwareSuiteOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SimulationApplicationSimulationSoftwareSuite) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-version
+// The version of the simulation software suite.
 func (o SimulationApplicationSimulationSoftwareSuiteOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v SimulationApplicationSimulationSoftwareSuite) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -467,7 +709,7 @@ func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Elem() Simulation
 	}).(SimulationApplicationSimulationSoftwareSuiteOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-name
+// The name of the simulation software suite.
 func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SimulationApplicationSimulationSoftwareSuite) *string {
 		if v == nil {
@@ -477,7 +719,7 @@ func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Name() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-simulationsoftwaresuite.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite-version
+// The version of the simulation software suite.
 func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SimulationApplicationSimulationSoftwareSuite) *string {
 		if v == nil {
@@ -487,13 +729,13 @@ func (o SimulationApplicationSimulationSoftwareSuitePtrOutput) Version() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html
+// Information about a source configuration.
 type SimulationApplicationSourceConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-architecture
+	// The target processor architecture for the application.
 	Architecture string `pulumi:"architecture"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3bucket
+	// The Amazon S3 bucket name.
 	S3Bucket string `pulumi:"s3Bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3key
+	// The s3 object key.
 	S3Key string `pulumi:"s3Key"`
 }
 
@@ -508,13 +750,13 @@ type SimulationApplicationSourceConfigInput interface {
 	ToSimulationApplicationSourceConfigOutputWithContext(context.Context) SimulationApplicationSourceConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html
+// Information about a source configuration.
 type SimulationApplicationSourceConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-architecture
+	// The target processor architecture for the application.
 	Architecture pulumi.StringInput `pulumi:"architecture"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3bucket
+	// The Amazon S3 bucket name.
 	S3Bucket pulumi.StringInput `pulumi:"s3Bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3key
+	// The s3 object key.
 	S3Key pulumi.StringInput `pulumi:"s3Key"`
 }
 
@@ -555,7 +797,7 @@ func (i SimulationApplicationSourceConfigArray) ToSimulationApplicationSourceCon
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationSourceConfigArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html
+// Information about a source configuration.
 type SimulationApplicationSourceConfigOutput struct{ *pulumi.OutputState }
 
 func (SimulationApplicationSourceConfigOutput) ElementType() reflect.Type {
@@ -570,17 +812,17 @@ func (o SimulationApplicationSourceConfigOutput) ToSimulationApplicationSourceCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-architecture
+// The target processor architecture for the application.
 func (o SimulationApplicationSourceConfigOutput) Architecture() pulumi.StringOutput {
 	return o.ApplyT(func(v SimulationApplicationSourceConfig) string { return v.Architecture }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3bucket
+// The Amazon S3 bucket name.
 func (o SimulationApplicationSourceConfigOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v SimulationApplicationSourceConfig) string { return v.S3Bucket }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3key
+// The s3 object key.
 func (o SimulationApplicationSourceConfigOutput) S3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v SimulationApplicationSourceConfig) string { return v.S3Key }).(pulumi.StringOutput)
 }
@@ -605,7 +847,132 @@ func (o SimulationApplicationSourceConfigArrayOutput) Index(i pulumi.IntInput) S
 	}).(SimulationApplicationSourceConfigOutput)
 }
 
+// A key-value pair to associate with a resource.
+type SimulationApplicationTags struct {
+}
+
+// SimulationApplicationTagsInput is an input type that accepts SimulationApplicationTagsArgs and SimulationApplicationTagsOutput values.
+// You can construct a concrete instance of `SimulationApplicationTagsInput` via:
+//
+//          SimulationApplicationTagsArgs{...}
+type SimulationApplicationTagsInput interface {
+	pulumi.Input
+
+	ToSimulationApplicationTagsOutput() SimulationApplicationTagsOutput
+	ToSimulationApplicationTagsOutputWithContext(context.Context) SimulationApplicationTagsOutput
+}
+
+// A key-value pair to associate with a resource.
+type SimulationApplicationTagsArgs struct {
+}
+
+func (SimulationApplicationTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SimulationApplicationTags)(nil)).Elem()
+}
+
+func (i SimulationApplicationTagsArgs) ToSimulationApplicationTagsOutput() SimulationApplicationTagsOutput {
+	return i.ToSimulationApplicationTagsOutputWithContext(context.Background())
+}
+
+func (i SimulationApplicationTagsArgs) ToSimulationApplicationTagsOutputWithContext(ctx context.Context) SimulationApplicationTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationTagsOutput)
+}
+
+func (i SimulationApplicationTagsArgs) ToSimulationApplicationTagsPtrOutput() SimulationApplicationTagsPtrOutput {
+	return i.ToSimulationApplicationTagsPtrOutputWithContext(context.Background())
+}
+
+func (i SimulationApplicationTagsArgs) ToSimulationApplicationTagsPtrOutputWithContext(ctx context.Context) SimulationApplicationTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationTagsOutput).ToSimulationApplicationTagsPtrOutputWithContext(ctx)
+}
+
+// SimulationApplicationTagsPtrInput is an input type that accepts SimulationApplicationTagsArgs, SimulationApplicationTagsPtr and SimulationApplicationTagsPtrOutput values.
+// You can construct a concrete instance of `SimulationApplicationTagsPtrInput` via:
+//
+//          SimulationApplicationTagsArgs{...}
+//
+//  or:
+//
+//          nil
+type SimulationApplicationTagsPtrInput interface {
+	pulumi.Input
+
+	ToSimulationApplicationTagsPtrOutput() SimulationApplicationTagsPtrOutput
+	ToSimulationApplicationTagsPtrOutputWithContext(context.Context) SimulationApplicationTagsPtrOutput
+}
+
+type simulationApplicationTagsPtrType SimulationApplicationTagsArgs
+
+func SimulationApplicationTagsPtr(v *SimulationApplicationTagsArgs) SimulationApplicationTagsPtrInput {
+	return (*simulationApplicationTagsPtrType)(v)
+}
+
+func (*simulationApplicationTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SimulationApplicationTags)(nil)).Elem()
+}
+
+func (i *simulationApplicationTagsPtrType) ToSimulationApplicationTagsPtrOutput() SimulationApplicationTagsPtrOutput {
+	return i.ToSimulationApplicationTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *simulationApplicationTagsPtrType) ToSimulationApplicationTagsPtrOutputWithContext(ctx context.Context) SimulationApplicationTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SimulationApplicationTagsPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type SimulationApplicationTagsOutput struct{ *pulumi.OutputState }
+
+func (SimulationApplicationTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SimulationApplicationTags)(nil)).Elem()
+}
+
+func (o SimulationApplicationTagsOutput) ToSimulationApplicationTagsOutput() SimulationApplicationTagsOutput {
+	return o
+}
+
+func (o SimulationApplicationTagsOutput) ToSimulationApplicationTagsOutputWithContext(ctx context.Context) SimulationApplicationTagsOutput {
+	return o
+}
+
+func (o SimulationApplicationTagsOutput) ToSimulationApplicationTagsPtrOutput() SimulationApplicationTagsPtrOutput {
+	return o.ToSimulationApplicationTagsPtrOutputWithContext(context.Background())
+}
+
+func (o SimulationApplicationTagsOutput) ToSimulationApplicationTagsPtrOutputWithContext(ctx context.Context) SimulationApplicationTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SimulationApplicationTags) *SimulationApplicationTags {
+		return &v
+	}).(SimulationApplicationTagsPtrOutput)
+}
+
+type SimulationApplicationTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (SimulationApplicationTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SimulationApplicationTags)(nil)).Elem()
+}
+
+func (o SimulationApplicationTagsPtrOutput) ToSimulationApplicationTagsPtrOutput() SimulationApplicationTagsPtrOutput {
+	return o
+}
+
+func (o SimulationApplicationTagsPtrOutput) ToSimulationApplicationTagsPtrOutputWithContext(ctx context.Context) SimulationApplicationTagsPtrOutput {
+	return o
+}
+
+func (o SimulationApplicationTagsPtrOutput) Elem() SimulationApplicationTagsOutput {
+	return o.ApplyT(func(v *SimulationApplicationTags) SimulationApplicationTags {
+		if v != nil {
+			return *v
+		}
+		var ret SimulationApplicationTags
+		return ret
+	}).(SimulationApplicationTagsOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(FleetTagsOutput{})
+	pulumi.RegisterOutputType(FleetTagsPtrOutput{})
+	pulumi.RegisterOutputType(RobotTagsOutput{})
+	pulumi.RegisterOutputType(RobotTagsPtrOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationRenderingEngineOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationRenderingEnginePtrOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationRobotSoftwareSuiteOutput{})
@@ -614,4 +981,6 @@ func init() {
 	pulumi.RegisterOutputType(SimulationApplicationSimulationSoftwareSuitePtrOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationSourceConfigOutput{})
 	pulumi.RegisterOutputType(SimulationApplicationSourceConfigArrayOutput{})
+	pulumi.RegisterOutputType(SimulationApplicationTagsOutput{})
+	pulumi.RegisterOutputType(SimulationApplicationTagsPtrOutput{})
 }

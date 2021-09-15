@@ -11,19 +11,16 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html
+    /// &lt;p&gt;A metadata error structure for an analysis.&lt;/p&gt;
     /// </summary>
     public sealed class AnalysisAnalysisErrorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-message
+        /// &lt;p&gt;The message associated with the analysis error.&lt;/p&gt;
         /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-type
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

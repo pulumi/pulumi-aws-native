@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html
+ * Resource Type definition for AWS::SageMaker::ImageVersion
  */
 export class ImageVersion extends pulumi.CustomResource {
     /**
@@ -34,15 +34,9 @@ export class ImageVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === ImageVersion.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-baseimage
-     */
     public readonly baseImage!: pulumi.Output<string>;
     public /*out*/ readonly containerImage!: pulumi.Output<string>;
     public /*out*/ readonly imageArn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-imagename
-     */
     public readonly imageName!: pulumi.Output<string>;
     public /*out*/ readonly imageVersionArn!: pulumi.Output<string>;
     public /*out*/ readonly version!: pulumi.Output<number>;
@@ -89,12 +83,6 @@ export class ImageVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a ImageVersion resource.
  */
 export interface ImageVersionArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-baseimage
-     */
     baseImage: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-imagename
-     */
     imageName: pulumi.Input<string>;
 }

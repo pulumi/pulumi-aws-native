@@ -11,21 +11,25 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html
+    /// A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's RuntimeConfiguration.
     /// </summary>
     [OutputType]
     public sealed class FleetServerProcess
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-concurrentexecutions
+        /// The number of server processes that use this configuration to run concurrently on an instance.
         /// </summary>
         public readonly int ConcurrentExecutions;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-launchpath
+        /// The location of the server executable in a custom game build or the name of the Realtime script file that contains the Init() function. Game builds and Realtime scripts are installed on instances at the root:
+        /// 
+        /// Windows (for custom game builds only): C:\game. Example: "C:\game\MyGame\server.exe"
+        /// 
+        /// Linux: /local/game. Examples: "/local/game/MyGame/server.exe" or "/local/game/MyRealtimeScript.js"
         /// </summary>
         public readonly string LaunchPath;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-serverprocess.html#cfn-gamelift-fleet-serverprocess-parameters
+        /// An optional list of parameters to pass to the server executable or Realtime script on launch.
         /// </summary>
         public readonly string? Parameters;
 

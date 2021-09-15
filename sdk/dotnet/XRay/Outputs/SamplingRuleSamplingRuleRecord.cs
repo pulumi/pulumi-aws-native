@@ -10,23 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.XRay.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html
-    /// </summary>
     [OutputType]
     public sealed class SamplingRuleSamplingRuleRecord
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-createdat
+        /// When the rule was created, in Unix time seconds.
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-modifiedat
+        /// When the rule was modified, in Unix time seconds.
         /// </summary>
         public readonly string? ModifiedAt;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-samplingrule
-        /// </summary>
         public readonly Outputs.SamplingRuleSamplingRule? SamplingRule;
 
         [OutputConstructor]

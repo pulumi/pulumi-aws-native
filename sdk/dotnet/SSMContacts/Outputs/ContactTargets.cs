@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.SSMContacts.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html
+    /// The contacts or contact methods that the escalation plan or engagement plan is engaging.
     /// </summary>
     [OutputType]
     public sealed class ContactTargets
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-channeltargetinfo
-        /// </summary>
         public readonly Outputs.ContactChannelTargetInfo? ChannelTargetInfo;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-contacttargetinfo
-        /// </summary>
         public readonly Outputs.ContactContactTargetInfo? ContactTargetInfo;
 
         [OutputConstructor]

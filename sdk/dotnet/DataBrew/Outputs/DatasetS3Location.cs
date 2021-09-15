@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html
+    /// Input location
     /// </summary>
     [OutputType]
     public sealed class DatasetS3Location
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-bucket
-        /// </summary>
         public readonly string Bucket;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-key
-        /// </summary>
         public readonly string? Key;
 
         [OutputConstructor]

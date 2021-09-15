@@ -21,10 +21,10 @@ class ContactArgs:
                  type: pulumi.Input[str]):
         """
         The set of arguments for constructing a Contact resource.
-        :param pulumi.Input[str] alias: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-alias
-        :param pulumi.Input[str] display_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-displayname
-        :param pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]] plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-plan
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-type
+        :param pulumi.Input[str] alias: Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
+        :param pulumi.Input[str] display_name: Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
+        :param pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]] plan: The stages that an escalation plan or engagement plan engages contacts and contact methods in.
+        :param pulumi.Input[str] type: Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
         """
         pulumi.set(__self__, "alias", alias)
         pulumi.set(__self__, "display_name", display_name)
@@ -35,7 +35,7 @@ class ContactArgs:
     @pulumi.getter
     def alias(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-alias
+        Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
         """
         return pulumi.get(self, "alias")
 
@@ -47,7 +47,7 @@ class ContactArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-displayname
+        Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
         """
         return pulumi.get(self, "display_name")
 
@@ -59,7 +59,7 @@ class ContactArgs:
     @pulumi.getter
     def plan(self) -> pulumi.Input[Sequence[pulumi.Input['ContactStageArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-plan
+        The stages that an escalation plan or engagement plan engages contacts and contact methods in.
         """
         return pulumi.get(self, "plan")
 
@@ -71,7 +71,7 @@ class ContactArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-type
+        Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
         """
         return pulumi.get(self, "type")
 
@@ -91,14 +91,14 @@ class Contact(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html
+        Resource Type definition for AWS::SSMContacts::Contact
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alias: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-alias
-        :param pulumi.Input[str] display_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-displayname
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactStageArgs']]]] plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-plan
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-type
+        :param pulumi.Input[str] alias: Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
+        :param pulumi.Input[str] display_name: Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactStageArgs']]]] plan: The stages that an escalation plan or engagement plan engages contacts and contact methods in.
+        :param pulumi.Input[str] type: Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
         """
         ...
     @overload
@@ -107,7 +107,7 @@ class Contact(pulumi.CustomResource):
                  args: ContactArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html
+        Resource Type definition for AWS::SSMContacts::Contact
 
         :param str resource_name: The name of the resource.
         :param ContactArgs args: The arguments to use to populate this resource's properties.
@@ -186,20 +186,23 @@ class Contact(pulumi.CustomResource):
     @pulumi.getter
     def alias(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-alias
+        Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
         """
         return pulumi.get(self, "alias")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the contact.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-displayname
+        Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
         """
         return pulumi.get(self, "display_name")
 
@@ -207,7 +210,7 @@ class Contact(pulumi.CustomResource):
     @pulumi.getter
     def plan(self) -> pulumi.Output[Sequence['outputs.ContactStage']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-plan
+        The stages that an escalation plan or engagement plan engages contacts and contact methods in.
         """
         return pulumi.get(self, "plan")
 
@@ -215,7 +218,7 @@ class Contact(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-type
+        Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
         """
         return pulumi.get(self, "type")
 

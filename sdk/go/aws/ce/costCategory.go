@@ -11,21 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html
+// Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
 type CostCategory struct {
 	pulumi.CustomResourceState
 
+	// Cost category ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-defaultvalue
+	// The default value for the cost category
 	DefaultValue   pulumi.StringPtrOutput `pulumi:"defaultValue"`
 	EffectiveStart pulumi.StringOutput    `pulumi:"effectiveStart"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-ruleversion
-	RuleVersion pulumi.StringOutput `pulumi:"ruleVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
+	Name           pulumi.StringOutput    `pulumi:"name"`
+	RuleVersion    pulumi.StringOutput    `pulumi:"ruleVersion"`
+	// JSON array format of Expression in Billing and Cost Management API
 	Rules pulumi.StringOutput `pulumi:"rules"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+	// Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
 	SplitChargeRules pulumi.StringPtrOutput `pulumi:"splitChargeRules"`
 }
 
@@ -77,29 +76,25 @@ func (CostCategoryState) ElementType() reflect.Type {
 }
 
 type costCategoryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-defaultvalue
+	// The default value for the cost category
 	DefaultValue *string `pulumi:"defaultValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-ruleversion
-	RuleVersion string `pulumi:"ruleVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
+	Name         string  `pulumi:"name"`
+	RuleVersion  string  `pulumi:"ruleVersion"`
+	// JSON array format of Expression in Billing and Cost Management API
 	Rules string `pulumi:"rules"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+	// Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
 	SplitChargeRules *string `pulumi:"splitChargeRules"`
 }
 
 // The set of arguments for constructing a CostCategory resource.
 type CostCategoryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-defaultvalue
+	// The default value for the cost category
 	DefaultValue pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-name
-	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-ruleversion
-	RuleVersion pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
+	Name         pulumi.StringInput
+	RuleVersion  pulumi.StringInput
+	// JSON array format of Expression in Billing and Cost Management API
 	Rules pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+	// Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
 	SplitChargeRules pulumi.StringPtrInput
 }
 

@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.IoT.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html
+    /// Aggregation types supported by Fleet Indexing
     /// </summary>
     [OutputType]
     public sealed class FleetMetricAggregationType
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-name
+        /// Fleet Indexing aggregation type names such as Statistics, Percentiles and Cardinality
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-values
+        /// Fleet Indexing aggregation type values
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

@@ -11,40 +11,26 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html
+    /// Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
     /// </summary>
     public sealed class AccessPointObjectLambdaConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("allowedFeatures")]
         private InputList<string>? _allowedFeatures;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-allowedfeatures
-        /// </summary>
         public InputList<string> AllowedFeatures
         {
             get => _allowedFeatures ?? (_allowedFeatures = new InputList<string>());
             set => _allowedFeatures = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-cloudwatchmetricsenabled
-        /// </summary>
         [Input("cloudWatchMetricsEnabled")]
         public Input<bool>? CloudWatchMetricsEnabled { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-supportingaccesspoint
-        /// </summary>
         [Input("supportingAccessPoint", required: true)]
         public Input<string> SupportingAccessPoint { get; set; } = null!;
 
         [Input("transformationConfigurations", required: true)]
         private InputList<Inputs.AccessPointTransformationConfigurationArgs>? _transformationConfigurations;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-transformationconfigurations
-        /// </summary>
         public InputList<Inputs.AccessPointTransformationConfigurationArgs> TransformationConfigurations
         {
             get => _transformationConfigurations ?? (_transformationConfigurations = new InputList<Inputs.AccessPointTransformationConfigurationArgs>());

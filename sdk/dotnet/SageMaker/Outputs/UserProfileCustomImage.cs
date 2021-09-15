@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html
+    /// A custom SageMaker image.
     /// </summary>
     [OutputType]
     public sealed class UserProfileCustomImage
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-appimageconfigname
+        /// The Name of the AppImageConfig.
         /// </summary>
         public readonly string AppImageConfigName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imagename
+        /// The name of the CustomImage. Must be unique to your account.
         /// </summary>
         public readonly string ImageName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html#cfn-sagemaker-userprofile-customimage-imageversionnumber
+        /// The version number of the CustomImage.
         /// </summary>
         public readonly int? ImageVersionNumber;
 

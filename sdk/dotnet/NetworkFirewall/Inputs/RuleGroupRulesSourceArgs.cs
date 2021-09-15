@@ -10,38 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html
-    /// </summary>
     public sealed class RuleGroupRulesSourceArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulessourcelist
-        /// </summary>
         [Input("rulesSourceList")]
         public Input<Inputs.RuleGroupRulesSourceListArgs>? RulesSourceList { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-rulesstring
-        /// </summary>
         [Input("rulesString")]
         public Input<string>? RulesString { get; set; }
 
         [Input("statefulRules")]
         private InputList<Inputs.RuleGroupStatefulRuleArgs>? _statefulRules;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statefulrules
-        /// </summary>
         public InputList<Inputs.RuleGroupStatefulRuleArgs> StatefulRules
         {
             get => _statefulRules ?? (_statefulRules = new InputList<Inputs.RuleGroupStatefulRuleArgs>());
             set => _statefulRules = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulessource.html#cfn-networkfirewall-rulegroup-rulessource-statelessrulesandcustomactions
-        /// </summary>
         [Input("statelessRulesAndCustomActions")]
         public Input<Inputs.RuleGroupStatelessRulesAndCustomActionsArgs>? StatelessRulesAndCustomActions { get; set; }
 

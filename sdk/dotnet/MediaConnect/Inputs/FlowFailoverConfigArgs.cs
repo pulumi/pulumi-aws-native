@@ -11,19 +11,16 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html
+    /// The settings for source failover
     /// </summary>
     public sealed class FlowFailoverConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html#cfn-mediaconnect-flow-failoverconfig-recoverywindow
+        /// Search window time to look for dash-7 packets
         /// </summary>
         [Input("recoveryWindow")]
         public Input<int>? RecoveryWindow { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html#cfn-mediaconnect-flow-failoverconfig-state
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 

@@ -15,45 +15,43 @@ __all__ = ['ContainerRecipeArgs', 'ContainerRecipe']
 @pulumi.input_type
 class ContainerRecipeArgs:
     def __init__(__self__, *,
-                 components: pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]],
-                 container_type: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 parent_image: pulumi.Input[str],
-                 target_repository: pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs'],
-                 version: pulumi.Input[str],
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]]] = None,
+                 container_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dockerfile_template_data: Optional[pulumi.Input[str]] = None,
                  dockerfile_template_uri: Optional[pulumi.Input[str]] = None,
                  image_os_version_override: Optional[pulumi.Input[str]] = None,
                  instance_configuration: Optional[pulumi.Input['ContainerRecipeInstanceConfigurationArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parent_image: Optional[pulumi.Input[str]] = None,
                  platform_override: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
+                 target_repository: Optional[pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs']] = None,
+                 version: Optional[pulumi.Input[str]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ContainerRecipe resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]] components: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-components
-        :param pulumi.Input[str] container_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-containertype
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-name
-        :param pulumi.Input[str] parent_image: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-parentimage
-        :param pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs'] target_repository: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-targetrepository
-        :param pulumi.Input[str] version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-version
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-description
-        :param pulumi.Input[str] dockerfile_template_data: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplatedata
-        :param pulumi.Input[str] dockerfile_template_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplateuri
-        :param pulumi.Input[str] image_os_version_override: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-imageosversionoverride
-        :param pulumi.Input['ContainerRecipeInstanceConfigurationArgs'] instance_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-instanceconfiguration
-        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-kmskeyid
-        :param pulumi.Input[str] platform_override: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-platformoverride
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-tags
-        :param pulumi.Input[str] working_directory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-workingdirectory
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]] components: Components for build and test that are included in the container recipe.
+        :param pulumi.Input[str] container_type: Specifies the type of container, such as Docker.
+        :param pulumi.Input[str] description: The description of the container recipe.
+        :param pulumi.Input[str] dockerfile_template_data: Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
+        :param pulumi.Input[str] dockerfile_template_uri: The S3 URI for the Dockerfile that will be used to build your container image.
+        :param pulumi.Input[str] image_os_version_override: Specifies the operating system version for the source image.
+        :param pulumi.Input['ContainerRecipeInstanceConfigurationArgs'] instance_configuration: A group of options that can be used to configure an instance for building and testing container images.
+        :param pulumi.Input[str] kms_key_id: Identifies which KMS key is used to encrypt the container image.
+        :param pulumi.Input[str] name: The name of the container recipe.
+        :param pulumi.Input[str] parent_image: The source image for the container recipe.
+        :param pulumi.Input[str] platform_override: Specifies the operating system platform when you use a custom source image.
+        :param Any tags: Tags that are attached to the container recipe.
+        :param pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs'] target_repository: The destination repository for the container image.
+        :param pulumi.Input[str] version: The semantic version of the container recipe (<major>.<minor>.<patch>).
+        :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
-        pulumi.set(__self__, "components", components)
-        pulumi.set(__self__, "container_type", container_type)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "parent_image", parent_image)
-        pulumi.set(__self__, "target_repository", target_repository)
-        pulumi.set(__self__, "version", version)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
+        if container_type is not None:
+            pulumi.set(__self__, "container_type", container_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if dockerfile_template_data is not None:
@@ -66,90 +64,50 @@ class ContainerRecipeArgs:
             pulumi.set(__self__, "instance_configuration", instance_configuration)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parent_image is not None:
+            pulumi.set(__self__, "parent_image", parent_image)
         if platform_override is not None:
             pulumi.set(__self__, "platform_override", platform_override)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if target_repository is not None:
+            pulumi.set(__self__, "target_repository", target_repository)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
         if working_directory is not None:
             pulumi.set(__self__, "working_directory", working_directory)
 
     @property
     @pulumi.getter
-    def components(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]]:
+    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-components
+        Components for build and test that are included in the container recipe.
         """
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]]):
+    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]]]):
         pulumi.set(self, "components", value)
 
     @property
     @pulumi.getter(name="containerType")
-    def container_type(self) -> pulumi.Input[str]:
+    def container_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-containertype
+        Specifies the type of container, such as Docker.
         """
         return pulumi.get(self, "container_type")
 
     @container_type.setter
-    def container_type(self, value: pulumi.Input[str]):
+    def container_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "container_type", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="parentImage")
-    def parent_image(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-parentimage
-        """
-        return pulumi.get(self, "parent_image")
-
-    @parent_image.setter
-    def parent_image(self, value: pulumi.Input[str]):
-        pulumi.set(self, "parent_image", value)
-
-    @property
-    @pulumi.getter(name="targetRepository")
-    def target_repository(self) -> pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-targetrepository
-        """
-        return pulumi.get(self, "target_repository")
-
-    @target_repository.setter
-    def target_repository(self, value: pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs']):
-        pulumi.set(self, "target_repository", value)
-
-    @property
-    @pulumi.getter
-    def version(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-version
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: pulumi.Input[str]):
-        pulumi.set(self, "version", value)
 
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-description
+        The description of the container recipe.
         """
         return pulumi.get(self, "description")
 
@@ -161,7 +119,7 @@ class ContainerRecipeArgs:
     @pulumi.getter(name="dockerfileTemplateData")
     def dockerfile_template_data(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplatedata
+        Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
         """
         return pulumi.get(self, "dockerfile_template_data")
 
@@ -173,7 +131,7 @@ class ContainerRecipeArgs:
     @pulumi.getter(name="dockerfileTemplateUri")
     def dockerfile_template_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplateuri
+        The S3 URI for the Dockerfile that will be used to build your container image.
         """
         return pulumi.get(self, "dockerfile_template_uri")
 
@@ -185,7 +143,7 @@ class ContainerRecipeArgs:
     @pulumi.getter(name="imageOsVersionOverride")
     def image_os_version_override(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-imageosversionoverride
+        Specifies the operating system version for the source image.
         """
         return pulumi.get(self, "image_os_version_override")
 
@@ -197,7 +155,7 @@ class ContainerRecipeArgs:
     @pulumi.getter(name="instanceConfiguration")
     def instance_configuration(self) -> Optional[pulumi.Input['ContainerRecipeInstanceConfigurationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-instanceconfiguration
+        A group of options that can be used to configure an instance for building and testing container images.
         """
         return pulumi.get(self, "instance_configuration")
 
@@ -209,7 +167,7 @@ class ContainerRecipeArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-kmskeyid
+        Identifies which KMS key is used to encrypt the container image.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -218,10 +176,34 @@ class ContainerRecipeArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the container recipe.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="parentImage")
+    def parent_image(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source image for the container recipe.
+        """
+        return pulumi.get(self, "parent_image")
+
+    @parent_image.setter
+    def parent_image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_image", value)
+
+    @property
     @pulumi.getter(name="platformOverride")
     def platform_override(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-platformoverride
+        Specifies the operating system platform when you use a custom source image.
         """
         return pulumi.get(self, "platform_override")
 
@@ -231,21 +213,45 @@ class ContainerRecipeArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def tags(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-tags
+        Tags that are attached to the container recipe.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def tags(self, value: Optional[Any]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetRepository")
+    def target_repository(self) -> Optional[pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs']]:
+        """
+        The destination repository for the container image.
+        """
+        return pulumi.get(self, "target_repository")
+
+    @target_repository.setter
+    def target_repository(self, value: Optional[pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs']]):
+        pulumi.set(self, "target_repository", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The semantic version of the container recipe (<major>.<minor>.<patch>).
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
     @property
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-workingdirectory
+        The working directory to be used during build and test workflows.
         """
         return pulumi.get(self, "working_directory")
 
@@ -270,40 +276,40 @@ class ContainerRecipe(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
                  platform_override: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  target_repository: Optional[pulumi.Input[pulumi.InputType['ContainerRecipeTargetContainerRepositoryArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html
+        Resource schema for AWS::ImageBuilder::ContainerRecipe
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerRecipeComponentConfigurationArgs']]]] components: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-components
-        :param pulumi.Input[str] container_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-containertype
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-description
-        :param pulumi.Input[str] dockerfile_template_data: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplatedata
-        :param pulumi.Input[str] dockerfile_template_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplateuri
-        :param pulumi.Input[str] image_os_version_override: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-imageosversionoverride
-        :param pulumi.Input[pulumi.InputType['ContainerRecipeInstanceConfigurationArgs']] instance_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-instanceconfiguration
-        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-kmskeyid
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-name
-        :param pulumi.Input[str] parent_image: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-parentimage
-        :param pulumi.Input[str] platform_override: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-platformoverride
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-tags
-        :param pulumi.Input[pulumi.InputType['ContainerRecipeTargetContainerRepositoryArgs']] target_repository: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-targetrepository
-        :param pulumi.Input[str] version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-version
-        :param pulumi.Input[str] working_directory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-workingdirectory
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerRecipeComponentConfigurationArgs']]]] components: Components for build and test that are included in the container recipe.
+        :param pulumi.Input[str] container_type: Specifies the type of container, such as Docker.
+        :param pulumi.Input[str] description: The description of the container recipe.
+        :param pulumi.Input[str] dockerfile_template_data: Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
+        :param pulumi.Input[str] dockerfile_template_uri: The S3 URI for the Dockerfile that will be used to build your container image.
+        :param pulumi.Input[str] image_os_version_override: Specifies the operating system version for the source image.
+        :param pulumi.Input[pulumi.InputType['ContainerRecipeInstanceConfigurationArgs']] instance_configuration: A group of options that can be used to configure an instance for building and testing container images.
+        :param pulumi.Input[str] kms_key_id: Identifies which KMS key is used to encrypt the container image.
+        :param pulumi.Input[str] name: The name of the container recipe.
+        :param pulumi.Input[str] parent_image: The source image for the container recipe.
+        :param pulumi.Input[str] platform_override: Specifies the operating system platform when you use a custom source image.
+        :param Any tags: Tags that are attached to the container recipe.
+        :param pulumi.Input[pulumi.InputType['ContainerRecipeTargetContainerRepositoryArgs']] target_repository: The destination repository for the container image.
+        :param pulumi.Input[str] version: The semantic version of the container recipe (<major>.<minor>.<patch>).
+        :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ContainerRecipeArgs,
+                 args: Optional[ContainerRecipeArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html
+        Resource schema for AWS::ImageBuilder::ContainerRecipe
 
         :param str resource_name: The name of the resource.
         :param ContainerRecipeArgs args: The arguments to use to populate this resource's properties.
@@ -331,7 +337,7 @@ class ContainerRecipe(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
                  platform_override: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[Any] = None,
                  target_repository: Optional[pulumi.Input[pulumi.InputType['ContainerRecipeTargetContainerRepositoryArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None,
@@ -347,11 +353,7 @@ class ContainerRecipe(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContainerRecipeArgs.__new__(ContainerRecipeArgs)
 
-            if components is None and not opts.urn:
-                raise TypeError("Missing required property 'components'")
             __props__.__dict__["components"] = components
-            if container_type is None and not opts.urn:
-                raise TypeError("Missing required property 'container_type'")
             __props__.__dict__["container_type"] = container_type
             __props__.__dict__["description"] = description
             __props__.__dict__["dockerfile_template_data"] = dockerfile_template_data
@@ -359,19 +361,11 @@ class ContainerRecipe(pulumi.CustomResource):
             __props__.__dict__["image_os_version_override"] = image_os_version_override
             __props__.__dict__["instance_configuration"] = instance_configuration
             __props__.__dict__["kms_key_id"] = kms_key_id
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
-            if parent_image is None and not opts.urn:
-                raise TypeError("Missing required property 'parent_image'")
             __props__.__dict__["parent_image"] = parent_image
             __props__.__dict__["platform_override"] = platform_override
             __props__.__dict__["tags"] = tags
-            if target_repository is None and not opts.urn:
-                raise TypeError("Missing required property 'target_repository'")
             __props__.__dict__["target_repository"] = target_repository
-            if version is None and not opts.urn:
-                raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
             __props__.__dict__["working_directory"] = working_directory
             __props__.__dict__["arn"] = None
@@ -418,21 +412,24 @@ class ContainerRecipe(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the container recipe.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
-    def components(self) -> pulumi.Output[Sequence['outputs.ContainerRecipeComponentConfiguration']]:
+    def components(self) -> pulumi.Output[Optional[Sequence['outputs.ContainerRecipeComponentConfiguration']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-components
+        Components for build and test that are included in the container recipe.
         """
         return pulumi.get(self, "components")
 
     @property
     @pulumi.getter(name="containerType")
-    def container_type(self) -> pulumi.Output[str]:
+    def container_type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-containertype
+        Specifies the type of container, such as Docker.
         """
         return pulumi.get(self, "container_type")
 
@@ -440,7 +437,7 @@ class ContainerRecipe(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-description
+        The description of the container recipe.
         """
         return pulumi.get(self, "description")
 
@@ -448,7 +445,7 @@ class ContainerRecipe(pulumi.CustomResource):
     @pulumi.getter(name="dockerfileTemplateData")
     def dockerfile_template_data(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplatedata
+        Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
         """
         return pulumi.get(self, "dockerfile_template_data")
 
@@ -456,7 +453,7 @@ class ContainerRecipe(pulumi.CustomResource):
     @pulumi.getter(name="dockerfileTemplateUri")
     def dockerfile_template_uri(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplateuri
+        The S3 URI for the Dockerfile that will be used to build your container image.
         """
         return pulumi.get(self, "dockerfile_template_uri")
 
@@ -464,7 +461,7 @@ class ContainerRecipe(pulumi.CustomResource):
     @pulumi.getter(name="imageOsVersionOverride")
     def image_os_version_override(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-imageosversionoverride
+        Specifies the operating system version for the source image.
         """
         return pulumi.get(self, "image_os_version_override")
 
@@ -472,7 +469,7 @@ class ContainerRecipe(pulumi.CustomResource):
     @pulumi.getter(name="instanceConfiguration")
     def instance_configuration(self) -> pulumi.Output[Optional['outputs.ContainerRecipeInstanceConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-instanceconfiguration
+        A group of options that can be used to configure an instance for building and testing container images.
         """
         return pulumi.get(self, "instance_configuration")
 
@@ -480,20 +477,23 @@ class ContainerRecipe(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-kmskeyid
+        Identifies which KMS key is used to encrypt the container image.
         """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the container recipe.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="parentImage")
-    def parent_image(self) -> pulumi.Output[str]:
+    def parent_image(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-parentimage
+        The source image for the container recipe.
         """
         return pulumi.get(self, "parent_image")
 
@@ -501,31 +501,31 @@ class ContainerRecipe(pulumi.CustomResource):
     @pulumi.getter(name="platformOverride")
     def platform_override(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-platformoverride
+        Specifies the operating system platform when you use a custom source image.
         """
         return pulumi.get(self, "platform_override")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def tags(self) -> pulumi.Output[Optional[Any]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-tags
+        Tags that are attached to the container recipe.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="targetRepository")
-    def target_repository(self) -> pulumi.Output['outputs.ContainerRecipeTargetContainerRepository']:
+    def target_repository(self) -> pulumi.Output[Optional['outputs.ContainerRecipeTargetContainerRepository']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-targetrepository
+        The destination repository for the container image.
         """
         return pulumi.get(self, "target_repository")
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-version
+        The semantic version of the container recipe (<major>.<minor>.<patch>).
         """
         return pulumi.get(self, "version")
 
@@ -533,7 +533,7 @@ class ContainerRecipe(pulumi.CustomResource):
     @pulumi.getter(name="workingDirectory")
     def working_directory(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-workingdirectory
+        The working directory to be used during build and test workflows.
         """
         return pulumi.get(self, "working_directory")
 

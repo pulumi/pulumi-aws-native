@@ -11,102 +11,116 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html
+    /// &lt;p&gt;The theme colors that apply to UI and to charts, excluding data colors. The colors
+    ///             description is a hexadecimal color code that consists of six alphanumerical characters,
+    ///             prefixed with &lt;code&gt;#&lt;/code&gt;, for example #37BFF5. For more information, see &lt;a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html"&gt;Using Themes in Amazon QuickSight&lt;/a&gt; in the &lt;i&gt;Amazon QuickSight User
+    ///                 Guide.&lt;/i&gt;
+    ///         &lt;/p&gt;
     /// </summary>
     public sealed class ThemeUIColorPaletteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-accent
+        /// &lt;p&gt;This color is that applies to selected states and buttons.&lt;/p&gt;
         /// </summary>
         [Input("accent")]
         public Input<string>? Accent { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-accentforeground
+        /// &lt;p&gt;The foreground color that applies to any text or other elements that appear over the
+        ///             accent color.&lt;/p&gt;
         /// </summary>
         [Input("accentForeground")]
         public Input<string>? AccentForeground { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-danger
+        /// &lt;p&gt;The color that applies to error messages.&lt;/p&gt;
         /// </summary>
         [Input("danger")]
         public Input<string>? Danger { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dangerforeground
+        /// &lt;p&gt;The foreground color that applies to any text or other elements that appear over the
+        ///             error color.&lt;/p&gt;
         /// </summary>
         [Input("dangerForeground")]
         public Input<string>? DangerForeground { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dimension
+        /// &lt;p&gt;The color that applies to the names of fields that are identified as
+        ///             dimensions.&lt;/p&gt;
         /// </summary>
         [Input("dimension")]
         public Input<string>? Dimension { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dimensionforeground
+        /// &lt;p&gt;The foreground color that applies to any text or other elements that appear over the
+        ///             dimension color.&lt;/p&gt;
         /// </summary>
         [Input("dimensionForeground")]
         public Input<string>? DimensionForeground { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-measure
+        /// &lt;p&gt;The color that applies to the names of fields that are identified as measures.&lt;/p&gt;
         /// </summary>
         [Input("measure")]
         public Input<string>? Measure { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-measureforeground
+        /// &lt;p&gt;The foreground color that applies to any text or other elements that appear over the
+        ///             measure color.&lt;/p&gt;
         /// </summary>
         [Input("measureForeground")]
         public Input<string>? MeasureForeground { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-primarybackground
+        /// &lt;p&gt;The background color that applies to visuals and other high emphasis UI.&lt;/p&gt;
         /// </summary>
         [Input("primaryBackground")]
         public Input<string>? PrimaryBackground { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-primaryforeground
+        /// &lt;p&gt;The color of text and other foreground elements that appear over the primary
+        ///             background regions, such as grid lines, borders, table banding, icons, and so on.&lt;/p&gt;
         /// </summary>
         [Input("primaryForeground")]
         public Input<string>? PrimaryForeground { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-secondarybackground
+        /// &lt;p&gt;The background color that applies to the sheet background and sheet controls.&lt;/p&gt;
         /// </summary>
         [Input("secondaryBackground")]
         public Input<string>? SecondaryBackground { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-secondaryforeground
+        /// &lt;p&gt;The foreground color that applies to any sheet title, sheet control text, or UI that
+        ///             appears over the secondary background.&lt;/p&gt;
         /// </summary>
         [Input("secondaryForeground")]
         public Input<string>? SecondaryForeground { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-success
+        /// &lt;p&gt;The color that applies to success messages, for example the check mark for a
+        ///             successful download.&lt;/p&gt;
         /// </summary>
         [Input("success")]
         public Input<string>? Success { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-successforeground
+        /// &lt;p&gt;The foreground color that applies to any text or other elements that appear over the
+        ///             success color.&lt;/p&gt;
         /// </summary>
         [Input("successForeground")]
         public Input<string>? SuccessForeground { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-warning
+        /// &lt;p&gt;This color that applies to warning and informational messages.&lt;/p&gt;
         /// </summary>
         [Input("warning")]
         public Input<string>? Warning { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-warningforeground
+        /// &lt;p&gt;The foreground color that applies to any text or other elements that appear over the
+        ///             warning color.&lt;/p&gt;
         /// </summary>
         [Input("warningForeground")]
         public Input<string>? WarningForeground { get; set; }

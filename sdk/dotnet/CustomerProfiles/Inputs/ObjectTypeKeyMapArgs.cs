@@ -10,23 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html
-    /// </summary>
     public sealed class ObjectTypeKeyMapArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-name
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("objectTypeKeyList")]
         private InputList<Inputs.ObjectTypeObjectTypeKeyArgs>? _objectTypeKeyList;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-objecttypekeylist
-        /// </summary>
         public InputList<Inputs.ObjectTypeObjectTypeKeyArgs> ObjectTypeKeyList
         {
             get => _objectTypeKeyList ?? (_objectTypeKeyList = new InputList<Inputs.ObjectTypeObjectTypeKeyArgs>());

@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['DomainArgs', 'Domain']
 
@@ -19,14 +19,14 @@ class DomainArgs:
                  dead_letter_queue_url: Optional[pulumi.Input[str]] = None,
                  default_encryption_key: Optional[pulumi.Input[str]] = None,
                  default_expiration_days: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None):
         """
         The set of arguments for constructing a Domain resource.
-        :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-domainname
-        :param pulumi.Input[str] dead_letter_queue_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-deadletterqueueurl
-        :param pulumi.Input[str] default_encryption_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultencryptionkey
-        :param pulumi.Input[int] default_expiration_days: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultexpirationdays
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-tags
+        :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input[str] dead_letter_queue_url: The URL of the SQS dead letter queue
+        :param pulumi.Input[str] default_encryption_key: The default encryption key
+        :param pulumi.Input[int] default_expiration_days: The default number of days until the data within the domain expires.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]] tags: The tags (keys and values) associated with the domain
         """
         pulumi.set(__self__, "domain_name", domain_name)
         if dead_letter_queue_url is not None:
@@ -42,7 +42,7 @@ class DomainArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-domainname
+        The unique name of the domain.
         """
         return pulumi.get(self, "domain_name")
 
@@ -54,7 +54,7 @@ class DomainArgs:
     @pulumi.getter(name="deadLetterQueueUrl")
     def dead_letter_queue_url(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-deadletterqueueurl
+        The URL of the SQS dead letter queue
         """
         return pulumi.get(self, "dead_letter_queue_url")
 
@@ -66,7 +66,7 @@ class DomainArgs:
     @pulumi.getter(name="defaultEncryptionKey")
     def default_encryption_key(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultencryptionkey
+        The default encryption key
         """
         return pulumi.get(self, "default_encryption_key")
 
@@ -78,7 +78,7 @@ class DomainArgs:
     @pulumi.getter(name="defaultExpirationDays")
     def default_expiration_days(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultexpirationdays
+        The default number of days until the data within the domain expires.
         """
         return pulumi.get(self, "default_expiration_days")
 
@@ -88,14 +88,14 @@ class DomainArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-tags
+        The tags (keys and values) associated with the domain
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -108,18 +108,18 @@ class Domain(pulumi.CustomResource):
                  default_encryption_key: Optional[pulumi.Input[str]] = None,
                  default_expiration_days: Optional[pulumi.Input[int]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html
+        A domain defined for 3rd party data source in Profile Service
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] dead_letter_queue_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-deadletterqueueurl
-        :param pulumi.Input[str] default_encryption_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultencryptionkey
-        :param pulumi.Input[int] default_expiration_days: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultexpirationdays
-        :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-domainname
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-tags
+        :param pulumi.Input[str] dead_letter_queue_url: The URL of the SQS dead letter queue
+        :param pulumi.Input[str] default_encryption_key: The default encryption key
+        :param pulumi.Input[int] default_expiration_days: The default number of days until the data within the domain expires.
+        :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]] tags: The tags (keys and values) associated with the domain
         """
         ...
     @overload
@@ -128,7 +128,7 @@ class Domain(pulumi.CustomResource):
                  args: DomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html
+        A domain defined for 3rd party data source in Profile Service
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.
@@ -149,7 +149,7 @@ class Domain(pulumi.CustomResource):
                  default_encryption_key: Optional[pulumi.Input[str]] = None,
                  default_expiration_days: Optional[pulumi.Input[int]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -205,13 +205,16 @@ class Domain(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The time of this integration got created
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="deadLetterQueueUrl")
     def dead_letter_queue_url(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-deadletterqueueurl
+        The URL of the SQS dead letter queue
         """
         return pulumi.get(self, "dead_letter_queue_url")
 
@@ -219,7 +222,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="defaultEncryptionKey")
     def default_encryption_key(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultencryptionkey
+        The default encryption key
         """
         return pulumi.get(self, "default_encryption_key")
 
@@ -227,7 +230,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="defaultExpirationDays")
     def default_expiration_days(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultexpirationdays
+        The default number of days until the data within the domain expires.
         """
         return pulumi.get(self, "default_expiration_days")
 
@@ -235,20 +238,23 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-domainname
+        The unique name of the domain.
         """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> pulumi.Output[str]:
+        """
+        The time of this integration got last updated at
+        """
         return pulumi.get(self, "last_updated_at")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DomainTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-tags
+        The tags (keys and values) associated with the domain
         """
         return pulumi.get(self, "tags")
 

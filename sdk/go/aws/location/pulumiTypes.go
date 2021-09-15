@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html
 type MapMapConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html#cfn-location-map-mapconfiguration-style
 	Style string `pulumi:"style"`
 }
 
@@ -27,9 +25,7 @@ type MapMapConfigurationInput interface {
 	ToMapMapConfigurationOutputWithContext(context.Context) MapMapConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html
 type MapMapConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html#cfn-location-map-mapconfiguration-style
 	Style pulumi.StringInput `pulumi:"style"`
 }
 
@@ -86,7 +82,6 @@ func (i *mapMapConfigurationPtrType) ToMapMapConfigurationPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(MapMapConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html
 type MapMapConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MapMapConfigurationOutput) ElementType() reflect.Type {
@@ -111,7 +106,6 @@ func (o MapMapConfigurationOutput) ToMapMapConfigurationPtrOutputWithContext(ctx
 	}).(MapMapConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html#cfn-location-map-mapconfiguration-style
 func (o MapMapConfigurationOutput) Style() pulumi.StringOutput {
 	return o.ApplyT(func(v MapMapConfiguration) string { return v.Style }).(pulumi.StringOutput)
 }
@@ -140,7 +134,6 @@ func (o MapMapConfigurationPtrOutput) Elem() MapMapConfigurationOutput {
 	}).(MapMapConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html#cfn-location-map-mapconfiguration-style
 func (o MapMapConfigurationPtrOutput) Style() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MapMapConfiguration) *string {
 		if v == nil {
@@ -150,9 +143,7 @@ func (o MapMapConfigurationPtrOutput) Style() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html
 type PlaceIndexDataSourceConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html#cfn-location-placeindex-datasourceconfiguration-intendeduse
 	IntendedUse *string `pulumi:"intendedUse"`
 }
 
@@ -167,9 +158,7 @@ type PlaceIndexDataSourceConfigurationInput interface {
 	ToPlaceIndexDataSourceConfigurationOutputWithContext(context.Context) PlaceIndexDataSourceConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html
 type PlaceIndexDataSourceConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html#cfn-location-placeindex-datasourceconfiguration-intendeduse
 	IntendedUse pulumi.StringPtrInput `pulumi:"intendedUse"`
 }
 
@@ -226,7 +215,6 @@ func (i *placeIndexDataSourceConfigurationPtrType) ToPlaceIndexDataSourceConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(PlaceIndexDataSourceConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html
 type PlaceIndexDataSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PlaceIndexDataSourceConfigurationOutput) ElementType() reflect.Type {
@@ -251,7 +239,6 @@ func (o PlaceIndexDataSourceConfigurationOutput) ToPlaceIndexDataSourceConfigura
 	}).(PlaceIndexDataSourceConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html#cfn-location-placeindex-datasourceconfiguration-intendeduse
 func (o PlaceIndexDataSourceConfigurationOutput) IntendedUse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlaceIndexDataSourceConfiguration) *string { return v.IntendedUse }).(pulumi.StringPtrOutput)
 }
@@ -280,7 +267,6 @@ func (o PlaceIndexDataSourceConfigurationPtrOutput) Elem() PlaceIndexDataSourceC
 	}).(PlaceIndexDataSourceConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html#cfn-location-placeindex-datasourceconfiguration-intendeduse
 func (o PlaceIndexDataSourceConfigurationPtrOutput) IntendedUse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlaceIndexDataSourceConfiguration) *string {
 		if v == nil {

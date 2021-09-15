@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeStarNotifications
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html
+    /// Resource Type definition for AWS::CodeStarNotifications::NotificationRule
     /// </summary>
     [AwsNativeResourceType("aws-native:codestarnotifications:NotificationRule")]
     public partial class NotificationRule : Pulumi.CustomResource
@@ -18,45 +18,24 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-detailtype
-        /// </summary>
         [Output("detailType")]
         public Output<string> DetailType { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-eventtypeids
-        /// </summary>
         [Output("eventTypeIds")]
         public Output<ImmutableArray<string>> EventTypeIds { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-name
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-resource
-        /// </summary>
         [Output("resource")]
         public Output<string> Resource { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-status
-        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-tags
-        /// </summary>
         [Output("tags")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Tags { get; private set; } = null!;
+        public Output<object?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-targets
-        /// </summary>
         [Output("targets")]
         public Output<ImmutableArray<Outputs.NotificationRuleTarget>> Targets { get; private set; } = null!;
 
@@ -105,54 +84,31 @@ namespace Pulumi.AwsNative.CodeStarNotifications
 
     public sealed class NotificationRuleArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-detailtype
-        /// </summary>
         [Input("detailType", required: true)]
         public Input<string> DetailType { get; set; } = null!;
 
         [Input("eventTypeIds", required: true)]
         private InputList<string>? _eventTypeIds;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-eventtypeids
-        /// </summary>
         public InputList<string> EventTypeIds
         {
             get => _eventTypeIds ?? (_eventTypeIds = new InputList<string>());
             set => _eventTypeIds = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-name
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-resource
-        /// </summary>
         [Input("resource", required: true)]
         public Input<string> Resource { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-status
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-tags
-        /// </summary>
         [Input("tags")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Tags { get; set; }
+        public Input<object>? Tags { get; set; }
 
         [Input("targets", required: true)]
         private InputList<Inputs.NotificationRuleTargetArgs>? _targets;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-targets
-        /// </summary>
         public InputList<Inputs.NotificationRuleTargetArgs> Targets
         {
             get => _targets ?? (_targets = new InputList<Inputs.NotificationRuleTargetArgs>());

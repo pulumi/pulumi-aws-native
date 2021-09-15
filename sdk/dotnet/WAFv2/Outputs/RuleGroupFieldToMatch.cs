@@ -11,61 +11,55 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html
+    /// Field of the request to match.
     /// </summary>
     [OutputType]
     public sealed class RuleGroupFieldToMatch
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-allqueryarguments
+        /// All query arguments of a web request.
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? AllQueryArguments;
+        public readonly object? AllQueryArguments;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body
+        /// The body of a web request. This immediately follows the request headers.
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? Body;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody
-        /// </summary>
+        public readonly object? Body;
         public readonly Outputs.RuleGroupJsonBody? JsonBody;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
+        /// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? Method;
+        public readonly object? Method;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-querystring
+        /// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? QueryString;
+        public readonly object? QueryString;
+        public readonly object? SingleHeader;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singleheader
+        /// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? SingleHeader;
+        public readonly object? SingleQueryArgument;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singlequeryargument
+        /// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? SingleQueryArgument;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-uripath
-        /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? UriPath;
+        public readonly object? UriPath;
 
         [OutputConstructor]
         private RuleGroupFieldToMatch(
-            Union<System.Text.Json.JsonElement, string>? allQueryArguments,
+            object? allQueryArguments,
 
-            Union<System.Text.Json.JsonElement, string>? body,
+            object? body,
 
             Outputs.RuleGroupJsonBody? jsonBody,
 
-            Union<System.Text.Json.JsonElement, string>? method,
+            object? method,
 
-            Union<System.Text.Json.JsonElement, string>? queryString,
+            object? queryString,
 
-            Union<System.Text.Json.JsonElement, string>? singleHeader,
+            object? singleHeader,
 
-            Union<System.Text.Json.JsonElement, string>? singleQueryArgument,
+            object? singleQueryArgument,
 
-            Union<System.Text.Json.JsonElement, string>? uriPath)
+            object? uriPath)
         {
             AllQueryArguments = allQueryArguments;
             Body = body;

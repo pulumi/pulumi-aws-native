@@ -11,17 +11,14 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html
+    /// Code Configuration
     /// </summary>
     [OutputType]
     public sealed class ServiceCodeConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-codeconfigurationvalues
-        /// </summary>
         public readonly Outputs.ServiceCodeConfigurationValues? CodeConfigurationValues;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html#cfn-apprunner-service-codeconfiguration-configurationsource
+        /// Configuration Source
         /// </summary>
         public readonly string ConfigurationSource;
 

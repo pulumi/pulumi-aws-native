@@ -10,15 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html
+// AWS::RoboMaker::Fleet resource creates an AWS RoboMaker fleet. Fleets contain robots and can receive deployments.
 type Fleet struct {
 	pulumi.CustomResourceState
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html#cfn-robomaker-fleet-name
+	// The name of the fleet.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html#cfn-robomaker-fleet-tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags FleetTagsPtrOutput     `pulumi:"tags"`
 }
 
 // NewFleet registers a new resource with the given unique name, arguments, and options.
@@ -60,18 +59,16 @@ func (FleetState) ElementType() reflect.Type {
 }
 
 type fleetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html#cfn-robomaker-fleet-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html#cfn-robomaker-fleet-tags
-	Tags map[string]string `pulumi:"tags"`
+	// The name of the fleet.
+	Name *string    `pulumi:"name"`
+	Tags *FleetTags `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html#cfn-robomaker-fleet-name
+	// The name of the fleet.
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html#cfn-robomaker-fleet-tags
-	Tags pulumi.StringMapInput
+	Tags FleetTagsPtrInput
 }
 
 func (FleetArgs) ElementType() reflect.Type {

@@ -10,59 +10,33 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceCatalog.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html
-    /// </summary>
     public sealed class CloudFormationProvisionedProductProvisioningPreferencesArgs : Pulumi.ResourceArgs
     {
         [Input("stackSetAccounts")]
         private InputList<string>? _stackSetAccounts;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetaccounts
-        /// </summary>
         public InputList<string> StackSetAccounts
         {
             get => _stackSetAccounts ?? (_stackSetAccounts = new InputList<string>());
             set => _stackSetAccounts = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetfailuretolerancecount
-        /// </summary>
         [Input("stackSetFailureToleranceCount")]
         public Input<int>? StackSetFailureToleranceCount { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetfailuretolerancepercentage
-        /// </summary>
         [Input("stackSetFailureTolerancePercentage")]
         public Input<int>? StackSetFailureTolerancePercentage { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetmaxconcurrencycount
-        /// </summary>
         [Input("stackSetMaxConcurrencyCount")]
         public Input<int>? StackSetMaxConcurrencyCount { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetmaxconcurrencypercentage
-        /// </summary>
         [Input("stackSetMaxConcurrencyPercentage")]
         public Input<int>? StackSetMaxConcurrencyPercentage { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetoperationtype
-        /// </summary>
         [Input("stackSetOperationType")]
         public Input<string>? StackSetOperationType { get; set; }
 
         [Input("stackSetRegions")]
         private InputList<string>? _stackSetRegions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetregions
-        /// </summary>
         public InputList<string> StackSetRegions
         {
             get => _stackSetRegions ?? (_stackSetRegions = new InputList<string>());

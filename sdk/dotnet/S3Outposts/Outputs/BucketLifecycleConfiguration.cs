@@ -10,14 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3Outposts.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html
-    /// </summary>
     [OutputType]
     public sealed class BucketLifecycleConfiguration
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html#cfn-s3outposts-bucket-lifecycleconfiguration-rules
+        /// A list of lifecycle rules for individual objects in an Amazon S3Outposts bucket.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketRule> Rules;
 

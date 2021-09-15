@@ -10,13 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html
+// The site location.
 type DeviceLocation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-address
+	// The physical address.
 	Address *string `pulumi:"address"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-latitude
+	// The latitude.
 	Latitude *string `pulumi:"latitude"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-longitude
+	// The longitude.
 	Longitude *string `pulumi:"longitude"`
 }
 
@@ -31,13 +31,13 @@ type DeviceLocationInput interface {
 	ToDeviceLocationOutputWithContext(context.Context) DeviceLocationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html
+// The site location.
 type DeviceLocationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-address
+	// The physical address.
 	Address pulumi.StringPtrInput `pulumi:"address"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-latitude
+	// The latitude.
 	Latitude pulumi.StringPtrInput `pulumi:"latitude"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-longitude
+	// The longitude.
 	Longitude pulumi.StringPtrInput `pulumi:"longitude"`
 }
 
@@ -94,7 +94,7 @@ func (i *deviceLocationPtrType) ToDeviceLocationPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceLocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html
+// The site location.
 type DeviceLocationOutput struct{ *pulumi.OutputState }
 
 func (DeviceLocationOutput) ElementType() reflect.Type {
@@ -119,17 +119,17 @@ func (o DeviceLocationOutput) ToDeviceLocationPtrOutputWithContext(ctx context.C
 	}).(DeviceLocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-address
+// The physical address.
 func (o DeviceLocationOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceLocation) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-latitude
+// The latitude.
 func (o DeviceLocationOutput) Latitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceLocation) *string { return v.Latitude }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-longitude
+// The longitude.
 func (o DeviceLocationOutput) Longitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceLocation) *string { return v.Longitude }).(pulumi.StringPtrOutput)
 }
@@ -158,7 +158,7 @@ func (o DeviceLocationPtrOutput) Elem() DeviceLocationOutput {
 	}).(DeviceLocationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-address
+// The physical address.
 func (o DeviceLocationPtrOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceLocation) *string {
 		if v == nil {
@@ -168,7 +168,7 @@ func (o DeviceLocationPtrOutput) Address() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-latitude
+// The latitude.
 func (o DeviceLocationPtrOutput) Latitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceLocation) *string {
 		if v == nil {
@@ -178,7 +178,7 @@ func (o DeviceLocationPtrOutput) Latitude() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-location.html#cfn-networkmanager-device-location-longitude
+// The longitude.
 func (o DeviceLocationPtrOutput) Longitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceLocation) *string {
 		if v == nil {
@@ -188,11 +188,217 @@ func (o DeviceLocationPtrOutput) Longitude() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html
+// A key-value pair to associate with a device resource.
+type DeviceTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// DeviceTagInput is an input type that accepts DeviceTagArgs and DeviceTagOutput values.
+// You can construct a concrete instance of `DeviceTagInput` via:
+//
+//          DeviceTagArgs{...}
+type DeviceTagInput interface {
+	pulumi.Input
+
+	ToDeviceTagOutput() DeviceTagOutput
+	ToDeviceTagOutputWithContext(context.Context) DeviceTagOutput
+}
+
+// A key-value pair to associate with a device resource.
+type DeviceTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DeviceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceTag)(nil)).Elem()
+}
+
+func (i DeviceTagArgs) ToDeviceTagOutput() DeviceTagOutput {
+	return i.ToDeviceTagOutputWithContext(context.Background())
+}
+
+func (i DeviceTagArgs) ToDeviceTagOutputWithContext(ctx context.Context) DeviceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceTagOutput)
+}
+
+// DeviceTagArrayInput is an input type that accepts DeviceTagArray and DeviceTagArrayOutput values.
+// You can construct a concrete instance of `DeviceTagArrayInput` via:
+//
+//          DeviceTagArray{ DeviceTagArgs{...} }
+type DeviceTagArrayInput interface {
+	pulumi.Input
+
+	ToDeviceTagArrayOutput() DeviceTagArrayOutput
+	ToDeviceTagArrayOutputWithContext(context.Context) DeviceTagArrayOutput
+}
+
+type DeviceTagArray []DeviceTagInput
+
+func (DeviceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeviceTag)(nil)).Elem()
+}
+
+func (i DeviceTagArray) ToDeviceTagArrayOutput() DeviceTagArrayOutput {
+	return i.ToDeviceTagArrayOutputWithContext(context.Background())
+}
+
+func (i DeviceTagArray) ToDeviceTagArrayOutputWithContext(ctx context.Context) DeviceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceTagArrayOutput)
+}
+
+// A key-value pair to associate with a device resource.
+type DeviceTagOutput struct{ *pulumi.OutputState }
+
+func (DeviceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceTag)(nil)).Elem()
+}
+
+func (o DeviceTagOutput) ToDeviceTagOutput() DeviceTagOutput {
+	return o
+}
+
+func (o DeviceTagOutput) ToDeviceTagOutputWithContext(ctx context.Context) DeviceTagOutput {
+	return o
+}
+
+func (o DeviceTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeviceTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DeviceTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeviceTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DeviceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DeviceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeviceTag)(nil)).Elem()
+}
+
+func (o DeviceTagArrayOutput) ToDeviceTagArrayOutput() DeviceTagArrayOutput {
+	return o
+}
+
+func (o DeviceTagArrayOutput) ToDeviceTagArrayOutputWithContext(ctx context.Context) DeviceTagArrayOutput {
+	return o
+}
+
+func (o DeviceTagArrayOutput) Index(i pulumi.IntInput) DeviceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeviceTag {
+		return vs[0].([]DeviceTag)[vs[1].(int)]
+	}).(DeviceTagOutput)
+}
+
+// A key-value pair to associate with a global network resource.
+type GlobalNetworkTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// GlobalNetworkTagInput is an input type that accepts GlobalNetworkTagArgs and GlobalNetworkTagOutput values.
+// You can construct a concrete instance of `GlobalNetworkTagInput` via:
+//
+//          GlobalNetworkTagArgs{...}
+type GlobalNetworkTagInput interface {
+	pulumi.Input
+
+	ToGlobalNetworkTagOutput() GlobalNetworkTagOutput
+	ToGlobalNetworkTagOutputWithContext(context.Context) GlobalNetworkTagOutput
+}
+
+// A key-value pair to associate with a global network resource.
+type GlobalNetworkTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (GlobalNetworkTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalNetworkTag)(nil)).Elem()
+}
+
+func (i GlobalNetworkTagArgs) ToGlobalNetworkTagOutput() GlobalNetworkTagOutput {
+	return i.ToGlobalNetworkTagOutputWithContext(context.Background())
+}
+
+func (i GlobalNetworkTagArgs) ToGlobalNetworkTagOutputWithContext(ctx context.Context) GlobalNetworkTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalNetworkTagOutput)
+}
+
+// GlobalNetworkTagArrayInput is an input type that accepts GlobalNetworkTagArray and GlobalNetworkTagArrayOutput values.
+// You can construct a concrete instance of `GlobalNetworkTagArrayInput` via:
+//
+//          GlobalNetworkTagArray{ GlobalNetworkTagArgs{...} }
+type GlobalNetworkTagArrayInput interface {
+	pulumi.Input
+
+	ToGlobalNetworkTagArrayOutput() GlobalNetworkTagArrayOutput
+	ToGlobalNetworkTagArrayOutputWithContext(context.Context) GlobalNetworkTagArrayOutput
+}
+
+type GlobalNetworkTagArray []GlobalNetworkTagInput
+
+func (GlobalNetworkTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalNetworkTag)(nil)).Elem()
+}
+
+func (i GlobalNetworkTagArray) ToGlobalNetworkTagArrayOutput() GlobalNetworkTagArrayOutput {
+	return i.ToGlobalNetworkTagArrayOutputWithContext(context.Background())
+}
+
+func (i GlobalNetworkTagArray) ToGlobalNetworkTagArrayOutputWithContext(ctx context.Context) GlobalNetworkTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalNetworkTagArrayOutput)
+}
+
+// A key-value pair to associate with a global network resource.
+type GlobalNetworkTagOutput struct{ *pulumi.OutputState }
+
+func (GlobalNetworkTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalNetworkTag)(nil)).Elem()
+}
+
+func (o GlobalNetworkTagOutput) ToGlobalNetworkTagOutput() GlobalNetworkTagOutput {
+	return o
+}
+
+func (o GlobalNetworkTagOutput) ToGlobalNetworkTagOutputWithContext(ctx context.Context) GlobalNetworkTagOutput {
+	return o
+}
+
+func (o GlobalNetworkTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalNetworkTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o GlobalNetworkTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalNetworkTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type GlobalNetworkTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GlobalNetworkTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalNetworkTag)(nil)).Elem()
+}
+
+func (o GlobalNetworkTagArrayOutput) ToGlobalNetworkTagArrayOutput() GlobalNetworkTagArrayOutput {
+	return o
+}
+
+func (o GlobalNetworkTagArrayOutput) ToGlobalNetworkTagArrayOutputWithContext(ctx context.Context) GlobalNetworkTagArrayOutput {
+	return o
+}
+
+func (o GlobalNetworkTagArrayOutput) Index(i pulumi.IntInput) GlobalNetworkTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalNetworkTag {
+		return vs[0].([]GlobalNetworkTag)[vs[1].(int)]
+	}).(GlobalNetworkTagOutput)
+}
+
+// The bandwidth for the link.
 type LinkBandwidth struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-downloadspeed
+	// Download speed in Mbps.
 	DownloadSpeed *int `pulumi:"downloadSpeed"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-uploadspeed
+	// Upload speed in Mbps.
 	UploadSpeed *int `pulumi:"uploadSpeed"`
 }
 
@@ -207,11 +413,11 @@ type LinkBandwidthInput interface {
 	ToLinkBandwidthOutputWithContext(context.Context) LinkBandwidthOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html
+// The bandwidth for the link.
 type LinkBandwidthArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-downloadspeed
+	// Download speed in Mbps.
 	DownloadSpeed pulumi.IntPtrInput `pulumi:"downloadSpeed"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-uploadspeed
+	// Upload speed in Mbps.
 	UploadSpeed pulumi.IntPtrInput `pulumi:"uploadSpeed"`
 }
 
@@ -268,7 +474,7 @@ func (i *linkBandwidthPtrType) ToLinkBandwidthPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LinkBandwidthPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html
+// The bandwidth for the link.
 type LinkBandwidthOutput struct{ *pulumi.OutputState }
 
 func (LinkBandwidthOutput) ElementType() reflect.Type {
@@ -293,12 +499,12 @@ func (o LinkBandwidthOutput) ToLinkBandwidthPtrOutputWithContext(ctx context.Con
 	}).(LinkBandwidthPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-downloadspeed
+// Download speed in Mbps.
 func (o LinkBandwidthOutput) DownloadSpeed() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinkBandwidth) *int { return v.DownloadSpeed }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-uploadspeed
+// Upload speed in Mbps.
 func (o LinkBandwidthOutput) UploadSpeed() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinkBandwidth) *int { return v.UploadSpeed }).(pulumi.IntPtrOutput)
 }
@@ -327,7 +533,7 @@ func (o LinkBandwidthPtrOutput) Elem() LinkBandwidthOutput {
 	}).(LinkBandwidthOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-downloadspeed
+// Download speed in Mbps.
 func (o LinkBandwidthPtrOutput) DownloadSpeed() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LinkBandwidth) *int {
 		if v == nil {
@@ -337,7 +543,7 @@ func (o LinkBandwidthPtrOutput) DownloadSpeed() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-uploadspeed
+// Upload speed in Mbps.
 func (o LinkBandwidthPtrOutput) UploadSpeed() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LinkBandwidth) *int {
 		if v == nil {
@@ -347,13 +553,116 @@ func (o LinkBandwidthPtrOutput) UploadSpeed() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html
+// A key-value pair to associate with a link resource.
+type LinkTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// LinkTagInput is an input type that accepts LinkTagArgs and LinkTagOutput values.
+// You can construct a concrete instance of `LinkTagInput` via:
+//
+//          LinkTagArgs{...}
+type LinkTagInput interface {
+	pulumi.Input
+
+	ToLinkTagOutput() LinkTagOutput
+	ToLinkTagOutputWithContext(context.Context) LinkTagOutput
+}
+
+// A key-value pair to associate with a link resource.
+type LinkTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LinkTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkTag)(nil)).Elem()
+}
+
+func (i LinkTagArgs) ToLinkTagOutput() LinkTagOutput {
+	return i.ToLinkTagOutputWithContext(context.Background())
+}
+
+func (i LinkTagArgs) ToLinkTagOutputWithContext(ctx context.Context) LinkTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkTagOutput)
+}
+
+// LinkTagArrayInput is an input type that accepts LinkTagArray and LinkTagArrayOutput values.
+// You can construct a concrete instance of `LinkTagArrayInput` via:
+//
+//          LinkTagArray{ LinkTagArgs{...} }
+type LinkTagArrayInput interface {
+	pulumi.Input
+
+	ToLinkTagArrayOutput() LinkTagArrayOutput
+	ToLinkTagArrayOutputWithContext(context.Context) LinkTagArrayOutput
+}
+
+type LinkTagArray []LinkTagInput
+
+func (LinkTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkTag)(nil)).Elem()
+}
+
+func (i LinkTagArray) ToLinkTagArrayOutput() LinkTagArrayOutput {
+	return i.ToLinkTagArrayOutputWithContext(context.Background())
+}
+
+func (i LinkTagArray) ToLinkTagArrayOutputWithContext(ctx context.Context) LinkTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkTagArrayOutput)
+}
+
+// A key-value pair to associate with a link resource.
+type LinkTagOutput struct{ *pulumi.OutputState }
+
+func (LinkTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkTag)(nil)).Elem()
+}
+
+func (o LinkTagOutput) ToLinkTagOutput() LinkTagOutput {
+	return o
+}
+
+func (o LinkTagOutput) ToLinkTagOutputWithContext(ctx context.Context) LinkTagOutput {
+	return o
+}
+
+func (o LinkTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o LinkTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinkTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LinkTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkTag)(nil)).Elem()
+}
+
+func (o LinkTagArrayOutput) ToLinkTagArrayOutput() LinkTagArrayOutput {
+	return o
+}
+
+func (o LinkTagArrayOutput) ToLinkTagArrayOutputWithContext(ctx context.Context) LinkTagArrayOutput {
+	return o
+}
+
+func (o LinkTagArrayOutput) Index(i pulumi.IntInput) LinkTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkTag {
+		return vs[0].([]LinkTag)[vs[1].(int)]
+	}).(LinkTagOutput)
+}
+
+// The location of the site
 type SiteLocation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-address
+	// The physical address.
 	Address *string `pulumi:"address"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-latitude
+	// The latitude.
 	Latitude *string `pulumi:"latitude"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-longitude
+	// The longitude.
 	Longitude *string `pulumi:"longitude"`
 }
 
@@ -368,13 +677,13 @@ type SiteLocationInput interface {
 	ToSiteLocationOutputWithContext(context.Context) SiteLocationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html
+// The location of the site
 type SiteLocationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-address
+	// The physical address.
 	Address pulumi.StringPtrInput `pulumi:"address"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-latitude
+	// The latitude.
 	Latitude pulumi.StringPtrInput `pulumi:"latitude"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-longitude
+	// The longitude.
 	Longitude pulumi.StringPtrInput `pulumi:"longitude"`
 }
 
@@ -431,7 +740,7 @@ func (i *siteLocationPtrType) ToSiteLocationPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SiteLocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html
+// The location of the site
 type SiteLocationOutput struct{ *pulumi.OutputState }
 
 func (SiteLocationOutput) ElementType() reflect.Type {
@@ -456,17 +765,17 @@ func (o SiteLocationOutput) ToSiteLocationPtrOutputWithContext(ctx context.Conte
 	}).(SiteLocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-address
+// The physical address.
 func (o SiteLocationOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteLocation) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-latitude
+// The latitude.
 func (o SiteLocationOutput) Latitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteLocation) *string { return v.Latitude }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-longitude
+// The longitude.
 func (o SiteLocationOutput) Longitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteLocation) *string { return v.Longitude }).(pulumi.StringPtrOutput)
 }
@@ -495,7 +804,7 @@ func (o SiteLocationPtrOutput) Elem() SiteLocationOutput {
 	}).(SiteLocationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-address
+// The physical address.
 func (o SiteLocationPtrOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteLocation) *string {
 		if v == nil {
@@ -505,7 +814,7 @@ func (o SiteLocationPtrOutput) Address() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-latitude
+// The latitude.
 func (o SiteLocationPtrOutput) Latitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteLocation) *string {
 		if v == nil {
@@ -515,7 +824,7 @@ func (o SiteLocationPtrOutput) Latitude() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-longitude
+// The longitude.
 func (o SiteLocationPtrOutput) Longitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteLocation) *string {
 		if v == nil {
@@ -525,11 +834,122 @@ func (o SiteLocationPtrOutput) Longitude() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair to associate with a site resource.
+type SiteTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// SiteTagInput is an input type that accepts SiteTagArgs and SiteTagOutput values.
+// You can construct a concrete instance of `SiteTagInput` via:
+//
+//          SiteTagArgs{...}
+type SiteTagInput interface {
+	pulumi.Input
+
+	ToSiteTagOutput() SiteTagOutput
+	ToSiteTagOutputWithContext(context.Context) SiteTagOutput
+}
+
+// A key-value pair to associate with a site resource.
+type SiteTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SiteTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteTag)(nil)).Elem()
+}
+
+func (i SiteTagArgs) ToSiteTagOutput() SiteTagOutput {
+	return i.ToSiteTagOutputWithContext(context.Background())
+}
+
+func (i SiteTagArgs) ToSiteTagOutputWithContext(ctx context.Context) SiteTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteTagOutput)
+}
+
+// SiteTagArrayInput is an input type that accepts SiteTagArray and SiteTagArrayOutput values.
+// You can construct a concrete instance of `SiteTagArrayInput` via:
+//
+//          SiteTagArray{ SiteTagArgs{...} }
+type SiteTagArrayInput interface {
+	pulumi.Input
+
+	ToSiteTagArrayOutput() SiteTagArrayOutput
+	ToSiteTagArrayOutputWithContext(context.Context) SiteTagArrayOutput
+}
+
+type SiteTagArray []SiteTagInput
+
+func (SiteTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SiteTag)(nil)).Elem()
+}
+
+func (i SiteTagArray) ToSiteTagArrayOutput() SiteTagArrayOutput {
+	return i.ToSiteTagArrayOutputWithContext(context.Background())
+}
+
+func (i SiteTagArray) ToSiteTagArrayOutputWithContext(ctx context.Context) SiteTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteTagArrayOutput)
+}
+
+// A key-value pair to associate with a site resource.
+type SiteTagOutput struct{ *pulumi.OutputState }
+
+func (SiteTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteTag)(nil)).Elem()
+}
+
+func (o SiteTagOutput) ToSiteTagOutput() SiteTagOutput {
+	return o
+}
+
+func (o SiteTagOutput) ToSiteTagOutputWithContext(ctx context.Context) SiteTagOutput {
+	return o
+}
+
+func (o SiteTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o SiteTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SiteTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SiteTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SiteTag)(nil)).Elem()
+}
+
+func (o SiteTagArrayOutput) ToSiteTagArrayOutput() SiteTagArrayOutput {
+	return o
+}
+
+func (o SiteTagArrayOutput) ToSiteTagArrayOutputWithContext(ctx context.Context) SiteTagArrayOutput {
+	return o
+}
+
+func (o SiteTagArrayOutput) Index(i pulumi.IntInput) SiteTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SiteTag {
+		return vs[0].([]SiteTag)[vs[1].(int)]
+	}).(SiteTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DeviceLocationOutput{})
 	pulumi.RegisterOutputType(DeviceLocationPtrOutput{})
+	pulumi.RegisterOutputType(DeviceTagOutput{})
+	pulumi.RegisterOutputType(DeviceTagArrayOutput{})
+	pulumi.RegisterOutputType(GlobalNetworkTagOutput{})
+	pulumi.RegisterOutputType(GlobalNetworkTagArrayOutput{})
 	pulumi.RegisterOutputType(LinkBandwidthOutput{})
 	pulumi.RegisterOutputType(LinkBandwidthPtrOutput{})
+	pulumi.RegisterOutputType(LinkTagOutput{})
+	pulumi.RegisterOutputType(LinkTagArrayOutput{})
 	pulumi.RegisterOutputType(SiteLocationOutput{})
 	pulumi.RegisterOutputType(SiteLocationPtrOutput{})
+	pulumi.RegisterOutputType(SiteTagOutput{})
+	pulumi.RegisterOutputType(SiteTagArrayOutput{})
 }

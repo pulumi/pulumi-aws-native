@@ -16,21 +16,24 @@ __all__ = ['InstanceAccessControlAttributeConfigurationArgs', 'InstanceAccessCon
 class InstanceAccessControlAttributeConfigurationArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[str],
-                 access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]] = None):
+                 access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]] = None,
+                 instance_access_control_attribute_configuration: Optional[Any] = None):
         """
         The set of arguments for constructing a InstanceAccessControlAttributeConfiguration resource.
-        :param pulumi.Input[str] instance_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]] access_control_attributes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
+        :param pulumi.Input[str] instance_arn: The ARN of the AWS SSO instance under which the operation will be executed.
+        :param Any instance_access_control_attribute_configuration: The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         if access_control_attributes is not None:
             pulumi.set(__self__, "access_control_attributes", access_control_attributes)
+        if instance_access_control_attribute_configuration is not None:
+            pulumi.set(__self__, "instance_access_control_attribute_configuration", instance_access_control_attribute_configuration)
 
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
+        The ARN of the AWS SSO instance under which the operation will be executed.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -41,14 +44,23 @@ class InstanceAccessControlAttributeConfigurationArgs:
     @property
     @pulumi.getter(name="accessControlAttributes")
     def access_control_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
-        """
         return pulumi.get(self, "access_control_attributes")
 
     @access_control_attributes.setter
     def access_control_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]]):
         pulumi.set(self, "access_control_attributes", value)
+
+    @property
+    @pulumi.getter(name="instanceAccessControlAttributeConfiguration")
+    def instance_access_control_attribute_configuration(self) -> Optional[Any]:
+        """
+        The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+        """
+        return pulumi.get(self, "instance_access_control_attribute_configuration")
+
+    @instance_access_control_attribute_configuration.setter
+    def instance_access_control_attribute_configuration(self, value: Optional[Any]):
+        pulumi.set(self, "instance_access_control_attribute_configuration", value)
 
 
 class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
@@ -57,15 +69,16 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]]] = None,
+                 instance_access_control_attribute_configuration: Optional[Any] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html
+        Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]] access_control_attributes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
-        :param pulumi.Input[str] instance_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
+        :param Any instance_access_control_attribute_configuration: The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+        :param pulumi.Input[str] instance_arn: The ARN of the AWS SSO instance under which the operation will be executed.
         """
         ...
     @overload
@@ -74,7 +87,7 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
                  args: InstanceAccessControlAttributeConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html
+        Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
 
         :param str resource_name: The name of the resource.
         :param InstanceAccessControlAttributeConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -92,6 +105,7 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_control_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs']]]]] = None,
+                 instance_access_control_attribute_configuration: Optional[Any] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -106,6 +120,7 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
             __props__ = InstanceAccessControlAttributeConfigurationArgs.__new__(InstanceAccessControlAttributeConfigurationArgs)
 
             __props__.__dict__["access_control_attributes"] = access_control_attributes
+            __props__.__dict__["instance_access_control_attribute_configuration"] = instance_access_control_attribute_configuration
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
@@ -132,22 +147,28 @@ class InstanceAccessControlAttributeConfiguration(pulumi.CustomResource):
         __props__ = InstanceAccessControlAttributeConfigurationArgs.__new__(InstanceAccessControlAttributeConfigurationArgs)
 
         __props__.__dict__["access_control_attributes"] = None
+        __props__.__dict__["instance_access_control_attribute_configuration"] = None
         __props__.__dict__["instance_arn"] = None
         return InstanceAccessControlAttributeConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="accessControlAttributes")
     def access_control_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceAccessControlAttributeConfigurationAccessControlAttribute']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
-        """
         return pulumi.get(self, "access_control_attributes")
+
+    @property
+    @pulumi.getter(name="instanceAccessControlAttributeConfiguration")
+    def instance_access_control_attribute_configuration(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+        """
+        return pulumi.get(self, "instance_access_control_attribute_configuration")
 
     @property
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
+        The ARN of the AWS SSO instance under which the operation will be executed.
         """
         return pulumi.get(self, "instance_arn")
 

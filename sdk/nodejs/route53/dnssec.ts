@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html
+ * Resource used to control (enable/disable) DNSSEC in a specific hosted zone.
  */
 export class DNSSEC extends pulumi.CustomResource {
     /**
@@ -35,7 +35,7 @@ export class DNSSEC extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html#cfn-route53-dnssec-hostedzoneid
+     * The unique string (ID) used to identify a hosted zone.
      */
     public readonly hostedZoneId!: pulumi.Output<string>;
 
@@ -69,7 +69,7 @@ export class DNSSEC extends pulumi.CustomResource {
  */
 export interface DNSSECArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html#cfn-route53-dnssec-hostedzoneid
+     * The unique string (ID) used to identify a hosted zone.
      */
     hostedZoneId: pulumi.Input<string>;
 }

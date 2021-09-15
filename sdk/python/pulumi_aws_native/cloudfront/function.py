@@ -22,11 +22,6 @@ class FunctionArgs:
                  function_metadata: Optional[pulumi.Input['FunctionFunctionMetadataArgs']] = None):
         """
         The set of arguments for constructing a Function resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-name
-        :param pulumi.Input[bool] auto_publish: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-autopublish
-        :param pulumi.Input[str] function_code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functioncode
-        :param pulumi.Input['FunctionFunctionConfigArgs'] function_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig
-        :param pulumi.Input['FunctionFunctionMetadataArgs'] function_metadata: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionmetadata
         """
         pulumi.set(__self__, "name", name)
         if auto_publish is not None:
@@ -41,9 +36,6 @@ class FunctionArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -53,9 +45,6 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="autoPublish")
     def auto_publish(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-autopublish
-        """
         return pulumi.get(self, "auto_publish")
 
     @auto_publish.setter
@@ -65,9 +54,6 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="functionCode")
     def function_code(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functioncode
-        """
         return pulumi.get(self, "function_code")
 
     @function_code.setter
@@ -77,9 +63,6 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="functionConfig")
     def function_config(self) -> Optional[pulumi.Input['FunctionFunctionConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig
-        """
         return pulumi.get(self, "function_config")
 
     @function_config.setter
@@ -89,9 +72,6 @@ class FunctionArgs:
     @property
     @pulumi.getter(name="functionMetadata")
     def function_metadata(self) -> Optional[pulumi.Input['FunctionFunctionMetadataArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionmetadata
-        """
         return pulumi.get(self, "function_metadata")
 
     @function_metadata.setter
@@ -111,15 +91,10 @@ class Function(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html
+        Resource Type definition for AWS::CloudFront::Function
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_publish: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-autopublish
-        :param pulumi.Input[str] function_code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functioncode
-        :param pulumi.Input[pulumi.InputType['FunctionFunctionConfigArgs']] function_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig
-        :param pulumi.Input[pulumi.InputType['FunctionFunctionMetadataArgs']] function_metadata: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionmetadata
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-name
         """
         ...
     @overload
@@ -128,7 +103,7 @@ class Function(pulumi.CustomResource):
                  args: FunctionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html
+        Resource Type definition for AWS::CloudFront::Function
 
         :param str resource_name: The name of the resource.
         :param FunctionArgs args: The arguments to use to populate this resource's properties.
@@ -170,7 +145,6 @@ class Function(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["function_arn"] = None
-            __props__.__dict__["function_metadata_function_arn"] = None
             __props__.__dict__["stage"] = None
         super(Function, __self__).__init__(
             'aws-native:cloudfront:Function',
@@ -199,7 +173,6 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["function_code"] = None
         __props__.__dict__["function_config"] = None
         __props__.__dict__["function_metadata"] = None
-        __props__.__dict__["function_metadata_function_arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["stage"] = None
         return Function(resource_name, opts=opts, __props__=__props__)
@@ -207,9 +180,6 @@ class Function(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoPublish")
     def auto_publish(self) -> pulumi.Output[Optional[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-autopublish
-        """
         return pulumi.get(self, "auto_publish")
 
     @property
@@ -220,38 +190,21 @@ class Function(pulumi.CustomResource):
     @property
     @pulumi.getter(name="functionCode")
     def function_code(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functioncode
-        """
         return pulumi.get(self, "function_code")
 
     @property
     @pulumi.getter(name="functionConfig")
     def function_config(self) -> pulumi.Output[Optional['outputs.FunctionFunctionConfig']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig
-        """
         return pulumi.get(self, "function_config")
 
     @property
     @pulumi.getter(name="functionMetadata")
     def function_metadata(self) -> pulumi.Output[Optional['outputs.FunctionFunctionMetadata']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionmetadata
-        """
         return pulumi.get(self, "function_metadata")
-
-    @property
-    @pulumi.getter(name="functionMetadataFunctionARN")
-    def function_metadata_function_arn(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "function_metadata_function_arn")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-name
-        """
         return pulumi.get(self, "name")
 
     @property

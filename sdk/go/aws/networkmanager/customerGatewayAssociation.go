@@ -11,17 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html
+// The AWS::NetworkManager::CustomerGatewayAssociation type associates a customer gateway with a device and optionally, with a link.
 type CustomerGatewayAssociation struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-customergatewayarn
+	// The Amazon Resource Name (ARN) of the customer gateway.
 	CustomerGatewayArn pulumi.StringOutput `pulumi:"customerGatewayArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-deviceid
+	// The ID of the device
 	DeviceId pulumi.StringOutput `pulumi:"deviceId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-globalnetworkid
+	// The ID of the global network.
 	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-linkid
+	// The ID of the link
 	LinkId pulumi.StringPtrOutput `pulumi:"linkId"`
 }
 
@@ -73,25 +73,25 @@ func (CustomerGatewayAssociationState) ElementType() reflect.Type {
 }
 
 type customerGatewayAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-customergatewayarn
+	// The Amazon Resource Name (ARN) of the customer gateway.
 	CustomerGatewayArn string `pulumi:"customerGatewayArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-deviceid
+	// The ID of the device
 	DeviceId string `pulumi:"deviceId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-globalnetworkid
+	// The ID of the global network.
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-linkid
+	// The ID of the link
 	LinkId *string `pulumi:"linkId"`
 }
 
 // The set of arguments for constructing a CustomerGatewayAssociation resource.
 type CustomerGatewayAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-customergatewayarn
+	// The Amazon Resource Name (ARN) of the customer gateway.
 	CustomerGatewayArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-deviceid
+	// The ID of the device
 	DeviceId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-globalnetworkid
+	// The ID of the global network.
 	GlobalNetworkId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-linkid
+	// The ID of the link
 	LinkId pulumi.StringPtrInput
 }
 

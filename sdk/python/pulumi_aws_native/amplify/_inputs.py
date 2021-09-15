@@ -13,8 +13,10 @@ __all__ = [
     'AppBasicAuthConfigArgs',
     'AppCustomRuleArgs',
     'AppEnvironmentVariableArgs',
+    'AppTagArgs',
     'BranchBasicAuthConfigArgs',
     'BranchEnvironmentVariableArgs',
+    'BranchTagArgs',
     'DomainSubDomainSettingArgs',
 ]
 
@@ -31,19 +33,6 @@ class AppAutoBranchCreationConfigArgs:
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
                  stage: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_branch_creation_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-autobranchcreationpatterns
-        :param pulumi.Input['AppBasicAuthConfigArgs'] basic_auth_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-basicauthconfig
-        :param pulumi.Input[str] build_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-buildspec
-        :param pulumi.Input[bool] enable_auto_branch_creation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobranchcreation
-        :param pulumi.Input[bool] enable_auto_build: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobuild
-        :param pulumi.Input[bool] enable_performance_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableperformancemode
-        :param pulumi.Input[bool] enable_pull_request_preview: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enablepullrequestpreview
-        :param pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]] environment_variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-environmentvariables
-        :param pulumi.Input[str] pull_request_environment_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-pullrequestenvironmentname
-        :param pulumi.Input[str] stage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-stage
-        """
         if auto_branch_creation_patterns is not None:
             pulumi.set(__self__, "auto_branch_creation_patterns", auto_branch_creation_patterns)
         if basic_auth_config is not None:
@@ -68,9 +57,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="autoBranchCreationPatterns")
     def auto_branch_creation_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-autobranchcreationpatterns
-        """
         return pulumi.get(self, "auto_branch_creation_patterns")
 
     @auto_branch_creation_patterns.setter
@@ -80,9 +66,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="basicAuthConfig")
     def basic_auth_config(self) -> Optional[pulumi.Input['AppBasicAuthConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-basicauthconfig
-        """
         return pulumi.get(self, "basic_auth_config")
 
     @basic_auth_config.setter
@@ -92,9 +75,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="buildSpec")
     def build_spec(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-buildspec
-        """
         return pulumi.get(self, "build_spec")
 
     @build_spec.setter
@@ -104,9 +84,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="enableAutoBranchCreation")
     def enable_auto_branch_creation(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobranchcreation
-        """
         return pulumi.get(self, "enable_auto_branch_creation")
 
     @enable_auto_branch_creation.setter
@@ -116,9 +93,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="enableAutoBuild")
     def enable_auto_build(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobuild
-        """
         return pulumi.get(self, "enable_auto_build")
 
     @enable_auto_build.setter
@@ -128,9 +102,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="enablePerformanceMode")
     def enable_performance_mode(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableperformancemode
-        """
         return pulumi.get(self, "enable_performance_mode")
 
     @enable_performance_mode.setter
@@ -140,9 +111,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="enablePullRequestPreview")
     def enable_pull_request_preview(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enablepullrequestpreview
-        """
         return pulumi.get(self, "enable_pull_request_preview")
 
     @enable_pull_request_preview.setter
@@ -152,9 +120,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-environmentvariables
-        """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
@@ -164,9 +129,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter(name="pullRequestEnvironmentName")
     def pull_request_environment_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-pullrequestenvironmentname
-        """
         return pulumi.get(self, "pull_request_environment_name")
 
     @pull_request_environment_name.setter
@@ -176,9 +138,6 @@ class AppAutoBranchCreationConfigArgs:
     @property
     @pulumi.getter
     def stage(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-stage
-        """
         return pulumi.get(self, "stage")
 
     @stage.setter
@@ -192,12 +151,6 @@ class AppBasicAuthConfigArgs:
                  enable_basic_auth: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html
-        :param pulumi.Input[bool] enable_basic_auth: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-enablebasicauth
-        :param pulumi.Input[str] password: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-password
-        :param pulumi.Input[str] username: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-username
-        """
         if enable_basic_auth is not None:
             pulumi.set(__self__, "enable_basic_auth", enable_basic_auth)
         if password is not None:
@@ -208,9 +161,6 @@ class AppBasicAuthConfigArgs:
     @property
     @pulumi.getter(name="enableBasicAuth")
     def enable_basic_auth(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-enablebasicauth
-        """
         return pulumi.get(self, "enable_basic_auth")
 
     @enable_basic_auth.setter
@@ -220,9 +170,6 @@ class AppBasicAuthConfigArgs:
     @property
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-password
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -232,9 +179,6 @@ class AppBasicAuthConfigArgs:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-username
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -249,13 +193,6 @@ class AppCustomRuleArgs:
                  target: pulumi.Input[str],
                  condition: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html
-        :param pulumi.Input[str] source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-source
-        :param pulumi.Input[str] target: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-target
-        :param pulumi.Input[str] condition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-condition
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-status
-        """
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "target", target)
         if condition is not None:
@@ -266,9 +203,6 @@ class AppCustomRuleArgs:
     @property
     @pulumi.getter
     def source(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-source
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -278,9 +212,6 @@ class AppCustomRuleArgs:
     @property
     @pulumi.getter
     def target(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-target
-        """
         return pulumi.get(self, "target")
 
     @target.setter
@@ -290,9 +221,6 @@ class AppCustomRuleArgs:
     @property
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-condition
-        """
         return pulumi.get(self, "condition")
 
     @condition.setter
@@ -302,9 +230,6 @@ class AppCustomRuleArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-customrule.html#cfn-amplify-app-customrule-status
-        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -317,20 +242,12 @@ class AppEnvironmentVariableArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html#cfn-amplify-app-environmentvariable-name
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html#cfn-amplify-app-environmentvariable-value
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html#cfn-amplify-app-environmentvariable-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -340,9 +257,33 @@ class AppEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-environmentvariable.html#cfn-amplify-app-environmentvariable-value
-        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class AppTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
         return pulumi.get(self, "value")
 
     @value.setter
@@ -356,12 +297,6 @@ class BranchBasicAuthConfigArgs:
                  password: pulumi.Input[str],
                  username: pulumi.Input[str],
                  enable_basic_auth: Optional[pulumi.Input[bool]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html
-        :param pulumi.Input[str] password: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-password
-        :param pulumi.Input[str] username: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-username
-        :param pulumi.Input[bool] enable_basic_auth: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-enablebasicauth
-        """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
         if enable_basic_auth is not None:
@@ -370,9 +305,6 @@ class BranchBasicAuthConfigArgs:
     @property
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-password
-        """
         return pulumi.get(self, "password")
 
     @password.setter
@@ -382,9 +314,6 @@ class BranchBasicAuthConfigArgs:
     @property
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-username
-        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -394,9 +323,6 @@ class BranchBasicAuthConfigArgs:
     @property
     @pulumi.getter(name="enableBasicAuth")
     def enable_basic_auth(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-basicauthconfig.html#cfn-amplify-branch-basicauthconfig-enablebasicauth
-        """
         return pulumi.get(self, "enable_basic_auth")
 
     @enable_basic_auth.setter
@@ -409,20 +335,12 @@ class BranchEnvironmentVariableArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html#cfn-amplify-branch-environmentvariable-name
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html#cfn-amplify-branch-environmentvariable-value
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html#cfn-amplify-branch-environmentvariable-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -432,9 +350,33 @@ class BranchEnvironmentVariableArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-environmentvariable.html#cfn-amplify-branch-environmentvariable-value
-        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class BranchTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
         return pulumi.get(self, "value")
 
     @value.setter
@@ -447,20 +389,12 @@ class DomainSubDomainSettingArgs:
     def __init__(__self__, *,
                  branch_name: pulumi.Input[str],
                  prefix: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html
-        :param pulumi.Input[str] branch_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-branchname
-        :param pulumi.Input[str] prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-prefix
-        """
         pulumi.set(__self__, "branch_name", branch_name)
         pulumi.set(__self__, "prefix", prefix)
 
     @property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-branchname
-        """
         return pulumi.get(self, "branch_name")
 
     @branch_name.setter
@@ -470,9 +404,6 @@ class DomainSubDomainSettingArgs:
     @property
     @pulumi.getter
     def prefix(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html#cfn-amplify-domain-subdomainsetting-prefix
-        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter

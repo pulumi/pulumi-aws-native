@@ -10,19 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html
+    /// Resource Type definition for AWS::ApiGateway::Account
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:Account")]
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html#cfn-apigateway-account-cloudwatchrolearn
+        /// The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
         /// </summary>
         [Output("cloudWatchRoleArn")]
         public Output<string?> CloudWatchRoleArn { get; private set; } = null!;
-
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
 
 
         /// <summary>
@@ -70,7 +67,7 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html#cfn-apigateway-account-cloudwatchrolearn
+        /// The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
         /// </summary>
         [Input("cloudWatchRoleArn")]
         public Input<string>? CloudWatchRoleArn { get; set; }

@@ -10,13 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EFS.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html
-    /// </summary>
     public sealed class AccessPointPosixUserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-gid
+        /// The POSIX group ID used for all file system operations using this access point.
         /// </summary>
         [Input("gid", required: true)]
         public Input<string> Gid { get; set; } = null!;
@@ -25,7 +22,7 @@ namespace Pulumi.AwsNative.EFS.Inputs
         private InputList<string>? _secondaryGids;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-secondarygids
+        /// Secondary POSIX group IDs used for all file system operations using this access point.
         /// </summary>
         public InputList<string> SecondaryGids
         {
@@ -34,7 +31,7 @@ namespace Pulumi.AwsNative.EFS.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-uid
+        /// The POSIX user ID used for all file system operations using this access point.
         /// </summary>
         [Input("uid", required: true)]
         public Input<string> Uid { get; set; } = null!;

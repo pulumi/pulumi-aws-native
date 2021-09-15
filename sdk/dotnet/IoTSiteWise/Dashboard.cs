@@ -10,46 +10,52 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTSiteWise
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html
+    /// Resource schema for AWS::IoTSiteWise::Dashboard
     /// </summary>
     [AwsNativeResourceType("aws-native:iotsitewise:Dashboard")]
     public partial class Dashboard : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the dashboard.
+        /// </summary>
         [Output("dashboardArn")]
         public Output<string> DashboardArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
+        /// The dashboard definition specified in a JSON literal.
         /// </summary>
         [Output("dashboardDefinition")]
         public Output<string> DashboardDefinition { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
+        /// A description for the dashboard.
         /// </summary>
         [Output("dashboardDescription")]
         public Output<string> DashboardDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the dashboard.
+        /// </summary>
         [Output("dashboardId")]
         public Output<string> DashboardId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
+        /// A friendly name for the dashboard.
         /// </summary>
         [Output("dashboardName")]
         public Output<string> DashboardName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
+        /// The ID of the project in which to create the dashboard.
         /// </summary>
         [Output("projectId")]
         public Output<string?> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
+        /// A list of key-value pairs that contain metadata for the dashboard.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DashboardTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -97,38 +103,38 @@ namespace Pulumi.AwsNative.IoTSiteWise
     public sealed class DashboardArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddefinition
+        /// The dashboard definition specified in a JSON literal.
         /// </summary>
         [Input("dashboardDefinition", required: true)]
         public Input<string> DashboardDefinition { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboarddescription
+        /// A description for the dashboard.
         /// </summary>
         [Input("dashboardDescription", required: true)]
         public Input<string> DashboardDescription { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-dashboardname
+        /// A friendly name for the dashboard.
         /// </summary>
         [Input("dashboardName", required: true)]
         public Input<string> DashboardName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-projectid
+        /// The ID of the project in which to create the dashboard.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.DashboardTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dashboard.html#cfn-iotsitewise-dashboard-tags
+        /// A list of key-value pairs that contain metadata for the dashboard.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.DashboardTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.DashboardTagArgs>());
             set => _tags = value;
         }
 

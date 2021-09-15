@@ -7,15 +7,11 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html
 type GlobalTableAttributeDefinition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html#cfn-dynamodb-globaltable-attributedefinition-attributename
 	AttributeName string `pulumi:"attributeName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html#cfn-dynamodb-globaltable-attributedefinition-attributetype
 	AttributeType string `pulumi:"attributeType"`
 }
 
@@ -30,11 +26,8 @@ type GlobalTableAttributeDefinitionInput interface {
 	ToGlobalTableAttributeDefinitionOutputWithContext(context.Context) GlobalTableAttributeDefinitionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html
 type GlobalTableAttributeDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html#cfn-dynamodb-globaltable-attributedefinition-attributename
 	AttributeName pulumi.StringInput `pulumi:"attributeName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html#cfn-dynamodb-globaltable-attributedefinition-attributetype
 	AttributeType pulumi.StringInput `pulumi:"attributeType"`
 }
 
@@ -75,7 +68,6 @@ func (i GlobalTableAttributeDefinitionArray) ToGlobalTableAttributeDefinitionArr
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableAttributeDefinitionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html
 type GlobalTableAttributeDefinitionOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableAttributeDefinitionOutput) ElementType() reflect.Type {
@@ -90,12 +82,10 @@ func (o GlobalTableAttributeDefinitionOutput) ToGlobalTableAttributeDefinitionOu
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html#cfn-dynamodb-globaltable-attributedefinition-attributename
 func (o GlobalTableAttributeDefinitionOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableAttributeDefinition) string { return v.AttributeName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-attributedefinition.html#cfn-dynamodb-globaltable-attributedefinition-attributetype
 func (o GlobalTableAttributeDefinitionOutput) AttributeType() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableAttributeDefinition) string { return v.AttributeType }).(pulumi.StringOutput)
 }
@@ -120,15 +110,10 @@ func (o GlobalTableAttributeDefinitionArrayOutput) Index(i pulumi.IntInput) Glob
 	}).(GlobalTableAttributeDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html
 type GlobalTableCapacityAutoScalingSettings struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-maxcapacity
-	MaxCapacity int `pulumi:"maxCapacity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-mincapacity
-	MinCapacity int `pulumi:"minCapacity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-seedcapacity
-	SeedCapacity *int `pulumi:"seedCapacity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-targettrackingscalingpolicyconfiguration
+	MaxCapacity                              int                                                 `pulumi:"maxCapacity"`
+	MinCapacity                              int                                                 `pulumi:"minCapacity"`
+	SeedCapacity                             *int                                                `pulumi:"seedCapacity"`
 	TargetTrackingScalingPolicyConfiguration GlobalTableTargetTrackingScalingPolicyConfiguration `pulumi:"targetTrackingScalingPolicyConfiguration"`
 }
 
@@ -143,15 +128,10 @@ type GlobalTableCapacityAutoScalingSettingsInput interface {
 	ToGlobalTableCapacityAutoScalingSettingsOutputWithContext(context.Context) GlobalTableCapacityAutoScalingSettingsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html
 type GlobalTableCapacityAutoScalingSettingsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-maxcapacity
-	MaxCapacity pulumi.IntInput `pulumi:"maxCapacity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-mincapacity
-	MinCapacity pulumi.IntInput `pulumi:"minCapacity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-seedcapacity
-	SeedCapacity pulumi.IntPtrInput `pulumi:"seedCapacity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-targettrackingscalingpolicyconfiguration
+	MaxCapacity                              pulumi.IntInput                                          `pulumi:"maxCapacity"`
+	MinCapacity                              pulumi.IntInput                                          `pulumi:"minCapacity"`
+	SeedCapacity                             pulumi.IntPtrInput                                       `pulumi:"seedCapacity"`
 	TargetTrackingScalingPolicyConfiguration GlobalTableTargetTrackingScalingPolicyConfigurationInput `pulumi:"targetTrackingScalingPolicyConfiguration"`
 }
 
@@ -208,7 +188,6 @@ func (i *globalTableCapacityAutoScalingSettingsPtrType) ToGlobalTableCapacityAut
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableCapacityAutoScalingSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html
 type GlobalTableCapacityAutoScalingSettingsOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableCapacityAutoScalingSettingsOutput) ElementType() reflect.Type {
@@ -233,22 +212,18 @@ func (o GlobalTableCapacityAutoScalingSettingsOutput) ToGlobalTableCapacityAutoS
 	}).(GlobalTableCapacityAutoScalingSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-maxcapacity
 func (o GlobalTableCapacityAutoScalingSettingsOutput) MaxCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v GlobalTableCapacityAutoScalingSettings) int { return v.MaxCapacity }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-mincapacity
 func (o GlobalTableCapacityAutoScalingSettingsOutput) MinCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v GlobalTableCapacityAutoScalingSettings) int { return v.MinCapacity }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-seedcapacity
 func (o GlobalTableCapacityAutoScalingSettingsOutput) SeedCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GlobalTableCapacityAutoScalingSettings) *int { return v.SeedCapacity }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-targettrackingscalingpolicyconfiguration
 func (o GlobalTableCapacityAutoScalingSettingsOutput) TargetTrackingScalingPolicyConfiguration() GlobalTableTargetTrackingScalingPolicyConfigurationOutput {
 	return o.ApplyT(func(v GlobalTableCapacityAutoScalingSettings) GlobalTableTargetTrackingScalingPolicyConfiguration {
 		return v.TargetTrackingScalingPolicyConfiguration
@@ -279,7 +254,6 @@ func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) Elem() GlobalTableCapac
 	}).(GlobalTableCapacityAutoScalingSettingsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-maxcapacity
 func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalTableCapacityAutoScalingSettings) *int {
 		if v == nil {
@@ -289,7 +263,6 @@ func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) MaxCapacity() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-mincapacity
 func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalTableCapacityAutoScalingSettings) *int {
 		if v == nil {
@@ -299,7 +272,6 @@ func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) MinCapacity() pulumi.In
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-seedcapacity
 func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) SeedCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalTableCapacityAutoScalingSettings) *int {
 		if v == nil {
@@ -309,7 +281,6 @@ func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) SeedCapacity() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-capacityautoscalingsettings.html#cfn-dynamodb-globaltable-capacityautoscalingsettings-targettrackingscalingpolicyconfiguration
 func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) TargetTrackingScalingPolicyConfiguration() GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput {
 	return o.ApplyT(func(v *GlobalTableCapacityAutoScalingSettings) *GlobalTableTargetTrackingScalingPolicyConfiguration {
 		if v == nil {
@@ -319,9 +290,7 @@ func (o GlobalTableCapacityAutoScalingSettingsPtrOutput) TargetTrackingScalingPo
 	}).(GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html
 type GlobalTableContributorInsightsSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html#cfn-dynamodb-globaltable-contributorinsightsspecification-enabled
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -336,9 +305,7 @@ type GlobalTableContributorInsightsSpecificationInput interface {
 	ToGlobalTableContributorInsightsSpecificationOutputWithContext(context.Context) GlobalTableContributorInsightsSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html
 type GlobalTableContributorInsightsSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html#cfn-dynamodb-globaltable-contributorinsightsspecification-enabled
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -395,7 +362,6 @@ func (i *globalTableContributorInsightsSpecificationPtrType) ToGlobalTableContri
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableContributorInsightsSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html
 type GlobalTableContributorInsightsSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableContributorInsightsSpecificationOutput) ElementType() reflect.Type {
@@ -420,7 +386,6 @@ func (o GlobalTableContributorInsightsSpecificationOutput) ToGlobalTableContribu
 	}).(GlobalTableContributorInsightsSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html#cfn-dynamodb-globaltable-contributorinsightsspecification-enabled
 func (o GlobalTableContributorInsightsSpecificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GlobalTableContributorInsightsSpecification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -449,7 +414,6 @@ func (o GlobalTableContributorInsightsSpecificationPtrOutput) Elem() GlobalTable
 	}).(GlobalTableContributorInsightsSpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html#cfn-dynamodb-globaltable-contributorinsightsspecification-enabled
 func (o GlobalTableContributorInsightsSpecificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalTableContributorInsightsSpecification) *bool {
 		if v == nil {
@@ -459,15 +423,10 @@ func (o GlobalTableContributorInsightsSpecificationPtrOutput) Enabled() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html
 type GlobalTableGlobalSecondaryIndex struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-indexname
-	IndexName string `pulumi:"indexName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-keyschema
-	KeySchema []GlobalTableKeySchema `pulumi:"keySchema"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-projection
-	Projection GlobalTableProjection `pulumi:"projection"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-writeprovisionedthroughputsettings
+	IndexName                          string                                         `pulumi:"indexName"`
+	KeySchema                          []GlobalTableKeySchema                         `pulumi:"keySchema"`
+	Projection                         GlobalTableProjection                          `pulumi:"projection"`
 	WriteProvisionedThroughputSettings *GlobalTableWriteProvisionedThroughputSettings `pulumi:"writeProvisionedThroughputSettings"`
 }
 
@@ -482,15 +441,10 @@ type GlobalTableGlobalSecondaryIndexInput interface {
 	ToGlobalTableGlobalSecondaryIndexOutputWithContext(context.Context) GlobalTableGlobalSecondaryIndexOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html
 type GlobalTableGlobalSecondaryIndexArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-indexname
-	IndexName pulumi.StringInput `pulumi:"indexName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-keyschema
-	KeySchema GlobalTableKeySchemaArrayInput `pulumi:"keySchema"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-projection
-	Projection GlobalTableProjectionInput `pulumi:"projection"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-writeprovisionedthroughputsettings
+	IndexName                          pulumi.StringInput                                    `pulumi:"indexName"`
+	KeySchema                          GlobalTableKeySchemaArrayInput                        `pulumi:"keySchema"`
+	Projection                         GlobalTableProjectionInput                            `pulumi:"projection"`
 	WriteProvisionedThroughputSettings GlobalTableWriteProvisionedThroughputSettingsPtrInput `pulumi:"writeProvisionedThroughputSettings"`
 }
 
@@ -531,7 +485,6 @@ func (i GlobalTableGlobalSecondaryIndexArray) ToGlobalTableGlobalSecondaryIndexA
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableGlobalSecondaryIndexArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html
 type GlobalTableGlobalSecondaryIndexOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableGlobalSecondaryIndexOutput) ElementType() reflect.Type {
@@ -546,22 +499,18 @@ func (o GlobalTableGlobalSecondaryIndexOutput) ToGlobalTableGlobalSecondaryIndex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-indexname
 func (o GlobalTableGlobalSecondaryIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-keyschema
 func (o GlobalTableGlobalSecondaryIndexOutput) KeySchema() GlobalTableKeySchemaArrayOutput {
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) []GlobalTableKeySchema { return v.KeySchema }).(GlobalTableKeySchemaArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-projection
 func (o GlobalTableGlobalSecondaryIndexOutput) Projection() GlobalTableProjectionOutput {
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) GlobalTableProjection { return v.Projection }).(GlobalTableProjectionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-globalsecondaryindex.html#cfn-dynamodb-globaltable-globalsecondaryindex-writeprovisionedthroughputsettings
 func (o GlobalTableGlobalSecondaryIndexOutput) WriteProvisionedThroughputSettings() GlobalTableWriteProvisionedThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) *GlobalTableWriteProvisionedThroughputSettings {
 		return v.WriteProvisionedThroughputSettings
@@ -588,12 +537,9 @@ func (o GlobalTableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) Glo
 	}).(GlobalTableGlobalSecondaryIndexOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html
 type GlobalTableKeySchema struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html#cfn-dynamodb-globaltable-keyschema-attributename
 	AttributeName string `pulumi:"attributeName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html#cfn-dynamodb-globaltable-keyschema-keytype
-	KeyType string `pulumi:"keyType"`
+	KeyType       string `pulumi:"keyType"`
 }
 
 // GlobalTableKeySchemaInput is an input type that accepts GlobalTableKeySchemaArgs and GlobalTableKeySchemaOutput values.
@@ -607,12 +553,9 @@ type GlobalTableKeySchemaInput interface {
 	ToGlobalTableKeySchemaOutputWithContext(context.Context) GlobalTableKeySchemaOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html
 type GlobalTableKeySchemaArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html#cfn-dynamodb-globaltable-keyschema-attributename
 	AttributeName pulumi.StringInput `pulumi:"attributeName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html#cfn-dynamodb-globaltable-keyschema-keytype
-	KeyType pulumi.StringInput `pulumi:"keyType"`
+	KeyType       pulumi.StringInput `pulumi:"keyType"`
 }
 
 func (GlobalTableKeySchemaArgs) ElementType() reflect.Type {
@@ -652,7 +595,6 @@ func (i GlobalTableKeySchemaArray) ToGlobalTableKeySchemaArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableKeySchemaArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html
 type GlobalTableKeySchemaOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableKeySchemaOutput) ElementType() reflect.Type {
@@ -667,12 +609,10 @@ func (o GlobalTableKeySchemaOutput) ToGlobalTableKeySchemaOutputWithContext(ctx 
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html#cfn-dynamodb-globaltable-keyschema-attributename
 func (o GlobalTableKeySchemaOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableKeySchema) string { return v.AttributeName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-keyschema.html#cfn-dynamodb-globaltable-keyschema-keytype
 func (o GlobalTableKeySchemaOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableKeySchema) string { return v.KeyType }).(pulumi.StringOutput)
 }
@@ -697,14 +637,10 @@ func (o GlobalTableKeySchemaArrayOutput) Index(i pulumi.IntInput) GlobalTableKey
 	}).(GlobalTableKeySchemaOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html
 type GlobalTableLocalSecondaryIndex struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-indexname
-	IndexName string `pulumi:"indexName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-keyschema
-	KeySchema []GlobalTableKeySchema `pulumi:"keySchema"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-projection
-	Projection GlobalTableProjection `pulumi:"projection"`
+	IndexName  string                 `pulumi:"indexName"`
+	KeySchema  []GlobalTableKeySchema `pulumi:"keySchema"`
+	Projection GlobalTableProjection  `pulumi:"projection"`
 }
 
 // GlobalTableLocalSecondaryIndexInput is an input type that accepts GlobalTableLocalSecondaryIndexArgs and GlobalTableLocalSecondaryIndexOutput values.
@@ -718,14 +654,10 @@ type GlobalTableLocalSecondaryIndexInput interface {
 	ToGlobalTableLocalSecondaryIndexOutputWithContext(context.Context) GlobalTableLocalSecondaryIndexOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html
 type GlobalTableLocalSecondaryIndexArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-indexname
-	IndexName pulumi.StringInput `pulumi:"indexName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-keyschema
-	KeySchema GlobalTableKeySchemaArrayInput `pulumi:"keySchema"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-projection
-	Projection GlobalTableProjectionInput `pulumi:"projection"`
+	IndexName  pulumi.StringInput             `pulumi:"indexName"`
+	KeySchema  GlobalTableKeySchemaArrayInput `pulumi:"keySchema"`
+	Projection GlobalTableProjectionInput     `pulumi:"projection"`
 }
 
 func (GlobalTableLocalSecondaryIndexArgs) ElementType() reflect.Type {
@@ -765,7 +697,6 @@ func (i GlobalTableLocalSecondaryIndexArray) ToGlobalTableLocalSecondaryIndexArr
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableLocalSecondaryIndexArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html
 type GlobalTableLocalSecondaryIndexOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableLocalSecondaryIndexOutput) ElementType() reflect.Type {
@@ -780,17 +711,14 @@ func (o GlobalTableLocalSecondaryIndexOutput) ToGlobalTableLocalSecondaryIndexOu
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-indexname
 func (o GlobalTableLocalSecondaryIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableLocalSecondaryIndex) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-keyschema
 func (o GlobalTableLocalSecondaryIndexOutput) KeySchema() GlobalTableKeySchemaArrayOutput {
 	return o.ApplyT(func(v GlobalTableLocalSecondaryIndex) []GlobalTableKeySchema { return v.KeySchema }).(GlobalTableKeySchemaArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-localsecondaryindex.html#cfn-dynamodb-globaltable-localsecondaryindex-projection
 func (o GlobalTableLocalSecondaryIndexOutput) Projection() GlobalTableProjectionOutput {
 	return o.ApplyT(func(v GlobalTableLocalSecondaryIndex) GlobalTableProjection { return v.Projection }).(GlobalTableProjectionOutput)
 }
@@ -815,9 +743,7 @@ func (o GlobalTableLocalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) Glob
 	}).(GlobalTableLocalSecondaryIndexOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html
 type GlobalTablePointInTimeRecoverySpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html#cfn-dynamodb-globaltable-pointintimerecoveryspecification-pointintimerecoveryenabled
 	PointInTimeRecoveryEnabled *bool `pulumi:"pointInTimeRecoveryEnabled"`
 }
 
@@ -832,9 +758,7 @@ type GlobalTablePointInTimeRecoverySpecificationInput interface {
 	ToGlobalTablePointInTimeRecoverySpecificationOutputWithContext(context.Context) GlobalTablePointInTimeRecoverySpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html
 type GlobalTablePointInTimeRecoverySpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html#cfn-dynamodb-globaltable-pointintimerecoveryspecification-pointintimerecoveryenabled
 	PointInTimeRecoveryEnabled pulumi.BoolPtrInput `pulumi:"pointInTimeRecoveryEnabled"`
 }
 
@@ -891,7 +815,6 @@ func (i *globalTablePointInTimeRecoverySpecificationPtrType) ToGlobalTablePointI
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTablePointInTimeRecoverySpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html
 type GlobalTablePointInTimeRecoverySpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTablePointInTimeRecoverySpecificationOutput) ElementType() reflect.Type {
@@ -916,7 +839,6 @@ func (o GlobalTablePointInTimeRecoverySpecificationOutput) ToGlobalTablePointInT
 	}).(GlobalTablePointInTimeRecoverySpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html#cfn-dynamodb-globaltable-pointintimerecoveryspecification-pointintimerecoveryenabled
 func (o GlobalTablePointInTimeRecoverySpecificationOutput) PointInTimeRecoveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GlobalTablePointInTimeRecoverySpecification) *bool { return v.PointInTimeRecoveryEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -945,7 +867,6 @@ func (o GlobalTablePointInTimeRecoverySpecificationPtrOutput) Elem() GlobalTable
 	}).(GlobalTablePointInTimeRecoverySpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html#cfn-dynamodb-globaltable-pointintimerecoveryspecification-pointintimerecoveryenabled
 func (o GlobalTablePointInTimeRecoverySpecificationPtrOutput) PointInTimeRecoveryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalTablePointInTimeRecoverySpecification) *bool {
 		if v == nil {
@@ -955,12 +876,9 @@ func (o GlobalTablePointInTimeRecoverySpecificationPtrOutput) PointInTimeRecover
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html
 type GlobalTableProjection struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html#cfn-dynamodb-globaltable-projection-nonkeyattributes
 	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html#cfn-dynamodb-globaltable-projection-projectiontype
-	ProjectionType *string `pulumi:"projectionType"`
+	ProjectionType   *string  `pulumi:"projectionType"`
 }
 
 // GlobalTableProjectionInput is an input type that accepts GlobalTableProjectionArgs and GlobalTableProjectionOutput values.
@@ -974,12 +892,9 @@ type GlobalTableProjectionInput interface {
 	ToGlobalTableProjectionOutputWithContext(context.Context) GlobalTableProjectionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html
 type GlobalTableProjectionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html#cfn-dynamodb-globaltable-projection-nonkeyattributes
 	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html#cfn-dynamodb-globaltable-projection-projectiontype
-	ProjectionType pulumi.StringPtrInput `pulumi:"projectionType"`
+	ProjectionType   pulumi.StringPtrInput   `pulumi:"projectionType"`
 }
 
 func (GlobalTableProjectionArgs) ElementType() reflect.Type {
@@ -994,7 +909,6 @@ func (i GlobalTableProjectionArgs) ToGlobalTableProjectionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableProjectionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html
 type GlobalTableProjectionOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableProjectionOutput) ElementType() reflect.Type {
@@ -1009,22 +923,17 @@ func (o GlobalTableProjectionOutput) ToGlobalTableProjectionOutputWithContext(ct
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html#cfn-dynamodb-globaltable-projection-nonkeyattributes
 func (o GlobalTableProjectionOutput) NonKeyAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GlobalTableProjection) []string { return v.NonKeyAttributes }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html#cfn-dynamodb-globaltable-projection-projectiontype
 func (o GlobalTableProjectionOutput) ProjectionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalTableProjection) *string { return v.ProjectionType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html
 type GlobalTableReadProvisionedThroughputSettings struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityautoscalingsettings
 	ReadCapacityAutoScalingSettings *GlobalTableCapacityAutoScalingSettings `pulumi:"readCapacityAutoScalingSettings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityunits
-	ReadCapacityUnits *int `pulumi:"readCapacityUnits"`
+	ReadCapacityUnits               *int                                    `pulumi:"readCapacityUnits"`
 }
 
 // GlobalTableReadProvisionedThroughputSettingsInput is an input type that accepts GlobalTableReadProvisionedThroughputSettingsArgs and GlobalTableReadProvisionedThroughputSettingsOutput values.
@@ -1038,12 +947,9 @@ type GlobalTableReadProvisionedThroughputSettingsInput interface {
 	ToGlobalTableReadProvisionedThroughputSettingsOutputWithContext(context.Context) GlobalTableReadProvisionedThroughputSettingsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html
 type GlobalTableReadProvisionedThroughputSettingsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityautoscalingsettings
 	ReadCapacityAutoScalingSettings GlobalTableCapacityAutoScalingSettingsPtrInput `pulumi:"readCapacityAutoScalingSettings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityunits
-	ReadCapacityUnits pulumi.IntPtrInput `pulumi:"readCapacityUnits"`
+	ReadCapacityUnits               pulumi.IntPtrInput                             `pulumi:"readCapacityUnits"`
 }
 
 func (GlobalTableReadProvisionedThroughputSettingsArgs) ElementType() reflect.Type {
@@ -1099,7 +1005,6 @@ func (i *globalTableReadProvisionedThroughputSettingsPtrType) ToGlobalTableReadP
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReadProvisionedThroughputSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html
 type GlobalTableReadProvisionedThroughputSettingsOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableReadProvisionedThroughputSettingsOutput) ElementType() reflect.Type {
@@ -1124,14 +1029,12 @@ func (o GlobalTableReadProvisionedThroughputSettingsOutput) ToGlobalTableReadPro
 	}).(GlobalTableReadProvisionedThroughputSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityautoscalingsettings
 func (o GlobalTableReadProvisionedThroughputSettingsOutput) ReadCapacityAutoScalingSettings() GlobalTableCapacityAutoScalingSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableReadProvisionedThroughputSettings) *GlobalTableCapacityAutoScalingSettings {
 		return v.ReadCapacityAutoScalingSettings
 	}).(GlobalTableCapacityAutoScalingSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityunits
 func (o GlobalTableReadProvisionedThroughputSettingsOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GlobalTableReadProvisionedThroughputSettings) *int { return v.ReadCapacityUnits }).(pulumi.IntPtrOutput)
 }
@@ -1160,7 +1063,6 @@ func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) Elem() GlobalTabl
 	}).(GlobalTableReadProvisionedThroughputSettingsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityautoscalingsettings
 func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) ReadCapacityAutoScalingSettings() GlobalTableCapacityAutoScalingSettingsPtrOutput {
 	return o.ApplyT(func(v *GlobalTableReadProvisionedThroughputSettings) *GlobalTableCapacityAutoScalingSettings {
 		if v == nil {
@@ -1170,7 +1072,6 @@ func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) ReadCapacityAutoS
 	}).(GlobalTableCapacityAutoScalingSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-readprovisionedthroughputsettings-readcapacityunits
 func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) ReadCapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalTableReadProvisionedThroughputSettings) *int {
 		if v == nil {
@@ -1180,13 +1081,9 @@ func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) ReadCapacityUnits
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html
 type GlobalTableReplicaGlobalSecondaryIndexSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-contributorinsightsspecification
-	ContributorInsightsSpecification *GlobalTableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-indexname
-	IndexName string `pulumi:"indexName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-readprovisionedthroughputsettings
+	ContributorInsightsSpecification  *GlobalTableContributorInsightsSpecification  `pulumi:"contributorInsightsSpecification"`
+	IndexName                         string                                        `pulumi:"indexName"`
 	ReadProvisionedThroughputSettings *GlobalTableReadProvisionedThroughputSettings `pulumi:"readProvisionedThroughputSettings"`
 }
 
@@ -1201,13 +1098,9 @@ type GlobalTableReplicaGlobalSecondaryIndexSpecificationInput interface {
 	ToGlobalTableReplicaGlobalSecondaryIndexSpecificationOutputWithContext(context.Context) GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html
 type GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-contributorinsightsspecification
-	ContributorInsightsSpecification GlobalTableContributorInsightsSpecificationPtrInput `pulumi:"contributorInsightsSpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-indexname
-	IndexName pulumi.StringInput `pulumi:"indexName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-readprovisionedthroughputsettings
+	ContributorInsightsSpecification  GlobalTableContributorInsightsSpecificationPtrInput  `pulumi:"contributorInsightsSpecification"`
+	IndexName                         pulumi.StringInput                                   `pulumi:"indexName"`
 	ReadProvisionedThroughputSettings GlobalTableReadProvisionedThroughputSettingsPtrInput `pulumi:"readProvisionedThroughputSettings"`
 }
 
@@ -1248,7 +1141,6 @@ func (i GlobalTableReplicaGlobalSecondaryIndexSpecificationArray) ToGlobalTableR
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html
 type GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ElementType() reflect.Type {
@@ -1263,19 +1155,16 @@ func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ToGlobalTable
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-contributorinsightsspecification
 func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ContributorInsightsSpecification() GlobalTableContributorInsightsSpecificationPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaGlobalSecondaryIndexSpecification) *GlobalTableContributorInsightsSpecification {
 		return v.ContributorInsightsSpecification
 	}).(GlobalTableContributorInsightsSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-indexname
 func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableReplicaGlobalSecondaryIndexSpecification) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaglobalsecondaryindexspecification.html#cfn-dynamodb-globaltable-replicaglobalsecondaryindexspecification-readprovisionedthroughputsettings
 func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ReadProvisionedThroughputSettings() GlobalTableReadProvisionedThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaGlobalSecondaryIndexSpecification) *GlobalTableReadProvisionedThroughputSettings {
 		return v.ReadProvisionedThroughputSettings
@@ -1302,9 +1191,7 @@ func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput) Index(i 
 	}).(GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html
 type GlobalTableReplicaSSESpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html#cfn-dynamodb-globaltable-replicassespecification-kmsmasterkeyid
 	KMSMasterKeyId string `pulumi:"kMSMasterKeyId"`
 }
 
@@ -1319,9 +1206,7 @@ type GlobalTableReplicaSSESpecificationInput interface {
 	ToGlobalTableReplicaSSESpecificationOutputWithContext(context.Context) GlobalTableReplicaSSESpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html
 type GlobalTableReplicaSSESpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html#cfn-dynamodb-globaltable-replicassespecification-kmsmasterkeyid
 	KMSMasterKeyId pulumi.StringInput `pulumi:"kMSMasterKeyId"`
 }
 
@@ -1378,7 +1263,6 @@ func (i *globalTableReplicaSSESpecificationPtrType) ToGlobalTableReplicaSSESpeci
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaSSESpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html
 type GlobalTableReplicaSSESpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableReplicaSSESpecificationOutput) ElementType() reflect.Type {
@@ -1403,7 +1287,6 @@ func (o GlobalTableReplicaSSESpecificationOutput) ToGlobalTableReplicaSSESpecifi
 	}).(GlobalTableReplicaSSESpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html#cfn-dynamodb-globaltable-replicassespecification-kmsmasterkeyid
 func (o GlobalTableReplicaSSESpecificationOutput) KMSMasterKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSSESpecification) string { return v.KMSMasterKeyId }).(pulumi.StringOutput)
 }
@@ -1432,7 +1315,6 @@ func (o GlobalTableReplicaSSESpecificationPtrOutput) Elem() GlobalTableReplicaSS
 	}).(GlobalTableReplicaSSESpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicassespecification.html#cfn-dynamodb-globaltable-replicassespecification-kmsmasterkeyid
 func (o GlobalTableReplicaSSESpecificationPtrOutput) KMSMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTableReplicaSSESpecification) *string {
 		if v == nil {
@@ -1442,22 +1324,14 @@ func (o GlobalTableReplicaSSESpecificationPtrOutput) KMSMasterKeyId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html
 type GlobalTableReplicaSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-contributorinsightsspecification
-	ContributorInsightsSpecification *GlobalTableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-globalsecondaryindexes
-	GlobalSecondaryIndexes []GlobalTableReplicaGlobalSecondaryIndexSpecification `pulumi:"globalSecondaryIndexes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-pointintimerecoveryspecification
-	PointInTimeRecoverySpecification *GlobalTablePointInTimeRecoverySpecification `pulumi:"pointInTimeRecoverySpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-readprovisionedthroughputsettings
-	ReadProvisionedThroughputSettings *GlobalTableReadProvisionedThroughputSettings `pulumi:"readProvisionedThroughputSettings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-region
-	Region string `pulumi:"region"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-ssespecification
-	SSESpecification *GlobalTableReplicaSSESpecification `pulumi:"sSESpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	ContributorInsightsSpecification  *GlobalTableContributorInsightsSpecification          `pulumi:"contributorInsightsSpecification"`
+	GlobalSecondaryIndexes            []GlobalTableReplicaGlobalSecondaryIndexSpecification `pulumi:"globalSecondaryIndexes"`
+	PointInTimeRecoverySpecification  *GlobalTablePointInTimeRecoverySpecification          `pulumi:"pointInTimeRecoverySpecification"`
+	ReadProvisionedThroughputSettings *GlobalTableReadProvisionedThroughputSettings         `pulumi:"readProvisionedThroughputSettings"`
+	Region                            string                                                `pulumi:"region"`
+	SSESpecification                  *GlobalTableReplicaSSESpecification                   `pulumi:"sSESpecification"`
+	Tags                              []GlobalTableTag                                      `pulumi:"tags"`
 }
 
 // GlobalTableReplicaSpecificationInput is an input type that accepts GlobalTableReplicaSpecificationArgs and GlobalTableReplicaSpecificationOutput values.
@@ -1471,22 +1345,14 @@ type GlobalTableReplicaSpecificationInput interface {
 	ToGlobalTableReplicaSpecificationOutputWithContext(context.Context) GlobalTableReplicaSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html
 type GlobalTableReplicaSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-contributorinsightsspecification
-	ContributorInsightsSpecification GlobalTableContributorInsightsSpecificationPtrInput `pulumi:"contributorInsightsSpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-globalsecondaryindexes
-	GlobalSecondaryIndexes GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayInput `pulumi:"globalSecondaryIndexes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-pointintimerecoveryspecification
-	PointInTimeRecoverySpecification GlobalTablePointInTimeRecoverySpecificationPtrInput `pulumi:"pointInTimeRecoverySpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-readprovisionedthroughputsettings
-	ReadProvisionedThroughputSettings GlobalTableReadProvisionedThroughputSettingsPtrInput `pulumi:"readProvisionedThroughputSettings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-region
-	Region pulumi.StringInput `pulumi:"region"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-ssespecification
-	SSESpecification GlobalTableReplicaSSESpecificationPtrInput `pulumi:"sSESpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-tags
-	Tags aws.TagArrayInput `pulumi:"tags"`
+	ContributorInsightsSpecification  GlobalTableContributorInsightsSpecificationPtrInput           `pulumi:"contributorInsightsSpecification"`
+	GlobalSecondaryIndexes            GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayInput `pulumi:"globalSecondaryIndexes"`
+	PointInTimeRecoverySpecification  GlobalTablePointInTimeRecoverySpecificationPtrInput           `pulumi:"pointInTimeRecoverySpecification"`
+	ReadProvisionedThroughputSettings GlobalTableReadProvisionedThroughputSettingsPtrInput          `pulumi:"readProvisionedThroughputSettings"`
+	Region                            pulumi.StringInput                                            `pulumi:"region"`
+	SSESpecification                  GlobalTableReplicaSSESpecificationPtrInput                    `pulumi:"sSESpecification"`
+	Tags                              GlobalTableTagArrayInput                                      `pulumi:"tags"`
 }
 
 func (GlobalTableReplicaSpecificationArgs) ElementType() reflect.Type {
@@ -1526,7 +1392,6 @@ func (i GlobalTableReplicaSpecificationArray) ToGlobalTableReplicaSpecificationA
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaSpecificationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html
 type GlobalTableReplicaSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableReplicaSpecificationOutput) ElementType() reflect.Type {
@@ -1541,47 +1406,40 @@ func (o GlobalTableReplicaSpecificationOutput) ToGlobalTableReplicaSpecification
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-contributorinsightsspecification
 func (o GlobalTableReplicaSpecificationOutput) ContributorInsightsSpecification() GlobalTableContributorInsightsSpecificationPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableContributorInsightsSpecification {
 		return v.ContributorInsightsSpecification
 	}).(GlobalTableContributorInsightsSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-globalsecondaryindexes
 func (o GlobalTableReplicaSpecificationOutput) GlobalSecondaryIndexes() GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) []GlobalTableReplicaGlobalSecondaryIndexSpecification {
 		return v.GlobalSecondaryIndexes
 	}).(GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-pointintimerecoveryspecification
 func (o GlobalTableReplicaSpecificationOutput) PointInTimeRecoverySpecification() GlobalTablePointInTimeRecoverySpecificationPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTablePointInTimeRecoverySpecification {
 		return v.PointInTimeRecoverySpecification
 	}).(GlobalTablePointInTimeRecoverySpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-readprovisionedthroughputsettings
 func (o GlobalTableReplicaSpecificationOutput) ReadProvisionedThroughputSettings() GlobalTableReadProvisionedThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableReadProvisionedThroughputSettings {
 		return v.ReadProvisionedThroughputSettings
 	}).(GlobalTableReadProvisionedThroughputSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-region
 func (o GlobalTableReplicaSpecificationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-ssespecification
 func (o GlobalTableReplicaSpecificationOutput) SSESpecification() GlobalTableReplicaSSESpecificationPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableReplicaSSESpecification { return v.SSESpecification }).(GlobalTableReplicaSSESpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-tags
-func (o GlobalTableReplicaSpecificationOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v GlobalTableReplicaSpecification) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+func (o GlobalTableReplicaSpecificationOutput) Tags() GlobalTableTagArrayOutput {
+	return o.ApplyT(func(v GlobalTableReplicaSpecification) []GlobalTableTag { return v.Tags }).(GlobalTableTagArrayOutput)
 }
 
 type GlobalTableReplicaSpecificationArrayOutput struct{ *pulumi.OutputState }
@@ -1604,12 +1462,9 @@ func (o GlobalTableReplicaSpecificationArrayOutput) Index(i pulumi.IntInput) Glo
 	}).(GlobalTableReplicaSpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html
 type GlobalTableSSESpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html#cfn-dynamodb-globaltable-ssespecification-sseenabled
-	SSEEnabled bool `pulumi:"sSEEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html#cfn-dynamodb-globaltable-ssespecification-ssetype
-	SSEType *string `pulumi:"sSEType"`
+	SSEEnabled bool    `pulumi:"sSEEnabled"`
+	SSEType    *string `pulumi:"sSEType"`
 }
 
 // GlobalTableSSESpecificationInput is an input type that accepts GlobalTableSSESpecificationArgs and GlobalTableSSESpecificationOutput values.
@@ -1623,12 +1478,9 @@ type GlobalTableSSESpecificationInput interface {
 	ToGlobalTableSSESpecificationOutputWithContext(context.Context) GlobalTableSSESpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html
 type GlobalTableSSESpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html#cfn-dynamodb-globaltable-ssespecification-sseenabled
-	SSEEnabled pulumi.BoolInput `pulumi:"sSEEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html#cfn-dynamodb-globaltable-ssespecification-ssetype
-	SSEType pulumi.StringPtrInput `pulumi:"sSEType"`
+	SSEEnabled pulumi.BoolInput      `pulumi:"sSEEnabled"`
+	SSEType    pulumi.StringPtrInput `pulumi:"sSEType"`
 }
 
 func (GlobalTableSSESpecificationArgs) ElementType() reflect.Type {
@@ -1684,7 +1536,6 @@ func (i *globalTableSSESpecificationPtrType) ToGlobalTableSSESpecificationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableSSESpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html
 type GlobalTableSSESpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableSSESpecificationOutput) ElementType() reflect.Type {
@@ -1709,12 +1560,10 @@ func (o GlobalTableSSESpecificationOutput) ToGlobalTableSSESpecificationPtrOutpu
 	}).(GlobalTableSSESpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html#cfn-dynamodb-globaltable-ssespecification-sseenabled
 func (o GlobalTableSSESpecificationOutput) SSEEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GlobalTableSSESpecification) bool { return v.SSEEnabled }).(pulumi.BoolOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html#cfn-dynamodb-globaltable-ssespecification-ssetype
 func (o GlobalTableSSESpecificationOutput) SSEType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalTableSSESpecification) *string { return v.SSEType }).(pulumi.StringPtrOutput)
 }
@@ -1743,7 +1592,6 @@ func (o GlobalTableSSESpecificationPtrOutput) Elem() GlobalTableSSESpecification
 	}).(GlobalTableSSESpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html#cfn-dynamodb-globaltable-ssespecification-sseenabled
 func (o GlobalTableSSESpecificationPtrOutput) SSEEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalTableSSESpecification) *bool {
 		if v == nil {
@@ -1753,7 +1601,6 @@ func (o GlobalTableSSESpecificationPtrOutput) SSEEnabled() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-ssespecification.html#cfn-dynamodb-globaltable-ssespecification-ssetype
 func (o GlobalTableSSESpecificationPtrOutput) SSEType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTableSSESpecification) *string {
 		if v == nil {
@@ -1763,9 +1610,7 @@ func (o GlobalTableSSESpecificationPtrOutput) SSEType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-streamspecification.html
 type GlobalTableStreamSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-streamspecification.html#cfn-dynamodb-globaltable-streamspecification-streamviewtype
 	StreamViewType string `pulumi:"streamViewType"`
 }
 
@@ -1780,9 +1625,7 @@ type GlobalTableStreamSpecificationInput interface {
 	ToGlobalTableStreamSpecificationOutputWithContext(context.Context) GlobalTableStreamSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-streamspecification.html
 type GlobalTableStreamSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-streamspecification.html#cfn-dynamodb-globaltable-streamspecification-streamviewtype
 	StreamViewType pulumi.StringInput `pulumi:"streamViewType"`
 }
 
@@ -1839,7 +1682,6 @@ func (i *globalTableStreamSpecificationPtrType) ToGlobalTableStreamSpecification
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableStreamSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-streamspecification.html
 type GlobalTableStreamSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableStreamSpecificationOutput) ElementType() reflect.Type {
@@ -1864,7 +1706,6 @@ func (o GlobalTableStreamSpecificationOutput) ToGlobalTableStreamSpecificationPt
 	}).(GlobalTableStreamSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-streamspecification.html#cfn-dynamodb-globaltable-streamspecification-streamviewtype
 func (o GlobalTableStreamSpecificationOutput) StreamViewType() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableStreamSpecification) string { return v.StreamViewType }).(pulumi.StringOutput)
 }
@@ -1893,7 +1734,6 @@ func (o GlobalTableStreamSpecificationPtrOutput) Elem() GlobalTableStreamSpecifi
 	}).(GlobalTableStreamSpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-streamspecification.html#cfn-dynamodb-globaltable-streamspecification-streamviewtype
 func (o GlobalTableStreamSpecificationPtrOutput) StreamViewType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTableStreamSpecification) *string {
 		if v == nil {
@@ -1903,16 +1743,111 @@ func (o GlobalTableStreamSpecificationPtrOutput) StreamViewType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html
+type GlobalTableTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// GlobalTableTagInput is an input type that accepts GlobalTableTagArgs and GlobalTableTagOutput values.
+// You can construct a concrete instance of `GlobalTableTagInput` via:
+//
+//          GlobalTableTagArgs{...}
+type GlobalTableTagInput interface {
+	pulumi.Input
+
+	ToGlobalTableTagOutput() GlobalTableTagOutput
+	ToGlobalTableTagOutputWithContext(context.Context) GlobalTableTagOutput
+}
+
+type GlobalTableTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GlobalTableTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableTag)(nil)).Elem()
+}
+
+func (i GlobalTableTagArgs) ToGlobalTableTagOutput() GlobalTableTagOutput {
+	return i.ToGlobalTableTagOutputWithContext(context.Background())
+}
+
+func (i GlobalTableTagArgs) ToGlobalTableTagOutputWithContext(ctx context.Context) GlobalTableTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableTagOutput)
+}
+
+// GlobalTableTagArrayInput is an input type that accepts GlobalTableTagArray and GlobalTableTagArrayOutput values.
+// You can construct a concrete instance of `GlobalTableTagArrayInput` via:
+//
+//          GlobalTableTagArray{ GlobalTableTagArgs{...} }
+type GlobalTableTagArrayInput interface {
+	pulumi.Input
+
+	ToGlobalTableTagArrayOutput() GlobalTableTagArrayOutput
+	ToGlobalTableTagArrayOutputWithContext(context.Context) GlobalTableTagArrayOutput
+}
+
+type GlobalTableTagArray []GlobalTableTagInput
+
+func (GlobalTableTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalTableTag)(nil)).Elem()
+}
+
+func (i GlobalTableTagArray) ToGlobalTableTagArrayOutput() GlobalTableTagArrayOutput {
+	return i.ToGlobalTableTagArrayOutputWithContext(context.Background())
+}
+
+func (i GlobalTableTagArray) ToGlobalTableTagArrayOutputWithContext(ctx context.Context) GlobalTableTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableTagArrayOutput)
+}
+
+type GlobalTableTagOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableTag)(nil)).Elem()
+}
+
+func (o GlobalTableTagOutput) ToGlobalTableTagOutput() GlobalTableTagOutput {
+	return o
+}
+
+func (o GlobalTableTagOutput) ToGlobalTableTagOutputWithContext(ctx context.Context) GlobalTableTagOutput {
+	return o
+}
+
+func (o GlobalTableTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GlobalTableTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GlobalTableTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GlobalTableTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GlobalTableTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GlobalTableTag)(nil)).Elem()
+}
+
+func (o GlobalTableTagArrayOutput) ToGlobalTableTagArrayOutput() GlobalTableTagArrayOutput {
+	return o
+}
+
+func (o GlobalTableTagArrayOutput) ToGlobalTableTagArrayOutputWithContext(ctx context.Context) GlobalTableTagArrayOutput {
+	return o
+}
+
+func (o GlobalTableTagArrayOutput) Index(i pulumi.IntInput) GlobalTableTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GlobalTableTag {
+		return vs[0].([]GlobalTableTag)[vs[1].(int)]
+	}).(GlobalTableTagOutput)
+}
+
 type GlobalTableTargetTrackingScalingPolicyConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-disablescalein
-	DisableScaleIn *bool `pulumi:"disableScaleIn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-scaleincooldown
-	ScaleInCooldown *int `pulumi:"scaleInCooldown"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-scaleoutcooldown
-	ScaleOutCooldown *int `pulumi:"scaleOutCooldown"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-targetvalue
-	TargetValue float64 `pulumi:"targetValue"`
+	DisableScaleIn   *bool   `pulumi:"disableScaleIn"`
+	ScaleInCooldown  *int    `pulumi:"scaleInCooldown"`
+	ScaleOutCooldown *int    `pulumi:"scaleOutCooldown"`
+	TargetValue      float64 `pulumi:"targetValue"`
 }
 
 // GlobalTableTargetTrackingScalingPolicyConfigurationInput is an input type that accepts GlobalTableTargetTrackingScalingPolicyConfigurationArgs and GlobalTableTargetTrackingScalingPolicyConfigurationOutput values.
@@ -1926,16 +1861,11 @@ type GlobalTableTargetTrackingScalingPolicyConfigurationInput interface {
 	ToGlobalTableTargetTrackingScalingPolicyConfigurationOutputWithContext(context.Context) GlobalTableTargetTrackingScalingPolicyConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html
 type GlobalTableTargetTrackingScalingPolicyConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-disablescalein
-	DisableScaleIn pulumi.BoolPtrInput `pulumi:"disableScaleIn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-scaleincooldown
-	ScaleInCooldown pulumi.IntPtrInput `pulumi:"scaleInCooldown"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-scaleoutcooldown
-	ScaleOutCooldown pulumi.IntPtrInput `pulumi:"scaleOutCooldown"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-targetvalue
-	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
+	DisableScaleIn   pulumi.BoolPtrInput `pulumi:"disableScaleIn"`
+	ScaleInCooldown  pulumi.IntPtrInput  `pulumi:"scaleInCooldown"`
+	ScaleOutCooldown pulumi.IntPtrInput  `pulumi:"scaleOutCooldown"`
+	TargetValue      pulumi.Float64Input `pulumi:"targetValue"`
 }
 
 func (GlobalTableTargetTrackingScalingPolicyConfigurationArgs) ElementType() reflect.Type {
@@ -1991,7 +1921,6 @@ func (i *globalTableTargetTrackingScalingPolicyConfigurationPtrType) ToGlobalTab
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html
 type GlobalTableTargetTrackingScalingPolicyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableTargetTrackingScalingPolicyConfigurationOutput) ElementType() reflect.Type {
@@ -2016,22 +1945,18 @@ func (o GlobalTableTargetTrackingScalingPolicyConfigurationOutput) ToGlobalTable
 	}).(GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-disablescalein
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationOutput) DisableScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GlobalTableTargetTrackingScalingPolicyConfiguration) *bool { return v.DisableScaleIn }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-scaleincooldown
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationOutput) ScaleInCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GlobalTableTargetTrackingScalingPolicyConfiguration) *int { return v.ScaleInCooldown }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-scaleoutcooldown
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationOutput) ScaleOutCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GlobalTableTargetTrackingScalingPolicyConfiguration) *int { return v.ScaleOutCooldown }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-targetvalue
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationOutput) TargetValue() pulumi.Float64Output {
 	return o.ApplyT(func(v GlobalTableTargetTrackingScalingPolicyConfiguration) float64 { return v.TargetValue }).(pulumi.Float64Output)
 }
@@ -2060,7 +1985,6 @@ func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) Elem() Glo
 	}).(GlobalTableTargetTrackingScalingPolicyConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-disablescalein
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) DisableScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalTableTargetTrackingScalingPolicyConfiguration) *bool {
 		if v == nil {
@@ -2070,7 +1994,6 @@ func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) DisableSca
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-scaleincooldown
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleInCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalTableTargetTrackingScalingPolicyConfiguration) *int {
 		if v == nil {
@@ -2080,7 +2003,6 @@ func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleInCoo
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-scaleoutcooldown
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleOutCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GlobalTableTargetTrackingScalingPolicyConfiguration) *int {
 		if v == nil {
@@ -2090,7 +2012,6 @@ func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleOutCo
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html#cfn-dynamodb-globaltable-targettrackingscalingpolicyconfiguration-targetvalue
 func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) TargetValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *GlobalTableTargetTrackingScalingPolicyConfiguration) *float64 {
 		if v == nil {
@@ -2100,12 +2021,9 @@ func (o GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput) TargetValu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html
 type GlobalTableTimeToLiveSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html#cfn-dynamodb-globaltable-timetolivespecification-attributename
 	AttributeName *string `pulumi:"attributeName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html#cfn-dynamodb-globaltable-timetolivespecification-enabled
-	Enabled bool `pulumi:"enabled"`
+	Enabled       bool    `pulumi:"enabled"`
 }
 
 // GlobalTableTimeToLiveSpecificationInput is an input type that accepts GlobalTableTimeToLiveSpecificationArgs and GlobalTableTimeToLiveSpecificationOutput values.
@@ -2119,12 +2037,9 @@ type GlobalTableTimeToLiveSpecificationInput interface {
 	ToGlobalTableTimeToLiveSpecificationOutputWithContext(context.Context) GlobalTableTimeToLiveSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html
 type GlobalTableTimeToLiveSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html#cfn-dynamodb-globaltable-timetolivespecification-attributename
 	AttributeName pulumi.StringPtrInput `pulumi:"attributeName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html#cfn-dynamodb-globaltable-timetolivespecification-enabled
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	Enabled       pulumi.BoolInput      `pulumi:"enabled"`
 }
 
 func (GlobalTableTimeToLiveSpecificationArgs) ElementType() reflect.Type {
@@ -2180,7 +2095,6 @@ func (i *globalTableTimeToLiveSpecificationPtrType) ToGlobalTableTimeToLiveSpeci
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableTimeToLiveSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html
 type GlobalTableTimeToLiveSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableTimeToLiveSpecificationOutput) ElementType() reflect.Type {
@@ -2205,12 +2119,10 @@ func (o GlobalTableTimeToLiveSpecificationOutput) ToGlobalTableTimeToLiveSpecifi
 	}).(GlobalTableTimeToLiveSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html#cfn-dynamodb-globaltable-timetolivespecification-attributename
 func (o GlobalTableTimeToLiveSpecificationOutput) AttributeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalTableTimeToLiveSpecification) *string { return v.AttributeName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html#cfn-dynamodb-globaltable-timetolivespecification-enabled
 func (o GlobalTableTimeToLiveSpecificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GlobalTableTimeToLiveSpecification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2239,7 +2151,6 @@ func (o GlobalTableTimeToLiveSpecificationPtrOutput) Elem() GlobalTableTimeToLiv
 	}).(GlobalTableTimeToLiveSpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html#cfn-dynamodb-globaltable-timetolivespecification-attributename
 func (o GlobalTableTimeToLiveSpecificationPtrOutput) AttributeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTableTimeToLiveSpecification) *string {
 		if v == nil {
@@ -2249,7 +2160,6 @@ func (o GlobalTableTimeToLiveSpecificationPtrOutput) AttributeName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-timetolivespecification.html#cfn-dynamodb-globaltable-timetolivespecification-enabled
 func (o GlobalTableTimeToLiveSpecificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GlobalTableTimeToLiveSpecification) *bool {
 		if v == nil {
@@ -2259,9 +2169,7 @@ func (o GlobalTableTimeToLiveSpecificationPtrOutput) Enabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeprovisionedthroughputsettings.html
 type GlobalTableWriteProvisionedThroughputSettings struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings-writecapacityautoscalingsettings
 	WriteCapacityAutoScalingSettings *GlobalTableCapacityAutoScalingSettings `pulumi:"writeCapacityAutoScalingSettings"`
 }
 
@@ -2276,9 +2184,7 @@ type GlobalTableWriteProvisionedThroughputSettingsInput interface {
 	ToGlobalTableWriteProvisionedThroughputSettingsOutputWithContext(context.Context) GlobalTableWriteProvisionedThroughputSettingsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeprovisionedthroughputsettings.html
 type GlobalTableWriteProvisionedThroughputSettingsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings-writecapacityautoscalingsettings
 	WriteCapacityAutoScalingSettings GlobalTableCapacityAutoScalingSettingsPtrInput `pulumi:"writeCapacityAutoScalingSettings"`
 }
 
@@ -2335,7 +2241,6 @@ func (i *globalTableWriteProvisionedThroughputSettingsPtrType) ToGlobalTableWrit
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableWriteProvisionedThroughputSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeprovisionedthroughputsettings.html
 type GlobalTableWriteProvisionedThroughputSettingsOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableWriteProvisionedThroughputSettingsOutput) ElementType() reflect.Type {
@@ -2360,7 +2265,6 @@ func (o GlobalTableWriteProvisionedThroughputSettingsOutput) ToGlobalTableWriteP
 	}).(GlobalTableWriteProvisionedThroughputSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings-writecapacityautoscalingsettings
 func (o GlobalTableWriteProvisionedThroughputSettingsOutput) WriteCapacityAutoScalingSettings() GlobalTableCapacityAutoScalingSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableWriteProvisionedThroughputSettings) *GlobalTableCapacityAutoScalingSettings {
 		return v.WriteCapacityAutoScalingSettings
@@ -2391,7 +2295,6 @@ func (o GlobalTableWriteProvisionedThroughputSettingsPtrOutput) Elem() GlobalTab
 	}).(GlobalTableWriteProvisionedThroughputSettingsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeprovisionedthroughputsettings.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings-writecapacityautoscalingsettings
 func (o GlobalTableWriteProvisionedThroughputSettingsPtrOutput) WriteCapacityAutoScalingSettings() GlobalTableCapacityAutoScalingSettingsPtrOutput {
 	return o.ApplyT(func(v *GlobalTableWriteProvisionedThroughputSettings) *GlobalTableCapacityAutoScalingSettings {
 		if v == nil {
@@ -2429,6 +2332,8 @@ func init() {
 	pulumi.RegisterOutputType(GlobalTableSSESpecificationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableStreamSpecificationOutput{})
 	pulumi.RegisterOutputType(GlobalTableStreamSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(GlobalTableTagOutput{})
+	pulumi.RegisterOutputType(GlobalTableTagArrayOutput{})
 	pulumi.RegisterOutputType(GlobalTableTargetTrackingScalingPolicyConfigurationOutput{})
 	pulumi.RegisterOutputType(GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableTimeToLiveSpecificationOutput{})

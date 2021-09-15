@@ -10,40 +10,52 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Signer
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html
+    /// A signing profile is a signing template that can be used to carry out a pre-defined signing job.
     /// </summary>
     [AwsNativeResourceType("aws-native:signer:SigningProfile")]
     public partial class SigningProfile : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the specified signing profile.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
+        /// The ID of the target signing platform.
         /// </summary>
         [Output("platformId")]
         public Output<string> PlatformId { get; private set; } = null!;
 
+        /// <summary>
+        /// A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
+        /// </summary>
         [Output("profileName")]
         public Output<string> ProfileName { get; private set; } = null!;
 
+        /// <summary>
+        /// A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.
+        /// </summary>
         [Output("profileVersion")]
         public Output<string> ProfileVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the specified signing profile version.
+        /// </summary>
         [Output("profileVersionArn")]
         public Output<string> ProfileVersionArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
+        /// Signature validity period of the profile.
         /// </summary>
         [Output("signatureValidityPeriod")]
         public Output<Outputs.SigningProfileSignatureValidityPeriod?> SignatureValidityPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
+        /// A list of tags associated with the signing profile.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SigningProfileTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -91,26 +103,26 @@ namespace Pulumi.AwsNative.Signer
     public sealed class SigningProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
+        /// The ID of the target signing platform.
         /// </summary>
         [Input("platformId", required: true)]
         public Input<string> PlatformId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
+        /// Signature validity period of the profile.
         /// </summary>
         [Input("signatureValidityPeriod")]
         public Input<Inputs.SigningProfileSignatureValidityPeriodArgs>? SignatureValidityPeriod { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.SigningProfileTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
+        /// A list of tags associated with the signing profile.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.SigningProfileTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.SigningProfileTagArgs>());
             set => _tags = value;
         }
 

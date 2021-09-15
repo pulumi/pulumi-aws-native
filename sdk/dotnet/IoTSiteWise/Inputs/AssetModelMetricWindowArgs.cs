@@ -11,13 +11,10 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html
+    /// Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
     /// </summary>
     public sealed class AssetModelMetricWindowArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
-        /// </summary>
         [Input("tumbling")]
         public Input<Inputs.AssetModelTumblingWindowArgs>? Tumbling { get; set; }
 

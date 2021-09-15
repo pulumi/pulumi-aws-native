@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html
+ * Resource schema for AWS::MWAA::Environment
  */
 export class Environment extends pulumi.CustomResource {
     /**
@@ -36,91 +36,37 @@ export class Environment extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
+     * Key/value pairs representing Airflow configuration variables.
+     *     Keys are prefixed by their section:
+     *
+     *     [core]
+     *     dags_folder={AIRFLOW_HOME}/dags
+     *
+     *     Would be represented as
+     *
+     *     "core.dags_folder": "{AIRFLOW_HOME}/dags"
      */
-    public readonly airflowConfigurationOptions!: pulumi.Output<any | string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
-     */
+    public readonly airflowConfigurationOptions!: pulumi.Output<any | undefined>;
     public readonly airflowVersion!: pulumi.Output<string | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path
-     */
     public readonly dagS3Path!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-environmentclass
-     */
     public readonly environmentClass!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-executionrolearn
-     */
     public readonly executionRoleArn!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-kmskey
-     */
     public readonly kmsKey!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
-     */
     public readonly loggingConfiguration!: pulumi.Output<outputs.mwaa.EnvironmentLoggingConfiguration | undefined>;
-    public /*out*/ readonly loggingConfigurationDagProcessingLogsCloudWatchLogGroupArn!: pulumi.Output<string>;
-    public /*out*/ readonly loggingConfigurationSchedulerLogsCloudWatchLogGroupArn!: pulumi.Output<string>;
-    public /*out*/ readonly loggingConfigurationTaskLogsCloudWatchLogGroupArn!: pulumi.Output<string>;
-    public /*out*/ readonly loggingConfigurationWebserverLogsCloudWatchLogGroupArn!: pulumi.Output<string>;
-    public /*out*/ readonly loggingConfigurationWorkerLogsCloudWatchLogGroupArn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
-     */
     public readonly maxWorkers!: pulumi.Output<number | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minworkers
-     */
     public readonly minWorkers!: pulumi.Output<number | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-name
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
-     */
     public readonly networkConfiguration!: pulumi.Output<outputs.mwaa.EnvironmentNetworkConfiguration | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
-     */
     public readonly pluginsS3ObjectVersion!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3path
-     */
     public readonly pluginsS3Path!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3objectversion
-     */
     public readonly requirementsS3ObjectVersion!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3path
-     */
     public readonly requirementsS3Path!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-schedulers
-     */
     public readonly schedulers!: pulumi.Output<number | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
-     */
     public readonly sourceBucketArn!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
-     */
     public readonly tags!: pulumi.Output<outputs.mwaa.EnvironmentTagMap | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
-     */
     public readonly webserverAccessMode!: pulumi.Output<string | undefined>;
     public /*out*/ readonly webserverUrl!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart
-     */
     public readonly weeklyMaintenanceWindowStart!: pulumi.Output<string | undefined>;
 
     /**
@@ -158,11 +104,6 @@ export class Environment extends pulumi.CustomResource {
             inputs["webserverAccessMode"] = args ? args.webserverAccessMode : undefined;
             inputs["weeklyMaintenanceWindowStart"] = args ? args.weeklyMaintenanceWindowStart : undefined;
             inputs["arn"] = undefined /*out*/;
-            inputs["loggingConfigurationDagProcessingLogsCloudWatchLogGroupArn"] = undefined /*out*/;
-            inputs["loggingConfigurationSchedulerLogsCloudWatchLogGroupArn"] = undefined /*out*/;
-            inputs["loggingConfigurationTaskLogsCloudWatchLogGroupArn"] = undefined /*out*/;
-            inputs["loggingConfigurationWebserverLogsCloudWatchLogGroupArn"] = undefined /*out*/;
-            inputs["loggingConfigurationWorkerLogsCloudWatchLogGroupArn"] = undefined /*out*/;
             inputs["webserverUrl"] = undefined /*out*/;
         } else {
             inputs["airflowConfigurationOptions"] = undefined /*out*/;
@@ -173,11 +114,6 @@ export class Environment extends pulumi.CustomResource {
             inputs["executionRoleArn"] = undefined /*out*/;
             inputs["kmsKey"] = undefined /*out*/;
             inputs["loggingConfiguration"] = undefined /*out*/;
-            inputs["loggingConfigurationDagProcessingLogsCloudWatchLogGroupArn"] = undefined /*out*/;
-            inputs["loggingConfigurationSchedulerLogsCloudWatchLogGroupArn"] = undefined /*out*/;
-            inputs["loggingConfigurationTaskLogsCloudWatchLogGroupArn"] = undefined /*out*/;
-            inputs["loggingConfigurationWebserverLogsCloudWatchLogGroupArn"] = undefined /*out*/;
-            inputs["loggingConfigurationWorkerLogsCloudWatchLogGroupArn"] = undefined /*out*/;
             inputs["maxWorkers"] = undefined /*out*/;
             inputs["minWorkers"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -205,83 +141,34 @@ export class Environment extends pulumi.CustomResource {
  */
 export interface EnvironmentArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowconfigurationoptions
+     * Key/value pairs representing Airflow configuration variables.
+     *     Keys are prefixed by their section:
+     *
+     *     [core]
+     *     dags_folder={AIRFLOW_HOME}/dags
+     *
+     *     Would be represented as
+     *
+     *     "core.dags_folder": "{AIRFLOW_HOME}/dags"
      */
-    airflowConfigurationOptions?: pulumi.Input<any | string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-airflowversion
-     */
+    airflowConfigurationOptions?: any;
     airflowVersion?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-dags3path
-     */
     dagS3Path?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-environmentclass
-     */
     environmentClass?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-executionrolearn
-     */
     executionRoleArn?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-kmskey
-     */
     kmsKey?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-loggingconfiguration
-     */
     loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfigurationArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-maxworkers
-     */
     maxWorkers?: pulumi.Input<number>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-minworkers
-     */
     minWorkers?: pulumi.Input<number>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-name
-     */
     name: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-networkconfiguration
-     */
     networkConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentNetworkConfigurationArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3objectversion
-     */
     pluginsS3ObjectVersion?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-pluginss3path
-     */
     pluginsS3Path?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3objectversion
-     */
     requirementsS3ObjectVersion?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-requirementss3path
-     */
     requirementsS3Path?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-schedulers
-     */
     schedulers?: pulumi.Input<number>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-sourcebucketarn
-     */
     sourceBucketArn?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-tags
-     */
     tags?: pulumi.Input<inputs.mwaa.EnvironmentTagMapArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-webserveraccessmode
-     */
     webserverAccessMode?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html#cfn-mwaa-environment-weeklymaintenancewindowstart
-     */
     weeklyMaintenanceWindowStart?: pulumi.Input<string>;
 }

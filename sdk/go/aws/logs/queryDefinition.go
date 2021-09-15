@@ -11,16 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html
+// The resource schema for AWSLogs QueryDefinition
 type QueryDefinition struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames
+	// Optionally define specific log groups as part of your query definition
 	LogGroupNames pulumi.StringArrayOutput `pulumi:"logGroupNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-name
-	Name              pulumi.StringOutput `pulumi:"name"`
+	// A name for the saved query definition
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Unique identifier of a query definition
 	QueryDefinitionId pulumi.StringOutput `pulumi:"queryDefinitionId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querystring
+	// The query string to use for this definition
 	QueryString pulumi.StringOutput `pulumi:"queryString"`
 }
 
@@ -69,21 +70,21 @@ func (QueryDefinitionState) ElementType() reflect.Type {
 }
 
 type queryDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames
+	// Optionally define specific log groups as part of your query definition
 	LogGroupNames []string `pulumi:"logGroupNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-name
+	// A name for the saved query definition
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querystring
+	// The query string to use for this definition
 	QueryString string `pulumi:"queryString"`
 }
 
 // The set of arguments for constructing a QueryDefinition resource.
 type QueryDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames
+	// Optionally define specific log groups as part of your query definition
 	LogGroupNames pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-name
+	// A name for the saved query definition
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querystring
+	// The query string to use for this definition
 	QueryString pulumi.StringInput
 }
 

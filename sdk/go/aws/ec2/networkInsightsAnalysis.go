@@ -8,30 +8,26 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html
+// Resource schema for AWS::EC2::NetworkInsightsAnalysis
 type NetworkInsightsAnalysis struct {
 	pulumi.CustomResourceState
 
-	AlternatePathHints NetworkInsightsAnalysisAlternatePathHintArrayOutput `pulumi:"alternatePathHints"`
-	Explanations       NetworkInsightsAnalysisExplanationArrayOutput       `pulumi:"explanations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
-	FilterInArns               pulumi.StringArrayOutput                        `pulumi:"filterInArns"`
-	ForwardPathComponents      NetworkInsightsAnalysisPathComponentArrayOutput `pulumi:"forwardPathComponents"`
-	NetworkInsightsAnalysisArn pulumi.StringOutput                             `pulumi:"networkInsightsAnalysisArn"`
-	NetworkInsightsAnalysisId  pulumi.StringOutput                             `pulumi:"networkInsightsAnalysisId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
-	NetworkInsightsPathId pulumi.StringOutput                             `pulumi:"networkInsightsPathId"`
-	NetworkPathFound      pulumi.BoolOutput                               `pulumi:"networkPathFound"`
-	ReturnPathComponents  NetworkInsightsAnalysisPathComponentArrayOutput `pulumi:"returnPathComponents"`
-	StartDate             pulumi.StringOutput                             `pulumi:"startDate"`
-	Status                pulumi.StringOutput                             `pulumi:"status"`
-	StatusMessage         pulumi.StringOutput                             `pulumi:"statusMessage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	AlternatePathHints         NetworkInsightsAnalysisAlternatePathHintArrayOutput `pulumi:"alternatePathHints"`
+	Explanations               NetworkInsightsAnalysisExplanationArrayOutput       `pulumi:"explanations"`
+	FilterInArns               pulumi.StringArrayOutput                            `pulumi:"filterInArns"`
+	ForwardPathComponents      NetworkInsightsAnalysisPathComponentArrayOutput     `pulumi:"forwardPathComponents"`
+	NetworkInsightsAnalysisArn pulumi.StringOutput                                 `pulumi:"networkInsightsAnalysisArn"`
+	NetworkInsightsAnalysisId  pulumi.StringOutput                                 `pulumi:"networkInsightsAnalysisId"`
+	NetworkInsightsPathId      pulumi.StringOutput                                 `pulumi:"networkInsightsPathId"`
+	NetworkPathFound           pulumi.BoolOutput                                   `pulumi:"networkPathFound"`
+	ReturnPathComponents       NetworkInsightsAnalysisPathComponentArrayOutput     `pulumi:"returnPathComponents"`
+	StartDate                  pulumi.StringOutput                                 `pulumi:"startDate"`
+	Status                     pulumi.StringOutput                                 `pulumi:"status"`
+	StatusMessage              pulumi.StringOutput                                 `pulumi:"statusMessage"`
+	Tags                       NetworkInsightsAnalysisTagArrayOutput               `pulumi:"tags"`
 }
 
 // NewNetworkInsightsAnalysis registers a new resource with the given unique name, arguments, and options.
@@ -76,22 +72,16 @@ func (NetworkInsightsAnalysisState) ElementType() reflect.Type {
 }
 
 type networkInsightsAnalysisArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
-	FilterInArns []string `pulumi:"filterInArns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
-	NetworkInsightsPathId string `pulumi:"networkInsightsPathId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	FilterInArns          []string                     `pulumi:"filterInArns"`
+	NetworkInsightsPathId string                       `pulumi:"networkInsightsPathId"`
+	Tags                  []NetworkInsightsAnalysisTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkInsightsAnalysis resource.
 type NetworkInsightsAnalysisArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
-	FilterInArns pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
+	FilterInArns          pulumi.StringArrayInput
 	NetworkInsightsPathId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
-	Tags aws.TagArrayInput
+	Tags                  NetworkInsightsAnalysisTagArrayInput
 }
 
 func (NetworkInsightsAnalysisArgs) ElementType() reflect.Type {

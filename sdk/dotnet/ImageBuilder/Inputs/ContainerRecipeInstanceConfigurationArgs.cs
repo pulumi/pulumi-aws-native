@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html
+    /// A group of options that can be used to configure an instance for building and testing container images.
     /// </summary>
     public sealed class ContainerRecipeInstanceConfigurationArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         private InputList<Inputs.ContainerRecipeInstanceBlockDeviceMappingArgs>? _blockDeviceMappings;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings
+        /// Defines the block devices to attach for building an instance from this Image Builder AMI.
         /// </summary>
         public InputList<Inputs.ContainerRecipeInstanceBlockDeviceMappingArgs> BlockDeviceMappings
         {
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-image
+        /// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
         /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }

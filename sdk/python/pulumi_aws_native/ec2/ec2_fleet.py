@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['EC2FleetArgs', 'EC2Fleet']
@@ -31,18 +29,6 @@ class EC2FleetArgs:
                  valid_until: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EC2Fleet resource.
-        :param pulumi.Input[Sequence[pulumi.Input['EC2FleetFleetLaunchTemplateConfigRequestArgs']]] launch_template_configs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
-        :param pulumi.Input['EC2FleetTargetCapacitySpecificationRequestArgs'] target_capacity_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
-        :param pulumi.Input[str] context: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
-        :param pulumi.Input[str] excess_capacity_termination_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
-        :param pulumi.Input['EC2FleetOnDemandOptionsRequestArgs'] on_demand_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
-        :param pulumi.Input[bool] replace_unhealthy_instances: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
-        :param pulumi.Input['EC2FleetSpotOptionsRequestArgs'] spot_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
-        :param pulumi.Input[Sequence[pulumi.Input['EC2FleetTagSpecificationArgs']]] tag_specifications: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
-        :param pulumi.Input[bool] terminate_instances_with_expiration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type
-        :param pulumi.Input[str] valid_from: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
-        :param pulumi.Input[str] valid_until: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
         """
         pulumi.set(__self__, "launch_template_configs", launch_template_configs)
         pulumi.set(__self__, "target_capacity_specification", target_capacity_specification)
@@ -70,9 +56,6 @@ class EC2FleetArgs:
     @property
     @pulumi.getter(name="launchTemplateConfigs")
     def launch_template_configs(self) -> pulumi.Input[Sequence[pulumi.Input['EC2FleetFleetLaunchTemplateConfigRequestArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
-        """
         return pulumi.get(self, "launch_template_configs")
 
     @launch_template_configs.setter
@@ -82,9 +65,6 @@ class EC2FleetArgs:
     @property
     @pulumi.getter(name="targetCapacitySpecification")
     def target_capacity_specification(self) -> pulumi.Input['EC2FleetTargetCapacitySpecificationRequestArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
-        """
         return pulumi.get(self, "target_capacity_specification")
 
     @target_capacity_specification.setter
@@ -94,9 +74,6 @@ class EC2FleetArgs:
     @property
     @pulumi.getter
     def context(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
-        """
         return pulumi.get(self, "context")
 
     @context.setter
@@ -106,9 +83,6 @@ class EC2FleetArgs:
     @property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
     def excess_capacity_termination_policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
-        """
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @excess_capacity_termination_policy.setter
@@ -118,9 +92,6 @@ class EC2FleetArgs:
     @property
     @pulumi.getter(name="onDemandOptions")
     def on_demand_options(self) -> Optional[pulumi.Input['EC2FleetOnDemandOptionsRequestArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
-        """
         return pulumi.get(self, "on_demand_options")
 
     @on_demand_options.setter
@@ -130,9 +101,6 @@ class EC2FleetArgs:
     @property
     @pulumi.getter(name="replaceUnhealthyInstances")
     def replace_unhealthy_instances(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
-        """
         return pulumi.get(self, "replace_unhealthy_instances")
 
     @replace_unhealthy_instances.setter
@@ -142,9 +110,6 @@ class EC2FleetArgs:
     @property
     @pulumi.getter(name="spotOptions")
     def spot_options(self) -> Optional[pulumi.Input['EC2FleetSpotOptionsRequestArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
-        """
         return pulumi.get(self, "spot_options")
 
     @spot_options.setter
@@ -154,9 +119,6 @@ class EC2FleetArgs:
     @property
     @pulumi.getter(name="tagSpecifications")
     def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EC2FleetTagSpecificationArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
-        """
         return pulumi.get(self, "tag_specifications")
 
     @tag_specifications.setter
@@ -166,9 +128,6 @@ class EC2FleetArgs:
     @property
     @pulumi.getter(name="terminateInstancesWithExpiration")
     def terminate_instances_with_expiration(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
-        """
         return pulumi.get(self, "terminate_instances_with_expiration")
 
     @terminate_instances_with_expiration.setter
@@ -178,9 +137,6 @@ class EC2FleetArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -190,9 +146,6 @@ class EC2FleetArgs:
     @property
     @pulumi.getter(name="validFrom")
     def valid_from(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
-        """
         return pulumi.get(self, "valid_from")
 
     @valid_from.setter
@@ -202,9 +155,6 @@ class EC2FleetArgs:
     @property
     @pulumi.getter(name="validUntil")
     def valid_until(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
-        """
         return pulumi.get(self, "valid_until")
 
     @valid_until.setter
@@ -231,22 +181,10 @@ class EC2Fleet(pulumi.CustomResource):
                  valid_until: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html
+        Resource Type definition for AWS::EC2::EC2Fleet
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] context: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
-        :param pulumi.Input[str] excess_capacity_termination_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EC2FleetFleetLaunchTemplateConfigRequestArgs']]]] launch_template_configs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
-        :param pulumi.Input[pulumi.InputType['EC2FleetOnDemandOptionsRequestArgs']] on_demand_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
-        :param pulumi.Input[bool] replace_unhealthy_instances: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
-        :param pulumi.Input[pulumi.InputType['EC2FleetSpotOptionsRequestArgs']] spot_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EC2FleetTagSpecificationArgs']]]] tag_specifications: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
-        :param pulumi.Input[pulumi.InputType['EC2FleetTargetCapacitySpecificationRequestArgs']] target_capacity_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
-        :param pulumi.Input[bool] terminate_instances_with_expiration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type
-        :param pulumi.Input[str] valid_from: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
-        :param pulumi.Input[str] valid_until: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
         """
         ...
     @overload
@@ -255,7 +193,7 @@ class EC2Fleet(pulumi.CustomResource):
                  args: EC2FleetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html
+        Resource Type definition for AWS::EC2::EC2Fleet
 
         :param str resource_name: The name of the resource.
         :param EC2FleetArgs args: The arguments to use to populate this resource's properties.
@@ -353,17 +291,11 @@ class EC2Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def context(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
-        """
         return pulumi.get(self, "context")
 
     @property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
     def excess_capacity_termination_policy(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
-        """
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @property
@@ -374,80 +306,50 @@ class EC2Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="launchTemplateConfigs")
     def launch_template_configs(self) -> pulumi.Output[Sequence['outputs.EC2FleetFleetLaunchTemplateConfigRequest']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
-        """
         return pulumi.get(self, "launch_template_configs")
 
     @property
     @pulumi.getter(name="onDemandOptions")
     def on_demand_options(self) -> pulumi.Output[Optional['outputs.EC2FleetOnDemandOptionsRequest']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
-        """
         return pulumi.get(self, "on_demand_options")
 
     @property
     @pulumi.getter(name="replaceUnhealthyInstances")
     def replace_unhealthy_instances(self) -> pulumi.Output[Optional[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
-        """
         return pulumi.get(self, "replace_unhealthy_instances")
 
     @property
     @pulumi.getter(name="spotOptions")
     def spot_options(self) -> pulumi.Output[Optional['outputs.EC2FleetSpotOptionsRequest']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
-        """
         return pulumi.get(self, "spot_options")
 
     @property
     @pulumi.getter(name="tagSpecifications")
     def tag_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.EC2FleetTagSpecification']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
-        """
         return pulumi.get(self, "tag_specifications")
 
     @property
     @pulumi.getter(name="targetCapacitySpecification")
     def target_capacity_specification(self) -> pulumi.Output['outputs.EC2FleetTargetCapacitySpecificationRequest']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
-        """
         return pulumi.get(self, "target_capacity_specification")
 
     @property
     @pulumi.getter(name="terminateInstancesWithExpiration")
     def terminate_instances_with_expiration(self) -> pulumi.Output[Optional[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
-        """
         return pulumi.get(self, "terminate_instances_with_expiration")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="validFrom")
     def valid_from(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
-        """
         return pulumi.get(self, "valid_from")
 
     @property
     @pulumi.getter(name="validUntil")
     def valid_until(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
-        """
         return pulumi.get(self, "valid_until")
 

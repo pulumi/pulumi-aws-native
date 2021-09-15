@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html
+    /// Configuration options for an SNS alert action.
     /// </summary>
     [OutputType]
     public sealed class AlertSNSConfiguration
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-rolearn
+        /// ARN of an IAM role that LookoutMetrics should assume to access the SNS topic.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-snstopicarn
+        /// ARN of an SNS topic to send alert notifications to.
         /// </summary>
         public readonly string SnsTopicArn;
 

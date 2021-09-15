@@ -13,79 +13,83 @@ __all__ = ['ContactChannelArgs', 'ContactChannel']
 @pulumi.input_type
 class ContactChannelArgs:
     def __init__(__self__, *,
-                 channel_address: pulumi.Input[str],
-                 channel_name: pulumi.Input[str],
-                 channel_type: pulumi.Input[str],
-                 contact_id: pulumi.Input[str],
+                 channel_address: Optional[pulumi.Input[str]] = None,
+                 channel_name: Optional[pulumi.Input[str]] = None,
+                 channel_type: Optional[pulumi.Input[str]] = None,
+                 contact_id: Optional[pulumi.Input[str]] = None,
                  defer_activation: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ContactChannel resource.
-        :param pulumi.Input[str] channel_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeladdress
-        :param pulumi.Input[str] channel_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channelname
-        :param pulumi.Input[str] channel_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeltype
-        :param pulumi.Input[str] contact_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-contactid
-        :param pulumi.Input[bool] defer_activation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-deferactivation
+        :param pulumi.Input[str] channel_address: The details that SSM Incident Manager uses when trying to engage the contact channel.
+        :param pulumi.Input[str] channel_name: The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
+        :param pulumi.Input[str] channel_type: Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+        :param pulumi.Input[str] contact_id: ARN of the contact resource
+        :param pulumi.Input[bool] defer_activation: If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
         """
-        pulumi.set(__self__, "channel_address", channel_address)
-        pulumi.set(__self__, "channel_name", channel_name)
-        pulumi.set(__self__, "channel_type", channel_type)
-        pulumi.set(__self__, "contact_id", contact_id)
+        if channel_address is not None:
+            pulumi.set(__self__, "channel_address", channel_address)
+        if channel_name is not None:
+            pulumi.set(__self__, "channel_name", channel_name)
+        if channel_type is not None:
+            pulumi.set(__self__, "channel_type", channel_type)
+        if contact_id is not None:
+            pulumi.set(__self__, "contact_id", contact_id)
         if defer_activation is not None:
             pulumi.set(__self__, "defer_activation", defer_activation)
 
     @property
     @pulumi.getter(name="channelAddress")
-    def channel_address(self) -> pulumi.Input[str]:
+    def channel_address(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeladdress
+        The details that SSM Incident Manager uses when trying to engage the contact channel.
         """
         return pulumi.get(self, "channel_address")
 
     @channel_address.setter
-    def channel_address(self, value: pulumi.Input[str]):
+    def channel_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "channel_address", value)
 
     @property
     @pulumi.getter(name="channelName")
-    def channel_name(self) -> pulumi.Input[str]:
+    def channel_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channelname
+        The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
         """
         return pulumi.get(self, "channel_name")
 
     @channel_name.setter
-    def channel_name(self, value: pulumi.Input[str]):
+    def channel_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "channel_name", value)
 
     @property
     @pulumi.getter(name="channelType")
-    def channel_type(self) -> pulumi.Input[str]:
+    def channel_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeltype
+        Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
         """
         return pulumi.get(self, "channel_type")
 
     @channel_type.setter
-    def channel_type(self, value: pulumi.Input[str]):
+    def channel_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "channel_type", value)
 
     @property
     @pulumi.getter(name="contactId")
-    def contact_id(self) -> pulumi.Input[str]:
+    def contact_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-contactid
+        ARN of the contact resource
         """
         return pulumi.get(self, "contact_id")
 
     @contact_id.setter
-    def contact_id(self, value: pulumi.Input[str]):
+    def contact_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "contact_id", value)
 
     @property
     @pulumi.getter(name="deferActivation")
     def defer_activation(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-deferactivation
+        If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
         """
         return pulumi.get(self, "defer_activation")
 
@@ -106,24 +110,24 @@ class ContactChannel(pulumi.CustomResource):
                  defer_activation: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html
+        Resource Type definition for AWS::SSMContacts::ContactChannel
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] channel_address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeladdress
-        :param pulumi.Input[str] channel_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channelname
-        :param pulumi.Input[str] channel_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeltype
-        :param pulumi.Input[str] contact_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-contactid
-        :param pulumi.Input[bool] defer_activation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-deferactivation
+        :param pulumi.Input[str] channel_address: The details that SSM Incident Manager uses when trying to engage the contact channel.
+        :param pulumi.Input[str] channel_name: The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
+        :param pulumi.Input[str] channel_type: Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+        :param pulumi.Input[str] contact_id: ARN of the contact resource
+        :param pulumi.Input[bool] defer_activation: If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ContactChannelArgs,
+                 args: Optional[ContactChannelArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html
+        Resource Type definition for AWS::SSMContacts::ContactChannel
 
         :param str resource_name: The name of the resource.
         :param ContactChannelArgs args: The arguments to use to populate this resource's properties.
@@ -157,17 +161,9 @@ class ContactChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContactChannelArgs.__new__(ContactChannelArgs)
 
-            if channel_address is None and not opts.urn:
-                raise TypeError("Missing required property 'channel_address'")
             __props__.__dict__["channel_address"] = channel_address
-            if channel_name is None and not opts.urn:
-                raise TypeError("Missing required property 'channel_name'")
             __props__.__dict__["channel_name"] = channel_name
-            if channel_type is None and not opts.urn:
-                raise TypeError("Missing required property 'channel_type'")
             __props__.__dict__["channel_type"] = channel_type
-            if contact_id is None and not opts.urn:
-                raise TypeError("Missing required property 'contact_id'")
             __props__.__dict__["contact_id"] = contact_id
             __props__.__dict__["defer_activation"] = defer_activation
             __props__.__dict__["arn"] = None
@@ -204,37 +200,40 @@ class ContactChannel(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the engagement to a contact channel.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="channelAddress")
-    def channel_address(self) -> pulumi.Output[str]:
+    def channel_address(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeladdress
+        The details that SSM Incident Manager uses when trying to engage the contact channel.
         """
         return pulumi.get(self, "channel_address")
 
     @property
     @pulumi.getter(name="channelName")
-    def channel_name(self) -> pulumi.Output[str]:
+    def channel_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channelname
+        The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
         """
         return pulumi.get(self, "channel_name")
 
     @property
     @pulumi.getter(name="channelType")
-    def channel_type(self) -> pulumi.Output[str]:
+    def channel_type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeltype
+        Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
         """
         return pulumi.get(self, "channel_type")
 
     @property
     @pulumi.getter(name="contactId")
-    def contact_id(self) -> pulumi.Output[str]:
+    def contact_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-contactid
+        ARN of the contact resource
         """
         return pulumi.get(self, "contact_id")
 
@@ -242,7 +241,7 @@ class ContactChannel(pulumi.CustomResource):
     @pulumi.getter(name="deferActivation")
     def defer_activation(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-deferactivation
+        If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
         """
         return pulumi.get(self, "defer_activation")
 

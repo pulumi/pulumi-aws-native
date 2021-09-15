@@ -13,20 +13,21 @@ __all__ = [
     'TrailDataResource',
     'TrailEventSelector',
     'TrailInsightSelector',
+    'TrailTag',
 ]
 
 @pulumi.output_type
 class TrailDataResource(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html
+    CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
     """
     def __init__(__self__, *,
                  type: str,
                  values: Optional[Sequence[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html
-        :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-type
-        :param Sequence[str] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-values
+        CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
+        :param str type: The resource type in which you want to log data events. You can specify AWS::S3::Object or AWS::Lambda::Function resources.
+        :param Sequence[str] values: An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
         """
         pulumi.set(__self__, "type", type)
         if values is not None:
@@ -36,7 +37,7 @@ class TrailDataResource(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-type
+        The resource type in which you want to log data events. You can specify AWS::S3::Object or AWS::Lambda::Function resources.
         """
         return pulumi.get(self, "type")
 
@@ -44,7 +45,7 @@ class TrailDataResource(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-values
+        An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
         """
         return pulumi.get(self, "values")
 
@@ -52,7 +53,7 @@ class TrailDataResource(dict):
 @pulumi.output_type
 class TrailEventSelector(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html
+    The type of email sending events to publish to the event destination.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -83,11 +84,10 @@ class TrailEventSelector(dict):
                  include_management_events: Optional[bool] = None,
                  read_write_type: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html
-        :param Sequence['TrailDataResource'] data_resources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-dataresources
-        :param Sequence[str] exclude_management_event_sources: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-excludemanagementeventsources
-        :param bool include_management_events: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-includemanagementevents
-        :param str read_write_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-readwritetype
+        The type of email sending events to publish to the event destination.
+        :param Sequence[str] exclude_management_event_sources: An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing "kms.amazonaws.com". By default, ExcludeManagementEventSources is empty, and AWS KMS events are included in events that are logged to your trail.
+        :param bool include_management_events: Specify if you want your event selector to include management events for your trail.
+        :param str read_write_type: Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
         """
         if data_resources is not None:
             pulumi.set(__self__, "data_resources", data_resources)
@@ -101,16 +101,13 @@ class TrailEventSelector(dict):
     @property
     @pulumi.getter(name="dataResources")
     def data_resources(self) -> Optional[Sequence['outputs.TrailDataResource']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-dataresources
-        """
         return pulumi.get(self, "data_resources")
 
     @property
     @pulumi.getter(name="excludeManagementEventSources")
     def exclude_management_event_sources(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-excludemanagementeventsources
+        An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing "kms.amazonaws.com". By default, ExcludeManagementEventSources is empty, and AWS KMS events are included in events that are logged to your trail.
         """
         return pulumi.get(self, "exclude_management_event_sources")
 
@@ -118,7 +115,7 @@ class TrailEventSelector(dict):
     @pulumi.getter(name="includeManagementEvents")
     def include_management_events(self) -> Optional[bool]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-includemanagementevents
+        Specify if you want your event selector to include management events for your trail.
         """
         return pulumi.get(self, "include_management_events")
 
@@ -126,7 +123,7 @@ class TrailEventSelector(dict):
     @pulumi.getter(name="readWriteType")
     def read_write_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-readwritetype
+        Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
         """
         return pulumi.get(self, "read_write_type")
 
@@ -134,7 +131,7 @@ class TrailEventSelector(dict):
 @pulumi.output_type
 class TrailInsightSelector(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html
+    A string that contains insight types that are logged on a trail.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -156,8 +153,8 @@ class TrailInsightSelector(dict):
     def __init__(__self__, *,
                  insight_type: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html
-        :param str insight_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html#cfn-cloudtrail-trail-insightselector-insighttype
+        A string that contains insight types that are logged on a trail.
+        :param str insight_type: The type of insight to log on a trail.
         """
         if insight_type is not None:
             pulumi.set(__self__, "insight_type", insight_type)
@@ -166,8 +163,41 @@ class TrailInsightSelector(dict):
     @pulumi.getter(name="insightType")
     def insight_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html#cfn-cloudtrail-trail-insightselector-insighttype
+        The type of insight to log on a trail.
         """
         return pulumi.get(self, "insight_type")
+
+
+@pulumi.output_type
+class TrailTag(dict):
+    """
+    An arbitrary set of tags (key-value pairs) for this trail.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        An arbitrary set of tags (key-value pairs) for this trail.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
 
 

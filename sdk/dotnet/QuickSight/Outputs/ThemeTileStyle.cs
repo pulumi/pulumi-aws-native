@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html
+    /// &lt;p&gt;Display options related to tiles on a sheet.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class ThemeTileStyle
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html#cfn-quicksight-theme-tilestyle-border
-        /// </summary>
         public readonly Outputs.ThemeBorderStyle? Border;
 
         [OutputConstructor]

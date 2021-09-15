@@ -7,38 +7,34 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html
+// Resource schema for AWS::MediaPackage::Channel
 type Channel struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) assigned to the Channel.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
+	// A short text description of the Channel.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+	// The configuration parameters for egress access logging.
 	EgressAccessLogs ChannelLogConfigurationPtrOutput `pulumi:"egressAccessLogs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
-	Id pulumi.StringOutput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+	// A short text description of the Channel.
+	HlsIngest ChannelHlsIngestOutput `pulumi:"hlsIngest"`
+	// The configuration parameters for egress access logging.
 	IngressAccessLogs ChannelLogConfigurationPtrOutput `pulumi:"ingressAccessLogs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A collection of tags associated with a resource
+	Tags ChannelTagArrayOutput `pulumi:"tags"`
 }
 
 // NewChannel registers a new resource with the given unique name, arguments, and options.
 func NewChannel(ctx *pulumi.Context,
 	name string, args *ChannelArgs, opts ...pulumi.ResourceOption) (*Channel, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ChannelArgs{}
 	}
 
-	if args.Id == nil {
-		return nil, errors.New("invalid value for required argument 'Id'")
-	}
 	var resource Channel
 	err := ctx.RegisterResource("aws-native:mediapackage:Channel", name, args, &resource, opts...)
 	if err != nil {
@@ -71,30 +67,26 @@ func (ChannelState) ElementType() reflect.Type {
 }
 
 type channelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
+	// A short text description of the Channel.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+	// The configuration parameters for egress access logging.
 	EgressAccessLogs *ChannelLogConfiguration `pulumi:"egressAccessLogs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
-	Id string `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+	// The configuration parameters for egress access logging.
 	IngressAccessLogs *ChannelLogConfiguration `pulumi:"ingressAccessLogs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A collection of tags associated with a resource
+	Tags []ChannelTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Channel resource.
 type ChannelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
+	// A short text description of the Channel.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+	// The configuration parameters for egress access logging.
 	EgressAccessLogs ChannelLogConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
-	Id pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+	// The configuration parameters for egress access logging.
 	IngressAccessLogs ChannelLogConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
-	Tags aws.TagArrayInput
+	// A collection of tags associated with a resource
+	Tags ChannelTagArrayInput
 }
 
 func (ChannelArgs) ElementType() reflect.Type {

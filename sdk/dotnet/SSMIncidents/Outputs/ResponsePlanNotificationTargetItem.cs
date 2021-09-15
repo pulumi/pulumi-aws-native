@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.SSMIncidents.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html
+    /// A notification target.
     /// </summary>
     [OutputType]
     public sealed class ResponsePlanNotificationTargetItem
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html#cfn-ssmincidents-responseplan-notificationtargetitem-snstopicarn
-        /// </summary>
         public readonly string? SnsTopicArn;
 
         [OutputConstructor]

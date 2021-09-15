@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html
+    /// The value to be compared with the metric.
     /// </summary>
     public sealed class SecurityProfileMetricValueArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         private InputList<string>? _cidrs;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-cidrs
+        /// If the ComparisonOperator calls for a set of CIDRs, use this to specify that set to be compared with the metric.
         /// </summary>
         public InputList<string> Cidrs
         {
@@ -28,13 +28,13 @@ namespace Pulumi.AwsNative.IoT.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-count
+        /// If the ComparisonOperator calls for a numeric value, use this to specify that (integer) numeric value to be compared with the metric.
         /// </summary>
         [Input("count")]
         public Input<string>? Count { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-number
+        /// The numeral value of a metric.
         /// </summary>
         [Input("number")]
         public Input<double>? Number { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         private InputList<double>? _numbers;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-numbers
+        /// The numeral values of a metric.
         /// </summary>
         public InputList<double> Numbers
         {
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         private InputList<int>? _ports;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-ports
+        /// If the ComparisonOperator calls for a set of ports, use this to specify that set to be compared with the metric.
         /// </summary>
         public InputList<int> Ports
         {
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         private InputList<string>? _strings;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-strings
+        /// The string values of a metric.
         /// </summary>
         public InputList<string> Strings
         {

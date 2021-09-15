@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.S3Outposts.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html
+    /// Specifies the days since the initiation of an incomplete multipart upload that Amazon S3Outposts will wait before permanently removing all parts of the upload.
     /// </summary>
     [OutputType]
     public sealed class BucketAbortIncompleteMultipartUpload
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html#cfn-s3outposts-bucket-abortincompletemultipartupload-daysafterinitiation
+        /// Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
         /// </summary>
         public readonly int DaysAfterInitiation;
 

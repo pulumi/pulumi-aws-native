@@ -10,15 +10,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html
+// AWS Route53 Recovery Control Cluster resource schema
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	ClusterArn       pulumi.StringOutput               `pulumi:"clusterArn"`
+	// The Amazon Resource Name (ARN) of the cluster.
+	ClusterArn pulumi.StringOutput `pulumi:"clusterArn"`
+	// Endpoints for the cluster.
 	ClusterEndpoints ClusterClusterEndpointArrayOutput `pulumi:"clusterEndpoints"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-name
-	Name   pulumi.StringPtrOutput `pulumi:"name"`
-	Status pulumi.StringOutput    `pulumi:"status"`
+	// Name of a Cluster. You can use any non-white space character in the name
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -60,13 +63,13 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-name
+	// Name of a Cluster. You can use any non-white space character in the name
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-name
+	// Name of a Cluster. You can use any non-white space character in the name
 	Name pulumi.StringPtrInput
 }
 

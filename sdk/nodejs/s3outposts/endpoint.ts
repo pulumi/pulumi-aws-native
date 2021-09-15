@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html
+ * Resource Type Definition for AWS::S3Outposts::Endpoint
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -36,29 +36,40 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-accesstype
+     * The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
      */
     public readonly accessType!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the endpoint.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The VPC CIDR committed by this endpoint.
+     */
     public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
+    /**
+     * The time the endpoint was created.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-customerownedipv4pool
+     * The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
      */
     public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
+    /**
+     * The network interfaces of the endpoint.
+     */
     public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.s3outposts.EndpointNetworkInterface[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-outpostid
+     * The id of the customer outpost on which the bucket resides.
      */
     public readonly outpostId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-securitygroupid
+     * The ID of the security group to use with the endpoint.
      */
     public readonly securityGroupId!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-subnetid
+     * The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
      */
     public readonly subnetId!: pulumi.Output<string>;
 
@@ -90,7 +101,6 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["cidrBlock"] = undefined /*out*/;
             inputs["creationTime"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["networkInterfaces"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         } else {
@@ -99,7 +109,6 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["cidrBlock"] = undefined /*out*/;
             inputs["creationTime"] = undefined /*out*/;
             inputs["customerOwnedIpv4Pool"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["networkInterfaces"] = undefined /*out*/;
             inputs["outpostId"] = undefined /*out*/;
             inputs["securityGroupId"] = undefined /*out*/;
@@ -118,23 +127,23 @@ export class Endpoint extends pulumi.CustomResource {
  */
 export interface EndpointArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-accesstype
+     * The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
      */
     accessType?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-customerownedipv4pool
+     * The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
      */
     customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-outpostid
+     * The id of the customer outpost on which the bucket resides.
      */
     outpostId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-securitygroupid
+     * The ID of the security group to use with the endpoint.
      */
     securityGroupId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-subnetid
+     * The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
      */
     subnetId: pulumi.Input<string>;
 }

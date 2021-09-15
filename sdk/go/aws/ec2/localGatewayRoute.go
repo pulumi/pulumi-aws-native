@@ -11,18 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html
+// Describes a route for a local gateway route table.
 type LocalGatewayRoute struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
+	// The CIDR block used for destination matches.
 	DestinationCidrBlock pulumi.StringOutput `pulumi:"destinationCidrBlock"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
+	// The ID of the local gateway route table.
 	LocalGatewayRouteTableId pulumi.StringOutput `pulumi:"localGatewayRouteTableId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
+	// The ID of the virtual interface group.
 	LocalGatewayVirtualInterfaceGroupId pulumi.StringOutput `pulumi:"localGatewayVirtualInterfaceGroupId"`
-	State                               pulumi.StringOutput `pulumi:"state"`
-	Type                                pulumi.StringOutput `pulumi:"type"`
+	// The state of the route.
+	State pulumi.StringOutput `pulumi:"state"`
+	// The route type.
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewLocalGatewayRoute registers a new resource with the given unique name, arguments, and options.
@@ -73,21 +75,21 @@ func (LocalGatewayRouteState) ElementType() reflect.Type {
 }
 
 type localGatewayRouteArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
+	// The CIDR block used for destination matches.
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
+	// The ID of the local gateway route table.
 	LocalGatewayRouteTableId string `pulumi:"localGatewayRouteTableId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
+	// The ID of the virtual interface group.
 	LocalGatewayVirtualInterfaceGroupId string `pulumi:"localGatewayVirtualInterfaceGroupId"`
 }
 
 // The set of arguments for constructing a LocalGatewayRoute resource.
 type LocalGatewayRouteArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
+	// The CIDR block used for destination matches.
 	DestinationCidrBlock pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
+	// The ID of the local gateway route table.
 	LocalGatewayRouteTableId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
+	// The ID of the virtual interface group.
 	LocalGatewayVirtualInterfaceGroupId pulumi.StringInput
 }
 

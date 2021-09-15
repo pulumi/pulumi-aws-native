@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html
+    /// A destination for events that failed processing.
     /// </summary>
     [OutputType]
     public sealed class EventSourceMappingOnFailure
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-onfailure.html#cfn-lambda-eventsourcemapping-onfailure-destination
+        /// The Amazon Resource Name (ARN) of the destination resource.
         /// </summary>
         public readonly string? Destination;
 

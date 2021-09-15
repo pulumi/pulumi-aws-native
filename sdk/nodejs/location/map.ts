@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html
+ * Definition of AWS::Location::Map Resource Type
  */
 export class Map extends pulumi.CustomResource {
     /**
@@ -36,24 +36,12 @@ export class Map extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-configuration
-     */
     public readonly configuration!: pulumi.Output<outputs.location.MapMapConfiguration>;
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     public /*out*/ readonly dataSource!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-description
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly mapArn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-mapname
-     */
     public readonly mapName!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-pricingplan
-     */
     public readonly pricingPlan!: pulumi.Output<string>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
@@ -108,20 +96,8 @@ export class Map extends pulumi.CustomResource {
  * The set of arguments for constructing a Map resource.
  */
 export interface MapArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-configuration
-     */
     configuration: pulumi.Input<inputs.location.MapMapConfigurationArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-description
-     */
     description?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-mapname
-     */
     mapName: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-pricingplan
-     */
     pricingPlan: pulumi.Input<string>;
 }

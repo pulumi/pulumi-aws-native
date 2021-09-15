@@ -10,16 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html
+    /// Resource Type definition for AWS::Backup::BackupVault
     /// </summary>
     [AwsNativeResourceType("aws-native:backup:BackupVault")]
     public partial class BackupVault : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
-        /// </summary>
         [Output("accessPolicy")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> AccessPolicy { get; private set; } = null!;
+        public Output<object?> AccessPolicy { get; private set; } = null!;
 
         [Output("backupVaultArn")]
         public Output<string> BackupVaultArn { get; private set; } = null!;
@@ -27,21 +24,12 @@ namespace Pulumi.AwsNative.Backup
         [Output("backupVaultName")]
         public Output<string> BackupVaultName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
-        /// </summary>
         [Output("backupVaultTags")]
-        public Output<ImmutableDictionary<string, string>?> BackupVaultTags { get; private set; } = null!;
+        public Output<object?> BackupVaultTags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
-        /// </summary>
         [Output("encryptionKeyArn")]
         public Output<string?> EncryptionKeyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
-        /// </summary>
         [Output("notifications")]
         public Output<Outputs.BackupVaultNotificationObjectType?> Notifications { get; private set; } = null!;
 
@@ -53,7 +41,7 @@ namespace Pulumi.AwsNative.Backup
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public BackupVault(string name, BackupVaultArgs args, CustomResourceOptions? options = null)
+        public BackupVault(string name, BackupVaultArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:backup:BackupVault", name, args ?? new BackupVaultArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -90,39 +78,15 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class BackupVaultArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
-        /// </summary>
         [Input("accessPolicy")]
-        public InputUnion<System.Text.Json.JsonElement, string>? AccessPolicy { get; set; }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
-        /// </summary>
-        [Input("backupVaultName", required: true)]
-        public Input<string> BackupVaultName { get; set; } = null!;
+        public Input<object>? AccessPolicy { get; set; }
 
         [Input("backupVaultTags")]
-        private InputMap<string>? _backupVaultTags;
+        public Input<object>? BackupVaultTags { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
-        /// </summary>
-        public InputMap<string> BackupVaultTags
-        {
-            get => _backupVaultTags ?? (_backupVaultTags = new InputMap<string>());
-            set => _backupVaultTags = value;
-        }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
-        /// </summary>
         [Input("encryptionKeyArn")]
         public Input<string>? EncryptionKeyArn { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
-        /// </summary>
         [Input("notifications")]
         public Input<Inputs.BackupVaultNotificationObjectTypeArgs>? Notifications { get; set; }
 

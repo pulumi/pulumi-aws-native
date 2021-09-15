@@ -10,20 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html
+    /// Resource schema for AWS::NimbleStudio::Studio.
     /// </summary>
     [AwsNativeResourceType("aws-native:nimblestudio:Studio")]
     public partial class Studio : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-adminrolearn
-        /// </summary>
         [Output("adminRoleArn")]
         public Output<string> AdminRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-displayname
-        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
@@ -33,33 +27,21 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Output("ssoClientId")]
         public Output<string> SsoClientId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioencryptionconfiguration
-        /// </summary>
         [Output("studioEncryptionConfiguration")]
         public Output<Outputs.StudioStudioEncryptionConfiguration?> StudioEncryptionConfiguration { get; private set; } = null!;
 
         [Output("studioId")]
         public Output<string> StudioId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioname
-        /// </summary>
         [Output("studioName")]
         public Output<string> StudioName { get; private set; } = null!;
 
         [Output("studioUrl")]
         public Output<string> StudioUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<object?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-userrolearn
-        /// </summary>
         [Output("userRoleArn")]
         public Output<string> UserRoleArn { get; private set; } = null!;
 
@@ -108,45 +90,21 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class StudioArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-adminrolearn
-        /// </summary>
         [Input("adminRoleArn", required: true)]
         public Input<string> AdminRoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-displayname
-        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioencryptionconfiguration
-        /// </summary>
         [Input("studioEncryptionConfiguration")]
         public Input<Inputs.StudioStudioEncryptionConfigurationArgs>? StudioEncryptionConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-studioname
-        /// </summary>
         [Input("studioName", required: true)]
         public Input<string> StudioName { get; set; } = null!;
 
         [Input("tags")]
-        private InputMap<string>? _tags;
+        public Input<object>? Tags { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studio.html#cfn-nimblestudio-studio-userrolearn
-        /// </summary>
         [Input("userRoleArn", required: true)]
         public Input<string> UserRoleArn { get; set; } = null!;
 

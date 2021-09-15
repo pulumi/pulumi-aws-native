@@ -11,17 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html
+// Resource Type definition for AWS::Backup::BackupPlan
 type BackupPlan struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
-	BackupPlan    BackupPlanBackupPlanResourceTypeOutput `pulumi:"backupPlan"`
-	BackupPlanArn pulumi.StringOutput                    `pulumi:"backupPlanArn"`
-	BackupPlanId  pulumi.StringOutput                    `pulumi:"backupPlanId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-	BackupPlanTags pulumi.StringMapOutput `pulumi:"backupPlanTags"`
-	VersionId      pulumi.StringOutput    `pulumi:"versionId"`
+	BackupPlan     BackupPlanBackupPlanResourceTypeOutput `pulumi:"backupPlan"`
+	BackupPlanArn  pulumi.StringOutput                    `pulumi:"backupPlanArn"`
+	BackupPlanId   pulumi.StringOutput                    `pulumi:"backupPlanId"`
+	BackupPlanTags pulumi.AnyOutput                       `pulumi:"backupPlanTags"`
+	VersionId      pulumi.StringOutput                    `pulumi:"versionId"`
 }
 
 // NewBackupPlan registers a new resource with the given unique name, arguments, and options.
@@ -66,18 +64,14 @@ func (BackupPlanState) ElementType() reflect.Type {
 }
 
 type backupPlanArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
-	BackupPlan BackupPlanBackupPlanResourceType `pulumi:"backupPlan"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-	BackupPlanTags map[string]string `pulumi:"backupPlanTags"`
+	BackupPlan     BackupPlanBackupPlanResourceType `pulumi:"backupPlan"`
+	BackupPlanTags interface{}                      `pulumi:"backupPlanTags"`
 }
 
 // The set of arguments for constructing a BackupPlan resource.
 type BackupPlanArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
-	BackupPlan BackupPlanBackupPlanResourceTypeInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-	BackupPlanTags pulumi.StringMapInput
+	BackupPlan     BackupPlanBackupPlanResourceTypeInput
+	BackupPlanTags pulumi.Input
 }
 
 func (BackupPlanArgs) ElementType() reflect.Type {

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html
+ * AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
  */
 export class MultiRegionAccessPoint extends pulumi.CustomResource {
     /**
@@ -35,18 +35,24 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === MultiRegionAccessPoint.__pulumiType;
     }
 
+    /**
+     * The alias is a unique identifier to, and is part of the public DNS name for this Multi Region Access Point
+     */
     public /*out*/ readonly alias!: pulumi.Output<string>;
+    /**
+     * The timestamp of the when the Multi Region Access Point is created
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-name
+     * The name you want to assign to this Multi Region Access Point.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration
+     * The PublicAccessBlock configuration that you want to apply to this Multi Region Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
      */
     public readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.s3.MultiRegionAccessPointPublicAccessBlockConfiguration | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-regions
+     * The list of buckets that you want to associate this Multi Region Access Point with.
      */
     public readonly regions!: pulumi.Output<outputs.s3.MultiRegionAccessPointRegion[]>;
 
@@ -88,15 +94,15 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
  */
 export interface MultiRegionAccessPointArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-name
+     * The name you want to assign to this Multi Region Access Point.
      */
     name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration
+     * The PublicAccessBlock configuration that you want to apply to this Multi Region Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
      */
     publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.MultiRegionAccessPointPublicAccessBlockConfigurationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-regions
+     * The list of buckets that you want to associate this Multi Region Access Point with.
      */
     regions: pulumi.Input<pulumi.Input<inputs.s3.MultiRegionAccessPointRegionArgs>[]>;
 }

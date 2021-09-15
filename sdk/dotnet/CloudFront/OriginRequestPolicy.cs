@@ -10,20 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
+    /// Resource Type definition for AWS::CloudFront::OriginRequestPolicy
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:OriginRequestPolicy")]
     public partial class OriginRequestPolicy : Pulumi.CustomResource
     {
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
-        /// </summary>
         [Output("originRequestPolicyConfig")]
         public Output<Outputs.OriginRequestPolicyOriginRequestPolicyConfig> OriginRequestPolicyConfig { get; private set; } = null!;
 
@@ -72,9 +66,6 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class OriginRequestPolicyArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
-        /// </summary>
         [Input("originRequestPolicyConfig", required: true)]
         public Input<Inputs.OriginRequestPolicyOriginRequestPolicyConfigArgs> OriginRequestPolicyConfig { get; set; } = null!;
 

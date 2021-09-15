@@ -18,9 +18,9 @@ class RoutingControlArgs:
                  control_panel_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RoutingControl resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-name
-        :param pulumi.Input[str] cluster_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-clusterarn
-        :param pulumi.Input[str] control_panel_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-controlpanelarn
+        :param pulumi.Input[str] name: The name of the routing control. You can use any non-white space character in the name.
+        :param pulumi.Input[str] cluster_arn: Arn associated with Control Panel
+        :param pulumi.Input[str] control_panel_arn: The Amazon Resource Name (ARN) of the control panel.
         """
         pulumi.set(__self__, "name", name)
         if cluster_arn is not None:
@@ -32,7 +32,7 @@ class RoutingControlArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-name
+        The name of the routing control. You can use any non-white space character in the name.
         """
         return pulumi.get(self, "name")
 
@@ -44,7 +44,7 @@ class RoutingControlArgs:
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-clusterarn
+        Arn associated with Control Panel
         """
         return pulumi.get(self, "cluster_arn")
 
@@ -56,7 +56,7 @@ class RoutingControlArgs:
     @pulumi.getter(name="controlPanelArn")
     def control_panel_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-controlpanelarn
+        The Amazon Resource Name (ARN) of the control panel.
         """
         return pulumi.get(self, "control_panel_arn")
 
@@ -75,13 +75,13 @@ class RoutingControl(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html
+        AWS Route53 Recovery Control Routing Control resource schema .
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-clusterarn
-        :param pulumi.Input[str] control_panel_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-controlpanelarn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-name
+        :param pulumi.Input[str] cluster_arn: Arn associated with Control Panel
+        :param pulumi.Input[str] control_panel_arn: The Amazon Resource Name (ARN) of the control panel.
+        :param pulumi.Input[str] name: The name of the routing control. You can use any non-white space character in the name.
         """
         ...
     @overload
@@ -90,7 +90,7 @@ class RoutingControl(pulumi.CustomResource):
                  args: RoutingControlArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html
+        AWS Route53 Recovery Control Routing Control resource schema .
 
         :param str resource_name: The name of the resource.
         :param RoutingControlArgs args: The arguments to use to populate this resource's properties.
@@ -162,7 +162,7 @@ class RoutingControl(pulumi.CustomResource):
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-clusterarn
+        Arn associated with Control Panel
         """
         return pulumi.get(self, "cluster_arn")
 
@@ -170,7 +170,7 @@ class RoutingControl(pulumi.CustomResource):
     @pulumi.getter(name="controlPanelArn")
     def control_panel_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-controlpanelarn
+        The Amazon Resource Name (ARN) of the control panel.
         """
         return pulumi.get(self, "control_panel_arn")
 
@@ -178,17 +178,23 @@ class RoutingControl(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-name
+        The name of the routing control. You can use any non-white space character in the name.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="routingControlArn")
     def routing_control_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the routing control.
+        """
         return pulumi.get(self, "routing_control_arn")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+        """
         return pulumi.get(self, "status")
 

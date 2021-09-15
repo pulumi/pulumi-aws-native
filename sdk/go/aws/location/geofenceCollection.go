@@ -11,22 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html
+// Definition of AWS::Location::GeofenceCollection Resource Type
 type GeofenceCollection struct {
 	pulumi.CustomResourceState
 
-	Arn           pulumi.StringOutput `pulumi:"arn"`
-	CollectionArn pulumi.StringOutput `pulumi:"collectionArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-collectionname
-	CollectionName pulumi.StringOutput `pulumi:"collectionName"`
-	CreateTime     pulumi.StringOutput `pulumi:"createTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-kmskeyid
-	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplan
-	PricingPlan pulumi.StringOutput `pulumi:"pricingPlan"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplandatasource
+	Arn                   pulumi.StringOutput    `pulumi:"arn"`
+	CollectionArn         pulumi.StringOutput    `pulumi:"collectionArn"`
+	CollectionName        pulumi.StringOutput    `pulumi:"collectionName"`
+	CreateTime            pulumi.StringOutput    `pulumi:"createTime"`
+	Description           pulumi.StringPtrOutput `pulumi:"description"`
+	KmsKeyId              pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	PricingPlan           pulumi.StringOutput    `pulumi:"pricingPlan"`
 	PricingPlanDataSource pulumi.StringPtrOutput `pulumi:"pricingPlanDataSource"`
 	UpdateTime            pulumi.StringOutput    `pulumi:"updateTime"`
 }
@@ -76,29 +71,19 @@ func (GeofenceCollectionState) ElementType() reflect.Type {
 }
 
 type geofenceCollectionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-collectionname
-	CollectionName string `pulumi:"collectionName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-kmskeyid
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplan
-	PricingPlan string `pulumi:"pricingPlan"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplandatasource
+	CollectionName        string  `pulumi:"collectionName"`
+	Description           *string `pulumi:"description"`
+	KmsKeyId              *string `pulumi:"kmsKeyId"`
+	PricingPlan           string  `pulumi:"pricingPlan"`
 	PricingPlanDataSource *string `pulumi:"pricingPlanDataSource"`
 }
 
 // The set of arguments for constructing a GeofenceCollection resource.
 type GeofenceCollectionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-collectionname
-	CollectionName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-kmskeyid
-	KmsKeyId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplan
-	PricingPlan pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplandatasource
+	CollectionName        pulumi.StringInput
+	Description           pulumi.StringPtrInput
+	KmsKeyId              pulumi.StringPtrInput
+	PricingPlan           pulumi.StringInput
 	PricingPlanDataSource pulumi.StringPtrInput
 }
 

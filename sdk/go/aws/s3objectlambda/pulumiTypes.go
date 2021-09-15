@@ -10,15 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html
+// Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
 type AccessPointObjectLambdaConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-allowedfeatures
-	AllowedFeatures []string `pulumi:"allowedFeatures"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-cloudwatchmetricsenabled
-	CloudWatchMetricsEnabled *bool `pulumi:"cloudWatchMetricsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-supportingaccesspoint
-	SupportingAccessPoint string `pulumi:"supportingAccessPoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-transformationconfigurations
+	AllowedFeatures              []string                                 `pulumi:"allowedFeatures"`
+	CloudWatchMetricsEnabled     *bool                                    `pulumi:"cloudWatchMetricsEnabled"`
+	SupportingAccessPoint        string                                   `pulumi:"supportingAccessPoint"`
 	TransformationConfigurations []AccessPointTransformationConfiguration `pulumi:"transformationConfigurations"`
 }
 
@@ -33,15 +29,11 @@ type AccessPointObjectLambdaConfigurationInput interface {
 	ToAccessPointObjectLambdaConfigurationOutputWithContext(context.Context) AccessPointObjectLambdaConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html
+// Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
 type AccessPointObjectLambdaConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-allowedfeatures
-	AllowedFeatures pulumi.StringArrayInput `pulumi:"allowedFeatures"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-cloudwatchmetricsenabled
-	CloudWatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"cloudWatchMetricsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-supportingaccesspoint
-	SupportingAccessPoint pulumi.StringInput `pulumi:"supportingAccessPoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-transformationconfigurations
+	AllowedFeatures              pulumi.StringArrayInput                          `pulumi:"allowedFeatures"`
+	CloudWatchMetricsEnabled     pulumi.BoolPtrInput                              `pulumi:"cloudWatchMetricsEnabled"`
+	SupportingAccessPoint        pulumi.StringInput                               `pulumi:"supportingAccessPoint"`
 	TransformationConfigurations AccessPointTransformationConfigurationArrayInput `pulumi:"transformationConfigurations"`
 }
 
@@ -98,7 +90,7 @@ func (i *accessPointObjectLambdaConfigurationPtrType) ToAccessPointObjectLambdaC
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointObjectLambdaConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html
+// Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
 type AccessPointObjectLambdaConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccessPointObjectLambdaConfigurationOutput) ElementType() reflect.Type {
@@ -123,22 +115,18 @@ func (o AccessPointObjectLambdaConfigurationOutput) ToAccessPointObjectLambdaCon
 	}).(AccessPointObjectLambdaConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-allowedfeatures
 func (o AccessPointObjectLambdaConfigurationOutput) AllowedFeatures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccessPointObjectLambdaConfiguration) []string { return v.AllowedFeatures }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-cloudwatchmetricsenabled
 func (o AccessPointObjectLambdaConfigurationOutput) CloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccessPointObjectLambdaConfiguration) *bool { return v.CloudWatchMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-supportingaccesspoint
 func (o AccessPointObjectLambdaConfigurationOutput) SupportingAccessPoint() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointObjectLambdaConfiguration) string { return v.SupportingAccessPoint }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-transformationconfigurations
 func (o AccessPointObjectLambdaConfigurationOutput) TransformationConfigurations() AccessPointTransformationConfigurationArrayOutput {
 	return o.ApplyT(func(v AccessPointObjectLambdaConfiguration) []AccessPointTransformationConfiguration {
 		return v.TransformationConfigurations
@@ -169,7 +157,6 @@ func (o AccessPointObjectLambdaConfigurationPtrOutput) Elem() AccessPointObjectL
 	}).(AccessPointObjectLambdaConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-allowedfeatures
 func (o AccessPointObjectLambdaConfigurationPtrOutput) AllowedFeatures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccessPointObjectLambdaConfiguration) []string {
 		if v == nil {
@@ -179,7 +166,6 @@ func (o AccessPointObjectLambdaConfigurationPtrOutput) AllowedFeatures() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-cloudwatchmetricsenabled
 func (o AccessPointObjectLambdaConfigurationPtrOutput) CloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccessPointObjectLambdaConfiguration) *bool {
 		if v == nil {
@@ -189,7 +175,6 @@ func (o AccessPointObjectLambdaConfigurationPtrOutput) CloudWatchMetricsEnabled(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-supportingaccesspoint
 func (o AccessPointObjectLambdaConfigurationPtrOutput) SupportingAccessPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointObjectLambdaConfiguration) *string {
 		if v == nil {
@@ -199,7 +184,6 @@ func (o AccessPointObjectLambdaConfigurationPtrOutput) SupportingAccessPoint() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-transformationconfigurations
 func (o AccessPointObjectLambdaConfigurationPtrOutput) TransformationConfigurations() AccessPointTransformationConfigurationArrayOutput {
 	return o.ApplyT(func(v *AccessPointObjectLambdaConfiguration) []AccessPointTransformationConfiguration {
 		if v == nil {
@@ -209,11 +193,226 @@ func (o AccessPointObjectLambdaConfigurationPtrOutput) TransformationConfigurati
 	}).(AccessPointTransformationConfigurationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html
+// The Public Access Block Configuration is used to block policies that would allow public access to this Object lambda Access Point. All public access to Object lambda Access Points are blocked by default, and any policy that would give public access to them will be also blocked. This behavior cannot be changed for Object lambda Access Points.
+type AccessPointPublicAccessBlockConfiguration struct {
+	// Specifies whether Amazon S3 should block public access control lists (ACLs) to this object lambda access point. Setting this element to TRUE causes the following behavior:
+	// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+	//  - PUT Object calls fail if the request includes a public ACL.
+	//    . - PUT Bucket calls fail if the request includes a public ACL.
+	//    Enabling this setting doesn't affect existing policies or ACLs.
+	BlockPublicAcls *bool `pulumi:"blockPublicAcls"`
+	// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
+	// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+	IgnorePublicAcls *bool `pulumi:"ignorePublicAcls"`
+	// Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+	// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+	RestrictPublicBuckets *bool `pulumi:"restrictPublicBuckets"`
+}
+
+// AccessPointPublicAccessBlockConfigurationInput is an input type that accepts AccessPointPublicAccessBlockConfigurationArgs and AccessPointPublicAccessBlockConfigurationOutput values.
+// You can construct a concrete instance of `AccessPointPublicAccessBlockConfigurationInput` via:
+//
+//          AccessPointPublicAccessBlockConfigurationArgs{...}
+type AccessPointPublicAccessBlockConfigurationInput interface {
+	pulumi.Input
+
+	ToAccessPointPublicAccessBlockConfigurationOutput() AccessPointPublicAccessBlockConfigurationOutput
+	ToAccessPointPublicAccessBlockConfigurationOutputWithContext(context.Context) AccessPointPublicAccessBlockConfigurationOutput
+}
+
+// The Public Access Block Configuration is used to block policies that would allow public access to this Object lambda Access Point. All public access to Object lambda Access Points are blocked by default, and any policy that would give public access to them will be also blocked. This behavior cannot be changed for Object lambda Access Points.
+type AccessPointPublicAccessBlockConfigurationArgs struct {
+	// Specifies whether Amazon S3 should block public access control lists (ACLs) to this object lambda access point. Setting this element to TRUE causes the following behavior:
+	// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+	//  - PUT Object calls fail if the request includes a public ACL.
+	//    . - PUT Bucket calls fail if the request includes a public ACL.
+	//    Enabling this setting doesn't affect existing policies or ACLs.
+	BlockPublicAcls pulumi.BoolPtrInput `pulumi:"blockPublicAcls"`
+	// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+	BlockPublicPolicy pulumi.BoolPtrInput `pulumi:"blockPublicPolicy"`
+	// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+	IgnorePublicAcls pulumi.BoolPtrInput `pulumi:"ignorePublicAcls"`
+	// Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+	// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+	RestrictPublicBuckets pulumi.BoolPtrInput `pulumi:"restrictPublicBuckets"`
+}
+
+func (AccessPointPublicAccessBlockConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccessBlockConfigurationOutput() AccessPointPublicAccessBlockConfigurationOutput {
+	return i.ToAccessPointPublicAccessBlockConfigurationOutputWithContext(context.Background())
+}
+
+func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccessBlockConfigurationOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPublicAccessBlockConfigurationOutput)
+}
+
+func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return i.ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPublicAccessBlockConfigurationOutput).ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx)
+}
+
+// AccessPointPublicAccessBlockConfigurationPtrInput is an input type that accepts AccessPointPublicAccessBlockConfigurationArgs, AccessPointPublicAccessBlockConfigurationPtr and AccessPointPublicAccessBlockConfigurationPtrOutput values.
+// You can construct a concrete instance of `AccessPointPublicAccessBlockConfigurationPtrInput` via:
+//
+//          AccessPointPublicAccessBlockConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type AccessPointPublicAccessBlockConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput
+	ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput
+}
+
+type accessPointPublicAccessBlockConfigurationPtrType AccessPointPublicAccessBlockConfigurationArgs
+
+func AccessPointPublicAccessBlockConfigurationPtr(v *AccessPointPublicAccessBlockConfigurationArgs) AccessPointPublicAccessBlockConfigurationPtrInput {
+	return (*accessPointPublicAccessBlockConfigurationPtrType)(v)
+}
+
+func (*accessPointPublicAccessBlockConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (i *accessPointPublicAccessBlockConfigurationPtrType) ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return i.ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *accessPointPublicAccessBlockConfigurationPtrType) ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPublicAccessBlockConfigurationPtrOutput)
+}
+
+// The Public Access Block Configuration is used to block policies that would allow public access to this Object lambda Access Point. All public access to Object lambda Access Points are blocked by default, and any policy that would give public access to them will be also blocked. This behavior cannot be changed for Object lambda Access Points.
+type AccessPointPublicAccessBlockConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AccessPointPublicAccessBlockConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAccessBlockConfigurationOutput() AccessPointPublicAccessBlockConfigurationOutput {
+	return o
+}
+
+func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAccessBlockConfigurationOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationOutput {
+	return o
+}
+
+func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o.ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointPublicAccessBlockConfiguration) *AccessPointPublicAccessBlockConfiguration {
+		return &v
+	}).(AccessPointPublicAccessBlockConfigurationPtrOutput)
+}
+
+// Specifies whether Amazon S3 should block public access control lists (ACLs) to this object lambda access point. Setting this element to TRUE causes the following behavior:
+// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+//  - PUT Object calls fail if the request includes a public ACL.
+//    . - PUT Bucket calls fail if the request includes a public ACL.
+//    Enabling this setting doesn't affect existing policies or ACLs.
+func (o AccessPointPublicAccessBlockConfigurationOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+func (o AccessPointPublicAccessBlockConfigurationOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+func (o AccessPointPublicAccessBlockConfigurationOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.IgnorePublicAcls }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+func (o AccessPointPublicAccessBlockConfigurationOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.RestrictPublicBuckets }).(pulumi.BoolPtrOutput)
+}
+
+type AccessPointPublicAccessBlockConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPointPublicAccessBlockConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPointPublicAccessBlockConfiguration)(nil)).Elem()
+}
+
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o
+}
+
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput {
+	return o
+}
+
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) Elem() AccessPointPublicAccessBlockConfigurationOutput {
+	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) AccessPointPublicAccessBlockConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointPublicAccessBlockConfiguration
+		return ret
+	}).(AccessPointPublicAccessBlockConfigurationOutput)
+}
+
+// Specifies whether Amazon S3 should block public access control lists (ACLs) to this object lambda access point. Setting this element to TRUE causes the following behavior:
+// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+//  - PUT Object calls fail if the request includes a public ACL.
+//    . - PUT Bucket calls fail if the request includes a public ACL.
+//    Enabling this setting doesn't affect existing policies or ACLs.
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BlockPublicAcls
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BlockPublicPolicy
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnorePublicAcls
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RestrictPublicBuckets
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Configuration to define what content transformation will be applied on which S3 Action.
 type AccessPointTransformationConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-actions
-	Actions []string `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-contenttransformation
+	Actions               []string    `pulumi:"actions"`
 	ContentTransformation interface{} `pulumi:"contentTransformation"`
 }
 
@@ -228,12 +427,10 @@ type AccessPointTransformationConfigurationInput interface {
 	ToAccessPointTransformationConfigurationOutputWithContext(context.Context) AccessPointTransformationConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html
+// Configuration to define what content transformation will be applied on which S3 Action.
 type AccessPointTransformationConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-actions
-	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-contenttransformation
-	ContentTransformation pulumi.Input `pulumi:"contentTransformation"`
+	Actions               pulumi.StringArrayInput `pulumi:"actions"`
+	ContentTransformation pulumi.Input            `pulumi:"contentTransformation"`
 }
 
 func (AccessPointTransformationConfigurationArgs) ElementType() reflect.Type {
@@ -273,7 +470,7 @@ func (i AccessPointTransformationConfigurationArray) ToAccessPointTransformation
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointTransformationConfigurationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html
+// Configuration to define what content transformation will be applied on which S3 Action.
 type AccessPointTransformationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccessPointTransformationConfigurationOutput) ElementType() reflect.Type {
@@ -288,12 +485,10 @@ func (o AccessPointTransformationConfigurationOutput) ToAccessPointTransformatio
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-actions
 func (o AccessPointTransformationConfigurationOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccessPointTransformationConfiguration) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-contenttransformation
 func (o AccessPointTransformationConfigurationOutput) ContentTransformation() pulumi.AnyOutput {
 	return o.ApplyT(func(v AccessPointTransformationConfiguration) interface{} { return v.ContentTransformation }).(pulumi.AnyOutput)
 }
@@ -321,6 +516,8 @@ func (o AccessPointTransformationConfigurationArrayOutput) Index(i pulumi.IntInp
 func init() {
 	pulumi.RegisterOutputType(AccessPointObjectLambdaConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointObjectLambdaConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationOutput{})
+	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointTransformationConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointTransformationConfigurationArrayOutput{})
 }

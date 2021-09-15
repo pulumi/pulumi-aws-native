@@ -18,9 +18,9 @@ class UserGroupArgs:
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a UserGroup resource.
-        :param pulumi.Input[str] engine: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
-        :param pulumi.Input[str] user_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
+        :param pulumi.Input[str] engine: Must be redis.
+        :param pulumi.Input[str] user_group_id: The ID of the user group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: List of users associated to this user group.
         """
         pulumi.set(__self__, "engine", engine)
         pulumi.set(__self__, "user_group_id", user_group_id)
@@ -31,7 +31,7 @@ class UserGroupArgs:
     @pulumi.getter
     def engine(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
+        Must be redis.
         """
         return pulumi.get(self, "engine")
 
@@ -43,7 +43,7 @@ class UserGroupArgs:
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
+        The ID of the user group.
         """
         return pulumi.get(self, "user_group_id")
 
@@ -55,7 +55,7 @@ class UserGroupArgs:
     @pulumi.getter(name="userIds")
     def user_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
+        List of users associated to this user group.
         """
         return pulumi.get(self, "user_ids")
 
@@ -74,13 +74,13 @@ class UserGroup(pulumi.CustomResource):
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html
+        Resource Type definition for AWS::ElastiCache::UserGroup
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] engine: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
-        :param pulumi.Input[str] user_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
+        :param pulumi.Input[str] engine: Must be redis.
+        :param pulumi.Input[str] user_group_id: The ID of the user group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: List of users associated to this user group.
         """
         ...
     @overload
@@ -89,7 +89,7 @@ class UserGroup(pulumi.CustomResource):
                  args: UserGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html
+        Resource Type definition for AWS::ElastiCache::UserGroup
 
         :param str resource_name: The name of the resource.
         :param UserGroupArgs args: The arguments to use to populate this resource's properties.
@@ -162,26 +162,32 @@ class UserGroup(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the user account.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def engine(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
+        Must be redis.
         """
         return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        Indicates user group status. Can be "creating", "active", "modifying", "deleting".
+        """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="userGroupId")
     def user_group_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
+        The ID of the user group.
         """
         return pulumi.get(self, "user_group_id")
 
@@ -189,7 +195,7 @@ class UserGroup(pulumi.CustomResource):
     @pulumi.getter(name="userIds")
     def user_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
+        List of users associated to this user group.
         """
         return pulumi.get(self, "user_ids")
 

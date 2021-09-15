@@ -20,9 +20,9 @@ class CodeSigningConfigArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CodeSigningConfig resource.
-        :param pulumi.Input['CodeSigningConfigAllowedPublishersArgs'] allowed_publishers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
-        :param pulumi.Input['CodeSigningConfigCodeSigningPoliciesArgs'] code_signing_policies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
+        :param pulumi.Input['CodeSigningConfigAllowedPublishersArgs'] allowed_publishers: When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
+        :param pulumi.Input['CodeSigningConfigCodeSigningPoliciesArgs'] code_signing_policies: Policies to control how to act if a signature is invalid
+        :param pulumi.Input[str] description: A description of the CodeSigningConfig
         """
         pulumi.set(__self__, "allowed_publishers", allowed_publishers)
         if code_signing_policies is not None:
@@ -34,7 +34,7 @@ class CodeSigningConfigArgs:
     @pulumi.getter(name="allowedPublishers")
     def allowed_publishers(self) -> pulumi.Input['CodeSigningConfigAllowedPublishersArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
+        When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
         """
         return pulumi.get(self, "allowed_publishers")
 
@@ -46,7 +46,7 @@ class CodeSigningConfigArgs:
     @pulumi.getter(name="codeSigningPolicies")
     def code_signing_policies(self) -> Optional[pulumi.Input['CodeSigningConfigCodeSigningPoliciesArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
+        Policies to control how to act if a signature is invalid
         """
         return pulumi.get(self, "code_signing_policies")
 
@@ -58,7 +58,7 @@ class CodeSigningConfigArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
+        A description of the CodeSigningConfig
         """
         return pulumi.get(self, "description")
 
@@ -77,13 +77,13 @@ class CodeSigningConfig(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html
+        Resource Type definition for AWS::Lambda::CodeSigningConfig.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CodeSigningConfigAllowedPublishersArgs']] allowed_publishers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
-        :param pulumi.Input[pulumi.InputType['CodeSigningConfigCodeSigningPoliciesArgs']] code_signing_policies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
+        :param pulumi.Input[pulumi.InputType['CodeSigningConfigAllowedPublishersArgs']] allowed_publishers: When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
+        :param pulumi.Input[pulumi.InputType['CodeSigningConfigCodeSigningPoliciesArgs']] code_signing_policies: Policies to control how to act if a signature is invalid
+        :param pulumi.Input[str] description: A description of the CodeSigningConfig
         """
         ...
     @overload
@@ -92,7 +92,7 @@ class CodeSigningConfig(pulumi.CustomResource):
                  args: CodeSigningConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html
+        Resource Type definition for AWS::Lambda::CodeSigningConfig.
 
         :param str resource_name: The name of the resource.
         :param CodeSigningConfigArgs args: The arguments to use to populate this resource's properties.
@@ -164,25 +164,31 @@ class CodeSigningConfig(pulumi.CustomResource):
     @pulumi.getter(name="allowedPublishers")
     def allowed_publishers(self) -> pulumi.Output['outputs.CodeSigningConfigAllowedPublishers']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
+        When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
         """
         return pulumi.get(self, "allowed_publishers")
 
     @property
     @pulumi.getter(name="codeSigningConfigArn")
     def code_signing_config_arn(self) -> pulumi.Output[str]:
+        """
+        A unique Arn for CodeSigningConfig resource
+        """
         return pulumi.get(self, "code_signing_config_arn")
 
     @property
     @pulumi.getter(name="codeSigningConfigId")
     def code_signing_config_id(self) -> pulumi.Output[str]:
+        """
+        A unique identifier for CodeSigningConfig resource
+        """
         return pulumi.get(self, "code_signing_config_id")
 
     @property
     @pulumi.getter(name="codeSigningPolicies")
     def code_signing_policies(self) -> pulumi.Output[Optional['outputs.CodeSigningConfigCodeSigningPolicies']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
+        Policies to control how to act if a signature is invalid
         """
         return pulumi.get(self, "code_signing_policies")
 
@@ -190,7 +196,7 @@ class CodeSigningConfig(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
+        A description of the CodeSigningConfig
         """
         return pulumi.get(self, "description")
 

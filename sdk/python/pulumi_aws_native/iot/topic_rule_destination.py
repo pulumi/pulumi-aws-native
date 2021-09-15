@@ -20,9 +20,9 @@ class TopicRuleDestinationArgs:
                  vpc_properties: Optional[pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a TopicRuleDestination resource.
-        :param pulumi.Input['TopicRuleDestinationHttpUrlDestinationSummaryArgs'] http_url_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
-        :param pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs'] vpc_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
+        :param pulumi.Input['TopicRuleDestinationHttpUrlDestinationSummaryArgs'] http_url_properties: HTTP URL destination properties.
+        :param pulumi.Input[str] status: The status of the TopicRuleDestination.
+        :param pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs'] vpc_properties: VPC destination properties.
         """
         if http_url_properties is not None:
             pulumi.set(__self__, "http_url_properties", http_url_properties)
@@ -35,7 +35,7 @@ class TopicRuleDestinationArgs:
     @pulumi.getter(name="httpUrlProperties")
     def http_url_properties(self) -> Optional[pulumi.Input['TopicRuleDestinationHttpUrlDestinationSummaryArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
+        HTTP URL destination properties.
         """
         return pulumi.get(self, "http_url_properties")
 
@@ -47,7 +47,7 @@ class TopicRuleDestinationArgs:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
+        The status of the TopicRuleDestination.
         """
         return pulumi.get(self, "status")
 
@@ -59,7 +59,7 @@ class TopicRuleDestinationArgs:
     @pulumi.getter(name="vpcProperties")
     def vpc_properties(self) -> Optional[pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
+        VPC destination properties.
         """
         return pulumi.get(self, "vpc_properties")
 
@@ -78,13 +78,13 @@ class TopicRuleDestination(pulumi.CustomResource):
                  vpc_properties: Optional[pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcDestinationPropertiesArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html
+        Resource Type definition for AWS::IoT::TopicRuleDestination
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TopicRuleDestinationHttpUrlDestinationSummaryArgs']] http_url_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
-        :param pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcDestinationPropertiesArgs']] vpc_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
+        :param pulumi.Input[pulumi.InputType['TopicRuleDestinationHttpUrlDestinationSummaryArgs']] http_url_properties: HTTP URL destination properties.
+        :param pulumi.Input[str] status: The status of the TopicRuleDestination.
+        :param pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcDestinationPropertiesArgs']] vpc_properties: VPC destination properties.
         """
         ...
     @overload
@@ -93,7 +93,7 @@ class TopicRuleDestination(pulumi.CustomResource):
                  args: Optional[TopicRuleDestinationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html
+        Resource Type definition for AWS::IoT::TopicRuleDestination
 
         :param str resource_name: The name of the resource.
         :param TopicRuleDestinationArgs args: The arguments to use to populate this resource's properties.
@@ -162,13 +162,16 @@ class TopicRuleDestination(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN).
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="httpUrlProperties")
     def http_url_properties(self) -> pulumi.Output[Optional['outputs.TopicRuleDestinationHttpUrlDestinationSummary']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
+        HTTP URL destination properties.
         """
         return pulumi.get(self, "http_url_properties")
 
@@ -176,20 +179,23 @@ class TopicRuleDestination(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
+        The status of the TopicRuleDestination.
         """
         return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="statusReason")
     def status_reason(self) -> pulumi.Output[str]:
+        """
+        The reasoning for the current status of the TopicRuleDestination.
+        """
         return pulumi.get(self, "status_reason")
 
     @property
     @pulumi.getter(name="vpcProperties")
     def vpc_properties(self) -> pulumi.Output[Optional['outputs.TopicRuleDestinationVpcDestinationProperties']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
+        VPC destination properties.
         """
         return pulumi.get(self, "vpc_properties")
 

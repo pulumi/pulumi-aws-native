@@ -11,24 +11,24 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html
+    /// The log pattern.
     /// </summary>
     public sealed class ApplicationLogPatternArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-pattern
+        /// The log pattern.
         /// </summary>
         [Input("pattern", required: true)]
         public Input<string> Pattern { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-patternname
+        /// The name of the log pattern.
         /// </summary>
         [Input("patternName", required: true)]
         public Input<string> PatternName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-rank
+        /// Rank of the log pattern.
         /// </summary>
         [Input("rank", required: true)]
         public Input<int> Rank { get; set; } = null!;

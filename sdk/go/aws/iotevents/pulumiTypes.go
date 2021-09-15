@@ -10,34 +10,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html
+// The actions to be performed.
 type DetectorModelAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-cleartimer
-	ClearTimer *DetectorModelClearTimer `pulumi:"clearTimer"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-dynamodb
-	DynamoDB *DetectorModelDynamoDB `pulumi:"dynamoDB"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-dynamodbv2
-	DynamoDBv2 *DetectorModelDynamoDBv2 `pulumi:"dynamoDBv2"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-firehose
-	Firehose *DetectorModelFirehose `pulumi:"firehose"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotevents
-	IotEvents *DetectorModelIotEvents `pulumi:"iotEvents"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotsitewise
-	IotSiteWise *DetectorModelIotSiteWise `pulumi:"iotSiteWise"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iottopicpublish
+	ClearTimer      *DetectorModelClearTimer      `pulumi:"clearTimer"`
+	DynamoDB        *DetectorModelDynamoDB        `pulumi:"dynamoDB"`
+	DynamoDBv2      *DetectorModelDynamoDBv2      `pulumi:"dynamoDBv2"`
+	Firehose        *DetectorModelFirehose        `pulumi:"firehose"`
+	IotEvents       *DetectorModelIotEvents       `pulumi:"iotEvents"`
+	IotSiteWise     *DetectorModelIotSiteWise     `pulumi:"iotSiteWise"`
 	IotTopicPublish *DetectorModelIotTopicPublish `pulumi:"iotTopicPublish"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-lambda
-	Lambda *DetectorModelLambda `pulumi:"lambda"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-resettimer
-	ResetTimer *DetectorModelResetTimer `pulumi:"resetTimer"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-settimer
-	SetTimer *DetectorModelSetTimer `pulumi:"setTimer"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-setvariable
-	SetVariable *DetectorModelSetVariable `pulumi:"setVariable"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-sns
-	Sns *DetectorModelSns `pulumi:"sns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-sqs
-	Sqs *DetectorModelSqs `pulumi:"sqs"`
+	Lambda          *DetectorModelLambda          `pulumi:"lambda"`
+	ResetTimer      *DetectorModelResetTimer      `pulumi:"resetTimer"`
+	SetTimer        *DetectorModelSetTimer        `pulumi:"setTimer"`
+	SetVariable     *DetectorModelSetVariable     `pulumi:"setVariable"`
+	Sns             *DetectorModelSns             `pulumi:"sns"`
+	Sqs             *DetectorModelSqs             `pulumi:"sqs"`
 }
 
 // DetectorModelActionInput is an input type that accepts DetectorModelActionArgs and DetectorModelActionOutput values.
@@ -51,34 +38,21 @@ type DetectorModelActionInput interface {
 	ToDetectorModelActionOutputWithContext(context.Context) DetectorModelActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html
+// The actions to be performed.
 type DetectorModelActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-cleartimer
-	ClearTimer DetectorModelClearTimerPtrInput `pulumi:"clearTimer"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-dynamodb
-	DynamoDB DetectorModelDynamoDBPtrInput `pulumi:"dynamoDB"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-dynamodbv2
-	DynamoDBv2 DetectorModelDynamoDBv2PtrInput `pulumi:"dynamoDBv2"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-firehose
-	Firehose DetectorModelFirehosePtrInput `pulumi:"firehose"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotevents
-	IotEvents DetectorModelIotEventsPtrInput `pulumi:"iotEvents"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotsitewise
-	IotSiteWise DetectorModelIotSiteWisePtrInput `pulumi:"iotSiteWise"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iottopicpublish
+	ClearTimer      DetectorModelClearTimerPtrInput      `pulumi:"clearTimer"`
+	DynamoDB        DetectorModelDynamoDBPtrInput        `pulumi:"dynamoDB"`
+	DynamoDBv2      DetectorModelDynamoDBv2PtrInput      `pulumi:"dynamoDBv2"`
+	Firehose        DetectorModelFirehosePtrInput        `pulumi:"firehose"`
+	IotEvents       DetectorModelIotEventsPtrInput       `pulumi:"iotEvents"`
+	IotSiteWise     DetectorModelIotSiteWisePtrInput     `pulumi:"iotSiteWise"`
 	IotTopicPublish DetectorModelIotTopicPublishPtrInput `pulumi:"iotTopicPublish"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-lambda
-	Lambda DetectorModelLambdaPtrInput `pulumi:"lambda"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-resettimer
-	ResetTimer DetectorModelResetTimerPtrInput `pulumi:"resetTimer"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-settimer
-	SetTimer DetectorModelSetTimerPtrInput `pulumi:"setTimer"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-setvariable
-	SetVariable DetectorModelSetVariablePtrInput `pulumi:"setVariable"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-sns
-	Sns DetectorModelSnsPtrInput `pulumi:"sns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-sqs
-	Sqs DetectorModelSqsPtrInput `pulumi:"sqs"`
+	Lambda          DetectorModelLambdaPtrInput          `pulumi:"lambda"`
+	ResetTimer      DetectorModelResetTimerPtrInput      `pulumi:"resetTimer"`
+	SetTimer        DetectorModelSetTimerPtrInput        `pulumi:"setTimer"`
+	SetVariable     DetectorModelSetVariablePtrInput     `pulumi:"setVariable"`
+	Sns             DetectorModelSnsPtrInput             `pulumi:"sns"`
+	Sqs             DetectorModelSqsPtrInput             `pulumi:"sqs"`
 }
 
 func (DetectorModelActionArgs) ElementType() reflect.Type {
@@ -118,7 +92,7 @@ func (i DetectorModelActionArray) ToDetectorModelActionArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelActionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html
+// The actions to be performed.
 type DetectorModelActionOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelActionOutput) ElementType() reflect.Type {
@@ -133,67 +107,54 @@ func (o DetectorModelActionOutput) ToDetectorModelActionOutputWithContext(ctx co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-cleartimer
 func (o DetectorModelActionOutput) ClearTimer() DetectorModelClearTimerPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelClearTimer { return v.ClearTimer }).(DetectorModelClearTimerPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-dynamodb
 func (o DetectorModelActionOutput) DynamoDB() DetectorModelDynamoDBPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelDynamoDB { return v.DynamoDB }).(DetectorModelDynamoDBPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-dynamodbv2
 func (o DetectorModelActionOutput) DynamoDBv2() DetectorModelDynamoDBv2PtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelDynamoDBv2 { return v.DynamoDBv2 }).(DetectorModelDynamoDBv2PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-firehose
 func (o DetectorModelActionOutput) Firehose() DetectorModelFirehosePtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelFirehose { return v.Firehose }).(DetectorModelFirehosePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotevents
 func (o DetectorModelActionOutput) IotEvents() DetectorModelIotEventsPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelIotEvents { return v.IotEvents }).(DetectorModelIotEventsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotsitewise
 func (o DetectorModelActionOutput) IotSiteWise() DetectorModelIotSiteWisePtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelIotSiteWise { return v.IotSiteWise }).(DetectorModelIotSiteWisePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iottopicpublish
 func (o DetectorModelActionOutput) IotTopicPublish() DetectorModelIotTopicPublishPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelIotTopicPublish { return v.IotTopicPublish }).(DetectorModelIotTopicPublishPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-lambda
 func (o DetectorModelActionOutput) Lambda() DetectorModelLambdaPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelLambda { return v.Lambda }).(DetectorModelLambdaPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-resettimer
 func (o DetectorModelActionOutput) ResetTimer() DetectorModelResetTimerPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelResetTimer { return v.ResetTimer }).(DetectorModelResetTimerPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-settimer
 func (o DetectorModelActionOutput) SetTimer() DetectorModelSetTimerPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelSetTimer { return v.SetTimer }).(DetectorModelSetTimerPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-setvariable
 func (o DetectorModelActionOutput) SetVariable() DetectorModelSetVariablePtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelSetVariable { return v.SetVariable }).(DetectorModelSetVariablePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-sns
 func (o DetectorModelActionOutput) Sns() DetectorModelSnsPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelSns { return v.Sns }).(DetectorModelSnsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-sqs
 func (o DetectorModelActionOutput) Sqs() DetectorModelSqsPtrOutput {
 	return o.ApplyT(func(v DetectorModelAction) *DetectorModelSqs { return v.Sqs }).(DetectorModelSqsPtrOutput)
 }
@@ -218,11 +179,11 @@ func (o DetectorModelActionArrayOutput) Index(i pulumi.IntInput) DetectorModelAc
 	}).(DetectorModelActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html
+// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
 type DetectorModelAssetPropertyTimestamp struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-offsetinnanos
+	// The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
 	OffsetInNanos *string `pulumi:"offsetInNanos"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-timeinseconds
+	// The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
 	TimeInSeconds string `pulumi:"timeInSeconds"`
 }
 
@@ -237,11 +198,11 @@ type DetectorModelAssetPropertyTimestampInput interface {
 	ToDetectorModelAssetPropertyTimestampOutputWithContext(context.Context) DetectorModelAssetPropertyTimestampOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html
+// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
 type DetectorModelAssetPropertyTimestampArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-offsetinnanos
+	// The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
 	OffsetInNanos pulumi.StringPtrInput `pulumi:"offsetInNanos"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-timeinseconds
+	// The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
 	TimeInSeconds pulumi.StringInput `pulumi:"timeInSeconds"`
 }
 
@@ -298,7 +259,7 @@ func (i *detectorModelAssetPropertyTimestampPtrType) ToDetectorModelAssetPropert
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelAssetPropertyTimestampPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html
+// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference*.
 type DetectorModelAssetPropertyTimestampOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelAssetPropertyTimestampOutput) ElementType() reflect.Type {
@@ -323,12 +284,12 @@ func (o DetectorModelAssetPropertyTimestampOutput) ToDetectorModelAssetPropertyT
 	}).(DetectorModelAssetPropertyTimestampPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-offsetinnanos
+// The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
 func (o DetectorModelAssetPropertyTimestampOutput) OffsetInNanos() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyTimestamp) *string { return v.OffsetInNanos }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-timeinseconds
+// The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
 func (o DetectorModelAssetPropertyTimestampOutput) TimeInSeconds() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyTimestamp) string { return v.TimeInSeconds }).(pulumi.StringOutput)
 }
@@ -357,7 +318,7 @@ func (o DetectorModelAssetPropertyTimestampPtrOutput) Elem() DetectorModelAssetP
 	}).(DetectorModelAssetPropertyTimestampOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-offsetinnanos
+// The timestamp, in seconds, in the Unix epoch format. The valid range is between `1-31556889864403199`. You can also specify an expression.
 func (o DetectorModelAssetPropertyTimestampPtrOutput) OffsetInNanos() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyTimestamp) *string {
 		if v == nil {
@@ -367,7 +328,7 @@ func (o DetectorModelAssetPropertyTimestampPtrOutput) OffsetInNanos() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html#cfn-iotevents-detectormodel-assetpropertytimestamp-timeinseconds
+// The nanosecond offset converted from `timeInSeconds`. The valid range is between `0-999999999`. You can also specify an expression.
 func (o DetectorModelAssetPropertyTimestampPtrOutput) TimeInSeconds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyTimestamp) *string {
 		if v == nil {
@@ -377,14 +338,12 @@ func (o DetectorModelAssetPropertyTimestampPtrOutput) TimeInSeconds() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html
+// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
 type DetectorModelAssetPropertyValue struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-quality
-	Quality *string `pulumi:"quality"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-timestamp
+	// The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
+	Quality   *string                              `pulumi:"quality"`
 	Timestamp *DetectorModelAssetPropertyTimestamp `pulumi:"timestamp"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-value
-	Value DetectorModelAssetPropertyVariant `pulumi:"value"`
+	Value     DetectorModelAssetPropertyVariant    `pulumi:"value"`
 }
 
 // DetectorModelAssetPropertyValueInput is an input type that accepts DetectorModelAssetPropertyValueArgs and DetectorModelAssetPropertyValueOutput values.
@@ -398,14 +357,12 @@ type DetectorModelAssetPropertyValueInput interface {
 	ToDetectorModelAssetPropertyValueOutputWithContext(context.Context) DetectorModelAssetPropertyValueOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html
+// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
 type DetectorModelAssetPropertyValueArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-quality
-	Quality pulumi.StringPtrInput `pulumi:"quality"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-timestamp
+	// The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
+	Quality   pulumi.StringPtrInput                       `pulumi:"quality"`
 	Timestamp DetectorModelAssetPropertyTimestampPtrInput `pulumi:"timestamp"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-value
-	Value DetectorModelAssetPropertyVariantInput `pulumi:"value"`
+	Value     DetectorModelAssetPropertyVariantInput      `pulumi:"value"`
 }
 
 func (DetectorModelAssetPropertyValueArgs) ElementType() reflect.Type {
@@ -461,7 +418,7 @@ func (i *detectorModelAssetPropertyValuePtrType) ToDetectorModelAssetPropertyVal
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelAssetPropertyValuePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html
+// A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
 type DetectorModelAssetPropertyValueOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelAssetPropertyValueOutput) ElementType() reflect.Type {
@@ -486,17 +443,15 @@ func (o DetectorModelAssetPropertyValueOutput) ToDetectorModelAssetPropertyValue
 	}).(DetectorModelAssetPropertyValuePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-quality
+// The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
 func (o DetectorModelAssetPropertyValueOutput) Quality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyValue) *string { return v.Quality }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-timestamp
 func (o DetectorModelAssetPropertyValueOutput) Timestamp() DetectorModelAssetPropertyTimestampPtrOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyValue) *DetectorModelAssetPropertyTimestamp { return v.Timestamp }).(DetectorModelAssetPropertyTimestampPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-value
 func (o DetectorModelAssetPropertyValueOutput) Value() DetectorModelAssetPropertyVariantOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyValue) DetectorModelAssetPropertyVariant { return v.Value }).(DetectorModelAssetPropertyVariantOutput)
 }
@@ -525,7 +480,7 @@ func (o DetectorModelAssetPropertyValuePtrOutput) Elem() DetectorModelAssetPrope
 	}).(DetectorModelAssetPropertyValueOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-quality
+// The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
 func (o DetectorModelAssetPropertyValuePtrOutput) Quality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyValue) *string {
 		if v == nil {
@@ -535,7 +490,6 @@ func (o DetectorModelAssetPropertyValuePtrOutput) Quality() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-timestamp
 func (o DetectorModelAssetPropertyValuePtrOutput) Timestamp() DetectorModelAssetPropertyTimestampPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyValue) *DetectorModelAssetPropertyTimestamp {
 		if v == nil {
@@ -545,7 +499,6 @@ func (o DetectorModelAssetPropertyValuePtrOutput) Timestamp() DetectorModelAsset
 	}).(DetectorModelAssetPropertyTimestampPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvalue.html#cfn-iotevents-detectormodel-assetpropertyvalue-value
 func (o DetectorModelAssetPropertyValuePtrOutput) Value() DetectorModelAssetPropertyVariantPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyValue) *DetectorModelAssetPropertyVariant {
 		if v == nil {
@@ -555,15 +508,15 @@ func (o DetectorModelAssetPropertyValuePtrOutput) Value() DetectorModelAssetProp
 	}).(DetectorModelAssetPropertyVariantPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html
+// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
 type DetectorModelAssetPropertyVariant struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-booleanvalue
+	// The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
 	BooleanValue *string `pulumi:"booleanValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-doublevalue
+	// The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
 	DoubleValue *string `pulumi:"doubleValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-integervalue
+	// The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
 	IntegerValue *string `pulumi:"integerValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-stringvalue
+	// The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
 	StringValue *string `pulumi:"stringValue"`
 }
 
@@ -578,15 +531,15 @@ type DetectorModelAssetPropertyVariantInput interface {
 	ToDetectorModelAssetPropertyVariantOutputWithContext(context.Context) DetectorModelAssetPropertyVariantOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html
+// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
 type DetectorModelAssetPropertyVariantArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-booleanvalue
+	// The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
 	BooleanValue pulumi.StringPtrInput `pulumi:"booleanValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-doublevalue
+	// The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
 	DoubleValue pulumi.StringPtrInput `pulumi:"doubleValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-integervalue
+	// The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
 	IntegerValue pulumi.StringPtrInput `pulumi:"integerValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-stringvalue
+	// The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
 	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
 }
 
@@ -643,7 +596,7 @@ func (i *detectorModelAssetPropertyVariantPtrType) ToDetectorModelAssetPropertyV
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelAssetPropertyVariantPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html
+// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
 type DetectorModelAssetPropertyVariantOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelAssetPropertyVariantOutput) ElementType() reflect.Type {
@@ -668,22 +621,22 @@ func (o DetectorModelAssetPropertyVariantOutput) ToDetectorModelAssetPropertyVar
 	}).(DetectorModelAssetPropertyVariantPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-booleanvalue
+// The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
 func (o DetectorModelAssetPropertyVariantOutput) BooleanValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyVariant) *string { return v.BooleanValue }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-doublevalue
+// The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
 func (o DetectorModelAssetPropertyVariantOutput) DoubleValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyVariant) *string { return v.DoubleValue }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-integervalue
+// The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
 func (o DetectorModelAssetPropertyVariantOutput) IntegerValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyVariant) *string { return v.IntegerValue }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-stringvalue
+// The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
 func (o DetectorModelAssetPropertyVariantOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelAssetPropertyVariant) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
@@ -712,7 +665,7 @@ func (o DetectorModelAssetPropertyVariantPtrOutput) Elem() DetectorModelAssetPro
 	}).(DetectorModelAssetPropertyVariantOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-booleanvalue
+// The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
 func (o DetectorModelAssetPropertyVariantPtrOutput) BooleanValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyVariant) *string {
 		if v == nil {
@@ -722,7 +675,7 @@ func (o DetectorModelAssetPropertyVariantPtrOutput) BooleanValue() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-doublevalue
+// The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
 func (o DetectorModelAssetPropertyVariantPtrOutput) DoubleValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyVariant) *string {
 		if v == nil {
@@ -732,7 +685,7 @@ func (o DetectorModelAssetPropertyVariantPtrOutput) DoubleValue() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-integervalue
+// The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
 func (o DetectorModelAssetPropertyVariantPtrOutput) IntegerValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyVariant) *string {
 		if v == nil {
@@ -742,7 +695,7 @@ func (o DetectorModelAssetPropertyVariantPtrOutput) IntegerValue() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-stringvalue
+// The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
 func (o DetectorModelAssetPropertyVariantPtrOutput) StringValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelAssetPropertyVariant) *string {
 		if v == nil {
@@ -752,9 +705,8 @@ func (o DetectorModelAssetPropertyVariantPtrOutput) StringValue() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html
+// Information needed to clear the timer.
 type DetectorModelClearTimer struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html#cfn-iotevents-detectormodel-cleartimer-timername
 	TimerName string `pulumi:"timerName"`
 }
 
@@ -769,9 +721,8 @@ type DetectorModelClearTimerInput interface {
 	ToDetectorModelClearTimerOutputWithContext(context.Context) DetectorModelClearTimerOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html
+// Information needed to clear the timer.
 type DetectorModelClearTimerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html#cfn-iotevents-detectormodel-cleartimer-timername
 	TimerName pulumi.StringInput `pulumi:"timerName"`
 }
 
@@ -828,7 +779,7 @@ func (i *detectorModelClearTimerPtrType) ToDetectorModelClearTimerPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelClearTimerPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html
+// Information needed to clear the timer.
 type DetectorModelClearTimerOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelClearTimerOutput) ElementType() reflect.Type {
@@ -853,7 +804,6 @@ func (o DetectorModelClearTimerOutput) ToDetectorModelClearTimerPtrOutputWithCon
 	}).(DetectorModelClearTimerPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html#cfn-iotevents-detectormodel-cleartimer-timername
 func (o DetectorModelClearTimerOutput) TimerName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelClearTimer) string { return v.TimerName }).(pulumi.StringOutput)
 }
@@ -882,7 +832,6 @@ func (o DetectorModelClearTimerPtrOutput) Elem() DetectorModelClearTimerOutput {
 	}).(DetectorModelClearTimerOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-cleartimer.html#cfn-iotevents-detectormodel-cleartimer-timername
 func (o DetectorModelClearTimerPtrOutput) TimerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelClearTimer) *string {
 		if v == nil {
@@ -892,11 +841,11 @@ func (o DetectorModelClearTimerPtrOutput) TimerName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html
+// Information that defines how a detector operates.
 type DetectorModelDetectorModelDefinition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-initialstatename
+	// The state that is entered at the creation of each detector (instance).
 	InitialStateName string `pulumi:"initialStateName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-states
+	// Information about the states of the detector.
 	States []DetectorModelStateType `pulumi:"states"`
 }
 
@@ -911,11 +860,11 @@ type DetectorModelDetectorModelDefinitionInput interface {
 	ToDetectorModelDetectorModelDefinitionOutputWithContext(context.Context) DetectorModelDetectorModelDefinitionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html
+// Information that defines how a detector operates.
 type DetectorModelDetectorModelDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-initialstatename
+	// The state that is entered at the creation of each detector (instance).
 	InitialStateName pulumi.StringInput `pulumi:"initialStateName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-states
+	// Information about the states of the detector.
 	States DetectorModelStateTypeArrayInput `pulumi:"states"`
 }
 
@@ -972,7 +921,7 @@ func (i *detectorModelDetectorModelDefinitionPtrType) ToDetectorModelDetectorMod
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDetectorModelDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html
+// Information that defines how a detector operates.
 type DetectorModelDetectorModelDefinitionOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelDetectorModelDefinitionOutput) ElementType() reflect.Type {
@@ -997,12 +946,12 @@ func (o DetectorModelDetectorModelDefinitionOutput) ToDetectorModelDetectorModel
 	}).(DetectorModelDetectorModelDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-initialstatename
+// The state that is entered at the creation of each detector (instance).
 func (o DetectorModelDetectorModelDefinitionOutput) InitialStateName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelDetectorModelDefinition) string { return v.InitialStateName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-states
+// Information about the states of the detector.
 func (o DetectorModelDetectorModelDefinitionOutput) States() DetectorModelStateTypeArrayOutput {
 	return o.ApplyT(func(v DetectorModelDetectorModelDefinition) []DetectorModelStateType { return v.States }).(DetectorModelStateTypeArrayOutput)
 }
@@ -1031,7 +980,7 @@ func (o DetectorModelDetectorModelDefinitionPtrOutput) Elem() DetectorModelDetec
 	}).(DetectorModelDetectorModelDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-initialstatename
+// The state that is entered at the creation of each detector (instance).
 func (o DetectorModelDetectorModelDefinitionPtrOutput) InitialStateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDetectorModelDefinition) *string {
 		if v == nil {
@@ -1041,7 +990,7 @@ func (o DetectorModelDetectorModelDefinitionPtrOutput) InitialStateName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-states
+// Information about the states of the detector.
 func (o DetectorModelDetectorModelDefinitionPtrOutput) States() DetectorModelStateTypeArrayOutput {
 	return o.ApplyT(func(v *DetectorModelDetectorModelDefinition) []DetectorModelStateType {
 		if v == nil {
@@ -1051,27 +1000,48 @@ func (o DetectorModelDetectorModelDefinitionPtrOutput) States() DetectorModelSta
 	}).(DetectorModelStateTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html
+// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
 type DetectorModelDynamoDB struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyfield
+	// The name of the hash key (also called the partition key).
 	HashKeyField string `pulumi:"hashKeyField"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeytype
+	// The data type for the hash key (also called the partition key). You can specify the following values:
+	//
+	// * `STRING` - The hash key is a string.
+	//
+	// * `NUMBER` - The hash key is a number.
+	//
+	// If you don't specify `hashKeyType`, the default value is `STRING`.
 	HashKeyType *string `pulumi:"hashKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyvalue
+	// The value of the hash key (also called the partition key).
 	HashKeyValue string `pulumi:"hashKeyValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-operation
-	Operation *string `pulumi:"operation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payload
-	Payload *DetectorModelPayload `pulumi:"payload"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payloadfield
+	// The type of operation to perform. You can specify the following values:
+	//
+	// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+	//
+	// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//
+	// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//
+	// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+	Operation *string               `pulumi:"operation"`
+	Payload   *DetectorModelPayload `pulumi:"payload"`
+	// The name of the DynamoDB column that receives the action payload.
+	//
+	// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
 	PayloadField *string `pulumi:"payloadField"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyfield
+	// The name of the range key (also called the sort key).
 	RangeKeyField *string `pulumi:"rangeKeyField"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeytype
+	// The data type for the range key (also called the sort key), You can specify the following values:
+	//
+	// * `STRING` - The range key is a string.
+	//
+	// * `NUMBER` - The range key is number.
+	//
+	// If you don't specify `rangeKeyField`, the default value is `STRING`.
 	RangeKeyType *string `pulumi:"rangeKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyvalue
+	// The value of the range key (also called the sort key).
 	RangeKeyValue *string `pulumi:"rangeKeyValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-tablename
+	// The name of the DynamoDB table.
 	TableName string `pulumi:"tableName"`
 }
 
@@ -1086,27 +1056,48 @@ type DetectorModelDynamoDBInput interface {
 	ToDetectorModelDynamoDBOutputWithContext(context.Context) DetectorModelDynamoDBOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html
+// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
 type DetectorModelDynamoDBArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyfield
+	// The name of the hash key (also called the partition key).
 	HashKeyField pulumi.StringInput `pulumi:"hashKeyField"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeytype
+	// The data type for the hash key (also called the partition key). You can specify the following values:
+	//
+	// * `STRING` - The hash key is a string.
+	//
+	// * `NUMBER` - The hash key is a number.
+	//
+	// If you don't specify `hashKeyType`, the default value is `STRING`.
 	HashKeyType pulumi.StringPtrInput `pulumi:"hashKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyvalue
+	// The value of the hash key (also called the partition key).
 	HashKeyValue pulumi.StringInput `pulumi:"hashKeyValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-operation
-	Operation pulumi.StringPtrInput `pulumi:"operation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payload
-	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payloadfield
+	// The type of operation to perform. You can specify the following values:
+	//
+	// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+	//
+	// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//
+	// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+	//
+	// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
+	Operation pulumi.StringPtrInput        `pulumi:"operation"`
+	Payload   DetectorModelPayloadPtrInput `pulumi:"payload"`
+	// The name of the DynamoDB column that receives the action payload.
+	//
+	// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
 	PayloadField pulumi.StringPtrInput `pulumi:"payloadField"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyfield
+	// The name of the range key (also called the sort key).
 	RangeKeyField pulumi.StringPtrInput `pulumi:"rangeKeyField"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeytype
+	// The data type for the range key (also called the sort key), You can specify the following values:
+	//
+	// * `STRING` - The range key is a string.
+	//
+	// * `NUMBER` - The range key is number.
+	//
+	// If you don't specify `rangeKeyField`, the default value is `STRING`.
 	RangeKeyType pulumi.StringPtrInput `pulumi:"rangeKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyvalue
+	// The value of the range key (also called the sort key).
 	RangeKeyValue pulumi.StringPtrInput `pulumi:"rangeKeyValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-tablename
+	// The name of the DynamoDB table.
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -1163,7 +1154,7 @@ func (i *detectorModelDynamoDBPtrType) ToDetectorModelDynamoDBPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDynamoDBPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html
+// Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide*.
 type DetectorModelDynamoDBOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelDynamoDBOutput) ElementType() reflect.Type {
@@ -1188,52 +1179,73 @@ func (o DetectorModelDynamoDBOutput) ToDetectorModelDynamoDBPtrOutputWithContext
 	}).(DetectorModelDynamoDBPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyfield
+// The name of the hash key (also called the partition key).
 func (o DetectorModelDynamoDBOutput) HashKeyField() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDB) string { return v.HashKeyField }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeytype
+// The data type for the hash key (also called the partition key). You can specify the following values:
+//
+// * `STRING` - The hash key is a string.
+//
+// * `NUMBER` - The hash key is a number.
+//
+// If you don't specify `hashKeyType`, the default value is `STRING`.
 func (o DetectorModelDynamoDBOutput) HashKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDB) *string { return v.HashKeyType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyvalue
+// The value of the hash key (also called the partition key).
 func (o DetectorModelDynamoDBOutput) HashKeyValue() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDB) string { return v.HashKeyValue }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-operation
+// The type of operation to perform. You can specify the following values:
+//
+// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+//
+// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//
+// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//
+// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
 func (o DetectorModelDynamoDBOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDB) *string { return v.Operation }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payload
 func (o DetectorModelDynamoDBOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDB) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payloadfield
+// The name of the DynamoDB column that receives the action payload.
+//
+// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
 func (o DetectorModelDynamoDBOutput) PayloadField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDB) *string { return v.PayloadField }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyfield
+// The name of the range key (also called the sort key).
 func (o DetectorModelDynamoDBOutput) RangeKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDB) *string { return v.RangeKeyField }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeytype
+// The data type for the range key (also called the sort key), You can specify the following values:
+//
+// * `STRING` - The range key is a string.
+//
+// * `NUMBER` - The range key is number.
+//
+// If you don't specify `rangeKeyField`, the default value is `STRING`.
 func (o DetectorModelDynamoDBOutput) RangeKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDB) *string { return v.RangeKeyType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyvalue
+// The value of the range key (also called the sort key).
 func (o DetectorModelDynamoDBOutput) RangeKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDB) *string { return v.RangeKeyValue }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-tablename
+// The name of the DynamoDB table.
 func (o DetectorModelDynamoDBOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDB) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -1262,7 +1274,7 @@ func (o DetectorModelDynamoDBPtrOutput) Elem() DetectorModelDynamoDBOutput {
 	}).(DetectorModelDynamoDBOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyfield
+// The name of the hash key (also called the partition key).
 func (o DetectorModelDynamoDBPtrOutput) HashKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
 		if v == nil {
@@ -1272,7 +1284,13 @@ func (o DetectorModelDynamoDBPtrOutput) HashKeyField() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeytype
+// The data type for the hash key (also called the partition key). You can specify the following values:
+//
+// * `STRING` - The hash key is a string.
+//
+// * `NUMBER` - The hash key is a number.
+//
+// If you don't specify `hashKeyType`, the default value is `STRING`.
 func (o DetectorModelDynamoDBPtrOutput) HashKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
 		if v == nil {
@@ -1282,7 +1300,7 @@ func (o DetectorModelDynamoDBPtrOutput) HashKeyType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-hashkeyvalue
+// The value of the hash key (also called the partition key).
 func (o DetectorModelDynamoDBPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
 		if v == nil {
@@ -1292,7 +1310,15 @@ func (o DetectorModelDynamoDBPtrOutput) HashKeyValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-operation
+// The type of operation to perform. You can specify the following values:
+//
+// * `INSERT` - Insert data as a new item into the DynamoDB table. This item uses the specified hash key as a partition key. If you specified a range key, the item uses the range key as a sort key.
+//
+// * `UPDATE` - Update an existing item of the DynamoDB table with new data. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//
+// * `DELETE` - Delete an existing item of the DynamoDB table. This item's partition key must match the specified hash key. If you specified a range key, the range key must match the item's sort key.
+//
+// If you don't specify this parameter, AWS IoT Events triggers the `INSERT` operation.
 func (o DetectorModelDynamoDBPtrOutput) Operation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
 		if v == nil {
@@ -1302,7 +1328,6 @@ func (o DetectorModelDynamoDBPtrOutput) Operation() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payload
 func (o DetectorModelDynamoDBPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDB) *DetectorModelPayload {
 		if v == nil {
@@ -1312,7 +1337,9 @@ func (o DetectorModelDynamoDBPtrOutput) Payload() DetectorModelPayloadPtrOutput 
 	}).(DetectorModelPayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-payloadfield
+// The name of the DynamoDB column that receives the action payload.
+//
+// If you don't specify this parameter, the name of the DynamoDB column is `payload`.
 func (o DetectorModelDynamoDBPtrOutput) PayloadField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
 		if v == nil {
@@ -1322,7 +1349,7 @@ func (o DetectorModelDynamoDBPtrOutput) PayloadField() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyfield
+// The name of the range key (also called the sort key).
 func (o DetectorModelDynamoDBPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
 		if v == nil {
@@ -1332,7 +1359,13 @@ func (o DetectorModelDynamoDBPtrOutput) RangeKeyField() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeytype
+// The data type for the range key (also called the sort key), You can specify the following values:
+//
+// * `STRING` - The range key is a string.
+//
+// * `NUMBER` - The range key is number.
+//
+// If you don't specify `rangeKeyField`, the default value is `STRING`.
 func (o DetectorModelDynamoDBPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
 		if v == nil {
@@ -1342,7 +1375,7 @@ func (o DetectorModelDynamoDBPtrOutput) RangeKeyType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-rangekeyvalue
+// The value of the range key (also called the sort key).
 func (o DetectorModelDynamoDBPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
 		if v == nil {
@@ -1352,7 +1385,7 @@ func (o DetectorModelDynamoDBPtrOutput) RangeKeyValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodb.html#cfn-iotevents-detectormodel-dynamodb-tablename
+// The name of the DynamoDB table.
 func (o DetectorModelDynamoDBPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDB) *string {
 		if v == nil {
@@ -1362,11 +1395,12 @@ func (o DetectorModelDynamoDBPtrOutput) TableName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html
+// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+//
+// You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
 type DetectorModelDynamoDBv2 struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-payload
 	Payload *DetectorModelPayload `pulumi:"payload"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-tablename
+	// The name of the DynamoDB table.
 	TableName string `pulumi:"tableName"`
 }
 
@@ -1381,11 +1415,12 @@ type DetectorModelDynamoDBv2Input interface {
 	ToDetectorModelDynamoDBv2OutputWithContext(context.Context) DetectorModelDynamoDBv2Output
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html
+// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+//
+// You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
 type DetectorModelDynamoDBv2Args struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-payload
 	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-tablename
+	// The name of the DynamoDB table.
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -1442,7 +1477,9 @@ func (i *detectorModelDynamoDBv2PtrType) ToDetectorModelDynamoDBv2PtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelDynamoDBv2PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html
+// Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can also customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html). A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
+//
+// You can use expressions for parameters that are strings. For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide*.
 type DetectorModelDynamoDBv2Output struct{ *pulumi.OutputState }
 
 func (DetectorModelDynamoDBv2Output) ElementType() reflect.Type {
@@ -1467,12 +1504,11 @@ func (o DetectorModelDynamoDBv2Output) ToDetectorModelDynamoDBv2PtrOutputWithCon
 	}).(DetectorModelDynamoDBv2PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-payload
 func (o DetectorModelDynamoDBv2Output) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDBv2) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-tablename
+// The name of the DynamoDB table.
 func (o DetectorModelDynamoDBv2Output) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelDynamoDBv2) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -1501,7 +1537,6 @@ func (o DetectorModelDynamoDBv2PtrOutput) Elem() DetectorModelDynamoDBv2Output {
 	}).(DetectorModelDynamoDBv2Output)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-payload
 func (o DetectorModelDynamoDBv2PtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDBv2) *DetectorModelPayload {
 		if v == nil {
@@ -1511,7 +1546,7 @@ func (o DetectorModelDynamoDBv2PtrOutput) Payload() DetectorModelPayloadPtrOutpu
 	}).(DetectorModelPayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-dynamodbv2.html#cfn-iotevents-detectormodel-dynamodbv2-tablename
+// The name of the DynamoDB table.
 func (o DetectorModelDynamoDBv2PtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelDynamoDBv2) *string {
 		if v == nil {
@@ -1521,13 +1556,13 @@ func (o DetectorModelDynamoDBv2PtrOutput) TableName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html
+// Specifies the `actions` to be performed when the `condition` evaluates to `TRUE`.
 type DetectorModelEvent struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-actions
+	// The actions to be performed.
 	Actions []DetectorModelAction `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-condition
+	// The Boolean expression that, when `TRUE`, causes the `actions` to be performed. If not present, the `actions` are performed (=`TRUE`). If the expression result is not a `Boolean` value, the `actions` are not performed (=`FALSE`).
 	Condition *string `pulumi:"condition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-eventname
+	// The name of the event.
 	EventName string `pulumi:"eventName"`
 }
 
@@ -1542,13 +1577,13 @@ type DetectorModelEventInput interface {
 	ToDetectorModelEventOutputWithContext(context.Context) DetectorModelEventOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html
+// Specifies the `actions` to be performed when the `condition` evaluates to `TRUE`.
 type DetectorModelEventArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-actions
+	// The actions to be performed.
 	Actions DetectorModelActionArrayInput `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-condition
+	// The Boolean expression that, when `TRUE`, causes the `actions` to be performed. If not present, the `actions` are performed (=`TRUE`). If the expression result is not a `Boolean` value, the `actions` are not performed (=`FALSE`).
 	Condition pulumi.StringPtrInput `pulumi:"condition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-eventname
+	// The name of the event.
 	EventName pulumi.StringInput `pulumi:"eventName"`
 }
 
@@ -1589,7 +1624,7 @@ func (i DetectorModelEventArray) ToDetectorModelEventArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelEventArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html
+// Specifies the `actions` to be performed when the `condition` evaluates to `TRUE`.
 type DetectorModelEventOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelEventOutput) ElementType() reflect.Type {
@@ -1604,17 +1639,17 @@ func (o DetectorModelEventOutput) ToDetectorModelEventOutputWithContext(ctx cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-actions
+// The actions to be performed.
 func (o DetectorModelEventOutput) Actions() DetectorModelActionArrayOutput {
 	return o.ApplyT(func(v DetectorModelEvent) []DetectorModelAction { return v.Actions }).(DetectorModelActionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-condition
+// The Boolean expression that, when `TRUE`, causes the `actions` to be performed. If not present, the `actions` are performed (=`TRUE`). If the expression result is not a `Boolean` value, the `actions` are not performed (=`FALSE`).
 func (o DetectorModelEventOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelEvent) *string { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-event.html#cfn-iotevents-detectormodel-event-eventname
+// The name of the event.
 func (o DetectorModelEventOutput) EventName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelEvent) string { return v.EventName }).(pulumi.StringOutput)
 }
@@ -1639,13 +1674,12 @@ func (o DetectorModelEventArrayOutput) Index(i pulumi.IntInput) DetectorModelEve
 	}).(DetectorModelEventOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html
+// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
 type DetectorModelFirehose struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-deliverystreamname
-	DeliveryStreamName string `pulumi:"deliveryStreamName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-payload
-	Payload *DetectorModelPayload `pulumi:"payload"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-separator
+	// The name of the Kinesis Data Firehose delivery stream where the data is written.
+	DeliveryStreamName string                `pulumi:"deliveryStreamName"`
+	Payload            *DetectorModelPayload `pulumi:"payload"`
+	// A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 	Separator *string `pulumi:"separator"`
 }
 
@@ -1660,13 +1694,12 @@ type DetectorModelFirehoseInput interface {
 	ToDetectorModelFirehoseOutputWithContext(context.Context) DetectorModelFirehoseOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html
+// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
 type DetectorModelFirehoseArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-deliverystreamname
-	DeliveryStreamName pulumi.StringInput `pulumi:"deliveryStreamName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-payload
-	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-separator
+	// The name of the Kinesis Data Firehose delivery stream where the data is written.
+	DeliveryStreamName pulumi.StringInput           `pulumi:"deliveryStreamName"`
+	Payload            DetectorModelPayloadPtrInput `pulumi:"payload"`
+	// A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 	Separator pulumi.StringPtrInput `pulumi:"separator"`
 }
 
@@ -1723,7 +1756,7 @@ func (i *detectorModelFirehosePtrType) ToDetectorModelFirehosePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelFirehosePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html
+// Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
 type DetectorModelFirehoseOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelFirehoseOutput) ElementType() reflect.Type {
@@ -1748,17 +1781,16 @@ func (o DetectorModelFirehoseOutput) ToDetectorModelFirehosePtrOutputWithContext
 	}).(DetectorModelFirehosePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-deliverystreamname
+// The name of the Kinesis Data Firehose delivery stream where the data is written.
 func (o DetectorModelFirehoseOutput) DeliveryStreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelFirehose) string { return v.DeliveryStreamName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-payload
 func (o DetectorModelFirehoseOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelFirehose) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-separator
+// A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 func (o DetectorModelFirehoseOutput) Separator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelFirehose) *string { return v.Separator }).(pulumi.StringPtrOutput)
 }
@@ -1787,7 +1819,7 @@ func (o DetectorModelFirehosePtrOutput) Elem() DetectorModelFirehoseOutput {
 	}).(DetectorModelFirehoseOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-deliverystreamname
+// The name of the Kinesis Data Firehose delivery stream where the data is written.
 func (o DetectorModelFirehosePtrOutput) DeliveryStreamName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelFirehose) *string {
 		if v == nil {
@@ -1797,7 +1829,6 @@ func (o DetectorModelFirehosePtrOutput) DeliveryStreamName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-payload
 func (o DetectorModelFirehosePtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelFirehose) *DetectorModelPayload {
 		if v == nil {
@@ -1807,7 +1838,7 @@ func (o DetectorModelFirehosePtrOutput) Payload() DetectorModelPayloadPtrOutput 
 	}).(DetectorModelPayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-firehose.html#cfn-iotevents-detectormodel-firehose-separator
+// A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 func (o DetectorModelFirehosePtrOutput) Separator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelFirehose) *string {
 		if v == nil {
@@ -1817,12 +1848,11 @@ func (o DetectorModelFirehosePtrOutput) Separator() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html
+// Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
 type DetectorModelIotEvents struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-inputname
-	InputName string `pulumi:"inputName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-payload
-	Payload *DetectorModelPayload `pulumi:"payload"`
+	// The name of the AWS IoT Events input where the data is sent.
+	InputName string                `pulumi:"inputName"`
+	Payload   *DetectorModelPayload `pulumi:"payload"`
 }
 
 // DetectorModelIotEventsInput is an input type that accepts DetectorModelIotEventsArgs and DetectorModelIotEventsOutput values.
@@ -1836,12 +1866,11 @@ type DetectorModelIotEventsInput interface {
 	ToDetectorModelIotEventsOutputWithContext(context.Context) DetectorModelIotEventsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html
+// Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
 type DetectorModelIotEventsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-inputname
-	InputName pulumi.StringInput `pulumi:"inputName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-payload
-	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
+	// The name of the AWS IoT Events input where the data is sent.
+	InputName pulumi.StringInput           `pulumi:"inputName"`
+	Payload   DetectorModelPayloadPtrInput `pulumi:"payload"`
 }
 
 func (DetectorModelIotEventsArgs) ElementType() reflect.Type {
@@ -1897,7 +1926,7 @@ func (i *detectorModelIotEventsPtrType) ToDetectorModelIotEventsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelIotEventsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html
+// Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
 type DetectorModelIotEventsOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelIotEventsOutput) ElementType() reflect.Type {
@@ -1922,12 +1951,11 @@ func (o DetectorModelIotEventsOutput) ToDetectorModelIotEventsPtrOutputWithConte
 	}).(DetectorModelIotEventsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-inputname
+// The name of the AWS IoT Events input where the data is sent.
 func (o DetectorModelIotEventsOutput) InputName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelIotEvents) string { return v.InputName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-payload
 func (o DetectorModelIotEventsOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelIotEvents) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
@@ -1956,7 +1984,7 @@ func (o DetectorModelIotEventsPtrOutput) Elem() DetectorModelIotEventsOutput {
 	}).(DetectorModelIotEventsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-inputname
+// The name of the AWS IoT Events input where the data is sent.
 func (o DetectorModelIotEventsPtrOutput) InputName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotEvents) *string {
 		if v == nil {
@@ -1966,7 +1994,6 @@ func (o DetectorModelIotEventsPtrOutput) InputName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-payload
 func (o DetectorModelIotEventsPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotEvents) *DetectorModelPayload {
 		if v == nil {
@@ -1976,17 +2003,16 @@ func (o DetectorModelIotEventsPtrOutput) Payload() DetectorModelPayloadPtrOutput
 	}).(DetectorModelPayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html
+// Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
 type DetectorModelIotSiteWise struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-assetid
+	// The ID of the asset that has the specified property. You can specify an expression.
 	AssetId *string `pulumi:"assetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-entryid
+	// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
 	EntryId *string `pulumi:"entryId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyalias
+	// The alias of the asset property. You can also specify an expression.
 	PropertyAlias *string `pulumi:"propertyAlias"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyid
-	PropertyId *string `pulumi:"propertyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyvalue
+	// The ID of the asset property. You can specify an expression.
+	PropertyId    *string                         `pulumi:"propertyId"`
 	PropertyValue DetectorModelAssetPropertyValue `pulumi:"propertyValue"`
 }
 
@@ -2001,17 +2027,16 @@ type DetectorModelIotSiteWiseInput interface {
 	ToDetectorModelIotSiteWiseOutputWithContext(context.Context) DetectorModelIotSiteWiseOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html
+// Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
 type DetectorModelIotSiteWiseArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-assetid
+	// The ID of the asset that has the specified property. You can specify an expression.
 	AssetId pulumi.StringPtrInput `pulumi:"assetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-entryid
+	// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
 	EntryId pulumi.StringPtrInput `pulumi:"entryId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyalias
+	// The alias of the asset property. You can also specify an expression.
 	PropertyAlias pulumi.StringPtrInput `pulumi:"propertyAlias"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyid
-	PropertyId pulumi.StringPtrInput `pulumi:"propertyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyvalue
+	// The ID of the asset property. You can specify an expression.
+	PropertyId    pulumi.StringPtrInput                `pulumi:"propertyId"`
 	PropertyValue DetectorModelAssetPropertyValueInput `pulumi:"propertyValue"`
 }
 
@@ -2068,7 +2093,7 @@ func (i *detectorModelIotSiteWisePtrType) ToDetectorModelIotSiteWisePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelIotSiteWisePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html
+// Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
 type DetectorModelIotSiteWiseOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelIotSiteWiseOutput) ElementType() reflect.Type {
@@ -2093,27 +2118,26 @@ func (o DetectorModelIotSiteWiseOutput) ToDetectorModelIotSiteWisePtrOutputWithC
 	}).(DetectorModelIotSiteWisePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-assetid
+// The ID of the asset that has the specified property. You can specify an expression.
 func (o DetectorModelIotSiteWiseOutput) AssetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelIotSiteWise) *string { return v.AssetId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-entryid
+// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
 func (o DetectorModelIotSiteWiseOutput) EntryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelIotSiteWise) *string { return v.EntryId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyalias
+// The alias of the asset property. You can also specify an expression.
 func (o DetectorModelIotSiteWiseOutput) PropertyAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelIotSiteWise) *string { return v.PropertyAlias }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyid
+// The ID of the asset property. You can specify an expression.
 func (o DetectorModelIotSiteWiseOutput) PropertyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelIotSiteWise) *string { return v.PropertyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyvalue
 func (o DetectorModelIotSiteWiseOutput) PropertyValue() DetectorModelAssetPropertyValueOutput {
 	return o.ApplyT(func(v DetectorModelIotSiteWise) DetectorModelAssetPropertyValue { return v.PropertyValue }).(DetectorModelAssetPropertyValueOutput)
 }
@@ -2142,7 +2166,7 @@ func (o DetectorModelIotSiteWisePtrOutput) Elem() DetectorModelIotSiteWiseOutput
 	}).(DetectorModelIotSiteWiseOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-assetid
+// The ID of the asset that has the specified property. You can specify an expression.
 func (o DetectorModelIotSiteWisePtrOutput) AssetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotSiteWise) *string {
 		if v == nil {
@@ -2152,7 +2176,7 @@ func (o DetectorModelIotSiteWisePtrOutput) AssetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-entryid
+// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
 func (o DetectorModelIotSiteWisePtrOutput) EntryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotSiteWise) *string {
 		if v == nil {
@@ -2162,7 +2186,7 @@ func (o DetectorModelIotSiteWisePtrOutput) EntryId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyalias
+// The alias of the asset property. You can also specify an expression.
 func (o DetectorModelIotSiteWisePtrOutput) PropertyAlias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotSiteWise) *string {
 		if v == nil {
@@ -2172,7 +2196,7 @@ func (o DetectorModelIotSiteWisePtrOutput) PropertyAlias() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyid
+// The ID of the asset property. You can specify an expression.
 func (o DetectorModelIotSiteWisePtrOutput) PropertyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotSiteWise) *string {
 		if v == nil {
@@ -2182,7 +2206,6 @@ func (o DetectorModelIotSiteWisePtrOutput) PropertyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyvalue
 func (o DetectorModelIotSiteWisePtrOutput) PropertyValue() DetectorModelAssetPropertyValuePtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotSiteWise) *DetectorModelAssetPropertyValue {
 		if v == nil {
@@ -2192,12 +2215,11 @@ func (o DetectorModelIotSiteWisePtrOutput) PropertyValue() DetectorModelAssetPro
 	}).(DetectorModelAssetPropertyValuePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html
+// Information required to publish the MQTT message through the AWS IoT message broker.
 type DetectorModelIotTopicPublish struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-mqtttopic
-	MqttTopic string `pulumi:"mqttTopic"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-payload
-	Payload *DetectorModelPayload `pulumi:"payload"`
+	// The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
+	MqttTopic string                `pulumi:"mqttTopic"`
+	Payload   *DetectorModelPayload `pulumi:"payload"`
 }
 
 // DetectorModelIotTopicPublishInput is an input type that accepts DetectorModelIotTopicPublishArgs and DetectorModelIotTopicPublishOutput values.
@@ -2211,12 +2233,11 @@ type DetectorModelIotTopicPublishInput interface {
 	ToDetectorModelIotTopicPublishOutputWithContext(context.Context) DetectorModelIotTopicPublishOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html
+// Information required to publish the MQTT message through the AWS IoT message broker.
 type DetectorModelIotTopicPublishArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-mqtttopic
-	MqttTopic pulumi.StringInput `pulumi:"mqttTopic"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-payload
-	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
+	// The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
+	MqttTopic pulumi.StringInput           `pulumi:"mqttTopic"`
+	Payload   DetectorModelPayloadPtrInput `pulumi:"payload"`
 }
 
 func (DetectorModelIotTopicPublishArgs) ElementType() reflect.Type {
@@ -2272,7 +2293,7 @@ func (i *detectorModelIotTopicPublishPtrType) ToDetectorModelIotTopicPublishPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelIotTopicPublishPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html
+// Information required to publish the MQTT message through the AWS IoT message broker.
 type DetectorModelIotTopicPublishOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelIotTopicPublishOutput) ElementType() reflect.Type {
@@ -2297,12 +2318,11 @@ func (o DetectorModelIotTopicPublishOutput) ToDetectorModelIotTopicPublishPtrOut
 	}).(DetectorModelIotTopicPublishPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-mqtttopic
+// The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
 func (o DetectorModelIotTopicPublishOutput) MqttTopic() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelIotTopicPublish) string { return v.MqttTopic }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-payload
 func (o DetectorModelIotTopicPublishOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelIotTopicPublish) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
@@ -2331,7 +2351,7 @@ func (o DetectorModelIotTopicPublishPtrOutput) Elem() DetectorModelIotTopicPubli
 	}).(DetectorModelIotTopicPublishOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-mqtttopic
+// The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
 func (o DetectorModelIotTopicPublishPtrOutput) MqttTopic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotTopicPublish) *string {
 		if v == nil {
@@ -2341,7 +2361,6 @@ func (o DetectorModelIotTopicPublishPtrOutput) MqttTopic() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iottopicpublish.html#cfn-iotevents-detectormodel-iottopicpublish-payload
 func (o DetectorModelIotTopicPublishPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelIotTopicPublish) *DetectorModelPayload {
 		if v == nil {
@@ -2351,12 +2370,10 @@ func (o DetectorModelIotTopicPublishPtrOutput) Payload() DetectorModelPayloadPtr
 	}).(DetectorModelPayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html
 type DetectorModelLambda struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-functionarn
-	FunctionArn string `pulumi:"functionArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-payload
-	Payload *DetectorModelPayload `pulumi:"payload"`
+	// The ARN of the Lambda function that is executed.
+	FunctionArn string                `pulumi:"functionArn"`
+	Payload     *DetectorModelPayload `pulumi:"payload"`
 }
 
 // DetectorModelLambdaInput is an input type that accepts DetectorModelLambdaArgs and DetectorModelLambdaOutput values.
@@ -2370,12 +2387,10 @@ type DetectorModelLambdaInput interface {
 	ToDetectorModelLambdaOutputWithContext(context.Context) DetectorModelLambdaOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html
 type DetectorModelLambdaArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-functionarn
-	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-payload
-	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
+	// The ARN of the Lambda function that is executed.
+	FunctionArn pulumi.StringInput           `pulumi:"functionArn"`
+	Payload     DetectorModelPayloadPtrInput `pulumi:"payload"`
 }
 
 func (DetectorModelLambdaArgs) ElementType() reflect.Type {
@@ -2431,7 +2446,6 @@ func (i *detectorModelLambdaPtrType) ToDetectorModelLambdaPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelLambdaPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html
 type DetectorModelLambdaOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelLambdaOutput) ElementType() reflect.Type {
@@ -2456,12 +2470,11 @@ func (o DetectorModelLambdaOutput) ToDetectorModelLambdaPtrOutputWithContext(ctx
 	}).(DetectorModelLambdaPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-functionarn
+// The ARN of the Lambda function that is executed.
 func (o DetectorModelLambdaOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelLambda) string { return v.FunctionArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-payload
 func (o DetectorModelLambdaOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelLambda) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
@@ -2490,7 +2503,7 @@ func (o DetectorModelLambdaPtrOutput) Elem() DetectorModelLambdaOutput {
 	}).(DetectorModelLambdaOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-functionarn
+// The ARN of the Lambda function that is executed.
 func (o DetectorModelLambdaPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelLambda) *string {
 		if v == nil {
@@ -2500,7 +2513,6 @@ func (o DetectorModelLambdaPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-payload
 func (o DetectorModelLambdaPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelLambda) *DetectorModelPayload {
 		if v == nil {
@@ -2510,9 +2522,9 @@ func (o DetectorModelLambdaPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	}).(DetectorModelPayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html
+// When entering this state, perform these `actions` if the `condition` is `TRUE`.
 type DetectorModelOnEnter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html#cfn-iotevents-detectormodel-onenter-events
+	// Specifies the `actions` that are performed when the state is entered and the `condition` is `TRUE`.
 	Events []DetectorModelEvent `pulumi:"events"`
 }
 
@@ -2527,9 +2539,9 @@ type DetectorModelOnEnterInput interface {
 	ToDetectorModelOnEnterOutputWithContext(context.Context) DetectorModelOnEnterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html
+// When entering this state, perform these `actions` if the `condition` is `TRUE`.
 type DetectorModelOnEnterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html#cfn-iotevents-detectormodel-onenter-events
+	// Specifies the `actions` that are performed when the state is entered and the `condition` is `TRUE`.
 	Events DetectorModelEventArrayInput `pulumi:"events"`
 }
 
@@ -2586,7 +2598,7 @@ func (i *detectorModelOnEnterPtrType) ToDetectorModelOnEnterPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelOnEnterPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html
+// When entering this state, perform these `actions` if the `condition` is `TRUE`.
 type DetectorModelOnEnterOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelOnEnterOutput) ElementType() reflect.Type {
@@ -2611,7 +2623,7 @@ func (o DetectorModelOnEnterOutput) ToDetectorModelOnEnterPtrOutputWithContext(c
 	}).(DetectorModelOnEnterPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html#cfn-iotevents-detectormodel-onenter-events
+// Specifies the `actions` that are performed when the state is entered and the `condition` is `TRUE`.
 func (o DetectorModelOnEnterOutput) Events() DetectorModelEventArrayOutput {
 	return o.ApplyT(func(v DetectorModelOnEnter) []DetectorModelEvent { return v.Events }).(DetectorModelEventArrayOutput)
 }
@@ -2640,7 +2652,7 @@ func (o DetectorModelOnEnterPtrOutput) Elem() DetectorModelOnEnterOutput {
 	}).(DetectorModelOnEnterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onenter.html#cfn-iotevents-detectormodel-onenter-events
+// Specifies the `actions` that are performed when the state is entered and the `condition` is `TRUE`.
 func (o DetectorModelOnEnterPtrOutput) Events() DetectorModelEventArrayOutput {
 	return o.ApplyT(func(v *DetectorModelOnEnter) []DetectorModelEvent {
 		if v == nil {
@@ -2650,9 +2662,9 @@ func (o DetectorModelOnEnterPtrOutput) Events() DetectorModelEventArrayOutput {
 	}).(DetectorModelEventArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html
+// When exiting this state, perform these `actions` if the specified `condition` is `TRUE`.
 type DetectorModelOnExit struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html#cfn-iotevents-detectormodel-onexit-events
+	// Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE`.
 	Events []DetectorModelEvent `pulumi:"events"`
 }
 
@@ -2667,9 +2679,9 @@ type DetectorModelOnExitInput interface {
 	ToDetectorModelOnExitOutputWithContext(context.Context) DetectorModelOnExitOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html
+// When exiting this state, perform these `actions` if the specified `condition` is `TRUE`.
 type DetectorModelOnExitArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html#cfn-iotevents-detectormodel-onexit-events
+	// Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE`.
 	Events DetectorModelEventArrayInput `pulumi:"events"`
 }
 
@@ -2726,7 +2738,7 @@ func (i *detectorModelOnExitPtrType) ToDetectorModelOnExitPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelOnExitPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html
+// When exiting this state, perform these `actions` if the specified `condition` is `TRUE`.
 type DetectorModelOnExitOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelOnExitOutput) ElementType() reflect.Type {
@@ -2751,7 +2763,7 @@ func (o DetectorModelOnExitOutput) ToDetectorModelOnExitPtrOutputWithContext(ctx
 	}).(DetectorModelOnExitPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html#cfn-iotevents-detectormodel-onexit-events
+// Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE`.
 func (o DetectorModelOnExitOutput) Events() DetectorModelEventArrayOutput {
 	return o.ApplyT(func(v DetectorModelOnExit) []DetectorModelEvent { return v.Events }).(DetectorModelEventArrayOutput)
 }
@@ -2780,7 +2792,7 @@ func (o DetectorModelOnExitPtrOutput) Elem() DetectorModelOnExitOutput {
 	}).(DetectorModelOnExitOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html#cfn-iotevents-detectormodel-onexit-events
+// Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE`.
 func (o DetectorModelOnExitPtrOutput) Events() DetectorModelEventArrayOutput {
 	return o.ApplyT(func(v *DetectorModelOnExit) []DetectorModelEvent {
 		if v == nil {
@@ -2790,11 +2802,11 @@ func (o DetectorModelOnExitPtrOutput) Events() DetectorModelEventArrayOutput {
 	}).(DetectorModelEventArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html
+// When an input is received and the `condition` is `TRUE`, perform the specified `actions`.
 type DetectorModelOnInput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-events
+	// Specifies the `actions` performed when the `condition` evaluates to `TRUE`.
 	Events []DetectorModelEvent `pulumi:"events"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-transitionevents
+	// Specifies the `actions` performed, and the next `state` entered, when a `condition` evaluates to `TRUE`.
 	TransitionEvents []DetectorModelTransitionEvent `pulumi:"transitionEvents"`
 }
 
@@ -2809,11 +2821,11 @@ type DetectorModelOnInputInput interface {
 	ToDetectorModelOnInputOutputWithContext(context.Context) DetectorModelOnInputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html
+// When an input is received and the `condition` is `TRUE`, perform the specified `actions`.
 type DetectorModelOnInputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-events
+	// Specifies the `actions` performed when the `condition` evaluates to `TRUE`.
 	Events DetectorModelEventArrayInput `pulumi:"events"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-transitionevents
+	// Specifies the `actions` performed, and the next `state` entered, when a `condition` evaluates to `TRUE`.
 	TransitionEvents DetectorModelTransitionEventArrayInput `pulumi:"transitionEvents"`
 }
 
@@ -2870,7 +2882,7 @@ func (i *detectorModelOnInputPtrType) ToDetectorModelOnInputPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelOnInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html
+// When an input is received and the `condition` is `TRUE`, perform the specified `actions`.
 type DetectorModelOnInputOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelOnInputOutput) ElementType() reflect.Type {
@@ -2895,12 +2907,12 @@ func (o DetectorModelOnInputOutput) ToDetectorModelOnInputPtrOutputWithContext(c
 	}).(DetectorModelOnInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-events
+// Specifies the `actions` performed when the `condition` evaluates to `TRUE`.
 func (o DetectorModelOnInputOutput) Events() DetectorModelEventArrayOutput {
 	return o.ApplyT(func(v DetectorModelOnInput) []DetectorModelEvent { return v.Events }).(DetectorModelEventArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-transitionevents
+// Specifies the `actions` performed, and the next `state` entered, when a `condition` evaluates to `TRUE`.
 func (o DetectorModelOnInputOutput) TransitionEvents() DetectorModelTransitionEventArrayOutput {
 	return o.ApplyT(func(v DetectorModelOnInput) []DetectorModelTransitionEvent { return v.TransitionEvents }).(DetectorModelTransitionEventArrayOutput)
 }
@@ -2929,7 +2941,7 @@ func (o DetectorModelOnInputPtrOutput) Elem() DetectorModelOnInputOutput {
 	}).(DetectorModelOnInputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-events
+// Specifies the `actions` performed when the `condition` evaluates to `TRUE`.
 func (o DetectorModelOnInputPtrOutput) Events() DetectorModelEventArrayOutput {
 	return o.ApplyT(func(v *DetectorModelOnInput) []DetectorModelEvent {
 		if v == nil {
@@ -2939,7 +2951,7 @@ func (o DetectorModelOnInputPtrOutput) Events() DetectorModelEventArrayOutput {
 	}).(DetectorModelEventArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-transitionevents
+// Specifies the `actions` performed, and the next `state` entered, when a `condition` evaluates to `TRUE`.
 func (o DetectorModelOnInputPtrOutput) TransitionEvents() DetectorModelTransitionEventArrayOutput {
 	return o.ApplyT(func(v *DetectorModelOnInput) []DetectorModelTransitionEvent {
 		if v == nil {
@@ -2949,11 +2961,13 @@ func (o DetectorModelOnInputPtrOutput) TransitionEvents() DetectorModelTransitio
 	}).(DetectorModelTransitionEventArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html
+// Information needed to configure the payload.
+//
+// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
 type DetectorModelPayload struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-contentexpression
+	// The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
 	ContentExpression string `pulumi:"contentExpression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-type
+	// The value of the payload type can be either `STRING` or `JSON`.
 	Type string `pulumi:"type"`
 }
 
@@ -2968,11 +2982,13 @@ type DetectorModelPayloadInput interface {
 	ToDetectorModelPayloadOutputWithContext(context.Context) DetectorModelPayloadOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html
+// Information needed to configure the payload.
+//
+// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
 type DetectorModelPayloadArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-contentexpression
+	// The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
 	ContentExpression pulumi.StringInput `pulumi:"contentExpression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-type
+	// The value of the payload type can be either `STRING` or `JSON`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -3029,7 +3045,9 @@ func (i *detectorModelPayloadPtrType) ToDetectorModelPayloadPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelPayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html
+// Information needed to configure the payload.
+//
+// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression`.
 type DetectorModelPayloadOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelPayloadOutput) ElementType() reflect.Type {
@@ -3054,12 +3072,12 @@ func (o DetectorModelPayloadOutput) ToDetectorModelPayloadPtrOutputWithContext(c
 	}).(DetectorModelPayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-contentexpression
+// The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
 func (o DetectorModelPayloadOutput) ContentExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelPayload) string { return v.ContentExpression }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-type
+// The value of the payload type can be either `STRING` or `JSON`.
 func (o DetectorModelPayloadOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelPayload) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3088,7 +3106,7 @@ func (o DetectorModelPayloadPtrOutput) Elem() DetectorModelPayloadOutput {
 	}).(DetectorModelPayloadOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-contentexpression
+// The content of the payload. You can use a string expression that includes quoted strings (`'<string>'`), variables (`$variable.<variable-name>`), input values (`$input.<input-name>.<path-to-datum>`), string concatenations, and quoted strings that contain `${}` as the content. The recommended maximum size of a content expression is 1 KB.
 func (o DetectorModelPayloadPtrOutput) ContentExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelPayload) *string {
 		if v == nil {
@@ -3098,7 +3116,7 @@ func (o DetectorModelPayloadPtrOutput) ContentExpression() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-payload.html#cfn-iotevents-detectormodel-payload-type
+// The value of the payload type can be either `STRING` or `JSON`.
 func (o DetectorModelPayloadPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelPayload) *string {
 		if v == nil {
@@ -3108,9 +3126,9 @@ func (o DetectorModelPayloadPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html
+// Information required to reset the timer. The timer is reset to the previously evaluated result of the duration. The duration expression isn't reevaluated when you reset the timer.
 type DetectorModelResetTimer struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html#cfn-iotevents-detectormodel-resettimer-timername
+	// The name of the timer to reset.
 	TimerName string `pulumi:"timerName"`
 }
 
@@ -3125,9 +3143,9 @@ type DetectorModelResetTimerInput interface {
 	ToDetectorModelResetTimerOutputWithContext(context.Context) DetectorModelResetTimerOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html
+// Information required to reset the timer. The timer is reset to the previously evaluated result of the duration. The duration expression isn't reevaluated when you reset the timer.
 type DetectorModelResetTimerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html#cfn-iotevents-detectormodel-resettimer-timername
+	// The name of the timer to reset.
 	TimerName pulumi.StringInput `pulumi:"timerName"`
 }
 
@@ -3184,7 +3202,7 @@ func (i *detectorModelResetTimerPtrType) ToDetectorModelResetTimerPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelResetTimerPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html
+// Information required to reset the timer. The timer is reset to the previously evaluated result of the duration. The duration expression isn't reevaluated when you reset the timer.
 type DetectorModelResetTimerOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelResetTimerOutput) ElementType() reflect.Type {
@@ -3209,7 +3227,7 @@ func (o DetectorModelResetTimerOutput) ToDetectorModelResetTimerPtrOutputWithCon
 	}).(DetectorModelResetTimerPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html#cfn-iotevents-detectormodel-resettimer-timername
+// The name of the timer to reset.
 func (o DetectorModelResetTimerOutput) TimerName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelResetTimer) string { return v.TimerName }).(pulumi.StringOutput)
 }
@@ -3238,7 +3256,7 @@ func (o DetectorModelResetTimerPtrOutput) Elem() DetectorModelResetTimerOutput {
 	}).(DetectorModelResetTimerOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-resettimer.html#cfn-iotevents-detectormodel-resettimer-timername
+// The name of the timer to reset.
 func (o DetectorModelResetTimerPtrOutput) TimerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelResetTimer) *string {
 		if v == nil {
@@ -3248,13 +3266,13 @@ func (o DetectorModelResetTimerPtrOutput) TimerName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html
+// Information needed to set the timer.
 type DetectorModelSetTimer struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-durationexpression
+	// The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (`$variable.<variable-name>`), and input values (`$input.<input-name>.<path-to-datum>`) as the duration. The range of the duration is `1-31622400` seconds. To ensure accuracy, the minimum duration is `60` seconds. The evaluated result of the duration is rounded down to the nearest whole number.
 	DurationExpression *string `pulumi:"durationExpression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-seconds
+	// The number of seconds until the timer expires. The minimum value is `60` seconds to ensure accuracy. The maximum value is `31622400` seconds.
 	Seconds *int `pulumi:"seconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-timername
+	// The name of the timer.
 	TimerName string `pulumi:"timerName"`
 }
 
@@ -3269,13 +3287,13 @@ type DetectorModelSetTimerInput interface {
 	ToDetectorModelSetTimerOutputWithContext(context.Context) DetectorModelSetTimerOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html
+// Information needed to set the timer.
 type DetectorModelSetTimerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-durationexpression
+	// The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (`$variable.<variable-name>`), and input values (`$input.<input-name>.<path-to-datum>`) as the duration. The range of the duration is `1-31622400` seconds. To ensure accuracy, the minimum duration is `60` seconds. The evaluated result of the duration is rounded down to the nearest whole number.
 	DurationExpression pulumi.StringPtrInput `pulumi:"durationExpression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-seconds
+	// The number of seconds until the timer expires. The minimum value is `60` seconds to ensure accuracy. The maximum value is `31622400` seconds.
 	Seconds pulumi.IntPtrInput `pulumi:"seconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-timername
+	// The name of the timer.
 	TimerName pulumi.StringInput `pulumi:"timerName"`
 }
 
@@ -3332,7 +3350,7 @@ func (i *detectorModelSetTimerPtrType) ToDetectorModelSetTimerPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelSetTimerPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html
+// Information needed to set the timer.
 type DetectorModelSetTimerOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelSetTimerOutput) ElementType() reflect.Type {
@@ -3357,17 +3375,17 @@ func (o DetectorModelSetTimerOutput) ToDetectorModelSetTimerPtrOutputWithContext
 	}).(DetectorModelSetTimerPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-durationexpression
+// The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (`$variable.<variable-name>`), and input values (`$input.<input-name>.<path-to-datum>`) as the duration. The range of the duration is `1-31622400` seconds. To ensure accuracy, the minimum duration is `60` seconds. The evaluated result of the duration is rounded down to the nearest whole number.
 func (o DetectorModelSetTimerOutput) DurationExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModelSetTimer) *string { return v.DurationExpression }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-seconds
+// The number of seconds until the timer expires. The minimum value is `60` seconds to ensure accuracy. The maximum value is `31622400` seconds.
 func (o DetectorModelSetTimerOutput) Seconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DetectorModelSetTimer) *int { return v.Seconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-timername
+// The name of the timer.
 func (o DetectorModelSetTimerOutput) TimerName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelSetTimer) string { return v.TimerName }).(pulumi.StringOutput)
 }
@@ -3396,7 +3414,7 @@ func (o DetectorModelSetTimerPtrOutput) Elem() DetectorModelSetTimerOutput {
 	}).(DetectorModelSetTimerOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-durationexpression
+// The duration of the timer, in seconds. You can use a string expression that includes numbers, variables (`$variable.<variable-name>`), and input values (`$input.<input-name>.<path-to-datum>`) as the duration. The range of the duration is `1-31622400` seconds. To ensure accuracy, the minimum duration is `60` seconds. The evaluated result of the duration is rounded down to the nearest whole number.
 func (o DetectorModelSetTimerPtrOutput) DurationExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelSetTimer) *string {
 		if v == nil {
@@ -3406,7 +3424,7 @@ func (o DetectorModelSetTimerPtrOutput) DurationExpression() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-seconds
+// The number of seconds until the timer expires. The minimum value is `60` seconds to ensure accuracy. The maximum value is `31622400` seconds.
 func (o DetectorModelSetTimerPtrOutput) Seconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DetectorModelSetTimer) *int {
 		if v == nil {
@@ -3416,7 +3434,7 @@ func (o DetectorModelSetTimerPtrOutput) Seconds() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-timername
+// The name of the timer.
 func (o DetectorModelSetTimerPtrOutput) TimerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelSetTimer) *string {
 		if v == nil {
@@ -3426,11 +3444,11 @@ func (o DetectorModelSetTimerPtrOutput) TimerName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html
+// Information about the variable and its new value.
 type DetectorModelSetVariable struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-value
+	// The new value of the variable.
 	Value string `pulumi:"value"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-variablename
+	// The name of the variable.
 	VariableName string `pulumi:"variableName"`
 }
 
@@ -3445,11 +3463,11 @@ type DetectorModelSetVariableInput interface {
 	ToDetectorModelSetVariableOutputWithContext(context.Context) DetectorModelSetVariableOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html
+// Information about the variable and its new value.
 type DetectorModelSetVariableArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-value
+	// The new value of the variable.
 	Value pulumi.StringInput `pulumi:"value"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-variablename
+	// The name of the variable.
 	VariableName pulumi.StringInput `pulumi:"variableName"`
 }
 
@@ -3506,7 +3524,7 @@ func (i *detectorModelSetVariablePtrType) ToDetectorModelSetVariablePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelSetVariablePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html
+// Information about the variable and its new value.
 type DetectorModelSetVariableOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelSetVariableOutput) ElementType() reflect.Type {
@@ -3531,12 +3549,12 @@ func (o DetectorModelSetVariableOutput) ToDetectorModelSetVariablePtrOutputWithC
 	}).(DetectorModelSetVariablePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-value
+// The new value of the variable.
 func (o DetectorModelSetVariableOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelSetVariable) string { return v.Value }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-variablename
+// The name of the variable.
 func (o DetectorModelSetVariableOutput) VariableName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelSetVariable) string { return v.VariableName }).(pulumi.StringOutput)
 }
@@ -3565,7 +3583,7 @@ func (o DetectorModelSetVariablePtrOutput) Elem() DetectorModelSetVariableOutput
 	}).(DetectorModelSetVariableOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-value
+// The new value of the variable.
 func (o DetectorModelSetVariablePtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelSetVariable) *string {
 		if v == nil {
@@ -3575,7 +3593,7 @@ func (o DetectorModelSetVariablePtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-variablename
+// The name of the variable.
 func (o DetectorModelSetVariablePtrOutput) VariableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelSetVariable) *string {
 		if v == nil {
@@ -3585,11 +3603,10 @@ func (o DetectorModelSetVariablePtrOutput) VariableName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html
+// Information required to publish the Amazon SNS message.
 type DetectorModelSns struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-payload
 	Payload *DetectorModelPayload `pulumi:"payload"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
+	// The ARN of the Amazon SNS target where the message is sent.
 	TargetArn string `pulumi:"targetArn"`
 }
 
@@ -3604,11 +3621,10 @@ type DetectorModelSnsInput interface {
 	ToDetectorModelSnsOutputWithContext(context.Context) DetectorModelSnsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html
+// Information required to publish the Amazon SNS message.
 type DetectorModelSnsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-payload
 	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
+	// The ARN of the Amazon SNS target where the message is sent.
 	TargetArn pulumi.StringInput `pulumi:"targetArn"`
 }
 
@@ -3665,7 +3681,7 @@ func (i *detectorModelSnsPtrType) ToDetectorModelSnsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelSnsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html
+// Information required to publish the Amazon SNS message.
 type DetectorModelSnsOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelSnsOutput) ElementType() reflect.Type {
@@ -3690,12 +3706,11 @@ func (o DetectorModelSnsOutput) ToDetectorModelSnsPtrOutputWithContext(ctx conte
 	}).(DetectorModelSnsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-payload
 func (o DetectorModelSnsOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelSns) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
+// The ARN of the Amazon SNS target where the message is sent.
 func (o DetectorModelSnsOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelSns) string { return v.TargetArn }).(pulumi.StringOutput)
 }
@@ -3724,7 +3739,6 @@ func (o DetectorModelSnsPtrOutput) Elem() DetectorModelSnsOutput {
 	}).(DetectorModelSnsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-payload
 func (o DetectorModelSnsPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelSns) *DetectorModelPayload {
 		if v == nil {
@@ -3734,7 +3748,7 @@ func (o DetectorModelSnsPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	}).(DetectorModelPayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sns.html#cfn-iotevents-detectormodel-sns-targetarn
+// The ARN of the Amazon SNS target where the message is sent.
 func (o DetectorModelSnsPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelSns) *string {
 		if v == nil {
@@ -3744,13 +3758,11 @@ func (o DetectorModelSnsPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html
 type DetectorModelSqs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-payload
 	Payload *DetectorModelPayload `pulumi:"payload"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-queueurl
+	// The URL of the SQS queue where the data is written.
 	QueueUrl string `pulumi:"queueUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-usebase64
+	// Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
 	UseBase64 *bool `pulumi:"useBase64"`
 }
 
@@ -3765,13 +3777,11 @@ type DetectorModelSqsInput interface {
 	ToDetectorModelSqsOutputWithContext(context.Context) DetectorModelSqsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html
 type DetectorModelSqsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-payload
 	Payload DetectorModelPayloadPtrInput `pulumi:"payload"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-queueurl
+	// The URL of the SQS queue where the data is written.
 	QueueUrl pulumi.StringInput `pulumi:"queueUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-usebase64
+	// Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
 	UseBase64 pulumi.BoolPtrInput `pulumi:"useBase64"`
 }
 
@@ -3828,7 +3838,6 @@ func (i *detectorModelSqsPtrType) ToDetectorModelSqsPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelSqsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html
 type DetectorModelSqsOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelSqsOutput) ElementType() reflect.Type {
@@ -3853,17 +3862,16 @@ func (o DetectorModelSqsOutput) ToDetectorModelSqsPtrOutputWithContext(ctx conte
 	}).(DetectorModelSqsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-payload
 func (o DetectorModelSqsOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v DetectorModelSqs) *DetectorModelPayload { return v.Payload }).(DetectorModelPayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-queueurl
+// The URL of the SQS queue where the data is written.
 func (o DetectorModelSqsOutput) QueueUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelSqs) string { return v.QueueUrl }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-usebase64
+// Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
 func (o DetectorModelSqsOutput) UseBase64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DetectorModelSqs) *bool { return v.UseBase64 }).(pulumi.BoolPtrOutput)
 }
@@ -3892,7 +3900,6 @@ func (o DetectorModelSqsPtrOutput) Elem() DetectorModelSqsOutput {
 	}).(DetectorModelSqsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-payload
 func (o DetectorModelSqsPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	return o.ApplyT(func(v *DetectorModelSqs) *DetectorModelPayload {
 		if v == nil {
@@ -3902,7 +3909,7 @@ func (o DetectorModelSqsPtrOutput) Payload() DetectorModelPayloadPtrOutput {
 	}).(DetectorModelPayloadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-queueurl
+// The URL of the SQS queue where the data is written.
 func (o DetectorModelSqsPtrOutput) QueueUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorModelSqs) *string {
 		if v == nil {
@@ -3912,7 +3919,7 @@ func (o DetectorModelSqsPtrOutput) QueueUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-usebase64
+// Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
 func (o DetectorModelSqsPtrOutput) UseBase64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DetectorModelSqs) *bool {
 		if v == nil {
@@ -3922,15 +3929,12 @@ func (o DetectorModelSqsPtrOutput) UseBase64() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html
+// Information that defines a state of a detector.
 type DetectorModelStateType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-onenter
 	OnEnter *DetectorModelOnEnter `pulumi:"onEnter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-onexit
-	OnExit *DetectorModelOnExit `pulumi:"onExit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-oninput
+	OnExit  *DetectorModelOnExit  `pulumi:"onExit"`
 	OnInput *DetectorModelOnInput `pulumi:"onInput"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-statename
+	// The name of the state.
 	StateName string `pulumi:"stateName"`
 }
 
@@ -3945,15 +3949,12 @@ type DetectorModelStateTypeInput interface {
 	ToDetectorModelStateTypeOutputWithContext(context.Context) DetectorModelStateTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html
+// Information that defines a state of a detector.
 type DetectorModelStateTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-onenter
 	OnEnter DetectorModelOnEnterPtrInput `pulumi:"onEnter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-onexit
-	OnExit DetectorModelOnExitPtrInput `pulumi:"onExit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-oninput
+	OnExit  DetectorModelOnExitPtrInput  `pulumi:"onExit"`
 	OnInput DetectorModelOnInputPtrInput `pulumi:"onInput"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-statename
+	// The name of the state.
 	StateName pulumi.StringInput `pulumi:"stateName"`
 }
 
@@ -3994,7 +3995,7 @@ func (i DetectorModelStateTypeArray) ToDetectorModelStateTypeArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelStateTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html
+// Information that defines a state of a detector.
 type DetectorModelStateTypeOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelStateTypeOutput) ElementType() reflect.Type {
@@ -4009,22 +4010,19 @@ func (o DetectorModelStateTypeOutput) ToDetectorModelStateTypeOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-onenter
 func (o DetectorModelStateTypeOutput) OnEnter() DetectorModelOnEnterPtrOutput {
 	return o.ApplyT(func(v DetectorModelStateType) *DetectorModelOnEnter { return v.OnEnter }).(DetectorModelOnEnterPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-onexit
 func (o DetectorModelStateTypeOutput) OnExit() DetectorModelOnExitPtrOutput {
 	return o.ApplyT(func(v DetectorModelStateType) *DetectorModelOnExit { return v.OnExit }).(DetectorModelOnExitPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-oninput
 func (o DetectorModelStateTypeOutput) OnInput() DetectorModelOnInputPtrOutput {
 	return o.ApplyT(func(v DetectorModelStateType) *DetectorModelOnInput { return v.OnInput }).(DetectorModelOnInputPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-statename
+// The name of the state.
 func (o DetectorModelStateTypeOutput) StateName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelStateType) string { return v.StateName }).(pulumi.StringOutput)
 }
@@ -4049,15 +4047,124 @@ func (o DetectorModelStateTypeArrayOutput) Index(i pulumi.IntInput) DetectorMode
 	}).(DetectorModelStateTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html
+// Tags to be applied to Input.
+type DetectorModelTag struct {
+	// Key of the Tag.
+	Key string `pulumi:"key"`
+	// Value of the Tag.
+	Value string `pulumi:"value"`
+}
+
+// DetectorModelTagInput is an input type that accepts DetectorModelTagArgs and DetectorModelTagOutput values.
+// You can construct a concrete instance of `DetectorModelTagInput` via:
+//
+//          DetectorModelTagArgs{...}
+type DetectorModelTagInput interface {
+	pulumi.Input
+
+	ToDetectorModelTagOutput() DetectorModelTagOutput
+	ToDetectorModelTagOutputWithContext(context.Context) DetectorModelTagOutput
+}
+
+// Tags to be applied to Input.
+type DetectorModelTagArgs struct {
+	// Key of the Tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the Tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DetectorModelTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorModelTag)(nil)).Elem()
+}
+
+func (i DetectorModelTagArgs) ToDetectorModelTagOutput() DetectorModelTagOutput {
+	return i.ToDetectorModelTagOutputWithContext(context.Background())
+}
+
+func (i DetectorModelTagArgs) ToDetectorModelTagOutputWithContext(ctx context.Context) DetectorModelTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelTagOutput)
+}
+
+// DetectorModelTagArrayInput is an input type that accepts DetectorModelTagArray and DetectorModelTagArrayOutput values.
+// You can construct a concrete instance of `DetectorModelTagArrayInput` via:
+//
+//          DetectorModelTagArray{ DetectorModelTagArgs{...} }
+type DetectorModelTagArrayInput interface {
+	pulumi.Input
+
+	ToDetectorModelTagArrayOutput() DetectorModelTagArrayOutput
+	ToDetectorModelTagArrayOutputWithContext(context.Context) DetectorModelTagArrayOutput
+}
+
+type DetectorModelTagArray []DetectorModelTagInput
+
+func (DetectorModelTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DetectorModelTag)(nil)).Elem()
+}
+
+func (i DetectorModelTagArray) ToDetectorModelTagArrayOutput() DetectorModelTagArrayOutput {
+	return i.ToDetectorModelTagArrayOutputWithContext(context.Background())
+}
+
+func (i DetectorModelTagArray) ToDetectorModelTagArrayOutputWithContext(ctx context.Context) DetectorModelTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelTagArrayOutput)
+}
+
+// Tags to be applied to Input.
+type DetectorModelTagOutput struct{ *pulumi.OutputState }
+
+func (DetectorModelTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorModelTag)(nil)).Elem()
+}
+
+func (o DetectorModelTagOutput) ToDetectorModelTagOutput() DetectorModelTagOutput {
+	return o
+}
+
+func (o DetectorModelTagOutput) ToDetectorModelTagOutputWithContext(ctx context.Context) DetectorModelTagOutput {
+	return o
+}
+
+// Key of the Tag.
+func (o DetectorModelTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DetectorModelTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Value of the Tag.
+func (o DetectorModelTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DetectorModelTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DetectorModelTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DetectorModelTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DetectorModelTag)(nil)).Elem()
+}
+
+func (o DetectorModelTagArrayOutput) ToDetectorModelTagArrayOutput() DetectorModelTagArrayOutput {
+	return o
+}
+
+func (o DetectorModelTagArrayOutput) ToDetectorModelTagArrayOutputWithContext(ctx context.Context) DetectorModelTagArrayOutput {
+	return o
+}
+
+func (o DetectorModelTagArrayOutput) Index(i pulumi.IntInput) DetectorModelTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DetectorModelTag {
+		return vs[0].([]DetectorModelTag)[vs[1].(int)]
+	}).(DetectorModelTagOutput)
+}
+
+// Specifies the ` actions  `performed and the next `state` entered when a `condition` evaluates to `TRUE`.
 type DetectorModelTransitionEvent struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-actions
+	// The actions to be performed.
 	Actions []DetectorModelAction `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-condition
+	// A Boolean expression that when `TRUE` causes the `actions` to be performed and the `nextState` to be entered.
 	Condition string `pulumi:"condition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-eventname
+	// The name of the event.
 	EventName string `pulumi:"eventName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-nextstate
+	// The next state to enter.
 	NextState string `pulumi:"nextState"`
 }
 
@@ -4072,15 +4179,15 @@ type DetectorModelTransitionEventInput interface {
 	ToDetectorModelTransitionEventOutputWithContext(context.Context) DetectorModelTransitionEventOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html
+// Specifies the ` actions  `performed and the next `state` entered when a `condition` evaluates to `TRUE`.
 type DetectorModelTransitionEventArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-actions
+	// The actions to be performed.
 	Actions DetectorModelActionArrayInput `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-condition
+	// A Boolean expression that when `TRUE` causes the `actions` to be performed and the `nextState` to be entered.
 	Condition pulumi.StringInput `pulumi:"condition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-eventname
+	// The name of the event.
 	EventName pulumi.StringInput `pulumi:"eventName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-nextstate
+	// The next state to enter.
 	NextState pulumi.StringInput `pulumi:"nextState"`
 }
 
@@ -4121,7 +4228,7 @@ func (i DetectorModelTransitionEventArray) ToDetectorModelTransitionEventArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelTransitionEventArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html
+// Specifies the ` actions  `performed and the next `state` entered when a `condition` evaluates to `TRUE`.
 type DetectorModelTransitionEventOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelTransitionEventOutput) ElementType() reflect.Type {
@@ -4136,22 +4243,22 @@ func (o DetectorModelTransitionEventOutput) ToDetectorModelTransitionEventOutput
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-actions
+// The actions to be performed.
 func (o DetectorModelTransitionEventOutput) Actions() DetectorModelActionArrayOutput {
 	return o.ApplyT(func(v DetectorModelTransitionEvent) []DetectorModelAction { return v.Actions }).(DetectorModelActionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-condition
+// A Boolean expression that when `TRUE` causes the `actions` to be performed and the `nextState` to be entered.
 func (o DetectorModelTransitionEventOutput) Condition() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelTransitionEvent) string { return v.Condition }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-eventname
+// The name of the event.
 func (o DetectorModelTransitionEventOutput) EventName() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelTransitionEvent) string { return v.EventName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-nextstate
+// The next state to enter.
 func (o DetectorModelTransitionEventOutput) NextState() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorModelTransitionEvent) string { return v.NextState }).(pulumi.StringOutput)
 }
@@ -4176,9 +4283,11 @@ func (o DetectorModelTransitionEventArrayOutput) Index(i pulumi.IntInput) Detect
 	}).(DetectorModelTransitionEventOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html
+// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
 type InputAttribute struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html#cfn-iotevents-input-attribute-jsonpath
+	// An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to AWS IoT Events (`BatchPutMessage`). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the `condition` expressions used by detectors.
+	//
+	// _Syntax_: `<field-name>.<field-name>...`
 	JsonPath string `pulumi:"jsonPath"`
 }
 
@@ -4193,9 +4302,11 @@ type InputAttributeInput interface {
 	ToInputAttributeOutputWithContext(context.Context) InputAttributeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html
+// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
 type InputAttributeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html#cfn-iotevents-input-attribute-jsonpath
+	// An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to AWS IoT Events (`BatchPutMessage`). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the `condition` expressions used by detectors.
+	//
+	// _Syntax_: `<field-name>.<field-name>...`
 	JsonPath pulumi.StringInput `pulumi:"jsonPath"`
 }
 
@@ -4236,7 +4347,7 @@ func (i InputAttributeArray) ToInputAttributeArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(InputAttributeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html
+// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
 type InputAttributeOutput struct{ *pulumi.OutputState }
 
 func (InputAttributeOutput) ElementType() reflect.Type {
@@ -4251,7 +4362,9 @@ func (o InputAttributeOutput) ToInputAttributeOutputWithContext(ctx context.Cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-attribute.html#cfn-iotevents-input-attribute-jsonpath
+// An expression that specifies an attribute-value pair in a JSON structure. Use this to specify an attribute from the JSON payload that is made available by the input. Inputs are derived from messages sent to AWS IoT Events (`BatchPutMessage`). Each such message contains a JSON payload. The attribute (and its paired value) specified here are available for use in the `condition` expressions used by detectors.
+//
+// _Syntax_: `<field-name>.<field-name>...`
 func (o InputAttributeOutput) JsonPath() pulumi.StringOutput {
 	return o.ApplyT(func(v InputAttribute) string { return v.JsonPath }).(pulumi.StringOutput)
 }
@@ -4276,9 +4389,9 @@ func (o InputAttributeArrayOutput) Index(i pulumi.IntInput) InputAttributeOutput
 	}).(InputAttributeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html
+// The definition of the input.
 type InputInputDefinition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html#cfn-iotevents-input-inputdefinition-attributes
+	// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
 	Attributes []InputAttribute `pulumi:"attributes"`
 }
 
@@ -4293,9 +4406,9 @@ type InputInputDefinitionInput interface {
 	ToInputInputDefinitionOutputWithContext(context.Context) InputInputDefinitionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html
+// The definition of the input.
 type InputInputDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html#cfn-iotevents-input-inputdefinition-attributes
+	// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
 	Attributes InputAttributeArrayInput `pulumi:"attributes"`
 }
 
@@ -4352,7 +4465,7 @@ func (i *inputInputDefinitionPtrType) ToInputInputDefinitionPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(InputInputDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html
+// The definition of the input.
 type InputInputDefinitionOutput struct{ *pulumi.OutputState }
 
 func (InputInputDefinitionOutput) ElementType() reflect.Type {
@@ -4377,7 +4490,7 @@ func (o InputInputDefinitionOutput) ToInputInputDefinitionPtrOutputWithContext(c
 	}).(InputInputDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html#cfn-iotevents-input-inputdefinition-attributes
+// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
 func (o InputInputDefinitionOutput) Attributes() InputAttributeArrayOutput {
 	return o.ApplyT(func(v InputInputDefinition) []InputAttribute { return v.Attributes }).(InputAttributeArrayOutput)
 }
@@ -4406,7 +4519,7 @@ func (o InputInputDefinitionPtrOutput) Elem() InputInputDefinitionOutput {
 	}).(InputInputDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-inputdefinition.html#cfn-iotevents-input-inputdefinition-attributes
+// The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using `BatchPutMessage`. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the `condition` expressions used by detectors that monitor this input.
 func (o InputInputDefinitionPtrOutput) Attributes() InputAttributeArrayOutput {
 	return o.ApplyT(func(v *InputInputDefinition) []InputAttribute {
 		if v == nil {
@@ -4414,6 +4527,115 @@ func (o InputInputDefinitionPtrOutput) Attributes() InputAttributeArrayOutput {
 		}
 		return v.Attributes
 	}).(InputAttributeArrayOutput)
+}
+
+// Tags to be applied to Input.
+type InputTag struct {
+	// Key of the Tag.
+	Key string `pulumi:"key"`
+	// Value of the Tag.
+	Value string `pulumi:"value"`
+}
+
+// InputTagInput is an input type that accepts InputTagArgs and InputTagOutput values.
+// You can construct a concrete instance of `InputTagInput` via:
+//
+//          InputTagArgs{...}
+type InputTagInput interface {
+	pulumi.Input
+
+	ToInputTagOutput() InputTagOutput
+	ToInputTagOutputWithContext(context.Context) InputTagOutput
+}
+
+// Tags to be applied to Input.
+type InputTagArgs struct {
+	// Key of the Tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value of the Tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (InputTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputTag)(nil)).Elem()
+}
+
+func (i InputTagArgs) ToInputTagOutput() InputTagOutput {
+	return i.ToInputTagOutputWithContext(context.Background())
+}
+
+func (i InputTagArgs) ToInputTagOutputWithContext(ctx context.Context) InputTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputTagOutput)
+}
+
+// InputTagArrayInput is an input type that accepts InputTagArray and InputTagArrayOutput values.
+// You can construct a concrete instance of `InputTagArrayInput` via:
+//
+//          InputTagArray{ InputTagArgs{...} }
+type InputTagArrayInput interface {
+	pulumi.Input
+
+	ToInputTagArrayOutput() InputTagArrayOutput
+	ToInputTagArrayOutputWithContext(context.Context) InputTagArrayOutput
+}
+
+type InputTagArray []InputTagInput
+
+func (InputTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputTag)(nil)).Elem()
+}
+
+func (i InputTagArray) ToInputTagArrayOutput() InputTagArrayOutput {
+	return i.ToInputTagArrayOutputWithContext(context.Background())
+}
+
+func (i InputTagArray) ToInputTagArrayOutputWithContext(ctx context.Context) InputTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InputTagArrayOutput)
+}
+
+// Tags to be applied to Input.
+type InputTagOutput struct{ *pulumi.OutputState }
+
+func (InputTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InputTag)(nil)).Elem()
+}
+
+func (o InputTagOutput) ToInputTagOutput() InputTagOutput {
+	return o
+}
+
+func (o InputTagOutput) ToInputTagOutputWithContext(ctx context.Context) InputTagOutput {
+	return o
+}
+
+// Key of the Tag.
+func (o InputTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v InputTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Value of the Tag.
+func (o InputTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v InputTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type InputTagArrayOutput struct{ *pulumi.OutputState }
+
+func (InputTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InputTag)(nil)).Elem()
+}
+
+func (o InputTagArrayOutput) ToInputTagArrayOutput() InputTagArrayOutput {
+	return o
+}
+
+func (o InputTagArrayOutput) ToInputTagArrayOutputWithContext(ctx context.Context) InputTagArrayOutput {
+	return o
+}
+
+func (o InputTagArrayOutput) Index(i pulumi.IntInput) InputTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InputTag {
+		return vs[0].([]InputTag)[vs[1].(int)]
+	}).(InputTagOutput)
 }
 
 func init() {
@@ -4465,10 +4687,14 @@ func init() {
 	pulumi.RegisterOutputType(DetectorModelSqsPtrOutput{})
 	pulumi.RegisterOutputType(DetectorModelStateTypeOutput{})
 	pulumi.RegisterOutputType(DetectorModelStateTypeArrayOutput{})
+	pulumi.RegisterOutputType(DetectorModelTagOutput{})
+	pulumi.RegisterOutputType(DetectorModelTagArrayOutput{})
 	pulumi.RegisterOutputType(DetectorModelTransitionEventOutput{})
 	pulumi.RegisterOutputType(DetectorModelTransitionEventArrayOutput{})
 	pulumi.RegisterOutputType(InputAttributeOutput{})
 	pulumi.RegisterOutputType(InputAttributeArrayOutput{})
 	pulumi.RegisterOutputType(InputInputDefinitionOutput{})
 	pulumi.RegisterOutputType(InputInputDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(InputTagOutput{})
+	pulumi.RegisterOutputType(InputTagArrayOutput{})
 }

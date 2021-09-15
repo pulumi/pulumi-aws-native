@@ -18,16 +18,12 @@ class OriginRequestPolicyArgs:
                  origin_request_policy_config: pulumi.Input['OriginRequestPolicyOriginRequestPolicyConfigArgs']):
         """
         The set of arguments for constructing a OriginRequestPolicy resource.
-        :param pulumi.Input['OriginRequestPolicyOriginRequestPolicyConfigArgs'] origin_request_policy_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
         """
         pulumi.set(__self__, "origin_request_policy_config", origin_request_policy_config)
 
     @property
     @pulumi.getter(name="originRequestPolicyConfig")
     def origin_request_policy_config(self) -> pulumi.Input['OriginRequestPolicyOriginRequestPolicyConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
-        """
         return pulumi.get(self, "origin_request_policy_config")
 
     @origin_request_policy_config.setter
@@ -43,11 +39,10 @@ class OriginRequestPolicy(pulumi.CustomResource):
                  origin_request_policy_config: Optional[pulumi.Input[pulumi.InputType['OriginRequestPolicyOriginRequestPolicyConfigArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
+        Resource Type definition for AWS::CloudFront::OriginRequestPolicy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OriginRequestPolicyOriginRequestPolicyConfigArgs']] origin_request_policy_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
         """
         ...
     @overload
@@ -56,7 +51,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
                  args: OriginRequestPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
+        Resource Type definition for AWS::CloudFront::OriginRequestPolicy
 
         :param str resource_name: The name of the resource.
         :param OriginRequestPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -89,7 +84,6 @@ class OriginRequestPolicy(pulumi.CustomResource):
             if origin_request_policy_config is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_request_policy_config'")
             __props__.__dict__["origin_request_policy_config"] = origin_request_policy_config
-            __props__.__dict__["id"] = None
             __props__.__dict__["last_modified_time"] = None
         super(OriginRequestPolicy, __self__).__init__(
             'aws-native:cloudfront:OriginRequestPolicy',
@@ -113,15 +107,9 @@ class OriginRequestPolicy(pulumi.CustomResource):
 
         __props__ = OriginRequestPolicyArgs.__new__(OriginRequestPolicyArgs)
 
-        __props__.__dict__["id"] = None
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["origin_request_policy_config"] = None
         return OriginRequestPolicy(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
@@ -131,8 +119,5 @@ class OriginRequestPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="originRequestPolicyConfig")
     def origin_request_policy_config(self) -> pulumi.Output['outputs.OriginRequestPolicyOriginRequestPolicyConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
-        """
         return pulumi.get(self, "origin_request_policy_config")
 

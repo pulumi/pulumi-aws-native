@@ -10,11 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html
+// An FMS includeMap or excludeMap.
 type PolicyIEMap struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
 	ACCOUNT []string `pulumi:"aCCOUNT"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
 	ORGUNIT []string `pulumi:"oRGUNIT"`
 }
 
@@ -29,11 +27,9 @@ type PolicyIEMapInput interface {
 	ToPolicyIEMapOutputWithContext(context.Context) PolicyIEMapOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html
+// An FMS includeMap or excludeMap.
 type PolicyIEMapArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
 	ACCOUNT pulumi.StringArrayInput `pulumi:"aCCOUNT"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
 	ORGUNIT pulumi.StringArrayInput `pulumi:"oRGUNIT"`
 }
 
@@ -90,7 +86,7 @@ func (i *policyIEMapPtrType) ToPolicyIEMapPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyIEMapPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html
+// An FMS includeMap or excludeMap.
 type PolicyIEMapOutput struct{ *pulumi.OutputState }
 
 func (PolicyIEMapOutput) ElementType() reflect.Type {
@@ -115,12 +111,10 @@ func (o PolicyIEMapOutput) ToPolicyIEMapPtrOutputWithContext(ctx context.Context
 	}).(PolicyIEMapPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
 func (o PolicyIEMapOutput) ACCOUNT() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyIEMap) []string { return v.ACCOUNT }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
 func (o PolicyIEMapOutput) ORGUNIT() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyIEMap) []string { return v.ORGUNIT }).(pulumi.StringArrayOutput)
 }
@@ -149,7 +143,6 @@ func (o PolicyIEMapPtrOutput) Elem() PolicyIEMapOutput {
 	}).(PolicyIEMapOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
 func (o PolicyIEMapPtrOutput) ACCOUNT() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyIEMap) []string {
 		if v == nil {
@@ -159,7 +152,6 @@ func (o PolicyIEMapPtrOutput) ACCOUNT() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
 func (o PolicyIEMapPtrOutput) ORGUNIT() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyIEMap) []string {
 		if v == nil {
@@ -169,11 +161,9 @@ func (o PolicyIEMapPtrOutput) ORGUNIT() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html
+// A policy tag.
 type PolicyPolicyTag struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-key
-	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-value
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -188,11 +178,9 @@ type PolicyPolicyTagInput interface {
 	ToPolicyPolicyTagOutputWithContext(context.Context) PolicyPolicyTagOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html
+// A policy tag.
 type PolicyPolicyTagArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-key
-	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-value
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -233,7 +221,7 @@ func (i PolicyPolicyTagArray) ToPolicyPolicyTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPolicyTagArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html
+// A policy tag.
 type PolicyPolicyTagOutput struct{ *pulumi.OutputState }
 
 func (PolicyPolicyTagOutput) ElementType() reflect.Type {
@@ -248,12 +236,10 @@ func (o PolicyPolicyTagOutput) ToPolicyPolicyTagOutputWithContext(ctx context.Co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-key
 func (o PolicyPolicyTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPolicyTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policytag.html#cfn-fms-policy-policytag-value
 func (o PolicyPolicyTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyPolicyTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -278,11 +264,9 @@ func (o PolicyPolicyTagArrayOutput) Index(i pulumi.IntInput) PolicyPolicyTagOutp
 	}).(PolicyPolicyTagOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html
+// A resource tag.
 type PolicyResourceTag struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-key
-	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-value
+	Key   string  `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
@@ -297,11 +281,9 @@ type PolicyResourceTagInput interface {
 	ToPolicyResourceTagOutputWithContext(context.Context) PolicyResourceTagOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html
+// A resource tag.
 type PolicyResourceTagArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-key
-	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-value
+	Key   pulumi.StringInput    `pulumi:"key"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -342,7 +324,7 @@ func (i PolicyResourceTagArray) ToPolicyResourceTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyResourceTagArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html
+// A resource tag.
 type PolicyResourceTagOutput struct{ *pulumi.OutputState }
 
 func (PolicyResourceTagOutput) ElementType() reflect.Type {
@@ -357,12 +339,10 @@ func (o PolicyResourceTagOutput) ToPolicyResourceTagOutputWithContext(ctx contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-key
 func (o PolicyResourceTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyResourceTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-resourcetag.html#cfn-fms-policy-resourcetag-value
 func (o PolicyResourceTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyResourceTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

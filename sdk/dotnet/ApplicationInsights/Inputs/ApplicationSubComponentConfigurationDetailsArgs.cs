@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html
+    /// The configuration settings of sub components.
     /// </summary>
     public sealed class ApplicationSubComponentConfigurationDetailsArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         private InputList<Inputs.ApplicationAlarmMetricArgs>? _alarmMetrics;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-alarmmetrics
+        /// A list of metrics to monitor for the component.
         /// </summary>
         public InputList<Inputs.ApplicationAlarmMetricArgs> AlarmMetrics
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         private InputList<Inputs.ApplicationLogArgs>? _logs;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-logs
+        /// A list of logs to monitor for the component.
         /// </summary>
         public InputList<Inputs.ApplicationLogArgs> Logs
         {
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         private InputList<Inputs.ApplicationWindowsEventArgs>? _windowsEvents;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-windowsevents
+        /// A list of Windows Events to log.
         /// </summary>
         public InputList<Inputs.ApplicationWindowsEventArgs> WindowsEvents
         {

@@ -10,22 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3Outposts
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html
+    /// Resource Type Definition for AWS::S3Outposts::BucketPolicy
     /// </summary>
     [AwsNativeResourceType("aws-native:s3outposts:BucketPolicy")]
     public partial class BucketPolicy : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html#cfn-s3outposts-bucketpolicy-bucket
+        /// The Amazon Resource Name (ARN) of the specified bucket.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html#cfn-s3outposts-bucketpolicy-policydocument
+        /// A policy document containing permissions to add to the specified bucket.
         /// </summary>
         [Output("policyDocument")]
-        public Output<Union<System.Text.Json.JsonElement, string>> PolicyDocument { get; private set; } = null!;
+        public Output<object> PolicyDocument { get; private set; } = null!;
 
 
         /// <summary>
@@ -73,16 +73,16 @@ namespace Pulumi.AwsNative.S3Outposts
     public sealed class BucketPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html#cfn-s3outposts-bucketpolicy-bucket
+        /// The Amazon Resource Name (ARN) of the specified bucket.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html#cfn-s3outposts-bucketpolicy-policydocument
+        /// A policy document containing permissions to add to the specified bucket.
         /// </summary>
         [Input("policyDocument", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> PolicyDocument { get; set; } = null!;
+        public Input<object> PolicyDocument { get; set; } = null!;
 
         public BucketPolicyArgs()
         {

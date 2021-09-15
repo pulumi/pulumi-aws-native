@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html
+ * Aws Route53 Recovery Readiness Check Schema and API specification.
  */
 export class ReadinessCheck extends pulumi.CustomResource {
     /**
@@ -35,19 +35,22 @@ export class ReadinessCheck extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReadinessCheck.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the readiness check.
+     */
     public /*out*/ readonly readinessCheckArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-readinesscheckname
+     * Name of the ReadinessCheck to create.
      */
     public readonly readinessCheckName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-resourcesetname
+     * The name of the resource set to check.
      */
     public readonly resourceSetName!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-tags
+     * A collection of tags associated with a resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.route53recoveryreadiness.ReadinessCheckTag[] | undefined>;
 
     /**
      * Create a ReadinessCheck resource with the given unique name, arguments, and options.
@@ -85,15 +88,15 @@ export class ReadinessCheck extends pulumi.CustomResource {
  */
 export interface ReadinessCheckArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-readinesscheckname
+     * Name of the ReadinessCheck to create.
      */
     readinessCheckName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-resourcesetname
+     * The name of the resource set to check.
      */
     resourceSetName?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-tags
+     * A collection of tags associated with a resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.route53recoveryreadiness.ReadinessCheckTagArgs>[]>;
 }

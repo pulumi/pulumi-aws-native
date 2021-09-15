@@ -11,17 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html
+// Resource schema for AWS::Athena::PreparedStatement
 type PreparedStatement struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-description
+	// The description of the prepared statement.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-querystatement
+	// The query string for the prepared statement.
 	QueryStatement pulumi.StringOutput `pulumi:"queryStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-statementname
+	// The name of the prepared statement.
 	StatementName pulumi.StringOutput `pulumi:"statementName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-workgroup
+	// The name of the workgroup to which the prepared statement belongs.
 	WorkGroup pulumi.StringOutput `pulumi:"workGroup"`
 }
 
@@ -73,25 +73,25 @@ func (PreparedStatementState) ElementType() reflect.Type {
 }
 
 type preparedStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-description
+	// The description of the prepared statement.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-querystatement
+	// The query string for the prepared statement.
 	QueryStatement string `pulumi:"queryStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-statementname
+	// The name of the prepared statement.
 	StatementName string `pulumi:"statementName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-workgroup
+	// The name of the workgroup to which the prepared statement belongs.
 	WorkGroup string `pulumi:"workGroup"`
 }
 
 // The set of arguments for constructing a PreparedStatement resource.
 type PreparedStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-description
+	// The description of the prepared statement.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-querystatement
+	// The query string for the prepared statement.
 	QueryStatement pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-statementname
+	// The name of the prepared statement.
 	StatementName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-workgroup
+	// The name of the workgroup to which the prepared statement belongs.
 	WorkGroup pulumi.StringInput
 }
 

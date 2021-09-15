@@ -11,19 +11,16 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html
+    /// The resource element of a ResourceSet
     /// </summary>
     public sealed class ResourceSetResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-componentid
+        /// The component identifier of the resource, generated when DNS target resource is used.
         /// </summary>
         [Input("componentId")]
         public Input<string>? ComponentId { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-dnstargetresource
-        /// </summary>
         [Input("dnsTargetResource")]
         public Input<Inputs.ResourceSetDNSTargetResourceArgs>? DnsTargetResource { get; set; }
 
@@ -31,7 +28,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
         private InputList<string>? _readinessScopes;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-readinessscopes
+        /// A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
         /// </summary>
         public InputList<string> ReadinessScopes
         {
@@ -40,7 +37,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-resourcearn
+        /// The Amazon Resource Name (ARN) of the AWS resource.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

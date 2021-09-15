@@ -12,12 +12,13 @@ from . import outputs
 __all__ = [
     'AnalyzerArchiveRule',
     'AnalyzerFilter',
+    'AnalyzerTag',
 ]
 
 @pulumi.output_type
 class AnalyzerArchiveRule(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html
+    An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -40,9 +41,8 @@ class AnalyzerArchiveRule(dict):
                  filter: Sequence['outputs.AnalyzerFilter'],
                  rule_name: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html
-        :param Sequence['AnalyzerFilter'] filter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-filter
-        :param str rule_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-rulename
+        An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
+        :param str rule_name: The archive rule name
         """
         pulumi.set(__self__, "filter", filter)
         pulumi.set(__self__, "rule_name", rule_name)
@@ -50,39 +50,25 @@ class AnalyzerArchiveRule(dict):
     @property
     @pulumi.getter
     def filter(self) -> Sequence['outputs.AnalyzerFilter']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-filter
-        """
         return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-rulename
+        The archive rule name
         """
         return pulumi.get(self, "rule_name")
 
 
 @pulumi.output_type
 class AnalyzerFilter(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html
-    """
     def __init__(__self__, *,
                  property: str,
                  contains: Optional[Sequence[str]] = None,
                  eq: Optional[Sequence[str]] = None,
                  exists: Optional[bool] = None,
                  neq: Optional[Sequence[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html
-        :param str property: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-property
-        :param Sequence[str] contains: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-contains
-        :param Sequence[str] eq: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-eq
-        :param bool exists: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-exists
-        :param Sequence[str] neq: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-neq
-        """
         pulumi.set(__self__, "property", property)
         if contains is not None:
             pulumi.set(__self__, "contains", contains)
@@ -96,41 +82,59 @@ class AnalyzerFilter(dict):
     @property
     @pulumi.getter
     def contains(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-contains
-        """
         return pulumi.get(self, "contains")
 
     @property
     @pulumi.getter
     def eq(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-eq
-        """
         return pulumi.get(self, "eq")
 
     @property
     @pulumi.getter
     def exists(self) -> Optional[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-exists
-        """
         return pulumi.get(self, "exists")
 
     @property
     @pulumi.getter
     def neq(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-neq
-        """
         return pulumi.get(self, "neq")
 
     @property
     @pulumi.getter
     def property(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-property
-        """
         return pulumi.get(self, "property")
+
+
+@pulumi.output_type
+class AnalyzerTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
 
 

@@ -19,10 +19,10 @@ class KeySigningKeyArgs:
                  status: pulumi.Input[str]):
         """
         The set of arguments for constructing a KeySigningKey resource.
-        :param pulumi.Input[str] hosted_zone_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-hostedzoneid
-        :param pulumi.Input[str] key_management_service_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-keymanagementservicearn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-name
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-status
+        :param pulumi.Input[str] hosted_zone_id: The unique string (ID) used to identify a hosted zone.
+        :param pulumi.Input[str] key_management_service_arn: The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management Service (KMS). The KeyManagementServiceArn must be unique for each key signing key (KSK) in a single hosted zone.
+        :param pulumi.Input[str] name: An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
+        :param pulumi.Input[str] status: A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
         """
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
         pulumi.set(__self__, "key_management_service_arn", key_management_service_arn)
@@ -33,7 +33,7 @@ class KeySigningKeyArgs:
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-hostedzoneid
+        The unique string (ID) used to identify a hosted zone.
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -45,7 +45,7 @@ class KeySigningKeyArgs:
     @pulumi.getter(name="keyManagementServiceArn")
     def key_management_service_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-keymanagementservicearn
+        The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management Service (KMS). The KeyManagementServiceArn must be unique for each key signing key (KSK) in a single hosted zone.
         """
         return pulumi.get(self, "key_management_service_arn")
 
@@ -57,7 +57,7 @@ class KeySigningKeyArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-name
+        An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
         """
         return pulumi.get(self, "name")
 
@@ -69,7 +69,7 @@ class KeySigningKeyArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-status
+        A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
         """
         return pulumi.get(self, "status")
 
@@ -89,14 +89,14 @@ class KeySigningKey(pulumi.CustomResource):
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html
+        Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] hosted_zone_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-hostedzoneid
-        :param pulumi.Input[str] key_management_service_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-keymanagementservicearn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-name
-        :param pulumi.Input[str] status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-status
+        :param pulumi.Input[str] hosted_zone_id: The unique string (ID) used to identify a hosted zone.
+        :param pulumi.Input[str] key_management_service_arn: The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management Service (KMS). The KeyManagementServiceArn must be unique for each key signing key (KSK) in a single hosted zone.
+        :param pulumi.Input[str] name: An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
+        :param pulumi.Input[str] status: A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
         """
         ...
     @overload
@@ -105,7 +105,7 @@ class KeySigningKey(pulumi.CustomResource):
                  args: KeySigningKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html
+        Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
 
         :param str resource_name: The name of the resource.
         :param KeySigningKeyArgs args: The arguments to use to populate this resource's properties.
@@ -182,7 +182,7 @@ class KeySigningKey(pulumi.CustomResource):
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-hostedzoneid
+        The unique string (ID) used to identify a hosted zone.
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -190,7 +190,7 @@ class KeySigningKey(pulumi.CustomResource):
     @pulumi.getter(name="keyManagementServiceArn")
     def key_management_service_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-keymanagementservicearn
+        The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management Service (KMS). The KeyManagementServiceArn must be unique for each key signing key (KSK) in a single hosted zone.
         """
         return pulumi.get(self, "key_management_service_arn")
 
@@ -198,7 +198,7 @@ class KeySigningKey(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-name
+        An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
         """
         return pulumi.get(self, "name")
 
@@ -206,7 +206,7 @@ class KeySigningKey(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-keysigningkey.html#cfn-route53-keysigningkey-status
+        A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
         """
         return pulumi.get(self, "status")
 

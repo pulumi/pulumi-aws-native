@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DistributionArgs', 'Distribution']
@@ -18,11 +16,9 @@ __all__ = ['DistributionArgs', 'Distribution']
 class DistributionArgs:
     def __init__(__self__, *,
                  distribution_config: pulumi.Input['DistributionDistributionConfigArgs'],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTagArgs']]]] = None):
         """
         The set of arguments for constructing a Distribution resource.
-        :param pulumi.Input['DistributionDistributionConfigArgs'] distribution_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
         """
         pulumi.set(__self__, "distribution_config", distribution_config)
         if tags is not None:
@@ -31,9 +27,6 @@ class DistributionArgs:
     @property
     @pulumi.getter(name="distributionConfig")
     def distribution_config(self) -> pulumi.Input['DistributionDistributionConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
-        """
         return pulumi.get(self, "distribution_config")
 
     @distribution_config.setter
@@ -42,14 +35,11 @@ class DistributionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -59,15 +49,13 @@ class Distribution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  distribution_config: Optional[pulumi.Input[pulumi.InputType['DistributionDistributionConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html
+        Resource Type definition for AWS::CloudFront::Distribution
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DistributionDistributionConfigArgs']] distribution_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
         """
         ...
     @overload
@@ -76,7 +64,7 @@ class Distribution(pulumi.CustomResource):
                  args: DistributionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html
+        Resource Type definition for AWS::CloudFront::Distribution
 
         :param str resource_name: The name of the resource.
         :param DistributionArgs args: The arguments to use to populate this resource's properties.
@@ -94,7 +82,7 @@ class Distribution(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  distribution_config: Optional[pulumi.Input[pulumi.InputType['DistributionDistributionConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -112,7 +100,6 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["distribution_config"] = distribution_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["domain_name"] = None
-            __props__.__dict__["id"] = None
         super(Distribution, __self__).__init__(
             'aws-native:cloudfront:Distribution',
             resource_name,
@@ -137,16 +124,12 @@ class Distribution(pulumi.CustomResource):
 
         __props__.__dict__["distribution_config"] = None
         __props__.__dict__["domain_name"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["tags"] = None
         return Distribution(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="distributionConfig")
     def distribution_config(self) -> pulumi.Output['outputs.DistributionDistributionConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
-        """
         return pulumi.get(self, "distribution_config")
 
     @property
@@ -156,14 +139,6 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DistributionTag']]]:
         return pulumi.get(self, "tags")
 

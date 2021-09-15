@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html
+    /// CloudFormation resource for DevOps Guru to monitor
     /// </summary>
     public sealed class ResourceCollectionCloudFormationCollectionFilterArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
         private InputList<string>? _stackNames;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames
+        /// An array of CloudFormation stack names.
         /// </summary>
         public InputList<string> StackNames
         {

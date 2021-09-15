@@ -11,19 +11,13 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html
+    /// Contains a summary of a gateway capability configuration.
     /// </summary>
     public sealed class GatewayGatewayCapabilitySummaryArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html#cfn-iotsitewise-gateway-gatewaycapabilitysummary-capabilityconfiguration
-        /// </summary>
         [Input("capabilityConfiguration")]
         public Input<string>? CapabilityConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html#cfn-iotsitewise-gateway-gatewaycapabilitysummary-capabilitynamespace
-        /// </summary>
         [Input("capabilityNamespace", required: true)]
         public Input<string> CapabilityNamespace { get; set; } = null!;
 

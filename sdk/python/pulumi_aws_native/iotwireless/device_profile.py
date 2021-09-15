@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DeviceProfileArgs', 'DeviceProfile']
@@ -19,12 +17,12 @@ class DeviceProfileArgs:
     def __init__(__self__, *,
                  lo_ra_wan: Optional[pulumi.Input['DeviceProfileLoRaWANDeviceProfileArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceProfileTagArgs']]]] = None):
         """
         The set of arguments for constructing a DeviceProfile resource.
-        :param pulumi.Input['DeviceProfileLoRaWANDeviceProfileArgs'] lo_ra_wan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-lorawan
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-name
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-tags
+        :param pulumi.Input['DeviceProfileLoRaWANDeviceProfileArgs'] lo_ra_wan: LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
+        :param pulumi.Input[str] name: Name of service profile
+        :param pulumi.Input[Sequence[pulumi.Input['DeviceProfileTagArgs']]] tags: A list of key-value pairs that contain metadata for the device profile.
         """
         if lo_ra_wan is not None:
             pulumi.set(__self__, "lo_ra_wan", lo_ra_wan)
@@ -37,7 +35,7 @@ class DeviceProfileArgs:
     @pulumi.getter(name="loRaWAN")
     def lo_ra_wan(self) -> Optional[pulumi.Input['DeviceProfileLoRaWANDeviceProfileArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-lorawan
+        LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
         """
         return pulumi.get(self, "lo_ra_wan")
 
@@ -49,7 +47,7 @@ class DeviceProfileArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-name
+        Name of service profile
         """
         return pulumi.get(self, "name")
 
@@ -59,14 +57,14 @@ class DeviceProfileArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeviceProfileTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-tags
+        A list of key-value pairs that contain metadata for the device profile.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceProfileTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -77,16 +75,16 @@ class DeviceProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['DeviceProfileLoRaWANDeviceProfileArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceProfileTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html
+        Device Profile's resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DeviceProfileLoRaWANDeviceProfileArgs']] lo_ra_wan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-lorawan
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-tags
+        :param pulumi.Input[pulumi.InputType['DeviceProfileLoRaWANDeviceProfileArgs']] lo_ra_wan: LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
+        :param pulumi.Input[str] name: Name of service profile
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceProfileTagArgs']]]] tags: A list of key-value pairs that contain metadata for the device profile.
         """
         ...
     @overload
@@ -95,7 +93,7 @@ class DeviceProfile(pulumi.CustomResource):
                  args: Optional[DeviceProfileArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html
+        Device Profile's resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param DeviceProfileArgs args: The arguments to use to populate this resource's properties.
@@ -114,7 +112,7 @@ class DeviceProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  lo_ra_wan: Optional[pulumi.Input[pulumi.InputType['DeviceProfileLoRaWANDeviceProfileArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeviceProfileTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -131,7 +129,6 @@ class DeviceProfile(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-            __props__.__dict__["id"] = None
         super(DeviceProfile, __self__).__init__(
             'aws-native:iotwireless:DeviceProfile',
             resource_name,
@@ -155,7 +152,6 @@ class DeviceProfile(pulumi.CustomResource):
         __props__ = DeviceProfileArgs.__new__(DeviceProfileArgs)
 
         __props__.__dict__["arn"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["lo_ra_wan"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
@@ -164,18 +160,16 @@ class DeviceProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Service profile Arn. Returned after successful create.
+        """
         return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="loRaWAN")
     def lo_ra_wan(self) -> pulumi.Output[Optional['outputs.DeviceProfileLoRaWANDeviceProfile']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-lorawan
+        LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
         """
         return pulumi.get(self, "lo_ra_wan")
 
@@ -183,15 +177,15 @@ class DeviceProfile(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-name
+        Name of service profile
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DeviceProfileTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-tags
+        A list of key-value pairs that contain metadata for the device profile.
         """
         return pulumi.get(self, "tags")
 

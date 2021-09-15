@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.IoT.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html
+    /// Information about the targets to which audit notifications are sent.
     /// </summary>
     [OutputType]
     public sealed class AccountAuditConfigurationAuditNotificationTargetConfigurations
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditnotificationtargetconfigurations.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations-sns
-        /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditNotificationTarget? Sns;
 
         [OutputConstructor]

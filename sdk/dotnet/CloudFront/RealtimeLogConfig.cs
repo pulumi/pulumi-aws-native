@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html
+    /// Resource Type definition for AWS::CloudFront::RealtimeLogConfig
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:RealtimeLogConfig")]
     public partial class RealtimeLogConfig : Pulumi.CustomResource
@@ -18,27 +18,15 @@ namespace Pulumi.AwsNative.CloudFront
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-        /// </summary>
         [Output("endPoints")]
         public Output<ImmutableArray<Outputs.RealtimeLogConfigEndPoint>> EndPoints { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-        /// </summary>
         [Output("fields")]
         public Output<ImmutableArray<string>> Fields { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
-        /// </summary>
         [Output("samplingRate")]
         public Output<double> SamplingRate { get; private set; } = null!;
 
@@ -89,10 +77,6 @@ namespace Pulumi.AwsNative.CloudFront
     {
         [Input("endPoints", required: true)]
         private InputList<Inputs.RealtimeLogConfigEndPointArgs>? _endPoints;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-        /// </summary>
         public InputList<Inputs.RealtimeLogConfigEndPointArgs> EndPoints
         {
             get => _endPoints ?? (_endPoints = new InputList<Inputs.RealtimeLogConfigEndPointArgs>());
@@ -101,25 +85,15 @@ namespace Pulumi.AwsNative.CloudFront
 
         [Input("fields", required: true)]
         private InputList<string>? _fields;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-        /// </summary>
         public InputList<string> Fields
         {
             get => _fields ?? (_fields = new InputList<string>());
             set => _fields = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
-        /// </summary>
         [Input("samplingRate", required: true)]
         public Input<double> SamplingRate { get; set; } = null!;
 

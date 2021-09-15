@@ -10,35 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html
-    /// </summary>
     public sealed class ConfigurationAggregatorAccountAggregationSourceArgs : Pulumi.ResourceArgs
     {
         [Input("accountIds", required: true)]
         private InputList<string>? _accountIds;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids
-        /// </summary>
         public InputList<string> AccountIds
         {
             get => _accountIds ?? (_accountIds = new InputList<string>());
             set => _accountIds = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-allawsregions
-        /// </summary>
         [Input("allAwsRegions")]
         public Input<bool>? AllAwsRegions { get; set; }
 
         [Input("awsRegions")]
         private InputList<string>? _awsRegions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-awsregions
-        /// </summary>
         public InputList<string> AwsRegions
         {
             get => _awsRegions ?? (_awsRegions = new InputList<string>());

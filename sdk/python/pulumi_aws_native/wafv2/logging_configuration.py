@@ -17,14 +17,14 @@ class LoggingConfigurationArgs:
     def __init__(__self__, *,
                  log_destination_configs: pulumi.Input[Sequence[pulumi.Input[str]]],
                  resource_arn: pulumi.Input[str],
-                 logging_filter: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 logging_filter: Optional[Any] = None,
                  redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-logdestinationconfigs
-        :param pulumi.Input[str] resource_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-resourcearn
-        :param pulumi.Input[Union[Any, str]] logging_filter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-loggingfilter
-        :param pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]] redacted_fields: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-redactedfields
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
+        :param Any logging_filter: Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+        :param pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]] redacted_fields: The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
         """
         pulumi.set(__self__, "log_destination_configs", log_destination_configs)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -37,7 +37,7 @@ class LoggingConfigurationArgs:
     @pulumi.getter(name="logDestinationConfigs")
     def log_destination_configs(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-logdestinationconfigs
+        The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
         """
         return pulumi.get(self, "log_destination_configs")
 
@@ -49,7 +49,7 @@ class LoggingConfigurationArgs:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-resourcearn
+        The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -59,21 +59,21 @@ class LoggingConfigurationArgs:
 
     @property
     @pulumi.getter(name="loggingFilter")
-    def logging_filter(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+    def logging_filter(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-loggingfilter
+        Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
         """
         return pulumi.get(self, "logging_filter")
 
     @logging_filter.setter
-    def logging_filter(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def logging_filter(self, value: Optional[Any]):
         pulumi.set(self, "logging_filter", value)
 
     @property
     @pulumi.getter(name="redactedFields")
     def redacted_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationFieldToMatchArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-redactedfields
+        The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
         """
         return pulumi.get(self, "redacted_fields")
 
@@ -88,19 +88,19 @@ class LoggingConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 logging_filter: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 logging_filter: Optional[Any] = None,
                  redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoggingConfigurationFieldToMatchArgs']]]]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html
+        A WAFv2 Logging Configuration Resource Provider
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-logdestinationconfigs
-        :param pulumi.Input[Union[Any, str]] logging_filter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-loggingfilter
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoggingConfigurationFieldToMatchArgs']]]] redacted_fields: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-redactedfields
-        :param pulumi.Input[str] resource_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-resourcearn
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_destination_configs: The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
+        :param Any logging_filter: Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoggingConfigurationFieldToMatchArgs']]]] redacted_fields: The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
+        :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
         """
         ...
     @overload
@@ -109,7 +109,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  args: LoggingConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html
+        A WAFv2 Logging Configuration Resource Provider
 
         :param str resource_name: The name of the resource.
         :param LoggingConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -127,7 +127,7 @@ class LoggingConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_destination_configs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 logging_filter: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 logging_filter: Optional[Any] = None,
                  redacted_fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoggingConfigurationFieldToMatchArgs']]]]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -184,28 +184,31 @@ class LoggingConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="logDestinationConfigs")
     def log_destination_configs(self) -> pulumi.Output[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-logdestinationconfigs
+        The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
         """
         return pulumi.get(self, "log_destination_configs")
 
     @property
     @pulumi.getter(name="loggingFilter")
-    def logging_filter(self) -> pulumi.Output[Optional[str]]:
+    def logging_filter(self) -> pulumi.Output[Optional[Any]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-loggingfilter
+        Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
         """
         return pulumi.get(self, "logging_filter")
 
     @property
     @pulumi.getter(name="managedByFirewallManager")
     def managed_by_firewall_manager(self) -> pulumi.Output[bool]:
+        """
+        Indicates whether the logging configuration was created by AWS Firewall Manager, as part of an AWS WAF policy configuration. If true, only Firewall Manager can modify or delete the configuration.
+        """
         return pulumi.get(self, "managed_by_firewall_manager")
 
     @property
     @pulumi.getter(name="redactedFields")
     def redacted_fields(self) -> pulumi.Output[Optional[Sequence['outputs.LoggingConfigurationFieldToMatch']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-redactedfields
+        The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
         """
         return pulumi.get(self, "redacted_fields")
 
@@ -213,7 +216,7 @@ class LoggingConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-resourcearn
+        The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
         """
         return pulumi.get(self, "resource_arn")
 

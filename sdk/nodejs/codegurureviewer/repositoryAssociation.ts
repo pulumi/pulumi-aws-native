@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html
+ * This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
  */
 export class RepositoryAssociation extends pulumi.CustomResource {
     /**
@@ -35,29 +35,32 @@ export class RepositoryAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === RepositoryAssociation.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the repository association.
+     */
     public /*out*/ readonly associationArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-bucketname
+     * The name of the S3 bucket associated with an associated S3 repository. It must start with `codeguru-reviewer-`.
      */
     public readonly bucketName!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-connectionarn
+     * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
      */
     public readonly connectionArn!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-name
+     * Name of the repository to be associated.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-owner
+     * The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
      */
     public readonly owner!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-tags
+     * The tags associated with a repository association.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-type
+     * The type of repository to be associated.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -106,27 +109,27 @@ export class RepositoryAssociation extends pulumi.CustomResource {
  */
 export interface RepositoryAssociationArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-bucketname
+     * The name of the S3 bucket associated with an associated S3 repository. It must start with `codeguru-reviewer-`.
      */
     bucketName?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-connectionarn
+     * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
      */
     connectionArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-name
+     * Name of the repository to be associated.
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-owner
+     * The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
      */
     owner?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-tags
+     * The tags associated with a repository association.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.codegurureviewer.RepositoryAssociationTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-type
+     * The type of repository to be associated.
      */
     type: pulumi.Input<string>;
 }

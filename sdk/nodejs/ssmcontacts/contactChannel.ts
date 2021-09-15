@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html
+ * Resource Type definition for AWS::SSMContacts::ContactChannel
  */
 export class ContactChannel extends pulumi.CustomResource {
     /**
@@ -34,25 +34,28 @@ export class ContactChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === ContactChannel.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the engagement to a contact channel.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeladdress
+     * The details that SSM Incident Manager uses when trying to engage the contact channel.
      */
-    public readonly channelAddress!: pulumi.Output<string>;
+    public readonly channelAddress!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channelname
+     * The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
      */
-    public readonly channelName!: pulumi.Output<string>;
+    public readonly channelName!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeltype
+     * Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
      */
-    public readonly channelType!: pulumi.Output<string>;
+    public readonly channelType!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-contactid
+     * ARN of the contact resource
      */
-    public readonly contactId!: pulumi.Output<string>;
+    public readonly contactId!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-deferactivation
+     * If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
      */
     public readonly deferActivation!: pulumi.Output<boolean | undefined>;
 
@@ -63,22 +66,10 @@ export class ContactChannel extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ContactChannelArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ContactChannelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channelAddress === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'channelAddress'");
-            }
-            if ((!args || args.channelName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'channelName'");
-            }
-            if ((!args || args.channelType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'channelType'");
-            }
-            if ((!args || args.contactId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'contactId'");
-            }
             inputs["channelAddress"] = args ? args.channelAddress : undefined;
             inputs["channelName"] = args ? args.channelName : undefined;
             inputs["channelType"] = args ? args.channelType : undefined;
@@ -105,23 +96,23 @@ export class ContactChannel extends pulumi.CustomResource {
  */
 export interface ContactChannelArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeladdress
+     * The details that SSM Incident Manager uses when trying to engage the contact channel.
      */
-    channelAddress: pulumi.Input<string>;
+    channelAddress?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channelname
+     * The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
      */
-    channelName: pulumi.Input<string>;
+    channelName?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeltype
+     * Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
      */
-    channelType: pulumi.Input<string>;
+    channelType?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-contactid
+     * ARN of the contact resource
      */
-    contactId: pulumi.Input<string>;
+    contactId?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-deferactivation
+     * If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
      */
     deferActivation?: pulumi.Input<boolean>;
 }

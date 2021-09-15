@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html
+    /// &lt;p&gt;VPC connection properties.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSourceVpcConnectionProperties
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html#cfn-quicksight-datasource-vpcconnectionproperties-vpcconnectionarn
+        /// &lt;p&gt;The Amazon Resource Name (ARN) for the VPC connection.&lt;/p&gt;
         /// </summary>
         public readonly string VpcConnectionArn;
 

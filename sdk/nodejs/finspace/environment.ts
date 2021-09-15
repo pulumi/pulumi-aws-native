@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html
+ * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export class Environment extends pulumi.CustomResource {
     /**
@@ -35,32 +35,50 @@ export class Environment extends pulumi.CustomResource {
         return obj['__pulumiType'] === Environment.__pulumiType;
     }
 
+    /**
+     * AWS account ID associated with the Environment
+     */
     public /*out*/ readonly awsAccountId!: pulumi.Output<string>;
+    /**
+     * ID for FinSpace created account used to store Environment artifacts
+     */
     public /*out*/ readonly dedicatedServiceAccountId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-description
+     * Description of the Environment
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * ARN of the Environment
+     */
     public /*out*/ readonly environmentArn!: pulumi.Output<string>;
+    /**
+     * Unique identifier for representing FinSpace Environment
+     */
     public /*out*/ readonly environmentId!: pulumi.Output<string>;
+    /**
+     * URL used to login to the Environment
+     */
     public /*out*/ readonly environmentUrl!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationmode
+     * Federation mode used with the Environment
      */
     public readonly federationMode!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationparameters
-     */
     public readonly federationParameters!: pulumi.Output<outputs.finspace.EnvironmentFederationParameters | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-kmskeyid
+     * KMS key used to encrypt customer data within FinSpace Environment infrastructure
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-name
+     * Name of the Environment
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * SageMaker Studio Domain URL associated with the Environment
+     */
     public /*out*/ readonly sageMakerStudioDomainUrl!: pulumi.Output<string>;
+    /**
+     * State of the Environment
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
@@ -115,23 +133,20 @@ export class Environment extends pulumi.CustomResource {
  */
 export interface EnvironmentArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-description
+     * Description of the Environment
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationmode
+     * Federation mode used with the Environment
      */
     federationMode?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationparameters
-     */
     federationParameters?: pulumi.Input<inputs.finspace.EnvironmentFederationParametersArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-kmskeyid
+     * KMS key used to encrypt customer data within FinSpace Environment infrastructure
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-name
+     * Name of the Environment
      */
     name: pulumi.Input<string>;
 }

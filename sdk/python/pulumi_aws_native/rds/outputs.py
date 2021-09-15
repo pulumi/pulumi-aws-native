@@ -17,9 +17,6 @@ __all__ = [
 
 @pulumi.output_type
 class DBProxyAuthFormat(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -50,12 +47,11 @@ class DBProxyAuthFormat(dict):
                  secret_arn: Optional[str] = None,
                  user_name: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html
-        :param str auth_scheme: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-authscheme
-        :param str description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-description
-        :param str i_am_auth: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-iamauth
-        :param str secret_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-secretarn
-        :param str user_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-username
+        :param str auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
+        :param str description: A user-specified description about the authentication used by a proxy to log in as a specific database user. 
+        :param str i_am_auth: Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
+        :param str secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
+        :param str user_name: The name of the database user to which the proxy connects.
         """
         if auth_scheme is not None:
             pulumi.set(__self__, "auth_scheme", auth_scheme)
@@ -72,7 +68,7 @@ class DBProxyAuthFormat(dict):
     @pulumi.getter(name="authScheme")
     def auth_scheme(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-authscheme
+        The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
         """
         return pulumi.get(self, "auth_scheme")
 
@@ -80,7 +76,7 @@ class DBProxyAuthFormat(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-description
+        A user-specified description about the authentication used by a proxy to log in as a specific database user. 
         """
         return pulumi.get(self, "description")
 
@@ -88,7 +84,7 @@ class DBProxyAuthFormat(dict):
     @pulumi.getter(name="iAMAuth")
     def i_am_auth(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-iamauth
+        Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
         """
         return pulumi.get(self, "i_am_auth")
 
@@ -96,7 +92,7 @@ class DBProxyAuthFormat(dict):
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-secretarn
+        The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
         """
         return pulumi.get(self, "secret_arn")
 
@@ -104,24 +100,16 @@ class DBProxyAuthFormat(dict):
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-username
+        The name of the database user to which the proxy connects.
         """
         return pulumi.get(self, "user_name")
 
 
 @pulumi.output_type
 class DBProxyEndpointTagFormat(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html
-    """
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html
-        :param str key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-key
-        :param str value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-value
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -130,33 +118,19 @@ class DBProxyEndpointTagFormat(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-key
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-value
-        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class DBProxyTagFormat(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html
-    """
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  value: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html
-        :param str key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html#cfn-rds-dbproxy-tagformat-key
-        :param str value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html#cfn-rds-dbproxy-tagformat-value
-        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -165,25 +139,16 @@ class DBProxyTagFormat(dict):
     @property
     @pulumi.getter
     def key(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html#cfn-rds-dbproxy-tagformat-key
-        """
         return pulumi.get(self, "key")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html#cfn-rds-dbproxy-tagformat-value
-        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -216,12 +181,11 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
                  max_idle_connections_percent: Optional[int] = None,
                  session_pinning_filters: Optional[Sequence[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html
-        :param int connection_borrow_timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-connectionborrowtimeout
-        :param str init_query: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-initquery
-        :param int max_connections_percent: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxconnectionspercent
-        :param int max_idle_connections_percent: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxidleconnectionspercent
-        :param Sequence[str] session_pinning_filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-sessionpinningfilters
+        :param int connection_borrow_timeout: The number of seconds for a proxy to wait for a connection to become available in the connection pool.
+        :param str init_query: One or more SQL statements for the proxy to run when opening each new database connection.
+        :param int max_connections_percent: The maximum size of the connection pool for each target in a target group.
+        :param int max_idle_connections_percent: Controls how actively the proxy closes idle database connections in the connection pool.
+        :param Sequence[str] session_pinning_filters: Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
         """
         if connection_borrow_timeout is not None:
             pulumi.set(__self__, "connection_borrow_timeout", connection_borrow_timeout)
@@ -238,7 +202,7 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
     @pulumi.getter(name="connectionBorrowTimeout")
     def connection_borrow_timeout(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-connectionborrowtimeout
+        The number of seconds for a proxy to wait for a connection to become available in the connection pool.
         """
         return pulumi.get(self, "connection_borrow_timeout")
 
@@ -246,7 +210,7 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
     @pulumi.getter(name="initQuery")
     def init_query(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-initquery
+        One or more SQL statements for the proxy to run when opening each new database connection.
         """
         return pulumi.get(self, "init_query")
 
@@ -254,7 +218,7 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
     @pulumi.getter(name="maxConnectionsPercent")
     def max_connections_percent(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxconnectionspercent
+        The maximum size of the connection pool for each target in a target group.
         """
         return pulumi.get(self, "max_connections_percent")
 
@@ -262,7 +226,7 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
     @pulumi.getter(name="maxIdleConnectionsPercent")
     def max_idle_connections_percent(self) -> Optional[int]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxidleconnectionspercent
+        Controls how actively the proxy closes idle database connections in the connection pool.
         """
         return pulumi.get(self, "max_idle_connections_percent")
 
@@ -270,7 +234,7 @@ class DBProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
     @pulumi.getter(name="sessionPinningFilters")
     def session_pinning_filters(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-sessionpinningfilters
+        Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
         """
         return pulumi.get(self, "session_pinning_filters")
 

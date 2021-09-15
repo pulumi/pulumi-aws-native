@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html
+ * Test and Publish a resource that has been registered in the CloudFormation Registry.
  */
 export class PublicTypeVersion extends pulumi.CustomResource {
     /**
@@ -35,27 +35,38 @@ export class PublicTypeVersion extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-arn
+     * The Amazon Resource Number (ARN) of the extension.
      */
     public readonly arn!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-logdeliverybucket
+     * A url to the S3 bucket where logs for the testType run will be available
      */
     public readonly logDeliveryBucket!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Number (ARN) assigned to the public extension upon publication
+     */
     public /*out*/ readonly publicTypeArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-publicversionnumber
+     * The version number of a public third-party extension
      */
     public readonly publicVersionNumber!: pulumi.Output<string | undefined>;
+    /**
+     * The publisher id assigned by CloudFormation for publishing in this region.
+     */
     public /*out*/ readonly publisherId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-type
+     * The kind of extension
      */
     public readonly type!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-typename
+     * The name of the type being registered.
+     *
+     * We recommend that type names adhere to the following pattern: company_or_organization::service::type.
      */
     public readonly typeName!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Number (ARN) of the extension with the versionId.
+     */
     public /*out*/ readonly typeVersionArn!: pulumi.Output<string>;
 
     /**
@@ -99,23 +110,25 @@ export class PublicTypeVersion extends pulumi.CustomResource {
  */
 export interface PublicTypeVersionArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-arn
+     * The Amazon Resource Number (ARN) of the extension.
      */
     arn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-logdeliverybucket
+     * A url to the S3 bucket where logs for the testType run will be available
      */
     logDeliveryBucket?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-publicversionnumber
+     * The version number of a public third-party extension
      */
     publicVersionNumber?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-type
+     * The kind of extension
      */
     type?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-typename
+     * The name of the type being registered.
+     *
+     * We recommend that type names adhere to the following pattern: company_or_organization::service::type.
      */
     typeName?: pulumi.Input<string>;
 }

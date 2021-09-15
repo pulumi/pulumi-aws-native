@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html
+    /// Identifies the resources to deploy for a monitoring job.
     /// </summary>
     [OutputType]
     public sealed class ModelBiasJobDefinitionMonitoringResources
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringresources.html#cfn-sagemaker-modelbiasjobdefinition-monitoringresources-clusterconfig
-        /// </summary>
         public readonly Outputs.ModelBiasJobDefinitionClusterConfig ClusterConfig;
 
         [OutputConstructor]

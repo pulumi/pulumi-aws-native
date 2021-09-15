@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RoboMaker
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html
+    /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:robomaker:SimulationApplication")]
     public partial class SimulationApplication : Pulumi.CustomResource
@@ -18,44 +18,44 @@ namespace Pulumi.AwsNative.RoboMaker
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The current revision id.
+        /// </summary>
         [Output("currentRevisionId")]
-        public Output<string> CurrentRevisionId { get; private set; } = null!;
+        public Output<string?> CurrentRevisionId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-name
+        /// The name of the simulation application.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-renderingengine
+        /// The rendering engine for the simulation application.
         /// </summary>
         [Output("renderingEngine")]
         public Output<Outputs.SimulationApplicationRenderingEngine> RenderingEngine { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-robotsoftwaresuite
+        /// The robot software suite (ROS distribution) used by the simulation application.
         /// </summary>
         [Output("robotSoftwareSuite")]
         public Output<Outputs.SimulationApplicationRobotSoftwareSuite> RobotSoftwareSuite { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite
+        /// The simulation software suite used by the simulation application.
         /// </summary>
         [Output("simulationSoftwareSuite")]
         public Output<Outputs.SimulationApplicationSimulationSoftwareSuite> SimulationSoftwareSuite { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-sources
+        /// The sources of the simulation application.
         /// </summary>
         [Output("sources")]
         public Output<ImmutableArray<Outputs.SimulationApplicationSourceConfig>> Sources { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<Outputs.SimulationApplicationTags?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -103,31 +103,31 @@ namespace Pulumi.AwsNative.RoboMaker
     public sealed class SimulationApplicationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-currentrevisionid
+        /// The current revision id.
         /// </summary>
         [Input("currentRevisionId")]
         public Input<string>? CurrentRevisionId { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-name
+        /// The name of the simulation application.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-renderingengine
+        /// The rendering engine for the simulation application.
         /// </summary>
         [Input("renderingEngine", required: true)]
         public Input<Inputs.SimulationApplicationRenderingEngineArgs> RenderingEngine { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-robotsoftwaresuite
+        /// The robot software suite (ROS distribution) used by the simulation application.
         /// </summary>
         [Input("robotSoftwareSuite", required: true)]
         public Input<Inputs.SimulationApplicationRobotSoftwareSuiteArgs> RobotSoftwareSuite { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite
+        /// The simulation software suite used by the simulation application.
         /// </summary>
         [Input("simulationSoftwareSuite", required: true)]
         public Input<Inputs.SimulationApplicationSimulationSoftwareSuiteArgs> SimulationSoftwareSuite { get; set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.RoboMaker
         private InputList<Inputs.SimulationApplicationSourceConfigArgs>? _sources;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-sources
+        /// The sources of the simulation application.
         /// </summary>
         public InputList<Inputs.SimulationApplicationSourceConfigArgs> Sources
         {
@@ -145,16 +145,7 @@ namespace Pulumi.AwsNative.RoboMaker
         }
 
         [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
+        public Input<Inputs.SimulationApplicationTagsArgs>? Tags { get; set; }
 
         public SimulationApplicationArgs()
         {

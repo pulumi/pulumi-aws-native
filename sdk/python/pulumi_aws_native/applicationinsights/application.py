@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ApplicationArgs', 'Application']
@@ -25,18 +23,18 @@ class ApplicationArgs:
                  log_pattern_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternSetArgs']]]] = None,
                  ops_center_enabled: Optional[pulumi.Input[bool]] = None,
                  ops_item_sns_topic_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[str] resource_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
-        :param pulumi.Input[bool] auto_configuration_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
-        :param pulumi.Input[bool] c_we_monitor_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationComponentMonitoringSettingArgs']]] component_monitoring_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationCustomComponentArgs']]] custom_components: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternSetArgs']]] log_pattern_sets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
-        :param pulumi.Input[bool] ops_center_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
-        :param pulumi.Input[str] ops_item_sns_topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[bool] auto_configuration_enabled: If set to true, application will be configured with recommended monitoring configuration.
+        :param pulumi.Input[bool] c_we_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationComponentMonitoringSettingArgs']]] component_monitoring_settings: The monitoring settings of the components.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationCustomComponentArgs']]] custom_components: The custom grouped components.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternSetArgs']]] log_pattern_sets: The log pattern sets.
+        :param pulumi.Input[bool] ops_center_enabled: When set to true, creates opsItems for any problems detected on an application.
+        :param pulumi.Input[str] ops_item_sns_topic_arn: The SNS topic provided to Application Insights that is associated to the created opsItem.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]] tags: The tags of Application Insights application.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_configuration_enabled is not None:
@@ -60,7 +58,7 @@ class ApplicationArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
+        The name of the resource group.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -72,7 +70,7 @@ class ApplicationArgs:
     @pulumi.getter(name="autoConfigurationEnabled")
     def auto_configuration_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
+        If set to true, application will be configured with recommended monitoring configuration.
         """
         return pulumi.get(self, "auto_configuration_enabled")
 
@@ -84,7 +82,7 @@ class ApplicationArgs:
     @pulumi.getter(name="cWEMonitorEnabled")
     def c_we_monitor_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
+        Indicates whether Application Insights can listen to CloudWatch events for the application resources.
         """
         return pulumi.get(self, "c_we_monitor_enabled")
 
@@ -96,7 +94,7 @@ class ApplicationArgs:
     @pulumi.getter(name="componentMonitoringSettings")
     def component_monitoring_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationComponentMonitoringSettingArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
+        The monitoring settings of the components.
         """
         return pulumi.get(self, "component_monitoring_settings")
 
@@ -108,7 +106,7 @@ class ApplicationArgs:
     @pulumi.getter(name="customComponents")
     def custom_components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCustomComponentArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
+        The custom grouped components.
         """
         return pulumi.get(self, "custom_components")
 
@@ -120,7 +118,7 @@ class ApplicationArgs:
     @pulumi.getter(name="logPatternSets")
     def log_pattern_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternSetArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
+        The log pattern sets.
         """
         return pulumi.get(self, "log_pattern_sets")
 
@@ -132,7 +130,7 @@ class ApplicationArgs:
     @pulumi.getter(name="opsCenterEnabled")
     def ops_center_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
+        When set to true, creates opsItems for any problems detected on an application.
         """
         return pulumi.get(self, "ops_center_enabled")
 
@@ -144,7 +142,7 @@ class ApplicationArgs:
     @pulumi.getter(name="opsItemSNSTopicArn")
     def ops_item_sns_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
+        The SNS topic provided to Application Insights that is associated to the created opsItem.
         """
         return pulumi.get(self, "ops_item_sns_topic_arn")
 
@@ -154,14 +152,14 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
+        The tags of Application Insights application.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -178,22 +176,22 @@ class Application(pulumi.CustomResource):
                  ops_center_enabled: Optional[pulumi.Input[bool]] = None,
                  ops_item_sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html
+        Resource schema for AWS::ApplicationInsights::Application
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_configuration_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
-        :param pulumi.Input[bool] c_we_monitor_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationComponentMonitoringSettingArgs']]]] component_monitoring_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomComponentArgs']]]] custom_components: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationLogPatternSetArgs']]]] log_pattern_sets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
-        :param pulumi.Input[bool] ops_center_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
-        :param pulumi.Input[str] ops_item_sns_topic_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
-        :param pulumi.Input[str] resource_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
+        :param pulumi.Input[bool] auto_configuration_enabled: If set to true, application will be configured with recommended monitoring configuration.
+        :param pulumi.Input[bool] c_we_monitor_enabled: Indicates whether Application Insights can listen to CloudWatch events for the application resources.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationComponentMonitoringSettingArgs']]]] component_monitoring_settings: The monitoring settings of the components.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCustomComponentArgs']]]] custom_components: The custom grouped components.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationLogPatternSetArgs']]]] log_pattern_sets: The log pattern sets.
+        :param pulumi.Input[bool] ops_center_enabled: When set to true, creates opsItems for any problems detected on an application.
+        :param pulumi.Input[str] ops_item_sns_topic_arn: The SNS topic provided to Application Insights that is associated to the created opsItem.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]] tags: The tags of Application Insights application.
         """
         ...
     @overload
@@ -202,7 +200,7 @@ class Application(pulumi.CustomResource):
                  args: ApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html
+        Resource schema for AWS::ApplicationInsights::Application
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -227,7 +225,7 @@ class Application(pulumi.CustomResource):
                  ops_center_enabled: Optional[pulumi.Input[bool]] = None,
                  ops_item_sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -289,13 +287,16 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="applicationARN")
     def application_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the ApplicationInsights application.
+        """
         return pulumi.get(self, "application_arn")
 
     @property
     @pulumi.getter(name="autoConfigurationEnabled")
     def auto_configuration_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
+        If set to true, application will be configured with recommended monitoring configuration.
         """
         return pulumi.get(self, "auto_configuration_enabled")
 
@@ -303,7 +304,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="cWEMonitorEnabled")
     def c_we_monitor_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
+        Indicates whether Application Insights can listen to CloudWatch events for the application resources.
         """
         return pulumi.get(self, "c_we_monitor_enabled")
 
@@ -311,7 +312,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="componentMonitoringSettings")
     def component_monitoring_settings(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationComponentMonitoringSetting']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
+        The monitoring settings of the components.
         """
         return pulumi.get(self, "component_monitoring_settings")
 
@@ -319,7 +320,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="customComponents")
     def custom_components(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationCustomComponent']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
+        The custom grouped components.
         """
         return pulumi.get(self, "custom_components")
 
@@ -327,7 +328,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="logPatternSets")
     def log_pattern_sets(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationLogPatternSet']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
+        The log pattern sets.
         """
         return pulumi.get(self, "log_pattern_sets")
 
@@ -335,7 +336,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="opsCenterEnabled")
     def ops_center_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
+        When set to true, creates opsItems for any problems detected on an application.
         """
         return pulumi.get(self, "ops_center_enabled")
 
@@ -343,7 +344,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="opsItemSNSTopicArn")
     def ops_item_sns_topic_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
+        The SNS topic provided to Application Insights that is associated to the created opsItem.
         """
         return pulumi.get(self, "ops_item_sns_topic_arn")
 
@@ -351,15 +352,15 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
+        The name of the resource group.
         """
         return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
+        The tags of Application Insights application.
         """
         return pulumi.get(self, "tags")
 

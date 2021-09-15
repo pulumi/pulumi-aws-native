@@ -10,28 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html
-    /// </summary>
     [OutputType]
     public sealed class LoggingConfigurationLogDestinationConfig
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfig-logdestination
+        /// A key-value pair to configure the logDestinations.
         /// </summary>
-        public readonly ImmutableDictionary<string, string> LogDestination;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfig-logdestinationtype
-        /// </summary>
+        public readonly object LogDestination;
         public readonly string LogDestinationType;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfig-logtype
-        /// </summary>
         public readonly string LogType;
 
         [OutputConstructor]
         private LoggingConfigurationLogDestinationConfig(
-            ImmutableDictionary<string, string> logDestination,
+            object logDestination,
 
             string logDestinationType,
 

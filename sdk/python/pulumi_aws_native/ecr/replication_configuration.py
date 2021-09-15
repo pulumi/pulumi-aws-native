@@ -18,16 +18,12 @@ class ReplicationConfigurationArgs:
                  replication_configuration: pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']):
         """
         The set of arguments for constructing a ReplicationConfiguration resource.
-        :param pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs'] replication_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration
         """
         pulumi.set(__self__, "replication_configuration", replication_configuration)
 
     @property
     @pulumi.getter(name="replicationConfiguration")
     def replication_configuration(self) -> pulumi.Input['ReplicationConfigurationReplicationConfigurationArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration
-        """
         return pulumi.get(self, "replication_configuration")
 
     @replication_configuration.setter
@@ -43,11 +39,10 @@ class ReplicationConfiguration(pulumi.CustomResource):
                  replication_configuration: Optional[pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html
+        The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ReplicationConfigurationReplicationConfigurationArgs']] replication_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration
         """
         ...
     @overload
@@ -56,7 +51,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
                  args: ReplicationConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html
+        The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
 
         :param str resource_name: The name of the resource.
         :param ReplicationConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -119,13 +114,13 @@ class ReplicationConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Output[str]:
+        """
+        The RegistryId associated with the aws account.
+        """
         return pulumi.get(self, "registry_id")
 
     @property
     @pulumi.getter(name="replicationConfiguration")
     def replication_configuration(self) -> pulumi.Output['outputs.ReplicationConfigurationReplicationConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration
-        """
         return pulumi.get(self, "replication_configuration")
 

@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
+    /// The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
     /// </summary>
     public sealed class AssessmentScopeArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
         private InputList<Inputs.AssessmentAWSAccountArgs>? _awsAccounts;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
+        /// The AWS accounts included in scope.
         /// </summary>
         public InputList<Inputs.AssessmentAWSAccountArgs> AwsAccounts
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.AuditManager.Inputs
         private InputList<Inputs.AssessmentAWSServiceArgs>? _awsServices;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
+        /// The AWS services included in scope.
         /// </summary>
         public InputList<Inputs.AssessmentAWSServiceArgs> AwsServices
         {

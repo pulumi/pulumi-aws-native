@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html
+    /// &lt;p&gt;A decimal parameter.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DashboardDecimalParameter
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html#cfn-quicksight-dashboard-decimalparameter-name
+        /// &lt;p&gt;A display name for the decimal parameter.&lt;/p&gt;
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html#cfn-quicksight-dashboard-decimalparameter-values
+        /// &lt;p&gt;The values for the decimal parameter.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<double> Values;
 

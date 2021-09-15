@@ -23,20 +23,12 @@ class LicenseBorrowConfigurationArgs:
     def __init__(__self__, *,
                  allow_early_check_in: pulumi.Input[bool],
                  max_time_to_live_in_minutes: pulumi.Input[int]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html
-        :param pulumi.Input[bool] allow_early_check_in: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-allowearlycheckin
-        :param pulumi.Input[int] max_time_to_live_in_minutes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-maxtimetoliveinminutes
-        """
         pulumi.set(__self__, "allow_early_check_in", allow_early_check_in)
         pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
     @pulumi.getter(name="allowEarlyCheckIn")
     def allow_early_check_in(self) -> pulumi.Input[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-allowearlycheckin
-        """
         return pulumi.get(self, "allow_early_check_in")
 
     @allow_early_check_in.setter
@@ -46,9 +38,6 @@ class LicenseBorrowConfigurationArgs:
     @property
     @pulumi.getter(name="maxTimeToLiveInMinutes")
     def max_time_to_live_in_minutes(self) -> pulumi.Input[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-maxtimetoliveinminutes
-        """
         return pulumi.get(self, "max_time_to_live_in_minutes")
 
     @max_time_to_live_in_minutes.setter
@@ -62,12 +51,6 @@ class LicenseConsumptionConfigurationArgs:
                  borrow_configuration: Optional[pulumi.Input['LicenseBorrowConfigurationArgs']] = None,
                  provisional_configuration: Optional[pulumi.Input['LicenseProvisionalConfigurationArgs']] = None,
                  renew_type: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html
-        :param pulumi.Input['LicenseBorrowConfigurationArgs'] borrow_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-borrowconfiguration
-        :param pulumi.Input['LicenseProvisionalConfigurationArgs'] provisional_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-provisionalconfiguration
-        :param pulumi.Input[str] renew_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-renewtype
-        """
         if borrow_configuration is not None:
             pulumi.set(__self__, "borrow_configuration", borrow_configuration)
         if provisional_configuration is not None:
@@ -78,9 +61,6 @@ class LicenseConsumptionConfigurationArgs:
     @property
     @pulumi.getter(name="borrowConfiguration")
     def borrow_configuration(self) -> Optional[pulumi.Input['LicenseBorrowConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-borrowconfiguration
-        """
         return pulumi.get(self, "borrow_configuration")
 
     @borrow_configuration.setter
@@ -90,9 +70,6 @@ class LicenseConsumptionConfigurationArgs:
     @property
     @pulumi.getter(name="provisionalConfiguration")
     def provisional_configuration(self) -> Optional[pulumi.Input['LicenseProvisionalConfigurationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-provisionalconfiguration
-        """
         return pulumi.get(self, "provisional_configuration")
 
     @provisional_configuration.setter
@@ -102,9 +79,6 @@ class LicenseConsumptionConfigurationArgs:
     @property
     @pulumi.getter(name="renewType")
     def renew_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-renewtype
-        """
         return pulumi.get(self, "renew_type")
 
     @renew_type.setter
@@ -121,15 +95,6 @@ class LicenseEntitlementArgs:
                  max_count: Optional[pulumi.Input[int]] = None,
                  overage: Optional[pulumi.Input[bool]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-name
-        :param pulumi.Input[str] unit: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-unit
-        :param pulumi.Input[bool] allow_check_in: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-allowcheckin
-        :param pulumi.Input[int] max_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-maxcount
-        :param pulumi.Input[bool] overage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-overage
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-value
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "unit", unit)
         if allow_check_in is not None:
@@ -144,9 +109,6 @@ class LicenseEntitlementArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -156,9 +118,6 @@ class LicenseEntitlementArgs:
     @property
     @pulumi.getter
     def unit(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-unit
-        """
         return pulumi.get(self, "unit")
 
     @unit.setter
@@ -168,9 +127,6 @@ class LicenseEntitlementArgs:
     @property
     @pulumi.getter(name="allowCheckIn")
     def allow_check_in(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-allowcheckin
-        """
         return pulumi.get(self, "allow_check_in")
 
     @allow_check_in.setter
@@ -180,9 +136,6 @@ class LicenseEntitlementArgs:
     @property
     @pulumi.getter(name="maxCount")
     def max_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-maxcount
-        """
         return pulumi.get(self, "max_count")
 
     @max_count.setter
@@ -192,9 +145,6 @@ class LicenseEntitlementArgs:
     @property
     @pulumi.getter
     def overage(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-overage
-        """
         return pulumi.get(self, "overage")
 
     @overage.setter
@@ -204,9 +154,6 @@ class LicenseEntitlementArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-value
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -219,11 +166,6 @@ class LicenseIssuerDataArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  sign_key: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-name
-        :param pulumi.Input[str] sign_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-signkey
-        """
         pulumi.set(__self__, "name", name)
         if sign_key is not None:
             pulumi.set(__self__, "sign_key", sign_key)
@@ -231,9 +173,6 @@ class LicenseIssuerDataArgs:
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -243,9 +182,6 @@ class LicenseIssuerDataArgs:
     @property
     @pulumi.getter(name="signKey")
     def sign_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-signkey
-        """
         return pulumi.get(self, "sign_key")
 
     @sign_key.setter
@@ -258,20 +194,12 @@ class LicenseMetadataArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-name
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-value
-        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -281,9 +209,6 @@ class LicenseMetadataArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-value
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -295,18 +220,11 @@ class LicenseMetadataArgs:
 class LicenseProvisionalConfigurationArgs:
     def __init__(__self__, *,
                  max_time_to_live_in_minutes: pulumi.Input[int]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html
-        :param pulumi.Input[int] max_time_to_live_in_minutes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html#cfn-licensemanager-license-provisionalconfiguration-maxtimetoliveinminutes
-        """
         pulumi.set(__self__, "max_time_to_live_in_minutes", max_time_to_live_in_minutes)
 
     @property
     @pulumi.getter(name="maxTimeToLiveInMinutes")
     def max_time_to_live_in_minutes(self) -> pulumi.Input[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html#cfn-licensemanager-license-provisionalconfiguration-maxtimetoliveinminutes
-        """
         return pulumi.get(self, "max_time_to_live_in_minutes")
 
     @max_time_to_live_in_minutes.setter
@@ -320,9 +238,8 @@ class LicenseValidityDateFormatArgs:
                  begin: pulumi.Input[str],
                  end: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html
-        :param pulumi.Input[str] begin: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-begin
-        :param pulumi.Input[str] end: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-end
+        :param pulumi.Input[str] begin: Validity begin date for the license.
+        :param pulumi.Input[str] end: Validity begin date for the license.
         """
         pulumi.set(__self__, "begin", begin)
         pulumi.set(__self__, "end", end)
@@ -331,7 +248,7 @@ class LicenseValidityDateFormatArgs:
     @pulumi.getter
     def begin(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-begin
+        Validity begin date for the license.
         """
         return pulumi.get(self, "begin")
 
@@ -343,7 +260,7 @@ class LicenseValidityDateFormatArgs:
     @pulumi.getter
     def end(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-end
+        Validity begin date for the license.
         """
         return pulumi.get(self, "end")
 

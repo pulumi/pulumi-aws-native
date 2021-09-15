@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['PackagingGroupArgs', 'PackagingGroup']
@@ -17,18 +15,15 @@ __all__ = ['PackagingGroupArgs', 'PackagingGroup']
 @pulumi.input_type
 class PackagingGroupArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[str],
                  authorization: Optional[pulumi.Input['PackagingGroupAuthorizationArgs']] = None,
                  egress_access_logs: Optional[pulumi.Input['PackagingGroupLogConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PackagingGroupTagArgs']]]] = None):
         """
         The set of arguments for constructing a PackagingGroup resource.
-        :param pulumi.Input[str] id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
-        :param pulumi.Input['PackagingGroupAuthorizationArgs'] authorization: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
-        :param pulumi.Input['PackagingGroupLogConfigurationArgs'] egress_access_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
+        :param pulumi.Input['PackagingGroupAuthorizationArgs'] authorization: CDN Authorization
+        :param pulumi.Input['PackagingGroupLogConfigurationArgs'] egress_access_logs: The configuration parameters for egress access logging.
+        :param pulumi.Input[Sequence[pulumi.Input['PackagingGroupTagArgs']]] tags: A collection of tags associated with a resource
         """
-        pulumi.set(__self__, "id", id)
         if authorization is not None:
             pulumi.set(__self__, "authorization", authorization)
         if egress_access_logs is not None:
@@ -38,21 +33,9 @@ class PackagingGroupArgs:
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
     def authorization(self) -> Optional[pulumi.Input['PackagingGroupAuthorizationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
+        CDN Authorization
         """
         return pulumi.get(self, "authorization")
 
@@ -64,7 +47,7 @@ class PackagingGroupArgs:
     @pulumi.getter(name="egressAccessLogs")
     def egress_access_logs(self) -> Optional[pulumi.Input['PackagingGroupLogConfigurationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
+        The configuration parameters for egress access logging.
         """
         return pulumi.get(self, "egress_access_logs")
 
@@ -74,14 +57,14 @@ class PackagingGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PackagingGroupTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
+        A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PackagingGroupTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -92,27 +75,25 @@ class PackagingGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization: Optional[pulumi.Input[pulumi.InputType['PackagingGroupAuthorizationArgs']]] = None,
                  egress_access_logs: Optional[pulumi.Input[pulumi.InputType['PackagingGroupLogConfigurationArgs']]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PackagingGroupTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html
+        Resource schema for AWS::MediaPackage::PackagingGroup
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PackagingGroupAuthorizationArgs']] authorization: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
-        :param pulumi.Input[pulumi.InputType['PackagingGroupLogConfigurationArgs']] egress_access_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
-        :param pulumi.Input[str] id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
+        :param pulumi.Input[pulumi.InputType['PackagingGroupAuthorizationArgs']] authorization: CDN Authorization
+        :param pulumi.Input[pulumi.InputType['PackagingGroupLogConfigurationArgs']] egress_access_logs: The configuration parameters for egress access logging.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PackagingGroupTagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PackagingGroupArgs,
+                 args: Optional[PackagingGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html
+        Resource schema for AWS::MediaPackage::PackagingGroup
 
         :param str resource_name: The name of the resource.
         :param PackagingGroupArgs args: The arguments to use to populate this resource's properties.
@@ -131,8 +112,7 @@ class PackagingGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization: Optional[pulumi.Input[pulumi.InputType['PackagingGroupAuthorizationArgs']]] = None,
                  egress_access_logs: Optional[pulumi.Input[pulumi.InputType['PackagingGroupLogConfigurationArgs']]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PackagingGroupTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -147,9 +127,6 @@ class PackagingGroup(pulumi.CustomResource):
 
             __props__.__dict__["authorization"] = authorization
             __props__.__dict__["egress_access_logs"] = egress_access_logs
-            if id is None and not opts.urn:
-                raise TypeError("Missing required property 'id'")
-            __props__.__dict__["id"] = id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_name"] = None
@@ -179,49 +156,46 @@ class PackagingGroup(pulumi.CustomResource):
         __props__.__dict__["authorization"] = None
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["egress_access_logs"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["tags"] = None
         return PackagingGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the PackagingGroup.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def authorization(self) -> pulumi.Output[Optional['outputs.PackagingGroupAuthorization']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
+        CDN Authorization
         """
         return pulumi.get(self, "authorization")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
+        """
+        The fully qualified domain name for Assets in the PackagingGroup.
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="egressAccessLogs")
     def egress_access_logs(self) -> pulumi.Output[Optional['outputs.PackagingGroupLogConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
+        The configuration parameters for egress access logging.
         """
         return pulumi.get(self, "egress_access_logs")
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PackagingGroupTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
+        A collection of tags associated with a resource
         """
         return pulumi.get(self, "tags")
 

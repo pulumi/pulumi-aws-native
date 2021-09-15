@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html
+    /// Trigger settings of the flow.
     /// </summary>
     [OutputType]
     public sealed class FlowTriggerConfig
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggerproperties
+        /// Details required based on the type of trigger
         /// </summary>
         public readonly Outputs.FlowScheduledTriggerProperties? TriggerProperties;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggertype
+        /// Trigger type of the flow
         /// </summary>
         public readonly string TriggerType;
 

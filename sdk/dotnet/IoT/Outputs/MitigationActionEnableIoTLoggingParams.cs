@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.IoT.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html
+    /// Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
     /// </summary>
     [OutputType]
     public sealed class MitigationActionEnableIoTLoggingParams
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-loglevel
+        ///  Specifies which types of information are logged.
         /// </summary>
         public readonly string LogLevel;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-rolearnforlogging
+        ///  The ARN of the IAM role used for logging.
         /// </summary>
         public readonly string RoleArnForLogging;
 

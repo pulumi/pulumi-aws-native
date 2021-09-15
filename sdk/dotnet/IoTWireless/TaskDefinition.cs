@@ -10,49 +10,49 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTWireless
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html
+    /// Creates a gateway task definition.
     /// </summary>
     [AwsNativeResourceType("aws-native:iotwireless:TaskDefinition")]
     public partial class TaskDefinition : Pulumi.CustomResource
     {
+        /// <summary>
+        /// TaskDefinition arn. Returned after successful create.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-autocreatetasks
+        /// Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
         /// </summary>
         [Output("autoCreateTasks")]
         public Output<bool> AutoCreateTasks { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry
+        /// The list of task definitions.
         /// </summary>
         [Output("loRaWANUpdateGatewayTaskEntry")]
         public Output<Outputs.TaskDefinitionLoRaWANUpdateGatewayTaskEntry?> LoRaWANUpdateGatewayTaskEntry { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-name
+        /// The name of the new resource.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-tags
+        /// A list of key-value pairs that contain metadata for the destination.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TaskDefinitionTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-taskdefinitiontype
+        /// A filter to list only the wireless gateway task definitions that use this task definition type
         /// </summary>
         [Output("taskDefinitionType")]
         public Output<string?> TaskDefinitionType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-update
+        /// Information about the gateways to update.
         /// </summary>
         [Output("update")]
         public Output<Outputs.TaskDefinitionUpdateWirelessGatewayTaskCreate?> Update { get; private set; } = null!;
@@ -103,43 +103,43 @@ namespace Pulumi.AwsNative.IoTWireless
     public sealed class TaskDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-autocreatetasks
+        /// Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
         /// </summary>
         [Input("autoCreateTasks", required: true)]
         public Input<bool> AutoCreateTasks { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry
+        /// The list of task definitions.
         /// </summary>
         [Input("loRaWANUpdateGatewayTaskEntry")]
         public Input<Inputs.TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs>? LoRaWANUpdateGatewayTaskEntry { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-name
+        /// The name of the new resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.TaskDefinitionTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-tags
+        /// A list of key-value pairs that contain metadata for the destination.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.TaskDefinitionTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.TaskDefinitionTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-taskdefinitiontype
+        /// A filter to list only the wireless gateway task definitions that use this task definition type
         /// </summary>
         [Input("taskDefinitionType")]
         public Input<string>? TaskDefinitionType { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-update
+        /// Information about the gateways to update.
         /// </summary>
         [Input("update")]
         public Input<Inputs.TaskDefinitionUpdateWirelessGatewayTaskCreateArgs>? Update { get; set; }

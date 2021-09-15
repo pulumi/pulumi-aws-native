@@ -10,61 +10,70 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ImageBuilder
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html
+    /// Resource schema for AWS::ImageBuilder::Image
     /// </summary>
     [AwsNativeResourceType("aws-native:imagebuilder:Image")]
     public partial class Image : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the image.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
+        /// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
         /// </summary>
         [Output("containerRecipeArn")]
         public Output<string?> ContainerRecipeArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
+        /// The Amazon Resource Name (ARN) of the distribution configuration.
         /// </summary>
         [Output("distributionConfigurationArn")]
         public Output<string?> DistributionConfigurationArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
+        /// Collects additional information about the image being created, including the operating system (OS) version and package list.
         /// </summary>
         [Output("enhancedImageMetadataEnabled")]
         public Output<bool?> EnhancedImageMetadataEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The AMI ID of the EC2 AMI in current region.
+        /// </summary>
         [Output("imageId")]
         public Output<string> ImageId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
+        /// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         /// </summary>
         [Output("imageRecipeArn")]
         public Output<string?> ImageRecipeArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
+        /// The image tests configuration used when creating this image.
         /// </summary>
         [Output("imageTestsConfiguration")]
         public Output<Outputs.ImageImageTestsConfiguration?> ImageTestsConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
+        /// The Amazon Resource Name (ARN) of the infrastructure configuration.
         /// </summary>
         [Output("infrastructureConfigurationArn")]
-        public Output<string> InfrastructureConfigurationArn { get; private set; } = null!;
+        public Output<string?> InfrastructureConfigurationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the image.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
+        /// The tags associated with the image.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<object?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -74,7 +83,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Image(string name, ImageArgs args, CustomResourceOptions? options = null)
+        public Image(string name, ImageArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:imagebuilder:Image", name, args ?? new ImageArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -112,52 +121,46 @@ namespace Pulumi.AwsNative.ImageBuilder
     public sealed class ImageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-containerrecipearn
+        /// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
         /// </summary>
         [Input("containerRecipeArn")]
         public Input<string>? ContainerRecipeArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
+        /// The Amazon Resource Name (ARN) of the distribution configuration.
         /// </summary>
         [Input("distributionConfigurationArn")]
         public Input<string>? DistributionConfigurationArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
+        /// Collects additional information about the image being created, including the operating system (OS) version and package list.
         /// </summary>
         [Input("enhancedImageMetadataEnabled")]
         public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
+        /// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         /// </summary>
         [Input("imageRecipeArn")]
         public Input<string>? ImageRecipeArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagetestsconfiguration
+        /// The image tests configuration used when creating this image.
         /// </summary>
         [Input("imageTestsConfiguration")]
         public Input<Inputs.ImageImageTestsConfigurationArgs>? ImageTestsConfiguration { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-infrastructureconfigurationarn
+        /// The Amazon Resource Name (ARN) of the infrastructure configuration.
         /// </summary>
-        [Input("infrastructureConfigurationArn", required: true)]
-        public Input<string> InfrastructureConfigurationArn { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
+        [Input("infrastructureConfigurationArn")]
+        public Input<string>? InfrastructureConfigurationArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-tags
+        /// The tags associated with the image.
         /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
+        [Input("tags")]
+        public Input<object>? Tags { get; set; }
 
         public ImageArgs()
         {

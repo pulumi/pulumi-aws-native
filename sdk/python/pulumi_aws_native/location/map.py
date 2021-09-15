@@ -21,10 +21,6 @@ class MapArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Map resource.
-        :param pulumi.Input['MapMapConfigurationArgs'] configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-configuration
-        :param pulumi.Input[str] map_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-mapname
-        :param pulumi.Input[str] pricing_plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-pricingplan
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-description
         """
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "map_name", map_name)
@@ -35,9 +31,6 @@ class MapArgs:
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Input['MapMapConfigurationArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-configuration
-        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -47,9 +40,6 @@ class MapArgs:
     @property
     @pulumi.getter(name="mapName")
     def map_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-mapname
-        """
         return pulumi.get(self, "map_name")
 
     @map_name.setter
@@ -59,9 +49,6 @@ class MapArgs:
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-pricingplan
-        """
         return pulumi.get(self, "pricing_plan")
 
     @pricing_plan.setter
@@ -71,9 +58,6 @@ class MapArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -92,14 +76,10 @@ class Map(pulumi.CustomResource):
                  pricing_plan: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html
+        Definition of AWS::Location::Map Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['MapMapConfigurationArgs']] configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-configuration
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-description
-        :param pulumi.Input[str] map_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-mapname
-        :param pulumi.Input[str] pricing_plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-pricingplan
         """
         ...
     @overload
@@ -108,7 +88,7 @@ class Map(pulumi.CustomResource):
                  args: MapArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html
+        Definition of AWS::Location::Map Resource Type
 
         :param str resource_name: The name of the resource.
         :param MapArgs args: The arguments to use to populate this resource's properties.
@@ -197,9 +177,6 @@ class Map(pulumi.CustomResource):
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.MapMapConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-configuration
-        """
         return pulumi.get(self, "configuration")
 
     @property
@@ -215,9 +192,6 @@ class Map(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-description
-        """
         return pulumi.get(self, "description")
 
     @property
@@ -228,17 +202,11 @@ class Map(pulumi.CustomResource):
     @property
     @pulumi.getter(name="mapName")
     def map_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-mapname
-        """
         return pulumi.get(self, "map_name")
 
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-pricingplan
-        """
         return pulumi.get(self, "pricing_plan")
 
     @property

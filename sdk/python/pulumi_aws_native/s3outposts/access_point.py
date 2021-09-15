@@ -18,13 +18,13 @@ class AccessPointArgs:
                  bucket: pulumi.Input[str],
                  name: pulumi.Input[str],
                  vpc_configuration: pulumi.Input['AccessPointVpcConfigurationArgs'],
-                 policy: Optional[pulumi.Input[Union[Any, str]]] = None):
+                 policy: Optional[Any] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
-        :param pulumi.Input[str] bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-bucket
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-name
-        :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-vpcconfiguration
-        :param pulumi.Input[Union[Any, str]] policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-policy
+        :param pulumi.Input[str] bucket: The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
+        :param pulumi.Input[str] name: A name for the AccessPoint.
+        :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
+        :param Any policy: The access point policy associated with this access point.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "name", name)
@@ -36,7 +36,7 @@ class AccessPointArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-bucket
+        The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
         """
         return pulumi.get(self, "bucket")
 
@@ -48,7 +48,7 @@ class AccessPointArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-name
+        A name for the AccessPoint.
         """
         return pulumi.get(self, "name")
 
@@ -60,7 +60,7 @@ class AccessPointArgs:
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Input['AccessPointVpcConfigurationArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-vpcconfiguration
+        Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
         """
         return pulumi.get(self, "vpc_configuration")
 
@@ -70,14 +70,14 @@ class AccessPointArgs:
 
     @property
     @pulumi.getter
-    def policy(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+    def policy(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-policy
+        The access point policy associated with this access point.
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def policy(self, value: Optional[Any]):
         pulumi.set(self, "policy", value)
 
 
@@ -88,18 +88,18 @@ class AccessPoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy: Optional[Any] = None,
                  vpc_configuration: Optional[pulumi.Input[pulumi.InputType['AccessPointVpcConfigurationArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html
+        Resource Type Definition for AWS::S3Outposts::AccessPoint
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-bucket
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-name
-        :param pulumi.Input[Union[Any, str]] policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-policy
-        :param pulumi.Input[pulumi.InputType['AccessPointVpcConfigurationArgs']] vpc_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-vpcconfiguration
+        :param pulumi.Input[str] bucket: The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
+        :param pulumi.Input[str] name: A name for the AccessPoint.
+        :param Any policy: The access point policy associated with this access point.
+        :param pulumi.Input[pulumi.InputType['AccessPointVpcConfigurationArgs']] vpc_configuration: Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
         """
         ...
     @overload
@@ -108,7 +108,7 @@ class AccessPoint(pulumi.CustomResource):
                  args: AccessPointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html
+        Resource Type Definition for AWS::S3Outposts::AccessPoint
 
         :param str resource_name: The name of the resource.
         :param AccessPointArgs args: The arguments to use to populate this resource's properties.
@@ -127,7 +127,7 @@ class AccessPoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy: Optional[Any] = None,
                  vpc_configuration: Optional[pulumi.Input[pulumi.InputType['AccessPointVpcConfigurationArgs']]] = None,
                  __props__=None):
         if opts is None:
@@ -184,13 +184,16 @@ class AccessPoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the specified AccessPoint.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-bucket
+        The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
         """
         return pulumi.get(self, "bucket")
 
@@ -198,15 +201,15 @@ class AccessPoint(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-name
+        A name for the AccessPoint.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[Optional[str]]:
+    def policy(self) -> pulumi.Output[Optional[Any]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-policy
+        The access point policy associated with this access point.
         """
         return pulumi.get(self, "policy")
 
@@ -214,7 +217,7 @@ class AccessPoint(pulumi.CustomResource):
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Output['outputs.AccessPointVpcConfiguration']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-vpcconfiguration
+        Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
         """
         return pulumi.get(self, "vpc_configuration")
 

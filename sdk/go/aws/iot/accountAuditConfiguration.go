@@ -11,17 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html
+// Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
 type AccountAuditConfiguration struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-accountid
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations
-	AuditCheckConfigurations AccountAuditConfigurationAuditCheckConfigurationsOutput `pulumi:"auditCheckConfigurations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations
+	// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
+	AccountId                             pulumi.StringOutput                                                     `pulumi:"accountId"`
+	AuditCheckConfigurations              AccountAuditConfigurationAuditCheckConfigurationsOutput                 `pulumi:"auditCheckConfigurations"`
 	AuditNotificationTargetConfigurations AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput `pulumi:"auditNotificationTargetConfigurations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-rolearn
+	// The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 }
 
@@ -73,25 +71,21 @@ func (AccountAuditConfigurationState) ElementType() reflect.Type {
 }
 
 type accountAuditConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-accountid
-	AccountId string `pulumi:"accountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations
-	AuditCheckConfigurations AccountAuditConfigurationAuditCheckConfigurations `pulumi:"auditCheckConfigurations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations
+	// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
+	AccountId                             string                                                          `pulumi:"accountId"`
+	AuditCheckConfigurations              AccountAuditConfigurationAuditCheckConfigurations               `pulumi:"auditCheckConfigurations"`
 	AuditNotificationTargetConfigurations *AccountAuditConfigurationAuditNotificationTargetConfigurations `pulumi:"auditNotificationTargetConfigurations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-rolearn
+	// The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
 	RoleArn string `pulumi:"roleArn"`
 }
 
 // The set of arguments for constructing a AccountAuditConfiguration resource.
 type AccountAuditConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-accountid
-	AccountId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations
-	AuditCheckConfigurations AccountAuditConfigurationAuditCheckConfigurationsInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-auditnotificationtargetconfigurations
+	// Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
+	AccountId                             pulumi.StringInput
+	AuditCheckConfigurations              AccountAuditConfigurationAuditCheckConfigurationsInput
 	AuditNotificationTargetConfigurations AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-accountauditconfiguration.html#cfn-iot-accountauditconfiguration-rolearn
+	// The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.
 	RoleArn pulumi.StringInput
 }
 

@@ -8,38 +8,26 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html
+// The AWS::Amplify::Branch resource creates a new branch within an app.
 type Branch struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-appid
-	AppId pulumi.StringOutput `pulumi:"appId"`
-	Arn   pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-basicauthconfig
-	BasicAuthConfig BranchBasicAuthConfigPtrOutput `pulumi:"basicAuthConfig"`
-	BranchName      pulumi.StringOutput            `pulumi:"branchName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-buildspec
-	BuildSpec pulumi.StringPtrOutput `pulumi:"buildSpec"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild
-	EnableAutoBuild pulumi.BoolPtrOutput `pulumi:"enableAutoBuild"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableperformancemode
-	EnablePerformanceMode pulumi.BoolPtrOutput `pulumi:"enablePerformanceMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview
-	EnablePullRequestPreview pulumi.BoolPtrOutput `pulumi:"enablePullRequestPreview"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
-	EnvironmentVariables BranchEnvironmentVariableArrayOutput `pulumi:"environmentVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-pullrequestenvironmentname
-	PullRequestEnvironmentName pulumi.StringPtrOutput `pulumi:"pullRequestEnvironmentName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-stage
-	Stage pulumi.StringPtrOutput `pulumi:"stage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	AppId                      pulumi.StringOutput                  `pulumi:"appId"`
+	Arn                        pulumi.StringOutput                  `pulumi:"arn"`
+	BasicAuthConfig            BranchBasicAuthConfigPtrOutput       `pulumi:"basicAuthConfig"`
+	BranchName                 pulumi.StringOutput                  `pulumi:"branchName"`
+	BuildSpec                  pulumi.StringPtrOutput               `pulumi:"buildSpec"`
+	Description                pulumi.StringPtrOutput               `pulumi:"description"`
+	EnableAutoBuild            pulumi.BoolPtrOutput                 `pulumi:"enableAutoBuild"`
+	EnablePerformanceMode      pulumi.BoolPtrOutput                 `pulumi:"enablePerformanceMode"`
+	EnablePullRequestPreview   pulumi.BoolPtrOutput                 `pulumi:"enablePullRequestPreview"`
+	EnvironmentVariables       BranchEnvironmentVariableArrayOutput `pulumi:"environmentVariables"`
+	PullRequestEnvironmentName pulumi.StringPtrOutput               `pulumi:"pullRequestEnvironmentName"`
+	Stage                      pulumi.StringPtrOutput               `pulumi:"stage"`
+	Tags                       BranchTagArrayOutput                 `pulumi:"tags"`
 }
 
 // NewBranch registers a new resource with the given unique name, arguments, and options.
@@ -87,58 +75,34 @@ func (BranchState) ElementType() reflect.Type {
 }
 
 type branchArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-appid
-	AppId string `pulumi:"appId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-basicauthconfig
-	BasicAuthConfig *BranchBasicAuthConfig `pulumi:"basicAuthConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-branchname
-	BranchName string `pulumi:"branchName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-buildspec
-	BuildSpec *string `pulumi:"buildSpec"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild
-	EnableAutoBuild *bool `pulumi:"enableAutoBuild"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableperformancemode
-	EnablePerformanceMode *bool `pulumi:"enablePerformanceMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview
-	EnablePullRequestPreview *bool `pulumi:"enablePullRequestPreview"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
-	EnvironmentVariables []BranchEnvironmentVariable `pulumi:"environmentVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-pullrequestenvironmentname
-	PullRequestEnvironmentName *string `pulumi:"pullRequestEnvironmentName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-stage
-	Stage *string `pulumi:"stage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	AppId                      string                      `pulumi:"appId"`
+	BasicAuthConfig            *BranchBasicAuthConfig      `pulumi:"basicAuthConfig"`
+	BranchName                 string                      `pulumi:"branchName"`
+	BuildSpec                  *string                     `pulumi:"buildSpec"`
+	Description                *string                     `pulumi:"description"`
+	EnableAutoBuild            *bool                       `pulumi:"enableAutoBuild"`
+	EnablePerformanceMode      *bool                       `pulumi:"enablePerformanceMode"`
+	EnablePullRequestPreview   *bool                       `pulumi:"enablePullRequestPreview"`
+	EnvironmentVariables       []BranchEnvironmentVariable `pulumi:"environmentVariables"`
+	PullRequestEnvironmentName *string                     `pulumi:"pullRequestEnvironmentName"`
+	Stage                      *string                     `pulumi:"stage"`
+	Tags                       []BranchTag                 `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Branch resource.
 type BranchArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-appid
-	AppId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-basicauthconfig
-	BasicAuthConfig BranchBasicAuthConfigPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-branchname
-	BranchName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-buildspec
-	BuildSpec pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild
-	EnableAutoBuild pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableperformancemode
-	EnablePerformanceMode pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview
-	EnablePullRequestPreview pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
-	EnvironmentVariables BranchEnvironmentVariableArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-pullrequestenvironmentname
+	AppId                      pulumi.StringInput
+	BasicAuthConfig            BranchBasicAuthConfigPtrInput
+	BranchName                 pulumi.StringInput
+	BuildSpec                  pulumi.StringPtrInput
+	Description                pulumi.StringPtrInput
+	EnableAutoBuild            pulumi.BoolPtrInput
+	EnablePerformanceMode      pulumi.BoolPtrInput
+	EnablePullRequestPreview   pulumi.BoolPtrInput
+	EnvironmentVariables       BranchEnvironmentVariableArrayInput
 	PullRequestEnvironmentName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-stage
-	Stage pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-tags
-	Tags aws.TagArrayInput
+	Stage                      pulumi.StringPtrInput
+	Tags                       BranchTagArrayInput
 }
 
 func (BranchArgs) ElementType() reflect.Type {

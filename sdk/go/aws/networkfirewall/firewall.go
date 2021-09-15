@@ -8,35 +8,25 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html
+// Resource type definition for AWS::NetworkFirewall::Firewall
 type Firewall struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
-	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
-	Description pulumi.StringPtrOutput   `pulumi:"description"`
-	EndpointIds pulumi.StringArrayOutput `pulumi:"endpointIds"`
-	FirewallArn pulumi.StringOutput      `pulumi:"firewallArn"`
-	FirewallId  pulumi.StringOutput      `pulumi:"firewallId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
-	FirewallName pulumi.StringOutput `pulumi:"firewallName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
-	FirewallPolicyArn pulumi.StringOutput `pulumi:"firewallPolicyArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
-	FirewallPolicyChangeProtection pulumi.BoolPtrOutput `pulumi:"firewallPolicyChangeProtection"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
-	SubnetChangeProtection pulumi.BoolPtrOutput `pulumi:"subnetChangeProtection"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
-	SubnetMappings FirewallSubnetMappingArrayOutput `pulumi:"subnetMappings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
-	VpcId pulumi.StringOutput `pulumi:"vpcId"`
+	DeleteProtection               pulumi.BoolPtrOutput             `pulumi:"deleteProtection"`
+	Description                    pulumi.StringPtrOutput           `pulumi:"description"`
+	EndpointIds                    pulumi.StringArrayOutput         `pulumi:"endpointIds"`
+	FirewallArn                    pulumi.StringOutput              `pulumi:"firewallArn"`
+	FirewallId                     pulumi.StringOutput              `pulumi:"firewallId"`
+	FirewallName                   pulumi.StringOutput              `pulumi:"firewallName"`
+	FirewallPolicyArn              pulumi.StringOutput              `pulumi:"firewallPolicyArn"`
+	FirewallPolicyChangeProtection pulumi.BoolPtrOutput             `pulumi:"firewallPolicyChangeProtection"`
+	SubnetChangeProtection         pulumi.BoolPtrOutput             `pulumi:"subnetChangeProtection"`
+	SubnetMappings                 FirewallSubnetMappingArrayOutput `pulumi:"subnetMappings"`
+	Tags                           FirewallTagArrayOutput           `pulumi:"tags"`
+	VpcId                          pulumi.StringOutput              `pulumi:"vpcId"`
 }
 
 // NewFirewall registers a new resource with the given unique name, arguments, and options.
@@ -90,46 +80,28 @@ func (FirewallState) ElementType() reflect.Type {
 }
 
 type firewallArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
-	DeleteProtection *bool `pulumi:"deleteProtection"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
-	FirewallName string `pulumi:"firewallName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
-	FirewallPolicyArn string `pulumi:"firewallPolicyArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
-	FirewallPolicyChangeProtection *bool `pulumi:"firewallPolicyChangeProtection"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
-	SubnetChangeProtection *bool `pulumi:"subnetChangeProtection"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
-	SubnetMappings []FirewallSubnetMapping `pulumi:"subnetMappings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
-	VpcId string `pulumi:"vpcId"`
+	DeleteProtection               *bool                   `pulumi:"deleteProtection"`
+	Description                    *string                 `pulumi:"description"`
+	FirewallName                   string                  `pulumi:"firewallName"`
+	FirewallPolicyArn              string                  `pulumi:"firewallPolicyArn"`
+	FirewallPolicyChangeProtection *bool                   `pulumi:"firewallPolicyChangeProtection"`
+	SubnetChangeProtection         *bool                   `pulumi:"subnetChangeProtection"`
+	SubnetMappings                 []FirewallSubnetMapping `pulumi:"subnetMappings"`
+	Tags                           []FirewallTag           `pulumi:"tags"`
+	VpcId                          string                  `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a Firewall resource.
 type FirewallArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
-	DeleteProtection pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
-	FirewallName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
-	FirewallPolicyArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
+	DeleteProtection               pulumi.BoolPtrInput
+	Description                    pulumi.StringPtrInput
+	FirewallName                   pulumi.StringInput
+	FirewallPolicyArn              pulumi.StringInput
 	FirewallPolicyChangeProtection pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
-	SubnetChangeProtection pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
-	SubnetMappings FirewallSubnetMappingArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
-	VpcId pulumi.StringInput
+	SubnetChangeProtection         pulumi.BoolPtrInput
+	SubnetMappings                 FirewallSubnetMappingArrayInput
+	Tags                           FirewallTagArrayInput
+	VpcId                          pulumi.StringInput
 }
 
 func (FirewallArgs) ElementType() reflect.Type {

@@ -8,29 +8,27 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html
+// Resource schema for AWS::MediaPackage::PackagingConfiguration
 type PackagingConfiguration struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the PackagingConfiguration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
+	// A CMAF packaging configuration.
 	CmafPackage PackagingConfigurationCmafPackagePtrOutput `pulumi:"cmafPackage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
+	// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 	DashPackage PackagingConfigurationDashPackagePtrOutput `pulumi:"dashPackage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
+	// An HTTP Live Streaming (HLS) packaging configuration.
 	HlsPackage PackagingConfigurationHlsPackagePtrOutput `pulumi:"hlsPackage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
-	Id pulumi.StringOutput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
+	// A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
 	MssPackage PackagingConfigurationMssPackagePtrOutput `pulumi:"mssPackage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
+	// The ID of a PackagingGroup.
 	PackagingGroupId pulumi.StringOutput `pulumi:"packagingGroupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A collection of tags associated with a resource
+	Tags PackagingConfigurationTagArrayOutput `pulumi:"tags"`
 }
 
 // NewPackagingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -40,9 +38,6 @@ func NewPackagingConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Id == nil {
-		return nil, errors.New("invalid value for required argument 'Id'")
-	}
 	if args.PackagingGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'PackagingGroupId'")
 	}
@@ -78,38 +73,34 @@ func (PackagingConfigurationState) ElementType() reflect.Type {
 }
 
 type packagingConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
+	// A CMAF packaging configuration.
 	CmafPackage *PackagingConfigurationCmafPackage `pulumi:"cmafPackage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
+	// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 	DashPackage *PackagingConfigurationDashPackage `pulumi:"dashPackage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
+	// An HTTP Live Streaming (HLS) packaging configuration.
 	HlsPackage *PackagingConfigurationHlsPackage `pulumi:"hlsPackage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
-	Id string `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
+	// A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
 	MssPackage *PackagingConfigurationMssPackage `pulumi:"mssPackage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
+	// The ID of a PackagingGroup.
 	PackagingGroupId string `pulumi:"packagingGroupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A collection of tags associated with a resource
+	Tags []PackagingConfigurationTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PackagingConfiguration resource.
 type PackagingConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
+	// A CMAF packaging configuration.
 	CmafPackage PackagingConfigurationCmafPackagePtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
+	// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 	DashPackage PackagingConfigurationDashPackagePtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
+	// An HTTP Live Streaming (HLS) packaging configuration.
 	HlsPackage PackagingConfigurationHlsPackagePtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
-	Id pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
+	// A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
 	MssPackage PackagingConfigurationMssPackagePtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
+	// The ID of a PackagingGroup.
 	PackagingGroupId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
-	Tags aws.TagArrayInput
+	// A collection of tags associated with a resource
+	Tags PackagingConfigurationTagArrayInput
 }
 
 func (PackagingConfigurationArgs) ElementType() reflect.Type {

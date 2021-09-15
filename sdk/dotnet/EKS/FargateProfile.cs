@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EKS
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html
+    /// Resource Schema for AWS::EKS::FargateProfile
     /// </summary>
     [AwsNativeResourceType("aws-native:eks:FargateProfile")]
     public partial class FargateProfile : Pulumi.CustomResource
@@ -19,40 +19,34 @@ namespace Pulumi.AwsNative.EKS
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
+        /// Name of the Cluster
         /// </summary>
         [Output("clusterName")]
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
+        /// Name of FargateProfile
         /// </summary>
         [Output("fargateProfileName")]
         public Output<string?> FargateProfileName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
+        /// The IAM policy arn for pods
         /// </summary>
         [Output("podExecutionRoleArn")]
         public Output<string> PodExecutionRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
-        /// </summary>
         [Output("selectors")]
         public Output<ImmutableArray<Outputs.FargateProfileSelector>> Selectors { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
-        /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<string>> Subnets { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FargateProfileTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -100,29 +94,25 @@ namespace Pulumi.AwsNative.EKS
     public sealed class FargateProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
+        /// Name of the Cluster
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
+        /// Name of FargateProfile
         /// </summary>
         [Input("fargateProfileName")]
         public Input<string>? FargateProfileName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
+        /// The IAM policy arn for pods
         /// </summary>
         [Input("podExecutionRoleArn", required: true)]
         public Input<string> PodExecutionRoleArn { get; set; } = null!;
 
         [Input("selectors", required: true)]
         private InputList<Inputs.FargateProfileSelectorArgs>? _selectors;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
-        /// </summary>
         public InputList<Inputs.FargateProfileSelectorArgs> Selectors
         {
             get => _selectors ?? (_selectors = new InputList<Inputs.FargateProfileSelectorArgs>());
@@ -131,10 +121,6 @@ namespace Pulumi.AwsNative.EKS
 
         [Input("subnets")]
         private InputList<string>? _subnets;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
-        /// </summary>
         public InputList<string> Subnets
         {
             get => _subnets ?? (_subnets = new InputList<string>());
@@ -142,14 +128,14 @@ namespace Pulumi.AwsNative.EKS
         }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.FargateProfileTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.FargateProfileTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.FargateProfileTagArgs>());
             set => _tags = value;
         }
 

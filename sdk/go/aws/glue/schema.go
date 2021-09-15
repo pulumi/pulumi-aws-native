@@ -8,32 +8,31 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html
+// This resource represents a schema of Glue Schema Registry.
 type Schema struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
+	// Amazon Resource Name for the Schema.
+	Arn               pulumi.StringOutput          `pulumi:"arn"`
 	CheckpointVersion SchemaSchemaVersionPtrOutput `pulumi:"checkpointVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
+	// Compatibility setting for the schema.
 	Compatibility pulumi.StringOutput `pulumi:"compatibility"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
+	// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
 	DataFormat pulumi.StringOutput `pulumi:"dataFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
-	Description            pulumi.StringPtrOutput `pulumi:"description"`
-	InitialSchemaVersionId pulumi.StringOutput    `pulumi:"initialSchemaVersionId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
+	// A description of the schema. If description is not provided, there will not be any default value for this.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Represents the version ID associated with the initial schema version.
+	InitialSchemaVersionId pulumi.StringOutput `pulumi:"initialSchemaVersionId"`
+	// Name of the schema.
+	Name     pulumi.StringOutput     `pulumi:"name"`
 	Registry SchemaRegistryPtrOutput `pulumi:"registry"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+	// Definition for the initial schema version in plain-text.
 	SchemaDefinition pulumi.StringOutput `pulumi:"schemaDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// List of tags to tag the schema
+	Tags SchemaTagArrayOutput `pulumi:"tags"`
 }
 
 // NewSchema registers a new resource with the given unique name, arguments, and options.
@@ -87,42 +86,38 @@ func (SchemaState) ElementType() reflect.Type {
 }
 
 type schemaArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
 	CheckpointVersion *SchemaSchemaVersion `pulumi:"checkpointVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
+	// Compatibility setting for the schema.
 	Compatibility string `pulumi:"compatibility"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
+	// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
 	DataFormat string `pulumi:"dataFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
+	// A description of the schema. If description is not provided, there will not be any default value for this.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
+	// Name of the schema.
+	Name     string          `pulumi:"name"`
 	Registry *SchemaRegistry `pulumi:"registry"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+	// Definition for the initial schema version in plain-text.
 	SchemaDefinition string `pulumi:"schemaDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// List of tags to tag the schema
+	Tags []SchemaTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Schema resource.
 type SchemaArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
 	CheckpointVersion SchemaSchemaVersionPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
+	// Compatibility setting for the schema.
 	Compatibility pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
+	// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
 	DataFormat pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
+	// A description of the schema. If description is not provided, there will not be any default value for this.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
-	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
+	// Name of the schema.
+	Name     pulumi.StringInput
 	Registry SchemaRegistryPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+	// Definition for the initial schema version in plain-text.
 	SchemaDefinition pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
-	Tags aws.TagArrayInput
+	// List of tags to tag the schema
+	Tags SchemaTagArrayInput
 }
 
 func (SchemaArgs) ElementType() reflect.Type {

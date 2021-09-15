@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html
+    /// Contains information for an IAM user identity in an access policy.
     /// </summary>
     public sealed class AccessPolicyIamUserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html#cfn-iotsitewise-accesspolicy-iamuser-arn
+        /// The ARN of the IAM user.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -18,9 +18,9 @@ class TransitGatewayMulticastDomainAssociationArgs:
                  transit_gateway_multicast_domain_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a TransitGatewayMulticastDomainAssociation resource.
-        :param pulumi.Input[str] subnet_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-subnetid
-        :param pulumi.Input[str] transit_gateway_attachment_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewayattachmentid
-        :param pulumi.Input[str] transit_gateway_multicast_domain_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewaymulticastdomainid
+        :param pulumi.Input[str] subnet_id: The IDs of the subnets to associate with the transit gateway multicast domain.
+        :param pulumi.Input[str] transit_gateway_attachment_id: The ID of the transit gateway attachment.
+        :param pulumi.Input[str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
@@ -30,7 +30,7 @@ class TransitGatewayMulticastDomainAssociationArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-subnetid
+        The IDs of the subnets to associate with the transit gateway multicast domain.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -42,7 +42,7 @@ class TransitGatewayMulticastDomainAssociationArgs:
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewayattachmentid
+        The ID of the transit gateway attachment.
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
@@ -54,7 +54,7 @@ class TransitGatewayMulticastDomainAssociationArgs:
     @pulumi.getter(name="transitGatewayMulticastDomainId")
     def transit_gateway_multicast_domain_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewaymulticastdomainid
+        The ID of the transit gateway multicast domain.
         """
         return pulumi.get(self, "transit_gateway_multicast_domain_id")
 
@@ -73,13 +73,13 @@ class TransitGatewayMulticastDomainAssociation(pulumi.CustomResource):
                  transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html
+        The AWS::EC2::TransitGatewayMulticastDomainAssociation type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] subnet_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-subnetid
-        :param pulumi.Input[str] transit_gateway_attachment_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewayattachmentid
-        :param pulumi.Input[str] transit_gateway_multicast_domain_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewaymulticastdomainid
+        :param pulumi.Input[str] subnet_id: The IDs of the subnets to associate with the transit gateway multicast domain.
+        :param pulumi.Input[str] transit_gateway_attachment_id: The ID of the transit gateway attachment.
+        :param pulumi.Input[str] transit_gateway_multicast_domain_id: The ID of the transit gateway multicast domain.
         """
         ...
     @overload
@@ -88,7 +88,7 @@ class TransitGatewayMulticastDomainAssociation(pulumi.CustomResource):
                  args: TransitGatewayMulticastDomainAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html
+        The AWS::EC2::TransitGatewayMulticastDomainAssociation type
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayMulticastDomainAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -165,23 +165,32 @@ class TransitGatewayMulticastDomainAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the resource.
+        """
         return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[str]:
+        """
+        The type of resource, for example a VPC attachment.
+        """
         return pulumi.get(self, "resource_type")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
+        """
+        The state of the subnet association.
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-subnetid
+        The IDs of the subnets to associate with the transit gateway multicast domain.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -189,7 +198,7 @@ class TransitGatewayMulticastDomainAssociation(pulumi.CustomResource):
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewayattachmentid
+        The ID of the transit gateway attachment.
         """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
@@ -197,7 +206,7 @@ class TransitGatewayMulticastDomainAssociation(pulumi.CustomResource):
     @pulumi.getter(name="transitGatewayMulticastDomainId")
     def transit_gateway_multicast_domain_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewaymulticastdomainid
+        The ID of the transit gateway multicast domain.
         """
         return pulumi.get(self, "transit_gateway_multicast_domain_id")
 

@@ -10,22 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElastiCache.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html
-    /// </summary>
     [OutputType]
     public sealed class GlobalReplicationGroupRegionalConfiguration
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupid
+        /// The replication group id of the Global Datastore member.
         /// </summary>
         public readonly string? ReplicationGroupId;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-replicationgroupregion
+        /// The AWS region of the Global Datastore member.
         /// </summary>
         public readonly string? ReplicationGroupRegion;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-globalreplicationgroup-regionalconfiguration.html#cfn-elasticache-globalreplicationgroup-regionalconfiguration-reshardingconfigurations
+        /// A list of PreferredAvailabilityZones objects that specifies the configuration of a node group in the resharded cluster. 
         /// </summary>
         public readonly ImmutableArray<Outputs.GlobalReplicationGroupReshardingConfiguration> ReshardingConfigurations;
 

@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html
+    /// The container repository where the output container image is stored.
     /// </summary>
     public sealed class ContainerRecipeTargetContainerRepositoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-repositoryname
+        /// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
         /// </summary>
         [Input("repositoryName")]
         public Input<string>? RepositoryName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-service
+        /// Specifies the service in which this image was registered.
         /// </summary>
         [Input("service")]
         public Input<string>? Service { get; set; }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html
+ * Resource Type definition for AWS::GlobalAccelerator::Accelerator
  */
 export class Accelerator extends pulumi.CustomResource {
     /**
@@ -35,28 +35,31 @@ export class Accelerator extends pulumi.CustomResource {
         return obj['__pulumiType'] === Accelerator.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the accelerator.
+     */
     public /*out*/ readonly acceleratorArn!: pulumi.Output<string>;
+    /**
+     * The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses.
+     */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-enabled
+     * Indicates whether an accelerator is enabled. The value is true or false.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresstype
+     * IP Address type.
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresses
+     * The IP addresses from BYOIP Prefix pool.
      */
     public readonly ipAddresses!: pulumi.Output<string[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-name
+     * Name of accelerator.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.globalaccelerator.AcceleratorTag[] | undefined>;
 
     /**
      * Create a Accelerator resource with the given unique name, arguments, and options.
@@ -100,23 +103,20 @@ export class Accelerator extends pulumi.CustomResource {
  */
 export interface AcceleratorArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-enabled
+     * Indicates whether an accelerator is enabled. The value is true or false.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresstype
+     * IP Address type.
      */
     ipAddressType?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresses
+     * The IP addresses from BYOIP Prefix pool.
      */
     ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-name
+     * Name of accelerator.
      */
     name: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.AcceleratorTagArgs>[]>;
 }

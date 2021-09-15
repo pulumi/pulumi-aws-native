@@ -10,65 +10,73 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html
+    /// Definition of the AWS::QuickSight::Analysis Resource Type.
     /// </summary>
     [AwsNativeResourceType("aws-native:quicksight:Analysis")]
     public partial class Analysis : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-analysisid
-        /// </summary>
         [Output("analysisId")]
         public Output<string> AnalysisId { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the analysis.&lt;/p&gt;
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-awsaccountid
-        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The time that the analysis was created.&lt;/p&gt;
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The ARNs of the datasets of the analysis.&lt;/p&gt;
+        /// </summary>
         [Output("dataSetArns")]
         public Output<ImmutableArray<string>> DataSetArns { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-errors
+        /// &lt;p&gt;Errors associated with the analysis.&lt;/p&gt;
         /// </summary>
         [Output("errors")]
         public Output<ImmutableArray<Outputs.AnalysisAnalysisError>> Errors { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;The time that the analysis was last updated.&lt;/p&gt;
+        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
+        /// &lt;p&gt;The descriptive name of the analysis.&lt;/p&gt;
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-parameters
-        /// </summary>
         [Output("parameters")]
         public Output<Outputs.AnalysisParameters?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-permissions
+        /// &lt;p&gt;A structure that describes the principals and the resource-level permissions on an
+        ///             analysis. You can use the &lt;code&gt;Permissions&lt;/code&gt; structure to grant permissions by
+        ///             providing a list of AWS Identity and Access Management (IAM) action information for each
+        ///             principal listed by Amazon Resource Name (ARN). &lt;/p&gt;
+        /// 
+        ///         &lt;p&gt;To specify no permissions, omit &lt;code&gt;Permissions&lt;/code&gt;.&lt;/p&gt;
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.AnalysisResourcePermission>> Permissions { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;A list of the associated sheets with the unique identifier and name of each sheet.&lt;/p&gt;
+        /// </summary>
         [Output("sheets")]
         public Output<ImmutableArray<Outputs.AnalysisSheet>> Sheets { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-sourceentity
-        /// </summary>
         [Output("sourceEntity")]
         public Output<Outputs.AnalysisAnalysisSourceEntity?> SourceEntity { get; private set; } = null!;
 
@@ -76,13 +84,14 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-tags
+        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the
+        ///             analysis.&lt;/p&gt;
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AnalysisTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-themearn
+        /// &lt;p&gt;The ARN of the theme of the analysis.&lt;/p&gt;
         /// </summary>
         [Output("themeArn")]
         public Output<string?> ThemeArn { get; private set; } = null!;
@@ -132,15 +141,9 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class AnalysisArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-analysisid
-        /// </summary>
         [Input("analysisId", required: true)]
         public Input<string> AnalysisId { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-awsaccountid
-        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
@@ -148,7 +151,7 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<Inputs.AnalysisAnalysisErrorArgs>? _errors;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-errors
+        /// &lt;p&gt;Errors associated with the analysis.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.AnalysisAnalysisErrorArgs> Errors
         {
@@ -157,14 +160,11 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
+        /// &lt;p&gt;The descriptive name of the analysis.&lt;/p&gt;
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-parameters
-        /// </summary>
         [Input("parameters")]
         public Input<Inputs.AnalysisParametersArgs>? Parameters { get; set; }
 
@@ -172,7 +172,12 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<Inputs.AnalysisResourcePermissionArgs>? _permissions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-permissions
+        /// &lt;p&gt;A structure that describes the principals and the resource-level permissions on an
+        ///             analysis. You can use the &lt;code&gt;Permissions&lt;/code&gt; structure to grant permissions by
+        ///             providing a list of AWS Identity and Access Management (IAM) action information for each
+        ///             principal listed by Amazon Resource Name (ARN). &lt;/p&gt;
+        /// 
+        ///         &lt;p&gt;To specify no permissions, omit &lt;code&gt;Permissions&lt;/code&gt;.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.AnalysisResourcePermissionArgs> Permissions
         {
@@ -180,26 +185,24 @@ namespace Pulumi.AwsNative.QuickSight
             set => _permissions = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-sourceentity
-        /// </summary>
         [Input("sourceEntity")]
         public Input<Inputs.AnalysisAnalysisSourceEntityArgs>? SourceEntity { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.AnalysisTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-tags
+        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the
+        ///             analysis.&lt;/p&gt;
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.AnalysisTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.AnalysisTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-themearn
+        /// &lt;p&gt;The ARN of the theme of the analysis.&lt;/p&gt;
         /// </summary>
         [Input("themeArn")]
         public Input<string>? ThemeArn { get; set; }

@@ -10,32 +10,44 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53RecoveryControl
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html
+    /// AWS Route53 Recovery Control Control Panel resource schema .
     /// </summary>
     [AwsNativeResourceType("aws-native:route53recoverycontrol:ControlPanel")]
     public partial class ControlPanel : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-clusterarn
+        /// Cluster to associate with the Control Panel
         /// </summary>
         [Output("clusterArn")]
         public Output<string?> ClusterArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the cluster.
+        /// </summary>
         [Output("controlPanelArn")]
         public Output<string> ControlPanelArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A flag that Amazon Route 53 Application Recovery Controller sets to true to designate the default control panel for a cluster. When you create a cluster, Amazon Route 53 Application Recovery Controller creates a control panel, and sets this flag for that control panel. If you create a control panel yourself, this flag is set to false.
+        /// </summary>
         [Output("defaultControlPanel")]
         public Output<bool> DefaultControlPanel { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-name
+        /// The name of the control panel. You can use any non-white space character in the name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Count of associated routing controls
+        /// </summary>
         [Output("routingControlCount")]
         public Output<int> RoutingControlCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -85,13 +97,13 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
     public sealed class ControlPanelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-clusterarn
+        /// Cluster to associate with the Control Panel
         /// </summary>
         [Input("clusterArn")]
         public Input<string>? ClusterArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-name
+        /// The name of the control panel. You can use any non-white space character in the name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

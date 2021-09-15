@@ -10,19 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html
-    /// </summary>
     [OutputType]
     public sealed class StorageLensPrefixLevelStorageMetrics
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-isenabled
+        /// Specifies whether prefix-level storage metrics are enabled or disabled.
         /// </summary>
         public readonly bool? IsEnabled;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-selectioncriteria
-        /// </summary>
         public readonly Outputs.StorageLensSelectionCriteria? SelectionCriteria;
 
         [OutputConstructor]

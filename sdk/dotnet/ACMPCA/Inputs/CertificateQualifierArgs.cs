@@ -11,13 +11,10 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html
+    /// Structure that contains a X.509 policy qualifier.
     /// </summary>
     public sealed class CertificateQualifierArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html#cfn-acmpca-certificate-qualifier-cpsuri
-        /// </summary>
         [Input("cpsUri", required: true)]
         public Input<string> CpsUri { get; set; } = null!;
 

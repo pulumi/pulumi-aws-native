@@ -10,26 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html
-    /// </summary>
     [OutputType]
     public sealed class RecipeAction
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-operation
+        /// Step action operation
         /// </summary>
         public readonly string Operation;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
-        /// </summary>
-        public readonly Outputs.RecipeParameterMap? Parameters;
+        public readonly Union<Outputs.RecipeRecipeParameters, Outputs.RecipeParameterMap>? Parameters;
 
         [OutputConstructor]
         private RecipeAction(
             string operation,
 
-            Outputs.RecipeParameterMap? parameters)
+            Union<Outputs.RecipeRecipeParameters, Outputs.RecipeParameterMap>? parameters)
         {
             Operation = operation;
             Parameters = parameters;

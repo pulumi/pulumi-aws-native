@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html
+    /// Identifies the resources to deploy for a monitoring job.
     /// </summary>
     [OutputType]
     public sealed class ModelExplainabilityJobDefinitionMonitoringResources
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-monitoringresources.html#cfn-sagemaker-modelexplainabilityjobdefinition-monitoringresources-clusterconfig
-        /// </summary>
         public readonly Outputs.ModelExplainabilityJobDefinitionClusterConfig ClusterConfig;
 
         [OutputConstructor]

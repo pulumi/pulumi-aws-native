@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['LocationS3Args', 'LocationS3']
@@ -21,14 +19,13 @@ class LocationS3Args:
                  s3_config: pulumi.Input['LocationS3S3ConfigArgs'],
                  s3_storage_class: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationS3TagArgs']]]] = None):
         """
         The set of arguments for constructing a LocationS3 resource.
-        :param pulumi.Input[str] s3_bucket_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3bucketarn
-        :param pulumi.Input['LocationS3S3ConfigArgs'] s3_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3config
-        :param pulumi.Input[str] s3_storage_class: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3storageclass
-        :param pulumi.Input[str] subdirectory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-subdirectory
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-tags
+        :param pulumi.Input[str] s3_bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket.
+        :param pulumi.Input[str] s3_storage_class: The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
+        :param pulumi.Input[str] subdirectory: A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
+        :param pulumi.Input[Sequence[pulumi.Input['LocationS3TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
         pulumi.set(__self__, "s3_config", s3_config)
@@ -43,7 +40,7 @@ class LocationS3Args:
     @pulumi.getter(name="s3BucketArn")
     def s3_bucket_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3bucketarn
+        The Amazon Resource Name (ARN) of the Amazon S3 bucket.
         """
         return pulumi.get(self, "s3_bucket_arn")
 
@@ -54,9 +51,6 @@ class LocationS3Args:
     @property
     @pulumi.getter(name="s3Config")
     def s3_config(self) -> pulumi.Input['LocationS3S3ConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3config
-        """
         return pulumi.get(self, "s3_config")
 
     @s3_config.setter
@@ -67,7 +61,7 @@ class LocationS3Args:
     @pulumi.getter(name="s3StorageClass")
     def s3_storage_class(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3storageclass
+        The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
         """
         return pulumi.get(self, "s3_storage_class")
 
@@ -79,7 +73,7 @@ class LocationS3Args:
     @pulumi.getter
     def subdirectory(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-subdirectory
+        A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
         """
         return pulumi.get(self, "subdirectory")
 
@@ -89,14 +83,14 @@ class LocationS3Args:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationS3TagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationS3TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -109,18 +103,17 @@ class LocationS3(pulumi.CustomResource):
                  s3_config: Optional[pulumi.Input[pulumi.InputType['LocationS3S3ConfigArgs']]] = None,
                  s3_storage_class: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationS3TagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html
+        Resource schema for AWS::DataSync::LocationS3
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] s3_bucket_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3bucketarn
-        :param pulumi.Input[pulumi.InputType['LocationS3S3ConfigArgs']] s3_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3config
-        :param pulumi.Input[str] s3_storage_class: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3storageclass
-        :param pulumi.Input[str] subdirectory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-subdirectory
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-tags
+        :param pulumi.Input[str] s3_bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket.
+        :param pulumi.Input[str] s3_storage_class: The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
+        :param pulumi.Input[str] subdirectory: A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationS3TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -129,7 +122,7 @@ class LocationS3(pulumi.CustomResource):
                  args: LocationS3Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html
+        Resource schema for AWS::DataSync::LocationS3
 
         :param str resource_name: The name of the resource.
         :param LocationS3Args args: The arguments to use to populate this resource's properties.
@@ -150,7 +143,7 @@ class LocationS3(pulumi.CustomResource):
                  s3_config: Optional[pulumi.Input[pulumi.InputType['LocationS3S3ConfigArgs']]] = None,
                  s3_storage_class: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationS3TagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -208,34 +201,37 @@ class LocationS3(pulumi.CustomResource):
     @property
     @pulumi.getter(name="locationArn")
     def location_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon S3 bucket location.
+        """
         return pulumi.get(self, "location_arn")
 
     @property
     @pulumi.getter(name="locationUri")
     def location_uri(self) -> pulumi.Output[str]:
+        """
+        The URL of the S3 location that was described.
+        """
         return pulumi.get(self, "location_uri")
 
     @property
     @pulumi.getter(name="s3BucketArn")
     def s3_bucket_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3bucketarn
+        The Amazon Resource Name (ARN) of the Amazon S3 bucket.
         """
         return pulumi.get(self, "s3_bucket_arn")
 
     @property
     @pulumi.getter(name="s3Config")
     def s3_config(self) -> pulumi.Output['outputs.LocationS3S3Config']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3config
-        """
         return pulumi.get(self, "s3_config")
 
     @property
     @pulumi.getter(name="s3StorageClass")
     def s3_storage_class(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3storageclass
+        The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
         """
         return pulumi.get(self, "s3_storage_class")
 
@@ -243,15 +239,15 @@ class LocationS3(pulumi.CustomResource):
     @pulumi.getter
     def subdirectory(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-subdirectory
+        A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
         """
         return pulumi.get(self, "subdirectory")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LocationS3Tag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 

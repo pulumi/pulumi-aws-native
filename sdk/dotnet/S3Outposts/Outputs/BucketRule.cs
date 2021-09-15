@@ -11,34 +11,31 @@ namespace Pulumi.AwsNative.S3Outposts.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html
+    /// Specifies lifecycle rules for an Amazon S3Outposts bucket. You must specify at least one of the following: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays.
     /// </summary>
     [OutputType]
     public sealed class BucketRule
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-abortincompletemultipartupload
+        /// Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3Outposts bucket.
         /// </summary>
         public readonly Outputs.BucketAbortIncompleteMultipartUpload? AbortIncompleteMultipartUpload;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-expirationdate
+        /// Indicates when objects are deleted from Amazon S3Outposts. The date value must be in ISO 8601 format. The time is always midnight UTC.
         /// </summary>
         public readonly string? ExpirationDate;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-expirationindays
+        /// Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.
         /// </summary>
         public readonly int? ExpirationInDays;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-filter
+        /// The container for the filter of the lifecycle rule.
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? Filter;
+        public readonly object? Filter;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-id
+        /// Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
         /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-status
-        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]
@@ -49,7 +46,7 @@ namespace Pulumi.AwsNative.S3Outposts.Outputs
 
             int? expirationInDays,
 
-            Union<System.Text.Json.JsonElement, string>? filter,
+            object? filter,
 
             string? id,
 

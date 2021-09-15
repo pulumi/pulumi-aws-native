@@ -10,25 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html
+    /// A pseudo-resource that manages which of your ECS task sets is primary.
     /// </summary>
     [AwsNativeResourceType("aws-native:ecs:PrimaryTaskSet")]
     public partial class PrimaryTaskSet : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
+        /// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         /// </summary>
         [Output("cluster")]
         public Output<string> Cluster { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
+        /// The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
         /// </summary>
         [Output("service")]
         public Output<string> Service { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
+        /// The ID or full Amazon Resource Name (ARN) of the task set.
         /// </summary>
         [Output("taskSetId")]
         public Output<string> TaskSetId { get; private set; } = null!;
@@ -79,19 +79,19 @@ namespace Pulumi.AwsNative.ECS
     public sealed class PrimaryTaskSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
+        /// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         /// </summary>
         [Input("cluster", required: true)]
         public Input<string> Cluster { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
+        /// The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
         /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
+        /// The ID or full Amazon Resource Name (ARN) of the task set.
         /// </summary>
         [Input("taskSetId", required: true)]
         public Input<string> TaskSetId { get; set; } = null!;

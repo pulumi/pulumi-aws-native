@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html
+    /// Contains settings for the SSM agent on your build instance.
     /// </summary>
     [OutputType]
     public sealed class ImageRecipeSystemsManagerAgent
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html#cfn-imagebuilder-imagerecipe-systemsmanageragent-uninstallafterbuild
+        /// This property defaults to true. If Image Builder installs the SSM agent on a build instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false.
         /// </summary>
         public readonly bool UninstallAfterBuild;
 

@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html
 type AccessPointAccessPointTag struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-key
-	Key *string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-value
+	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
@@ -29,11 +26,8 @@ type AccessPointAccessPointTagInput interface {
 	ToAccessPointAccessPointTagOutputWithContext(context.Context) AccessPointAccessPointTagOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html
 type AccessPointAccessPointTagArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-key
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-value
+	Key   pulumi.StringPtrInput `pulumi:"key"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -74,7 +68,6 @@ func (i AccessPointAccessPointTagArray) ToAccessPointAccessPointTagArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointAccessPointTagArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html
 type AccessPointAccessPointTagOutput struct{ *pulumi.OutputState }
 
 func (AccessPointAccessPointTagOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o AccessPointAccessPointTagOutput) ToAccessPointAccessPointTagOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-key
 func (o AccessPointAccessPointTagOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPointAccessPointTag) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-accesspointtag.html#cfn-efs-accesspoint-accesspointtag-value
 func (o AccessPointAccessPointTagOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPointAccessPointTag) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -119,13 +110,12 @@ func (o AccessPointAccessPointTagArrayOutput) Index(i pulumi.IntInput) AccessPoi
 	}).(AccessPointAccessPointTagOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html
 type AccessPointCreationInfo struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-ownergid
+	// Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
 	OwnerGid string `pulumi:"ownerGid"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-owneruid
+	// Specifies the POSIX user ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
 	OwnerUid string `pulumi:"ownerUid"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-permissions
+	// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
 	Permissions string `pulumi:"permissions"`
 }
 
@@ -140,13 +130,12 @@ type AccessPointCreationInfoInput interface {
 	ToAccessPointCreationInfoOutputWithContext(context.Context) AccessPointCreationInfoOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html
 type AccessPointCreationInfoArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-ownergid
+	// Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
 	OwnerGid pulumi.StringInput `pulumi:"ownerGid"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-owneruid
+	// Specifies the POSIX user ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
 	OwnerUid pulumi.StringInput `pulumi:"ownerUid"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-permissions
+	// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
 	Permissions pulumi.StringInput `pulumi:"permissions"`
 }
 
@@ -203,7 +192,6 @@ func (i *accessPointCreationInfoPtrType) ToAccessPointCreationInfoPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointCreationInfoPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html
 type AccessPointCreationInfoOutput struct{ *pulumi.OutputState }
 
 func (AccessPointCreationInfoOutput) ElementType() reflect.Type {
@@ -228,17 +216,17 @@ func (o AccessPointCreationInfoOutput) ToAccessPointCreationInfoPtrOutputWithCon
 	}).(AccessPointCreationInfoPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-ownergid
+// Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
 func (o AccessPointCreationInfoOutput) OwnerGid() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointCreationInfo) string { return v.OwnerGid }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-owneruid
+// Specifies the POSIX user ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
 func (o AccessPointCreationInfoOutput) OwnerUid() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointCreationInfo) string { return v.OwnerUid }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-permissions
+// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
 func (o AccessPointCreationInfoOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointCreationInfo) string { return v.Permissions }).(pulumi.StringOutput)
 }
@@ -267,7 +255,7 @@ func (o AccessPointCreationInfoPtrOutput) Elem() AccessPointCreationInfoOutput {
 	}).(AccessPointCreationInfoOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-ownergid
+// Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
 func (o AccessPointCreationInfoPtrOutput) OwnerGid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointCreationInfo) *string {
 		if v == nil {
@@ -277,7 +265,7 @@ func (o AccessPointCreationInfoPtrOutput) OwnerGid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-owneruid
+// Specifies the POSIX user ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
 func (o AccessPointCreationInfoPtrOutput) OwnerUid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointCreationInfo) *string {
 		if v == nil {
@@ -287,7 +275,7 @@ func (o AccessPointCreationInfoPtrOutput) OwnerUid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-permissions
+// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
 func (o AccessPointCreationInfoPtrOutput) Permissions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointCreationInfo) *string {
 		if v == nil {
@@ -297,13 +285,12 @@ func (o AccessPointCreationInfoPtrOutput) Permissions() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html
 type AccessPointPosixUser struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-gid
+	// The POSIX group ID used for all file system operations using this access point.
 	Gid string `pulumi:"gid"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-secondarygids
+	// Secondary POSIX group IDs used for all file system operations using this access point.
 	SecondaryGids []string `pulumi:"secondaryGids"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-uid
+	// The POSIX user ID used for all file system operations using this access point.
 	Uid string `pulumi:"uid"`
 }
 
@@ -318,13 +305,12 @@ type AccessPointPosixUserInput interface {
 	ToAccessPointPosixUserOutputWithContext(context.Context) AccessPointPosixUserOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html
 type AccessPointPosixUserArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-gid
+	// The POSIX group ID used for all file system operations using this access point.
 	Gid pulumi.StringInput `pulumi:"gid"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-secondarygids
+	// Secondary POSIX group IDs used for all file system operations using this access point.
 	SecondaryGids pulumi.StringArrayInput `pulumi:"secondaryGids"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-uid
+	// The POSIX user ID used for all file system operations using this access point.
 	Uid pulumi.StringInput `pulumi:"uid"`
 }
 
@@ -381,7 +367,6 @@ func (i *accessPointPosixUserPtrType) ToAccessPointPosixUserPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPosixUserPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html
 type AccessPointPosixUserOutput struct{ *pulumi.OutputState }
 
 func (AccessPointPosixUserOutput) ElementType() reflect.Type {
@@ -406,17 +391,17 @@ func (o AccessPointPosixUserOutput) ToAccessPointPosixUserPtrOutputWithContext(c
 	}).(AccessPointPosixUserPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-gid
+// The POSIX group ID used for all file system operations using this access point.
 func (o AccessPointPosixUserOutput) Gid() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointPosixUser) string { return v.Gid }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-secondarygids
+// Secondary POSIX group IDs used for all file system operations using this access point.
 func (o AccessPointPosixUserOutput) SecondaryGids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccessPointPosixUser) []string { return v.SecondaryGids }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-uid
+// The POSIX user ID used for all file system operations using this access point.
 func (o AccessPointPosixUserOutput) Uid() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointPosixUser) string { return v.Uid }).(pulumi.StringOutput)
 }
@@ -445,7 +430,7 @@ func (o AccessPointPosixUserPtrOutput) Elem() AccessPointPosixUserOutput {
 	}).(AccessPointPosixUserOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-gid
+// The POSIX group ID used for all file system operations using this access point.
 func (o AccessPointPosixUserPtrOutput) Gid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointPosixUser) *string {
 		if v == nil {
@@ -455,7 +440,7 @@ func (o AccessPointPosixUserPtrOutput) Gid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-secondarygids
+// Secondary POSIX group IDs used for all file system operations using this access point.
 func (o AccessPointPosixUserPtrOutput) SecondaryGids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccessPointPosixUser) []string {
 		if v == nil {
@@ -465,7 +450,7 @@ func (o AccessPointPosixUserPtrOutput) SecondaryGids() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-uid
+// The POSIX user ID used for all file system operations using this access point.
 func (o AccessPointPosixUserPtrOutput) Uid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointPosixUser) *string {
 		if v == nil {
@@ -475,11 +460,10 @@ func (o AccessPointPosixUserPtrOutput) Uid() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html
 type AccessPointRootDirectory struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-creationinfo
+	// (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationInfo settings when a client connects to an access point. When specifying the CreationInfo, you must provide values for all properties.   If you do not provide CreationInfo and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail.
 	CreationInfo *AccessPointCreationInfo `pulumi:"creationInfo"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-path
+	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationInfo.
 	Path *string `pulumi:"path"`
 }
 
@@ -494,11 +478,10 @@ type AccessPointRootDirectoryInput interface {
 	ToAccessPointRootDirectoryOutputWithContext(context.Context) AccessPointRootDirectoryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html
 type AccessPointRootDirectoryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-creationinfo
+	// (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationInfo settings when a client connects to an access point. When specifying the CreationInfo, you must provide values for all properties.   If you do not provide CreationInfo and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail.
 	CreationInfo AccessPointCreationInfoPtrInput `pulumi:"creationInfo"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-path
+	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationInfo.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 }
 
@@ -555,7 +538,6 @@ func (i *accessPointRootDirectoryPtrType) ToAccessPointRootDirectoryPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointRootDirectoryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html
 type AccessPointRootDirectoryOutput struct{ *pulumi.OutputState }
 
 func (AccessPointRootDirectoryOutput) ElementType() reflect.Type {
@@ -580,12 +562,12 @@ func (o AccessPointRootDirectoryOutput) ToAccessPointRootDirectoryPtrOutputWithC
 	}).(AccessPointRootDirectoryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-creationinfo
+// (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationInfo settings when a client connects to an access point. When specifying the CreationInfo, you must provide values for all properties.   If you do not provide CreationInfo and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail.
 func (o AccessPointRootDirectoryOutput) CreationInfo() AccessPointCreationInfoPtrOutput {
 	return o.ApplyT(func(v AccessPointRootDirectory) *AccessPointCreationInfo { return v.CreationInfo }).(AccessPointCreationInfoPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-path
+// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationInfo.
 func (o AccessPointRootDirectoryOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPointRootDirectory) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
@@ -614,7 +596,7 @@ func (o AccessPointRootDirectoryPtrOutput) Elem() AccessPointRootDirectoryOutput
 	}).(AccessPointRootDirectoryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-creationinfo
+// (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationInfo settings when a client connects to an access point. When specifying the CreationInfo, you must provide values for all properties.   If you do not provide CreationInfo and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail.
 func (o AccessPointRootDirectoryPtrOutput) CreationInfo() AccessPointCreationInfoPtrOutput {
 	return o.ApplyT(func(v *AccessPointRootDirectory) *AccessPointCreationInfo {
 		if v == nil {
@@ -624,7 +606,7 @@ func (o AccessPointRootDirectoryPtrOutput) CreationInfo() AccessPointCreationInf
 	}).(AccessPointCreationInfoPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-rootdirectory.html#cfn-efs-accesspoint-rootdirectory-path
+// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide the CreationInfo.
 func (o AccessPointRootDirectoryPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointRootDirectory) *string {
 		if v == nil {
@@ -634,9 +616,7 @@ func (o AccessPointRootDirectoryPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html
 type FileSystemBackupPolicy struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status
 	Status string `pulumi:"status"`
 }
 
@@ -651,9 +631,7 @@ type FileSystemBackupPolicyInput interface {
 	ToFileSystemBackupPolicyOutputWithContext(context.Context) FileSystemBackupPolicyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html
 type FileSystemBackupPolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -710,7 +688,6 @@ func (i *fileSystemBackupPolicyPtrType) ToFileSystemBackupPolicyPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemBackupPolicyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html
 type FileSystemBackupPolicyOutput struct{ *pulumi.OutputState }
 
 func (FileSystemBackupPolicyOutput) ElementType() reflect.Type {
@@ -735,7 +712,6 @@ func (o FileSystemBackupPolicyOutput) ToFileSystemBackupPolicyPtrOutputWithConte
 	}).(FileSystemBackupPolicyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status
 func (o FileSystemBackupPolicyOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v FileSystemBackupPolicy) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -764,7 +740,6 @@ func (o FileSystemBackupPolicyPtrOutput) Elem() FileSystemBackupPolicyOutput {
 	}).(FileSystemBackupPolicyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-backuppolicy.html#cfn-efs-filesystem-backuppolicy-status
 func (o FileSystemBackupPolicyPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemBackupPolicy) *string {
 		if v == nil {
@@ -774,11 +749,8 @@ func (o FileSystemBackupPolicyPtrOutput) Status() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html
 type FileSystemElasticFileSystemTag struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-key
-	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-value
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -793,11 +765,8 @@ type FileSystemElasticFileSystemTagInput interface {
 	ToFileSystemElasticFileSystemTagOutputWithContext(context.Context) FileSystemElasticFileSystemTagOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html
 type FileSystemElasticFileSystemTagArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-key
-	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-value
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -838,7 +807,6 @@ func (i FileSystemElasticFileSystemTagArray) ToFileSystemElasticFileSystemTagArr
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemElasticFileSystemTagArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html
 type FileSystemElasticFileSystemTagOutput struct{ *pulumi.OutputState }
 
 func (FileSystemElasticFileSystemTagOutput) ElementType() reflect.Type {
@@ -853,12 +821,10 @@ func (o FileSystemElasticFileSystemTagOutput) ToFileSystemElasticFileSystemTagOu
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-key
 func (o FileSystemElasticFileSystemTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v FileSystemElasticFileSystemTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-value
 func (o FileSystemElasticFileSystemTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FileSystemElasticFileSystemTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -883,11 +849,8 @@ func (o FileSystemElasticFileSystemTagArrayOutput) Index(i pulumi.IntInput) File
 	}).(FileSystemElasticFileSystemTagOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html
 type FileSystemLifecyclePolicy struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
-	TransitionToIA *string `pulumi:"transitionToIA"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoprimarystorageclass
+	TransitionToIA                  *string `pulumi:"transitionToIA"`
 	TransitionToPrimaryStorageClass *string `pulumi:"transitionToPrimaryStorageClass"`
 }
 
@@ -902,11 +865,8 @@ type FileSystemLifecyclePolicyInput interface {
 	ToFileSystemLifecyclePolicyOutputWithContext(context.Context) FileSystemLifecyclePolicyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html
 type FileSystemLifecyclePolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
-	TransitionToIA pulumi.StringPtrInput `pulumi:"transitionToIA"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoprimarystorageclass
+	TransitionToIA                  pulumi.StringPtrInput `pulumi:"transitionToIA"`
 	TransitionToPrimaryStorageClass pulumi.StringPtrInput `pulumi:"transitionToPrimaryStorageClass"`
 }
 
@@ -947,7 +907,6 @@ func (i FileSystemLifecyclePolicyArray) ToFileSystemLifecyclePolicyArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemLifecyclePolicyArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html
 type FileSystemLifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (FileSystemLifecyclePolicyOutput) ElementType() reflect.Type {
@@ -962,12 +921,10 @@ func (o FileSystemLifecyclePolicyOutput) ToFileSystemLifecyclePolicyOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
 func (o FileSystemLifecyclePolicyOutput) TransitionToIA() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemLifecyclePolicy) *string { return v.TransitionToIA }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoprimarystorageclass
 func (o FileSystemLifecyclePolicyOutput) TransitionToPrimaryStorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemLifecyclePolicy) *string { return v.TransitionToPrimaryStorageClass }).(pulumi.StringPtrOutput)
 }

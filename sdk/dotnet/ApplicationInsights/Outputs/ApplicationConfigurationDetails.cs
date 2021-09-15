@@ -11,29 +11,29 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html
+    /// The configuration settings.
     /// </summary>
     [OutputType]
     public sealed class ApplicationConfigurationDetails
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarmmetrics
+        /// A list of metrics to monitor for the component.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationAlarmMetric> AlarmMetrics;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarms
+        /// A list of alarms to monitor for the component.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationAlarm> Alarms;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-jmxprometheusexporter
+        /// The JMX Prometheus Exporter settings.
         /// </summary>
         public readonly Outputs.ApplicationJMXPrometheusExporter? JMXPrometheusExporter;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs
+        /// A list of logs to monitor for the component.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationLog> Logs;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents
+        /// A list of Windows Events to log.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationWindowsEvent> WindowsEvents;
 

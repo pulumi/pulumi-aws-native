@@ -18,9 +18,9 @@ class LinkAssociationArgs:
                  link_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a LinkAssociation resource.
-        :param pulumi.Input[str] device_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
-        :param pulumi.Input[str] global_network_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
-        :param pulumi.Input[str] link_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
+        :param pulumi.Input[str] device_id: The ID of the device
+        :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input[str] link_id: The ID of the link
         """
         pulumi.set(__self__, "device_id", device_id)
         pulumi.set(__self__, "global_network_id", global_network_id)
@@ -30,7 +30,7 @@ class LinkAssociationArgs:
     @pulumi.getter(name="deviceId")
     def device_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
+        The ID of the device
         """
         return pulumi.get(self, "device_id")
 
@@ -42,7 +42,7 @@ class LinkAssociationArgs:
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
+        The ID of the global network.
         """
         return pulumi.get(self, "global_network_id")
 
@@ -54,7 +54,7 @@ class LinkAssociationArgs:
     @pulumi.getter(name="linkId")
     def link_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
+        The ID of the link
         """
         return pulumi.get(self, "link_id")
 
@@ -73,13 +73,13 @@ class LinkAssociation(pulumi.CustomResource):
                  link_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html
+        The AWS::NetworkManager::LinkAssociation type associates a link to a device. The device and link must be in the same global network and the same site.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] device_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
-        :param pulumi.Input[str] global_network_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
-        :param pulumi.Input[str] link_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
+        :param pulumi.Input[str] device_id: The ID of the device
+        :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input[str] link_id: The ID of the link
         """
         ...
     @overload
@@ -88,7 +88,7 @@ class LinkAssociation(pulumi.CustomResource):
                  args: LinkAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html
+        The AWS::NetworkManager::LinkAssociation type associates a link to a device. The device and link must be in the same global network and the same site.
 
         :param str resource_name: The name of the resource.
         :param LinkAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -160,7 +160,7 @@ class LinkAssociation(pulumi.CustomResource):
     @pulumi.getter(name="deviceId")
     def device_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-deviceid
+        The ID of the device
         """
         return pulumi.get(self, "device_id")
 
@@ -168,7 +168,7 @@ class LinkAssociation(pulumi.CustomResource):
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-globalnetworkid
+        The ID of the global network.
         """
         return pulumi.get(self, "global_network_id")
 
@@ -176,7 +176,7 @@ class LinkAssociation(pulumi.CustomResource):
     @pulumi.getter(name="linkId")
     def link_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-linkassociation.html#cfn-networkmanager-linkassociation-linkid
+        The ID of the link
         """
         return pulumi.get(self, "link_id")
 

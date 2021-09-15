@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html
+ * The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
  */
 export class GlobalNetwork extends pulumi.CustomResource {
     /**
@@ -35,16 +35,18 @@ export class GlobalNetwork extends pulumi.CustomResource {
         return obj['__pulumiType'] === GlobalNetwork.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the global network.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-description
+     * The description of the global network.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-tags
+     * The tags for the global network.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.networkmanager.GlobalNetworkTag[] | undefined>;
 
     /**
      * Create a GlobalNetwork resource with the given unique name, arguments, and options.
@@ -60,11 +62,9 @@ export class GlobalNetwork extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -79,11 +79,11 @@ export class GlobalNetwork extends pulumi.CustomResource {
  */
 export interface GlobalNetworkArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-description
+     * The description of the global network.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-tags
+     * The tags for the global network.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.GlobalNetworkTagArgs>[]>;
 }

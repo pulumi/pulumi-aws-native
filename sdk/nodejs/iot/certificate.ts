@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html
+ * Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -35,26 +35,10 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
-     */
     public readonly cACertificatePem!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
-     */
     public readonly certificateMode!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
-     */
     public readonly certificatePem!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
-     */
     public readonly certificateSigningRequest!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
-     */
     public readonly status!: pulumi.Output<string>;
 
     /**
@@ -77,14 +61,12 @@ export class Certificate extends pulumi.CustomResource {
             inputs["certificateSigningRequest"] = args ? args.certificateSigningRequest : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["arn"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["cACertificatePem"] = undefined /*out*/;
             inputs["certificateMode"] = undefined /*out*/;
             inputs["certificatePem"] = undefined /*out*/;
             inputs["certificateSigningRequest"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -98,24 +80,9 @@ export class Certificate extends pulumi.CustomResource {
  * The set of arguments for constructing a Certificate resource.
  */
 export interface CertificateArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
-     */
     cACertificatePem?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
-     */
     certificateMode?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
-     */
     certificatePem?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
-     */
     certificateSigningRequest?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
-     */
     status: pulumi.Input<string>;
 }

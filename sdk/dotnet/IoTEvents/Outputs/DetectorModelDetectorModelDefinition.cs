@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html
+    /// Information that defines how a detector operates.
     /// </summary>
     [OutputType]
     public sealed class DetectorModelDetectorModelDefinition
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-initialstatename
+        /// The state that is entered at the creation of each detector (instance).
         /// </summary>
         public readonly string InitialStateName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-states
+        /// Information about the states of the detector.
         /// </summary>
         public readonly ImmutableArray<Outputs.DetectorModelState> States;
 

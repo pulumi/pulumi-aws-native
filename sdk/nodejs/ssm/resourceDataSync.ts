@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html
+ * Resource Type definition for AWS::SSM::ResourceDataSync
  */
 export class ResourceDataSync extends pulumi.CustomResource {
     /**
@@ -35,38 +35,14 @@ export class ResourceDataSync extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceDataSync.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname
-     */
     public readonly bucketName!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketprefix
-     */
     public readonly bucketPrefix!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion
-     */
     public readonly bucketRegion!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn
-     */
     public readonly kMSKeyArn!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination
-     */
     public readonly s3Destination!: pulumi.Output<outputs.ssm.ResourceDataSyncS3Destination | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
-     */
     public readonly syncFormat!: pulumi.Output<string | undefined>;
-    public readonly syncName!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource
-     */
+    public /*out*/ readonly syncName!: pulumi.Output<string>;
     public readonly syncSource!: pulumi.Output<outputs.ssm.ResourceDataSyncSyncSource | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype
-     */
     public readonly syncType!: pulumi.Output<string | undefined>;
 
     /**
@@ -76,22 +52,19 @@ export class ResourceDataSync extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResourceDataSyncArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ResourceDataSyncArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.syncName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'syncName'");
-            }
             inputs["bucketName"] = args ? args.bucketName : undefined;
             inputs["bucketPrefix"] = args ? args.bucketPrefix : undefined;
             inputs["bucketRegion"] = args ? args.bucketRegion : undefined;
             inputs["kMSKeyArn"] = args ? args.kMSKeyArn : undefined;
             inputs["s3Destination"] = args ? args.s3Destination : undefined;
             inputs["syncFormat"] = args ? args.syncFormat : undefined;
-            inputs["syncName"] = args ? args.syncName : undefined;
             inputs["syncSource"] = args ? args.syncSource : undefined;
             inputs["syncType"] = args ? args.syncType : undefined;
+            inputs["syncName"] = undefined /*out*/;
         } else {
             inputs["bucketName"] = undefined /*out*/;
             inputs["bucketPrefix"] = undefined /*out*/;
@@ -114,40 +87,12 @@ export class ResourceDataSync extends pulumi.CustomResource {
  * The set of arguments for constructing a ResourceDataSync resource.
  */
 export interface ResourceDataSyncArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname
-     */
     bucketName?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketprefix
-     */
     bucketPrefix?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion
-     */
     bucketRegion?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn
-     */
     kMSKeyArn?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination
-     */
     s3Destination?: pulumi.Input<inputs.ssm.ResourceDataSyncS3DestinationArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
-     */
     syncFormat?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname
-     */
-    syncName: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource
-     */
     syncSource?: pulumi.Input<inputs.ssm.ResourceDataSyncSyncSourceArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype
-     */
     syncType?: pulumi.Input<string>;
 }

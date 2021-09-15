@@ -11,13 +11,10 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html
+    /// The ReplicationSet regional configuration.
     /// </summary>
     public sealed class ReplicationSetRegionConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html#cfn-ssmincidents-replicationset-regionconfiguration-ssekmskeyid
-        /// </summary>
         [Input("sseKmsKeyId", required: true)]
         public Input<string> SseKmsKeyId { get; set; } = null!;
 

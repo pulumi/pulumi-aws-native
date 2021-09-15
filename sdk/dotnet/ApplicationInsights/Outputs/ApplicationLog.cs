@@ -11,29 +11,29 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html
+    /// A log to be monitored for the component.
     /// </summary>
     [OutputType]
     public sealed class ApplicationLog
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-encoding
+        /// The type of encoding of the logs to be monitored.
         /// </summary>
         public readonly string? Encoding;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-loggroupname
+        /// The CloudWatch log group name to be associated to the monitored log.
         /// </summary>
         public readonly string? LogGroupName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logpath
+        /// The path of the logs to be monitored.
         /// </summary>
         public readonly string? LogPath;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logtype
+        /// The log type decides the log patterns against which Application Insights analyzes the log.
         /// </summary>
         public readonly string LogType;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-patternset
+        /// The name of the log pattern set.
         /// </summary>
         public readonly string? PatternSet;
 

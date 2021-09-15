@@ -10,24 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
-    /// </summary>
     [OutputType]
     public sealed class UsagePlanApiStage
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+        /// The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
         /// </summary>
         public readonly string? ApiId;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
+        /// The name of the stage to associate with the usage plan.
         /// </summary>
         public readonly string? Stage;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
+        /// Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, '/pets/GET'. Duplicates are not allowed.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.UsagePlanThrottleSettings>? Throttle;
+        public readonly object? Throttle;
 
         [OutputConstructor]
         private UsagePlanApiStage(
@@ -35,7 +32,7 @@ namespace Pulumi.AwsNative.ApiGateway.Outputs
 
             string? stage,
 
-            ImmutableDictionary<string, Outputs.UsagePlanThrottleSettings>? throttle)
+            object? throttle)
         {
             ApiId = apiId;
             Stage = stage;

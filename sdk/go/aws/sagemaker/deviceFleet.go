@@ -8,24 +8,23 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html
+// Resource schema for AWS::SageMaker::DeviceFleet
 type DeviceFleet struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
+	// Description for the edge device fleet
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-devicefleetname
+	// The name of the edge device fleet
 	DeviceFleetName pulumi.StringOutput `pulumi:"deviceFleetName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
+	// S3 bucket and an ecryption key id (if available) to store outputs for the fleet
 	OutputConfig DeviceFleetEdgeOutputConfigOutput `pulumi:"outputConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
+	// Role associated with the device fleet
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Associate tags with the resource
+	Tags DeviceFleetTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDeviceFleet registers a new resource with the given unique name, arguments, and options.
@@ -76,30 +75,30 @@ func (DeviceFleetState) ElementType() reflect.Type {
 }
 
 type deviceFleetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
+	// Description for the edge device fleet
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-devicefleetname
+	// The name of the edge device fleet
 	DeviceFleetName string `pulumi:"deviceFleetName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
+	// S3 bucket and an ecryption key id (if available) to store outputs for the fleet
 	OutputConfig DeviceFleetEdgeOutputConfig `pulumi:"outputConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
+	// Role associated with the device fleet
 	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// Associate tags with the resource
+	Tags []DeviceFleetTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeviceFleet resource.
 type DeviceFleetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-description
+	// Description for the edge device fleet
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-devicefleetname
+	// The name of the edge device fleet
 	DeviceFleetName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-outputconfig
+	// S3 bucket and an ecryption key id (if available) to store outputs for the fleet
 	OutputConfig DeviceFleetEdgeOutputConfigInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-rolearn
+	// Role associated with the device fleet
 	RoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html#cfn-sagemaker-devicefleet-tags
-	Tags aws.TagArrayInput
+	// Associate tags with the resource
+	Tags DeviceFleetTagArrayInput
 }
 
 func (DeviceFleetArgs) ElementType() reflect.Type {

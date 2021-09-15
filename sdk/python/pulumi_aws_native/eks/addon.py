@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['AddonArgs', 'Addon']
 
@@ -20,15 +20,15 @@ class AddonArgs:
                  addon_version: Optional[pulumi.Input[str]] = None,
                  resolve_conflicts: Optional[pulumi.Input[str]] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AddonTagArgs']]]] = None):
         """
         The set of arguments for constructing a Addon resource.
-        :param pulumi.Input[str] addon_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonname
-        :param pulumi.Input[str] cluster_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-clustername
-        :param pulumi.Input[str] addon_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonversion
-        :param pulumi.Input[str] resolve_conflicts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-resolveconflicts
-        :param pulumi.Input[str] service_account_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-serviceaccountrolearn
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-tags
+        :param pulumi.Input[str] addon_name: Name of Addon
+        :param pulumi.Input[str] cluster_name: Name of Cluster
+        :param pulumi.Input[str] addon_version: Version of Addon
+        :param pulumi.Input[str] resolve_conflicts: Resolve parameter value conflicts
+        :param pulumi.Input[str] service_account_role_arn: IAM role to bind to the add-on's service account
+        :param pulumi.Input[Sequence[pulumi.Input['AddonTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "addon_name", addon_name)
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -45,7 +45,7 @@ class AddonArgs:
     @pulumi.getter(name="addonName")
     def addon_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonname
+        Name of Addon
         """
         return pulumi.get(self, "addon_name")
 
@@ -57,7 +57,7 @@ class AddonArgs:
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-clustername
+        Name of Cluster
         """
         return pulumi.get(self, "cluster_name")
 
@@ -69,7 +69,7 @@ class AddonArgs:
     @pulumi.getter(name="addonVersion")
     def addon_version(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonversion
+        Version of Addon
         """
         return pulumi.get(self, "addon_version")
 
@@ -81,7 +81,7 @@ class AddonArgs:
     @pulumi.getter(name="resolveConflicts")
     def resolve_conflicts(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-resolveconflicts
+        Resolve parameter value conflicts
         """
         return pulumi.get(self, "resolve_conflicts")
 
@@ -93,7 +93,7 @@ class AddonArgs:
     @pulumi.getter(name="serviceAccountRoleArn")
     def service_account_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-serviceaccountrolearn
+        IAM role to bind to the add-on's service account
         """
         return pulumi.get(self, "service_account_role_arn")
 
@@ -103,14 +103,14 @@ class AddonArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AddonTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AddonTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -124,19 +124,19 @@ class Addon(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  resolve_conflicts: Optional[pulumi.Input[str]] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddonTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html
+        Resource Schema for AWS::EKS::Addon
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] addon_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonname
-        :param pulumi.Input[str] addon_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonversion
-        :param pulumi.Input[str] cluster_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-clustername
-        :param pulumi.Input[str] resolve_conflicts: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-resolveconflicts
-        :param pulumi.Input[str] service_account_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-serviceaccountrolearn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-tags
+        :param pulumi.Input[str] addon_name: Name of Addon
+        :param pulumi.Input[str] addon_version: Version of Addon
+        :param pulumi.Input[str] cluster_name: Name of Cluster
+        :param pulumi.Input[str] resolve_conflicts: Resolve parameter value conflicts
+        :param pulumi.Input[str] service_account_role_arn: IAM role to bind to the add-on's service account
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddonTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -145,7 +145,7 @@ class Addon(pulumi.CustomResource):
                  args: AddonArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html
+        Resource Schema for AWS::EKS::Addon
 
         :param str resource_name: The name of the resource.
         :param AddonArgs args: The arguments to use to populate this resource's properties.
@@ -167,7 +167,7 @@ class Addon(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  resolve_conflicts: Optional[pulumi.Input[str]] = None,
                  service_account_role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddonTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -226,7 +226,7 @@ class Addon(pulumi.CustomResource):
     @pulumi.getter(name="addonName")
     def addon_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonname
+        Name of Addon
         """
         return pulumi.get(self, "addon_name")
 
@@ -234,20 +234,23 @@ class Addon(pulumi.CustomResource):
     @pulumi.getter(name="addonVersion")
     def addon_version(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonversion
+        Version of Addon
         """
         return pulumi.get(self, "addon_version")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the add-on
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-clustername
+        Name of Cluster
         """
         return pulumi.get(self, "cluster_name")
 
@@ -255,7 +258,7 @@ class Addon(pulumi.CustomResource):
     @pulumi.getter(name="resolveConflicts")
     def resolve_conflicts(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-resolveconflicts
+        Resolve parameter value conflicts
         """
         return pulumi.get(self, "resolve_conflicts")
 
@@ -263,15 +266,15 @@ class Addon(pulumi.CustomResource):
     @pulumi.getter(name="serviceAccountRoleArn")
     def service_account_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-serviceaccountrolearn
+        IAM role to bind to the add-on's service account
         """
         return pulumi.get(self, "service_account_role_arn")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AddonTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 

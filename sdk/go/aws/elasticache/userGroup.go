@@ -11,17 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html
+// Resource Type definition for AWS::ElastiCache::UserGroup
 type UserGroup struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the user account.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
+	// Must be redis.
 	Engine pulumi.StringOutput `pulumi:"engine"`
+	// Indicates user group status. Can be "creating", "active", "modifying", "deleting".
 	Status pulumi.StringOutput `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
+	// The ID of the user group.
 	UserGroupId pulumi.StringOutput `pulumi:"userGroupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
+	// List of users associated to this user group.
 	UserIds pulumi.StringArrayOutput `pulumi:"userIds"`
 }
 
@@ -70,21 +72,21 @@ func (UserGroupState) ElementType() reflect.Type {
 }
 
 type userGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
+	// Must be redis.
 	Engine string `pulumi:"engine"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
+	// The ID of the user group.
 	UserGroupId string `pulumi:"userGroupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
+	// List of users associated to this user group.
 	UserIds []string `pulumi:"userIds"`
 }
 
 // The set of arguments for constructing a UserGroup resource.
 type UserGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
+	// Must be redis.
 	Engine pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
+	// The ID of the user group.
 	UserGroupId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
+	// List of users associated to this user group.
 	UserIds pulumi.StringArrayInput
 }
 

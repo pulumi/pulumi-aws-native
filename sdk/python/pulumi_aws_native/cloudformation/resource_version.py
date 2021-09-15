@@ -21,10 +21,14 @@ class ResourceVersionArgs:
                  logging_config: Optional[pulumi.Input['ResourceVersionLoggingConfigArgs']] = None):
         """
         The set of arguments for constructing a ResourceVersion resource.
-        :param pulumi.Input[str] schema_handler_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-schemahandlerpackage
-        :param pulumi.Input[str] type_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-typename
-        :param pulumi.Input[str] execution_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-executionrolearn
-        :param pulumi.Input['ResourceVersionLoggingConfigArgs'] logging_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-loggingconfig
+        :param pulumi.Input[str] schema_handler_package: A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
+               
+               For information on generating a schema handler package for the type you want to register, see submit in the CloudFormation CLI User Guide.
+        :param pulumi.Input[str] type_name: The name of the type being registered.
+               
+               We recommend that type names adhere to the following pattern: company_or_organization::service::type.
+        :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
+        :param pulumi.Input['ResourceVersionLoggingConfigArgs'] logging_config: Specifies logging configuration information for a type.
         """
         pulumi.set(__self__, "schema_handler_package", schema_handler_package)
         pulumi.set(__self__, "type_name", type_name)
@@ -37,7 +41,9 @@ class ResourceVersionArgs:
     @pulumi.getter(name="schemaHandlerPackage")
     def schema_handler_package(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-schemahandlerpackage
+        A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
+
+        For information on generating a schema handler package for the type you want to register, see submit in the CloudFormation CLI User Guide.
         """
         return pulumi.get(self, "schema_handler_package")
 
@@ -49,7 +55,9 @@ class ResourceVersionArgs:
     @pulumi.getter(name="typeName")
     def type_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-typename
+        The name of the type being registered.
+
+        We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         """
         return pulumi.get(self, "type_name")
 
@@ -61,7 +69,7 @@ class ResourceVersionArgs:
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-executionrolearn
+        The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -73,7 +81,7 @@ class ResourceVersionArgs:
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> Optional[pulumi.Input['ResourceVersionLoggingConfigArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-loggingconfig
+        Specifies logging configuration information for a type.
         """
         return pulumi.get(self, "logging_config")
 
@@ -93,14 +101,18 @@ class ResourceVersion(pulumi.CustomResource):
                  type_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html
+        A resource that has been registered in the CloudFormation Registry.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] execution_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-executionrolearn
-        :param pulumi.Input[pulumi.InputType['ResourceVersionLoggingConfigArgs']] logging_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-loggingconfig
-        :param pulumi.Input[str] schema_handler_package: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-schemahandlerpackage
-        :param pulumi.Input[str] type_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-typename
+        :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
+        :param pulumi.Input[pulumi.InputType['ResourceVersionLoggingConfigArgs']] logging_config: Specifies logging configuration information for a type.
+        :param pulumi.Input[str] schema_handler_package: A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
+               
+               For information on generating a schema handler package for the type you want to register, see submit in the CloudFormation CLI User Guide.
+        :param pulumi.Input[str] type_name: The name of the type being registered.
+               
+               We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         """
         ...
     @overload
@@ -109,7 +121,7 @@ class ResourceVersion(pulumi.CustomResource):
                  args: ResourceVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html
+        A resource that has been registered in the CloudFormation Registry.
 
         :param str resource_name: The name of the resource.
         :param ResourceVersionArgs args: The arguments to use to populate this resource's properties.
@@ -193,62 +205,90 @@ class ResourceVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the type, here the ResourceVersion. This is used to uniquely identify a ResourceVersion resource
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-executionrolearn
+        The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
         """
         return pulumi.get(self, "execution_role_arn")
 
     @property
     @pulumi.getter(name="isDefaultVersion")
     def is_default_version(self) -> pulumi.Output[bool]:
+        """
+        Indicates if this type version is the current default version
+        """
         return pulumi.get(self, "is_default_version")
 
     @property
     @pulumi.getter(name="loggingConfig")
     def logging_config(self) -> pulumi.Output[Optional['outputs.ResourceVersionLoggingConfig']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-loggingconfig
+        Specifies logging configuration information for a type.
         """
         return pulumi.get(self, "logging_config")
 
     @property
     @pulumi.getter(name="provisioningType")
     def provisioning_type(self) -> pulumi.Output[str]:
+        """
+        The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
+        """
         return pulumi.get(self, "provisioning_type")
 
     @property
     @pulumi.getter(name="schemaHandlerPackage")
     def schema_handler_package(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-schemahandlerpackage
+        A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
+
+        For information on generating a schema handler package for the type you want to register, see submit in the CloudFormation CLI User Guide.
         """
         return pulumi.get(self, "schema_handler_package")
 
     @property
     @pulumi.getter(name="typeArn")
     def type_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the type without the versionID.
+        """
         return pulumi.get(self, "type_arn")
 
     @property
     @pulumi.getter(name="typeName")
     def type_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-typename
+        The name of the type being registered.
+
+        We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         """
         return pulumi.get(self, "type_name")
 
     @property
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the version of the type represented by this resource instance.
+        """
         return pulumi.get(self, "version_id")
 
     @property
     @pulumi.getter
     def visibility(self) -> pulumi.Output[str]:
+        """
+        The scope at which the type is visible and usable in CloudFormation operations.
+
+        Valid values include:
+
+        PRIVATE: The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as PRIVATE.
+
+        PUBLIC: The type is publically visible and usable within any Amazon account.
+        """
         return pulumi.get(self, "visibility")
 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html
+ * Resource Type definition for AWS::ApiGateway::RequestValidator
  */
 export class RequestValidator extends pulumi.CustomResource {
     /**
@@ -35,20 +35,23 @@ export class RequestValidator extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-name
+     * Name of the request validator.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * ID of the request validator.
+     */
     public /*out*/ readonly requestValidatorId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-restapiid
+     * The identifier of the targeted API entity.
      */
     public readonly restApiId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestbody
+     * Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
      */
     public readonly validateRequestBody!: pulumi.Output<boolean | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestparameters
+     * Indicates whether to validate request parameters.
      */
     public readonly validateRequestParameters!: pulumi.Output<boolean | undefined>;
 
@@ -90,19 +93,19 @@ export class RequestValidator extends pulumi.CustomResource {
  */
 export interface RequestValidatorArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-name
+     * Name of the request validator.
      */
     name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-restapiid
+     * The identifier of the targeted API entity.
      */
     restApiId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestbody
+     * Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
      */
     validateRequestBody?: pulumi.Input<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestparameters
+     * Indicates whether to validate request parameters.
      */
     validateRequestParameters?: pulumi.Input<boolean>;
 }

@@ -11,48 +11,48 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html
+    /// Firewall Rule associating the Rule Group to a Domain List
     /// </summary>
     public sealed class FirewallRuleGroupFirewallRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-action
+        /// Rule Action
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockoverridednstype
+        /// BlockOverrideDnsType
         /// </summary>
         [Input("blockOverrideDnsType")]
         public Input<string>? BlockOverrideDnsType { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockoverridedomain
+        /// BlockOverrideDomain
         /// </summary>
         [Input("blockOverrideDomain")]
         public Input<string>? BlockOverrideDomain { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockoverridettl
+        /// BlockOverrideTtl
         /// </summary>
         [Input("blockOverrideTtl")]
         public Input<int>? BlockOverrideTtl { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockresponse
+        /// BlockResponse
         /// </summary>
         [Input("blockResponse")]
         public Input<string>? BlockResponse { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-firewalldomainlistid
+        /// ResourceId
         /// </summary>
         [Input("firewallDomainListId", required: true)]
         public Input<string> FirewallDomainListId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-priority
+        /// Rule Priority
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;

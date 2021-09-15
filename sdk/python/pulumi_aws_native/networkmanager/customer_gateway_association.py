@@ -19,10 +19,10 @@ class CustomerGatewayAssociationArgs:
                  link_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CustomerGatewayAssociation resource.
-        :param pulumi.Input[str] customer_gateway_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-customergatewayarn
-        :param pulumi.Input[str] device_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-deviceid
-        :param pulumi.Input[str] global_network_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-globalnetworkid
-        :param pulumi.Input[str] link_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-linkid
+        :param pulumi.Input[str] customer_gateway_arn: The Amazon Resource Name (ARN) of the customer gateway.
+        :param pulumi.Input[str] device_id: The ID of the device
+        :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input[str] link_id: The ID of the link
         """
         pulumi.set(__self__, "customer_gateway_arn", customer_gateway_arn)
         pulumi.set(__self__, "device_id", device_id)
@@ -34,7 +34,7 @@ class CustomerGatewayAssociationArgs:
     @pulumi.getter(name="customerGatewayArn")
     def customer_gateway_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-customergatewayarn
+        The Amazon Resource Name (ARN) of the customer gateway.
         """
         return pulumi.get(self, "customer_gateway_arn")
 
@@ -46,7 +46,7 @@ class CustomerGatewayAssociationArgs:
     @pulumi.getter(name="deviceId")
     def device_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-deviceid
+        The ID of the device
         """
         return pulumi.get(self, "device_id")
 
@@ -58,7 +58,7 @@ class CustomerGatewayAssociationArgs:
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-globalnetworkid
+        The ID of the global network.
         """
         return pulumi.get(self, "global_network_id")
 
@@ -70,7 +70,7 @@ class CustomerGatewayAssociationArgs:
     @pulumi.getter(name="linkId")
     def link_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-linkid
+        The ID of the link
         """
         return pulumi.get(self, "link_id")
 
@@ -90,14 +90,14 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
                  link_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html
+        The AWS::NetworkManager::CustomerGatewayAssociation type associates a customer gateway with a device and optionally, with a link.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] customer_gateway_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-customergatewayarn
-        :param pulumi.Input[str] device_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-deviceid
-        :param pulumi.Input[str] global_network_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-globalnetworkid
-        :param pulumi.Input[str] link_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-linkid
+        :param pulumi.Input[str] customer_gateway_arn: The Amazon Resource Name (ARN) of the customer gateway.
+        :param pulumi.Input[str] device_id: The ID of the device
+        :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input[str] link_id: The ID of the link
         """
         ...
     @overload
@@ -106,7 +106,7 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
                  args: CustomerGatewayAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html
+        The AWS::NetworkManager::CustomerGatewayAssociation type associates a customer gateway with a device and optionally, with a link.
 
         :param str resource_name: The name of the resource.
         :param CustomerGatewayAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -181,7 +181,7 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
     @pulumi.getter(name="customerGatewayArn")
     def customer_gateway_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-customergatewayarn
+        The Amazon Resource Name (ARN) of the customer gateway.
         """
         return pulumi.get(self, "customer_gateway_arn")
 
@@ -189,7 +189,7 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
     @pulumi.getter(name="deviceId")
     def device_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-deviceid
+        The ID of the device
         """
         return pulumi.get(self, "device_id")
 
@@ -197,7 +197,7 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-globalnetworkid
+        The ID of the global network.
         """
         return pulumi.get(self, "global_network_id")
 
@@ -205,7 +205,7 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
     @pulumi.getter(name="linkId")
     def link_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-customergatewayassociation.html#cfn-networkmanager-customergatewayassociation-linkid
+        The ID of the link
         """
         return pulumi.get(self, "link_id")
 

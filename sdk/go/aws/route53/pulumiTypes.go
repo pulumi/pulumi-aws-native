@@ -10,11 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html
+// A key-value pair to associate with a resource.
 type HealthCheckHealthCheckTag struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-key
+	// The key name of the tag.
 	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
+	// The value for the tag.
 	Value string `pulumi:"value"`
 }
 
@@ -29,11 +29,11 @@ type HealthCheckHealthCheckTagInput interface {
 	ToHealthCheckHealthCheckTagOutputWithContext(context.Context) HealthCheckHealthCheckTagOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html
+// A key-value pair to associate with a resource.
 type HealthCheckHealthCheckTagArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-key
+	// The key name of the tag.
 	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
+	// The value for the tag.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -74,7 +74,7 @@ func (i HealthCheckHealthCheckTagArray) ToHealthCheckHealthCheckTagArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckHealthCheckTagArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html
+// A key-value pair to associate with a resource.
 type HealthCheckHealthCheckTagOutput struct{ *pulumi.OutputState }
 
 func (HealthCheckHealthCheckTagOutput) ElementType() reflect.Type {
@@ -89,12 +89,12 @@ func (o HealthCheckHealthCheckTagOutput) ToHealthCheckHealthCheckTagOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-key
+// The key name of the tag.
 func (o HealthCheckHealthCheckTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthCheckHealthCheckTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
+// The value for the tag.
 func (o HealthCheckHealthCheckTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthCheckHealthCheckTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -119,9 +119,11 @@ func (o HealthCheckHealthCheckTagArrayOutput) Index(i pulumi.IntInput) HealthChe
 	}).(HealthCheckHealthCheckTagOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html
+// A complex type that contains an optional comment.
+//
+// If you don't want to specify a comment, omit the HostedZoneConfig and Comment elements.
 type HostedZoneHostedZoneConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html#cfn-route53-hostedzone-hostedzoneconfig-comment
+	// Any comments that you want to include about the hosted zone.
 	Comment *string `pulumi:"comment"`
 }
 
@@ -136,9 +138,11 @@ type HostedZoneHostedZoneConfigInput interface {
 	ToHostedZoneHostedZoneConfigOutputWithContext(context.Context) HostedZoneHostedZoneConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html
+// A complex type that contains an optional comment.
+//
+// If you don't want to specify a comment, omit the HostedZoneConfig and Comment elements.
 type HostedZoneHostedZoneConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html#cfn-route53-hostedzone-hostedzoneconfig-comment
+	// Any comments that you want to include about the hosted zone.
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
 }
 
@@ -195,7 +199,9 @@ func (i *hostedZoneHostedZoneConfigPtrType) ToHostedZoneHostedZoneConfigPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneHostedZoneConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html
+// A complex type that contains an optional comment.
+//
+// If you don't want to specify a comment, omit the HostedZoneConfig and Comment elements.
 type HostedZoneHostedZoneConfigOutput struct{ *pulumi.OutputState }
 
 func (HostedZoneHostedZoneConfigOutput) ElementType() reflect.Type {
@@ -220,7 +226,7 @@ func (o HostedZoneHostedZoneConfigOutput) ToHostedZoneHostedZoneConfigPtrOutputW
 	}).(HostedZoneHostedZoneConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html#cfn-route53-hostedzone-hostedzoneconfig-comment
+// Any comments that you want to include about the hosted zone.
 func (o HostedZoneHostedZoneConfigOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HostedZoneHostedZoneConfig) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
@@ -249,7 +255,7 @@ func (o HostedZoneHostedZoneConfigPtrOutput) Elem() HostedZoneHostedZoneConfigOu
 	}).(HostedZoneHostedZoneConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html#cfn-route53-hostedzone-hostedzoneconfig-comment
+// Any comments that you want to include about the hosted zone.
 func (o HostedZoneHostedZoneConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostedZoneHostedZoneConfig) *string {
 		if v == nil {
@@ -259,11 +265,11 @@ func (o HostedZoneHostedZoneConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html
+// A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
 type HostedZoneHostedZoneTag struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-key
+	// The key name of the tag.
 	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-value
+	// The value for the tag.
 	Value string `pulumi:"value"`
 }
 
@@ -278,11 +284,11 @@ type HostedZoneHostedZoneTagInput interface {
 	ToHostedZoneHostedZoneTagOutputWithContext(context.Context) HostedZoneHostedZoneTagOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html
+// A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
 type HostedZoneHostedZoneTagArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-key
+	// The key name of the tag.
 	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-value
+	// The value for the tag.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -323,7 +329,7 @@ func (i HostedZoneHostedZoneTagArray) ToHostedZoneHostedZoneTagArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneHostedZoneTagArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html
+// A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
 type HostedZoneHostedZoneTagOutput struct{ *pulumi.OutputState }
 
 func (HostedZoneHostedZoneTagOutput) ElementType() reflect.Type {
@@ -338,12 +344,12 @@ func (o HostedZoneHostedZoneTagOutput) ToHostedZoneHostedZoneTagOutputWithContex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-key
+// The key name of the tag.
 func (o HostedZoneHostedZoneTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v HostedZoneHostedZoneTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-value
+// The value for the tag.
 func (o HostedZoneHostedZoneTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v HostedZoneHostedZoneTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -368,9 +374,9 @@ func (o HostedZoneHostedZoneTagArrayOutput) Index(i pulumi.IntInput) HostedZoneH
 	}).(HostedZoneHostedZoneTagOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html
+// A complex type that contains information about a configuration for DNS query logging.
 type HostedZoneQueryLoggingConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html#cfn-route53-hostedzone-queryloggingconfig-cloudwatchlogsloggrouparn
+	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
 	CloudWatchLogsLogGroupArn string `pulumi:"cloudWatchLogsLogGroupArn"`
 }
 
@@ -385,9 +391,9 @@ type HostedZoneQueryLoggingConfigInput interface {
 	ToHostedZoneQueryLoggingConfigOutputWithContext(context.Context) HostedZoneQueryLoggingConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html
+// A complex type that contains information about a configuration for DNS query logging.
 type HostedZoneQueryLoggingConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html#cfn-route53-hostedzone-queryloggingconfig-cloudwatchlogsloggrouparn
+	// The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
 	CloudWatchLogsLogGroupArn pulumi.StringInput `pulumi:"cloudWatchLogsLogGroupArn"`
 }
 
@@ -444,7 +450,7 @@ func (i *hostedZoneQueryLoggingConfigPtrType) ToHostedZoneQueryLoggingConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneQueryLoggingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html
+// A complex type that contains information about a configuration for DNS query logging.
 type HostedZoneQueryLoggingConfigOutput struct{ *pulumi.OutputState }
 
 func (HostedZoneQueryLoggingConfigOutput) ElementType() reflect.Type {
@@ -469,7 +475,7 @@ func (o HostedZoneQueryLoggingConfigOutput) ToHostedZoneQueryLoggingConfigPtrOut
 	}).(HostedZoneQueryLoggingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html#cfn-route53-hostedzone-queryloggingconfig-cloudwatchlogsloggrouparn
+// The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
 func (o HostedZoneQueryLoggingConfigOutput) CloudWatchLogsLogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v HostedZoneQueryLoggingConfig) string { return v.CloudWatchLogsLogGroupArn }).(pulumi.StringOutput)
 }
@@ -498,7 +504,7 @@ func (o HostedZoneQueryLoggingConfigPtrOutput) Elem() HostedZoneQueryLoggingConf
 	}).(HostedZoneQueryLoggingConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html#cfn-route53-hostedzone-queryloggingconfig-cloudwatchlogsloggrouparn
+// The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
 func (o HostedZoneQueryLoggingConfigPtrOutput) CloudWatchLogsLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HostedZoneQueryLoggingConfig) *string {
 		if v == nil {
@@ -508,11 +514,11 @@ func (o HostedZoneQueryLoggingConfigPtrOutput) CloudWatchLogsLogGroupArn() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html
+// A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
 type HostedZoneVPC struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
+	// The ID of an Amazon VPC.
 	VPCId string `pulumi:"vPCId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
+	// The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
 	VPCRegion string `pulumi:"vPCRegion"`
 }
 
@@ -527,11 +533,11 @@ type HostedZoneVPCInput interface {
 	ToHostedZoneVPCOutputWithContext(context.Context) HostedZoneVPCOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html
+// A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
 type HostedZoneVPCArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
+	// The ID of an Amazon VPC.
 	VPCId pulumi.StringInput `pulumi:"vPCId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
+	// The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
 	VPCRegion pulumi.StringInput `pulumi:"vPCRegion"`
 }
 
@@ -572,7 +578,7 @@ func (i HostedZoneVPCArray) ToHostedZoneVPCArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(HostedZoneVPCArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html
+// A complex type that contains information about an Amazon VPC. Route 53 Resolver uses the records in the private hosted zone to route traffic in that VPC.
 type HostedZoneVPCOutput struct{ *pulumi.OutputState }
 
 func (HostedZoneVPCOutput) ElementType() reflect.Type {
@@ -587,12 +593,12 @@ func (o HostedZoneVPCOutput) ToHostedZoneVPCOutputWithContext(ctx context.Contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
+// The ID of an Amazon VPC.
 func (o HostedZoneVPCOutput) VPCId() pulumi.StringOutput {
 	return o.ApplyT(func(v HostedZoneVPC) string { return v.VPCId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
+// The region that an Amazon VPC was created in. See https://docs.aws.amazon.com/general/latest/gr/rande.html for a list of up to date regions.
 func (o HostedZoneVPCOutput) VPCRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v HostedZoneVPC) string { return v.VPCRegion }).(pulumi.StringOutput)
 }

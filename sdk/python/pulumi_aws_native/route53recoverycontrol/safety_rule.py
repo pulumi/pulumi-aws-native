@@ -15,69 +15,29 @@ __all__ = ['SafetyRuleArgs', 'SafetyRule']
 @pulumi.input_type
 class SafetyRuleArgs:
     def __init__(__self__, *,
-                 control_panel_arn: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 rule_config: pulumi.Input['SafetyRuleRuleConfigArgs'],
                  assertion_rule: Optional[pulumi.Input['SafetyRuleAssertionRuleArgs']] = None,
-                 gating_rule: Optional[pulumi.Input['SafetyRuleGatingRuleArgs']] = None):
+                 control_panel_arn: Optional[pulumi.Input[str]] = None,
+                 gating_rule: Optional[pulumi.Input['SafetyRuleGatingRuleArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rule_config: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']] = None):
         """
         The set of arguments for constructing a SafetyRule resource.
-        :param pulumi.Input[str] control_panel_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-name
-        :param pulumi.Input['SafetyRuleRuleConfigArgs'] rule_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-ruleconfig
-        :param pulumi.Input['SafetyRuleAssertionRuleArgs'] assertion_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule
-        :param pulumi.Input['SafetyRuleGatingRuleArgs'] gating_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule
+        :param pulumi.Input[str] control_panel_arn: The Amazon Resource Name (ARN) of the control panel.
         """
-        pulumi.set(__self__, "control_panel_arn", control_panel_arn)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "rule_config", rule_config)
         if assertion_rule is not None:
             pulumi.set(__self__, "assertion_rule", assertion_rule)
+        if control_panel_arn is not None:
+            pulumi.set(__self__, "control_panel_arn", control_panel_arn)
         if gating_rule is not None:
             pulumi.set(__self__, "gating_rule", gating_rule)
-
-    @property
-    @pulumi.getter(name="controlPanelArn")
-    def control_panel_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
-        """
-        return pulumi.get(self, "control_panel_arn")
-
-    @control_panel_arn.setter
-    def control_panel_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "control_panel_arn", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="ruleConfig")
-    def rule_config(self) -> pulumi.Input['SafetyRuleRuleConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-ruleconfig
-        """
-        return pulumi.get(self, "rule_config")
-
-    @rule_config.setter
-    def rule_config(self, value: pulumi.Input['SafetyRuleRuleConfigArgs']):
-        pulumi.set(self, "rule_config", value)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rule_config is not None:
+            pulumi.set(__self__, "rule_config", rule_config)
 
     @property
     @pulumi.getter(name="assertionRule")
     def assertion_rule(self) -> Optional[pulumi.Input['SafetyRuleAssertionRuleArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule
-        """
         return pulumi.get(self, "assertion_rule")
 
     @assertion_rule.setter
@@ -85,16 +45,43 @@ class SafetyRuleArgs:
         pulumi.set(self, "assertion_rule", value)
 
     @property
+    @pulumi.getter(name="controlPanelArn")
+    def control_panel_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the control panel.
+        """
+        return pulumi.get(self, "control_panel_arn")
+
+    @control_panel_arn.setter
+    def control_panel_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "control_panel_arn", value)
+
+    @property
     @pulumi.getter(name="gatingRule")
     def gating_rule(self) -> Optional[pulumi.Input['SafetyRuleGatingRuleArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule
-        """
         return pulumi.get(self, "gating_rule")
 
     @gating_rule.setter
     def gating_rule(self, value: Optional[pulumi.Input['SafetyRuleGatingRuleArgs']]):
         pulumi.set(self, "gating_rule", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ruleConfig")
+    def rule_config(self) -> Optional[pulumi.Input['SafetyRuleRuleConfigArgs']]:
+        return pulumi.get(self, "rule_config")
+
+    @rule_config.setter
+    def rule_config(self, value: Optional[pulumi.Input['SafetyRuleRuleConfigArgs']]):
+        pulumi.set(self, "rule_config", value)
 
 
 class SafetyRule(pulumi.CustomResource):
@@ -109,24 +96,20 @@ class SafetyRule(pulumi.CustomResource):
                  rule_config: Optional[pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html
+        Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SafetyRuleAssertionRuleArgs']] assertion_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule
-        :param pulumi.Input[str] control_panel_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
-        :param pulumi.Input[pulumi.InputType['SafetyRuleGatingRuleArgs']] gating_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-name
-        :param pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']] rule_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-ruleconfig
+        :param pulumi.Input[str] control_panel_arn: The Amazon Resource Name (ARN) of the control panel.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SafetyRuleArgs,
+                 args: Optional[SafetyRuleArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html
+        Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param SafetyRuleArgs args: The arguments to use to populate this resource's properties.
@@ -161,15 +144,9 @@ class SafetyRule(pulumi.CustomResource):
             __props__ = SafetyRuleArgs.__new__(SafetyRuleArgs)
 
             __props__.__dict__["assertion_rule"] = assertion_rule
-            if control_panel_arn is None and not opts.urn:
-                raise TypeError("Missing required property 'control_panel_arn'")
             __props__.__dict__["control_panel_arn"] = control_panel_arn
             __props__.__dict__["gating_rule"] = gating_rule
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
-            if rule_config is None and not opts.urn:
-                raise TypeError("Missing required property 'rule_config'")
             __props__.__dict__["rule_config"] = rule_config
             __props__.__dict__["safety_rule_arn"] = None
             __props__.__dict__["status"] = None
@@ -207,50 +184,44 @@ class SafetyRule(pulumi.CustomResource):
     @property
     @pulumi.getter(name="assertionRule")
     def assertion_rule(self) -> pulumi.Output[Optional['outputs.SafetyRuleAssertionRule']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule
-        """
         return pulumi.get(self, "assertion_rule")
 
     @property
     @pulumi.getter(name="controlPanelArn")
-    def control_panel_arn(self) -> pulumi.Output[str]:
+    def control_panel_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
+        The Amazon Resource Name (ARN) of the control panel.
         """
         return pulumi.get(self, "control_panel_arn")
 
     @property
     @pulumi.getter(name="gatingRule")
     def gating_rule(self) -> pulumi.Output[Optional['outputs.SafetyRuleGatingRule']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule
-        """
         return pulumi.get(self, "gating_rule")
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-name
-        """
+    def name(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ruleConfig")
-    def rule_config(self) -> pulumi.Output['outputs.SafetyRuleRuleConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-ruleconfig
-        """
+    def rule_config(self) -> pulumi.Output[Optional['outputs.SafetyRuleRuleConfig']]:
         return pulumi.get(self, "rule_config")
 
     @property
     @pulumi.getter(name="safetyRuleArn")
     def safety_rule_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the safety rule.
+        """
         return pulumi.get(self, "safety_rule_arn")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+        """
         return pulumi.get(self, "status")
 

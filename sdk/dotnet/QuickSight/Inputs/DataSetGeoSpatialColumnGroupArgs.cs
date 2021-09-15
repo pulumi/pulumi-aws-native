@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html
+    /// &lt;p&gt;Geospatial column group that denotes a hierarchy.&lt;/p&gt;
     /// </summary>
     public sealed class DataSetGeoSpatialColumnGroupArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<string>? _columns;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-columns
+        /// &lt;p&gt;Columns in this hierarchy.&lt;/p&gt;
         /// </summary>
         public InputList<string> Columns
         {
@@ -27,14 +27,11 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _columns = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-countrycode
-        /// </summary>
         [Input("countryCode")]
         public Input<string>? CountryCode { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-name
+        /// &lt;p&gt;A display name for the hierarchy.&lt;/p&gt;
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

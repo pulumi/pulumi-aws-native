@@ -10,40 +10,46 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTSiteWise
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html
+    /// Resource schema for AWS::IoTSiteWise::Project
     /// </summary>
     [AwsNativeResourceType("aws-native:iotsitewise:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
+        /// The ID of the portal in which to create the project.
         /// </summary>
         [Output("portalId")]
         public Output<string> PortalId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the project.
+        /// </summary>
         [Output("projectArn")]
         public Output<string> ProjectArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
+        /// A description for the project.
         /// </summary>
         [Output("projectDescription")]
         public Output<string?> ProjectDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the project.
+        /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
+        /// A friendly name for the project.
         /// </summary>
         [Output("projectName")]
         public Output<string> ProjectName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
+        /// A list of key-value pairs that contain metadata for the project.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ProjectTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -91,32 +97,32 @@ namespace Pulumi.AwsNative.IoTSiteWise
     public sealed class ProjectArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
+        /// The ID of the portal in which to create the project.
         /// </summary>
         [Input("portalId", required: true)]
         public Input<string> PortalId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
+        /// A description for the project.
         /// </summary>
         [Input("projectDescription")]
         public Input<string>? ProjectDescription { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
+        /// A friendly name for the project.
         /// </summary>
         [Input("projectName", required: true)]
         public Input<string> ProjectName { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.ProjectTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
+        /// A list of key-value pairs that contain metadata for the project.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.ProjectTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ProjectTagArgs>());
             set => _tags = value;
         }
 

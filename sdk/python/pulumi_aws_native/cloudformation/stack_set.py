@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['StackSetArgs', 'StackSet']
@@ -28,25 +26,24 @@ class StackSetArgs:
                  operation_preferences: Optional[pulumi.Input['StackSetOperationPreferencesArgs']] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]] = None,
                  stack_instances_group: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetStackInstancesArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetTagArgs']]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a StackSet resource.
-        :param pulumi.Input[str] permission_model: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
-        :param pulumi.Input[str] stack_set_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
-        :param pulumi.Input[str] administration_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
-        :param pulumi.Input['StackSetAutoDeploymentArgs'] auto_deployment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
-        :param pulumi.Input[str] call_as: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
-        :param pulumi.Input[str] execution_role_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
-        :param pulumi.Input['StackSetOperationPreferencesArgs'] operation_preferences: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
-        :param pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
-        :param pulumi.Input[Sequence[pulumi.Input['StackSetStackInstancesArgs']]] stack_instances_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
-        :param pulumi.Input[str] template_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
-        :param pulumi.Input[str] template_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
+        :param pulumi.Input[str] permission_model: Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
+        :param pulumi.Input[str] stack_set_name: The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
+        :param pulumi.Input[str] administration_role_arn: The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
+        :param pulumi.Input['StackSetAutoDeploymentArgs'] auto_deployment: Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
+        :param pulumi.Input[str] call_as: Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
+        :param pulumi.Input[str] description: A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
+        :param pulumi.Input[str] execution_role_name: The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
+        :param pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]] parameters: The input parameters for the stack set template.
+        :param pulumi.Input[Sequence[pulumi.Input['StackSetStackInstancesArgs']]] stack_instances_group: A group of stack instances with parameters in some specific accounts and regions.
+        :param pulumi.Input[Sequence[pulumi.Input['StackSetTagArgs']]] tags: The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
+        :param pulumi.Input[str] template_body: The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
+        :param pulumi.Input[str] template_url: Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
         """
         pulumi.set(__self__, "permission_model", permission_model)
         pulumi.set(__self__, "stack_set_name", stack_set_name)
@@ -79,7 +76,7 @@ class StackSetArgs:
     @pulumi.getter(name="permissionModel")
     def permission_model(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
+        Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
         """
         return pulumi.get(self, "permission_model")
 
@@ -91,7 +88,7 @@ class StackSetArgs:
     @pulumi.getter(name="stackSetName")
     def stack_set_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
+        The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
         """
         return pulumi.get(self, "stack_set_name")
 
@@ -103,7 +100,7 @@ class StackSetArgs:
     @pulumi.getter(name="administrationRoleARN")
     def administration_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
+        The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
         """
         return pulumi.get(self, "administration_role_arn")
 
@@ -115,7 +112,7 @@ class StackSetArgs:
     @pulumi.getter(name="autoDeployment")
     def auto_deployment(self) -> Optional[pulumi.Input['StackSetAutoDeploymentArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
+        Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
         """
         return pulumi.get(self, "auto_deployment")
 
@@ -127,7 +124,7 @@ class StackSetArgs:
     @pulumi.getter(name="callAs")
     def call_as(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
+        Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
         """
         return pulumi.get(self, "call_as")
 
@@ -139,7 +136,7 @@ class StackSetArgs:
     @pulumi.getter
     def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
+        In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
         """
         return pulumi.get(self, "capabilities")
 
@@ -151,7 +148,7 @@ class StackSetArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
+        A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
         """
         return pulumi.get(self, "description")
 
@@ -163,7 +160,7 @@ class StackSetArgs:
     @pulumi.getter(name="executionRoleName")
     def execution_role_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
+        The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
         """
         return pulumi.get(self, "execution_role_name")
 
@@ -174,9 +171,6 @@ class StackSetArgs:
     @property
     @pulumi.getter(name="operationPreferences")
     def operation_preferences(self) -> Optional[pulumi.Input['StackSetOperationPreferencesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
-        """
         return pulumi.get(self, "operation_preferences")
 
     @operation_preferences.setter
@@ -187,7 +181,7 @@ class StackSetArgs:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
+        The input parameters for the stack set template.
         """
         return pulumi.get(self, "parameters")
 
@@ -199,7 +193,7 @@ class StackSetArgs:
     @pulumi.getter(name="stackInstancesGroup")
     def stack_instances_group(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackSetStackInstancesArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
+        A group of stack instances with parameters in some specific accounts and regions.
         """
         return pulumi.get(self, "stack_instances_group")
 
@@ -209,21 +203,21 @@ class StackSetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StackSetTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
+        The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
+        The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
         """
         return pulumi.get(self, "template_body")
 
@@ -235,7 +229,7 @@ class StackSetArgs:
     @pulumi.getter(name="templateURL")
     def template_url(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
+        Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
         """
         return pulumi.get(self, "template_url")
 
@@ -260,29 +254,28 @@ class StackSet(pulumi.CustomResource):
                  permission_model: Optional[pulumi.Input[str]] = None,
                  stack_instances_group: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetStackInstancesArgs']]]]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetTagArgs']]]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html
+        StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administration_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
-        :param pulumi.Input[pulumi.InputType['StackSetAutoDeploymentArgs']] auto_deployment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
-        :param pulumi.Input[str] call_as: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
-        :param pulumi.Input[str] execution_role_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
-        :param pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']] operation_preferences: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetParameterArgs']]]] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
-        :param pulumi.Input[str] permission_model: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetStackInstancesArgs']]]] stack_instances_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
-        :param pulumi.Input[str] stack_set_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
-        :param pulumi.Input[str] template_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
-        :param pulumi.Input[str] template_url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
+        :param pulumi.Input[str] administration_role_arn: The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
+        :param pulumi.Input[pulumi.InputType['StackSetAutoDeploymentArgs']] auto_deployment: Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
+        :param pulumi.Input[str] call_as: Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
+        :param pulumi.Input[str] description: A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
+        :param pulumi.Input[str] execution_role_name: The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetParameterArgs']]]] parameters: The input parameters for the stack set template.
+        :param pulumi.Input[str] permission_model: Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetStackInstancesArgs']]]] stack_instances_group: A group of stack instances with parameters in some specific accounts and regions.
+        :param pulumi.Input[str] stack_set_name: The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetTagArgs']]]] tags: The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
+        :param pulumi.Input[str] template_body: The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
+        :param pulumi.Input[str] template_url: Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
         """
         ...
     @overload
@@ -291,7 +284,7 @@ class StackSet(pulumi.CustomResource):
                  args: StackSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html
+        StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
 
         :param str resource_name: The name of the resource.
         :param StackSetArgs args: The arguments to use to populate this resource's properties.
@@ -319,7 +312,7 @@ class StackSet(pulumi.CustomResource):
                  permission_model: Optional[pulumi.Input[str]] = None,
                  stack_instances_group: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetStackInstancesArgs']]]]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StackSetTagArgs']]]]] = None,
                  template_body: Optional[pulumi.Input[str]] = None,
                  template_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -396,7 +389,7 @@ class StackSet(pulumi.CustomResource):
     @pulumi.getter(name="administrationRoleARN")
     def administration_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
+        The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
         """
         return pulumi.get(self, "administration_role_arn")
 
@@ -404,7 +397,7 @@ class StackSet(pulumi.CustomResource):
     @pulumi.getter(name="autoDeployment")
     def auto_deployment(self) -> pulumi.Output[Optional['outputs.StackSetAutoDeployment']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
+        Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
         """
         return pulumi.get(self, "auto_deployment")
 
@@ -412,7 +405,7 @@ class StackSet(pulumi.CustomResource):
     @pulumi.getter(name="callAs")
     def call_as(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
+        Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
         """
         return pulumi.get(self, "call_as")
 
@@ -420,7 +413,7 @@ class StackSet(pulumi.CustomResource):
     @pulumi.getter
     def capabilities(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
+        In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
         """
         return pulumi.get(self, "capabilities")
 
@@ -428,7 +421,7 @@ class StackSet(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
+        A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
         """
         return pulumi.get(self, "description")
 
@@ -436,23 +429,20 @@ class StackSet(pulumi.CustomResource):
     @pulumi.getter(name="executionRoleName")
     def execution_role_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
+        The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
         """
         return pulumi.get(self, "execution_role_name")
 
     @property
     @pulumi.getter(name="operationPreferences")
     def operation_preferences(self) -> pulumi.Output[Optional['outputs.StackSetOperationPreferences']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
-        """
         return pulumi.get(self, "operation_preferences")
 
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.StackSetParameter']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
+        The input parameters for the stack set template.
         """
         return pulumi.get(self, "parameters")
 
@@ -460,7 +450,7 @@ class StackSet(pulumi.CustomResource):
     @pulumi.getter(name="permissionModel")
     def permission_model(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
+        Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
         """
         return pulumi.get(self, "permission_model")
 
@@ -468,28 +458,31 @@ class StackSet(pulumi.CustomResource):
     @pulumi.getter(name="stackInstancesGroup")
     def stack_instances_group(self) -> pulumi.Output[Optional[Sequence['outputs.StackSetStackInstances']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
+        A group of stack instances with parameters in some specific accounts and regions.
         """
         return pulumi.get(self, "stack_instances_group")
 
     @property
     @pulumi.getter(name="stackSetId")
     def stack_set_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the stack set that you're creating.
+        """
         return pulumi.get(self, "stack_set_id")
 
     @property
     @pulumi.getter(name="stackSetName")
     def stack_set_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
+        The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
         """
         return pulumi.get(self, "stack_set_name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.StackSetTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
+        The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
         """
         return pulumi.get(self, "tags")
 
@@ -497,7 +490,7 @@ class StackSet(pulumi.CustomResource):
     @pulumi.getter(name="templateBody")
     def template_body(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
+        The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
         """
         return pulumi.get(self, "template_body")
 
@@ -505,7 +498,7 @@ class StackSet(pulumi.CustomResource):
     @pulumi.getter(name="templateURL")
     def template_url(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
+        Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
         """
         return pulumi.get(self, "template_url")
 

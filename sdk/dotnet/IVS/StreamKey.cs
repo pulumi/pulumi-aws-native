@@ -10,26 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IVS
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html
+    /// Resource Type definition for AWS::IVS::StreamKey
     /// </summary>
     [AwsNativeResourceType("aws-native:ivs:StreamKey")]
     public partial class StreamKey : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
+        /// Channel ARN for the stream.
         /// </summary>
         [Output("channelArn")]
         public Output<string> ChannelArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
+        /// A list of key-value pairs that contain metadata for the asset model.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.StreamKeyTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Stream-key value.
+        /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
@@ -79,20 +85,20 @@ namespace Pulumi.AwsNative.IVS
     public sealed class StreamKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
+        /// Channel ARN for the stream.
         /// </summary>
         [Input("channelArn", required: true)]
         public Input<string> ChannelArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.StreamKeyTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
+        /// A list of key-value pairs that contain metadata for the asset model.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.StreamKeyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.StreamKeyTagArgs>());
             set => _tags = value;
         }
 

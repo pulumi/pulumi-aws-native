@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html
+    /// The incident template configuration.
     /// </summary>
     public sealed class ResponsePlanIncidentTemplateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-dedupestring
+        /// The deduplication string.
         /// </summary>
         [Input("dedupeString")]
         public Input<string>? DedupeString { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-impact
+        /// The impact value.
         /// </summary>
         [Input("impact", required: true)]
         public Input<int> Impact { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
         private InputList<Inputs.ResponsePlanNotificationTargetItemArgs>? _notificationTargets;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-notificationtargets
+        /// The list of notification targets.
         /// </summary>
         public InputList<Inputs.ResponsePlanNotificationTargetItemArgs> NotificationTargets
         {
@@ -40,13 +40,13 @@ namespace Pulumi.AwsNative.SSMIncidents.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-summary
+        /// The summary string.
         /// </summary>
         [Input("summary")]
         public Input<string>? Summary { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-title
+        /// The title string.
         /// </summary>
         [Input("title", required: true)]
         public Input<string> Title { get; set; } = null!;

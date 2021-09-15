@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html
+ * Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This association is based on Amazon Resource Names and it enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave.
  */
 export class EnclaveCertificateIamRoleAssociation extends pulumi.CustomResource {
     /**
@@ -35,14 +35,23 @@ export class EnclaveCertificateIamRoleAssociation extends pulumi.CustomResource 
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-certificatearn
+     * The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
      */
     public readonly certificateArn!: pulumi.Output<string>;
+    /**
+     * The name of the Amazon S3 bucket to which the certificate was uploaded.
+     */
     public /*out*/ readonly certificateS3BucketName!: pulumi.Output<string>;
+    /**
+     * The Amazon S3 object key where the certificate, certificate chain, and encrypted private key bundle are stored.
+     */
     public /*out*/ readonly certificateS3ObjectKey!: pulumi.Output<string>;
+    /**
+     * The ID of the AWS KMS CMK used to encrypt the private key of the certificate.
+     */
     public /*out*/ readonly encryptionKmsKeyId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-rolearn
+     * The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
      */
     public readonly roleArn!: pulumi.Output<string>;
 
@@ -87,11 +96,11 @@ export class EnclaveCertificateIamRoleAssociation extends pulumi.CustomResource 
  */
 export interface EnclaveCertificateIamRoleAssociationArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-certificatearn
+     * The Amazon Resource Name (ARN) of the ACM certificate with which to associate the IAM role.
      */
     certificateArn: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-enclavecertificateiamroleassociation.html#cfn-ec2-enclavecertificateiamroleassociation-rolearn
+     * The Amazon Resource Name (ARN) of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.
      */
     roleArn: pulumi.Input<string>;
 }

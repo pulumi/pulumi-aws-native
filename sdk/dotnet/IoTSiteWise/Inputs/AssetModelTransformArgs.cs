@@ -10,13 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html
-    /// </summary>
     public sealed class AssetModelTransformArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-expression
+        /// The mathematical expression that defines the transformation function. You can specify up to 10 functions per expression.
         /// </summary>
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
@@ -25,7 +22,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         private InputList<Inputs.AssetModelExpressionVariableArgs>? _variables;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-variables
+        /// The list of variables used in the expression.
         /// </summary>
         public InputList<Inputs.AssetModelExpressionVariableArgs> Variables
         {

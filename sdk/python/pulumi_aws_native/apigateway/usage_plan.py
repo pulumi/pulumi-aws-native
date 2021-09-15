@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['UsagePlanArgs', 'UsagePlan']
@@ -20,17 +18,17 @@ class UsagePlanArgs:
                  api_stages: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  quota: Optional[pulumi.Input['UsagePlanQuotaSettingsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanTagArgs']]]] = None,
                  throttle: Optional[pulumi.Input['UsagePlanThrottleSettingsArgs']] = None,
                  usage_plan_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UsagePlan resource.
-        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]] api_stages: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
-        :param pulumi.Input['UsagePlanQuotaSettingsArgs'] quota: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-tags
-        :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
-        :param pulumi.Input[str] usage_plan_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
+        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]] api_stages: The API stages to associate with this usage plan.
+        :param pulumi.Input[str] description: A description of the usage plan.
+        :param pulumi.Input['UsagePlanQuotaSettingsArgs'] quota: Configures the number of requests that users can make within a given interval.
+        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanTagArgs']]] tags: An array of arbitrary tags (key-value pairs) to associate with the usage plan.
+        :param pulumi.Input['UsagePlanThrottleSettingsArgs'] throttle: Configures the overall request rate (average requests per second) and burst capacity.
+        :param pulumi.Input[str] usage_plan_name: A name for the usage plan.
         """
         if api_stages is not None:
             pulumi.set(__self__, "api_stages", api_stages)
@@ -49,7 +47,7 @@ class UsagePlanArgs:
     @pulumi.getter(name="apiStages")
     def api_stages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
+        The API stages to associate with this usage plan.
         """
         return pulumi.get(self, "api_stages")
 
@@ -61,7 +59,7 @@ class UsagePlanArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
+        A description of the usage plan.
         """
         return pulumi.get(self, "description")
 
@@ -73,7 +71,7 @@ class UsagePlanArgs:
     @pulumi.getter
     def quota(self) -> Optional[pulumi.Input['UsagePlanQuotaSettingsArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
+        Configures the number of requests that users can make within a given interval.
         """
         return pulumi.get(self, "quota")
 
@@ -83,21 +81,21 @@ class UsagePlanArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-tags
+        An array of arbitrary tags (key-value pairs) to associate with the usage plan.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter
     def throttle(self) -> Optional[pulumi.Input['UsagePlanThrottleSettingsArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
+        Configures the overall request rate (average requests per second) and burst capacity.
         """
         return pulumi.get(self, "throttle")
 
@@ -109,7 +107,7 @@ class UsagePlanArgs:
     @pulumi.getter(name="usagePlanName")
     def usage_plan_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
+        A name for the usage plan.
         """
         return pulumi.get(self, "usage_plan_name")
 
@@ -126,21 +124,21 @@ class UsagePlan(pulumi.CustomResource):
                  api_stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  quota: Optional[pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanTagArgs']]]]] = None,
                  throttle: Optional[pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']]] = None,
                  usage_plan_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html
+        Resource Type definition for AWS::ApiGateway::UsagePlan
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]] api_stages: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
-        :param pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']] quota: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-tags
-        :param pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']] throttle: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
-        :param pulumi.Input[str] usage_plan_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]] api_stages: The API stages to associate with this usage plan.
+        :param pulumi.Input[str] description: A description of the usage plan.
+        :param pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']] quota: Configures the number of requests that users can make within a given interval.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanTagArgs']]]] tags: An array of arbitrary tags (key-value pairs) to associate with the usage plan.
+        :param pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']] throttle: Configures the overall request rate (average requests per second) and burst capacity.
+        :param pulumi.Input[str] usage_plan_name: A name for the usage plan.
         """
         ...
     @overload
@@ -149,7 +147,7 @@ class UsagePlan(pulumi.CustomResource):
                  args: Optional[UsagePlanArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html
+        Resource Type definition for AWS::ApiGateway::UsagePlan
 
         :param str resource_name: The name of the resource.
         :param UsagePlanArgs args: The arguments to use to populate this resource's properties.
@@ -169,7 +167,7 @@ class UsagePlan(pulumi.CustomResource):
                  api_stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanApiStageArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  quota: Optional[pulumi.Input[pulumi.InputType['UsagePlanQuotaSettingsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UsagePlanTagArgs']]]]] = None,
                  throttle: Optional[pulumi.Input[pulumi.InputType['UsagePlanThrottleSettingsArgs']]] = None,
                  usage_plan_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -190,7 +188,6 @@ class UsagePlan(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["throttle"] = throttle
             __props__.__dict__["usage_plan_name"] = usage_plan_name
-            __props__.__dict__["id"] = None
         super(UsagePlan, __self__).__init__(
             'aws-native:apigateway:UsagePlan',
             resource_name,
@@ -215,7 +212,6 @@ class UsagePlan(pulumi.CustomResource):
 
         __props__.__dict__["api_stages"] = None
         __props__.__dict__["description"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["quota"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["throttle"] = None
@@ -226,7 +222,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter(name="apiStages")
     def api_stages(self) -> pulumi.Output[Optional[Sequence['outputs.UsagePlanApiStage']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
+        The API stages to associate with this usage plan.
         """
         return pulumi.get(self, "api_stages")
 
@@ -234,28 +230,23 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
+        A description of the usage plan.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
     def quota(self) -> pulumi.Output[Optional['outputs.UsagePlanQuotaSettings']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
+        Configures the number of requests that users can make within a given interval.
         """
         return pulumi.get(self, "quota")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.UsagePlanTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-tags
+        An array of arbitrary tags (key-value pairs) to associate with the usage plan.
         """
         return pulumi.get(self, "tags")
 
@@ -263,7 +254,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter
     def throttle(self) -> pulumi.Output[Optional['outputs.UsagePlanThrottleSettings']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
+        Configures the overall request rate (average requests per second) and burst capacity.
         """
         return pulumi.get(self, "throttle")
 
@@ -271,7 +262,7 @@ class UsagePlan(pulumi.CustomResource):
     @pulumi.getter(name="usagePlanName")
     def usage_plan_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
+        A name for the usage plan.
         """
         return pulumi.get(self, "usage_plan_name")
 

@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-constraintsresource.html
+    /// The baseline constraints resource for a monitoring job.
     /// </summary>
     public sealed class DataQualityJobDefinitionConstraintsResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-constraintsresource.html#cfn-sagemaker-dataqualityjobdefinition-constraintsresource-s3uri
+        /// The Amazon S3 URI for baseline constraint file in Amazon S3 that the current monitoring job should validated against.
         /// </summary>
         [Input("s3Uri")]
         public Input<string>? S3Uri { get; set; }

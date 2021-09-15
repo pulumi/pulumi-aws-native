@@ -7,18 +7,16 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html
+// Resource schema for AWS::Cassandra::Keyspace
 type Keyspace struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
+	// Name for Cassandra keyspace
 	KeyspaceName pulumi.StringPtrOutput `pulumi:"keyspaceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags         KeyspaceTagArrayOutput `pulumi:"tags"`
 }
 
 // NewKeyspace registers a new resource with the given unique name, arguments, and options.
@@ -60,18 +58,16 @@ func (KeyspaceState) ElementType() reflect.Type {
 }
 
 type keyspaceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
-	KeyspaceName *string `pulumi:"keyspaceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// Name for Cassandra keyspace
+	KeyspaceName *string       `pulumi:"keyspaceName"`
+	Tags         []KeyspaceTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Keyspace resource.
 type KeyspaceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
+	// Name for Cassandra keyspace
 	KeyspaceName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags
-	Tags aws.TagArrayInput
+	Tags         KeyspaceTagArrayInput
 }
 
 func (KeyspaceArgs) ElementType() reflect.Type {

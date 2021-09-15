@@ -10,13 +10,11 @@ from .. import _utilities
 
 __all__ = [
     'ConnectionAliasConnectionAliasAssociation',
+    'ConnectionAliasTag',
 ]
 
 @pulumi.output_type
 class ConnectionAliasConnectionAliasAssociation(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -45,13 +43,6 @@ class ConnectionAliasConnectionAliasAssociation(dict):
                  association_status: Optional[str] = None,
                  connection_identifier: Optional[str] = None,
                  resource_id: Optional[str] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html
-        :param str associated_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-associatedaccountid
-        :param str association_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-associationstatus
-        :param str connection_identifier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-connectionidentifier
-        :param str resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-resourceid
-        """
         if associated_account_id is not None:
             pulumi.set(__self__, "associated_account_id", associated_account_id)
         if association_status is not None:
@@ -64,33 +55,40 @@ class ConnectionAliasConnectionAliasAssociation(dict):
     @property
     @pulumi.getter(name="associatedAccountId")
     def associated_account_id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-associatedaccountid
-        """
         return pulumi.get(self, "associated_account_id")
 
     @property
     @pulumi.getter(name="associationStatus")
     def association_status(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-associationstatus
-        """
         return pulumi.get(self, "association_status")
 
     @property
     @pulumi.getter(name="connectionIdentifier")
     def connection_identifier(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-connectionidentifier
-        """
         return pulumi.get(self, "connection_identifier")
 
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-connectionalias-connectionaliasassociation.html#cfn-workspaces-connectionalias-connectionaliasassociation-resourceid
-        """
         return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class ConnectionAliasTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 

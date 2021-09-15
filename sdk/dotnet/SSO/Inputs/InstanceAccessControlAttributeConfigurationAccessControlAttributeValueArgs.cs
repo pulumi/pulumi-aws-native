@@ -10,17 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SSO.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html
-    /// </summary>
     public sealed class InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs : Pulumi.ResourceArgs
     {
         [Input("source", required: true)]
         private InputList<string>? _source;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source
-        /// </summary>
         public InputList<string> Source
         {
             get => _source ?? (_source = new InputList<string>());

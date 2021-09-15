@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['GlobalTableArgs', 'GlobalTable']
@@ -30,17 +28,6 @@ class GlobalTableArgs:
                  write_provisioned_throughput_settings: Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']] = None):
         """
         The set of arguments for constructing a GlobalTable resource.
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]] attribute_definitions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-attributedefinitions
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]] key_schema: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaSpecificationArgs']]] replicas: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
-        :param pulumi.Input[str] billing_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-billingmode
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]] global_secondary_indexes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]] local_secondary_indexes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes
-        :param pulumi.Input['GlobalTableSSESpecificationArgs'] s_se_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-ssespecification
-        :param pulumi.Input['GlobalTableStreamSpecificationArgs'] stream_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
-        :param pulumi.Input[str] table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
-        :param pulumi.Input['GlobalTableTimeToLiveSpecificationArgs'] time_to_live_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
-        :param pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs'] write_provisioned_throughput_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings
         """
         pulumi.set(__self__, "attribute_definitions", attribute_definitions)
         pulumi.set(__self__, "key_schema", key_schema)
@@ -65,9 +52,6 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="attributeDefinitions")
     def attribute_definitions(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableAttributeDefinitionArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-attributedefinitions
-        """
         return pulumi.get(self, "attribute_definitions")
 
     @attribute_definitions.setter
@@ -77,9 +61,6 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="keySchema")
     def key_schema(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableKeySchemaArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema
-        """
         return pulumi.get(self, "key_schema")
 
     @key_schema.setter
@@ -89,9 +70,6 @@ class GlobalTableArgs:
     @property
     @pulumi.getter
     def replicas(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalTableReplicaSpecificationArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
-        """
         return pulumi.get(self, "replicas")
 
     @replicas.setter
@@ -101,9 +79,6 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-billingmode
-        """
         return pulumi.get(self, "billing_mode")
 
     @billing_mode.setter
@@ -113,9 +88,6 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
     def global_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
-        """
         return pulumi.get(self, "global_secondary_indexes")
 
     @global_secondary_indexes.setter
@@ -125,9 +97,6 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="localSecondaryIndexes")
     def local_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes
-        """
         return pulumi.get(self, "local_secondary_indexes")
 
     @local_secondary_indexes.setter
@@ -137,9 +106,6 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="sSESpecification")
     def s_se_specification(self) -> Optional[pulumi.Input['GlobalTableSSESpecificationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-ssespecification
-        """
         return pulumi.get(self, "s_se_specification")
 
     @s_se_specification.setter
@@ -149,9 +115,6 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="streamSpecification")
     def stream_specification(self) -> Optional[pulumi.Input['GlobalTableStreamSpecificationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
-        """
         return pulumi.get(self, "stream_specification")
 
     @stream_specification.setter
@@ -161,9 +124,6 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
-        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -173,9 +133,6 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="timeToLiveSpecification")
     def time_to_live_specification(self) -> Optional[pulumi.Input['GlobalTableTimeToLiveSpecificationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
-        """
         return pulumi.get(self, "time_to_live_specification")
 
     @time_to_live_specification.setter
@@ -185,9 +142,6 @@ class GlobalTableArgs:
     @property
     @pulumi.getter(name="writeProvisionedThroughputSettings")
     def write_provisioned_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings
-        """
         return pulumi.get(self, "write_provisioned_throughput_settings")
 
     @write_provisioned_throughput_settings.setter
@@ -213,21 +167,10 @@ class GlobalTable(pulumi.CustomResource):
                  write_provisioned_throughput_settings: Optional[pulumi.Input[pulumi.InputType['GlobalTableWriteProvisionedThroughputSettingsArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html
+        Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableAttributeDefinitionArgs']]]] attribute_definitions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-attributedefinitions
-        :param pulumi.Input[str] billing_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-billingmode
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableKeySchemaArgs']]]] key_schema: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableLocalSecondaryIndexArgs']]]] local_secondary_indexes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalTableReplicaSpecificationArgs']]]] replicas: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
-        :param pulumi.Input[pulumi.InputType['GlobalTableSSESpecificationArgs']] s_se_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-ssespecification
-        :param pulumi.Input[pulumi.InputType['GlobalTableStreamSpecificationArgs']] stream_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
-        :param pulumi.Input[str] table_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
-        :param pulumi.Input[pulumi.InputType['GlobalTableTimeToLiveSpecificationArgs']] time_to_live_specification: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
-        :param pulumi.Input[pulumi.InputType['GlobalTableWriteProvisionedThroughputSettingsArgs']] write_provisioned_throughput_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings
         """
         ...
     @overload
@@ -236,7 +179,7 @@ class GlobalTable(pulumi.CustomResource):
                  args: GlobalTableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html
+        Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
 
         :param str resource_name: The name of the resource.
         :param GlobalTableArgs args: The arguments to use to populate this resource's properties.
@@ -342,57 +285,36 @@ class GlobalTable(pulumi.CustomResource):
     @property
     @pulumi.getter(name="attributeDefinitions")
     def attribute_definitions(self) -> pulumi.Output[Sequence['outputs.GlobalTableAttributeDefinition']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-attributedefinitions
-        """
         return pulumi.get(self, "attribute_definitions")
 
     @property
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-billingmode
-        """
         return pulumi.get(self, "billing_mode")
 
     @property
     @pulumi.getter(name="globalSecondaryIndexes")
     def global_secondary_indexes(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalTableGlobalSecondaryIndex']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
-        """
         return pulumi.get(self, "global_secondary_indexes")
 
     @property
     @pulumi.getter(name="keySchema")
     def key_schema(self) -> pulumi.Output[Sequence['outputs.GlobalTableKeySchema']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema
-        """
         return pulumi.get(self, "key_schema")
 
     @property
     @pulumi.getter(name="localSecondaryIndexes")
     def local_secondary_indexes(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalTableLocalSecondaryIndex']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes
-        """
         return pulumi.get(self, "local_secondary_indexes")
 
     @property
     @pulumi.getter
     def replicas(self) -> pulumi.Output[Sequence['outputs.GlobalTableReplicaSpecification']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
-        """
         return pulumi.get(self, "replicas")
 
     @property
     @pulumi.getter(name="sSESpecification")
     def s_se_specification(self) -> pulumi.Output[Optional['outputs.GlobalTableSSESpecification']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-ssespecification
-        """
         return pulumi.get(self, "s_se_specification")
 
     @property
@@ -403,9 +325,6 @@ class GlobalTable(pulumi.CustomResource):
     @property
     @pulumi.getter(name="streamSpecification")
     def stream_specification(self) -> pulumi.Output[Optional['outputs.GlobalTableStreamSpecification']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
-        """
         return pulumi.get(self, "stream_specification")
 
     @property
@@ -416,24 +335,15 @@ class GlobalTable(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
-        """
         return pulumi.get(self, "table_name")
 
     @property
     @pulumi.getter(name="timeToLiveSpecification")
     def time_to_live_specification(self) -> pulumi.Output[Optional['outputs.GlobalTableTimeToLiveSpecification']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
-        """
         return pulumi.get(self, "time_to_live_specification")
 
     @property
     @pulumi.getter(name="writeProvisionedThroughputSettings")
     def write_provisioned_throughput_settings(self) -> pulumi.Output[Optional['outputs.GlobalTableWriteProvisionedThroughputSettings']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings
-        """
         return pulumi.get(self, "write_provisioned_throughput_settings")
 

@@ -10,19 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html
-    /// </summary>
     [OutputType]
     public sealed class AnomalyDetectorTimestampColumn
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnformat
+        /// A timestamp format for the timestamps in the dataset
         /// </summary>
         public readonly string? ColumnFormat;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnname
-        /// </summary>
         public readonly string? ColumnName;
 
         [OutputConstructor]

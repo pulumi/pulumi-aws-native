@@ -11,31 +11,20 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html
+    /// &lt;p&gt;The theme configuration. This configuration contains all of the display properties for
+    ///             a theme.&lt;/p&gt;
     /// </summary>
     public sealed class ThemeThemeConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-datacolorpalette
-        /// </summary>
         [Input("dataColorPalette")]
         public Input<Inputs.ThemeDataColorPaletteArgs>? DataColorPalette { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-sheet
-        /// </summary>
         [Input("sheet")]
         public Input<Inputs.ThemeSheetStyleArgs>? Sheet { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-typography
-        /// </summary>
         [Input("typography")]
         public Input<Inputs.ThemeTypographyArgs>? Typography { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-uicolorpalette
-        /// </summary>
         [Input("uIColorPalette")]
         public Input<Inputs.ThemeUIColorPaletteArgs>? UIColorPalette { get; set; }
 

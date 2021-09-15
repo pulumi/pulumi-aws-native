@@ -10,79 +10,85 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ImageBuilder
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html
+    /// Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
     /// </summary>
     [AwsNativeResourceType("aws-native:imagebuilder:InfrastructureConfiguration")]
     public partial class InfrastructureConfiguration : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the infrastructure configuration.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-description
+        /// The description of the infrastructure configuration.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instanceprofilename
+        /// The instance profile of the infrastructure configuration.
         /// </summary>
         [Output("instanceProfileName")]
         public Output<string> InstanceProfileName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancetypes
+        /// The instance types of the infrastructure configuration.
         /// </summary>
         [Output("instanceTypes")]
         public Output<ImmutableArray<string>> InstanceTypes { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
+        /// The EC2 key pair of the infrastructure configuration..
         /// </summary>
         [Output("keyPair")]
         public Output<string?> KeyPair { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
+        /// The logging configuration of the infrastructure configuration.
         /// </summary>
         [Output("logging")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Logging { get; private set; } = null!;
+        public Output<Outputs.InfrastructureConfigurationLogging?> Logging { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the infrastructure configuration.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
+        /// The tags attached to the resource created by Image Builder.
         /// </summary>
         [Output("resourceTags")]
-        public Output<ImmutableDictionary<string, string>?> ResourceTags { get; private set; } = null!;
+        public Output<object?> ResourceTags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
+        /// The security group IDs of the infrastructure configuration.
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
+        /// The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
         /// </summary>
         [Output("snsTopicArn")]
         public Output<string?> SnsTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-subnetid
+        /// The subnet ID of the infrastructure configuration.
         /// </summary>
         [Output("subnetId")]
         public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
+        /// The tags associated with the component.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<object?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-terminateinstanceonfailure
+        /// The terminate instance on failure configuration of the infrastructure configuration.
         /// </summary>
         [Output("terminateInstanceOnFailure")]
         public Output<bool?> TerminateInstanceOnFailure { get; private set; } = null!;
@@ -133,13 +139,13 @@ namespace Pulumi.AwsNative.ImageBuilder
     public sealed class InfrastructureConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-description
+        /// The description of the infrastructure configuration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instanceprofilename
+        /// The instance profile of the infrastructure configuration.
         /// </summary>
         [Input("instanceProfileName", required: true)]
         public Input<string> InstanceProfileName { get; set; } = null!;
@@ -148,7 +154,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         private InputList<string>? _instanceTypes;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-instancetypes
+        /// The instance types of the infrastructure configuration.
         /// </summary>
         public InputList<string> InstanceTypes
         {
@@ -157,40 +163,34 @@ namespace Pulumi.AwsNative.ImageBuilder
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-keypair
+        /// The EC2 key pair of the infrastructure configuration..
         /// </summary>
         [Input("keyPair")]
         public Input<string>? KeyPair { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
+        /// The logging configuration of the infrastructure configuration.
         /// </summary>
         [Input("logging")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Logging { get; set; }
+        public Input<Inputs.InfrastructureConfigurationLoggingArgs>? Logging { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
+        /// The name of the infrastructure configuration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("resourceTags")]
-        private InputMap<string>? _resourceTags;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
+        /// The tags attached to the resource created by Image Builder.
         /// </summary>
-        public InputMap<string> ResourceTags
-        {
-            get => _resourceTags ?? (_resourceTags = new InputMap<string>());
-            set => _resourceTags = value;
-        }
+        [Input("resourceTags")]
+        public Input<object>? ResourceTags { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
+        /// The security group IDs of the infrastructure configuration.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -199,31 +199,25 @@ namespace Pulumi.AwsNative.ImageBuilder
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-snstopicarn
+        /// The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
         /// </summary>
         [Input("snsTopicArn")]
         public Input<string>? SnsTopicArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-subnetid
+        /// The subnet ID of the infrastructure configuration.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-tags
+        /// The tags associated with the component.
         /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
+        [Input("tags")]
+        public Input<object>? Tags { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-terminateinstanceonfailure
+        /// The terminate instance on failure configuration of the infrastructure configuration.
         /// </summary>
         [Input("terminateInstanceOnFailure")]
         public Input<bool>? TerminateInstanceOnFailure { get; set; }

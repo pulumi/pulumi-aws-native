@@ -8,26 +8,26 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html
+// Resource Type definition for AWS::SageMaker::App
 type App struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the app.
 	AppArn pulumi.StringOutput `pulumi:"appArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-appname
+	// The name of the app.
 	AppName pulumi.StringOutput `pulumi:"appName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-apptype
+	// The type of app.
 	AppType pulumi.StringOutput `pulumi:"appType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-domainid
+	// The domain ID.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-resourcespec
+	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 	ResourceSpec AppResourceSpecPtrOutput `pulumi:"resourceSpec"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-userprofilename
+	// A list of tags to apply to the app.
+	Tags AppTagArrayOutput `pulumi:"tags"`
+	// The user profile name.
 	UserProfileName pulumi.StringOutput `pulumi:"userProfileName"`
 }
 
@@ -82,33 +82,33 @@ func (AppState) ElementType() reflect.Type {
 }
 
 type appArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-appname
+	// The name of the app.
 	AppName string `pulumi:"appName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-apptype
+	// The type of app.
 	AppType string `pulumi:"appType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-domainid
+	// The domain ID.
 	DomainId string `pulumi:"domainId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-resourcespec
+	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-userprofilename
+	// A list of tags to apply to the app.
+	Tags []AppTag `pulumi:"tags"`
+	// The user profile name.
 	UserProfileName string `pulumi:"userProfileName"`
 }
 
 // The set of arguments for constructing a App resource.
 type AppArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-appname
+	// The name of the app.
 	AppName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-apptype
+	// The type of app.
 	AppType pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-domainid
+	// The domain ID.
 	DomainId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-resourcespec
+	// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 	ResourceSpec AppResourceSpecPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-userprofilename
+	// A list of tags to apply to the app.
+	Tags AppTagArrayInput
+	// The user profile name.
 	UserProfileName pulumi.StringInput
 }
 

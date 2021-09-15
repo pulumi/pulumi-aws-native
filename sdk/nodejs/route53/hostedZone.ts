@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html
+ * Resource schema for AWS::Route53::HostedZone.
  */
 export class HostedZone extends pulumi.CustomResource {
     /**
@@ -35,26 +35,23 @@ export class HostedZone extends pulumi.CustomResource {
         return obj['__pulumiType'] === HostedZone.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
-     */
     public readonly hostedZoneConfig!: pulumi.Output<outputs.route53.HostedZoneHostedZoneConfig | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
+     * Adds, edits, or deletes tags for a health check or a hosted zone.
+     *
+     * For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
      */
     public readonly hostedZoneTags!: pulumi.Output<outputs.route53.HostedZoneHostedZoneTag[] | undefined>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
+     * The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
+     *
+     * If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
      */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
-     */
     public readonly queryLoggingConfig!: pulumi.Output<outputs.route53.HostedZoneQueryLoggingConfig | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
+     * A complex type that contains information about the VPCs that are associated with the specified hosted zone.
      */
     public readonly vPCs!: pulumi.Output<outputs.route53.HostedZoneVPC[] | undefined>;
 
@@ -77,12 +74,10 @@ export class HostedZone extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["queryLoggingConfig"] = args ? args.queryLoggingConfig : undefined;
             inputs["vPCs"] = args ? args.vPCs : undefined;
-            inputs["id"] = undefined /*out*/;
             inputs["nameServers"] = undefined /*out*/;
         } else {
             inputs["hostedZoneConfig"] = undefined /*out*/;
             inputs["hostedZoneTags"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["nameServers"] = undefined /*out*/;
             inputs["queryLoggingConfig"] = undefined /*out*/;
@@ -99,24 +94,22 @@ export class HostedZone extends pulumi.CustomResource {
  * The set of arguments for constructing a HostedZone resource.
  */
 export interface HostedZoneArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
-     */
     hostedZoneConfig?: pulumi.Input<inputs.route53.HostedZoneHostedZoneConfigArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
+     * Adds, edits, or deletes tags for a health check or a hosted zone.
+     *
+     * For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
      */
     hostedZoneTags?: pulumi.Input<pulumi.Input<inputs.route53.HostedZoneHostedZoneTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
+     * The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
+     *
+     * If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
      */
     name: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
-     */
     queryLoggingConfig?: pulumi.Input<inputs.route53.HostedZoneQueryLoggingConfigArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
+     * A complex type that contains information about the VPCs that are associated with the specified hosted zone.
      */
     vPCs?: pulumi.Input<pulumi.Input<inputs.route53.HostedZoneVPCArgs>[]>;
 }

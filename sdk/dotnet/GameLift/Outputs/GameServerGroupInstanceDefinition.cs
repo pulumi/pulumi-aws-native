@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html
+    /// An allowed instance type for your game server group.
     /// </summary>
     [OutputType]
     public sealed class GameServerGroupInstanceDefinition
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-instancetype
-        /// </summary>
         public readonly string InstanceType;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-instancedefinition.html#cfn-gamelift-gameservergroup-instancedefinition-weightedcapacity
-        /// </summary>
         public readonly string? WeightedCapacity;
 
         [OutputConstructor]

@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['GatewayArgs', 'Gateway']
@@ -20,13 +18,13 @@ class GatewayArgs:
                  gateway_name: pulumi.Input[str],
                  gateway_platform: pulumi.Input['GatewayGatewayPlatformArgs'],
                  gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayGatewayCapabilitySummaryArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTagArgs']]]] = None):
         """
         The set of arguments for constructing a Gateway resource.
-        :param pulumi.Input[str] gateway_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
-        :param pulumi.Input['GatewayGatewayPlatformArgs'] gateway_platform: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
-        :param pulumi.Input[Sequence[pulumi.Input['GatewayGatewayCapabilitySummaryArgs']]] gateway_capability_summaries: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
+        :param pulumi.Input[str] gateway_name: A unique, friendly name for the gateway.
+        :param pulumi.Input['GatewayGatewayPlatformArgs'] gateway_platform: The gateway's platform. You can only specify one platform in a gateway.
+        :param pulumi.Input[Sequence[pulumi.Input['GatewayGatewayCapabilitySummaryArgs']]] gateway_capability_summaries: A list of gateway capability summaries that each contain a namespace and status.
+        :param pulumi.Input[Sequence[pulumi.Input['GatewayTagArgs']]] tags: A list of key-value pairs that contain metadata for the gateway.
         """
         pulumi.set(__self__, "gateway_name", gateway_name)
         pulumi.set(__self__, "gateway_platform", gateway_platform)
@@ -39,7 +37,7 @@ class GatewayArgs:
     @pulumi.getter(name="gatewayName")
     def gateway_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
+        A unique, friendly name for the gateway.
         """
         return pulumi.get(self, "gateway_name")
 
@@ -51,7 +49,7 @@ class GatewayArgs:
     @pulumi.getter(name="gatewayPlatform")
     def gateway_platform(self) -> pulumi.Input['GatewayGatewayPlatformArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
+        The gateway's platform. You can only specify one platform in a gateway.
         """
         return pulumi.get(self, "gateway_platform")
 
@@ -63,7 +61,7 @@ class GatewayArgs:
     @pulumi.getter(name="gatewayCapabilitySummaries")
     def gateway_capability_summaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayGatewayCapabilitySummaryArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
+        A list of gateway capability summaries that each contain a namespace and status.
         """
         return pulumi.get(self, "gateway_capability_summaries")
 
@@ -73,14 +71,14 @@ class GatewayArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
+        A list of key-value pairs that contain metadata for the gateway.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -92,17 +90,17 @@ class Gateway(pulumi.CustomResource):
                  gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayGatewayCapabilitySummaryArgs']]]]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  gateway_platform: Optional[pulumi.Input[pulumi.InputType['GatewayGatewayPlatformArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html
+        Resource schema for AWS::IoTSiteWise::Gateway
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayGatewayCapabilitySummaryArgs']]]] gateway_capability_summaries: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
-        :param pulumi.Input[str] gateway_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
-        :param pulumi.Input[pulumi.InputType['GatewayGatewayPlatformArgs']] gateway_platform: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayGatewayCapabilitySummaryArgs']]]] gateway_capability_summaries: A list of gateway capability summaries that each contain a namespace and status.
+        :param pulumi.Input[str] gateway_name: A unique, friendly name for the gateway.
+        :param pulumi.Input[pulumi.InputType['GatewayGatewayPlatformArgs']] gateway_platform: The gateway's platform. You can only specify one platform in a gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayTagArgs']]]] tags: A list of key-value pairs that contain metadata for the gateway.
         """
         ...
     @overload
@@ -111,7 +109,7 @@ class Gateway(pulumi.CustomResource):
                  args: GatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html
+        Resource schema for AWS::IoTSiteWise::Gateway
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.
@@ -131,7 +129,7 @@ class Gateway(pulumi.CustomResource):
                  gateway_capability_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayGatewayCapabilitySummaryArgs']]]]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
                  gateway_platform: Optional[pulumi.Input[pulumi.InputType['GatewayGatewayPlatformArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GatewayTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -186,20 +184,23 @@ class Gateway(pulumi.CustomResource):
     @pulumi.getter(name="gatewayCapabilitySummaries")
     def gateway_capability_summaries(self) -> pulumi.Output[Optional[Sequence['outputs.GatewayGatewayCapabilitySummary']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
+        A list of gateway capability summaries that each contain a namespace and status.
         """
         return pulumi.get(self, "gateway_capability_summaries")
 
     @property
     @pulumi.getter(name="gatewayId")
     def gateway_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the gateway device.
+        """
         return pulumi.get(self, "gateway_id")
 
     @property
     @pulumi.getter(name="gatewayName")
     def gateway_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
+        A unique, friendly name for the gateway.
         """
         return pulumi.get(self, "gateway_name")
 
@@ -207,15 +208,15 @@ class Gateway(pulumi.CustomResource):
     @pulumi.getter(name="gatewayPlatform")
     def gateway_platform(self) -> pulumi.Output['outputs.GatewayGatewayPlatform']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
+        The gateway's platform. You can only specify one platform in a gateway.
         """
         return pulumi.get(self, "gateway_platform")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.GatewayTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
+        A list of key-value pairs that contain metadata for the gateway.
         """
         return pulumi.get(self, "tags")
 

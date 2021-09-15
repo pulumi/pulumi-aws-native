@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.IoT.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html
+    /// A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
     /// </summary>
     public sealed class SecurityProfileStatisticalThresholdArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-statisticalthreshold.html#cfn-iot-securityprofile-statisticalthreshold-statistic
+        /// The percentile which resolves to a threshold value by which compliance with a behavior is determined
         /// </summary>
         [Input("statistic")]
         public Input<string>? Statistic { get; set; }

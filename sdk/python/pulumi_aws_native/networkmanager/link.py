@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['LinkArgs', 'Link']
@@ -22,17 +20,17 @@ class LinkArgs:
                  site_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  provider: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['LinkTagArgs']]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Link resource.
-        :param pulumi.Input['LinkBandwidthArgs'] bandwidth: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-bandwidth
-        :param pulumi.Input[str] global_network_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-globalnetworkid
-        :param pulumi.Input[str] site_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-siteid
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description
-        :param pulumi.Input[str] provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-provider
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-tags
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-type
+        :param pulumi.Input['LinkBandwidthArgs'] bandwidth: The Bandwidth for the link.
+        :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input[str] site_id: The ID of the site
+        :param pulumi.Input[str] description: The description of the link.
+        :param pulumi.Input[str] provider: The provider of the link.
+        :param pulumi.Input[Sequence[pulumi.Input['LinkTagArgs']]] tags: The tags for the link.
+        :param pulumi.Input[str] type: The type of the link.
         """
         pulumi.set(__self__, "bandwidth", bandwidth)
         pulumi.set(__self__, "global_network_id", global_network_id)
@@ -50,7 +48,7 @@ class LinkArgs:
     @pulumi.getter
     def bandwidth(self) -> pulumi.Input['LinkBandwidthArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-bandwidth
+        The Bandwidth for the link.
         """
         return pulumi.get(self, "bandwidth")
 
@@ -62,7 +60,7 @@ class LinkArgs:
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-globalnetworkid
+        The ID of the global network.
         """
         return pulumi.get(self, "global_network_id")
 
@@ -74,7 +72,7 @@ class LinkArgs:
     @pulumi.getter(name="siteId")
     def site_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-siteid
+        The ID of the site
         """
         return pulumi.get(self, "site_id")
 
@@ -86,7 +84,7 @@ class LinkArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description
+        The description of the link.
         """
         return pulumi.get(self, "description")
 
@@ -98,7 +96,7 @@ class LinkArgs:
     @pulumi.getter
     def provider(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-provider
+        The provider of the link.
         """
         return pulumi.get(self, "provider")
 
@@ -108,21 +106,21 @@ class LinkArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-tags
+        The tags for the link.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-type
+        The type of the link.
         """
         return pulumi.get(self, "type")
 
@@ -141,21 +139,21 @@ class Link(pulumi.CustomResource):
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  provider: Optional[pulumi.Input[str]] = None,
                  site_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html
+        The AWS::NetworkManager::Link type describes a link.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LinkBandwidthArgs']] bandwidth: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-bandwidth
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description
-        :param pulumi.Input[str] global_network_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-globalnetworkid
-        :param pulumi.Input[str] provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-provider
-        :param pulumi.Input[str] site_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-siteid
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-tags
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-type
+        :param pulumi.Input[pulumi.InputType['LinkBandwidthArgs']] bandwidth: The Bandwidth for the link.
+        :param pulumi.Input[str] description: The description of the link.
+        :param pulumi.Input[str] global_network_id: The ID of the global network.
+        :param pulumi.Input[str] provider: The provider of the link.
+        :param pulumi.Input[str] site_id: The ID of the site
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkTagArgs']]]] tags: The tags for the link.
+        :param pulumi.Input[str] type: The type of the link.
         """
         ...
     @overload
@@ -164,7 +162,7 @@ class Link(pulumi.CustomResource):
                  args: LinkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html
+        The AWS::NetworkManager::Link type describes a link.
 
         :param str resource_name: The name of the resource.
         :param LinkArgs args: The arguments to use to populate this resource's properties.
@@ -186,7 +184,7 @@ class Link(pulumi.CustomResource):
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  provider: Optional[pulumi.Input[str]] = None,
                  site_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -252,7 +250,7 @@ class Link(pulumi.CustomResource):
     @pulumi.getter
     def bandwidth(self) -> pulumi.Output['outputs.LinkBandwidth']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-bandwidth
+        The Bandwidth for the link.
         """
         return pulumi.get(self, "bandwidth")
 
@@ -260,7 +258,7 @@ class Link(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-description
+        The description of the link.
         """
         return pulumi.get(self, "description")
 
@@ -268,25 +266,31 @@ class Link(pulumi.CustomResource):
     @pulumi.getter(name="globalNetworkId")
     def global_network_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-globalnetworkid
+        The ID of the global network.
         """
         return pulumi.get(self, "global_network_id")
 
     @property
     @pulumi.getter(name="linkArn")
     def link_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the link.
+        """
         return pulumi.get(self, "link_arn")
 
     @property
     @pulumi.getter(name="linkId")
     def link_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the link.
+        """
         return pulumi.get(self, "link_id")
 
     @property
     @pulumi.getter
     def provider(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-provider
+        The provider of the link.
         """
         return pulumi.get(self, "provider")
 
@@ -294,15 +298,15 @@ class Link(pulumi.CustomResource):
     @pulumi.getter(name="siteId")
     def site_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-siteid
+        The ID of the site
         """
         return pulumi.get(self, "site_id")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.LinkTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-tags
+        The tags for the link.
         """
         return pulumi.get(self, "tags")
 
@@ -310,7 +314,7 @@ class Link(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html#cfn-networkmanager-link-type
+        The type of the link.
         """
         return pulumi.get(self, "type")
 

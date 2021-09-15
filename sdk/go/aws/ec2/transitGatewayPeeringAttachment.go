@@ -8,26 +8,30 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html
+// The AWS::EC2::TransitGatewayPeeringAttachment type
 type TransitGatewayPeeringAttachment struct {
 	pulumi.CustomResourceState
 
+	// The time the transit gateway peering attachment was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid
+	// The ID of the peer account
 	PeerAccountId pulumi.StringOutput `pulumi:"peerAccountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion
+	// Peer Region
 	PeerRegion pulumi.StringOutput `pulumi:"peerRegion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peertransitgatewayid
+	// The ID of the peer transit gateway.
 	PeerTransitGatewayId pulumi.StringOutput `pulumi:"peerTransitGatewayId"`
-	State                pulumi.StringOutput `pulumi:"state"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags
-	Tags                       aws.TagArrayOutput  `pulumi:"tags"`
+	// The state of the transit gateway peering attachment. Note that the initiating state has been deprecated.
+	State pulumi.StringOutput `pulumi:"state"`
+	// The status of the transit gateway peering attachment.
+	Status TransitGatewayPeeringAttachmentPeeringAttachmentStatusOutput `pulumi:"status"`
+	// The tags for the transit gateway peering attachment.
+	Tags TransitGatewayPeeringAttachmentTagArrayOutput `pulumi:"tags"`
+	// The ID of the transit gateway peering attachment.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid
+	// The ID of the transit gateway.
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
 }
 
@@ -82,29 +86,29 @@ func (TransitGatewayPeeringAttachmentState) ElementType() reflect.Type {
 }
 
 type transitGatewayPeeringAttachmentArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid
+	// The ID of the peer account
 	PeerAccountId string `pulumi:"peerAccountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion
+	// Peer Region
 	PeerRegion string `pulumi:"peerRegion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peertransitgatewayid
+	// The ID of the peer transit gateway.
 	PeerTransitGatewayId string `pulumi:"peerTransitGatewayId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid
+	// The tags for the transit gateway peering attachment.
+	Tags []TransitGatewayPeeringAttachmentTag `pulumi:"tags"`
+	// The ID of the transit gateway.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 }
 
 // The set of arguments for constructing a TransitGatewayPeeringAttachment resource.
 type TransitGatewayPeeringAttachmentArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid
+	// The ID of the peer account
 	PeerAccountId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion
+	// Peer Region
 	PeerRegion pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peertransitgatewayid
+	// The ID of the peer transit gateway.
 	PeerTransitGatewayId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid
+	// The tags for the transit gateway peering attachment.
+	Tags TransitGatewayPeeringAttachmentTagArrayInput
+	// The ID of the transit gateway.
 	TransitGatewayId pulumi.StringInput
 }
 

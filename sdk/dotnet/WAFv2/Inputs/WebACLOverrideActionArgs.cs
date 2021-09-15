@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html
+    /// Override a RuleGroup or ManagedRuleGroup behavior. This can only be applied to Rule that has RuleGroupReferenceStatement or ManagedRuleGroupReferenceStatement.
     /// </summary>
     public sealed class WebACLOverrideActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-count
+        /// Count traffic towards application.
         /// </summary>
         [Input("count")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Count { get; set; }
+        public Input<object>? Count { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-none
+        /// Keep the RuleGroup or ManagedRuleGroup behavior as is.
         /// </summary>
         [Input("none")]
-        public InputUnion<System.Text.Json.JsonElement, string>? None { get; set; }
+        public Input<object>? None { get; set; }
 
         public WebACLOverrideActionArgs()
         {

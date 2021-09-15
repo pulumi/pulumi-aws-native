@@ -11,103 +11,57 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html
+    /// &lt;p&gt;The parameters that Amazon QuickSight uses to connect to your underlying data source.
+    ///             This is a variant type structure. For this structure to be valid, only one of the
+    ///             attributes can be non-null.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceDataSourceParametersArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-amazonelasticsearchparameters
-        /// </summary>
         [Input("amazonElasticsearchParameters")]
         public Input<Inputs.DataSourceAmazonElasticsearchParametersArgs>? AmazonElasticsearchParameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-athenaparameters
-        /// </summary>
         [Input("athenaParameters")]
         public Input<Inputs.DataSourceAthenaParametersArgs>? AthenaParameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-auroraparameters
-        /// </summary>
         [Input("auroraParameters")]
         public Input<Inputs.DataSourceAuroraParametersArgs>? AuroraParameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-aurorapostgresqlparameters
-        /// </summary>
         [Input("auroraPostgreSqlParameters")]
         public Input<Inputs.DataSourceAuroraPostgreSqlParametersArgs>? AuroraPostgreSqlParameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mariadbparameters
-        /// </summary>
         [Input("mariaDbParameters")]
         public Input<Inputs.DataSourceMariaDbParametersArgs>? MariaDbParameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mysqlparameters
-        /// </summary>
         [Input("mySqlParameters")]
         public Input<Inputs.DataSourceMySqlParametersArgs>? MySqlParameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-oracleparameters
-        /// </summary>
         [Input("oracleParameters")]
         public Input<Inputs.DataSourceOracleParametersArgs>? OracleParameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-postgresqlparameters
-        /// </summary>
         [Input("postgreSqlParameters")]
         public Input<Inputs.DataSourcePostgreSqlParametersArgs>? PostgreSqlParameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-prestoparameters
-        /// </summary>
         [Input("prestoParameters")]
         public Input<Inputs.DataSourcePrestoParametersArgs>? PrestoParameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-rdsparameters
-        /// </summary>
         [Input("rdsParameters")]
         public Input<Inputs.DataSourceRdsParametersArgs>? RdsParameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-redshiftparameters
-        /// </summary>
         [Input("redshiftParameters")]
         public Input<Inputs.DataSourceRedshiftParametersArgs>? RedshiftParameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-s3parameters
-        /// </summary>
         [Input("s3Parameters")]
         public Input<Inputs.DataSourceS3ParametersArgs>? S3Parameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-snowflakeparameters
-        /// </summary>
         [Input("snowflakeParameters")]
         public Input<Inputs.DataSourceSnowflakeParametersArgs>? SnowflakeParameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sparkparameters
-        /// </summary>
         [Input("sparkParameters")]
         public Input<Inputs.DataSourceSparkParametersArgs>? SparkParameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sqlserverparameters
-        /// </summary>
         [Input("sqlServerParameters")]
         public Input<Inputs.DataSourceSqlServerParametersArgs>? SqlServerParameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-teradataparameters
-        /// </summary>
         [Input("teradataParameters")]
         public Input<Inputs.DataSourceTeradataParametersArgs>? TeradataParameters { get; set; }
 

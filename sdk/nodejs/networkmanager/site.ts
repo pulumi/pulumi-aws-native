@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html
+ * The AWS::NetworkManager::Site type describes a site.
  */
 export class Site extends pulumi.CustomResource {
     /**
@@ -36,23 +36,29 @@ export class Site extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-description
+     * The description of the site.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-globalnetworkid
+     * The ID of the global network.
      */
     public readonly globalNetworkId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
+     * The location of the site.
      */
     public readonly location!: pulumi.Output<outputs.networkmanager.SiteLocation | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the site.
+     */
     public /*out*/ readonly siteArn!: pulumi.Output<string>;
+    /**
+     * The ID of the site.
+     */
     public /*out*/ readonly siteId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags
+     * The tags for the site.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.networkmanager.SiteTag[] | undefined>;
 
     /**
      * Create a Site resource with the given unique name, arguments, and options.
@@ -94,19 +100,19 @@ export class Site extends pulumi.CustomResource {
  */
 export interface SiteArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-description
+     * The description of the site.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-globalnetworkid
+     * The ID of the global network.
      */
     globalNetworkId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
+     * The location of the site.
      */
     location?: pulumi.Input<inputs.networkmanager.SiteLocationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags
+     * The tags for the site.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.SiteTagArgs>[]>;
 }

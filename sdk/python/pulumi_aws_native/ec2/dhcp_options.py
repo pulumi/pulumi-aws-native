@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['DHCPOptionsArgs', 'DHCPOptions']
 
@@ -20,15 +20,15 @@ class DHCPOptionsArgs:
                  netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[int]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DHCPOptionsTagArgs']]]] = None):
         """
         The set of arguments for constructing a DHCPOptions resource.
-        :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainname
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_name_servers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainnameservers
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] netbios_name_servers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnameservers
-        :param pulumi.Input[int] netbios_node_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnodetype
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-ntpservers
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-tags
+        :param pulumi.Input[str] domain_name: This value is used to complete unqualified DNS hostnames.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_name_servers: The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] netbios_name_servers: The IPv4 addresses of up to four NetBIOS name servers.
+        :param pulumi.Input[int] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
+        :param pulumi.Input[Sequence[pulumi.Input['DHCPOptionsTagArgs']]] tags: Any tags assigned to the DHCP options set.
         """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
@@ -47,7 +47,7 @@ class DHCPOptionsArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainname
+        This value is used to complete unqualified DNS hostnames.
         """
         return pulumi.get(self, "domain_name")
 
@@ -59,7 +59,7 @@ class DHCPOptionsArgs:
     @pulumi.getter(name="domainNameServers")
     def domain_name_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainnameservers
+        The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
         """
         return pulumi.get(self, "domain_name_servers")
 
@@ -71,7 +71,7 @@ class DHCPOptionsArgs:
     @pulumi.getter(name="netbiosNameServers")
     def netbios_name_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnameservers
+        The IPv4 addresses of up to four NetBIOS name servers.
         """
         return pulumi.get(self, "netbios_name_servers")
 
@@ -83,7 +83,7 @@ class DHCPOptionsArgs:
     @pulumi.getter(name="netbiosNodeType")
     def netbios_node_type(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnodetype
+        The NetBIOS node type (1, 2, 4, or 8).
         """
         return pulumi.get(self, "netbios_node_type")
 
@@ -95,7 +95,7 @@ class DHCPOptionsArgs:
     @pulumi.getter(name="ntpServers")
     def ntp_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-ntpservers
+        The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
         """
         return pulumi.get(self, "ntp_servers")
 
@@ -105,14 +105,14 @@ class DHCPOptionsArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DHCPOptionsTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-tags
+        Any tags assigned to the DHCP options set.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DHCPOptionsTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -126,19 +126,19 @@ class DHCPOptions(pulumi.CustomResource):
                  netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[int]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DHCPOptionsTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html
+        Resource Type definition for AWS::EC2::DHCPOptions
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainname
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_name_servers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainnameservers
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] netbios_name_servers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnameservers
-        :param pulumi.Input[int] netbios_node_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnodetype
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-ntpservers
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-tags
+        :param pulumi.Input[str] domain_name: This value is used to complete unqualified DNS hostnames.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] domain_name_servers: The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] netbios_name_servers: The IPv4 addresses of up to four NetBIOS name servers.
+        :param pulumi.Input[int] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ntp_servers: The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DHCPOptionsTagArgs']]]] tags: Any tags assigned to the DHCP options set.
         """
         ...
     @overload
@@ -147,7 +147,7 @@ class DHCPOptions(pulumi.CustomResource):
                  args: Optional[DHCPOptionsArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html
+        Resource Type definition for AWS::EC2::DHCPOptions
 
         :param str resource_name: The name of the resource.
         :param DHCPOptionsArgs args: The arguments to use to populate this resource's properties.
@@ -169,7 +169,7 @@ class DHCPOptions(pulumi.CustomResource):
                  netbios_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  netbios_node_type: Optional[pulumi.Input[int]] = None,
                  ntp_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DHCPOptionsTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -229,7 +229,7 @@ class DHCPOptions(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainname
+        This value is used to complete unqualified DNS hostnames.
         """
         return pulumi.get(self, "domain_name")
 
@@ -237,7 +237,7 @@ class DHCPOptions(pulumi.CustomResource):
     @pulumi.getter(name="domainNameServers")
     def domain_name_servers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainnameservers
+        The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
         """
         return pulumi.get(self, "domain_name_servers")
 
@@ -245,7 +245,7 @@ class DHCPOptions(pulumi.CustomResource):
     @pulumi.getter(name="netbiosNameServers")
     def netbios_name_servers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnameservers
+        The IPv4 addresses of up to four NetBIOS name servers.
         """
         return pulumi.get(self, "netbios_name_servers")
 
@@ -253,7 +253,7 @@ class DHCPOptions(pulumi.CustomResource):
     @pulumi.getter(name="netbiosNodeType")
     def netbios_node_type(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnodetype
+        The NetBIOS node type (1, 2, 4, or 8).
         """
         return pulumi.get(self, "netbios_node_type")
 
@@ -261,15 +261,15 @@ class DHCPOptions(pulumi.CustomResource):
     @pulumi.getter(name="ntpServers")
     def ntp_servers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-ntpservers
+        The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
         """
         return pulumi.get(self, "ntp_servers")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DHCPOptionsTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-tags
+        Any tags assigned to the DHCP options set.
         """
         return pulumi.get(self, "tags")
 

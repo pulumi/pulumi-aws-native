@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html
+    /// Specifies a time limit for how long the monitoring job is allowed to run.
     /// </summary>
     [OutputType]
     public sealed class ModelQualityJobDefinitionStoppingCondition
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-stoppingcondition.html#cfn-sagemaker-modelqualityjobdefinition-stoppingcondition-maxruntimeinseconds
+        /// The maximum runtime allowed in seconds.
         /// </summary>
         public readonly int MaxRuntimeInSeconds;
 

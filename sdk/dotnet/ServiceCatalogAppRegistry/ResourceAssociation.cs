@@ -10,13 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html
+    /// Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
     /// </summary>
     [AwsNativeResourceType("aws-native:servicecatalogappregistry:ResourceAssociation")]
     public partial class ResourceAssociation : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-application
+        /// The name or the Id of the Application.
         /// </summary>
         [Output("application")]
         public Output<string> Application { get; private set; } = null!;
@@ -24,11 +24,8 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         [Output("applicationArn")]
         public Output<string> ApplicationArn { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resource
+        /// The name or the Id of the Resource.
         /// </summary>
         [Output("resource")]
         public Output<string> Resource { get; private set; } = null!;
@@ -37,7 +34,7 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         public Output<string> ResourceArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resourcetype
+        /// The type of the CFN Resource for now it's enum CFN_STACK.
         /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
@@ -88,19 +85,19 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     public sealed class ResourceAssociationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-application
+        /// The name or the Id of the Application.
         /// </summary>
         [Input("application", required: true)]
         public Input<string> Application { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resource
+        /// The name or the Id of the Resource.
         /// </summary>
         [Input("resource", required: true)]
         public Input<string> Resource { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resourcetype
+        /// The type of the CFN Resource for now it's enum CFN_STACK.
         /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;

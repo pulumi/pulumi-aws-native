@@ -10,28 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html
+    /// The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
     /// </summary>
     [AwsNativeResourceType("aws-native:gamelift:Alias")]
     public partial class Alias : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Unique alias ID
+        /// </summary>
         [Output("aliasId")]
         public Output<string> AliasId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
+        /// A human-readable description of the alias.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
+        /// A descriptive label that is associated with an alias. Alias names do not need to be unique.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
+        /// A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
         /// </summary>
         [Output("routingStrategy")]
         public Output<Outputs.AliasRoutingStrategy> RoutingStrategy { get; private set; } = null!;
@@ -82,19 +85,19 @@ namespace Pulumi.AwsNative.GameLift
     public sealed class AliasArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
+        /// A human-readable description of the alias.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
+        /// A descriptive label that is associated with an alias. Alias names do not need to be unique.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
+        /// A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
         /// </summary>
         [Input("routingStrategy", required: true)]
         public Input<Inputs.AliasRoutingStrategyArgs> RoutingStrategy { get; set; } = null!;

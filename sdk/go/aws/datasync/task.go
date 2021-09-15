@@ -8,37 +8,36 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html
+// Resource schema for AWS::DataSync::Task.
 type Task struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
+	// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
 	CloudWatchLogGroupArn pulumi.StringPtrOutput `pulumi:"cloudWatchLogGroupArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
+	// The ARN of an AWS storage resource's location.
 	DestinationLocationArn          pulumi.StringOutput      `pulumi:"destinationLocationArn"`
 	DestinationNetworkInterfaceArns pulumi.StringArrayOutput `pulumi:"destinationNetworkInterfaceArns"`
-	ErrorCode                       pulumi.StringOutput      `pulumi:"errorCode"`
-	ErrorDetail                     pulumi.StringOutput      `pulumi:"errorDetail"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
-	Excludes TaskFilterRuleArrayOutput `pulumi:"excludes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
-	Includes TaskFilterRuleArrayOutput `pulumi:"includes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
-	Options TaskOptionsPtrOutput `pulumi:"options"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
+	// Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.
+	ErrorCode pulumi.StringOutput `pulumi:"errorCode"`
+	// Detailed description of an error that was encountered during the task execution.
+	ErrorDetail pulumi.StringOutput       `pulumi:"errorDetail"`
+	Excludes    TaskFilterRuleArrayOutput `pulumi:"excludes"`
+	Includes    TaskFilterRuleArrayOutput `pulumi:"includes"`
+	// The name of a task. This value is a text reference that is used to identify the task in the console.
+	Name     pulumi.StringPtrOutput    `pulumi:"name"`
+	Options  TaskOptionsPtrOutput      `pulumi:"options"`
 	Schedule TaskTaskSchedulePtrOutput `pulumi:"schedule"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
+	// The ARN of the source location for the task.
 	SourceLocationArn          pulumi.StringOutput      `pulumi:"sourceLocationArn"`
 	SourceNetworkInterfaceArns pulumi.StringArrayOutput `pulumi:"sourceNetworkInterfaceArns"`
-	Status                     pulumi.StringOutput      `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
-	Tags    aws.TagArrayOutput  `pulumi:"tags"`
+	// The status of the task that was described.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// An array of key-value pairs to apply to this resource.
+	Tags TaskTagArrayOutput `pulumi:"tags"`
+	// The ARN of the task.
 	TaskArn pulumi.StringOutput `pulumi:"taskArn"`
 }
 
@@ -87,46 +86,38 @@ func (TaskState) ElementType() reflect.Type {
 }
 
 type taskArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
+	// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
 	CloudWatchLogGroupArn *string `pulumi:"cloudWatchLogGroupArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
-	DestinationLocationArn string `pulumi:"destinationLocationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
-	Excludes []TaskFilterRule `pulumi:"excludes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
-	Includes []TaskFilterRule `pulumi:"includes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
-	Options *TaskOptions `pulumi:"options"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
+	// The ARN of an AWS storage resource's location.
+	DestinationLocationArn string           `pulumi:"destinationLocationArn"`
+	Excludes               []TaskFilterRule `pulumi:"excludes"`
+	Includes               []TaskFilterRule `pulumi:"includes"`
+	// The name of a task. This value is a text reference that is used to identify the task in the console.
+	Name     *string           `pulumi:"name"`
+	Options  *TaskOptions      `pulumi:"options"`
 	Schedule *TaskTaskSchedule `pulumi:"schedule"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
+	// The ARN of the source location for the task.
 	SourceLocationArn string `pulumi:"sourceLocationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []TaskTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Task resource.
 type TaskArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
+	// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
 	CloudWatchLogGroupArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
+	// The ARN of an AWS storage resource's location.
 	DestinationLocationArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
-	Excludes TaskFilterRuleArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
-	Includes TaskFilterRuleArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
-	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
-	Options TaskOptionsPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
+	Excludes               TaskFilterRuleArrayInput
+	Includes               TaskFilterRuleArrayInput
+	// The name of a task. This value is a text reference that is used to identify the task in the console.
+	Name     pulumi.StringPtrInput
+	Options  TaskOptionsPtrInput
 	Schedule TaskTaskSchedulePtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
+	// The ARN of the source location for the task.
 	SourceLocationArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
-	Tags aws.TagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags TaskTagArrayInput
 }
 
 func (TaskArgs) ElementType() reflect.Type {

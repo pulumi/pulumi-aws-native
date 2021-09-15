@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html
+    /// The asset property's definition, alias, and notification state.
     /// </summary>
     [OutputType]
     public sealed class AssetAssetProperty
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-alias
+        /// The property alias that identifies the property.
         /// </summary>
         public readonly string? Alias;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-logicalid
+        /// Customer provided ID for property.
         /// </summary>
         public readonly string LogicalId;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-notificationstate
+        /// The MQTT notification state (ENABLED or DISABLED) for this asset property.
         /// </summary>
         public readonly string? NotificationState;
 

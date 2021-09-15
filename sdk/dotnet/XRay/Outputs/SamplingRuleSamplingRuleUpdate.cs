@@ -10,64 +10,55 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.XRay.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html
-    /// </summary>
     [OutputType]
     public sealed class SamplingRuleSamplingRuleUpdate
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-attributes
+        /// Matches attributes derived from the request.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Attributes;
+        public readonly object? Attributes;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-fixedrate
+        /// The percentage of matching requests to instrument, after the reservoir is exhausted.
         /// </summary>
         public readonly double? FixedRate;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-httpmethod
+        /// Matches the HTTP method from a request URL.
         /// </summary>
         public readonly string? HTTPMethod;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-host
+        /// Matches the hostname from a request URL.
         /// </summary>
         public readonly string? Host;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-priority
+        /// The priority of the sampling rule.
         /// </summary>
         public readonly int? Priority;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-reservoirsize
+        /// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         /// </summary>
         public readonly int? ReservoirSize;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-resourcearn
+        /// Matches the ARN of the AWS resource on which the service runs.
         /// </summary>
         public readonly string? ResourceARN;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulearn
-        /// </summary>
         public readonly string? RuleARN;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulename
-        /// </summary>
         public readonly string? RuleName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicename
+        /// Matches the name that the service uses to identify itself in segments.
         /// </summary>
         public readonly string? ServiceName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicetype
+        /// Matches the origin that the service uses to identify its type in segments.
         /// </summary>
         public readonly string? ServiceType;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-urlpath
+        /// Matches the path from a request URL.
         /// </summary>
         public readonly string? URLPath;
 
         [OutputConstructor]
         private SamplingRuleSamplingRuleUpdate(
-            ImmutableDictionary<string, string>? attributes,
+            object? attributes,
 
             double? fixedRate,
 

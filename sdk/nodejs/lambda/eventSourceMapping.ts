@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
+ * Resource Type definition for AWS::Lambda::EventSourceMapping
  */
 export class EventSourceMapping extends pulumi.CustomResource {
     /**
@@ -36,76 +36,75 @@ export class EventSourceMapping extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
+     * The maximum number of items to retrieve in a single batch.
      */
     public readonly batchSize!: pulumi.Output<number | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-bisectbatchonfunctionerror
+     * (Streams) If the function returns an error, split the batch in two and retry.
      */
     public readonly bisectBatchOnFunctionError!: pulumi.Output<boolean | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
+     * (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
      */
     public readonly destinationConfig!: pulumi.Output<outputs.lambda.EventSourceMappingDestinationConfig | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
+     * Disables the event source mapping to pause polling and invocation.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
+     * The Amazon Resource Name (ARN) of the event source.
      */
     public readonly eventSourceArn!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
+     * The name of the Lambda function.
      */
     public readonly functionName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
+     * (Streams) A list of response types supported by the function.
      */
     public readonly functionResponseTypes!: pulumi.Output<string[] | undefined>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
+     * (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
      */
     public readonly maximumBatchingWindowInSeconds!: pulumi.Output<number | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
+     * (Streams) The maximum age of a record that Lambda sends to a function for processing.
      */
     public readonly maximumRecordAgeInSeconds!: pulumi.Output<number | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts
+     * (Streams) The maximum number of times to retry when the function returns an error.
      */
     public readonly maximumRetryAttempts!: pulumi.Output<number | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
+     * (Streams) The number of batches to process from each shard concurrently.
      */
     public readonly parallelizationFactor!: pulumi.Output<number | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
+     * (ActiveMQ) A list of ActiveMQ queues.
      */
     public readonly queues!: pulumi.Output<string[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
+     * Self-managed event source endpoints.
      */
     public readonly selfManagedEventSource!: pulumi.Output<outputs.lambda.EventSourceMappingSelfManagedEventSource | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
+     * A list of SourceAccessConfiguration.
      */
     public readonly sourceAccessConfigurations!: pulumi.Output<outputs.lambda.EventSourceMappingSourceAccessConfiguration[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
+     * The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources.
      */
     public readonly startingPosition!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingpositiontimestamp
+     * With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
      */
     public readonly startingPositionTimestamp!: pulumi.Output<number | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
+     * (Kafka) A list of Kafka topics.
      */
     public readonly topics!: pulumi.Output<string[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+     * (Streams) Tumbling window (non-overlapping time window) duration to perform aggregations.
      */
     public readonly tumblingWindowInSeconds!: pulumi.Output<number | undefined>;
 
@@ -141,7 +140,6 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["startingPositionTimestamp"] = args ? args.startingPositionTimestamp : undefined;
             inputs["topics"] = args ? args.topics : undefined;
             inputs["tumblingWindowInSeconds"] = args ? args.tumblingWindowInSeconds : undefined;
-            inputs["id"] = undefined /*out*/;
         } else {
             inputs["batchSize"] = undefined /*out*/;
             inputs["bisectBatchOnFunctionError"] = undefined /*out*/;
@@ -150,7 +148,6 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["eventSourceArn"] = undefined /*out*/;
             inputs["functionName"] = undefined /*out*/;
             inputs["functionResponseTypes"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["maximumBatchingWindowInSeconds"] = undefined /*out*/;
             inputs["maximumRecordAgeInSeconds"] = undefined /*out*/;
             inputs["maximumRetryAttempts"] = undefined /*out*/;
@@ -175,75 +172,75 @@ export class EventSourceMapping extends pulumi.CustomResource {
  */
 export interface EventSourceMappingArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
+     * The maximum number of items to retrieve in a single batch.
      */
     batchSize?: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-bisectbatchonfunctionerror
+     * (Streams) If the function returns an error, split the batch in two and retry.
      */
     bisectBatchOnFunctionError?: pulumi.Input<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-destinationconfig
+     * (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
      */
     destinationConfig?: pulumi.Input<inputs.lambda.EventSourceMappingDestinationConfigArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
+     * Disables the event source mapping to pause polling and invocation.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
+     * The Amazon Resource Name (ARN) of the event source.
      */
     eventSourceArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
+     * The name of the Lambda function.
      */
     functionName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionresponsetypes
+     * (Streams) A list of response types supported by the function.
      */
     functionResponseTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
+     * (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
      */
     maximumBatchingWindowInSeconds?: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumrecordageinseconds
+     * (Streams) The maximum age of a record that Lambda sends to a function for processing.
      */
     maximumRecordAgeInSeconds?: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumretryattempts
+     * (Streams) The maximum number of times to retry when the function returns an error.
      */
     maximumRetryAttempts?: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-parallelizationfactor
+     * (Streams) The number of batches to process from each shard concurrently.
      */
     parallelizationFactor?: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-queues
+     * (ActiveMQ) A list of ActiveMQ queues.
      */
     queues?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-selfmanagedeventsource
+     * Self-managed event source endpoints.
      */
     selfManagedEventSource?: pulumi.Input<inputs.lambda.EventSourceMappingSelfManagedEventSourceArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations
+     * A list of SourceAccessConfiguration.
      */
     sourceAccessConfigurations?: pulumi.Input<pulumi.Input<inputs.lambda.EventSourceMappingSourceAccessConfigurationArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
+     * The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources.
      */
     startingPosition?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingpositiontimestamp
+     * With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
      */
     startingPositionTimestamp?: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
+     * (Kafka) A list of Kafka topics.
      */
     topics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-tumblingwindowinseconds
+     * (Streams) Tumbling window (non-overlapping time window) duration to perform aggregations.
      */
     tumblingWindowInSeconds?: pulumi.Input<number>;
 }

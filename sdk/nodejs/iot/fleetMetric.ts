@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html
+ * An aggregated metric of certain devices in your fleet
  */
 export class FleetMetric extends pulumi.CustomResource {
     /**
@@ -36,48 +36,57 @@ export class FleetMetric extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-aggregationfield
+     * The aggregation field to perform aggregation and metric emission
      */
     public readonly aggregationField!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-aggregationtype
-     */
     public readonly aggregationType!: pulumi.Output<outputs.iot.FleetMetricAggregationType | undefined>;
+    /**
+     * The creation date of a fleet metric
+     */
     public /*out*/ readonly creationDate!: pulumi.Output<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-description
+     * The description of a fleet metric
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-indexname
+     * The index name of a fleet metric
      */
     public readonly indexName!: pulumi.Output<string | undefined>;
+    /**
+     * The last modified date of a fleet metric
+     */
     public /*out*/ readonly lastModifiedDate!: pulumi.Output<number>;
+    /**
+     * The Amazon Resource Number (ARN) of a fleet metric metric
+     */
     public /*out*/ readonly metricArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-metricname
+     * The name of the fleet metric
      */
     public readonly metricName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-period
+     * The period of metric emission in seconds
      */
     public readonly period!: pulumi.Output<number | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-querystring
+     * The Fleet Indexing query used by a fleet metric
      */
     public readonly queryString!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-queryversion
+     * The version of a Fleet Indexing query used by a fleet metric
      */
     public readonly queryVersion!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-tags
+     * An array of key-value pairs to apply to this resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.iot.FleetMetricTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-unit
+     * The unit of data points emitted by a fleet metric
      */
     public readonly unit!: pulumi.Output<string | undefined>;
+    /**
+     * The version of a fleet metric
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -136,43 +145,40 @@ export class FleetMetric extends pulumi.CustomResource {
  */
 export interface FleetMetricArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-aggregationfield
+     * The aggregation field to perform aggregation and metric emission
      */
     aggregationField?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-aggregationtype
-     */
     aggregationType?: pulumi.Input<inputs.iot.FleetMetricAggregationTypeArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-description
+     * The description of a fleet metric
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-indexname
+     * The index name of a fleet metric
      */
     indexName?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-metricname
+     * The name of the fleet metric
      */
     metricName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-period
+     * The period of metric emission in seconds
      */
     period?: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-querystring
+     * The Fleet Indexing query used by a fleet metric
      */
     queryString?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-queryversion
+     * The version of a Fleet Indexing query used by a fleet metric
      */
     queryVersion?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-tags
+     * An array of key-value pairs to apply to this resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.iot.FleetMetricTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-fleetmetric.html#cfn-iot-fleetmetric-unit
+     * The unit of data points emitted by a fleet metric
      */
     unit?: pulumi.Input<string>;
 }

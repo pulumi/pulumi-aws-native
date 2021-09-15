@@ -10,38 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html
-    /// </summary>
     public sealed class AnomalyDetectorMetricSourceArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-appflowconfig
-        /// </summary>
         [Input("appFlowConfig")]
         public Input<Inputs.AnomalyDetectorAppFlowConfigArgs>? AppFlowConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-cloudwatchconfig
-        /// </summary>
         [Input("cloudwatchConfig")]
         public Input<Inputs.AnomalyDetectorCloudwatchConfigArgs>? CloudwatchConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-rdssourceconfig
-        /// </summary>
         [Input("rDSSourceConfig")]
         public Input<Inputs.AnomalyDetectorRDSSourceConfigArgs>? RDSSourceConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-redshiftsourceconfig
-        /// </summary>
         [Input("redshiftSourceConfig")]
         public Input<Inputs.AnomalyDetectorRedshiftSourceConfigArgs>? RedshiftSourceConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-s3sourceconfig
-        /// </summary>
         [Input("s3SourceConfig")]
         public Input<Inputs.AnomalyDetectorS3SourceConfigArgs>? S3SourceConfig { get; set; }
 

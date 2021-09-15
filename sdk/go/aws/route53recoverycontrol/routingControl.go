@@ -11,18 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html
+// AWS Route53 Recovery Control Routing Control resource schema .
 type RoutingControl struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-clusterarn
+	// Arn associated with Control Panel
 	ClusterArn pulumi.StringPtrOutput `pulumi:"clusterArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-controlpanelarn
+	// The Amazon Resource Name (ARN) of the control panel.
 	ControlPanelArn pulumi.StringPtrOutput `pulumi:"controlPanelArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-name
-	Name              pulumi.StringOutput `pulumi:"name"`
+	// The name of the routing control. You can use any non-white space character in the name.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The Amazon Resource Name (ARN) of the routing control.
 	RoutingControlArn pulumi.StringOutput `pulumi:"routingControlArn"`
-	Status            pulumi.StringOutput `pulumi:"status"`
+	// The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewRoutingControl registers a new resource with the given unique name, arguments, and options.
@@ -67,21 +69,21 @@ func (RoutingControlState) ElementType() reflect.Type {
 }
 
 type routingControlArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-clusterarn
+	// Arn associated with Control Panel
 	ClusterArn *string `pulumi:"clusterArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-controlpanelarn
+	// The Amazon Resource Name (ARN) of the control panel.
 	ControlPanelArn *string `pulumi:"controlPanelArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-name
+	// The name of the routing control. You can use any non-white space character in the name.
 	Name string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a RoutingControl resource.
 type RoutingControlArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-clusterarn
+	// Arn associated with Control Panel
 	ClusterArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-controlpanelarn
+	// The Amazon Resource Name (ARN) of the control panel.
 	ControlPanelArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-name
+	// The name of the routing control. You can use any non-white space character in the name.
 	Name pulumi.StringInput
 }
 

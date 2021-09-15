@@ -10,49 +10,55 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElastiCache
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html
+    /// Resource Type definition for AWS::ElastiCache::User
     /// </summary>
     [AwsNativeResourceType("aws-native:elasticache:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
+        /// Access permissions string used for this user account.
         /// </summary>
         [Output("accessString")]
         public Output<string?> AccessString { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the user account.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
+        /// Must be redis.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
+        /// Indicates a password is not required for this user account.
         /// </summary>
         [Output("noPasswordRequired")]
         public Output<bool?> NoPasswordRequired { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
+        /// Passwords used for this user account. You can create up to two passwords for each user.
         /// </summary>
         [Output("passwords")]
         public Output<ImmutableArray<string>> Passwords { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates the user status. Can be "active", "modifying" or "deleting".
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
+        /// The ID of the user.
         /// </summary>
         [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
+        /// The username of the user.
         /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
@@ -103,19 +109,19 @@ namespace Pulumi.AwsNative.ElastiCache
     public sealed class UserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
+        /// Access permissions string used for this user account.
         /// </summary>
         [Input("accessString")]
         public Input<string>? AccessString { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
+        /// Must be redis.
         /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
+        /// Indicates a password is not required for this user account.
         /// </summary>
         [Input("noPasswordRequired")]
         public Input<bool>? NoPasswordRequired { get; set; }
@@ -124,7 +130,7 @@ namespace Pulumi.AwsNative.ElastiCache
         private InputList<string>? _passwords;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
+        /// Passwords used for this user account. You can create up to two passwords for each user.
         /// </summary>
         public InputList<string> Passwords
         {
@@ -133,13 +139,13 @@ namespace Pulumi.AwsNative.ElastiCache
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
+        /// The ID of the user.
         /// </summary>
         [Input("userId", required: true)]
         public Input<string> UserId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
+        /// The username of the user.
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;

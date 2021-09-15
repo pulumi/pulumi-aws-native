@@ -22,13 +22,13 @@ class CompositeAlarmArgs:
                  o_k_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CompositeAlarm resource.
-        :param pulumi.Input[str] alarm_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
-        :param pulumi.Input[str] alarm_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
-        :param pulumi.Input[bool] actions_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
-        :param pulumi.Input[str] alarm_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] o_k_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
+        :param pulumi.Input[str] alarm_name: The name of the Composite Alarm
+        :param pulumi.Input[str] alarm_rule: Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
+        :param pulumi.Input[bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
+        :param pulumi.Input[str] alarm_description: The description of the alarm
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] o_k_actions: The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         """
         pulumi.set(__self__, "alarm_name", alarm_name)
         pulumi.set(__self__, "alarm_rule", alarm_rule)
@@ -47,7 +47,7 @@ class CompositeAlarmArgs:
     @pulumi.getter(name="alarmName")
     def alarm_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
+        The name of the Composite Alarm
         """
         return pulumi.get(self, "alarm_name")
 
@@ -59,7 +59,7 @@ class CompositeAlarmArgs:
     @pulumi.getter(name="alarmRule")
     def alarm_rule(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
+        Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
         """
         return pulumi.get(self, "alarm_rule")
 
@@ -71,7 +71,7 @@ class CompositeAlarmArgs:
     @pulumi.getter(name="actionsEnabled")
     def actions_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
+        Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         """
         return pulumi.get(self, "actions_enabled")
 
@@ -83,7 +83,7 @@ class CompositeAlarmArgs:
     @pulumi.getter(name="alarmActions")
     def alarm_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
+        The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "alarm_actions")
 
@@ -95,7 +95,7 @@ class CompositeAlarmArgs:
     @pulumi.getter(name="alarmDescription")
     def alarm_description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
+        The description of the alarm
         """
         return pulumi.get(self, "alarm_description")
 
@@ -107,7 +107,7 @@ class CompositeAlarmArgs:
     @pulumi.getter(name="insufficientDataActions")
     def insufficient_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
+        The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "insufficient_data_actions")
 
@@ -119,7 +119,7 @@ class CompositeAlarmArgs:
     @pulumi.getter(name="oKActions")
     def o_k_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
+        The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "o_k_actions")
 
@@ -142,17 +142,17 @@ class CompositeAlarm(pulumi.CustomResource):
                  o_k_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html
+        The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] actions_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
-        :param pulumi.Input[str] alarm_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
-        :param pulumi.Input[str] alarm_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
-        :param pulumi.Input[str] alarm_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] o_k_actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
+        :param pulumi.Input[bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_actions: The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
+        :param pulumi.Input[str] alarm_description: The description of the alarm
+        :param pulumi.Input[str] alarm_name: The name of the Composite Alarm
+        :param pulumi.Input[str] alarm_rule: Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] o_k_actions: The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         """
         ...
     @overload
@@ -161,7 +161,7 @@ class CompositeAlarm(pulumi.CustomResource):
                  args: CompositeAlarmArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html
+        The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
 
         :param str resource_name: The name of the resource.
         :param CompositeAlarmArgs args: The arguments to use to populate this resource's properties.
@@ -245,7 +245,7 @@ class CompositeAlarm(pulumi.CustomResource):
     @pulumi.getter(name="actionsEnabled")
     def actions_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
+        Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         """
         return pulumi.get(self, "actions_enabled")
 
@@ -253,7 +253,7 @@ class CompositeAlarm(pulumi.CustomResource):
     @pulumi.getter(name="alarmActions")
     def alarm_actions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
+        The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "alarm_actions")
 
@@ -261,7 +261,7 @@ class CompositeAlarm(pulumi.CustomResource):
     @pulumi.getter(name="alarmDescription")
     def alarm_description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
+        The description of the alarm
         """
         return pulumi.get(self, "alarm_description")
 
@@ -269,7 +269,7 @@ class CompositeAlarm(pulumi.CustomResource):
     @pulumi.getter(name="alarmName")
     def alarm_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
+        The name of the Composite Alarm
         """
         return pulumi.get(self, "alarm_name")
 
@@ -277,20 +277,23 @@ class CompositeAlarm(pulumi.CustomResource):
     @pulumi.getter(name="alarmRule")
     def alarm_rule(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
+        Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
         """
         return pulumi.get(self, "alarm_rule")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name (ARN) of the alarm
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="insufficientDataActions")
     def insufficient_data_actions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
+        The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "insufficient_data_actions")
 
@@ -298,7 +301,7 @@ class CompositeAlarm(pulumi.CustomResource):
     @pulumi.getter(name="oKActions")
     def o_k_actions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
+        The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "o_k_actions")
 

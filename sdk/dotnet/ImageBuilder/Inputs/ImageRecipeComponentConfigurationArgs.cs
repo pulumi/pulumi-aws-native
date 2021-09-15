@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html
+    /// Configuration details of the component.
     /// </summary>
     public sealed class ImageRecipeComponentConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-componentarn
+        /// The Amazon Resource Name (ARN) of the component.
         /// </summary>
         [Input("componentArn")]
         public Input<string>? ComponentArn { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         private InputList<Inputs.ImageRecipeComponentParameterArgs>? _parameters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-parameters
+        /// A group of parameter settings that are used to configure the component for a specific recipe.
         /// </summary>
         public InputList<Inputs.ImageRecipeComponentParameterArgs> Parameters
         {

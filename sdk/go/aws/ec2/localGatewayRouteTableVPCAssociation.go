@@ -8,22 +8,24 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html
+// Describes an association between a local gateway route table and a VPC.
 type LocalGatewayRouteTableVPCAssociation struct {
 	pulumi.CustomResourceState
 
+	// The ID of the local gateway.
 	LocalGatewayId pulumi.StringOutput `pulumi:"localGatewayId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
-	LocalGatewayRouteTableId               pulumi.StringOutput `pulumi:"localGatewayRouteTableId"`
+	// The ID of the local gateway route table.
+	LocalGatewayRouteTableId pulumi.StringOutput `pulumi:"localGatewayRouteTableId"`
+	// The ID of the association.
 	LocalGatewayRouteTableVpcAssociationId pulumi.StringOutput `pulumi:"localGatewayRouteTableVpcAssociationId"`
-	State                                  pulumi.StringOutput `pulumi:"state"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
+	// The state of the association.
+	State pulumi.StringOutput `pulumi:"state"`
+	// The tags for the association.
+	Tags LocalGatewayRouteTableVPCAssociationTagArrayOutput `pulumi:"tags"`
+	// The ID of the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -72,21 +74,21 @@ func (LocalGatewayRouteTableVPCAssociationState) ElementType() reflect.Type {
 }
 
 type localGatewayRouteTableVPCAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
+	// The ID of the local gateway route table.
 	LocalGatewayRouteTableId string `pulumi:"localGatewayRouteTableId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
+	// The tags for the association.
+	Tags []LocalGatewayRouteTableVPCAssociationTag `pulumi:"tags"`
+	// The ID of the VPC.
 	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a LocalGatewayRouteTableVPCAssociation resource.
 type LocalGatewayRouteTableVPCAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-localgatewayroutetableid
+	// The ID of the local gateway route table.
 	LocalGatewayRouteTableId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html#cfn-ec2-localgatewayroutetablevpcassociation-vpcid
+	// The tags for the association.
+	Tags LocalGatewayRouteTableVPCAssociationTagArrayInput
+	// The ID of the VPC.
 	VpcId pulumi.StringInput
 }
 

@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-parametermap.html
-    /// </summary>
     public sealed class JobParameterMapArgs : Pulumi.ResourceArgs
     {
         public JobParameterMapArgs()

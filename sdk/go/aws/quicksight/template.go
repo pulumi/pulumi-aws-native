@@ -8,30 +8,33 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html
+// Definition of the AWS::QuickSight::Template Resource Type.
 type Template struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-awsaccountid
-	AwsAccountId    pulumi.StringOutput `pulumi:"awsAccountId"`
-	CreatedTime     pulumi.StringOutput `pulumi:"createdTime"`
+	// <p>The Amazon Resource Name (ARN) of the template.</p>
+	Arn          pulumi.StringOutput `pulumi:"arn"`
+	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	// <p>Time when this was created.</p>
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// <p>Time when this was last updated.</p>
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-name
+	// <p>A display name for the template.</p>
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-permissions
-	Permissions TemplateResourcePermissionArrayOutput `pulumi:"permissions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-sourceentity
+	// <p>A list of resource permissions to be set on the template. </p>
+	Permissions  TemplateResourcePermissionArrayOutput `pulumi:"permissions"`
 	SourceEntity TemplateTemplateSourceEntityPtrOutput `pulumi:"sourceEntity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-templateid
-	TemplateId pulumi.StringOutput `pulumi:"templateId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-versiondescription
+	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
+	Tags       TemplateTagArrayOutput        `pulumi:"tags"`
+	TemplateId pulumi.StringOutput           `pulumi:"templateId"`
+	Version    TemplateTemplateVersionOutput `pulumi:"version"`
+	// <p>A description of the current template version being created. This API operation creates the
+	// 			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
+	// 			version is created. Each version of the template maintains a description of the version
+	// 			in the <code>VersionDescription</code> field.</p>
 	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
 }
 
@@ -80,37 +83,37 @@ func (TemplateState) ElementType() reflect.Type {
 }
 
 type templateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-awsaccountid
 	AwsAccountId string `pulumi:"awsAccountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-name
+	// <p>A display name for the template.</p>
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-permissions
-	Permissions []TemplateResourcePermission `pulumi:"permissions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-sourceentity
+	// <p>A list of resource permissions to be set on the template. </p>
+	Permissions  []TemplateResourcePermission  `pulumi:"permissions"`
 	SourceEntity *TemplateTemplateSourceEntity `pulumi:"sourceEntity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-templateid
-	TemplateId string `pulumi:"templateId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-versiondescription
+	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
+	Tags       []TemplateTag `pulumi:"tags"`
+	TemplateId string        `pulumi:"templateId"`
+	// <p>A description of the current template version being created. This API operation creates the
+	// 			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
+	// 			version is created. Each version of the template maintains a description of the version
+	// 			in the <code>VersionDescription</code> field.</p>
 	VersionDescription *string `pulumi:"versionDescription"`
 }
 
 // The set of arguments for constructing a Template resource.
 type TemplateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-awsaccountid
 	AwsAccountId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-name
+	// <p>A display name for the template.</p>
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-permissions
-	Permissions TemplateResourcePermissionArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-sourceentity
+	// <p>A list of resource permissions to be set on the template. </p>
+	Permissions  TemplateResourcePermissionArrayInput
 	SourceEntity TemplateTemplateSourceEntityPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-templateid
+	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
+	Tags       TemplateTagArrayInput
 	TemplateId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-versiondescription
+	// <p>A description of the current template version being created. This API operation creates the
+	// 			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
+	// 			version is created. Each version of the template maintains a description of the version
+	// 			in the <code>VersionDescription</code> field.</p>
 	VersionDescription pulumi.StringPtrInput
 }
 

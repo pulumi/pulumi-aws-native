@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['AnalysisArgs', 'Analysis']
@@ -24,19 +22,21 @@ class AnalysisArgs:
                  parameters: Optional[pulumi.Input['AnalysisParametersArgs']] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]] = None,
                  source_entity: Optional[pulumi.Input['AnalysisAnalysisSourceEntityArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Analysis resource.
-        :param pulumi.Input[str] analysis_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-analysisid
-        :param pulumi.Input[str] aws_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-awsaccountid
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisAnalysisErrorArgs']]] errors: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-errors
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
-        :param pulumi.Input['AnalysisParametersArgs'] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-parameters
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]] permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-permissions
-        :param pulumi.Input['AnalysisAnalysisSourceEntityArgs'] source_entity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-sourceentity
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-tags
-        :param pulumi.Input[str] theme_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-themearn
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisAnalysisErrorArgs']]] errors: <p>Errors associated with the analysis.</p>
+        :param pulumi.Input[str] name: <p>The descriptive name of the analysis.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]] permissions: <p>A structure that describes the principals and the resource-level permissions on an
+                           analysis. You can use the <code>Permissions</code> structure to grant permissions by
+                           providing a list of AWS Identity and Access Management (IAM) action information for each
+                           principal listed by Amazon Resource Name (ARN). </p>
+               
+                       <p>To specify no permissions, omit <code>Permissions</code>.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+                           analysis.</p>
+        :param pulumi.Input[str] theme_arn: <p>The ARN of the theme of the analysis.</p>
         """
         pulumi.set(__self__, "analysis_id", analysis_id)
         pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -58,9 +58,6 @@ class AnalysisArgs:
     @property
     @pulumi.getter(name="analysisId")
     def analysis_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-analysisid
-        """
         return pulumi.get(self, "analysis_id")
 
     @analysis_id.setter
@@ -70,9 +67,6 @@ class AnalysisArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-awsaccountid
-        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -83,7 +77,7 @@ class AnalysisArgs:
     @pulumi.getter
     def errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisAnalysisErrorArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-errors
+        <p>Errors associated with the analysis.</p>
         """
         return pulumi.get(self, "errors")
 
@@ -95,7 +89,7 @@ class AnalysisArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
+        <p>The descriptive name of the analysis.</p>
         """
         return pulumi.get(self, "name")
 
@@ -106,9 +100,6 @@ class AnalysisArgs:
     @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input['AnalysisParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-parameters
-        """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
@@ -119,7 +110,12 @@ class AnalysisArgs:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-permissions
+        <p>A structure that describes the principals and the resource-level permissions on an
+                    analysis. You can use the <code>Permissions</code> structure to grant permissions by
+                    providing a list of AWS Identity and Access Management (IAM) action information for each
+                    principal listed by Amazon Resource Name (ARN). </p>
+
+                <p>To specify no permissions, omit <code>Permissions</code>.</p>
         """
         return pulumi.get(self, "permissions")
 
@@ -130,9 +126,6 @@ class AnalysisArgs:
     @property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> Optional[pulumi.Input['AnalysisAnalysisSourceEntityArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-sourceentity
-        """
         return pulumi.get(self, "source_entity")
 
     @source_entity.setter
@@ -141,21 +134,22 @@ class AnalysisArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-tags
+        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+                    analysis.</p>
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-themearn
+        <p>The ARN of the theme of the analysis.</p>
         """
         return pulumi.get(self, "theme_arn")
 
@@ -176,23 +170,25 @@ class Analysis(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[pulumi.InputType['AnalysisParametersArgs']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisResourcePermissionArgs']]]]] = None,
                  source_entity: Optional[pulumi.Input[pulumi.InputType['AnalysisAnalysisSourceEntityArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTagArgs']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html
+        Definition of the AWS::QuickSight::Analysis Resource Type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] analysis_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-analysisid
-        :param pulumi.Input[str] aws_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-awsaccountid
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisAnalysisErrorArgs']]]] errors: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-errors
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
-        :param pulumi.Input[pulumi.InputType['AnalysisParametersArgs']] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-parameters
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisResourcePermissionArgs']]]] permissions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-permissions
-        :param pulumi.Input[pulumi.InputType['AnalysisAnalysisSourceEntityArgs']] source_entity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-sourceentity
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-tags
-        :param pulumi.Input[str] theme_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-themearn
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisAnalysisErrorArgs']]]] errors: <p>Errors associated with the analysis.</p>
+        :param pulumi.Input[str] name: <p>The descriptive name of the analysis.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisResourcePermissionArgs']]]] permissions: <p>A structure that describes the principals and the resource-level permissions on an
+                           analysis. You can use the <code>Permissions</code> structure to grant permissions by
+                           providing a list of AWS Identity and Access Management (IAM) action information for each
+                           principal listed by Amazon Resource Name (ARN). </p>
+               
+                       <p>To specify no permissions, omit <code>Permissions</code>.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTagArgs']]]] tags: <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+                           analysis.</p>
+        :param pulumi.Input[str] theme_arn: <p>The ARN of the theme of the analysis.</p>
         """
         ...
     @overload
@@ -201,7 +197,7 @@ class Analysis(pulumi.CustomResource):
                  args: AnalysisArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html
+        Definition of the AWS::QuickSight::Analysis Resource Type.
 
         :param str resource_name: The name of the resource.
         :param AnalysisArgs args: The arguments to use to populate this resource's properties.
@@ -225,7 +221,7 @@ class Analysis(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[pulumi.InputType['AnalysisParametersArgs']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisResourcePermissionArgs']]]]] = None,
                  source_entity: Optional[pulumi.Input[pulumi.InputType['AnalysisAnalysisSourceEntityArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisTagArgs']]]]] = None,
                  theme_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -300,82 +296,90 @@ class Analysis(pulumi.CustomResource):
     @property
     @pulumi.getter(name="analysisId")
     def analysis_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-analysisid
-        """
         return pulumi.get(self, "analysis_id")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        <p>The Amazon Resource Name (ARN) of the analysis.</p>
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-awsaccountid
-        """
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        <p>The time that the analysis was created.</p>
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter(name="dataSetArns")
     def data_set_arns(self) -> pulumi.Output[Sequence[str]]:
+        """
+        <p>The ARNs of the datasets of the analysis.</p>
+        """
         return pulumi.get(self, "data_set_arns")
 
     @property
     @pulumi.getter
     def errors(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisAnalysisError']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-errors
+        <p>Errors associated with the analysis.</p>
         """
         return pulumi.get(self, "errors")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
+        """
+        <p>The time that the analysis was last updated.</p>
+        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-name
+        <p>The descriptive name of the analysis.</p>
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional['outputs.AnalysisParameters']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-parameters
-        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisResourcePermission']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-permissions
+        <p>A structure that describes the principals and the resource-level permissions on an
+                    analysis. You can use the <code>Permissions</code> structure to grant permissions by
+                    providing a list of AWS Identity and Access Management (IAM) action information for each
+                    principal listed by Amazon Resource Name (ARN). </p>
+
+                <p>To specify no permissions, omit <code>Permissions</code>.</p>
         """
         return pulumi.get(self, "permissions")
 
     @property
     @pulumi.getter
     def sheets(self) -> pulumi.Output[Sequence['outputs.AnalysisSheet']]:
+        """
+        <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+        """
         return pulumi.get(self, "sheets")
 
     @property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Output[Optional['outputs.AnalysisAnalysisSourceEntity']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-sourceentity
-        """
         return pulumi.get(self, "source_entity")
 
     @property
@@ -385,9 +389,10 @@ class Analysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-tags
+        <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+                    analysis.</p>
         """
         return pulumi.get(self, "tags")
 
@@ -395,7 +400,7 @@ class Analysis(pulumi.CustomResource):
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html#cfn-quicksight-analysis-themearn
+        <p>The ARN of the theme of the analysis.</p>
         """
         return pulumi.get(self, "theme_arn")
 

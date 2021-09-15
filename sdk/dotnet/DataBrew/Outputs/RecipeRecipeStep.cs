@@ -10,18 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html
-    /// </summary>
     [OutputType]
     public sealed class RecipeRecipeStep
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-action
-        /// </summary>
         public readonly Outputs.RecipeAction Action;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-conditionexpressions
+        /// Condition expressions applied to the step action
         /// </summary>
         public readonly ImmutableArray<Outputs.RecipeConditionExpression> ConditionExpressions;
 

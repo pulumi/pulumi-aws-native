@@ -20,9 +20,9 @@ class AliasArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Alias resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
-        :param pulumi.Input['AliasRoutingStrategyArgs'] routing_strategy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
+        :param pulumi.Input[str] name: A descriptive label that is associated with an alias. Alias names do not need to be unique.
+        :param pulumi.Input['AliasRoutingStrategyArgs'] routing_strategy: A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
+        :param pulumi.Input[str] description: A human-readable description of the alias.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "routing_strategy", routing_strategy)
@@ -33,7 +33,7 @@ class AliasArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
+        A descriptive label that is associated with an alias. Alias names do not need to be unique.
         """
         return pulumi.get(self, "name")
 
@@ -45,7 +45,7 @@ class AliasArgs:
     @pulumi.getter(name="routingStrategy")
     def routing_strategy(self) -> pulumi.Input['AliasRoutingStrategyArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
+        A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
         """
         return pulumi.get(self, "routing_strategy")
 
@@ -57,7 +57,7 @@ class AliasArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
+        A human-readable description of the alias.
         """
         return pulumi.get(self, "description")
 
@@ -76,13 +76,13 @@ class Alias(pulumi.CustomResource):
                  routing_strategy: Optional[pulumi.Input[pulumi.InputType['AliasRoutingStrategyArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html
+        The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
-        :param pulumi.Input[pulumi.InputType['AliasRoutingStrategyArgs']] routing_strategy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
+        :param pulumi.Input[str] description: A human-readable description of the alias.
+        :param pulumi.Input[str] name: A descriptive label that is associated with an alias. Alias names do not need to be unique.
+        :param pulumi.Input[pulumi.InputType['AliasRoutingStrategyArgs']] routing_strategy: A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
         """
         ...
     @overload
@@ -91,7 +91,7 @@ class Alias(pulumi.CustomResource):
                  args: AliasArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html
+        The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.
@@ -162,13 +162,16 @@ class Alias(pulumi.CustomResource):
     @property
     @pulumi.getter(name="aliasId")
     def alias_id(self) -> pulumi.Output[str]:
+        """
+        Unique alias ID
+        """
         return pulumi.get(self, "alias_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
+        A human-readable description of the alias.
         """
         return pulumi.get(self, "description")
 
@@ -176,7 +179,7 @@ class Alias(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
+        A descriptive label that is associated with an alias. Alias names do not need to be unique.
         """
         return pulumi.get(self, "name")
 
@@ -184,7 +187,7 @@ class Alias(pulumi.CustomResource):
     @pulumi.getter(name="routingStrategy")
     def routing_strategy(self) -> pulumi.Output['outputs.AliasRoutingStrategy']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
+        A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
         """
         return pulumi.get(self, "routing_strategy")
 

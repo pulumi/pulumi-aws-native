@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.IoT.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html
+    /// Aggregation types supported by Fleet Indexing
     /// </summary>
     public sealed class FleetMetricAggregationTypeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-name
+        /// Fleet Indexing aggregation type names such as Statistics, Percentiles and Cardinality
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-fleetmetric-aggregationtype.html#cfn-iot-fleetmetric-aggregationtype-values
+        /// Fleet Indexing aggregation type values
         /// </summary>
         public InputList<string> Values
         {

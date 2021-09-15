@@ -7,58 +7,36 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
+// Resource Type definition for AWS::ECS::Service
 type Service struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
-	CapacityProviderStrategy ServiceCapacityProviderStrategyItemArrayOutput `pulumi:"capacityProviderStrategy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
-	Cluster pulumi.StringPtrOutput `pulumi:"cluster"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
-	DeploymentConfiguration ServiceDeploymentConfigurationPtrOutput `pulumi:"deploymentConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller
-	DeploymentController ServiceDeploymentControllerPtrOutput `pulumi:"deploymentController"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
-	DesiredCount pulumi.IntPtrOutput `pulumi:"desiredCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableecsmanagedtags
-	EnableECSManagedTags pulumi.BoolPtrOutput `pulumi:"enableECSManagedTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand
-	EnableExecuteCommand pulumi.BoolPtrOutput `pulumi:"enableExecuteCommand"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
-	HealthCheckGracePeriodSeconds pulumi.IntPtrOutput `pulumi:"healthCheckGracePeriodSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
-	LaunchType pulumi.StringPtrOutput `pulumi:"launchType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
-	LoadBalancers ServiceLoadBalancerArrayOutput `pulumi:"loadBalancers"`
-	Name          pulumi.StringOutput            `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-networkconfiguration
-	NetworkConfiguration ServiceNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
-	PlacementConstraints ServicePlacementConstraintArrayOutput `pulumi:"placementConstraints"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
-	PlacementStrategies ServicePlacementStrategyArrayOutput `pulumi:"placementStrategies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-platformversion
-	PlatformVersion pulumi.StringPtrOutput `pulumi:"platformVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-propagatetags
-	PropagateTags pulumi.StringPtrOutput `pulumi:"propagateTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
-	Role pulumi.StringPtrOutput `pulumi:"role"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
-	SchedulingStrategy pulumi.StringPtrOutput `pulumi:"schedulingStrategy"`
-	ServiceArn         pulumi.StringOutput    `pulumi:"serviceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
-	ServiceName pulumi.StringPtrOutput `pulumi:"serviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
-	ServiceRegistries ServiceServiceRegistryArrayOutput `pulumi:"serviceRegistries"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
-	TaskDefinition pulumi.StringPtrOutput `pulumi:"taskDefinition"`
+	CapacityProviderStrategy      ServiceCapacityProviderStrategyItemArrayOutput `pulumi:"capacityProviderStrategy"`
+	Cluster                       pulumi.StringPtrOutput                         `pulumi:"cluster"`
+	DeploymentConfiguration       ServiceDeploymentConfigurationPtrOutput        `pulumi:"deploymentConfiguration"`
+	DeploymentController          ServiceDeploymentControllerPtrOutput           `pulumi:"deploymentController"`
+	DesiredCount                  pulumi.IntPtrOutput                            `pulumi:"desiredCount"`
+	EnableECSManagedTags          pulumi.BoolPtrOutput                           `pulumi:"enableECSManagedTags"`
+	EnableExecuteCommand          pulumi.BoolPtrOutput                           `pulumi:"enableExecuteCommand"`
+	HealthCheckGracePeriodSeconds pulumi.IntPtrOutput                            `pulumi:"healthCheckGracePeriodSeconds"`
+	LaunchType                    pulumi.StringPtrOutput                         `pulumi:"launchType"`
+	LoadBalancers                 ServiceLoadBalancerArrayOutput                 `pulumi:"loadBalancers"`
+	Name                          pulumi.StringOutput                            `pulumi:"name"`
+	NetworkConfiguration          ServiceNetworkConfigurationPtrOutput           `pulumi:"networkConfiguration"`
+	PlacementConstraints          ServicePlacementConstraintArrayOutput          `pulumi:"placementConstraints"`
+	PlacementStrategies           ServicePlacementStrategyArrayOutput            `pulumi:"placementStrategies"`
+	PlatformVersion               pulumi.StringPtrOutput                         `pulumi:"platformVersion"`
+	PropagateTags                 pulumi.StringPtrOutput                         `pulumi:"propagateTags"`
+	Role                          pulumi.StringPtrOutput                         `pulumi:"role"`
+	SchedulingStrategy            pulumi.StringPtrOutput                         `pulumi:"schedulingStrategy"`
+	ServiceArn                    pulumi.StringOutput                            `pulumi:"serviceArn"`
+	ServiceName                   pulumi.StringPtrOutput                         `pulumi:"serviceName"`
+	ServiceRegistries             ServiceServiceRegistryArrayOutput              `pulumi:"serviceRegistries"`
+	Tags                          ServiceTagArrayOutput                          `pulumi:"tags"`
+	TaskDefinition                pulumi.StringPtrOutput                         `pulumi:"taskDefinition"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -100,94 +78,52 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
-	CapacityProviderStrategy []ServiceCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
-	Cluster *string `pulumi:"cluster"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
-	DeploymentConfiguration *ServiceDeploymentConfiguration `pulumi:"deploymentConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller
-	DeploymentController *ServiceDeploymentController `pulumi:"deploymentController"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
-	DesiredCount *int `pulumi:"desiredCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableecsmanagedtags
-	EnableECSManagedTags *bool `pulumi:"enableECSManagedTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand
-	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
-	HealthCheckGracePeriodSeconds *int `pulumi:"healthCheckGracePeriodSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
-	LaunchType *string `pulumi:"launchType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
-	LoadBalancers []ServiceLoadBalancer `pulumi:"loadBalancers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-networkconfiguration
-	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
-	PlacementConstraints []ServicePlacementConstraint `pulumi:"placementConstraints"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
-	PlacementStrategies []ServicePlacementStrategy `pulumi:"placementStrategies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-platformversion
-	PlatformVersion *string `pulumi:"platformVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-propagatetags
-	PropagateTags *string `pulumi:"propagateTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
-	Role *string `pulumi:"role"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
-	SchedulingStrategy *string `pulumi:"schedulingStrategy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
-	ServiceName *string `pulumi:"serviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
-	ServiceRegistries []ServiceServiceRegistry `pulumi:"serviceRegistries"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
-	TaskDefinition *string `pulumi:"taskDefinition"`
+	CapacityProviderStrategy      []ServiceCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
+	Cluster                       *string                               `pulumi:"cluster"`
+	DeploymentConfiguration       *ServiceDeploymentConfiguration       `pulumi:"deploymentConfiguration"`
+	DeploymentController          *ServiceDeploymentController          `pulumi:"deploymentController"`
+	DesiredCount                  *int                                  `pulumi:"desiredCount"`
+	EnableECSManagedTags          *bool                                 `pulumi:"enableECSManagedTags"`
+	EnableExecuteCommand          *bool                                 `pulumi:"enableExecuteCommand"`
+	HealthCheckGracePeriodSeconds *int                                  `pulumi:"healthCheckGracePeriodSeconds"`
+	LaunchType                    *string                               `pulumi:"launchType"`
+	LoadBalancers                 []ServiceLoadBalancer                 `pulumi:"loadBalancers"`
+	NetworkConfiguration          *ServiceNetworkConfiguration          `pulumi:"networkConfiguration"`
+	PlacementConstraints          []ServicePlacementConstraint          `pulumi:"placementConstraints"`
+	PlacementStrategies           []ServicePlacementStrategy            `pulumi:"placementStrategies"`
+	PlatformVersion               *string                               `pulumi:"platformVersion"`
+	PropagateTags                 *string                               `pulumi:"propagateTags"`
+	Role                          *string                               `pulumi:"role"`
+	SchedulingStrategy            *string                               `pulumi:"schedulingStrategy"`
+	ServiceName                   *string                               `pulumi:"serviceName"`
+	ServiceRegistries             []ServiceServiceRegistry              `pulumi:"serviceRegistries"`
+	Tags                          []ServiceTag                          `pulumi:"tags"`
+	TaskDefinition                *string                               `pulumi:"taskDefinition"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
-	CapacityProviderStrategy ServiceCapacityProviderStrategyItemArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
-	Cluster pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
-	DeploymentConfiguration ServiceDeploymentConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller
-	DeploymentController ServiceDeploymentControllerPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
-	DesiredCount pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableecsmanagedtags
-	EnableECSManagedTags pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand
-	EnableExecuteCommand pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
+	CapacityProviderStrategy      ServiceCapacityProviderStrategyItemArrayInput
+	Cluster                       pulumi.StringPtrInput
+	DeploymentConfiguration       ServiceDeploymentConfigurationPtrInput
+	DeploymentController          ServiceDeploymentControllerPtrInput
+	DesiredCount                  pulumi.IntPtrInput
+	EnableECSManagedTags          pulumi.BoolPtrInput
+	EnableExecuteCommand          pulumi.BoolPtrInput
 	HealthCheckGracePeriodSeconds pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
-	LaunchType pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
-	LoadBalancers ServiceLoadBalancerArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-networkconfiguration
-	NetworkConfiguration ServiceNetworkConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
-	PlacementConstraints ServicePlacementConstraintArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
-	PlacementStrategies ServicePlacementStrategyArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-platformversion
-	PlatformVersion pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-propagatetags
-	PropagateTags pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
-	Role pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
-	SchedulingStrategy pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
-	ServiceName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
-	ServiceRegistries ServiceServiceRegistryArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
-	TaskDefinition pulumi.StringPtrInput
+	LaunchType                    pulumi.StringPtrInput
+	LoadBalancers                 ServiceLoadBalancerArrayInput
+	NetworkConfiguration          ServiceNetworkConfigurationPtrInput
+	PlacementConstraints          ServicePlacementConstraintArrayInput
+	PlacementStrategies           ServicePlacementStrategyArrayInput
+	PlatformVersion               pulumi.StringPtrInput
+	PropagateTags                 pulumi.StringPtrInput
+	Role                          pulumi.StringPtrInput
+	SchedulingStrategy            pulumi.StringPtrInput
+	ServiceName                   pulumi.StringPtrInput
+	ServiceRegistries             ServiceServiceRegistryArrayInput
+	Tags                          ServiceTagArrayInput
+	TaskDefinition                pulumi.StringPtrInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {

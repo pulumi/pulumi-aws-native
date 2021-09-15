@@ -11,33 +11,30 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html
+    /// S3 bucket destination settings for the Amazon S3 Storage Lens metrics export.
     /// </summary>
     [OutputType]
     public sealed class StorageLensS3BucketDestination
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-accountid
+        /// The AWS account ID that owns the destination S3 bucket.
         /// </summary>
         public readonly string AccountId;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-arn
+        /// The ARN of the bucket to which Amazon S3 Storage Lens exports will be placed.
         /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption
-        /// </summary>
         public readonly Outputs.StorageLensEncryption? Encryption;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-format
+        /// Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
         /// </summary>
         public readonly string Format;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-outputschemaversion
+        /// The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
         /// </summary>
         public readonly string OutputSchemaVersion;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-prefix
+        /// The prefix to use for Amazon S3 Storage Lens export.
         /// </summary>
         public readonly string? Prefix;
 

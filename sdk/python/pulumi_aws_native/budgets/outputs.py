@@ -20,42 +20,25 @@ __all__ = [
 
 @pulumi.output_type
 class BudgetsActionActionThreshold(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html
-    """
     def __init__(__self__, *,
                  type: str,
                  value: float):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html
-        :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-type
-        :param float value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-value
-        """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-type
-        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def value(self) -> float:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-value
-        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class BudgetsActionDefinition(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -81,12 +64,6 @@ class BudgetsActionDefinition(dict):
                  iam_action_definition: Optional['outputs.BudgetsActionIamActionDefinition'] = None,
                  scp_action_definition: Optional['outputs.BudgetsActionScpActionDefinition'] = None,
                  ssm_action_definition: Optional['outputs.BudgetsActionSsmActionDefinition'] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html
-        :param 'BudgetsActionIamActionDefinition' iam_action_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-iamactiondefinition
-        :param 'BudgetsActionScpActionDefinition' scp_action_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-scpactiondefinition
-        :param 'BudgetsActionSsmActionDefinition' ssm_action_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-ssmactiondefinition
-        """
         if iam_action_definition is not None:
             pulumi.set(__self__, "iam_action_definition", iam_action_definition)
         if scp_action_definition is not None:
@@ -97,33 +74,21 @@ class BudgetsActionDefinition(dict):
     @property
     @pulumi.getter(name="iamActionDefinition")
     def iam_action_definition(self) -> Optional['outputs.BudgetsActionIamActionDefinition']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-iamactiondefinition
-        """
         return pulumi.get(self, "iam_action_definition")
 
     @property
     @pulumi.getter(name="scpActionDefinition")
     def scp_action_definition(self) -> Optional['outputs.BudgetsActionScpActionDefinition']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-scpactiondefinition
-        """
         return pulumi.get(self, "scp_action_definition")
 
     @property
     @pulumi.getter(name="ssmActionDefinition")
     def ssm_action_definition(self) -> Optional['outputs.BudgetsActionSsmActionDefinition']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-ssmactiondefinition
-        """
         return pulumi.get(self, "ssm_action_definition")
 
 
 @pulumi.output_type
 class BudgetsActionIamActionDefinition(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -146,13 +111,6 @@ class BudgetsActionIamActionDefinition(dict):
                  groups: Optional[Sequence[str]] = None,
                  roles: Optional[Sequence[str]] = None,
                  users: Optional[Sequence[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html
-        :param str policy_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-policyarn
-        :param Sequence[str] groups: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-groups
-        :param Sequence[str] roles: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-roles
-        :param Sequence[str] users: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-users
-        """
         pulumi.set(__self__, "policy_arn", policy_arn)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
@@ -164,41 +122,26 @@ class BudgetsActionIamActionDefinition(dict):
     @property
     @pulumi.getter(name="policyArn")
     def policy_arn(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-policyarn
-        """
         return pulumi.get(self, "policy_arn")
 
     @property
     @pulumi.getter
     def groups(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-groups
-        """
         return pulumi.get(self, "groups")
 
     @property
     @pulumi.getter
     def roles(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-roles
-        """
         return pulumi.get(self, "roles")
 
     @property
     @pulumi.getter
     def users(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-users
-        """
         return pulumi.get(self, "users")
 
 
 @pulumi.output_type
 class BudgetsActionScpActionDefinition(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -221,36 +164,22 @@ class BudgetsActionScpActionDefinition(dict):
     def __init__(__self__, *,
                  policy_id: str,
                  target_ids: Sequence[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html
-        :param str policy_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html#cfn-budgets-budgetsaction-scpactiondefinition-policyid
-        :param Sequence[str] target_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html#cfn-budgets-budgetsaction-scpactiondefinition-targetids
-        """
         pulumi.set(__self__, "policy_id", policy_id)
         pulumi.set(__self__, "target_ids", target_ids)
 
     @property
     @pulumi.getter(name="policyId")
     def policy_id(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html#cfn-budgets-budgetsaction-scpactiondefinition-policyid
-        """
         return pulumi.get(self, "policy_id")
 
     @property
     @pulumi.getter(name="targetIds")
     def target_ids(self) -> Sequence[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html#cfn-budgets-budgetsaction-scpactiondefinition-targetids
-        """
         return pulumi.get(self, "target_ids")
 
 
 @pulumi.output_type
 class BudgetsActionSsmActionDefinition(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -272,12 +201,6 @@ class BudgetsActionSsmActionDefinition(dict):
                  instance_ids: Sequence[str],
                  region: str,
                  subtype: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html
-        :param Sequence[str] instance_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-instanceids
-        :param str region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-region
-        :param str subtype: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-subtype
-        """
         pulumi.set(__self__, "instance_ids", instance_ids)
         pulumi.set(__self__, "region", region)
         pulumi.set(__self__, "subtype", subtype)
@@ -285,58 +208,35 @@ class BudgetsActionSsmActionDefinition(dict):
     @property
     @pulumi.getter(name="instanceIds")
     def instance_ids(self) -> Sequence[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-instanceids
-        """
         return pulumi.get(self, "instance_ids")
 
     @property
     @pulumi.getter
     def region(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-region
-        """
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
     def subtype(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-subtype
-        """
         return pulumi.get(self, "subtype")
 
 
 @pulumi.output_type
 class BudgetsActionSubscriber(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html
-    """
     def __init__(__self__, *,
                  address: str,
                  type: str):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html
-        :param str address: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html#cfn-budgets-budgetsaction-subscriber-address
-        :param str type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html#cfn-budgets-budgetsaction-subscriber-type
-        """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def address(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html#cfn-budgets-budgetsaction-subscriber-address
-        """
         return pulumi.get(self, "address")
 
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html#cfn-budgets-budgetsaction-subscriber-type
-        """
         return pulumi.get(self, "type")
 
 

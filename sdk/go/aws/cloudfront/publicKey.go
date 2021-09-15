@@ -11,13 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html
+// Resource Type definition for AWS::CloudFront::PublicKey
 type PublicKey struct {
 	pulumi.CustomResourceState
 
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	Id          pulumi.StringOutput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
+	CreatedTime     pulumi.StringOutput            `pulumi:"createdTime"`
 	PublicKeyConfig PublicKeyPublicKeyConfigOutput `pulumi:"publicKeyConfig"`
 }
 
@@ -63,13 +61,11 @@ func (PublicKeyState) ElementType() reflect.Type {
 }
 
 type publicKeyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
 	PublicKeyConfig PublicKeyPublicKeyConfig `pulumi:"publicKeyConfig"`
 }
 
 // The set of arguments for constructing a PublicKey resource.
 type PublicKeyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
 	PublicKeyConfig PublicKeyPublicKeyConfigInput
 }
 

@@ -11,33 +11,33 @@ namespace Pulumi.AwsNative.FinSpace.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html
+    /// Additional parameters to identify Federation mode
     /// </summary>
     [OutputType]
     public sealed class EnvironmentFederationParameters
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-applicationcallbackurl
+        /// SAML metadata URL to link with the Environment
         /// </summary>
         public readonly string? ApplicationCallBackURL;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-attributemap
+        /// Attribute map for SAML configuration
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? AttributeMap;
+        public readonly object? AttributeMap;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationprovidername
+        /// Federation provider name to link with the Environment
         /// </summary>
         public readonly string? FederationProviderName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationurn
+        /// SAML metadata URL to link with the Environment
         /// </summary>
         public readonly string? FederationURN;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadatadocument
+        /// SAML metadata document to link the federation provider to the Environment
         /// </summary>
         public readonly string? SamlMetadataDocument;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadataurl
+        /// SAML metadata URL to link with the Environment
         /// </summary>
         public readonly string? SamlMetadataURL;
 
@@ -45,7 +45,7 @@ namespace Pulumi.AwsNative.FinSpace.Outputs
         private EnvironmentFederationParameters(
             string? applicationCallBackURL,
 
-            Union<System.Text.Json.JsonElement, string>? attributeMap,
+            object? attributeMap,
 
             string? federationProviderName,
 

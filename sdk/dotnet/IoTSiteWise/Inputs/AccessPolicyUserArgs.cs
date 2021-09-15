@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html
+    /// Contains information for a user identity in an access policy.
     /// </summary>
     public sealed class AccessPolicyUserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html#cfn-iotsitewise-accesspolicy-user-id
+        /// The AWS SSO ID of the user.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

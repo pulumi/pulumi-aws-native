@@ -23,12 +23,12 @@ class DBProxyEndpointArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DBProxyEndpoint resource.
-        :param pulumi.Input[str] d_b_proxy_endpoint_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyendpointname
-        :param pulumi.Input[str] d_b_proxy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyname
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsubnetids
-        :param pulumi.Input[Sequence[pulumi.Input['DBProxyEndpointTagFormatArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-tags
-        :param pulumi.Input[str] target_role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-targetrole
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsecuritygroupids
+        :param pulumi.Input[str] d_b_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
+        :param pulumi.Input[str] d_b_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new DB proxy endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['DBProxyEndpointTagFormatArgs']]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
+        :param pulumi.Input[str] target_role: A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: VPC security group IDs to associate with the new DB proxy endpoint.
         """
         pulumi.set(__self__, "d_b_proxy_endpoint_name", d_b_proxy_endpoint_name)
         pulumi.set(__self__, "d_b_proxy_name", d_b_proxy_name)
@@ -44,7 +44,7 @@ class DBProxyEndpointArgs:
     @pulumi.getter(name="dBProxyEndpointName")
     def d_b_proxy_endpoint_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyendpointname
+        The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
         """
         return pulumi.get(self, "d_b_proxy_endpoint_name")
 
@@ -56,7 +56,7 @@ class DBProxyEndpointArgs:
     @pulumi.getter(name="dBProxyName")
     def d_b_proxy_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyname
+        The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         """
         return pulumi.get(self, "d_b_proxy_name")
 
@@ -68,7 +68,7 @@ class DBProxyEndpointArgs:
     @pulumi.getter(name="vpcSubnetIds")
     def vpc_subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsubnetids
+        VPC subnet IDs to associate with the new DB proxy endpoint.
         """
         return pulumi.get(self, "vpc_subnet_ids")
 
@@ -80,7 +80,7 @@ class DBProxyEndpointArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DBProxyEndpointTagFormatArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-tags
+        An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
         """
         return pulumi.get(self, "tags")
 
@@ -92,7 +92,7 @@ class DBProxyEndpointArgs:
     @pulumi.getter(name="targetRole")
     def target_role(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-targetrole
+        A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
         """
         return pulumi.get(self, "target_role")
 
@@ -104,7 +104,7 @@ class DBProxyEndpointArgs:
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsecuritygroupids
+        VPC security group IDs to associate with the new DB proxy endpoint.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -126,16 +126,16 @@ class DBProxyEndpoint(pulumi.CustomResource):
                  vpc_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html
+        Resource schema for AWS::RDS::DBProxyEndpoint.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] d_b_proxy_endpoint_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyendpointname
-        :param pulumi.Input[str] d_b_proxy_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyname
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyEndpointTagFormatArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-tags
-        :param pulumi.Input[str] target_role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-targetrole
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsecuritygroupids
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsubnetids
+        :param pulumi.Input[str] d_b_proxy_endpoint_name: The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
+        :param pulumi.Input[str] d_b_proxy_name: The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DBProxyEndpointTagFormatArgs']]]] tags: An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
+        :param pulumi.Input[str] target_role: A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: VPC security group IDs to associate with the new DB proxy endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnet_ids: VPC subnet IDs to associate with the new DB proxy endpoint.
         """
         ...
     @overload
@@ -144,7 +144,7 @@ class DBProxyEndpoint(pulumi.CustomResource):
                  args: DBProxyEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html
+        Resource schema for AWS::RDS::DBProxyEndpoint.
 
         :param str resource_name: The name of the resource.
         :param DBProxyEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -232,13 +232,16 @@ class DBProxyEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dBProxyEndpointArn")
     def d_b_proxy_endpoint_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) for the DB proxy endpoint.
+        """
         return pulumi.get(self, "d_b_proxy_endpoint_arn")
 
     @property
     @pulumi.getter(name="dBProxyEndpointName")
     def d_b_proxy_endpoint_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyendpointname
+        The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
         """
         return pulumi.get(self, "d_b_proxy_endpoint_name")
 
@@ -246,25 +249,31 @@ class DBProxyEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="dBProxyName")
     def d_b_proxy_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyname
+        The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
         """
         return pulumi.get(self, "d_b_proxy_name")
 
     @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[str]:
+        """
+        The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.
+        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Output[bool]:
+        """
+        A value that indicates whether this endpoint is the default endpoint for the associated DB proxy. Default DB proxy endpoints always have read/write capability. Other endpoints that you associate with the DB proxy can be either read/write or read-only.
+        """
         return pulumi.get(self, "is_default")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DBProxyEndpointTagFormat']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-tags
+        An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
         """
         return pulumi.get(self, "tags")
 
@@ -272,20 +281,23 @@ class DBProxyEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="targetRole")
     def target_role(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-targetrole
+        A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
         """
         return pulumi.get(self, "target_role")
 
     @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
+        """
+        VPC ID to associate with the new DB proxy endpoint.
+        """
         return pulumi.get(self, "vpc_id")
 
     @property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsecuritygroupids
+        VPC security group IDs to associate with the new DB proxy endpoint.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -293,7 +305,7 @@ class DBProxyEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="vpcSubnetIds")
     def vpc_subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsubnetids
+        VPC subnet IDs to associate with the new DB proxy endpoint.
         """
         return pulumi.get(self, "vpc_subnet_ids")
 

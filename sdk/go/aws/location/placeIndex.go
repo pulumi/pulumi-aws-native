@@ -11,24 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html
+// Definition of AWS::Location::PlaceIndex Resource Type
 type PlaceIndex struct {
 	pulumi.CustomResourceState
 
-	Arn        pulumi.StringOutput `pulumi:"arn"`
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource
-	DataSource pulumi.StringOutput `pulumi:"dataSource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
+	Arn                     pulumi.StringOutput                        `pulumi:"arn"`
+	CreateTime              pulumi.StringOutput                        `pulumi:"createTime"`
+	DataSource              pulumi.StringOutput                        `pulumi:"dataSource"`
 	DataSourceConfiguration PlaceIndexDataSourceConfigurationPtrOutput `pulumi:"dataSourceConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	IndexArn    pulumi.StringOutput    `pulumi:"indexArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-indexname
-	IndexName pulumi.StringOutput `pulumi:"indexName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan
-	PricingPlan pulumi.StringOutput `pulumi:"pricingPlan"`
-	UpdateTime  pulumi.StringOutput `pulumi:"updateTime"`
+	Description             pulumi.StringPtrOutput                     `pulumi:"description"`
+	IndexArn                pulumi.StringOutput                        `pulumi:"indexArn"`
+	IndexName               pulumi.StringOutput                        `pulumi:"indexName"`
+	PricingPlan             pulumi.StringOutput                        `pulumi:"pricingPlan"`
+	UpdateTime              pulumi.StringOutput                        `pulumi:"updateTime"`
 }
 
 // NewPlaceIndex registers a new resource with the given unique name, arguments, and options.
@@ -79,30 +74,20 @@ func (PlaceIndexState) ElementType() reflect.Type {
 }
 
 type placeIndexArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource
-	DataSource string `pulumi:"dataSource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
+	DataSource              string                             `pulumi:"dataSource"`
 	DataSourceConfiguration *PlaceIndexDataSourceConfiguration `pulumi:"dataSourceConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-indexname
-	IndexName string `pulumi:"indexName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan
-	PricingPlan string `pulumi:"pricingPlan"`
+	Description             *string                            `pulumi:"description"`
+	IndexName               string                             `pulumi:"indexName"`
+	PricingPlan             string                             `pulumi:"pricingPlan"`
 }
 
 // The set of arguments for constructing a PlaceIndex resource.
 type PlaceIndexArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource
-	DataSource pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
+	DataSource              pulumi.StringInput
 	DataSourceConfiguration PlaceIndexDataSourceConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-indexname
-	IndexName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan
-	PricingPlan pulumi.StringInput
+	Description             pulumi.StringPtrInput
+	IndexName               pulumi.StringInput
+	PricingPlan             pulumi.StringInput
 }
 
 func (PlaceIndexArgs) ElementType() reflect.Type {

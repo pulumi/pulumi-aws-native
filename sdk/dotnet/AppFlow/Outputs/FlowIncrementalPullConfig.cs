@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html
+    /// Configuration for scheduled incremental data pull
     /// </summary>
     [OutputType]
     public sealed class FlowIncrementalPullConfig
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html#cfn-appflow-flow-incrementalpullconfig-datetimetypefieldname
-        /// </summary>
         public readonly string? DatetimeTypeFieldName;
 
         [OutputConstructor]

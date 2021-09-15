@@ -8,26 +8,25 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html
+// Resource schema for AWS::DataSync::LocationNFS
 type LocationNFS struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the NFS location.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
-	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-mountoptions
+	// The URL of the NFS location that was described.
+	LocationUri  pulumi.StringOutput              `pulumi:"locationUri"`
 	MountOptions LocationNFSMountOptionsPtrOutput `pulumi:"mountOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-onpremconfig
-	OnPremConfig LocationNFSOnPremConfigOutput `pulumi:"onPremConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-serverhostname
+	OnPremConfig LocationNFSOnPremConfigOutput    `pulumi:"onPremConfig"`
+	// The name of the NFS server. This value is the IP address or DNS name of the NFS server.
 	ServerHostname pulumi.StringOutput `pulumi:"serverHostname"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-subdirectory
+	// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
 	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags LocationNFSTagArrayOutput `pulumi:"tags"`
 }
 
 // NewLocationNFS registers a new resource with the given unique name, arguments, and options.
@@ -78,30 +77,26 @@ func (LocationNFSState) ElementType() reflect.Type {
 }
 
 type locationNFSArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-mountoptions
 	MountOptions *LocationNFSMountOptions `pulumi:"mountOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-onpremconfig
-	OnPremConfig LocationNFSOnPremConfig `pulumi:"onPremConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-serverhostname
+	OnPremConfig LocationNFSOnPremConfig  `pulumi:"onPremConfig"`
+	// The name of the NFS server. This value is the IP address or DNS name of the NFS server.
 	ServerHostname string `pulumi:"serverHostname"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-subdirectory
+	// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
 	Subdirectory string `pulumi:"subdirectory"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []LocationNFSTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocationNFS resource.
 type LocationNFSArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-mountoptions
 	MountOptions LocationNFSMountOptionsPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-onpremconfig
 	OnPremConfig LocationNFSOnPremConfigInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-serverhostname
+	// The name of the NFS server. This value is the IP address or DNS name of the NFS server.
 	ServerHostname pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-subdirectory
+	// The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
 	Subdirectory pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-tags
-	Tags aws.TagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags LocationNFSTagArrayInput
 }
 
 func (LocationNFSArgs) ElementType() reflect.Type {

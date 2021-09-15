@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html
+ * The resource schema to create a CodeArtifact domain.
  */
 export class Domain extends pulumi.CustomResource {
     /**
@@ -35,22 +35,34 @@ export class Domain extends pulumi.CustomResource {
         return obj['__pulumiType'] === Domain.__pulumiType;
     }
 
+    /**
+     * The ARN of the domain.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
+     * The name of the domain.
      */
     public readonly domainName!: pulumi.Output<string>;
-    public readonly encryptionKey!: pulumi.Output<string>;
+    /**
+     * The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
+     */
+    public /*out*/ readonly encryptionKey!: pulumi.Output<string>;
+    /**
+     * The name of the domain. This field is used for GetAtt
+     */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The 12-digit account ID of the AWS account that owns the domain. This field is used for GetAtt
+     */
     public /*out*/ readonly owner!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
+     * The access control resource policy on the provided domain.
      */
-    public readonly permissionsPolicyDocument!: pulumi.Output<any | string | undefined>;
+    public readonly permissionsPolicyDocument!: pulumi.Output<any | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.codeartifact.DomainTag[] | undefined>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -67,10 +79,10 @@ export class Domain extends pulumi.CustomResource {
                 throw new Error("Missing required property 'domainName'");
             }
             inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
             inputs["permissionsPolicyDocument"] = args ? args.permissionsPolicyDocument : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["encryptionKey"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["owner"] = undefined /*out*/;
         } else {
@@ -94,19 +106,15 @@ export class Domain extends pulumi.CustomResource {
  */
 export interface DomainArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
+     * The name of the domain.
      */
     domainName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-encryptionkey
+     * The access control resource policy on the provided domain.
      */
-    encryptionKey?: pulumi.Input<string>;
+    permissionsPolicyDocument?: any;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
+     * An array of key-value pairs to apply to this resource.
      */
-    permissionsPolicyDocument?: pulumi.Input<any | string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.codeartifact.DomainTagArgs>[]>;
 }

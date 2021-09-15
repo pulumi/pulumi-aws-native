@@ -7,36 +7,29 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html
+// An entity that defines the scope of audit evidence collected by AWS Audit Manager.
 type Assessment struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput `pulumi:"arn"`
-	AssessmentId pulumi.StringOutput `pulumi:"assessmentId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
+	Arn                          pulumi.StringOutput                             `pulumi:"arn"`
+	AssessmentId                 pulumi.StringOutput                             `pulumi:"assessmentId"`
 	AssessmentReportsDestination AssessmentAssessmentReportsDestinationPtrOutput `pulumi:"assessmentReportsDestination"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
-	AwsAccount   AssessmentAWSAccountPtrOutput   `pulumi:"awsAccount"`
-	CreationTime pulumi.Float64Output            `pulumi:"creationTime"`
-	Delegations  AssessmentDelegationArrayOutput `pulumi:"delegations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
-	FrameworkId pulumi.StringPtrOutput `pulumi:"frameworkId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
-	Roles AssessmentRoleArrayOutput `pulumi:"roles"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
-	Scope AssessmentScopePtrOutput `pulumi:"scope"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	AwsAccount                   AssessmentAWSAccountPtrOutput                   `pulumi:"awsAccount"`
+	CreationTime                 pulumi.Float64Output                            `pulumi:"creationTime"`
+	// The list of delegations.
+	Delegations AssessmentDelegationArrayOutput `pulumi:"delegations"`
+	Description pulumi.StringPtrOutput          `pulumi:"description"`
+	FrameworkId pulumi.StringPtrOutput          `pulumi:"frameworkId"`
+	Name        pulumi.StringPtrOutput          `pulumi:"name"`
+	// The list of roles for the specified assessment.
+	Roles  AssessmentRoleArrayOutput `pulumi:"roles"`
+	Scope  AssessmentScopePtrOutput  `pulumi:"scope"`
+	Status pulumi.StringPtrOutput    `pulumi:"status"`
+	// The tags associated with the assessment.
+	Tags AssessmentTagArrayOutput `pulumi:"tags"`
 }
 
 // NewAssessment registers a new resource with the given unique name, arguments, and options.
@@ -78,46 +71,32 @@ func (AssessmentState) ElementType() reflect.Type {
 }
 
 type assessmentArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
 	AssessmentReportsDestination *AssessmentAssessmentReportsDestination `pulumi:"assessmentReportsDestination"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
-	AwsAccount *AssessmentAWSAccount `pulumi:"awsAccount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
-	FrameworkId *string `pulumi:"frameworkId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
-	Roles []AssessmentRole `pulumi:"roles"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
-	Scope *AssessmentScope `pulumi:"scope"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
-	Status *string `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	AwsAccount                   *AssessmentAWSAccount                   `pulumi:"awsAccount"`
+	Description                  *string                                 `pulumi:"description"`
+	FrameworkId                  *string                                 `pulumi:"frameworkId"`
+	Name                         *string                                 `pulumi:"name"`
+	// The list of roles for the specified assessment.
+	Roles  []AssessmentRole `pulumi:"roles"`
+	Scope  *AssessmentScope `pulumi:"scope"`
+	Status *string          `pulumi:"status"`
+	// The tags associated with the assessment.
+	Tags []AssessmentTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Assessment resource.
 type AssessmentArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-assessmentreportsdestination
 	AssessmentReportsDestination AssessmentAssessmentReportsDestinationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-awsaccount
-	AwsAccount AssessmentAWSAccountPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-frameworkid
-	FrameworkId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-name
-	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-roles
-	Roles AssessmentRoleArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-scope
-	Scope AssessmentScopePtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-status
+	AwsAccount                   AssessmentAWSAccountPtrInput
+	Description                  pulumi.StringPtrInput
+	FrameworkId                  pulumi.StringPtrInput
+	Name                         pulumi.StringPtrInput
+	// The list of roles for the specified assessment.
+	Roles  AssessmentRoleArrayInput
+	Scope  AssessmentScopePtrInput
 	Status pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-auditmanager-assessment.html#cfn-auditmanager-assessment-tags
-	Tags aws.TagArrayInput
+	// The tags associated with the assessment.
+	Tags AssessmentTagArrayInput
 }
 
 func (AssessmentArgs) ElementType() reflect.Type {

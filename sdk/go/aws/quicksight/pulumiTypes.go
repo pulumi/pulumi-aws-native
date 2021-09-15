@@ -10,12 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html
+// <p>A metadata error structure for an analysis.</p>
 type AnalysisAnalysisError struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-message
+	// <p>The message associated with the analysis error.</p>
 	Message *string `pulumi:"message"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-type
-	Type *string `pulumi:"type"`
+	Type    *string `pulumi:"type"`
 }
 
 // AnalysisAnalysisErrorInput is an input type that accepts AnalysisAnalysisErrorArgs and AnalysisAnalysisErrorOutput values.
@@ -29,12 +28,11 @@ type AnalysisAnalysisErrorInput interface {
 	ToAnalysisAnalysisErrorOutputWithContext(context.Context) AnalysisAnalysisErrorOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html
+// <p>A metadata error structure for an analysis.</p>
 type AnalysisAnalysisErrorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-message
+	// <p>The message associated with the analysis error.</p>
 	Message pulumi.StringPtrInput `pulumi:"message"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (AnalysisAnalysisErrorArgs) ElementType() reflect.Type {
@@ -74,7 +72,7 @@ func (i AnalysisAnalysisErrorArray) ToAnalysisAnalysisErrorArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisAnalysisErrorArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html
+// <p>A metadata error structure for an analysis.</p>
 type AnalysisAnalysisErrorOutput struct{ *pulumi.OutputState }
 
 func (AnalysisAnalysisErrorOutput) ElementType() reflect.Type {
@@ -89,12 +87,11 @@ func (o AnalysisAnalysisErrorOutput) ToAnalysisAnalysisErrorOutputWithContext(ct
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-message
+// <p>The message associated with the analysis error.</p>
 func (o AnalysisAnalysisErrorOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisAnalysisError) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html#cfn-quicksight-analysis-analysiserror-type
 func (o AnalysisAnalysisErrorOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisAnalysisError) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -119,9 +116,8 @@ func (o AnalysisAnalysisErrorArrayOutput) Index(i pulumi.IntInput) AnalysisAnaly
 	}).(AnalysisAnalysisErrorOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourceentity.html
+// <p>The source entity of an analysis.</p>
 type AnalysisAnalysisSourceEntity struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourceentity.html#cfn-quicksight-analysis-analysissourceentity-sourcetemplate
 	SourceTemplate *AnalysisAnalysisSourceTemplate `pulumi:"sourceTemplate"`
 }
 
@@ -136,9 +132,8 @@ type AnalysisAnalysisSourceEntityInput interface {
 	ToAnalysisAnalysisSourceEntityOutputWithContext(context.Context) AnalysisAnalysisSourceEntityOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourceentity.html
+// <p>The source entity of an analysis.</p>
 type AnalysisAnalysisSourceEntityArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourceentity.html#cfn-quicksight-analysis-analysissourceentity-sourcetemplate
 	SourceTemplate AnalysisAnalysisSourceTemplatePtrInput `pulumi:"sourceTemplate"`
 }
 
@@ -195,7 +190,7 @@ func (i *analysisAnalysisSourceEntityPtrType) ToAnalysisAnalysisSourceEntityPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisAnalysisSourceEntityPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourceentity.html
+// <p>The source entity of an analysis.</p>
 type AnalysisAnalysisSourceEntityOutput struct{ *pulumi.OutputState }
 
 func (AnalysisAnalysisSourceEntityOutput) ElementType() reflect.Type {
@@ -220,7 +215,6 @@ func (o AnalysisAnalysisSourceEntityOutput) ToAnalysisAnalysisSourceEntityPtrOut
 	}).(AnalysisAnalysisSourceEntityPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourceentity.html#cfn-quicksight-analysis-analysissourceentity-sourcetemplate
 func (o AnalysisAnalysisSourceEntityOutput) SourceTemplate() AnalysisAnalysisSourceTemplatePtrOutput {
 	return o.ApplyT(func(v AnalysisAnalysisSourceEntity) *AnalysisAnalysisSourceTemplate { return v.SourceTemplate }).(AnalysisAnalysisSourceTemplatePtrOutput)
 }
@@ -249,7 +243,6 @@ func (o AnalysisAnalysisSourceEntityPtrOutput) Elem() AnalysisAnalysisSourceEnti
 	}).(AnalysisAnalysisSourceEntityOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourceentity.html#cfn-quicksight-analysis-analysissourceentity-sourcetemplate
 func (o AnalysisAnalysisSourceEntityPtrOutput) SourceTemplate() AnalysisAnalysisSourceTemplatePtrOutput {
 	return o.ApplyT(func(v *AnalysisAnalysisSourceEntity) *AnalysisAnalysisSourceTemplate {
 		if v == nil {
@@ -259,11 +252,11 @@ func (o AnalysisAnalysisSourceEntityPtrOutput) SourceTemplate() AnalysisAnalysis
 	}).(AnalysisAnalysisSourceTemplatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html
+// <p>The source template of an analysis.</p>
 type AnalysisAnalysisSourceTemplate struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-arn
+	// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
 	Arn string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-datasetreferences
+	// <p>The dataset references of the source template of an analysis.</p>
 	DataSetReferences []AnalysisDataSetReference `pulumi:"dataSetReferences"`
 }
 
@@ -278,11 +271,11 @@ type AnalysisAnalysisSourceTemplateInput interface {
 	ToAnalysisAnalysisSourceTemplateOutputWithContext(context.Context) AnalysisAnalysisSourceTemplateOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html
+// <p>The source template of an analysis.</p>
 type AnalysisAnalysisSourceTemplateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-arn
+	// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-datasetreferences
+	// <p>The dataset references of the source template of an analysis.</p>
 	DataSetReferences AnalysisDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
 }
 
@@ -339,7 +332,7 @@ func (i *analysisAnalysisSourceTemplatePtrType) ToAnalysisAnalysisSourceTemplate
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisAnalysisSourceTemplatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html
+// <p>The source template of an analysis.</p>
 type AnalysisAnalysisSourceTemplateOutput struct{ *pulumi.OutputState }
 
 func (AnalysisAnalysisSourceTemplateOutput) ElementType() reflect.Type {
@@ -364,12 +357,12 @@ func (o AnalysisAnalysisSourceTemplateOutput) ToAnalysisAnalysisSourceTemplatePt
 	}).(AnalysisAnalysisSourceTemplatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-arn
+// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
 func (o AnalysisAnalysisSourceTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisAnalysisSourceTemplate) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-datasetreferences
+// <p>The dataset references of the source template of an analysis.</p>
 func (o AnalysisAnalysisSourceTemplateOutput) DataSetReferences() AnalysisDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v AnalysisAnalysisSourceTemplate) []AnalysisDataSetReference { return v.DataSetReferences }).(AnalysisDataSetReferenceArrayOutput)
 }
@@ -398,7 +391,7 @@ func (o AnalysisAnalysisSourceTemplatePtrOutput) Elem() AnalysisAnalysisSourceTe
 	}).(AnalysisAnalysisSourceTemplateOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-arn
+// <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
 func (o AnalysisAnalysisSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisAnalysisSourceTemplate) *string {
 		if v == nil {
@@ -408,7 +401,7 @@ func (o AnalysisAnalysisSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-datasetreferences
+// <p>The dataset references of the source template of an analysis.</p>
 func (o AnalysisAnalysisSourceTemplatePtrOutput) DataSetReferences() AnalysisDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v *AnalysisAnalysisSourceTemplate) []AnalysisDataSetReference {
 		if v == nil {
@@ -418,11 +411,11 @@ func (o AnalysisAnalysisSourceTemplatePtrOutput) DataSetReferences() AnalysisDat
 	}).(AnalysisDataSetReferenceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html
+// <p>Dataset reference.</p>
 type AnalysisDataSetReference struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html#cfn-quicksight-analysis-datasetreference-datasetarn
+	// <p>Dataset Amazon Resource Name (ARN).</p>
 	DataSetArn string `pulumi:"dataSetArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html#cfn-quicksight-analysis-datasetreference-datasetplaceholder
+	// <p>Dataset placeholder.</p>
 	DataSetPlaceholder string `pulumi:"dataSetPlaceholder"`
 }
 
@@ -437,11 +430,11 @@ type AnalysisDataSetReferenceInput interface {
 	ToAnalysisDataSetReferenceOutputWithContext(context.Context) AnalysisDataSetReferenceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html
+// <p>Dataset reference.</p>
 type AnalysisDataSetReferenceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html#cfn-quicksight-analysis-datasetreference-datasetarn
+	// <p>Dataset Amazon Resource Name (ARN).</p>
 	DataSetArn pulumi.StringInput `pulumi:"dataSetArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html#cfn-quicksight-analysis-datasetreference-datasetplaceholder
+	// <p>Dataset placeholder.</p>
 	DataSetPlaceholder pulumi.StringInput `pulumi:"dataSetPlaceholder"`
 }
 
@@ -482,7 +475,7 @@ func (i AnalysisDataSetReferenceArray) ToAnalysisDataSetReferenceArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisDataSetReferenceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html
+// <p>Dataset reference.</p>
 type AnalysisDataSetReferenceOutput struct{ *pulumi.OutputState }
 
 func (AnalysisDataSetReferenceOutput) ElementType() reflect.Type {
@@ -497,12 +490,12 @@ func (o AnalysisDataSetReferenceOutput) ToAnalysisDataSetReferenceOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html#cfn-quicksight-analysis-datasetreference-datasetarn
+// <p>Dataset Amazon Resource Name (ARN).</p>
 func (o AnalysisDataSetReferenceOutput) DataSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisDataSetReference) string { return v.DataSetArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html#cfn-quicksight-analysis-datasetreference-datasetplaceholder
+// <p>Dataset placeholder.</p>
 func (o AnalysisDataSetReferenceOutput) DataSetPlaceholder() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisDataSetReference) string { return v.DataSetPlaceholder }).(pulumi.StringOutput)
 }
@@ -527,11 +520,11 @@ func (o AnalysisDataSetReferenceArrayOutput) Index(i pulumi.IntInput) AnalysisDa
 	}).(AnalysisDataSetReferenceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimeparameter.html
+// <p>A date-time parameter.</p>
 type AnalysisDateTimeParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimeparameter.html#cfn-quicksight-analysis-datetimeparameter-name
+	// <p>A display name for the date-time parameter.</p>
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimeparameter.html#cfn-quicksight-analysis-datetimeparameter-values
+	// <p>The values for the date-time parameter.</p>
 	Values []string `pulumi:"values"`
 }
 
@@ -546,11 +539,11 @@ type AnalysisDateTimeParameterInput interface {
 	ToAnalysisDateTimeParameterOutputWithContext(context.Context) AnalysisDateTimeParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimeparameter.html
+// <p>A date-time parameter.</p>
 type AnalysisDateTimeParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimeparameter.html#cfn-quicksight-analysis-datetimeparameter-name
+	// <p>A display name for the date-time parameter.</p>
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimeparameter.html#cfn-quicksight-analysis-datetimeparameter-values
+	// <p>The values for the date-time parameter.</p>
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -591,7 +584,7 @@ func (i AnalysisDateTimeParameterArray) ToAnalysisDateTimeParameterArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisDateTimeParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimeparameter.html
+// <p>A date-time parameter.</p>
 type AnalysisDateTimeParameterOutput struct{ *pulumi.OutputState }
 
 func (AnalysisDateTimeParameterOutput) ElementType() reflect.Type {
@@ -606,12 +599,12 @@ func (o AnalysisDateTimeParameterOutput) ToAnalysisDateTimeParameterOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimeparameter.html#cfn-quicksight-analysis-datetimeparameter-name
+// <p>A display name for the date-time parameter.</p>
 func (o AnalysisDateTimeParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisDateTimeParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datetimeparameter.html#cfn-quicksight-analysis-datetimeparameter-values
+// <p>The values for the date-time parameter.</p>
 func (o AnalysisDateTimeParameterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalysisDateTimeParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -636,11 +629,11 @@ func (o AnalysisDateTimeParameterArrayOutput) Index(i pulumi.IntInput) AnalysisD
 	}).(AnalysisDateTimeParameterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html
+// <p>A decimal parameter.</p>
 type AnalysisDecimalParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html#cfn-quicksight-analysis-decimalparameter-name
+	// <p>A display name for the decimal parameter.</p>
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html#cfn-quicksight-analysis-decimalparameter-values
+	// <p>The values for the decimal parameter.</p>
 	Values []float64 `pulumi:"values"`
 }
 
@@ -655,11 +648,11 @@ type AnalysisDecimalParameterInput interface {
 	ToAnalysisDecimalParameterOutputWithContext(context.Context) AnalysisDecimalParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html
+// <p>A decimal parameter.</p>
 type AnalysisDecimalParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html#cfn-quicksight-analysis-decimalparameter-name
+	// <p>A display name for the decimal parameter.</p>
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html#cfn-quicksight-analysis-decimalparameter-values
+	// <p>The values for the decimal parameter.</p>
 	Values pulumi.Float64ArrayInput `pulumi:"values"`
 }
 
@@ -700,7 +693,7 @@ func (i AnalysisDecimalParameterArray) ToAnalysisDecimalParameterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisDecimalParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html
+// <p>A decimal parameter.</p>
 type AnalysisDecimalParameterOutput struct{ *pulumi.OutputState }
 
 func (AnalysisDecimalParameterOutput) ElementType() reflect.Type {
@@ -715,12 +708,12 @@ func (o AnalysisDecimalParameterOutput) ToAnalysisDecimalParameterOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html#cfn-quicksight-analysis-decimalparameter-name
+// <p>A display name for the decimal parameter.</p>
 func (o AnalysisDecimalParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisDecimalParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-decimalparameter.html#cfn-quicksight-analysis-decimalparameter-values
+// <p>The values for the decimal parameter.</p>
 func (o AnalysisDecimalParameterOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v AnalysisDecimalParameter) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
@@ -745,11 +738,11 @@ func (o AnalysisDecimalParameterArrayOutput) Index(i pulumi.IntInput) AnalysisDe
 	}).(AnalysisDecimalParameterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html
+// <p>An integer parameter.</p>
 type AnalysisIntegerParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html#cfn-quicksight-analysis-integerparameter-name
+	// <p>The name of the integer parameter.</p>
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html#cfn-quicksight-analysis-integerparameter-values
+	// <p>The values for the integer parameter.</p>
 	Values []float64 `pulumi:"values"`
 }
 
@@ -764,11 +757,11 @@ type AnalysisIntegerParameterInput interface {
 	ToAnalysisIntegerParameterOutputWithContext(context.Context) AnalysisIntegerParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html
+// <p>An integer parameter.</p>
 type AnalysisIntegerParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html#cfn-quicksight-analysis-integerparameter-name
+	// <p>The name of the integer parameter.</p>
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html#cfn-quicksight-analysis-integerparameter-values
+	// <p>The values for the integer parameter.</p>
 	Values pulumi.Float64ArrayInput `pulumi:"values"`
 }
 
@@ -809,7 +802,7 @@ func (i AnalysisIntegerParameterArray) ToAnalysisIntegerParameterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisIntegerParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html
+// <p>An integer parameter.</p>
 type AnalysisIntegerParameterOutput struct{ *pulumi.OutputState }
 
 func (AnalysisIntegerParameterOutput) ElementType() reflect.Type {
@@ -824,12 +817,12 @@ func (o AnalysisIntegerParameterOutput) ToAnalysisIntegerParameterOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html#cfn-quicksight-analysis-integerparameter-name
+// <p>The name of the integer parameter.</p>
 func (o AnalysisIntegerParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisIntegerParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-integerparameter.html#cfn-quicksight-analysis-integerparameter-values
+// <p>The values for the integer parameter.</p>
 func (o AnalysisIntegerParameterOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v AnalysisIntegerParameter) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
@@ -854,15 +847,15 @@ func (o AnalysisIntegerParameterArrayOutput) Index(i pulumi.IntInput) AnalysisIn
 	}).(AnalysisIntegerParameterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html
+// <p>A list of QuickSight parameters and the list's override values.</p>
 type AnalysisParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-datetimeparameters
+	// <p>Date-time parameters.</p>
 	DateTimeParameters []AnalysisDateTimeParameter `pulumi:"dateTimeParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-decimalparameters
+	// <p>Decimal parameters.</p>
 	DecimalParameters []AnalysisDecimalParameter `pulumi:"decimalParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-integerparameters
+	// <p>Integer parameters.</p>
 	IntegerParameters []AnalysisIntegerParameter `pulumi:"integerParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-stringparameters
+	// <p>String parameters.</p>
 	StringParameters []AnalysisStringParameter `pulumi:"stringParameters"`
 }
 
@@ -877,15 +870,15 @@ type AnalysisParametersInput interface {
 	ToAnalysisParametersOutputWithContext(context.Context) AnalysisParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html
+// <p>A list of QuickSight parameters and the list's override values.</p>
 type AnalysisParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-datetimeparameters
+	// <p>Date-time parameters.</p>
 	DateTimeParameters AnalysisDateTimeParameterArrayInput `pulumi:"dateTimeParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-decimalparameters
+	// <p>Decimal parameters.</p>
 	DecimalParameters AnalysisDecimalParameterArrayInput `pulumi:"decimalParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-integerparameters
+	// <p>Integer parameters.</p>
 	IntegerParameters AnalysisIntegerParameterArrayInput `pulumi:"integerParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-stringparameters
+	// <p>String parameters.</p>
 	StringParameters AnalysisStringParameterArrayInput `pulumi:"stringParameters"`
 }
 
@@ -942,7 +935,7 @@ func (i *analysisParametersPtrType) ToAnalysisParametersPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html
+// <p>A list of QuickSight parameters and the list's override values.</p>
 type AnalysisParametersOutput struct{ *pulumi.OutputState }
 
 func (AnalysisParametersOutput) ElementType() reflect.Type {
@@ -967,22 +960,22 @@ func (o AnalysisParametersOutput) ToAnalysisParametersPtrOutputWithContext(ctx c
 	}).(AnalysisParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-datetimeparameters
+// <p>Date-time parameters.</p>
 func (o AnalysisParametersOutput) DateTimeParameters() AnalysisDateTimeParameterArrayOutput {
 	return o.ApplyT(func(v AnalysisParameters) []AnalysisDateTimeParameter { return v.DateTimeParameters }).(AnalysisDateTimeParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-decimalparameters
+// <p>Decimal parameters.</p>
 func (o AnalysisParametersOutput) DecimalParameters() AnalysisDecimalParameterArrayOutput {
 	return o.ApplyT(func(v AnalysisParameters) []AnalysisDecimalParameter { return v.DecimalParameters }).(AnalysisDecimalParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-integerparameters
+// <p>Integer parameters.</p>
 func (o AnalysisParametersOutput) IntegerParameters() AnalysisIntegerParameterArrayOutput {
 	return o.ApplyT(func(v AnalysisParameters) []AnalysisIntegerParameter { return v.IntegerParameters }).(AnalysisIntegerParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-stringparameters
+// <p>String parameters.</p>
 func (o AnalysisParametersOutput) StringParameters() AnalysisStringParameterArrayOutput {
 	return o.ApplyT(func(v AnalysisParameters) []AnalysisStringParameter { return v.StringParameters }).(AnalysisStringParameterArrayOutput)
 }
@@ -1011,7 +1004,7 @@ func (o AnalysisParametersPtrOutput) Elem() AnalysisParametersOutput {
 	}).(AnalysisParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-datetimeparameters
+// <p>Date-time parameters.</p>
 func (o AnalysisParametersPtrOutput) DateTimeParameters() AnalysisDateTimeParameterArrayOutput {
 	return o.ApplyT(func(v *AnalysisParameters) []AnalysisDateTimeParameter {
 		if v == nil {
@@ -1021,7 +1014,7 @@ func (o AnalysisParametersPtrOutput) DateTimeParameters() AnalysisDateTimeParame
 	}).(AnalysisDateTimeParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-decimalparameters
+// <p>Decimal parameters.</p>
 func (o AnalysisParametersPtrOutput) DecimalParameters() AnalysisDecimalParameterArrayOutput {
 	return o.ApplyT(func(v *AnalysisParameters) []AnalysisDecimalParameter {
 		if v == nil {
@@ -1031,7 +1024,7 @@ func (o AnalysisParametersPtrOutput) DecimalParameters() AnalysisDecimalParamete
 	}).(AnalysisDecimalParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-integerparameters
+// <p>Integer parameters.</p>
 func (o AnalysisParametersPtrOutput) IntegerParameters() AnalysisIntegerParameterArrayOutput {
 	return o.ApplyT(func(v *AnalysisParameters) []AnalysisIntegerParameter {
 		if v == nil {
@@ -1041,7 +1034,7 @@ func (o AnalysisParametersPtrOutput) IntegerParameters() AnalysisIntegerParamete
 	}).(AnalysisIntegerParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-stringparameters
+// <p>String parameters.</p>
 func (o AnalysisParametersPtrOutput) StringParameters() AnalysisStringParameterArrayOutput {
 	return o.ApplyT(func(v *AnalysisParameters) []AnalysisStringParameter {
 		if v == nil {
@@ -1051,11 +1044,25 @@ func (o AnalysisParametersPtrOutput) StringParameters() AnalysisStringParameterA
 	}).(AnalysisStringParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-resourcepermission.html
+// <p>Permission for the resource.</p>
 type AnalysisResourcePermission struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-resourcepermission.html#cfn-quicksight-analysis-resourcepermission-actions
+	// <p>The IAM action to grant or revoke permissions on.</p>
 	Actions []string `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-resourcepermission.html#cfn-quicksight-analysis-resourcepermission-principal
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//         <ul>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
 	Principal string `pulumi:"principal"`
 }
 
@@ -1070,11 +1077,25 @@ type AnalysisResourcePermissionInput interface {
 	ToAnalysisResourcePermissionOutputWithContext(context.Context) AnalysisResourcePermissionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-resourcepermission.html
+// <p>Permission for the resource.</p>
 type AnalysisResourcePermissionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-resourcepermission.html#cfn-quicksight-analysis-resourcepermission-actions
+	// <p>The IAM action to grant or revoke permissions on.</p>
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-resourcepermission.html#cfn-quicksight-analysis-resourcepermission-principal
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//         <ul>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
 	Principal pulumi.StringInput `pulumi:"principal"`
 }
 
@@ -1115,7 +1136,7 @@ func (i AnalysisResourcePermissionArray) ToAnalysisResourcePermissionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisResourcePermissionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-resourcepermission.html
+// <p>Permission for the resource.</p>
 type AnalysisResourcePermissionOutput struct{ *pulumi.OutputState }
 
 func (AnalysisResourcePermissionOutput) ElementType() reflect.Type {
@@ -1130,12 +1151,26 @@ func (o AnalysisResourcePermissionOutput) ToAnalysisResourcePermissionOutputWith
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-resourcepermission.html#cfn-quicksight-analysis-resourcepermission-actions
+// <p>The IAM action to grant or revoke permissions on.</p>
 func (o AnalysisResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalysisResourcePermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-resourcepermission.html#cfn-quicksight-analysis-resourcepermission-principal
+// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+//             following:</p>
+//         <ul>
+//             <li>
+//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+//             </li>
+//             <li>
+//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//             </li>
+//             <li>
+//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+//                     (This is less common.) </p>
+//             </li>
+//          </ul>
 func (o AnalysisResourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -1160,11 +1195,16 @@ func (o AnalysisResourcePermissionArrayOutput) Index(i pulumi.IntInput) Analysis
 	}).(AnalysisResourcePermissionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheet.html
+// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
+//             contains at least one sheet. Each sheet contains at least one visualization widget, for
+//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//             components, such as controls, filters, and so on.</p>
 type AnalysisSheet struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheet.html#cfn-quicksight-analysis-sheet-name
+	// <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
+	//             console.</p>
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheet.html#cfn-quicksight-analysis-sheet-sheetid
+	// <p>The unique identifier associated with a sheet.</p>
 	SheetId *string `pulumi:"sheetId"`
 }
 
@@ -1179,11 +1219,16 @@ type AnalysisSheetInput interface {
 	ToAnalysisSheetOutputWithContext(context.Context) AnalysisSheetOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheet.html
+// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
+//             contains at least one sheet. Each sheet contains at least one visualization widget, for
+//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//             components, such as controls, filters, and so on.</p>
 type AnalysisSheetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheet.html#cfn-quicksight-analysis-sheet-name
+	// <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
+	//             console.</p>
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheet.html#cfn-quicksight-analysis-sheet-sheetid
+	// <p>The unique identifier associated with a sheet.</p>
 	SheetId pulumi.StringPtrInput `pulumi:"sheetId"`
 }
 
@@ -1224,7 +1269,11 @@ func (i AnalysisSheetArray) ToAnalysisSheetArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisSheetArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheet.html
+// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
+//             contains at least one sheet. Each sheet contains at least one visualization widget, for
+//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//             components, such as controls, filters, and so on.</p>
 type AnalysisSheetOutput struct{ *pulumi.OutputState }
 
 func (AnalysisSheetOutput) ElementType() reflect.Type {
@@ -1239,12 +1288,13 @@ func (o AnalysisSheetOutput) ToAnalysisSheetOutputWithContext(ctx context.Contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheet.html#cfn-quicksight-analysis-sheet-name
+// <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
+//             console.</p>
 func (o AnalysisSheetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisSheet) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheet.html#cfn-quicksight-analysis-sheet-sheetid
+// <p>The unique identifier associated with a sheet.</p>
 func (o AnalysisSheetOutput) SheetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisSheet) *string { return v.SheetId }).(pulumi.StringPtrOutput)
 }
@@ -1269,11 +1319,11 @@ func (o AnalysisSheetArrayOutput) Index(i pulumi.IntInput) AnalysisSheetOutput {
 	}).(AnalysisSheetOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html
+// <p>A string parameter.</p>
 type AnalysisStringParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html#cfn-quicksight-analysis-stringparameter-name
+	// <p>A display name for a string parameter.</p>
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html#cfn-quicksight-analysis-stringparameter-values
+	// <p>The values of a string parameter.</p>
 	Values []string `pulumi:"values"`
 }
 
@@ -1288,11 +1338,11 @@ type AnalysisStringParameterInput interface {
 	ToAnalysisStringParameterOutputWithContext(context.Context) AnalysisStringParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html
+// <p>A string parameter.</p>
 type AnalysisStringParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html#cfn-quicksight-analysis-stringparameter-name
+	// <p>A display name for a string parameter.</p>
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html#cfn-quicksight-analysis-stringparameter-values
+	// <p>The values of a string parameter.</p>
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1333,7 +1383,7 @@ func (i AnalysisStringParameterArray) ToAnalysisStringParameterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisStringParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html
+// <p>A string parameter.</p>
 type AnalysisStringParameterOutput struct{ *pulumi.OutputState }
 
 func (AnalysisStringParameterOutput) ElementType() reflect.Type {
@@ -1348,12 +1398,12 @@ func (o AnalysisStringParameterOutput) ToAnalysisStringParameterOutputWithContex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html#cfn-quicksight-analysis-stringparameter-name
+// <p>A display name for a string parameter.</p>
 func (o AnalysisStringParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisStringParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-stringparameter.html#cfn-quicksight-analysis-stringparameter-values
+// <p>The values of a string parameter.</p>
 func (o AnalysisStringParameterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalysisStringParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1378,9 +1428,120 @@ func (o AnalysisStringParameterArrayOutput) Index(i pulumi.IntInput) AnalysisStr
 	}).(AnalysisStringParameterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-adhocfilteringoption.html
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type AnalysisTag struct {
+	// <p>Tag key.</p>
+	Key string `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value string `pulumi:"value"`
+}
+
+// AnalysisTagInput is an input type that accepts AnalysisTagArgs and AnalysisTagOutput values.
+// You can construct a concrete instance of `AnalysisTagInput` via:
+//
+//          AnalysisTagArgs{...}
+type AnalysisTagInput interface {
+	pulumi.Input
+
+	ToAnalysisTagOutput() AnalysisTagOutput
+	ToAnalysisTagOutputWithContext(context.Context) AnalysisTagOutput
+}
+
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type AnalysisTagArgs struct {
+	// <p>Tag key.</p>
+	Key pulumi.StringInput `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AnalysisTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTag)(nil)).Elem()
+}
+
+func (i AnalysisTagArgs) ToAnalysisTagOutput() AnalysisTagOutput {
+	return i.ToAnalysisTagOutputWithContext(context.Background())
+}
+
+func (i AnalysisTagArgs) ToAnalysisTagOutputWithContext(ctx context.Context) AnalysisTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTagOutput)
+}
+
+// AnalysisTagArrayInput is an input type that accepts AnalysisTagArray and AnalysisTagArrayOutput values.
+// You can construct a concrete instance of `AnalysisTagArrayInput` via:
+//
+//          AnalysisTagArray{ AnalysisTagArgs{...} }
+type AnalysisTagArrayInput interface {
+	pulumi.Input
+
+	ToAnalysisTagArrayOutput() AnalysisTagArrayOutput
+	ToAnalysisTagArrayOutputWithContext(context.Context) AnalysisTagArrayOutput
+}
+
+type AnalysisTagArray []AnalysisTagInput
+
+func (AnalysisTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisTag)(nil)).Elem()
+}
+
+func (i AnalysisTagArray) ToAnalysisTagArrayOutput() AnalysisTagArrayOutput {
+	return i.ToAnalysisTagArrayOutputWithContext(context.Background())
+}
+
+func (i AnalysisTagArray) ToAnalysisTagArrayOutputWithContext(ctx context.Context) AnalysisTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTagArrayOutput)
+}
+
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type AnalysisTagOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisTag)(nil)).Elem()
+}
+
+func (o AnalysisTagOutput) ToAnalysisTagOutput() AnalysisTagOutput {
+	return o
+}
+
+func (o AnalysisTagOutput) ToAnalysisTagOutputWithContext(ctx context.Context) AnalysisTagOutput {
+	return o
+}
+
+// <p>Tag key.</p>
+func (o AnalysisTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// <p>Tag value.</p>
+func (o AnalysisTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalysisTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AnalysisTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalysisTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalysisTag)(nil)).Elem()
+}
+
+func (o AnalysisTagArrayOutput) ToAnalysisTagArrayOutput() AnalysisTagArrayOutput {
+	return o
+}
+
+func (o AnalysisTagArrayOutput) ToAnalysisTagArrayOutputWithContext(ctx context.Context) AnalysisTagArrayOutput {
+	return o
+}
+
+func (o AnalysisTagArrayOutput) Index(i pulumi.IntInput) AnalysisTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisTag {
+		return vs[0].([]AnalysisTag)[vs[1].(int)]
+	}).(AnalysisTagOutput)
+}
+
+// <p>Ad hoc (one-time) filtering option.</p>
 type DashboardAdHocFilteringOption struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-adhocfilteringoption.html#cfn-quicksight-dashboard-adhocfilteringoption-availabilitystatus
 	AvailabilityStatus *string `pulumi:"availabilityStatus"`
 }
 
@@ -1395,9 +1556,8 @@ type DashboardAdHocFilteringOptionInput interface {
 	ToDashboardAdHocFilteringOptionOutputWithContext(context.Context) DashboardAdHocFilteringOptionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-adhocfilteringoption.html
+// <p>Ad hoc (one-time) filtering option.</p>
 type DashboardAdHocFilteringOptionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-adhocfilteringoption.html#cfn-quicksight-dashboard-adhocfilteringoption-availabilitystatus
 	AvailabilityStatus pulumi.StringPtrInput `pulumi:"availabilityStatus"`
 }
 
@@ -1454,7 +1614,7 @@ func (i *dashboardAdHocFilteringOptionPtrType) ToDashboardAdHocFilteringOptionPt
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardAdHocFilteringOptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-adhocfilteringoption.html
+// <p>Ad hoc (one-time) filtering option.</p>
 type DashboardAdHocFilteringOptionOutput struct{ *pulumi.OutputState }
 
 func (DashboardAdHocFilteringOptionOutput) ElementType() reflect.Type {
@@ -1479,7 +1639,6 @@ func (o DashboardAdHocFilteringOptionOutput) ToDashboardAdHocFilteringOptionPtrO
 	}).(DashboardAdHocFilteringOptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-adhocfilteringoption.html#cfn-quicksight-dashboard-adhocfilteringoption-availabilitystatus
 func (o DashboardAdHocFilteringOptionOutput) AvailabilityStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardAdHocFilteringOption) *string { return v.AvailabilityStatus }).(pulumi.StringPtrOutput)
 }
@@ -1508,7 +1667,6 @@ func (o DashboardAdHocFilteringOptionPtrOutput) Elem() DashboardAdHocFilteringOp
 	}).(DashboardAdHocFilteringOptionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-adhocfilteringoption.html#cfn-quicksight-dashboard-adhocfilteringoption-availabilitystatus
 func (o DashboardAdHocFilteringOptionPtrOutput) AvailabilityStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardAdHocFilteringOption) *string {
 		if v == nil {
@@ -1518,14 +1676,117 @@ func (o DashboardAdHocFilteringOptionPtrOutput) AvailabilityStatus() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html
+// <p>Dashboard error.</p>
+type DashboardDashboardError struct {
+	// <p>Message.</p>
+	Message *string `pulumi:"message"`
+	Type    *string `pulumi:"type"`
+}
+
+// DashboardDashboardErrorInput is an input type that accepts DashboardDashboardErrorArgs and DashboardDashboardErrorOutput values.
+// You can construct a concrete instance of `DashboardDashboardErrorInput` via:
+//
+//          DashboardDashboardErrorArgs{...}
+type DashboardDashboardErrorInput interface {
+	pulumi.Input
+
+	ToDashboardDashboardErrorOutput() DashboardDashboardErrorOutput
+	ToDashboardDashboardErrorOutputWithContext(context.Context) DashboardDashboardErrorOutput
+}
+
+// <p>Dashboard error.</p>
+type DashboardDashboardErrorArgs struct {
+	// <p>Message.</p>
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (DashboardDashboardErrorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDashboardError)(nil)).Elem()
+}
+
+func (i DashboardDashboardErrorArgs) ToDashboardDashboardErrorOutput() DashboardDashboardErrorOutput {
+	return i.ToDashboardDashboardErrorOutputWithContext(context.Background())
+}
+
+func (i DashboardDashboardErrorArgs) ToDashboardDashboardErrorOutputWithContext(ctx context.Context) DashboardDashboardErrorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardErrorOutput)
+}
+
+// DashboardDashboardErrorArrayInput is an input type that accepts DashboardDashboardErrorArray and DashboardDashboardErrorArrayOutput values.
+// You can construct a concrete instance of `DashboardDashboardErrorArrayInput` via:
+//
+//          DashboardDashboardErrorArray{ DashboardDashboardErrorArgs{...} }
+type DashboardDashboardErrorArrayInput interface {
+	pulumi.Input
+
+	ToDashboardDashboardErrorArrayOutput() DashboardDashboardErrorArrayOutput
+	ToDashboardDashboardErrorArrayOutputWithContext(context.Context) DashboardDashboardErrorArrayOutput
+}
+
+type DashboardDashboardErrorArray []DashboardDashboardErrorInput
+
+func (DashboardDashboardErrorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardDashboardError)(nil)).Elem()
+}
+
+func (i DashboardDashboardErrorArray) ToDashboardDashboardErrorArrayOutput() DashboardDashboardErrorArrayOutput {
+	return i.ToDashboardDashboardErrorArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardDashboardErrorArray) ToDashboardDashboardErrorArrayOutputWithContext(ctx context.Context) DashboardDashboardErrorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardErrorArrayOutput)
+}
+
+// <p>Dashboard error.</p>
+type DashboardDashboardErrorOutput struct{ *pulumi.OutputState }
+
+func (DashboardDashboardErrorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDashboardError)(nil)).Elem()
+}
+
+func (o DashboardDashboardErrorOutput) ToDashboardDashboardErrorOutput() DashboardDashboardErrorOutput {
+	return o
+}
+
+func (o DashboardDashboardErrorOutput) ToDashboardDashboardErrorOutputWithContext(ctx context.Context) DashboardDashboardErrorOutput {
+	return o
+}
+
+// <p>Message.</p>
+func (o DashboardDashboardErrorOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardDashboardError) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardDashboardErrorOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardDashboardError) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DashboardDashboardErrorArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardDashboardErrorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardDashboardError)(nil)).Elem()
+}
+
+func (o DashboardDashboardErrorArrayOutput) ToDashboardDashboardErrorArrayOutput() DashboardDashboardErrorArrayOutput {
+	return o
+}
+
+func (o DashboardDashboardErrorArrayOutput) ToDashboardDashboardErrorArrayOutputWithContext(ctx context.Context) DashboardDashboardErrorArrayOutput {
+	return o
+}
+
+func (o DashboardDashboardErrorArrayOutput) Index(i pulumi.IntInput) DashboardDashboardErrorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardDashboardError {
+		return vs[0].([]DashboardDashboardError)[vs[1].(int)]
+	}).(DashboardDashboardErrorOutput)
+}
+
+// <p>Dashboard publish options.</p>
 type DashboardDashboardPublishOptions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-adhocfilteringoption
 	AdHocFilteringOption *DashboardAdHocFilteringOption `pulumi:"adHocFilteringOption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-exporttocsvoption
-	ExportToCSVOption *DashboardExportToCSVOption `pulumi:"exportToCSVOption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-sheetcontrolsoption
-	SheetControlsOption *DashboardSheetControlsOption `pulumi:"sheetControlsOption"`
+	ExportToCSVOption    *DashboardExportToCSVOption    `pulumi:"exportToCSVOption"`
+	SheetControlsOption  *DashboardSheetControlsOption  `pulumi:"sheetControlsOption"`
 }
 
 // DashboardDashboardPublishOptionsInput is an input type that accepts DashboardDashboardPublishOptionsArgs and DashboardDashboardPublishOptionsOutput values.
@@ -1539,14 +1800,11 @@ type DashboardDashboardPublishOptionsInput interface {
 	ToDashboardDashboardPublishOptionsOutputWithContext(context.Context) DashboardDashboardPublishOptionsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html
+// <p>Dashboard publish options.</p>
 type DashboardDashboardPublishOptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-adhocfilteringoption
 	AdHocFilteringOption DashboardAdHocFilteringOptionPtrInput `pulumi:"adHocFilteringOption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-exporttocsvoption
-	ExportToCSVOption DashboardExportToCSVOptionPtrInput `pulumi:"exportToCSVOption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-sheetcontrolsoption
-	SheetControlsOption DashboardSheetControlsOptionPtrInput `pulumi:"sheetControlsOption"`
+	ExportToCSVOption    DashboardExportToCSVOptionPtrInput    `pulumi:"exportToCSVOption"`
+	SheetControlsOption  DashboardSheetControlsOptionPtrInput  `pulumi:"sheetControlsOption"`
 }
 
 func (DashboardDashboardPublishOptionsArgs) ElementType() reflect.Type {
@@ -1602,7 +1860,7 @@ func (i *dashboardDashboardPublishOptionsPtrType) ToDashboardDashboardPublishOpt
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardPublishOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html
+// <p>Dashboard publish options.</p>
 type DashboardDashboardPublishOptionsOutput struct{ *pulumi.OutputState }
 
 func (DashboardDashboardPublishOptionsOutput) ElementType() reflect.Type {
@@ -1627,17 +1885,14 @@ func (o DashboardDashboardPublishOptionsOutput) ToDashboardDashboardPublishOptio
 	}).(DashboardDashboardPublishOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-adhocfilteringoption
 func (o DashboardDashboardPublishOptionsOutput) AdHocFilteringOption() DashboardAdHocFilteringOptionPtrOutput {
 	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardAdHocFilteringOption { return v.AdHocFilteringOption }).(DashboardAdHocFilteringOptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-exporttocsvoption
 func (o DashboardDashboardPublishOptionsOutput) ExportToCSVOption() DashboardExportToCSVOptionPtrOutput {
 	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardExportToCSVOption { return v.ExportToCSVOption }).(DashboardExportToCSVOptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-sheetcontrolsoption
 func (o DashboardDashboardPublishOptionsOutput) SheetControlsOption() DashboardSheetControlsOptionPtrOutput {
 	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardSheetControlsOption { return v.SheetControlsOption }).(DashboardSheetControlsOptionPtrOutput)
 }
@@ -1666,7 +1921,6 @@ func (o DashboardDashboardPublishOptionsPtrOutput) Elem() DashboardDashboardPubl
 	}).(DashboardDashboardPublishOptionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-adhocfilteringoption
 func (o DashboardDashboardPublishOptionsPtrOutput) AdHocFilteringOption() DashboardAdHocFilteringOptionPtrOutput {
 	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardAdHocFilteringOption {
 		if v == nil {
@@ -1676,7 +1930,6 @@ func (o DashboardDashboardPublishOptionsPtrOutput) AdHocFilteringOption() Dashbo
 	}).(DashboardAdHocFilteringOptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-exporttocsvoption
 func (o DashboardDashboardPublishOptionsPtrOutput) ExportToCSVOption() DashboardExportToCSVOptionPtrOutput {
 	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardExportToCSVOption {
 		if v == nil {
@@ -1686,7 +1939,6 @@ func (o DashboardDashboardPublishOptionsPtrOutput) ExportToCSVOption() Dashboard
 	}).(DashboardExportToCSVOptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-sheetcontrolsoption
 func (o DashboardDashboardPublishOptionsPtrOutput) SheetControlsOption() DashboardSheetControlsOptionPtrOutput {
 	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardSheetControlsOption {
 		if v == nil {
@@ -1696,9 +1948,8 @@ func (o DashboardDashboardPublishOptionsPtrOutput) SheetControlsOption() Dashboa
 	}).(DashboardSheetControlsOptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourceentity.html
+// <p>Dashboard source entity.</p>
 type DashboardDashboardSourceEntity struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourceentity.html#cfn-quicksight-dashboard-dashboardsourceentity-sourcetemplate
 	SourceTemplate *DashboardDashboardSourceTemplate `pulumi:"sourceTemplate"`
 }
 
@@ -1713,9 +1964,8 @@ type DashboardDashboardSourceEntityInput interface {
 	ToDashboardDashboardSourceEntityOutputWithContext(context.Context) DashboardDashboardSourceEntityOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourceentity.html
+// <p>Dashboard source entity.</p>
 type DashboardDashboardSourceEntityArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourceentity.html#cfn-quicksight-dashboard-dashboardsourceentity-sourcetemplate
 	SourceTemplate DashboardDashboardSourceTemplatePtrInput `pulumi:"sourceTemplate"`
 }
 
@@ -1772,7 +2022,7 @@ func (i *dashboardDashboardSourceEntityPtrType) ToDashboardDashboardSourceEntity
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardSourceEntityPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourceentity.html
+// <p>Dashboard source entity.</p>
 type DashboardDashboardSourceEntityOutput struct{ *pulumi.OutputState }
 
 func (DashboardDashboardSourceEntityOutput) ElementType() reflect.Type {
@@ -1797,7 +2047,6 @@ func (o DashboardDashboardSourceEntityOutput) ToDashboardDashboardSourceEntityPt
 	}).(DashboardDashboardSourceEntityPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourceentity.html#cfn-quicksight-dashboard-dashboardsourceentity-sourcetemplate
 func (o DashboardDashboardSourceEntityOutput) SourceTemplate() DashboardDashboardSourceTemplatePtrOutput {
 	return o.ApplyT(func(v DashboardDashboardSourceEntity) *DashboardDashboardSourceTemplate { return v.SourceTemplate }).(DashboardDashboardSourceTemplatePtrOutput)
 }
@@ -1826,7 +2075,6 @@ func (o DashboardDashboardSourceEntityPtrOutput) Elem() DashboardDashboardSource
 	}).(DashboardDashboardSourceEntityOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourceentity.html#cfn-quicksight-dashboard-dashboardsourceentity-sourcetemplate
 func (o DashboardDashboardSourceEntityPtrOutput) SourceTemplate() DashboardDashboardSourceTemplatePtrOutput {
 	return o.ApplyT(func(v *DashboardDashboardSourceEntity) *DashboardDashboardSourceTemplate {
 		if v == nil {
@@ -1836,11 +2084,11 @@ func (o DashboardDashboardSourceEntityPtrOutput) SourceTemplate() DashboardDashb
 	}).(DashboardDashboardSourceTemplatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html
+// <p>Dashboard source template.</p>
 type DashboardDashboardSourceTemplate struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-arn
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
 	Arn string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-datasetreferences
+	// <p>Dataset references.</p>
 	DataSetReferences []DashboardDataSetReference `pulumi:"dataSetReferences"`
 }
 
@@ -1855,11 +2103,11 @@ type DashboardDashboardSourceTemplateInput interface {
 	ToDashboardDashboardSourceTemplateOutputWithContext(context.Context) DashboardDashboardSourceTemplateOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html
+// <p>Dashboard source template.</p>
 type DashboardDashboardSourceTemplateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-arn
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-datasetreferences
+	// <p>Dataset references.</p>
 	DataSetReferences DashboardDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
 }
 
@@ -1916,7 +2164,7 @@ func (i *dashboardDashboardSourceTemplatePtrType) ToDashboardDashboardSourceTemp
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardSourceTemplatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html
+// <p>Dashboard source template.</p>
 type DashboardDashboardSourceTemplateOutput struct{ *pulumi.OutputState }
 
 func (DashboardDashboardSourceTemplateOutput) ElementType() reflect.Type {
@@ -1941,12 +2189,12 @@ func (o DashboardDashboardSourceTemplateOutput) ToDashboardDashboardSourceTempla
 	}).(DashboardDashboardSourceTemplatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-arn
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o DashboardDashboardSourceTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardDashboardSourceTemplate) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-datasetreferences
+// <p>Dataset references.</p>
 func (o DashboardDashboardSourceTemplateOutput) DataSetReferences() DashboardDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v DashboardDashboardSourceTemplate) []DashboardDataSetReference { return v.DataSetReferences }).(DashboardDataSetReferenceArrayOutput)
 }
@@ -1975,7 +2223,7 @@ func (o DashboardDashboardSourceTemplatePtrOutput) Elem() DashboardDashboardSour
 	}).(DashboardDashboardSourceTemplateOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-arn
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o DashboardDashboardSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardDashboardSourceTemplate) *string {
 		if v == nil {
@@ -1985,7 +2233,7 @@ func (o DashboardDashboardSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-datasetreferences
+// <p>Dataset references.</p>
 func (o DashboardDashboardSourceTemplatePtrOutput) DataSetReferences() DashboardDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v *DashboardDashboardSourceTemplate) []DashboardDataSetReference {
 		if v == nil {
@@ -1995,11 +2243,322 @@ func (o DashboardDashboardSourceTemplatePtrOutput) DataSetReferences() Dashboard
 	}).(DashboardDataSetReferenceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html
+// <p>Dashboard version.</p>
+type DashboardDashboardVersion struct {
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn *string `pulumi:"arn"`
+	// <p>The time that this dashboard version was created.</p>
+	CreatedTime *string `pulumi:"createdTime"`
+	// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+	//             version of the dashboard.</p>
+	DataSetArns []string `pulumi:"dataSetArns"`
+	// <p>Description.</p>
+	Description *string `pulumi:"description"`
+	// <p>Errors associated with this dashboard version.</p>
+	Errors []DashboardDashboardError `pulumi:"errors"`
+	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+	Sheets []DashboardSheet `pulumi:"sheets"`
+	// <p>Source entity ARN.</p>
+	SourceEntityArn *string `pulumi:"sourceEntityArn"`
+	Status          *string `pulumi:"status"`
+	// <p>The ARN of the theme associated with a version of the dashboard.</p>
+	ThemeArn *string `pulumi:"themeArn"`
+	// <p>Version number for this version of the dashboard.</p>
+	VersionNumber *float64 `pulumi:"versionNumber"`
+}
+
+// DashboardDashboardVersionInput is an input type that accepts DashboardDashboardVersionArgs and DashboardDashboardVersionOutput values.
+// You can construct a concrete instance of `DashboardDashboardVersionInput` via:
+//
+//          DashboardDashboardVersionArgs{...}
+type DashboardDashboardVersionInput interface {
+	pulumi.Input
+
+	ToDashboardDashboardVersionOutput() DashboardDashboardVersionOutput
+	ToDashboardDashboardVersionOutputWithContext(context.Context) DashboardDashboardVersionOutput
+}
+
+// <p>Dashboard version.</p>
+type DashboardDashboardVersionArgs struct {
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// <p>The time that this dashboard version was created.</p>
+	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
+	// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+	//             version of the dashboard.</p>
+	DataSetArns pulumi.StringArrayInput `pulumi:"dataSetArns"`
+	// <p>Description.</p>
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// <p>Errors associated with this dashboard version.</p>
+	Errors DashboardDashboardErrorArrayInput `pulumi:"errors"`
+	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+	Sheets DashboardSheetArrayInput `pulumi:"sheets"`
+	// <p>Source entity ARN.</p>
+	SourceEntityArn pulumi.StringPtrInput `pulumi:"sourceEntityArn"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
+	// <p>The ARN of the theme associated with a version of the dashboard.</p>
+	ThemeArn pulumi.StringPtrInput `pulumi:"themeArn"`
+	// <p>Version number for this version of the dashboard.</p>
+	VersionNumber pulumi.Float64PtrInput `pulumi:"versionNumber"`
+}
+
+func (DashboardDashboardVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDashboardVersion)(nil)).Elem()
+}
+
+func (i DashboardDashboardVersionArgs) ToDashboardDashboardVersionOutput() DashboardDashboardVersionOutput {
+	return i.ToDashboardDashboardVersionOutputWithContext(context.Background())
+}
+
+func (i DashboardDashboardVersionArgs) ToDashboardDashboardVersionOutputWithContext(ctx context.Context) DashboardDashboardVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardVersionOutput)
+}
+
+func (i DashboardDashboardVersionArgs) ToDashboardDashboardVersionPtrOutput() DashboardDashboardVersionPtrOutput {
+	return i.ToDashboardDashboardVersionPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardDashboardVersionArgs) ToDashboardDashboardVersionPtrOutputWithContext(ctx context.Context) DashboardDashboardVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardVersionOutput).ToDashboardDashboardVersionPtrOutputWithContext(ctx)
+}
+
+// DashboardDashboardVersionPtrInput is an input type that accepts DashboardDashboardVersionArgs, DashboardDashboardVersionPtr and DashboardDashboardVersionPtrOutput values.
+// You can construct a concrete instance of `DashboardDashboardVersionPtrInput` via:
+//
+//          DashboardDashboardVersionArgs{...}
+//
+//  or:
+//
+//          nil
+type DashboardDashboardVersionPtrInput interface {
+	pulumi.Input
+
+	ToDashboardDashboardVersionPtrOutput() DashboardDashboardVersionPtrOutput
+	ToDashboardDashboardVersionPtrOutputWithContext(context.Context) DashboardDashboardVersionPtrOutput
+}
+
+type dashboardDashboardVersionPtrType DashboardDashboardVersionArgs
+
+func DashboardDashboardVersionPtr(v *DashboardDashboardVersionArgs) DashboardDashboardVersionPtrInput {
+	return (*dashboardDashboardVersionPtrType)(v)
+}
+
+func (*dashboardDashboardVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardDashboardVersion)(nil)).Elem()
+}
+
+func (i *dashboardDashboardVersionPtrType) ToDashboardDashboardVersionPtrOutput() DashboardDashboardVersionPtrOutput {
+	return i.ToDashboardDashboardVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardDashboardVersionPtrType) ToDashboardDashboardVersionPtrOutputWithContext(ctx context.Context) DashboardDashboardVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDashboardVersionPtrOutput)
+}
+
+// <p>Dashboard version.</p>
+type DashboardDashboardVersionOutput struct{ *pulumi.OutputState }
+
+func (DashboardDashboardVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDashboardVersion)(nil)).Elem()
+}
+
+func (o DashboardDashboardVersionOutput) ToDashboardDashboardVersionOutput() DashboardDashboardVersionOutput {
+	return o
+}
+
+func (o DashboardDashboardVersionOutput) ToDashboardDashboardVersionOutputWithContext(ctx context.Context) DashboardDashboardVersionOutput {
+	return o
+}
+
+func (o DashboardDashboardVersionOutput) ToDashboardDashboardVersionPtrOutput() DashboardDashboardVersionPtrOutput {
+	return o.ToDashboardDashboardVersionPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardDashboardVersionOutput) ToDashboardDashboardVersionPtrOutputWithContext(ctx context.Context) DashboardDashboardVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardDashboardVersion) *DashboardDashboardVersion {
+		return &v
+	}).(DashboardDashboardVersionPtrOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o DashboardDashboardVersionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardDashboardVersion) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// <p>The time that this dashboard version was created.</p>
+func (o DashboardDashboardVersionOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardDashboardVersion) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+//             version of the dashboard.</p>
+func (o DashboardDashboardVersionOutput) DataSetArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DashboardDashboardVersion) []string { return v.DataSetArns }).(pulumi.StringArrayOutput)
+}
+
+// <p>Description.</p>
+func (o DashboardDashboardVersionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardDashboardVersion) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// <p>Errors associated with this dashboard version.</p>
+func (o DashboardDashboardVersionOutput) Errors() DashboardDashboardErrorArrayOutput {
+	return o.ApplyT(func(v DashboardDashboardVersion) []DashboardDashboardError { return v.Errors }).(DashboardDashboardErrorArrayOutput)
+}
+
+// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+func (o DashboardDashboardVersionOutput) Sheets() DashboardSheetArrayOutput {
+	return o.ApplyT(func(v DashboardDashboardVersion) []DashboardSheet { return v.Sheets }).(DashboardSheetArrayOutput)
+}
+
+// <p>Source entity ARN.</p>
+func (o DashboardDashboardVersionOutput) SourceEntityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardDashboardVersion) *string { return v.SourceEntityArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardDashboardVersionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardDashboardVersion) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// <p>The ARN of the theme associated with a version of the dashboard.</p>
+func (o DashboardDashboardVersionOutput) ThemeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardDashboardVersion) *string { return v.ThemeArn }).(pulumi.StringPtrOutput)
+}
+
+// <p>Version number for this version of the dashboard.</p>
+func (o DashboardDashboardVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v DashboardDashboardVersion) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
+}
+
+type DashboardDashboardVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardDashboardVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardDashboardVersion)(nil)).Elem()
+}
+
+func (o DashboardDashboardVersionPtrOutput) ToDashboardDashboardVersionPtrOutput() DashboardDashboardVersionPtrOutput {
+	return o
+}
+
+func (o DashboardDashboardVersionPtrOutput) ToDashboardDashboardVersionPtrOutputWithContext(ctx context.Context) DashboardDashboardVersionPtrOutput {
+	return o
+}
+
+func (o DashboardDashboardVersionPtrOutput) Elem() DashboardDashboardVersionOutput {
+	return o.ApplyT(func(v *DashboardDashboardVersion) DashboardDashboardVersion {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardDashboardVersion
+		return ret
+	}).(DashboardDashboardVersionOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o DashboardDashboardVersionPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardDashboardVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The time that this dashboard version was created.</p>
+func (o DashboardDashboardVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardDashboardVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+//             version of the dashboard.</p>
+func (o DashboardDashboardVersionPtrOutput) DataSetArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DashboardDashboardVersion) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DataSetArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// <p>Description.</p>
+func (o DashboardDashboardVersionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardDashboardVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Errors associated with this dashboard version.</p>
+func (o DashboardDashboardVersionPtrOutput) Errors() DashboardDashboardErrorArrayOutput {
+	return o.ApplyT(func(v *DashboardDashboardVersion) []DashboardDashboardError {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(DashboardDashboardErrorArrayOutput)
+}
+
+// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+func (o DashboardDashboardVersionPtrOutput) Sheets() DashboardSheetArrayOutput {
+	return o.ApplyT(func(v *DashboardDashboardVersion) []DashboardSheet {
+		if v == nil {
+			return nil
+		}
+		return v.Sheets
+	}).(DashboardSheetArrayOutput)
+}
+
+// <p>Source entity ARN.</p>
+func (o DashboardDashboardVersionPtrOutput) SourceEntityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardDashboardVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceEntityArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DashboardDashboardVersionPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardDashboardVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The ARN of the theme associated with a version of the dashboard.</p>
+func (o DashboardDashboardVersionPtrOutput) ThemeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardDashboardVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThemeArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Version number for this version of the dashboard.</p>
+func (o DashboardDashboardVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DashboardDashboardVersion) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.VersionNumber
+	}).(pulumi.Float64PtrOutput)
+}
+
+// <p>Dataset reference.</p>
 type DashboardDataSetReference struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html#cfn-quicksight-dashboard-datasetreference-datasetarn
+	// <p>Dataset Amazon Resource Name (ARN).</p>
 	DataSetArn string `pulumi:"dataSetArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html#cfn-quicksight-dashboard-datasetreference-datasetplaceholder
+	// <p>Dataset placeholder.</p>
 	DataSetPlaceholder string `pulumi:"dataSetPlaceholder"`
 }
 
@@ -2014,11 +2573,11 @@ type DashboardDataSetReferenceInput interface {
 	ToDashboardDataSetReferenceOutputWithContext(context.Context) DashboardDataSetReferenceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html
+// <p>Dataset reference.</p>
 type DashboardDataSetReferenceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html#cfn-quicksight-dashboard-datasetreference-datasetarn
+	// <p>Dataset Amazon Resource Name (ARN).</p>
 	DataSetArn pulumi.StringInput `pulumi:"dataSetArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html#cfn-quicksight-dashboard-datasetreference-datasetplaceholder
+	// <p>Dataset placeholder.</p>
 	DataSetPlaceholder pulumi.StringInput `pulumi:"dataSetPlaceholder"`
 }
 
@@ -2059,7 +2618,7 @@ func (i DashboardDataSetReferenceArray) ToDashboardDataSetReferenceArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardDataSetReferenceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html
+// <p>Dataset reference.</p>
 type DashboardDataSetReferenceOutput struct{ *pulumi.OutputState }
 
 func (DashboardDataSetReferenceOutput) ElementType() reflect.Type {
@@ -2074,12 +2633,12 @@ func (o DashboardDataSetReferenceOutput) ToDashboardDataSetReferenceOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html#cfn-quicksight-dashboard-datasetreference-datasetarn
+// <p>Dataset Amazon Resource Name (ARN).</p>
 func (o DashboardDataSetReferenceOutput) DataSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardDataSetReference) string { return v.DataSetArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html#cfn-quicksight-dashboard-datasetreference-datasetplaceholder
+// <p>Dataset placeholder.</p>
 func (o DashboardDataSetReferenceOutput) DataSetPlaceholder() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardDataSetReference) string { return v.DataSetPlaceholder }).(pulumi.StringOutput)
 }
@@ -2104,11 +2663,11 @@ func (o DashboardDataSetReferenceArrayOutput) Index(i pulumi.IntInput) Dashboard
 	}).(DashboardDataSetReferenceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html
+// <p>A date-time parameter.</p>
 type DashboardDateTimeParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-name
+	// <p>A display name for the date-time parameter.</p>
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-values
+	// <p>The values for the date-time parameter.</p>
 	Values []string `pulumi:"values"`
 }
 
@@ -2123,11 +2682,11 @@ type DashboardDateTimeParameterInput interface {
 	ToDashboardDateTimeParameterOutputWithContext(context.Context) DashboardDateTimeParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html
+// <p>A date-time parameter.</p>
 type DashboardDateTimeParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-name
+	// <p>A display name for the date-time parameter.</p>
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-values
+	// <p>The values for the date-time parameter.</p>
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2168,7 +2727,7 @@ func (i DashboardDateTimeParameterArray) ToDashboardDateTimeParameterArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardDateTimeParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html
+// <p>A date-time parameter.</p>
 type DashboardDateTimeParameterOutput struct{ *pulumi.OutputState }
 
 func (DashboardDateTimeParameterOutput) ElementType() reflect.Type {
@@ -2183,12 +2742,12 @@ func (o DashboardDateTimeParameterOutput) ToDashboardDateTimeParameterOutputWith
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-name
+// <p>A display name for the date-time parameter.</p>
 func (o DashboardDateTimeParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardDateTimeParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-values
+// <p>The values for the date-time parameter.</p>
 func (o DashboardDateTimeParameterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardDateTimeParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2213,11 +2772,11 @@ func (o DashboardDateTimeParameterArrayOutput) Index(i pulumi.IntInput) Dashboar
 	}).(DashboardDateTimeParameterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html
+// <p>A decimal parameter.</p>
 type DashboardDecimalParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html#cfn-quicksight-dashboard-decimalparameter-name
+	// <p>A display name for the decimal parameter.</p>
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html#cfn-quicksight-dashboard-decimalparameter-values
+	// <p>The values for the decimal parameter.</p>
 	Values []float64 `pulumi:"values"`
 }
 
@@ -2232,11 +2791,11 @@ type DashboardDecimalParameterInput interface {
 	ToDashboardDecimalParameterOutputWithContext(context.Context) DashboardDecimalParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html
+// <p>A decimal parameter.</p>
 type DashboardDecimalParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html#cfn-quicksight-dashboard-decimalparameter-name
+	// <p>A display name for the decimal parameter.</p>
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html#cfn-quicksight-dashboard-decimalparameter-values
+	// <p>The values for the decimal parameter.</p>
 	Values pulumi.Float64ArrayInput `pulumi:"values"`
 }
 
@@ -2277,7 +2836,7 @@ func (i DashboardDecimalParameterArray) ToDashboardDecimalParameterArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardDecimalParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html
+// <p>A decimal parameter.</p>
 type DashboardDecimalParameterOutput struct{ *pulumi.OutputState }
 
 func (DashboardDecimalParameterOutput) ElementType() reflect.Type {
@@ -2292,12 +2851,12 @@ func (o DashboardDecimalParameterOutput) ToDashboardDecimalParameterOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html#cfn-quicksight-dashboard-decimalparameter-name
+// <p>A display name for the decimal parameter.</p>
 func (o DashboardDecimalParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardDecimalParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-decimalparameter.html#cfn-quicksight-dashboard-decimalparameter-values
+// <p>The values for the decimal parameter.</p>
 func (o DashboardDecimalParameterOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v DashboardDecimalParameter) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
@@ -2322,9 +2881,8 @@ func (o DashboardDecimalParameterArrayOutput) Index(i pulumi.IntInput) Dashboard
 	}).(DashboardDecimalParameterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html
+// <p>Export to .csv option.</p>
 type DashboardExportToCSVOption struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html#cfn-quicksight-dashboard-exporttocsvoption-availabilitystatus
 	AvailabilityStatus *string `pulumi:"availabilityStatus"`
 }
 
@@ -2339,9 +2897,8 @@ type DashboardExportToCSVOptionInput interface {
 	ToDashboardExportToCSVOptionOutputWithContext(context.Context) DashboardExportToCSVOptionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html
+// <p>Export to .csv option.</p>
 type DashboardExportToCSVOptionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html#cfn-quicksight-dashboard-exporttocsvoption-availabilitystatus
 	AvailabilityStatus pulumi.StringPtrInput `pulumi:"availabilityStatus"`
 }
 
@@ -2398,7 +2955,7 @@ func (i *dashboardExportToCSVOptionPtrType) ToDashboardExportToCSVOptionPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardExportToCSVOptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html
+// <p>Export to .csv option.</p>
 type DashboardExportToCSVOptionOutput struct{ *pulumi.OutputState }
 
 func (DashboardExportToCSVOptionOutput) ElementType() reflect.Type {
@@ -2423,7 +2980,6 @@ func (o DashboardExportToCSVOptionOutput) ToDashboardExportToCSVOptionPtrOutputW
 	}).(DashboardExportToCSVOptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html#cfn-quicksight-dashboard-exporttocsvoption-availabilitystatus
 func (o DashboardExportToCSVOptionOutput) AvailabilityStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardExportToCSVOption) *string { return v.AvailabilityStatus }).(pulumi.StringPtrOutput)
 }
@@ -2452,7 +3008,6 @@ func (o DashboardExportToCSVOptionPtrOutput) Elem() DashboardExportToCSVOptionOu
 	}).(DashboardExportToCSVOptionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-exporttocsvoption.html#cfn-quicksight-dashboard-exporttocsvoption-availabilitystatus
 func (o DashboardExportToCSVOptionPtrOutput) AvailabilityStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardExportToCSVOption) *string {
 		if v == nil {
@@ -2462,11 +3017,11 @@ func (o DashboardExportToCSVOptionPtrOutput) AvailabilityStatus() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameter.html
+// <p>An integer parameter.</p>
 type DashboardIntegerParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameter.html#cfn-quicksight-dashboard-integerparameter-name
+	// <p>The name of the integer parameter.</p>
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameter.html#cfn-quicksight-dashboard-integerparameter-values
+	// <p>The values for the integer parameter.</p>
 	Values []float64 `pulumi:"values"`
 }
 
@@ -2481,11 +3036,11 @@ type DashboardIntegerParameterInput interface {
 	ToDashboardIntegerParameterOutputWithContext(context.Context) DashboardIntegerParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameter.html
+// <p>An integer parameter.</p>
 type DashboardIntegerParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameter.html#cfn-quicksight-dashboard-integerparameter-name
+	// <p>The name of the integer parameter.</p>
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameter.html#cfn-quicksight-dashboard-integerparameter-values
+	// <p>The values for the integer parameter.</p>
 	Values pulumi.Float64ArrayInput `pulumi:"values"`
 }
 
@@ -2526,7 +3081,7 @@ func (i DashboardIntegerParameterArray) ToDashboardIntegerParameterArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardIntegerParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameter.html
+// <p>An integer parameter.</p>
 type DashboardIntegerParameterOutput struct{ *pulumi.OutputState }
 
 func (DashboardIntegerParameterOutput) ElementType() reflect.Type {
@@ -2541,12 +3096,12 @@ func (o DashboardIntegerParameterOutput) ToDashboardIntegerParameterOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameter.html#cfn-quicksight-dashboard-integerparameter-name
+// <p>The name of the integer parameter.</p>
 func (o DashboardIntegerParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardIntegerParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-integerparameter.html#cfn-quicksight-dashboard-integerparameter-values
+// <p>The values for the integer parameter.</p>
 func (o DashboardIntegerParameterOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v DashboardIntegerParameter) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
@@ -2571,15 +3126,15 @@ func (o DashboardIntegerParameterArrayOutput) Index(i pulumi.IntInput) Dashboard
 	}).(DashboardIntegerParameterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html
+// <p>A list of QuickSight parameters and the list's override values.</p>
 type DashboardParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-datetimeparameters
+	// <p>Date-time parameters.</p>
 	DateTimeParameters []DashboardDateTimeParameter `pulumi:"dateTimeParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-decimalparameters
+	// <p>Decimal parameters.</p>
 	DecimalParameters []DashboardDecimalParameter `pulumi:"decimalParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-integerparameters
+	// <p>Integer parameters.</p>
 	IntegerParameters []DashboardIntegerParameter `pulumi:"integerParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-stringparameters
+	// <p>String parameters.</p>
 	StringParameters []DashboardStringParameter `pulumi:"stringParameters"`
 }
 
@@ -2594,15 +3149,15 @@ type DashboardParametersInput interface {
 	ToDashboardParametersOutputWithContext(context.Context) DashboardParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html
+// <p>A list of QuickSight parameters and the list's override values.</p>
 type DashboardParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-datetimeparameters
+	// <p>Date-time parameters.</p>
 	DateTimeParameters DashboardDateTimeParameterArrayInput `pulumi:"dateTimeParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-decimalparameters
+	// <p>Decimal parameters.</p>
 	DecimalParameters DashboardDecimalParameterArrayInput `pulumi:"decimalParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-integerparameters
+	// <p>Integer parameters.</p>
 	IntegerParameters DashboardIntegerParameterArrayInput `pulumi:"integerParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-stringparameters
+	// <p>String parameters.</p>
 	StringParameters DashboardStringParameterArrayInput `pulumi:"stringParameters"`
 }
 
@@ -2659,7 +3214,7 @@ func (i *dashboardParametersPtrType) ToDashboardParametersPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html
+// <p>A list of QuickSight parameters and the list's override values.</p>
 type DashboardParametersOutput struct{ *pulumi.OutputState }
 
 func (DashboardParametersOutput) ElementType() reflect.Type {
@@ -2684,22 +3239,22 @@ func (o DashboardParametersOutput) ToDashboardParametersPtrOutputWithContext(ctx
 	}).(DashboardParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-datetimeparameters
+// <p>Date-time parameters.</p>
 func (o DashboardParametersOutput) DateTimeParameters() DashboardDateTimeParameterArrayOutput {
 	return o.ApplyT(func(v DashboardParameters) []DashboardDateTimeParameter { return v.DateTimeParameters }).(DashboardDateTimeParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-decimalparameters
+// <p>Decimal parameters.</p>
 func (o DashboardParametersOutput) DecimalParameters() DashboardDecimalParameterArrayOutput {
 	return o.ApplyT(func(v DashboardParameters) []DashboardDecimalParameter { return v.DecimalParameters }).(DashboardDecimalParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-integerparameters
+// <p>Integer parameters.</p>
 func (o DashboardParametersOutput) IntegerParameters() DashboardIntegerParameterArrayOutput {
 	return o.ApplyT(func(v DashboardParameters) []DashboardIntegerParameter { return v.IntegerParameters }).(DashboardIntegerParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-stringparameters
+// <p>String parameters.</p>
 func (o DashboardParametersOutput) StringParameters() DashboardStringParameterArrayOutput {
 	return o.ApplyT(func(v DashboardParameters) []DashboardStringParameter { return v.StringParameters }).(DashboardStringParameterArrayOutput)
 }
@@ -2728,7 +3283,7 @@ func (o DashboardParametersPtrOutput) Elem() DashboardParametersOutput {
 	}).(DashboardParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-datetimeparameters
+// <p>Date-time parameters.</p>
 func (o DashboardParametersPtrOutput) DateTimeParameters() DashboardDateTimeParameterArrayOutput {
 	return o.ApplyT(func(v *DashboardParameters) []DashboardDateTimeParameter {
 		if v == nil {
@@ -2738,7 +3293,7 @@ func (o DashboardParametersPtrOutput) DateTimeParameters() DashboardDateTimePara
 	}).(DashboardDateTimeParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-decimalparameters
+// <p>Decimal parameters.</p>
 func (o DashboardParametersPtrOutput) DecimalParameters() DashboardDecimalParameterArrayOutput {
 	return o.ApplyT(func(v *DashboardParameters) []DashboardDecimalParameter {
 		if v == nil {
@@ -2748,7 +3303,7 @@ func (o DashboardParametersPtrOutput) DecimalParameters() DashboardDecimalParame
 	}).(DashboardDecimalParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-integerparameters
+// <p>Integer parameters.</p>
 func (o DashboardParametersPtrOutput) IntegerParameters() DashboardIntegerParameterArrayOutput {
 	return o.ApplyT(func(v *DashboardParameters) []DashboardIntegerParameter {
 		if v == nil {
@@ -2758,7 +3313,7 @@ func (o DashboardParametersPtrOutput) IntegerParameters() DashboardIntegerParame
 	}).(DashboardIntegerParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-stringparameters
+// <p>String parameters.</p>
 func (o DashboardParametersPtrOutput) StringParameters() DashboardStringParameterArrayOutput {
 	return o.ApplyT(func(v *DashboardParameters) []DashboardStringParameter {
 		if v == nil {
@@ -2768,11 +3323,25 @@ func (o DashboardParametersPtrOutput) StringParameters() DashboardStringParamete
 	}).(DashboardStringParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-resourcepermission.html
+// <p>Permission for the resource.</p>
 type DashboardResourcePermission struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-resourcepermission.html#cfn-quicksight-dashboard-resourcepermission-actions
+	// <p>The IAM action to grant or revoke permissions on.</p>
 	Actions []string `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-resourcepermission.html#cfn-quicksight-dashboard-resourcepermission-principal
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//         <ul>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
 	Principal string `pulumi:"principal"`
 }
 
@@ -2787,11 +3356,25 @@ type DashboardResourcePermissionInput interface {
 	ToDashboardResourcePermissionOutputWithContext(context.Context) DashboardResourcePermissionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-resourcepermission.html
+// <p>Permission for the resource.</p>
 type DashboardResourcePermissionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-resourcepermission.html#cfn-quicksight-dashboard-resourcepermission-actions
+	// <p>The IAM action to grant or revoke permissions on.</p>
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-resourcepermission.html#cfn-quicksight-dashboard-resourcepermission-principal
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//         <ul>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
 	Principal pulumi.StringInput `pulumi:"principal"`
 }
 
@@ -2832,7 +3415,7 @@ func (i DashboardResourcePermissionArray) ToDashboardResourcePermissionArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardResourcePermissionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-resourcepermission.html
+// <p>Permission for the resource.</p>
 type DashboardResourcePermissionOutput struct{ *pulumi.OutputState }
 
 func (DashboardResourcePermissionOutput) ElementType() reflect.Type {
@@ -2847,12 +3430,26 @@ func (o DashboardResourcePermissionOutput) ToDashboardResourcePermissionOutputWi
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-resourcepermission.html#cfn-quicksight-dashboard-resourcepermission-actions
+// <p>The IAM action to grant or revoke permissions on.</p>
 func (o DashboardResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardResourcePermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-resourcepermission.html#cfn-quicksight-dashboard-resourcepermission-principal
+// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+//             following:</p>
+//         <ul>
+//             <li>
+//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+//             </li>
+//             <li>
+//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//             </li>
+//             <li>
+//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+//                     (This is less common.) </p>
+//             </li>
+//          </ul>
 func (o DashboardResourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -2877,9 +3474,132 @@ func (o DashboardResourcePermissionArrayOutput) Index(i pulumi.IntInput) Dashboa
 	}).(DashboardResourcePermissionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html
+// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
+//             contains at least one sheet. Each sheet contains at least one visualization widget, for
+//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//             components, such as controls, filters, and so on.</p>
+type DashboardSheet struct {
+	// <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
+	//             console.</p>
+	Name *string `pulumi:"name"`
+	// <p>The unique identifier associated with a sheet.</p>
+	SheetId *string `pulumi:"sheetId"`
+}
+
+// DashboardSheetInput is an input type that accepts DashboardSheetArgs and DashboardSheetOutput values.
+// You can construct a concrete instance of `DashboardSheetInput` via:
+//
+//          DashboardSheetArgs{...}
+type DashboardSheetInput interface {
+	pulumi.Input
+
+	ToDashboardSheetOutput() DashboardSheetOutput
+	ToDashboardSheetOutputWithContext(context.Context) DashboardSheetOutput
+}
+
+// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
+//             contains at least one sheet. Each sheet contains at least one visualization widget, for
+//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//             components, such as controls, filters, and so on.</p>
+type DashboardSheetArgs struct {
+	// <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
+	//             console.</p>
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// <p>The unique identifier associated with a sheet.</p>
+	SheetId pulumi.StringPtrInput `pulumi:"sheetId"`
+}
+
+func (DashboardSheetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSheet)(nil)).Elem()
+}
+
+func (i DashboardSheetArgs) ToDashboardSheetOutput() DashboardSheetOutput {
+	return i.ToDashboardSheetOutputWithContext(context.Background())
+}
+
+func (i DashboardSheetArgs) ToDashboardSheetOutputWithContext(ctx context.Context) DashboardSheetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSheetOutput)
+}
+
+// DashboardSheetArrayInput is an input type that accepts DashboardSheetArray and DashboardSheetArrayOutput values.
+// You can construct a concrete instance of `DashboardSheetArrayInput` via:
+//
+//          DashboardSheetArray{ DashboardSheetArgs{...} }
+type DashboardSheetArrayInput interface {
+	pulumi.Input
+
+	ToDashboardSheetArrayOutput() DashboardSheetArrayOutput
+	ToDashboardSheetArrayOutputWithContext(context.Context) DashboardSheetArrayOutput
+}
+
+type DashboardSheetArray []DashboardSheetInput
+
+func (DashboardSheetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardSheet)(nil)).Elem()
+}
+
+func (i DashboardSheetArray) ToDashboardSheetArrayOutput() DashboardSheetArrayOutput {
+	return i.ToDashboardSheetArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardSheetArray) ToDashboardSheetArrayOutputWithContext(ctx context.Context) DashboardSheetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSheetArrayOutput)
+}
+
+// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
+//             contains at least one sheet. Each sheet contains at least one visualization widget, for
+//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//             components, such as controls, filters, and so on.</p>
+type DashboardSheetOutput struct{ *pulumi.OutputState }
+
+func (DashboardSheetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSheet)(nil)).Elem()
+}
+
+func (o DashboardSheetOutput) ToDashboardSheetOutput() DashboardSheetOutput {
+	return o
+}
+
+func (o DashboardSheetOutput) ToDashboardSheetOutputWithContext(ctx context.Context) DashboardSheetOutput {
+	return o
+}
+
+// <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
+//             console.</p>
+func (o DashboardSheetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardSheet) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// <p>The unique identifier associated with a sheet.</p>
+func (o DashboardSheetOutput) SheetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardSheet) *string { return v.SheetId }).(pulumi.StringPtrOutput)
+}
+
+type DashboardSheetArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardSheetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardSheet)(nil)).Elem()
+}
+
+func (o DashboardSheetArrayOutput) ToDashboardSheetArrayOutput() DashboardSheetArrayOutput {
+	return o
+}
+
+func (o DashboardSheetArrayOutput) ToDashboardSheetArrayOutputWithContext(ctx context.Context) DashboardSheetArrayOutput {
+	return o
+}
+
+func (o DashboardSheetArrayOutput) Index(i pulumi.IntInput) DashboardSheetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardSheet {
+		return vs[0].([]DashboardSheet)[vs[1].(int)]
+	}).(DashboardSheetOutput)
+}
+
+// <p>Sheet controls option.</p>
 type DashboardSheetControlsOption struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html#cfn-quicksight-dashboard-sheetcontrolsoption-visibilitystate
 	VisibilityState *string `pulumi:"visibilityState"`
 }
 
@@ -2894,9 +3614,8 @@ type DashboardSheetControlsOptionInput interface {
 	ToDashboardSheetControlsOptionOutputWithContext(context.Context) DashboardSheetControlsOptionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html
+// <p>Sheet controls option.</p>
 type DashboardSheetControlsOptionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html#cfn-quicksight-dashboard-sheetcontrolsoption-visibilitystate
 	VisibilityState pulumi.StringPtrInput `pulumi:"visibilityState"`
 }
 
@@ -2953,7 +3672,7 @@ func (i *dashboardSheetControlsOptionPtrType) ToDashboardSheetControlsOptionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardSheetControlsOptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html
+// <p>Sheet controls option.</p>
 type DashboardSheetControlsOptionOutput struct{ *pulumi.OutputState }
 
 func (DashboardSheetControlsOptionOutput) ElementType() reflect.Type {
@@ -2978,7 +3697,6 @@ func (o DashboardSheetControlsOptionOutput) ToDashboardSheetControlsOptionPtrOut
 	}).(DashboardSheetControlsOptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html#cfn-quicksight-dashboard-sheetcontrolsoption-visibilitystate
 func (o DashboardSheetControlsOptionOutput) VisibilityState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardSheetControlsOption) *string { return v.VisibilityState }).(pulumi.StringPtrOutput)
 }
@@ -3007,7 +3725,6 @@ func (o DashboardSheetControlsOptionPtrOutput) Elem() DashboardSheetControlsOpti
 	}).(DashboardSheetControlsOptionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-sheetcontrolsoption.html#cfn-quicksight-dashboard-sheetcontrolsoption-visibilitystate
 func (o DashboardSheetControlsOptionPtrOutput) VisibilityState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardSheetControlsOption) *string {
 		if v == nil {
@@ -3017,11 +3734,11 @@ func (o DashboardSheetControlsOptionPtrOutput) VisibilityState() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html
+// <p>A string parameter.</p>
 type DashboardStringParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html#cfn-quicksight-dashboard-stringparameter-name
+	// <p>A display name for a string parameter.</p>
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html#cfn-quicksight-dashboard-stringparameter-values
+	// <p>The values of a string parameter.</p>
 	Values []string `pulumi:"values"`
 }
 
@@ -3036,11 +3753,11 @@ type DashboardStringParameterInput interface {
 	ToDashboardStringParameterOutputWithContext(context.Context) DashboardStringParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html
+// <p>A string parameter.</p>
 type DashboardStringParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html#cfn-quicksight-dashboard-stringparameter-name
+	// <p>A display name for a string parameter.</p>
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html#cfn-quicksight-dashboard-stringparameter-values
+	// <p>The values of a string parameter.</p>
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3081,7 +3798,7 @@ func (i DashboardStringParameterArray) ToDashboardStringParameterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardStringParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html
+// <p>A string parameter.</p>
 type DashboardStringParameterOutput struct{ *pulumi.OutputState }
 
 func (DashboardStringParameterOutput) ElementType() reflect.Type {
@@ -3096,12 +3813,12 @@ func (o DashboardStringParameterOutput) ToDashboardStringParameterOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html#cfn-quicksight-dashboard-stringparameter-name
+// <p>A display name for a string parameter.</p>
 func (o DashboardStringParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardStringParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html#cfn-quicksight-dashboard-stringparameter-values
+// <p>The values of a string parameter.</p>
 func (o DashboardStringParameterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DashboardStringParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3126,445 +3843,122 @@ func (o DashboardStringParameterArrayOutput) Index(i pulumi.IntInput) DashboardS
 	}).(DashboardStringParameterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html
-type DataSetCalculatedColumn struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html#cfn-quicksight-dataset-calculatedcolumn-columnid
-	ColumnId string `pulumi:"columnId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html#cfn-quicksight-dataset-calculatedcolumn-columnname
-	ColumnName string `pulumi:"columnName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html#cfn-quicksight-dataset-calculatedcolumn-expression
-	Expression string `pulumi:"expression"`
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type DashboardTag struct {
+	// <p>Tag key.</p>
+	Key string `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value string `pulumi:"value"`
 }
 
-// DataSetCalculatedColumnInput is an input type that accepts DataSetCalculatedColumnArgs and DataSetCalculatedColumnOutput values.
-// You can construct a concrete instance of `DataSetCalculatedColumnInput` via:
+// DashboardTagInput is an input type that accepts DashboardTagArgs and DashboardTagOutput values.
+// You can construct a concrete instance of `DashboardTagInput` via:
 //
-//          DataSetCalculatedColumnArgs{...}
-type DataSetCalculatedColumnInput interface {
+//          DashboardTagArgs{...}
+type DashboardTagInput interface {
 	pulumi.Input
 
-	ToDataSetCalculatedColumnOutput() DataSetCalculatedColumnOutput
-	ToDataSetCalculatedColumnOutputWithContext(context.Context) DataSetCalculatedColumnOutput
+	ToDashboardTagOutput() DashboardTagOutput
+	ToDashboardTagOutputWithContext(context.Context) DashboardTagOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html
-type DataSetCalculatedColumnArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html#cfn-quicksight-dataset-calculatedcolumn-columnid
-	ColumnId pulumi.StringInput `pulumi:"columnId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html#cfn-quicksight-dataset-calculatedcolumn-columnname
-	ColumnName pulumi.StringInput `pulumi:"columnName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html#cfn-quicksight-dataset-calculatedcolumn-expression
-	Expression pulumi.StringInput `pulumi:"expression"`
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type DashboardTagArgs struct {
+	// <p>Tag key.</p>
+	Key pulumi.StringInput `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (DataSetCalculatedColumnArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetCalculatedColumn)(nil)).Elem()
+func (DashboardTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardTag)(nil)).Elem()
 }
 
-func (i DataSetCalculatedColumnArgs) ToDataSetCalculatedColumnOutput() DataSetCalculatedColumnOutput {
-	return i.ToDataSetCalculatedColumnOutputWithContext(context.Background())
+func (i DashboardTagArgs) ToDashboardTagOutput() DashboardTagOutput {
+	return i.ToDashboardTagOutputWithContext(context.Background())
 }
 
-func (i DataSetCalculatedColumnArgs) ToDataSetCalculatedColumnOutputWithContext(ctx context.Context) DataSetCalculatedColumnOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetCalculatedColumnOutput)
+func (i DashboardTagArgs) ToDashboardTagOutputWithContext(ctx context.Context) DashboardTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardTagOutput)
 }
 
-// DataSetCalculatedColumnArrayInput is an input type that accepts DataSetCalculatedColumnArray and DataSetCalculatedColumnArrayOutput values.
-// You can construct a concrete instance of `DataSetCalculatedColumnArrayInput` via:
+// DashboardTagArrayInput is an input type that accepts DashboardTagArray and DashboardTagArrayOutput values.
+// You can construct a concrete instance of `DashboardTagArrayInput` via:
 //
-//          DataSetCalculatedColumnArray{ DataSetCalculatedColumnArgs{...} }
-type DataSetCalculatedColumnArrayInput interface {
+//          DashboardTagArray{ DashboardTagArgs{...} }
+type DashboardTagArrayInput interface {
 	pulumi.Input
 
-	ToDataSetCalculatedColumnArrayOutput() DataSetCalculatedColumnArrayOutput
-	ToDataSetCalculatedColumnArrayOutputWithContext(context.Context) DataSetCalculatedColumnArrayOutput
+	ToDashboardTagArrayOutput() DashboardTagArrayOutput
+	ToDashboardTagArrayOutputWithContext(context.Context) DashboardTagArrayOutput
 }
 
-type DataSetCalculatedColumnArray []DataSetCalculatedColumnInput
+type DashboardTagArray []DashboardTagInput
 
-func (DataSetCalculatedColumnArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSetCalculatedColumn)(nil)).Elem()
+func (DashboardTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardTag)(nil)).Elem()
 }
 
-func (i DataSetCalculatedColumnArray) ToDataSetCalculatedColumnArrayOutput() DataSetCalculatedColumnArrayOutput {
-	return i.ToDataSetCalculatedColumnArrayOutputWithContext(context.Background())
+func (i DashboardTagArray) ToDashboardTagArrayOutput() DashboardTagArrayOutput {
+	return i.ToDashboardTagArrayOutputWithContext(context.Background())
 }
 
-func (i DataSetCalculatedColumnArray) ToDataSetCalculatedColumnArrayOutputWithContext(ctx context.Context) DataSetCalculatedColumnArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetCalculatedColumnArrayOutput)
+func (i DashboardTagArray) ToDashboardTagArrayOutputWithContext(ctx context.Context) DashboardTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardTagArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html
-type DataSetCalculatedColumnOutput struct{ *pulumi.OutputState }
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type DashboardTagOutput struct{ *pulumi.OutputState }
 
-func (DataSetCalculatedColumnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetCalculatedColumn)(nil)).Elem()
+func (DashboardTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardTag)(nil)).Elem()
 }
 
-func (o DataSetCalculatedColumnOutput) ToDataSetCalculatedColumnOutput() DataSetCalculatedColumnOutput {
+func (o DashboardTagOutput) ToDashboardTagOutput() DashboardTagOutput {
 	return o
 }
 
-func (o DataSetCalculatedColumnOutput) ToDataSetCalculatedColumnOutputWithContext(ctx context.Context) DataSetCalculatedColumnOutput {
+func (o DashboardTagOutput) ToDashboardTagOutputWithContext(ctx context.Context) DashboardTagOutput {
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html#cfn-quicksight-dataset-calculatedcolumn-columnid
-func (o DataSetCalculatedColumnOutput) ColumnId() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetCalculatedColumn) string { return v.ColumnId }).(pulumi.StringOutput)
+// <p>Tag key.</p>
+func (o DashboardTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html#cfn-quicksight-dataset-calculatedcolumn-columnname
-func (o DataSetCalculatedColumnOutput) ColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetCalculatedColumn) string { return v.ColumnName }).(pulumi.StringOutput)
+// <p>Tag value.</p>
+func (o DashboardTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-calculatedcolumn.html#cfn-quicksight-dataset-calculatedcolumn-expression
-func (o DataSetCalculatedColumnOutput) Expression() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetCalculatedColumn) string { return v.Expression }).(pulumi.StringOutput)
+type DashboardTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardTag)(nil)).Elem()
 }
 
-type DataSetCalculatedColumnArrayOutput struct{ *pulumi.OutputState }
-
-func (DataSetCalculatedColumnArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSetCalculatedColumn)(nil)).Elem()
-}
-
-func (o DataSetCalculatedColumnArrayOutput) ToDataSetCalculatedColumnArrayOutput() DataSetCalculatedColumnArrayOutput {
+func (o DashboardTagArrayOutput) ToDashboardTagArrayOutput() DashboardTagArrayOutput {
 	return o
 }
 
-func (o DataSetCalculatedColumnArrayOutput) ToDataSetCalculatedColumnArrayOutputWithContext(ctx context.Context) DataSetCalculatedColumnArrayOutput {
+func (o DashboardTagArrayOutput) ToDashboardTagArrayOutputWithContext(ctx context.Context) DashboardTagArrayOutput {
 	return o
 }
 
-func (o DataSetCalculatedColumnArrayOutput) Index(i pulumi.IntInput) DataSetCalculatedColumnOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetCalculatedColumn {
-		return vs[0].([]DataSetCalculatedColumn)[vs[1].(int)]
-	}).(DataSetCalculatedColumnOutput)
+func (o DashboardTagArrayOutput) Index(i pulumi.IntInput) DashboardTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardTag {
+		return vs[0].([]DashboardTag)[vs[1].(int)]
+	}).(DashboardTagOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html
-type DataSetCastColumnTypeOperation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-columnname
-	ColumnName string `pulumi:"columnName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-format
-	Format *string `pulumi:"format"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-newcolumntype
-	NewColumnType string `pulumi:"newColumnType"`
-}
-
-// DataSetCastColumnTypeOperationInput is an input type that accepts DataSetCastColumnTypeOperationArgs and DataSetCastColumnTypeOperationOutput values.
-// You can construct a concrete instance of `DataSetCastColumnTypeOperationInput` via:
-//
-//          DataSetCastColumnTypeOperationArgs{...}
-type DataSetCastColumnTypeOperationInput interface {
-	pulumi.Input
-
-	ToDataSetCastColumnTypeOperationOutput() DataSetCastColumnTypeOperationOutput
-	ToDataSetCastColumnTypeOperationOutputWithContext(context.Context) DataSetCastColumnTypeOperationOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html
-type DataSetCastColumnTypeOperationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-columnname
-	ColumnName pulumi.StringInput `pulumi:"columnName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-format
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-newcolumntype
-	NewColumnType pulumi.StringInput `pulumi:"newColumnType"`
-}
-
-func (DataSetCastColumnTypeOperationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetCastColumnTypeOperation)(nil)).Elem()
-}
-
-func (i DataSetCastColumnTypeOperationArgs) ToDataSetCastColumnTypeOperationOutput() DataSetCastColumnTypeOperationOutput {
-	return i.ToDataSetCastColumnTypeOperationOutputWithContext(context.Background())
-}
-
-func (i DataSetCastColumnTypeOperationArgs) ToDataSetCastColumnTypeOperationOutputWithContext(ctx context.Context) DataSetCastColumnTypeOperationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetCastColumnTypeOperationOutput)
-}
-
-func (i DataSetCastColumnTypeOperationArgs) ToDataSetCastColumnTypeOperationPtrOutput() DataSetCastColumnTypeOperationPtrOutput {
-	return i.ToDataSetCastColumnTypeOperationPtrOutputWithContext(context.Background())
-}
-
-func (i DataSetCastColumnTypeOperationArgs) ToDataSetCastColumnTypeOperationPtrOutputWithContext(ctx context.Context) DataSetCastColumnTypeOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetCastColumnTypeOperationOutput).ToDataSetCastColumnTypeOperationPtrOutputWithContext(ctx)
-}
-
-// DataSetCastColumnTypeOperationPtrInput is an input type that accepts DataSetCastColumnTypeOperationArgs, DataSetCastColumnTypeOperationPtr and DataSetCastColumnTypeOperationPtrOutput values.
-// You can construct a concrete instance of `DataSetCastColumnTypeOperationPtrInput` via:
-//
-//          DataSetCastColumnTypeOperationArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSetCastColumnTypeOperationPtrInput interface {
-	pulumi.Input
-
-	ToDataSetCastColumnTypeOperationPtrOutput() DataSetCastColumnTypeOperationPtrOutput
-	ToDataSetCastColumnTypeOperationPtrOutputWithContext(context.Context) DataSetCastColumnTypeOperationPtrOutput
-}
-
-type dataSetCastColumnTypeOperationPtrType DataSetCastColumnTypeOperationArgs
-
-func DataSetCastColumnTypeOperationPtr(v *DataSetCastColumnTypeOperationArgs) DataSetCastColumnTypeOperationPtrInput {
-	return (*dataSetCastColumnTypeOperationPtrType)(v)
-}
-
-func (*dataSetCastColumnTypeOperationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetCastColumnTypeOperation)(nil)).Elem()
-}
-
-func (i *dataSetCastColumnTypeOperationPtrType) ToDataSetCastColumnTypeOperationPtrOutput() DataSetCastColumnTypeOperationPtrOutput {
-	return i.ToDataSetCastColumnTypeOperationPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSetCastColumnTypeOperationPtrType) ToDataSetCastColumnTypeOperationPtrOutputWithContext(ctx context.Context) DataSetCastColumnTypeOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetCastColumnTypeOperationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html
-type DataSetCastColumnTypeOperationOutput struct{ *pulumi.OutputState }
-
-func (DataSetCastColumnTypeOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetCastColumnTypeOperation)(nil)).Elem()
-}
-
-func (o DataSetCastColumnTypeOperationOutput) ToDataSetCastColumnTypeOperationOutput() DataSetCastColumnTypeOperationOutput {
-	return o
-}
-
-func (o DataSetCastColumnTypeOperationOutput) ToDataSetCastColumnTypeOperationOutputWithContext(ctx context.Context) DataSetCastColumnTypeOperationOutput {
-	return o
-}
-
-func (o DataSetCastColumnTypeOperationOutput) ToDataSetCastColumnTypeOperationPtrOutput() DataSetCastColumnTypeOperationPtrOutput {
-	return o.ToDataSetCastColumnTypeOperationPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetCastColumnTypeOperationOutput) ToDataSetCastColumnTypeOperationPtrOutputWithContext(ctx context.Context) DataSetCastColumnTypeOperationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetCastColumnTypeOperation) *DataSetCastColumnTypeOperation {
-		return &v
-	}).(DataSetCastColumnTypeOperationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-columnname
-func (o DataSetCastColumnTypeOperationOutput) ColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetCastColumnTypeOperation) string { return v.ColumnName }).(pulumi.StringOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-format
-func (o DataSetCastColumnTypeOperationOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSetCastColumnTypeOperation) *string { return v.Format }).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-newcolumntype
-func (o DataSetCastColumnTypeOperationOutput) NewColumnType() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetCastColumnTypeOperation) string { return v.NewColumnType }).(pulumi.StringOutput)
-}
-
-type DataSetCastColumnTypeOperationPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetCastColumnTypeOperationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetCastColumnTypeOperation)(nil)).Elem()
-}
-
-func (o DataSetCastColumnTypeOperationPtrOutput) ToDataSetCastColumnTypeOperationPtrOutput() DataSetCastColumnTypeOperationPtrOutput {
-	return o
-}
-
-func (o DataSetCastColumnTypeOperationPtrOutput) ToDataSetCastColumnTypeOperationPtrOutputWithContext(ctx context.Context) DataSetCastColumnTypeOperationPtrOutput {
-	return o
-}
-
-func (o DataSetCastColumnTypeOperationPtrOutput) Elem() DataSetCastColumnTypeOperationOutput {
-	return o.ApplyT(func(v *DataSetCastColumnTypeOperation) DataSetCastColumnTypeOperation {
-		if v != nil {
-			return *v
-		}
-		var ret DataSetCastColumnTypeOperation
-		return ret
-	}).(DataSetCastColumnTypeOperationOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-columnname
-func (o DataSetCastColumnTypeOperationPtrOutput) ColumnName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetCastColumnTypeOperation) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ColumnName
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-format
-func (o DataSetCastColumnTypeOperationPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetCastColumnTypeOperation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Format
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-castcolumntypeoperation.html#cfn-quicksight-dataset-castcolumntypeoperation-newcolumntype
-func (o DataSetCastColumnTypeOperationPtrOutput) NewColumnType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetCastColumnTypeOperation) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.NewColumnType
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html
-type DataSetColumnDescription struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html#cfn-quicksight-dataset-columndescription-text
-	Text *string `pulumi:"text"`
-}
-
-// DataSetColumnDescriptionInput is an input type that accepts DataSetColumnDescriptionArgs and DataSetColumnDescriptionOutput values.
-// You can construct a concrete instance of `DataSetColumnDescriptionInput` via:
-//
-//          DataSetColumnDescriptionArgs{...}
-type DataSetColumnDescriptionInput interface {
-	pulumi.Input
-
-	ToDataSetColumnDescriptionOutput() DataSetColumnDescriptionOutput
-	ToDataSetColumnDescriptionOutputWithContext(context.Context) DataSetColumnDescriptionOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html
-type DataSetColumnDescriptionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html#cfn-quicksight-dataset-columndescription-text
-	Text pulumi.StringPtrInput `pulumi:"text"`
-}
-
-func (DataSetColumnDescriptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetColumnDescription)(nil)).Elem()
-}
-
-func (i DataSetColumnDescriptionArgs) ToDataSetColumnDescriptionOutput() DataSetColumnDescriptionOutput {
-	return i.ToDataSetColumnDescriptionOutputWithContext(context.Background())
-}
-
-func (i DataSetColumnDescriptionArgs) ToDataSetColumnDescriptionOutputWithContext(ctx context.Context) DataSetColumnDescriptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnDescriptionOutput)
-}
-
-func (i DataSetColumnDescriptionArgs) ToDataSetColumnDescriptionPtrOutput() DataSetColumnDescriptionPtrOutput {
-	return i.ToDataSetColumnDescriptionPtrOutputWithContext(context.Background())
-}
-
-func (i DataSetColumnDescriptionArgs) ToDataSetColumnDescriptionPtrOutputWithContext(ctx context.Context) DataSetColumnDescriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnDescriptionOutput).ToDataSetColumnDescriptionPtrOutputWithContext(ctx)
-}
-
-// DataSetColumnDescriptionPtrInput is an input type that accepts DataSetColumnDescriptionArgs, DataSetColumnDescriptionPtr and DataSetColumnDescriptionPtrOutput values.
-// You can construct a concrete instance of `DataSetColumnDescriptionPtrInput` via:
-//
-//          DataSetColumnDescriptionArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSetColumnDescriptionPtrInput interface {
-	pulumi.Input
-
-	ToDataSetColumnDescriptionPtrOutput() DataSetColumnDescriptionPtrOutput
-	ToDataSetColumnDescriptionPtrOutputWithContext(context.Context) DataSetColumnDescriptionPtrOutput
-}
-
-type dataSetColumnDescriptionPtrType DataSetColumnDescriptionArgs
-
-func DataSetColumnDescriptionPtr(v *DataSetColumnDescriptionArgs) DataSetColumnDescriptionPtrInput {
-	return (*dataSetColumnDescriptionPtrType)(v)
-}
-
-func (*dataSetColumnDescriptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetColumnDescription)(nil)).Elem()
-}
-
-func (i *dataSetColumnDescriptionPtrType) ToDataSetColumnDescriptionPtrOutput() DataSetColumnDescriptionPtrOutput {
-	return i.ToDataSetColumnDescriptionPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSetColumnDescriptionPtrType) ToDataSetColumnDescriptionPtrOutputWithContext(ctx context.Context) DataSetColumnDescriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnDescriptionPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html
-type DataSetColumnDescriptionOutput struct{ *pulumi.OutputState }
-
-func (DataSetColumnDescriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetColumnDescription)(nil)).Elem()
-}
-
-func (o DataSetColumnDescriptionOutput) ToDataSetColumnDescriptionOutput() DataSetColumnDescriptionOutput {
-	return o
-}
-
-func (o DataSetColumnDescriptionOutput) ToDataSetColumnDescriptionOutputWithContext(ctx context.Context) DataSetColumnDescriptionOutput {
-	return o
-}
-
-func (o DataSetColumnDescriptionOutput) ToDataSetColumnDescriptionPtrOutput() DataSetColumnDescriptionPtrOutput {
-	return o.ToDataSetColumnDescriptionPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetColumnDescriptionOutput) ToDataSetColumnDescriptionPtrOutputWithContext(ctx context.Context) DataSetColumnDescriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetColumnDescription) *DataSetColumnDescription {
-		return &v
-	}).(DataSetColumnDescriptionPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html#cfn-quicksight-dataset-columndescription-text
-func (o DataSetColumnDescriptionOutput) Text() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSetColumnDescription) *string { return v.Text }).(pulumi.StringPtrOutput)
-}
-
-type DataSetColumnDescriptionPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetColumnDescriptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetColumnDescription)(nil)).Elem()
-}
-
-func (o DataSetColumnDescriptionPtrOutput) ToDataSetColumnDescriptionPtrOutput() DataSetColumnDescriptionPtrOutput {
-	return o
-}
-
-func (o DataSetColumnDescriptionPtrOutput) ToDataSetColumnDescriptionPtrOutputWithContext(ctx context.Context) DataSetColumnDescriptionPtrOutput {
-	return o
-}
-
-func (o DataSetColumnDescriptionPtrOutput) Elem() DataSetColumnDescriptionOutput {
-	return o.ApplyT(func(v *DataSetColumnDescription) DataSetColumnDescription {
-		if v != nil {
-			return *v
-		}
-		var ret DataSetColumnDescription
-		return ret
-	}).(DataSetColumnDescriptionOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columndescription.html#cfn-quicksight-dataset-columndescription-text
-func (o DataSetColumnDescriptionPtrOutput) Text() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetColumnDescription) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Text
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html
+// <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
+//             a variant type structure. For this structure to be valid, only one of the attributes can
+//             be non-null.</p>
 type DataSetColumnGroup struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html#cfn-quicksight-dataset-columngroup-geospatialcolumngroup
 	GeoSpatialColumnGroup *DataSetGeoSpatialColumnGroup `pulumi:"geoSpatialColumnGroup"`
 }
 
@@ -3579,9 +3973,10 @@ type DataSetColumnGroupInput interface {
 	ToDataSetColumnGroupOutputWithContext(context.Context) DataSetColumnGroupOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html
+// <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
+//             a variant type structure. For this structure to be valid, only one of the attributes can
+//             be non-null.</p>
 type DataSetColumnGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html#cfn-quicksight-dataset-columngroup-geospatialcolumngroup
 	GeoSpatialColumnGroup DataSetGeoSpatialColumnGroupPtrInput `pulumi:"geoSpatialColumnGroup"`
 }
 
@@ -3622,7 +4017,9 @@ func (i DataSetColumnGroupArray) ToDataSetColumnGroupArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnGroupArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html
+// <p>Groupings of columns that work together in certain Amazon QuickSight features. This is
+//             a variant type structure. For this structure to be valid, only one of the attributes can
+//             be non-null.</p>
 type DataSetColumnGroupOutput struct{ *pulumi.OutputState }
 
 func (DataSetColumnGroupOutput) ElementType() reflect.Type {
@@ -3637,7 +4034,6 @@ func (o DataSetColumnGroupOutput) ToDataSetColumnGroupOutputWithContext(ctx cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columngroup.html#cfn-quicksight-dataset-columngroup-geospatialcolumngroup
 func (o DataSetColumnGroupOutput) GeoSpatialColumnGroup() DataSetGeoSpatialColumnGroupPtrOutput {
 	return o.ApplyT(func(v DataSetColumnGroup) *DataSetGeoSpatialColumnGroup { return v.GeoSpatialColumnGroup }).(DataSetGeoSpatialColumnGroupPtrOutput)
 }
@@ -3662,12 +4058,9 @@ func (o DataSetColumnGroupArrayOutput) Index(i pulumi.IntInput) DataSetColumnGro
 	}).(DataSetColumnGroupOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html
 type DataSetColumnLevelPermissionRule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-columnnames
 	ColumnNames []string `pulumi:"columnNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-principals
-	Principals []string `pulumi:"principals"`
+	Principals  []string `pulumi:"principals"`
 }
 
 // DataSetColumnLevelPermissionRuleInput is an input type that accepts DataSetColumnLevelPermissionRuleArgs and DataSetColumnLevelPermissionRuleOutput values.
@@ -3681,12 +4074,9 @@ type DataSetColumnLevelPermissionRuleInput interface {
 	ToDataSetColumnLevelPermissionRuleOutputWithContext(context.Context) DataSetColumnLevelPermissionRuleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html
 type DataSetColumnLevelPermissionRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-columnnames
 	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-principals
-	Principals pulumi.StringArrayInput `pulumi:"principals"`
+	Principals  pulumi.StringArrayInput `pulumi:"principals"`
 }
 
 func (DataSetColumnLevelPermissionRuleArgs) ElementType() reflect.Type {
@@ -3726,7 +4116,6 @@ func (i DataSetColumnLevelPermissionRuleArray) ToDataSetColumnLevelPermissionRul
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnLevelPermissionRuleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html
 type DataSetColumnLevelPermissionRuleOutput struct{ *pulumi.OutputState }
 
 func (DataSetColumnLevelPermissionRuleOutput) ElementType() reflect.Type {
@@ -3741,12 +4130,10 @@ func (o DataSetColumnLevelPermissionRuleOutput) ToDataSetColumnLevelPermissionRu
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-columnnames
 func (o DataSetColumnLevelPermissionRuleOutput) ColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSetColumnLevelPermissionRule) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-principals
 func (o DataSetColumnLevelPermissionRuleOutput) Principals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSetColumnLevelPermissionRule) []string { return v.Principals }).(pulumi.StringArrayOutput)
 }
@@ -3771,489 +4158,7 @@ func (o DataSetColumnLevelPermissionRuleArrayOutput) Index(i pulumi.IntInput) Da
 	}).(DataSetColumnLevelPermissionRuleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html
-type DataSetColumnTag struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html#cfn-quicksight-dataset-columntag-columndescription
-	ColumnDescription *DataSetColumnDescription `pulumi:"columnDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html#cfn-quicksight-dataset-columntag-columngeographicrole
-	ColumnGeographicRole *string `pulumi:"columnGeographicRole"`
-}
-
-// DataSetColumnTagInput is an input type that accepts DataSetColumnTagArgs and DataSetColumnTagOutput values.
-// You can construct a concrete instance of `DataSetColumnTagInput` via:
-//
-//          DataSetColumnTagArgs{...}
-type DataSetColumnTagInput interface {
-	pulumi.Input
-
-	ToDataSetColumnTagOutput() DataSetColumnTagOutput
-	ToDataSetColumnTagOutputWithContext(context.Context) DataSetColumnTagOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html
-type DataSetColumnTagArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html#cfn-quicksight-dataset-columntag-columndescription
-	ColumnDescription DataSetColumnDescriptionPtrInput `pulumi:"columnDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html#cfn-quicksight-dataset-columntag-columngeographicrole
-	ColumnGeographicRole pulumi.StringPtrInput `pulumi:"columnGeographicRole"`
-}
-
-func (DataSetColumnTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetColumnTag)(nil)).Elem()
-}
-
-func (i DataSetColumnTagArgs) ToDataSetColumnTagOutput() DataSetColumnTagOutput {
-	return i.ToDataSetColumnTagOutputWithContext(context.Background())
-}
-
-func (i DataSetColumnTagArgs) ToDataSetColumnTagOutputWithContext(ctx context.Context) DataSetColumnTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnTagOutput)
-}
-
-// DataSetColumnTagArrayInput is an input type that accepts DataSetColumnTagArray and DataSetColumnTagArrayOutput values.
-// You can construct a concrete instance of `DataSetColumnTagArrayInput` via:
-//
-//          DataSetColumnTagArray{ DataSetColumnTagArgs{...} }
-type DataSetColumnTagArrayInput interface {
-	pulumi.Input
-
-	ToDataSetColumnTagArrayOutput() DataSetColumnTagArrayOutput
-	ToDataSetColumnTagArrayOutputWithContext(context.Context) DataSetColumnTagArrayOutput
-}
-
-type DataSetColumnTagArray []DataSetColumnTagInput
-
-func (DataSetColumnTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSetColumnTag)(nil)).Elem()
-}
-
-func (i DataSetColumnTagArray) ToDataSetColumnTagArrayOutput() DataSetColumnTagArrayOutput {
-	return i.ToDataSetColumnTagArrayOutputWithContext(context.Background())
-}
-
-func (i DataSetColumnTagArray) ToDataSetColumnTagArrayOutputWithContext(ctx context.Context) DataSetColumnTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetColumnTagArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html
-type DataSetColumnTagOutput struct{ *pulumi.OutputState }
-
-func (DataSetColumnTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetColumnTag)(nil)).Elem()
-}
-
-func (o DataSetColumnTagOutput) ToDataSetColumnTagOutput() DataSetColumnTagOutput {
-	return o
-}
-
-func (o DataSetColumnTagOutput) ToDataSetColumnTagOutputWithContext(ctx context.Context) DataSetColumnTagOutput {
-	return o
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html#cfn-quicksight-dataset-columntag-columndescription
-func (o DataSetColumnTagOutput) ColumnDescription() DataSetColumnDescriptionPtrOutput {
-	return o.ApplyT(func(v DataSetColumnTag) *DataSetColumnDescription { return v.ColumnDescription }).(DataSetColumnDescriptionPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columntag.html#cfn-quicksight-dataset-columntag-columngeographicrole
-func (o DataSetColumnTagOutput) ColumnGeographicRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSetColumnTag) *string { return v.ColumnGeographicRole }).(pulumi.StringPtrOutput)
-}
-
-type DataSetColumnTagArrayOutput struct{ *pulumi.OutputState }
-
-func (DataSetColumnTagArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSetColumnTag)(nil)).Elem()
-}
-
-func (o DataSetColumnTagArrayOutput) ToDataSetColumnTagArrayOutput() DataSetColumnTagArrayOutput {
-	return o
-}
-
-func (o DataSetColumnTagArrayOutput) ToDataSetColumnTagArrayOutputWithContext(ctx context.Context) DataSetColumnTagArrayOutput {
-	return o
-}
-
-func (o DataSetColumnTagArrayOutput) Index(i pulumi.IntInput) DataSetColumnTagOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetColumnTag {
-		return vs[0].([]DataSetColumnTag)[vs[1].(int)]
-	}).(DataSetColumnTagOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html
-type DataSetCreateColumnsOperation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html#cfn-quicksight-dataset-createcolumnsoperation-columns
-	Columns []DataSetCalculatedColumn `pulumi:"columns"`
-}
-
-// DataSetCreateColumnsOperationInput is an input type that accepts DataSetCreateColumnsOperationArgs and DataSetCreateColumnsOperationOutput values.
-// You can construct a concrete instance of `DataSetCreateColumnsOperationInput` via:
-//
-//          DataSetCreateColumnsOperationArgs{...}
-type DataSetCreateColumnsOperationInput interface {
-	pulumi.Input
-
-	ToDataSetCreateColumnsOperationOutput() DataSetCreateColumnsOperationOutput
-	ToDataSetCreateColumnsOperationOutputWithContext(context.Context) DataSetCreateColumnsOperationOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html
-type DataSetCreateColumnsOperationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html#cfn-quicksight-dataset-createcolumnsoperation-columns
-	Columns DataSetCalculatedColumnArrayInput `pulumi:"columns"`
-}
-
-func (DataSetCreateColumnsOperationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetCreateColumnsOperation)(nil)).Elem()
-}
-
-func (i DataSetCreateColumnsOperationArgs) ToDataSetCreateColumnsOperationOutput() DataSetCreateColumnsOperationOutput {
-	return i.ToDataSetCreateColumnsOperationOutputWithContext(context.Background())
-}
-
-func (i DataSetCreateColumnsOperationArgs) ToDataSetCreateColumnsOperationOutputWithContext(ctx context.Context) DataSetCreateColumnsOperationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetCreateColumnsOperationOutput)
-}
-
-func (i DataSetCreateColumnsOperationArgs) ToDataSetCreateColumnsOperationPtrOutput() DataSetCreateColumnsOperationPtrOutput {
-	return i.ToDataSetCreateColumnsOperationPtrOutputWithContext(context.Background())
-}
-
-func (i DataSetCreateColumnsOperationArgs) ToDataSetCreateColumnsOperationPtrOutputWithContext(ctx context.Context) DataSetCreateColumnsOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetCreateColumnsOperationOutput).ToDataSetCreateColumnsOperationPtrOutputWithContext(ctx)
-}
-
-// DataSetCreateColumnsOperationPtrInput is an input type that accepts DataSetCreateColumnsOperationArgs, DataSetCreateColumnsOperationPtr and DataSetCreateColumnsOperationPtrOutput values.
-// You can construct a concrete instance of `DataSetCreateColumnsOperationPtrInput` via:
-//
-//          DataSetCreateColumnsOperationArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSetCreateColumnsOperationPtrInput interface {
-	pulumi.Input
-
-	ToDataSetCreateColumnsOperationPtrOutput() DataSetCreateColumnsOperationPtrOutput
-	ToDataSetCreateColumnsOperationPtrOutputWithContext(context.Context) DataSetCreateColumnsOperationPtrOutput
-}
-
-type dataSetCreateColumnsOperationPtrType DataSetCreateColumnsOperationArgs
-
-func DataSetCreateColumnsOperationPtr(v *DataSetCreateColumnsOperationArgs) DataSetCreateColumnsOperationPtrInput {
-	return (*dataSetCreateColumnsOperationPtrType)(v)
-}
-
-func (*dataSetCreateColumnsOperationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetCreateColumnsOperation)(nil)).Elem()
-}
-
-func (i *dataSetCreateColumnsOperationPtrType) ToDataSetCreateColumnsOperationPtrOutput() DataSetCreateColumnsOperationPtrOutput {
-	return i.ToDataSetCreateColumnsOperationPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSetCreateColumnsOperationPtrType) ToDataSetCreateColumnsOperationPtrOutputWithContext(ctx context.Context) DataSetCreateColumnsOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetCreateColumnsOperationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html
-type DataSetCreateColumnsOperationOutput struct{ *pulumi.OutputState }
-
-func (DataSetCreateColumnsOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetCreateColumnsOperation)(nil)).Elem()
-}
-
-func (o DataSetCreateColumnsOperationOutput) ToDataSetCreateColumnsOperationOutput() DataSetCreateColumnsOperationOutput {
-	return o
-}
-
-func (o DataSetCreateColumnsOperationOutput) ToDataSetCreateColumnsOperationOutputWithContext(ctx context.Context) DataSetCreateColumnsOperationOutput {
-	return o
-}
-
-func (o DataSetCreateColumnsOperationOutput) ToDataSetCreateColumnsOperationPtrOutput() DataSetCreateColumnsOperationPtrOutput {
-	return o.ToDataSetCreateColumnsOperationPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetCreateColumnsOperationOutput) ToDataSetCreateColumnsOperationPtrOutputWithContext(ctx context.Context) DataSetCreateColumnsOperationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetCreateColumnsOperation) *DataSetCreateColumnsOperation {
-		return &v
-	}).(DataSetCreateColumnsOperationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html#cfn-quicksight-dataset-createcolumnsoperation-columns
-func (o DataSetCreateColumnsOperationOutput) Columns() DataSetCalculatedColumnArrayOutput {
-	return o.ApplyT(func(v DataSetCreateColumnsOperation) []DataSetCalculatedColumn { return v.Columns }).(DataSetCalculatedColumnArrayOutput)
-}
-
-type DataSetCreateColumnsOperationPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetCreateColumnsOperationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetCreateColumnsOperation)(nil)).Elem()
-}
-
-func (o DataSetCreateColumnsOperationPtrOutput) ToDataSetCreateColumnsOperationPtrOutput() DataSetCreateColumnsOperationPtrOutput {
-	return o
-}
-
-func (o DataSetCreateColumnsOperationPtrOutput) ToDataSetCreateColumnsOperationPtrOutputWithContext(ctx context.Context) DataSetCreateColumnsOperationPtrOutput {
-	return o
-}
-
-func (o DataSetCreateColumnsOperationPtrOutput) Elem() DataSetCreateColumnsOperationOutput {
-	return o.ApplyT(func(v *DataSetCreateColumnsOperation) DataSetCreateColumnsOperation {
-		if v != nil {
-			return *v
-		}
-		var ret DataSetCreateColumnsOperation
-		return ret
-	}).(DataSetCreateColumnsOperationOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-createcolumnsoperation.html#cfn-quicksight-dataset-createcolumnsoperation-columns
-func (o DataSetCreateColumnsOperationPtrOutput) Columns() DataSetCalculatedColumnArrayOutput {
-	return o.ApplyT(func(v *DataSetCreateColumnsOperation) []DataSetCalculatedColumn {
-		if v == nil {
-			return nil
-		}
-		return v.Columns
-	}).(DataSetCalculatedColumnArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html
-type DataSetCustomSql struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-columns
-	Columns []DataSetInputColumn `pulumi:"columns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-datasourcearn
-	DataSourceArn string `pulumi:"dataSourceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-sqlquery
-	SqlQuery string `pulumi:"sqlQuery"`
-}
-
-// DataSetCustomSqlInput is an input type that accepts DataSetCustomSqlArgs and DataSetCustomSqlOutput values.
-// You can construct a concrete instance of `DataSetCustomSqlInput` via:
-//
-//          DataSetCustomSqlArgs{...}
-type DataSetCustomSqlInput interface {
-	pulumi.Input
-
-	ToDataSetCustomSqlOutput() DataSetCustomSqlOutput
-	ToDataSetCustomSqlOutputWithContext(context.Context) DataSetCustomSqlOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html
-type DataSetCustomSqlArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-columns
-	Columns DataSetInputColumnArrayInput `pulumi:"columns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-datasourcearn
-	DataSourceArn pulumi.StringInput `pulumi:"dataSourceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-sqlquery
-	SqlQuery pulumi.StringInput `pulumi:"sqlQuery"`
-}
-
-func (DataSetCustomSqlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetCustomSql)(nil)).Elem()
-}
-
-func (i DataSetCustomSqlArgs) ToDataSetCustomSqlOutput() DataSetCustomSqlOutput {
-	return i.ToDataSetCustomSqlOutputWithContext(context.Background())
-}
-
-func (i DataSetCustomSqlArgs) ToDataSetCustomSqlOutputWithContext(ctx context.Context) DataSetCustomSqlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetCustomSqlOutput)
-}
-
-func (i DataSetCustomSqlArgs) ToDataSetCustomSqlPtrOutput() DataSetCustomSqlPtrOutput {
-	return i.ToDataSetCustomSqlPtrOutputWithContext(context.Background())
-}
-
-func (i DataSetCustomSqlArgs) ToDataSetCustomSqlPtrOutputWithContext(ctx context.Context) DataSetCustomSqlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetCustomSqlOutput).ToDataSetCustomSqlPtrOutputWithContext(ctx)
-}
-
-// DataSetCustomSqlPtrInput is an input type that accepts DataSetCustomSqlArgs, DataSetCustomSqlPtr and DataSetCustomSqlPtrOutput values.
-// You can construct a concrete instance of `DataSetCustomSqlPtrInput` via:
-//
-//          DataSetCustomSqlArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSetCustomSqlPtrInput interface {
-	pulumi.Input
-
-	ToDataSetCustomSqlPtrOutput() DataSetCustomSqlPtrOutput
-	ToDataSetCustomSqlPtrOutputWithContext(context.Context) DataSetCustomSqlPtrOutput
-}
-
-type dataSetCustomSqlPtrType DataSetCustomSqlArgs
-
-func DataSetCustomSqlPtr(v *DataSetCustomSqlArgs) DataSetCustomSqlPtrInput {
-	return (*dataSetCustomSqlPtrType)(v)
-}
-
-func (*dataSetCustomSqlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetCustomSql)(nil)).Elem()
-}
-
-func (i *dataSetCustomSqlPtrType) ToDataSetCustomSqlPtrOutput() DataSetCustomSqlPtrOutput {
-	return i.ToDataSetCustomSqlPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSetCustomSqlPtrType) ToDataSetCustomSqlPtrOutputWithContext(ctx context.Context) DataSetCustomSqlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetCustomSqlPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html
-type DataSetCustomSqlOutput struct{ *pulumi.OutputState }
-
-func (DataSetCustomSqlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetCustomSql)(nil)).Elem()
-}
-
-func (o DataSetCustomSqlOutput) ToDataSetCustomSqlOutput() DataSetCustomSqlOutput {
-	return o
-}
-
-func (o DataSetCustomSqlOutput) ToDataSetCustomSqlOutputWithContext(ctx context.Context) DataSetCustomSqlOutput {
-	return o
-}
-
-func (o DataSetCustomSqlOutput) ToDataSetCustomSqlPtrOutput() DataSetCustomSqlPtrOutput {
-	return o.ToDataSetCustomSqlPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetCustomSqlOutput) ToDataSetCustomSqlPtrOutputWithContext(ctx context.Context) DataSetCustomSqlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetCustomSql) *DataSetCustomSql {
-		return &v
-	}).(DataSetCustomSqlPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-columns
-func (o DataSetCustomSqlOutput) Columns() DataSetInputColumnArrayOutput {
-	return o.ApplyT(func(v DataSetCustomSql) []DataSetInputColumn { return v.Columns }).(DataSetInputColumnArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-datasourcearn
-func (o DataSetCustomSqlOutput) DataSourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetCustomSql) string { return v.DataSourceArn }).(pulumi.StringOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-name
-func (o DataSetCustomSqlOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetCustomSql) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-sqlquery
-func (o DataSetCustomSqlOutput) SqlQuery() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetCustomSql) string { return v.SqlQuery }).(pulumi.StringOutput)
-}
-
-type DataSetCustomSqlPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetCustomSqlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetCustomSql)(nil)).Elem()
-}
-
-func (o DataSetCustomSqlPtrOutput) ToDataSetCustomSqlPtrOutput() DataSetCustomSqlPtrOutput {
-	return o
-}
-
-func (o DataSetCustomSqlPtrOutput) ToDataSetCustomSqlPtrOutputWithContext(ctx context.Context) DataSetCustomSqlPtrOutput {
-	return o
-}
-
-func (o DataSetCustomSqlPtrOutput) Elem() DataSetCustomSqlOutput {
-	return o.ApplyT(func(v *DataSetCustomSql) DataSetCustomSql {
-		if v != nil {
-			return *v
-		}
-		var ret DataSetCustomSql
-		return ret
-	}).(DataSetCustomSqlOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-columns
-func (o DataSetCustomSqlPtrOutput) Columns() DataSetInputColumnArrayOutput {
-	return o.ApplyT(func(v *DataSetCustomSql) []DataSetInputColumn {
-		if v == nil {
-			return nil
-		}
-		return v.Columns
-	}).(DataSetInputColumnArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-datasourcearn
-func (o DataSetCustomSqlPtrOutput) DataSourceArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetCustomSql) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSourceArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-name
-func (o DataSetCustomSqlPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetCustomSql) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-customsql.html#cfn-quicksight-dataset-customsql-sqlquery
-func (o DataSetCustomSqlPtrOutput) SqlQuery() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetCustomSql) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SqlQuery
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html
-type DataSetFieldFolder struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html#cfn-quicksight-dataset-fieldfolder-columns
-	Columns []string `pulumi:"columns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html#cfn-quicksight-dataset-fieldfolder-description
-	Description *string `pulumi:"description"`
-}
-
-// DataSetFieldFolderInput is an input type that accepts DataSetFieldFolderArgs and DataSetFieldFolderOutput values.
-// You can construct a concrete instance of `DataSetFieldFolderInput` via:
-//
-//          DataSetFieldFolderArgs{...}
-type DataSetFieldFolderInput interface {
-	pulumi.Input
-
-	ToDataSetFieldFolderOutput() DataSetFieldFolderOutput
-	ToDataSetFieldFolderOutputWithContext(context.Context) DataSetFieldFolderOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html
-type DataSetFieldFolderArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html#cfn-quicksight-dataset-fieldfolder-columns
-	Columns pulumi.StringArrayInput `pulumi:"columns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html#cfn-quicksight-dataset-fieldfolder-description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-}
-
-func (DataSetFieldFolderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetFieldFolder)(nil)).Elem()
-}
-
-func (i DataSetFieldFolderArgs) ToDataSetFieldFolderOutput() DataSetFieldFolderOutput {
-	return i.ToDataSetFieldFolderOutputWithContext(context.Background())
-}
-
-func (i DataSetFieldFolderArgs) ToDataSetFieldFolderOutputWithContext(ctx context.Context) DataSetFieldFolderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetFieldFolderOutput)
+type DataSetFieldFolderMap struct {
 }
 
 // DataSetFieldFolderMapInput is an input type that accepts DataSetFieldFolderMap and DataSetFieldFolderMapOutput values.
@@ -4267,49 +4172,66 @@ type DataSetFieldFolderMapInput interface {
 	ToDataSetFieldFolderMapOutputWithContext(context.Context) DataSetFieldFolderMapOutput
 }
 
-type DataSetFieldFolderMap map[string]DataSetFieldFolderInput
-
-func (DataSetFieldFolderMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataSetFieldFolder)(nil)).Elem()
+type DataSetFieldFolderMapArgs struct {
 }
 
-func (i DataSetFieldFolderMap) ToDataSetFieldFolderMapOutput() DataSetFieldFolderMapOutput {
+func (DataSetFieldFolderMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetFieldFolderMap)(nil)).Elem()
+}
+
+func (i DataSetFieldFolderMapArgs) ToDataSetFieldFolderMapOutput() DataSetFieldFolderMapOutput {
 	return i.ToDataSetFieldFolderMapOutputWithContext(context.Background())
 }
 
-func (i DataSetFieldFolderMap) ToDataSetFieldFolderMapOutputWithContext(ctx context.Context) DataSetFieldFolderMapOutput {
+func (i DataSetFieldFolderMapArgs) ToDataSetFieldFolderMapOutputWithContext(ctx context.Context) DataSetFieldFolderMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetFieldFolderMapOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html
-type DataSetFieldFolderOutput struct{ *pulumi.OutputState }
-
-func (DataSetFieldFolderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetFieldFolder)(nil)).Elem()
+func (i DataSetFieldFolderMapArgs) ToDataSetFieldFolderMapPtrOutput() DataSetFieldFolderMapPtrOutput {
+	return i.ToDataSetFieldFolderMapPtrOutputWithContext(context.Background())
 }
 
-func (o DataSetFieldFolderOutput) ToDataSetFieldFolderOutput() DataSetFieldFolderOutput {
-	return o
+func (i DataSetFieldFolderMapArgs) ToDataSetFieldFolderMapPtrOutputWithContext(ctx context.Context) DataSetFieldFolderMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetFieldFolderMapOutput).ToDataSetFieldFolderMapPtrOutputWithContext(ctx)
 }
 
-func (o DataSetFieldFolderOutput) ToDataSetFieldFolderOutputWithContext(ctx context.Context) DataSetFieldFolderOutput {
-	return o
+// DataSetFieldFolderMapPtrInput is an input type that accepts DataSetFieldFolderMapArgs, DataSetFieldFolderMapPtr and DataSetFieldFolderMapPtrOutput values.
+// You can construct a concrete instance of `DataSetFieldFolderMapPtrInput` via:
+//
+//          DataSetFieldFolderMapArgs{...}
+//
+//  or:
+//
+//          nil
+type DataSetFieldFolderMapPtrInput interface {
+	pulumi.Input
+
+	ToDataSetFieldFolderMapPtrOutput() DataSetFieldFolderMapPtrOutput
+	ToDataSetFieldFolderMapPtrOutputWithContext(context.Context) DataSetFieldFolderMapPtrOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html#cfn-quicksight-dataset-fieldfolder-columns
-func (o DataSetFieldFolderOutput) Columns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DataSetFieldFolder) []string { return v.Columns }).(pulumi.StringArrayOutput)
+type dataSetFieldFolderMapPtrType DataSetFieldFolderMapArgs
+
+func DataSetFieldFolderMapPtr(v *DataSetFieldFolderMapArgs) DataSetFieldFolderMapPtrInput {
+	return (*dataSetFieldFolderMapPtrType)(v)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html#cfn-quicksight-dataset-fieldfolder-description
-func (o DataSetFieldFolderOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSetFieldFolder) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (*dataSetFieldFolderMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetFieldFolderMap)(nil)).Elem()
+}
+
+func (i *dataSetFieldFolderMapPtrType) ToDataSetFieldFolderMapPtrOutput() DataSetFieldFolderMapPtrOutput {
+	return i.ToDataSetFieldFolderMapPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetFieldFolderMapPtrType) ToDataSetFieldFolderMapPtrOutputWithContext(ctx context.Context) DataSetFieldFolderMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetFieldFolderMapPtrOutput)
 }
 
 type DataSetFieldFolderMapOutput struct{ *pulumi.OutputState }
 
 func (DataSetFieldFolderMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataSetFieldFolder)(nil)).Elem()
+	return reflect.TypeOf((*DataSetFieldFolderMap)(nil)).Elem()
 }
 
 func (o DataSetFieldFolderMapOutput) ToDataSetFieldFolderMapOutput() DataSetFieldFolderMapOutput {
@@ -4320,159 +4242,46 @@ func (o DataSetFieldFolderMapOutput) ToDataSetFieldFolderMapOutputWithContext(ct
 	return o
 }
 
-func (o DataSetFieldFolderMapOutput) MapIndex(k pulumi.StringInput) DataSetFieldFolderOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataSetFieldFolder {
-		return vs[0].(map[string]DataSetFieldFolder)[vs[1].(string)]
-	}).(DataSetFieldFolderOutput)
+func (o DataSetFieldFolderMapOutput) ToDataSetFieldFolderMapPtrOutput() DataSetFieldFolderMapPtrOutput {
+	return o.ToDataSetFieldFolderMapPtrOutputWithContext(context.Background())
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html
-type DataSetFilterOperation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-conditionexpression
-	ConditionExpression string `pulumi:"conditionExpression"`
-}
-
-// DataSetFilterOperationInput is an input type that accepts DataSetFilterOperationArgs and DataSetFilterOperationOutput values.
-// You can construct a concrete instance of `DataSetFilterOperationInput` via:
-//
-//          DataSetFilterOperationArgs{...}
-type DataSetFilterOperationInput interface {
-	pulumi.Input
-
-	ToDataSetFilterOperationOutput() DataSetFilterOperationOutput
-	ToDataSetFilterOperationOutputWithContext(context.Context) DataSetFilterOperationOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html
-type DataSetFilterOperationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-conditionexpression
-	ConditionExpression pulumi.StringInput `pulumi:"conditionExpression"`
-}
-
-func (DataSetFilterOperationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetFilterOperation)(nil)).Elem()
-}
-
-func (i DataSetFilterOperationArgs) ToDataSetFilterOperationOutput() DataSetFilterOperationOutput {
-	return i.ToDataSetFilterOperationOutputWithContext(context.Background())
-}
-
-func (i DataSetFilterOperationArgs) ToDataSetFilterOperationOutputWithContext(ctx context.Context) DataSetFilterOperationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetFilterOperationOutput)
-}
-
-func (i DataSetFilterOperationArgs) ToDataSetFilterOperationPtrOutput() DataSetFilterOperationPtrOutput {
-	return i.ToDataSetFilterOperationPtrOutputWithContext(context.Background())
-}
-
-func (i DataSetFilterOperationArgs) ToDataSetFilterOperationPtrOutputWithContext(ctx context.Context) DataSetFilterOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetFilterOperationOutput).ToDataSetFilterOperationPtrOutputWithContext(ctx)
-}
-
-// DataSetFilterOperationPtrInput is an input type that accepts DataSetFilterOperationArgs, DataSetFilterOperationPtr and DataSetFilterOperationPtrOutput values.
-// You can construct a concrete instance of `DataSetFilterOperationPtrInput` via:
-//
-//          DataSetFilterOperationArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSetFilterOperationPtrInput interface {
-	pulumi.Input
-
-	ToDataSetFilterOperationPtrOutput() DataSetFilterOperationPtrOutput
-	ToDataSetFilterOperationPtrOutputWithContext(context.Context) DataSetFilterOperationPtrOutput
-}
-
-type dataSetFilterOperationPtrType DataSetFilterOperationArgs
-
-func DataSetFilterOperationPtr(v *DataSetFilterOperationArgs) DataSetFilterOperationPtrInput {
-	return (*dataSetFilterOperationPtrType)(v)
-}
-
-func (*dataSetFilterOperationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetFilterOperation)(nil)).Elem()
-}
-
-func (i *dataSetFilterOperationPtrType) ToDataSetFilterOperationPtrOutput() DataSetFilterOperationPtrOutput {
-	return i.ToDataSetFilterOperationPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSetFilterOperationPtrType) ToDataSetFilterOperationPtrOutputWithContext(ctx context.Context) DataSetFilterOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetFilterOperationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html
-type DataSetFilterOperationOutput struct{ *pulumi.OutputState }
-
-func (DataSetFilterOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetFilterOperation)(nil)).Elem()
-}
-
-func (o DataSetFilterOperationOutput) ToDataSetFilterOperationOutput() DataSetFilterOperationOutput {
-	return o
-}
-
-func (o DataSetFilterOperationOutput) ToDataSetFilterOperationOutputWithContext(ctx context.Context) DataSetFilterOperationOutput {
-	return o
-}
-
-func (o DataSetFilterOperationOutput) ToDataSetFilterOperationPtrOutput() DataSetFilterOperationPtrOutput {
-	return o.ToDataSetFilterOperationPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetFilterOperationOutput) ToDataSetFilterOperationPtrOutputWithContext(ctx context.Context) DataSetFilterOperationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetFilterOperation) *DataSetFilterOperation {
+func (o DataSetFieldFolderMapOutput) ToDataSetFieldFolderMapPtrOutputWithContext(ctx context.Context) DataSetFieldFolderMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetFieldFolderMap) *DataSetFieldFolderMap {
 		return &v
-	}).(DataSetFilterOperationPtrOutput)
+	}).(DataSetFieldFolderMapPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-conditionexpression
-func (o DataSetFilterOperationOutput) ConditionExpression() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetFilterOperation) string { return v.ConditionExpression }).(pulumi.StringOutput)
+type DataSetFieldFolderMapPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetFieldFolderMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetFieldFolderMap)(nil)).Elem()
 }
 
-type DataSetFilterOperationPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetFilterOperationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetFilterOperation)(nil)).Elem()
-}
-
-func (o DataSetFilterOperationPtrOutput) ToDataSetFilterOperationPtrOutput() DataSetFilterOperationPtrOutput {
+func (o DataSetFieldFolderMapPtrOutput) ToDataSetFieldFolderMapPtrOutput() DataSetFieldFolderMapPtrOutput {
 	return o
 }
 
-func (o DataSetFilterOperationPtrOutput) ToDataSetFilterOperationPtrOutputWithContext(ctx context.Context) DataSetFilterOperationPtrOutput {
+func (o DataSetFieldFolderMapPtrOutput) ToDataSetFieldFolderMapPtrOutputWithContext(ctx context.Context) DataSetFieldFolderMapPtrOutput {
 	return o
 }
 
-func (o DataSetFilterOperationPtrOutput) Elem() DataSetFilterOperationOutput {
-	return o.ApplyT(func(v *DataSetFilterOperation) DataSetFilterOperation {
+func (o DataSetFieldFolderMapPtrOutput) Elem() DataSetFieldFolderMapOutput {
+	return o.ApplyT(func(v *DataSetFieldFolderMap) DataSetFieldFolderMap {
 		if v != nil {
 			return *v
 		}
-		var ret DataSetFilterOperation
+		var ret DataSetFieldFolderMap
 		return ret
-	}).(DataSetFilterOperationOutput)
+	}).(DataSetFieldFolderMapOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-conditionexpression
-func (o DataSetFilterOperationPtrOutput) ConditionExpression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetFilterOperation) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ConditionExpression
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html
+// <p>Geospatial column group that denotes a hierarchy.</p>
 type DataSetGeoSpatialColumnGroup struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-columns
-	Columns []string `pulumi:"columns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-countrycode
-	CountryCode *string `pulumi:"countryCode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-name
+	// <p>Columns in this hierarchy.</p>
+	Columns     []string `pulumi:"columns"`
+	CountryCode *string  `pulumi:"countryCode"`
+	// <p>A display name for the hierarchy.</p>
 	Name string `pulumi:"name"`
 }
 
@@ -4487,13 +4296,12 @@ type DataSetGeoSpatialColumnGroupInput interface {
 	ToDataSetGeoSpatialColumnGroupOutputWithContext(context.Context) DataSetGeoSpatialColumnGroupOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html
+// <p>Geospatial column group that denotes a hierarchy.</p>
 type DataSetGeoSpatialColumnGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-columns
-	Columns pulumi.StringArrayInput `pulumi:"columns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-countrycode
-	CountryCode pulumi.StringPtrInput `pulumi:"countryCode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-name
+	// <p>Columns in this hierarchy.</p>
+	Columns     pulumi.StringArrayInput `pulumi:"columns"`
+	CountryCode pulumi.StringPtrInput   `pulumi:"countryCode"`
+	// <p>A display name for the hierarchy.</p>
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -4550,7 +4358,7 @@ func (i *dataSetGeoSpatialColumnGroupPtrType) ToDataSetGeoSpatialColumnGroupPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetGeoSpatialColumnGroupPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html
+// <p>Geospatial column group that denotes a hierarchy.</p>
 type DataSetGeoSpatialColumnGroupOutput struct{ *pulumi.OutputState }
 
 func (DataSetGeoSpatialColumnGroupOutput) ElementType() reflect.Type {
@@ -4575,17 +4383,16 @@ func (o DataSetGeoSpatialColumnGroupOutput) ToDataSetGeoSpatialColumnGroupPtrOut
 	}).(DataSetGeoSpatialColumnGroupPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-columns
+// <p>Columns in this hierarchy.</p>
 func (o DataSetGeoSpatialColumnGroupOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSetGeoSpatialColumnGroup) []string { return v.Columns }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-countrycode
 func (o DataSetGeoSpatialColumnGroupOutput) CountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetGeoSpatialColumnGroup) *string { return v.CountryCode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-name
+// <p>A display name for the hierarchy.</p>
 func (o DataSetGeoSpatialColumnGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetGeoSpatialColumnGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4614,7 +4421,7 @@ func (o DataSetGeoSpatialColumnGroupPtrOutput) Elem() DataSetGeoSpatialColumnGro
 	}).(DataSetGeoSpatialColumnGroupOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-columns
+// <p>Columns in this hierarchy.</p>
 func (o DataSetGeoSpatialColumnGroupPtrOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSetGeoSpatialColumnGroup) []string {
 		if v == nil {
@@ -4624,7 +4431,6 @@ func (o DataSetGeoSpatialColumnGroupPtrOutput) Columns() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-countrycode
 func (o DataSetGeoSpatialColumnGroupPtrOutput) CountryCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetGeoSpatialColumnGroup) *string {
 		if v == nil {
@@ -4634,7 +4440,7 @@ func (o DataSetGeoSpatialColumnGroupPtrOutput) CountryCode() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-name
+// <p>A display name for the hierarchy.</p>
 func (o DataSetGeoSpatialColumnGroupPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetGeoSpatialColumnGroup) *string {
 		if v == nil {
@@ -4644,11 +4450,13 @@ func (o DataSetGeoSpatialColumnGroupPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html
+// <p>Wait policy to use when creating/updating dataset. Default is to wait for SPICE ingestion to finish with timeout of 36 hours.</p>
 type DataSetIngestionWaitPolicy struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-ingestionwaittimeinhours
+	// <p>The maximum time (in hours) to wait for Ingestion to complete. Default timeout is 36 hours.
+	//  Applicable only when DataSetImportMode mode is set to SPICE and WaitForSpiceIngestion is set to true.</p>
 	IngestionWaitTimeInHours *float64 `pulumi:"ingestionWaitTimeInHours"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-waitforspiceingestion
+	// <p>Wait for SPICE ingestion to finish to mark dataset creation/update successful. Default (true).
+	//   Applicable only when DataSetImportMode mode is set to SPICE.</p>
 	WaitForSpiceIngestion *bool `pulumi:"waitForSpiceIngestion"`
 }
 
@@ -4663,11 +4471,13 @@ type DataSetIngestionWaitPolicyInput interface {
 	ToDataSetIngestionWaitPolicyOutputWithContext(context.Context) DataSetIngestionWaitPolicyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html
+// <p>Wait policy to use when creating/updating dataset. Default is to wait for SPICE ingestion to finish with timeout of 36 hours.</p>
 type DataSetIngestionWaitPolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-ingestionwaittimeinhours
+	// <p>The maximum time (in hours) to wait for Ingestion to complete. Default timeout is 36 hours.
+	//  Applicable only when DataSetImportMode mode is set to SPICE and WaitForSpiceIngestion is set to true.</p>
 	IngestionWaitTimeInHours pulumi.Float64PtrInput `pulumi:"ingestionWaitTimeInHours"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-waitforspiceingestion
+	// <p>Wait for SPICE ingestion to finish to mark dataset creation/update successful. Default (true).
+	//   Applicable only when DataSetImportMode mode is set to SPICE.</p>
 	WaitForSpiceIngestion pulumi.BoolPtrInput `pulumi:"waitForSpiceIngestion"`
 }
 
@@ -4724,7 +4534,7 @@ func (i *dataSetIngestionWaitPolicyPtrType) ToDataSetIngestionWaitPolicyPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetIngestionWaitPolicyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html
+// <p>Wait policy to use when creating/updating dataset. Default is to wait for SPICE ingestion to finish with timeout of 36 hours.</p>
 type DataSetIngestionWaitPolicyOutput struct{ *pulumi.OutputState }
 
 func (DataSetIngestionWaitPolicyOutput) ElementType() reflect.Type {
@@ -4749,12 +4559,14 @@ func (o DataSetIngestionWaitPolicyOutput) ToDataSetIngestionWaitPolicyPtrOutputW
 	}).(DataSetIngestionWaitPolicyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-ingestionwaittimeinhours
+// <p>The maximum time (in hours) to wait for Ingestion to complete. Default timeout is 36 hours.
+//  Applicable only when DataSetImportMode mode is set to SPICE and WaitForSpiceIngestion is set to true.</p>
 func (o DataSetIngestionWaitPolicyOutput) IngestionWaitTimeInHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DataSetIngestionWaitPolicy) *float64 { return v.IngestionWaitTimeInHours }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-waitforspiceingestion
+// <p>Wait for SPICE ingestion to finish to mark dataset creation/update successful. Default (true).
+//   Applicable only when DataSetImportMode mode is set to SPICE.</p>
 func (o DataSetIngestionWaitPolicyOutput) WaitForSpiceIngestion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSetIngestionWaitPolicy) *bool { return v.WaitForSpiceIngestion }).(pulumi.BoolPtrOutput)
 }
@@ -4783,7 +4595,8 @@ func (o DataSetIngestionWaitPolicyPtrOutput) Elem() DataSetIngestionWaitPolicyOu
 	}).(DataSetIngestionWaitPolicyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-ingestionwaittimeinhours
+// <p>The maximum time (in hours) to wait for Ingestion to complete. Default timeout is 36 hours.
+//  Applicable only when DataSetImportMode mode is set to SPICE and WaitForSpiceIngestion is set to true.</p>
 func (o DataSetIngestionWaitPolicyPtrOutput) IngestionWaitTimeInHours() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataSetIngestionWaitPolicy) *float64 {
 		if v == nil {
@@ -4793,7 +4606,8 @@ func (o DataSetIngestionWaitPolicyPtrOutput) IngestionWaitTimeInHours() pulumi.F
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-ingestionwaitpolicy.html#cfn-quicksight-dataset-ingestionwaitpolicy-waitforspiceingestion
+// <p>Wait for SPICE ingestion to finish to mark dataset creation/update successful. Default (true).
+//   Applicable only when DataSetImportMode mode is set to SPICE.</p>
 func (o DataSetIngestionWaitPolicyPtrOutput) WaitForSpiceIngestion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSetIngestionWaitPolicy) *bool {
 		if v == nil {
@@ -4803,531 +4617,7 @@ func (o DataSetIngestionWaitPolicyPtrOutput) WaitForSpiceIngestion() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html
-type DataSetInputColumn struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-type
-	Type string `pulumi:"type"`
-}
-
-// DataSetInputColumnInput is an input type that accepts DataSetInputColumnArgs and DataSetInputColumnOutput values.
-// You can construct a concrete instance of `DataSetInputColumnInput` via:
-//
-//          DataSetInputColumnArgs{...}
-type DataSetInputColumnInput interface {
-	pulumi.Input
-
-	ToDataSetInputColumnOutput() DataSetInputColumnOutput
-	ToDataSetInputColumnOutputWithContext(context.Context) DataSetInputColumnOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html
-type DataSetInputColumnArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DataSetInputColumnArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetInputColumn)(nil)).Elem()
-}
-
-func (i DataSetInputColumnArgs) ToDataSetInputColumnOutput() DataSetInputColumnOutput {
-	return i.ToDataSetInputColumnOutputWithContext(context.Background())
-}
-
-func (i DataSetInputColumnArgs) ToDataSetInputColumnOutputWithContext(ctx context.Context) DataSetInputColumnOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetInputColumnOutput)
-}
-
-// DataSetInputColumnArrayInput is an input type that accepts DataSetInputColumnArray and DataSetInputColumnArrayOutput values.
-// You can construct a concrete instance of `DataSetInputColumnArrayInput` via:
-//
-//          DataSetInputColumnArray{ DataSetInputColumnArgs{...} }
-type DataSetInputColumnArrayInput interface {
-	pulumi.Input
-
-	ToDataSetInputColumnArrayOutput() DataSetInputColumnArrayOutput
-	ToDataSetInputColumnArrayOutputWithContext(context.Context) DataSetInputColumnArrayOutput
-}
-
-type DataSetInputColumnArray []DataSetInputColumnInput
-
-func (DataSetInputColumnArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSetInputColumn)(nil)).Elem()
-}
-
-func (i DataSetInputColumnArray) ToDataSetInputColumnArrayOutput() DataSetInputColumnArrayOutput {
-	return i.ToDataSetInputColumnArrayOutputWithContext(context.Background())
-}
-
-func (i DataSetInputColumnArray) ToDataSetInputColumnArrayOutputWithContext(ctx context.Context) DataSetInputColumnArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetInputColumnArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html
-type DataSetInputColumnOutput struct{ *pulumi.OutputState }
-
-func (DataSetInputColumnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetInputColumn)(nil)).Elem()
-}
-
-func (o DataSetInputColumnOutput) ToDataSetInputColumnOutput() DataSetInputColumnOutput {
-	return o
-}
-
-func (o DataSetInputColumnOutput) ToDataSetInputColumnOutputWithContext(ctx context.Context) DataSetInputColumnOutput {
-	return o
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-name
-func (o DataSetInputColumnOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetInputColumn) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html#cfn-quicksight-dataset-inputcolumn-type
-func (o DataSetInputColumnOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetInputColumn) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type DataSetInputColumnArrayOutput struct{ *pulumi.OutputState }
-
-func (DataSetInputColumnArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSetInputColumn)(nil)).Elem()
-}
-
-func (o DataSetInputColumnArrayOutput) ToDataSetInputColumnArrayOutput() DataSetInputColumnArrayOutput {
-	return o
-}
-
-func (o DataSetInputColumnArrayOutput) ToDataSetInputColumnArrayOutputWithContext(ctx context.Context) DataSetInputColumnArrayOutput {
-	return o
-}
-
-func (o DataSetInputColumnArrayOutput) Index(i pulumi.IntInput) DataSetInputColumnOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetInputColumn {
-		return vs[0].([]DataSetInputColumn)[vs[1].(int)]
-	}).(DataSetInputColumnOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html
-type DataSetJoinInstruction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftjoinkeyproperties
-	LeftJoinKeyProperties *DataSetJoinKeyProperties `pulumi:"leftJoinKeyProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftoperand
-	LeftOperand string `pulumi:"leftOperand"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-onclause
-	OnClause string `pulumi:"onClause"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightjoinkeyproperties
-	RightJoinKeyProperties *DataSetJoinKeyProperties `pulumi:"rightJoinKeyProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightoperand
-	RightOperand string `pulumi:"rightOperand"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-type
-	Type string `pulumi:"type"`
-}
-
-// DataSetJoinInstructionInput is an input type that accepts DataSetJoinInstructionArgs and DataSetJoinInstructionOutput values.
-// You can construct a concrete instance of `DataSetJoinInstructionInput` via:
-//
-//          DataSetJoinInstructionArgs{...}
-type DataSetJoinInstructionInput interface {
-	pulumi.Input
-
-	ToDataSetJoinInstructionOutput() DataSetJoinInstructionOutput
-	ToDataSetJoinInstructionOutputWithContext(context.Context) DataSetJoinInstructionOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html
-type DataSetJoinInstructionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftjoinkeyproperties
-	LeftJoinKeyProperties DataSetJoinKeyPropertiesPtrInput `pulumi:"leftJoinKeyProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftoperand
-	LeftOperand pulumi.StringInput `pulumi:"leftOperand"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-onclause
-	OnClause pulumi.StringInput `pulumi:"onClause"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightjoinkeyproperties
-	RightJoinKeyProperties DataSetJoinKeyPropertiesPtrInput `pulumi:"rightJoinKeyProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightoperand
-	RightOperand pulumi.StringInput `pulumi:"rightOperand"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DataSetJoinInstructionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetJoinInstruction)(nil)).Elem()
-}
-
-func (i DataSetJoinInstructionArgs) ToDataSetJoinInstructionOutput() DataSetJoinInstructionOutput {
-	return i.ToDataSetJoinInstructionOutputWithContext(context.Background())
-}
-
-func (i DataSetJoinInstructionArgs) ToDataSetJoinInstructionOutputWithContext(ctx context.Context) DataSetJoinInstructionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetJoinInstructionOutput)
-}
-
-func (i DataSetJoinInstructionArgs) ToDataSetJoinInstructionPtrOutput() DataSetJoinInstructionPtrOutput {
-	return i.ToDataSetJoinInstructionPtrOutputWithContext(context.Background())
-}
-
-func (i DataSetJoinInstructionArgs) ToDataSetJoinInstructionPtrOutputWithContext(ctx context.Context) DataSetJoinInstructionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetJoinInstructionOutput).ToDataSetJoinInstructionPtrOutputWithContext(ctx)
-}
-
-// DataSetJoinInstructionPtrInput is an input type that accepts DataSetJoinInstructionArgs, DataSetJoinInstructionPtr and DataSetJoinInstructionPtrOutput values.
-// You can construct a concrete instance of `DataSetJoinInstructionPtrInput` via:
-//
-//          DataSetJoinInstructionArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSetJoinInstructionPtrInput interface {
-	pulumi.Input
-
-	ToDataSetJoinInstructionPtrOutput() DataSetJoinInstructionPtrOutput
-	ToDataSetJoinInstructionPtrOutputWithContext(context.Context) DataSetJoinInstructionPtrOutput
-}
-
-type dataSetJoinInstructionPtrType DataSetJoinInstructionArgs
-
-func DataSetJoinInstructionPtr(v *DataSetJoinInstructionArgs) DataSetJoinInstructionPtrInput {
-	return (*dataSetJoinInstructionPtrType)(v)
-}
-
-func (*dataSetJoinInstructionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetJoinInstruction)(nil)).Elem()
-}
-
-func (i *dataSetJoinInstructionPtrType) ToDataSetJoinInstructionPtrOutput() DataSetJoinInstructionPtrOutput {
-	return i.ToDataSetJoinInstructionPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSetJoinInstructionPtrType) ToDataSetJoinInstructionPtrOutputWithContext(ctx context.Context) DataSetJoinInstructionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetJoinInstructionPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html
-type DataSetJoinInstructionOutput struct{ *pulumi.OutputState }
-
-func (DataSetJoinInstructionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetJoinInstruction)(nil)).Elem()
-}
-
-func (o DataSetJoinInstructionOutput) ToDataSetJoinInstructionOutput() DataSetJoinInstructionOutput {
-	return o
-}
-
-func (o DataSetJoinInstructionOutput) ToDataSetJoinInstructionOutputWithContext(ctx context.Context) DataSetJoinInstructionOutput {
-	return o
-}
-
-func (o DataSetJoinInstructionOutput) ToDataSetJoinInstructionPtrOutput() DataSetJoinInstructionPtrOutput {
-	return o.ToDataSetJoinInstructionPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetJoinInstructionOutput) ToDataSetJoinInstructionPtrOutputWithContext(ctx context.Context) DataSetJoinInstructionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetJoinInstruction) *DataSetJoinInstruction {
-		return &v
-	}).(DataSetJoinInstructionPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftjoinkeyproperties
-func (o DataSetJoinInstructionOutput) LeftJoinKeyProperties() DataSetJoinKeyPropertiesPtrOutput {
-	return o.ApplyT(func(v DataSetJoinInstruction) *DataSetJoinKeyProperties { return v.LeftJoinKeyProperties }).(DataSetJoinKeyPropertiesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftoperand
-func (o DataSetJoinInstructionOutput) LeftOperand() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetJoinInstruction) string { return v.LeftOperand }).(pulumi.StringOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-onclause
-func (o DataSetJoinInstructionOutput) OnClause() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetJoinInstruction) string { return v.OnClause }).(pulumi.StringOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightjoinkeyproperties
-func (o DataSetJoinInstructionOutput) RightJoinKeyProperties() DataSetJoinKeyPropertiesPtrOutput {
-	return o.ApplyT(func(v DataSetJoinInstruction) *DataSetJoinKeyProperties { return v.RightJoinKeyProperties }).(DataSetJoinKeyPropertiesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightoperand
-func (o DataSetJoinInstructionOutput) RightOperand() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetJoinInstruction) string { return v.RightOperand }).(pulumi.StringOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-type
-func (o DataSetJoinInstructionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetJoinInstruction) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type DataSetJoinInstructionPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetJoinInstructionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetJoinInstruction)(nil)).Elem()
-}
-
-func (o DataSetJoinInstructionPtrOutput) ToDataSetJoinInstructionPtrOutput() DataSetJoinInstructionPtrOutput {
-	return o
-}
-
-func (o DataSetJoinInstructionPtrOutput) ToDataSetJoinInstructionPtrOutputWithContext(ctx context.Context) DataSetJoinInstructionPtrOutput {
-	return o
-}
-
-func (o DataSetJoinInstructionPtrOutput) Elem() DataSetJoinInstructionOutput {
-	return o.ApplyT(func(v *DataSetJoinInstruction) DataSetJoinInstruction {
-		if v != nil {
-			return *v
-		}
-		var ret DataSetJoinInstruction
-		return ret
-	}).(DataSetJoinInstructionOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftjoinkeyproperties
-func (o DataSetJoinInstructionPtrOutput) LeftJoinKeyProperties() DataSetJoinKeyPropertiesPtrOutput {
-	return o.ApplyT(func(v *DataSetJoinInstruction) *DataSetJoinKeyProperties {
-		if v == nil {
-			return nil
-		}
-		return v.LeftJoinKeyProperties
-	}).(DataSetJoinKeyPropertiesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-leftoperand
-func (o DataSetJoinInstructionPtrOutput) LeftOperand() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetJoinInstruction) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LeftOperand
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-onclause
-func (o DataSetJoinInstructionPtrOutput) OnClause() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetJoinInstruction) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OnClause
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightjoinkeyproperties
-func (o DataSetJoinInstructionPtrOutput) RightJoinKeyProperties() DataSetJoinKeyPropertiesPtrOutput {
-	return o.ApplyT(func(v *DataSetJoinInstruction) *DataSetJoinKeyProperties {
-		if v == nil {
-			return nil
-		}
-		return v.RightJoinKeyProperties
-	}).(DataSetJoinKeyPropertiesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-rightoperand
-func (o DataSetJoinInstructionPtrOutput) RightOperand() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetJoinInstruction) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RightOperand
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joininstruction.html#cfn-quicksight-dataset-joininstruction-type
-func (o DataSetJoinInstructionPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetJoinInstruction) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html
-type DataSetJoinKeyProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html#cfn-quicksight-dataset-joinkeyproperties-uniquekey
-	UniqueKey *bool `pulumi:"uniqueKey"`
-}
-
-// DataSetJoinKeyPropertiesInput is an input type that accepts DataSetJoinKeyPropertiesArgs and DataSetJoinKeyPropertiesOutput values.
-// You can construct a concrete instance of `DataSetJoinKeyPropertiesInput` via:
-//
-//          DataSetJoinKeyPropertiesArgs{...}
-type DataSetJoinKeyPropertiesInput interface {
-	pulumi.Input
-
-	ToDataSetJoinKeyPropertiesOutput() DataSetJoinKeyPropertiesOutput
-	ToDataSetJoinKeyPropertiesOutputWithContext(context.Context) DataSetJoinKeyPropertiesOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html
-type DataSetJoinKeyPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html#cfn-quicksight-dataset-joinkeyproperties-uniquekey
-	UniqueKey pulumi.BoolPtrInput `pulumi:"uniqueKey"`
-}
-
-func (DataSetJoinKeyPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetJoinKeyProperties)(nil)).Elem()
-}
-
-func (i DataSetJoinKeyPropertiesArgs) ToDataSetJoinKeyPropertiesOutput() DataSetJoinKeyPropertiesOutput {
-	return i.ToDataSetJoinKeyPropertiesOutputWithContext(context.Background())
-}
-
-func (i DataSetJoinKeyPropertiesArgs) ToDataSetJoinKeyPropertiesOutputWithContext(ctx context.Context) DataSetJoinKeyPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetJoinKeyPropertiesOutput)
-}
-
-func (i DataSetJoinKeyPropertiesArgs) ToDataSetJoinKeyPropertiesPtrOutput() DataSetJoinKeyPropertiesPtrOutput {
-	return i.ToDataSetJoinKeyPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i DataSetJoinKeyPropertiesArgs) ToDataSetJoinKeyPropertiesPtrOutputWithContext(ctx context.Context) DataSetJoinKeyPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetJoinKeyPropertiesOutput).ToDataSetJoinKeyPropertiesPtrOutputWithContext(ctx)
-}
-
-// DataSetJoinKeyPropertiesPtrInput is an input type that accepts DataSetJoinKeyPropertiesArgs, DataSetJoinKeyPropertiesPtr and DataSetJoinKeyPropertiesPtrOutput values.
-// You can construct a concrete instance of `DataSetJoinKeyPropertiesPtrInput` via:
-//
-//          DataSetJoinKeyPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSetJoinKeyPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToDataSetJoinKeyPropertiesPtrOutput() DataSetJoinKeyPropertiesPtrOutput
-	ToDataSetJoinKeyPropertiesPtrOutputWithContext(context.Context) DataSetJoinKeyPropertiesPtrOutput
-}
-
-type dataSetJoinKeyPropertiesPtrType DataSetJoinKeyPropertiesArgs
-
-func DataSetJoinKeyPropertiesPtr(v *DataSetJoinKeyPropertiesArgs) DataSetJoinKeyPropertiesPtrInput {
-	return (*dataSetJoinKeyPropertiesPtrType)(v)
-}
-
-func (*dataSetJoinKeyPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetJoinKeyProperties)(nil)).Elem()
-}
-
-func (i *dataSetJoinKeyPropertiesPtrType) ToDataSetJoinKeyPropertiesPtrOutput() DataSetJoinKeyPropertiesPtrOutput {
-	return i.ToDataSetJoinKeyPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSetJoinKeyPropertiesPtrType) ToDataSetJoinKeyPropertiesPtrOutputWithContext(ctx context.Context) DataSetJoinKeyPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetJoinKeyPropertiesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html
-type DataSetJoinKeyPropertiesOutput struct{ *pulumi.OutputState }
-
-func (DataSetJoinKeyPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetJoinKeyProperties)(nil)).Elem()
-}
-
-func (o DataSetJoinKeyPropertiesOutput) ToDataSetJoinKeyPropertiesOutput() DataSetJoinKeyPropertiesOutput {
-	return o
-}
-
-func (o DataSetJoinKeyPropertiesOutput) ToDataSetJoinKeyPropertiesOutputWithContext(ctx context.Context) DataSetJoinKeyPropertiesOutput {
-	return o
-}
-
-func (o DataSetJoinKeyPropertiesOutput) ToDataSetJoinKeyPropertiesPtrOutput() DataSetJoinKeyPropertiesPtrOutput {
-	return o.ToDataSetJoinKeyPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetJoinKeyPropertiesOutput) ToDataSetJoinKeyPropertiesPtrOutputWithContext(ctx context.Context) DataSetJoinKeyPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetJoinKeyProperties) *DataSetJoinKeyProperties {
-		return &v
-	}).(DataSetJoinKeyPropertiesPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html#cfn-quicksight-dataset-joinkeyproperties-uniquekey
-func (o DataSetJoinKeyPropertiesOutput) UniqueKey() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DataSetJoinKeyProperties) *bool { return v.UniqueKey }).(pulumi.BoolPtrOutput)
-}
-
-type DataSetJoinKeyPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetJoinKeyPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetJoinKeyProperties)(nil)).Elem()
-}
-
-func (o DataSetJoinKeyPropertiesPtrOutput) ToDataSetJoinKeyPropertiesPtrOutput() DataSetJoinKeyPropertiesPtrOutput {
-	return o
-}
-
-func (o DataSetJoinKeyPropertiesPtrOutput) ToDataSetJoinKeyPropertiesPtrOutputWithContext(ctx context.Context) DataSetJoinKeyPropertiesPtrOutput {
-	return o
-}
-
-func (o DataSetJoinKeyPropertiesPtrOutput) Elem() DataSetJoinKeyPropertiesOutput {
-	return o.ApplyT(func(v *DataSetJoinKeyProperties) DataSetJoinKeyProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DataSetJoinKeyProperties
-		return ret
-	}).(DataSetJoinKeyPropertiesOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-joinkeyproperties.html#cfn-quicksight-dataset-joinkeyproperties-uniquekey
-func (o DataSetJoinKeyPropertiesPtrOutput) UniqueKey() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DataSetJoinKeyProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.UniqueKey
-	}).(pulumi.BoolPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html
-type DataSetLogicalTable struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-alias
-	Alias string `pulumi:"alias"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-datatransforms
-	DataTransforms []DataSetTransformOperation `pulumi:"dataTransforms"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-source
-	Source DataSetLogicalTableSource `pulumi:"source"`
-}
-
-// DataSetLogicalTableInput is an input type that accepts DataSetLogicalTableArgs and DataSetLogicalTableOutput values.
-// You can construct a concrete instance of `DataSetLogicalTableInput` via:
-//
-//          DataSetLogicalTableArgs{...}
-type DataSetLogicalTableInput interface {
-	pulumi.Input
-
-	ToDataSetLogicalTableOutput() DataSetLogicalTableOutput
-	ToDataSetLogicalTableOutputWithContext(context.Context) DataSetLogicalTableOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html
-type DataSetLogicalTableArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-alias
-	Alias pulumi.StringInput `pulumi:"alias"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-datatransforms
-	DataTransforms DataSetTransformOperationArrayInput `pulumi:"dataTransforms"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-source
-	Source DataSetLogicalTableSourceInput `pulumi:"source"`
-}
-
-func (DataSetLogicalTableArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetLogicalTable)(nil)).Elem()
-}
-
-func (i DataSetLogicalTableArgs) ToDataSetLogicalTableOutput() DataSetLogicalTableOutput {
-	return i.ToDataSetLogicalTableOutputWithContext(context.Background())
-}
-
-func (i DataSetLogicalTableArgs) ToDataSetLogicalTableOutputWithContext(ctx context.Context) DataSetLogicalTableOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableOutput)
+type DataSetLogicalTableMap struct {
 }
 
 // DataSetLogicalTableMapInput is an input type that accepts DataSetLogicalTableMap and DataSetLogicalTableMapOutput values.
@@ -5341,54 +4631,66 @@ type DataSetLogicalTableMapInput interface {
 	ToDataSetLogicalTableMapOutputWithContext(context.Context) DataSetLogicalTableMapOutput
 }
 
-type DataSetLogicalTableMap map[string]DataSetLogicalTableInput
-
-func (DataSetLogicalTableMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataSetLogicalTable)(nil)).Elem()
+type DataSetLogicalTableMapArgs struct {
 }
 
-func (i DataSetLogicalTableMap) ToDataSetLogicalTableMapOutput() DataSetLogicalTableMapOutput {
+func (DataSetLogicalTableMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetLogicalTableMap)(nil)).Elem()
+}
+
+func (i DataSetLogicalTableMapArgs) ToDataSetLogicalTableMapOutput() DataSetLogicalTableMapOutput {
 	return i.ToDataSetLogicalTableMapOutputWithContext(context.Background())
 }
 
-func (i DataSetLogicalTableMap) ToDataSetLogicalTableMapOutputWithContext(ctx context.Context) DataSetLogicalTableMapOutput {
+func (i DataSetLogicalTableMapArgs) ToDataSetLogicalTableMapOutputWithContext(ctx context.Context) DataSetLogicalTableMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html
-type DataSetLogicalTableOutput struct{ *pulumi.OutputState }
-
-func (DataSetLogicalTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetLogicalTable)(nil)).Elem()
+func (i DataSetLogicalTableMapArgs) ToDataSetLogicalTableMapPtrOutput() DataSetLogicalTableMapPtrOutput {
+	return i.ToDataSetLogicalTableMapPtrOutputWithContext(context.Background())
 }
 
-func (o DataSetLogicalTableOutput) ToDataSetLogicalTableOutput() DataSetLogicalTableOutput {
-	return o
+func (i DataSetLogicalTableMapArgs) ToDataSetLogicalTableMapPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapOutput).ToDataSetLogicalTableMapPtrOutputWithContext(ctx)
 }
 
-func (o DataSetLogicalTableOutput) ToDataSetLogicalTableOutputWithContext(ctx context.Context) DataSetLogicalTableOutput {
-	return o
+// DataSetLogicalTableMapPtrInput is an input type that accepts DataSetLogicalTableMapArgs, DataSetLogicalTableMapPtr and DataSetLogicalTableMapPtrOutput values.
+// You can construct a concrete instance of `DataSetLogicalTableMapPtrInput` via:
+//
+//          DataSetLogicalTableMapArgs{...}
+//
+//  or:
+//
+//          nil
+type DataSetLogicalTableMapPtrInput interface {
+	pulumi.Input
+
+	ToDataSetLogicalTableMapPtrOutput() DataSetLogicalTableMapPtrOutput
+	ToDataSetLogicalTableMapPtrOutputWithContext(context.Context) DataSetLogicalTableMapPtrOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-alias
-func (o DataSetLogicalTableOutput) Alias() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetLogicalTable) string { return v.Alias }).(pulumi.StringOutput)
+type dataSetLogicalTableMapPtrType DataSetLogicalTableMapArgs
+
+func DataSetLogicalTableMapPtr(v *DataSetLogicalTableMapArgs) DataSetLogicalTableMapPtrInput {
+	return (*dataSetLogicalTableMapPtrType)(v)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-datatransforms
-func (o DataSetLogicalTableOutput) DataTransforms() DataSetTransformOperationArrayOutput {
-	return o.ApplyT(func(v DataSetLogicalTable) []DataSetTransformOperation { return v.DataTransforms }).(DataSetTransformOperationArrayOutput)
+func (*dataSetLogicalTableMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMap)(nil)).Elem()
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltable.html#cfn-quicksight-dataset-logicaltable-source
-func (o DataSetLogicalTableOutput) Source() DataSetLogicalTableSourceOutput {
-	return o.ApplyT(func(v DataSetLogicalTable) DataSetLogicalTableSource { return v.Source }).(DataSetLogicalTableSourceOutput)
+func (i *dataSetLogicalTableMapPtrType) ToDataSetLogicalTableMapPtrOutput() DataSetLogicalTableMapPtrOutput {
+	return i.ToDataSetLogicalTableMapPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetLogicalTableMapPtrType) ToDataSetLogicalTableMapPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableMapPtrOutput)
 }
 
 type DataSetLogicalTableMapOutput struct{ *pulumi.OutputState }
 
 func (DataSetLogicalTableMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataSetLogicalTable)(nil)).Elem()
+	return reflect.TypeOf((*DataSetLogicalTableMap)(nil)).Elem()
 }
 
 func (o DataSetLogicalTableMapOutput) ToDataSetLogicalTableMapOutput() DataSetLogicalTableMapOutput {
@@ -5399,83 +4701,46 @@ func (o DataSetLogicalTableMapOutput) ToDataSetLogicalTableMapOutputWithContext(
 	return o
 }
 
-func (o DataSetLogicalTableMapOutput) MapIndex(k pulumi.StringInput) DataSetLogicalTableOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataSetLogicalTable {
-		return vs[0].(map[string]DataSetLogicalTable)[vs[1].(string)]
-	}).(DataSetLogicalTableOutput)
+func (o DataSetLogicalTableMapOutput) ToDataSetLogicalTableMapPtrOutput() DataSetLogicalTableMapPtrOutput {
+	return o.ToDataSetLogicalTableMapPtrOutputWithContext(context.Background())
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html
-type DataSetLogicalTableSource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-joininstruction
-	JoinInstruction *DataSetJoinInstruction `pulumi:"joinInstruction"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-physicaltableid
-	PhysicalTableId *string `pulumi:"physicalTableId"`
+func (o DataSetLogicalTableMapOutput) ToDataSetLogicalTableMapPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetLogicalTableMap) *DataSetLogicalTableMap {
+		return &v
+	}).(DataSetLogicalTableMapPtrOutput)
 }
 
-// DataSetLogicalTableSourceInput is an input type that accepts DataSetLogicalTableSourceArgs and DataSetLogicalTableSourceOutput values.
-// You can construct a concrete instance of `DataSetLogicalTableSourceInput` via:
-//
-//          DataSetLogicalTableSourceArgs{...}
-type DataSetLogicalTableSourceInput interface {
-	pulumi.Input
+type DataSetLogicalTableMapPtrOutput struct{ *pulumi.OutputState }
 
-	ToDataSetLogicalTableSourceOutput() DataSetLogicalTableSourceOutput
-	ToDataSetLogicalTableSourceOutputWithContext(context.Context) DataSetLogicalTableSourceOutput
+func (DataSetLogicalTableMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetLogicalTableMap)(nil)).Elem()
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html
-type DataSetLogicalTableSourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-joininstruction
-	JoinInstruction DataSetJoinInstructionPtrInput `pulumi:"joinInstruction"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-physicaltableid
-	PhysicalTableId pulumi.StringPtrInput `pulumi:"physicalTableId"`
-}
-
-func (DataSetLogicalTableSourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetLogicalTableSource)(nil)).Elem()
-}
-
-func (i DataSetLogicalTableSourceArgs) ToDataSetLogicalTableSourceOutput() DataSetLogicalTableSourceOutput {
-	return i.ToDataSetLogicalTableSourceOutputWithContext(context.Background())
-}
-
-func (i DataSetLogicalTableSourceArgs) ToDataSetLogicalTableSourceOutputWithContext(ctx context.Context) DataSetLogicalTableSourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetLogicalTableSourceOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html
-type DataSetLogicalTableSourceOutput struct{ *pulumi.OutputState }
-
-func (DataSetLogicalTableSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetLogicalTableSource)(nil)).Elem()
-}
-
-func (o DataSetLogicalTableSourceOutput) ToDataSetLogicalTableSourceOutput() DataSetLogicalTableSourceOutput {
+func (o DataSetLogicalTableMapPtrOutput) ToDataSetLogicalTableMapPtrOutput() DataSetLogicalTableMapPtrOutput {
 	return o
 }
 
-func (o DataSetLogicalTableSourceOutput) ToDataSetLogicalTableSourceOutputWithContext(ctx context.Context) DataSetLogicalTableSourceOutput {
+func (o DataSetLogicalTableMapPtrOutput) ToDataSetLogicalTableMapPtrOutputWithContext(ctx context.Context) DataSetLogicalTableMapPtrOutput {
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-joininstruction
-func (o DataSetLogicalTableSourceOutput) JoinInstruction() DataSetJoinInstructionPtrOutput {
-	return o.ApplyT(func(v DataSetLogicalTableSource) *DataSetJoinInstruction { return v.JoinInstruction }).(DataSetJoinInstructionPtrOutput)
+func (o DataSetLogicalTableMapPtrOutput) Elem() DataSetLogicalTableMapOutput {
+	return o.ApplyT(func(v *DataSetLogicalTableMap) DataSetLogicalTableMap {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetLogicalTableMap
+		return ret
+	}).(DataSetLogicalTableMapOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-logicaltablesource.html#cfn-quicksight-dataset-logicaltablesource-physicaltableid
-func (o DataSetLogicalTableSourceOutput) PhysicalTableId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSetLogicalTableSource) *string { return v.PhysicalTableId }).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html
+// <p>Output column.</p>
 type DataSetOutputColumn struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-description
+	// <p>A description for a column.</p>
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-name
+	// <p>A display name for the dataset.</p>
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-type
 	Type *string `pulumi:"type"`
 }
 
@@ -5490,13 +4755,12 @@ type DataSetOutputColumnInput interface {
 	ToDataSetOutputColumnOutputWithContext(context.Context) DataSetOutputColumnOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html
+// <p>Output column.</p>
 type DataSetOutputColumnArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-description
+	// <p>A description for a column.</p>
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-name
+	// <p>A display name for the dataset.</p>
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-type
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -5537,7 +4801,7 @@ func (i DataSetOutputColumnArray) ToDataSetOutputColumnArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetOutputColumnArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html
+// <p>Output column.</p>
 type DataSetOutputColumnOutput struct{ *pulumi.OutputState }
 
 func (DataSetOutputColumnOutput) ElementType() reflect.Type {
@@ -5552,17 +4816,16 @@ func (o DataSetOutputColumnOutput) ToDataSetOutputColumnOutputWithContext(ctx co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-description
+// <p>A description for a column.</p>
 func (o DataSetOutputColumnOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetOutputColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-name
+// <p>A display name for the dataset.</p>
 func (o DataSetOutputColumnOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetOutputColumn) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-type
 func (o DataSetOutputColumnOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetOutputColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -5587,47 +4850,7 @@ func (o DataSetOutputColumnArrayOutput) Index(i pulumi.IntInput) DataSetOutputCo
 	}).(DataSetOutputColumnOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html
-type DataSetPhysicalTable struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-customsql
-	CustomSql *DataSetCustomSql `pulumi:"customSql"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-relationaltable
-	RelationalTable *DataSetRelationalTable `pulumi:"relationalTable"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-s3source
-	S3Source *DataSetS3Source `pulumi:"s3Source"`
-}
-
-// DataSetPhysicalTableInput is an input type that accepts DataSetPhysicalTableArgs and DataSetPhysicalTableOutput values.
-// You can construct a concrete instance of `DataSetPhysicalTableInput` via:
-//
-//          DataSetPhysicalTableArgs{...}
-type DataSetPhysicalTableInput interface {
-	pulumi.Input
-
-	ToDataSetPhysicalTableOutput() DataSetPhysicalTableOutput
-	ToDataSetPhysicalTableOutputWithContext(context.Context) DataSetPhysicalTableOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html
-type DataSetPhysicalTableArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-customsql
-	CustomSql DataSetCustomSqlPtrInput `pulumi:"customSql"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-relationaltable
-	RelationalTable DataSetRelationalTablePtrInput `pulumi:"relationalTable"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-s3source
-	S3Source DataSetS3SourcePtrInput `pulumi:"s3Source"`
-}
-
-func (DataSetPhysicalTableArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetPhysicalTable)(nil)).Elem()
-}
-
-func (i DataSetPhysicalTableArgs) ToDataSetPhysicalTableOutput() DataSetPhysicalTableOutput {
-	return i.ToDataSetPhysicalTableOutputWithContext(context.Background())
-}
-
-func (i DataSetPhysicalTableArgs) ToDataSetPhysicalTableOutputWithContext(ctx context.Context) DataSetPhysicalTableOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableOutput)
+type DataSetPhysicalTableMap struct {
 }
 
 // DataSetPhysicalTableMapInput is an input type that accepts DataSetPhysicalTableMap and DataSetPhysicalTableMapOutput values.
@@ -5641,54 +4864,66 @@ type DataSetPhysicalTableMapInput interface {
 	ToDataSetPhysicalTableMapOutputWithContext(context.Context) DataSetPhysicalTableMapOutput
 }
 
-type DataSetPhysicalTableMap map[string]DataSetPhysicalTableInput
-
-func (DataSetPhysicalTableMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataSetPhysicalTable)(nil)).Elem()
+type DataSetPhysicalTableMapArgs struct {
 }
 
-func (i DataSetPhysicalTableMap) ToDataSetPhysicalTableMapOutput() DataSetPhysicalTableMapOutput {
+func (DataSetPhysicalTableMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPhysicalTableMap)(nil)).Elem()
+}
+
+func (i DataSetPhysicalTableMapArgs) ToDataSetPhysicalTableMapOutput() DataSetPhysicalTableMapOutput {
 	return i.ToDataSetPhysicalTableMapOutputWithContext(context.Background())
 }
 
-func (i DataSetPhysicalTableMap) ToDataSetPhysicalTableMapOutputWithContext(ctx context.Context) DataSetPhysicalTableMapOutput {
+func (i DataSetPhysicalTableMapArgs) ToDataSetPhysicalTableMapOutputWithContext(ctx context.Context) DataSetPhysicalTableMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html
-type DataSetPhysicalTableOutput struct{ *pulumi.OutputState }
-
-func (DataSetPhysicalTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetPhysicalTable)(nil)).Elem()
+func (i DataSetPhysicalTableMapArgs) ToDataSetPhysicalTableMapPtrOutput() DataSetPhysicalTableMapPtrOutput {
+	return i.ToDataSetPhysicalTableMapPtrOutputWithContext(context.Background())
 }
 
-func (o DataSetPhysicalTableOutput) ToDataSetPhysicalTableOutput() DataSetPhysicalTableOutput {
-	return o
+func (i DataSetPhysicalTableMapArgs) ToDataSetPhysicalTableMapPtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapOutput).ToDataSetPhysicalTableMapPtrOutputWithContext(ctx)
 }
 
-func (o DataSetPhysicalTableOutput) ToDataSetPhysicalTableOutputWithContext(ctx context.Context) DataSetPhysicalTableOutput {
-	return o
+// DataSetPhysicalTableMapPtrInput is an input type that accepts DataSetPhysicalTableMapArgs, DataSetPhysicalTableMapPtr and DataSetPhysicalTableMapPtrOutput values.
+// You can construct a concrete instance of `DataSetPhysicalTableMapPtrInput` via:
+//
+//          DataSetPhysicalTableMapArgs{...}
+//
+//  or:
+//
+//          nil
+type DataSetPhysicalTableMapPtrInput interface {
+	pulumi.Input
+
+	ToDataSetPhysicalTableMapPtrOutput() DataSetPhysicalTableMapPtrOutput
+	ToDataSetPhysicalTableMapPtrOutputWithContext(context.Context) DataSetPhysicalTableMapPtrOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-customsql
-func (o DataSetPhysicalTableOutput) CustomSql() DataSetCustomSqlPtrOutput {
-	return o.ApplyT(func(v DataSetPhysicalTable) *DataSetCustomSql { return v.CustomSql }).(DataSetCustomSqlPtrOutput)
+type dataSetPhysicalTableMapPtrType DataSetPhysicalTableMapArgs
+
+func DataSetPhysicalTableMapPtr(v *DataSetPhysicalTableMapArgs) DataSetPhysicalTableMapPtrInput {
+	return (*dataSetPhysicalTableMapPtrType)(v)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-relationaltable
-func (o DataSetPhysicalTableOutput) RelationalTable() DataSetRelationalTablePtrOutput {
-	return o.ApplyT(func(v DataSetPhysicalTable) *DataSetRelationalTable { return v.RelationalTable }).(DataSetRelationalTablePtrOutput)
+func (*dataSetPhysicalTableMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetPhysicalTableMap)(nil)).Elem()
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-s3source
-func (o DataSetPhysicalTableOutput) S3Source() DataSetS3SourcePtrOutput {
-	return o.ApplyT(func(v DataSetPhysicalTable) *DataSetS3Source { return v.S3Source }).(DataSetS3SourcePtrOutput)
+func (i *dataSetPhysicalTableMapPtrType) ToDataSetPhysicalTableMapPtrOutput() DataSetPhysicalTableMapPtrOutput {
+	return i.ToDataSetPhysicalTableMapPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetPhysicalTableMapPtrType) ToDataSetPhysicalTableMapPtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPhysicalTableMapPtrOutput)
 }
 
 type DataSetPhysicalTableMapOutput struct{ *pulumi.OutputState }
 
 func (DataSetPhysicalTableMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DataSetPhysicalTable)(nil)).Elem()
+	return reflect.TypeOf((*DataSetPhysicalTableMap)(nil)).Elem()
 }
 
 func (o DataSetPhysicalTableMapOutput) ToDataSetPhysicalTableMapOutput() DataSetPhysicalTableMapOutput {
@@ -5699,532 +4934,59 @@ func (o DataSetPhysicalTableMapOutput) ToDataSetPhysicalTableMapOutputWithContex
 	return o
 }
 
-func (o DataSetPhysicalTableMapOutput) MapIndex(k pulumi.StringInput) DataSetPhysicalTableOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DataSetPhysicalTable {
-		return vs[0].(map[string]DataSetPhysicalTable)[vs[1].(string)]
-	}).(DataSetPhysicalTableOutput)
+func (o DataSetPhysicalTableMapOutput) ToDataSetPhysicalTableMapPtrOutput() DataSetPhysicalTableMapPtrOutput {
+	return o.ToDataSetPhysicalTableMapPtrOutputWithContext(context.Background())
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html
-type DataSetProjectOperation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html#cfn-quicksight-dataset-projectoperation-projectedcolumns
-	ProjectedColumns []string `pulumi:"projectedColumns"`
-}
-
-// DataSetProjectOperationInput is an input type that accepts DataSetProjectOperationArgs and DataSetProjectOperationOutput values.
-// You can construct a concrete instance of `DataSetProjectOperationInput` via:
-//
-//          DataSetProjectOperationArgs{...}
-type DataSetProjectOperationInput interface {
-	pulumi.Input
-
-	ToDataSetProjectOperationOutput() DataSetProjectOperationOutput
-	ToDataSetProjectOperationOutputWithContext(context.Context) DataSetProjectOperationOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html
-type DataSetProjectOperationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html#cfn-quicksight-dataset-projectoperation-projectedcolumns
-	ProjectedColumns pulumi.StringArrayInput `pulumi:"projectedColumns"`
-}
-
-func (DataSetProjectOperationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetProjectOperation)(nil)).Elem()
-}
-
-func (i DataSetProjectOperationArgs) ToDataSetProjectOperationOutput() DataSetProjectOperationOutput {
-	return i.ToDataSetProjectOperationOutputWithContext(context.Background())
-}
-
-func (i DataSetProjectOperationArgs) ToDataSetProjectOperationOutputWithContext(ctx context.Context) DataSetProjectOperationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetProjectOperationOutput)
-}
-
-func (i DataSetProjectOperationArgs) ToDataSetProjectOperationPtrOutput() DataSetProjectOperationPtrOutput {
-	return i.ToDataSetProjectOperationPtrOutputWithContext(context.Background())
-}
-
-func (i DataSetProjectOperationArgs) ToDataSetProjectOperationPtrOutputWithContext(ctx context.Context) DataSetProjectOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetProjectOperationOutput).ToDataSetProjectOperationPtrOutputWithContext(ctx)
-}
-
-// DataSetProjectOperationPtrInput is an input type that accepts DataSetProjectOperationArgs, DataSetProjectOperationPtr and DataSetProjectOperationPtrOutput values.
-// You can construct a concrete instance of `DataSetProjectOperationPtrInput` via:
-//
-//          DataSetProjectOperationArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSetProjectOperationPtrInput interface {
-	pulumi.Input
-
-	ToDataSetProjectOperationPtrOutput() DataSetProjectOperationPtrOutput
-	ToDataSetProjectOperationPtrOutputWithContext(context.Context) DataSetProjectOperationPtrOutput
-}
-
-type dataSetProjectOperationPtrType DataSetProjectOperationArgs
-
-func DataSetProjectOperationPtr(v *DataSetProjectOperationArgs) DataSetProjectOperationPtrInput {
-	return (*dataSetProjectOperationPtrType)(v)
-}
-
-func (*dataSetProjectOperationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetProjectOperation)(nil)).Elem()
-}
-
-func (i *dataSetProjectOperationPtrType) ToDataSetProjectOperationPtrOutput() DataSetProjectOperationPtrOutput {
-	return i.ToDataSetProjectOperationPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSetProjectOperationPtrType) ToDataSetProjectOperationPtrOutputWithContext(ctx context.Context) DataSetProjectOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetProjectOperationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html
-type DataSetProjectOperationOutput struct{ *pulumi.OutputState }
-
-func (DataSetProjectOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetProjectOperation)(nil)).Elem()
-}
-
-func (o DataSetProjectOperationOutput) ToDataSetProjectOperationOutput() DataSetProjectOperationOutput {
-	return o
-}
-
-func (o DataSetProjectOperationOutput) ToDataSetProjectOperationOutputWithContext(ctx context.Context) DataSetProjectOperationOutput {
-	return o
-}
-
-func (o DataSetProjectOperationOutput) ToDataSetProjectOperationPtrOutput() DataSetProjectOperationPtrOutput {
-	return o.ToDataSetProjectOperationPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetProjectOperationOutput) ToDataSetProjectOperationPtrOutputWithContext(ctx context.Context) DataSetProjectOperationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetProjectOperation) *DataSetProjectOperation {
+func (o DataSetPhysicalTableMapOutput) ToDataSetPhysicalTableMapPtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetPhysicalTableMap) *DataSetPhysicalTableMap {
 		return &v
-	}).(DataSetProjectOperationPtrOutput)
+	}).(DataSetPhysicalTableMapPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html#cfn-quicksight-dataset-projectoperation-projectedcolumns
-func (o DataSetProjectOperationOutput) ProjectedColumns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DataSetProjectOperation) []string { return v.ProjectedColumns }).(pulumi.StringArrayOutput)
+type DataSetPhysicalTableMapPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetPhysicalTableMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetPhysicalTableMap)(nil)).Elem()
 }
 
-type DataSetProjectOperationPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetProjectOperationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetProjectOperation)(nil)).Elem()
-}
-
-func (o DataSetProjectOperationPtrOutput) ToDataSetProjectOperationPtrOutput() DataSetProjectOperationPtrOutput {
+func (o DataSetPhysicalTableMapPtrOutput) ToDataSetPhysicalTableMapPtrOutput() DataSetPhysicalTableMapPtrOutput {
 	return o
 }
 
-func (o DataSetProjectOperationPtrOutput) ToDataSetProjectOperationPtrOutputWithContext(ctx context.Context) DataSetProjectOperationPtrOutput {
+func (o DataSetPhysicalTableMapPtrOutput) ToDataSetPhysicalTableMapPtrOutputWithContext(ctx context.Context) DataSetPhysicalTableMapPtrOutput {
 	return o
 }
 
-func (o DataSetProjectOperationPtrOutput) Elem() DataSetProjectOperationOutput {
-	return o.ApplyT(func(v *DataSetProjectOperation) DataSetProjectOperation {
+func (o DataSetPhysicalTableMapPtrOutput) Elem() DataSetPhysicalTableMapOutput {
+	return o.ApplyT(func(v *DataSetPhysicalTableMap) DataSetPhysicalTableMap {
 		if v != nil {
 			return *v
 		}
-		var ret DataSetProjectOperation
+		var ret DataSetPhysicalTableMap
 		return ret
-	}).(DataSetProjectOperationOutput)
+	}).(DataSetPhysicalTableMapOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html#cfn-quicksight-dataset-projectoperation-projectedcolumns
-func (o DataSetProjectOperationPtrOutput) ProjectedColumns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DataSetProjectOperation) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ProjectedColumns
-	}).(pulumi.StringArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html
-type DataSetRelationalTable struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-catalog
-	Catalog *string `pulumi:"catalog"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-datasourcearn
-	DataSourceArn string `pulumi:"dataSourceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-inputcolumns
-	InputColumns []DataSetInputColumn `pulumi:"inputColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-schema
-	Schema *string `pulumi:"schema"`
-}
-
-// DataSetRelationalTableInput is an input type that accepts DataSetRelationalTableArgs and DataSetRelationalTableOutput values.
-// You can construct a concrete instance of `DataSetRelationalTableInput` via:
-//
-//          DataSetRelationalTableArgs{...}
-type DataSetRelationalTableInput interface {
-	pulumi.Input
-
-	ToDataSetRelationalTableOutput() DataSetRelationalTableOutput
-	ToDataSetRelationalTableOutputWithContext(context.Context) DataSetRelationalTableOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html
-type DataSetRelationalTableArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-catalog
-	Catalog pulumi.StringPtrInput `pulumi:"catalog"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-datasourcearn
-	DataSourceArn pulumi.StringInput `pulumi:"dataSourceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-inputcolumns
-	InputColumns DataSetInputColumnArrayInput `pulumi:"inputColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-schema
-	Schema pulumi.StringPtrInput `pulumi:"schema"`
-}
-
-func (DataSetRelationalTableArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetRelationalTable)(nil)).Elem()
-}
-
-func (i DataSetRelationalTableArgs) ToDataSetRelationalTableOutput() DataSetRelationalTableOutput {
-	return i.ToDataSetRelationalTableOutputWithContext(context.Background())
-}
-
-func (i DataSetRelationalTableArgs) ToDataSetRelationalTableOutputWithContext(ctx context.Context) DataSetRelationalTableOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetRelationalTableOutput)
-}
-
-func (i DataSetRelationalTableArgs) ToDataSetRelationalTablePtrOutput() DataSetRelationalTablePtrOutput {
-	return i.ToDataSetRelationalTablePtrOutputWithContext(context.Background())
-}
-
-func (i DataSetRelationalTableArgs) ToDataSetRelationalTablePtrOutputWithContext(ctx context.Context) DataSetRelationalTablePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetRelationalTableOutput).ToDataSetRelationalTablePtrOutputWithContext(ctx)
-}
-
-// DataSetRelationalTablePtrInput is an input type that accepts DataSetRelationalTableArgs, DataSetRelationalTablePtr and DataSetRelationalTablePtrOutput values.
-// You can construct a concrete instance of `DataSetRelationalTablePtrInput` via:
-//
-//          DataSetRelationalTableArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSetRelationalTablePtrInput interface {
-	pulumi.Input
-
-	ToDataSetRelationalTablePtrOutput() DataSetRelationalTablePtrOutput
-	ToDataSetRelationalTablePtrOutputWithContext(context.Context) DataSetRelationalTablePtrOutput
-}
-
-type dataSetRelationalTablePtrType DataSetRelationalTableArgs
-
-func DataSetRelationalTablePtr(v *DataSetRelationalTableArgs) DataSetRelationalTablePtrInput {
-	return (*dataSetRelationalTablePtrType)(v)
-}
-
-func (*dataSetRelationalTablePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetRelationalTable)(nil)).Elem()
-}
-
-func (i *dataSetRelationalTablePtrType) ToDataSetRelationalTablePtrOutput() DataSetRelationalTablePtrOutput {
-	return i.ToDataSetRelationalTablePtrOutputWithContext(context.Background())
-}
-
-func (i *dataSetRelationalTablePtrType) ToDataSetRelationalTablePtrOutputWithContext(ctx context.Context) DataSetRelationalTablePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetRelationalTablePtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html
-type DataSetRelationalTableOutput struct{ *pulumi.OutputState }
-
-func (DataSetRelationalTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetRelationalTable)(nil)).Elem()
-}
-
-func (o DataSetRelationalTableOutput) ToDataSetRelationalTableOutput() DataSetRelationalTableOutput {
-	return o
-}
-
-func (o DataSetRelationalTableOutput) ToDataSetRelationalTableOutputWithContext(ctx context.Context) DataSetRelationalTableOutput {
-	return o
-}
-
-func (o DataSetRelationalTableOutput) ToDataSetRelationalTablePtrOutput() DataSetRelationalTablePtrOutput {
-	return o.ToDataSetRelationalTablePtrOutputWithContext(context.Background())
-}
-
-func (o DataSetRelationalTableOutput) ToDataSetRelationalTablePtrOutputWithContext(ctx context.Context) DataSetRelationalTablePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetRelationalTable) *DataSetRelationalTable {
-		return &v
-	}).(DataSetRelationalTablePtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-catalog
-func (o DataSetRelationalTableOutput) Catalog() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSetRelationalTable) *string { return v.Catalog }).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-datasourcearn
-func (o DataSetRelationalTableOutput) DataSourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetRelationalTable) string { return v.DataSourceArn }).(pulumi.StringOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-inputcolumns
-func (o DataSetRelationalTableOutput) InputColumns() DataSetInputColumnArrayOutput {
-	return o.ApplyT(func(v DataSetRelationalTable) []DataSetInputColumn { return v.InputColumns }).(DataSetInputColumnArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-name
-func (o DataSetRelationalTableOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetRelationalTable) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-schema
-func (o DataSetRelationalTableOutput) Schema() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSetRelationalTable) *string { return v.Schema }).(pulumi.StringPtrOutput)
-}
-
-type DataSetRelationalTablePtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetRelationalTablePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetRelationalTable)(nil)).Elem()
-}
-
-func (o DataSetRelationalTablePtrOutput) ToDataSetRelationalTablePtrOutput() DataSetRelationalTablePtrOutput {
-	return o
-}
-
-func (o DataSetRelationalTablePtrOutput) ToDataSetRelationalTablePtrOutputWithContext(ctx context.Context) DataSetRelationalTablePtrOutput {
-	return o
-}
-
-func (o DataSetRelationalTablePtrOutput) Elem() DataSetRelationalTableOutput {
-	return o.ApplyT(func(v *DataSetRelationalTable) DataSetRelationalTable {
-		if v != nil {
-			return *v
-		}
-		var ret DataSetRelationalTable
-		return ret
-	}).(DataSetRelationalTableOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-catalog
-func (o DataSetRelationalTablePtrOutput) Catalog() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetRelationalTable) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Catalog
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-datasourcearn
-func (o DataSetRelationalTablePtrOutput) DataSourceArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetRelationalTable) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSourceArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-inputcolumns
-func (o DataSetRelationalTablePtrOutput) InputColumns() DataSetInputColumnArrayOutput {
-	return o.ApplyT(func(v *DataSetRelationalTable) []DataSetInputColumn {
-		if v == nil {
-			return nil
-		}
-		return v.InputColumns
-	}).(DataSetInputColumnArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-name
-func (o DataSetRelationalTablePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetRelationalTable) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-relationaltable.html#cfn-quicksight-dataset-relationaltable-schema
-func (o DataSetRelationalTablePtrOutput) Schema() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetRelationalTable) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Schema
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html
-type DataSetRenameColumnOperation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-columnname
-	ColumnName string `pulumi:"columnName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-newcolumnname
-	NewColumnName string `pulumi:"newColumnName"`
-}
-
-// DataSetRenameColumnOperationInput is an input type that accepts DataSetRenameColumnOperationArgs and DataSetRenameColumnOperationOutput values.
-// You can construct a concrete instance of `DataSetRenameColumnOperationInput` via:
-//
-//          DataSetRenameColumnOperationArgs{...}
-type DataSetRenameColumnOperationInput interface {
-	pulumi.Input
-
-	ToDataSetRenameColumnOperationOutput() DataSetRenameColumnOperationOutput
-	ToDataSetRenameColumnOperationOutputWithContext(context.Context) DataSetRenameColumnOperationOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html
-type DataSetRenameColumnOperationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-columnname
-	ColumnName pulumi.StringInput `pulumi:"columnName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-newcolumnname
-	NewColumnName pulumi.StringInput `pulumi:"newColumnName"`
-}
-
-func (DataSetRenameColumnOperationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetRenameColumnOperation)(nil)).Elem()
-}
-
-func (i DataSetRenameColumnOperationArgs) ToDataSetRenameColumnOperationOutput() DataSetRenameColumnOperationOutput {
-	return i.ToDataSetRenameColumnOperationOutputWithContext(context.Background())
-}
-
-func (i DataSetRenameColumnOperationArgs) ToDataSetRenameColumnOperationOutputWithContext(ctx context.Context) DataSetRenameColumnOperationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetRenameColumnOperationOutput)
-}
-
-func (i DataSetRenameColumnOperationArgs) ToDataSetRenameColumnOperationPtrOutput() DataSetRenameColumnOperationPtrOutput {
-	return i.ToDataSetRenameColumnOperationPtrOutputWithContext(context.Background())
-}
-
-func (i DataSetRenameColumnOperationArgs) ToDataSetRenameColumnOperationPtrOutputWithContext(ctx context.Context) DataSetRenameColumnOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetRenameColumnOperationOutput).ToDataSetRenameColumnOperationPtrOutputWithContext(ctx)
-}
-
-// DataSetRenameColumnOperationPtrInput is an input type that accepts DataSetRenameColumnOperationArgs, DataSetRenameColumnOperationPtr and DataSetRenameColumnOperationPtrOutput values.
-// You can construct a concrete instance of `DataSetRenameColumnOperationPtrInput` via:
-//
-//          DataSetRenameColumnOperationArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSetRenameColumnOperationPtrInput interface {
-	pulumi.Input
-
-	ToDataSetRenameColumnOperationPtrOutput() DataSetRenameColumnOperationPtrOutput
-	ToDataSetRenameColumnOperationPtrOutputWithContext(context.Context) DataSetRenameColumnOperationPtrOutput
-}
-
-type dataSetRenameColumnOperationPtrType DataSetRenameColumnOperationArgs
-
-func DataSetRenameColumnOperationPtr(v *DataSetRenameColumnOperationArgs) DataSetRenameColumnOperationPtrInput {
-	return (*dataSetRenameColumnOperationPtrType)(v)
-}
-
-func (*dataSetRenameColumnOperationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetRenameColumnOperation)(nil)).Elem()
-}
-
-func (i *dataSetRenameColumnOperationPtrType) ToDataSetRenameColumnOperationPtrOutput() DataSetRenameColumnOperationPtrOutput {
-	return i.ToDataSetRenameColumnOperationPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSetRenameColumnOperationPtrType) ToDataSetRenameColumnOperationPtrOutputWithContext(ctx context.Context) DataSetRenameColumnOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetRenameColumnOperationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html
-type DataSetRenameColumnOperationOutput struct{ *pulumi.OutputState }
-
-func (DataSetRenameColumnOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetRenameColumnOperation)(nil)).Elem()
-}
-
-func (o DataSetRenameColumnOperationOutput) ToDataSetRenameColumnOperationOutput() DataSetRenameColumnOperationOutput {
-	return o
-}
-
-func (o DataSetRenameColumnOperationOutput) ToDataSetRenameColumnOperationOutputWithContext(ctx context.Context) DataSetRenameColumnOperationOutput {
-	return o
-}
-
-func (o DataSetRenameColumnOperationOutput) ToDataSetRenameColumnOperationPtrOutput() DataSetRenameColumnOperationPtrOutput {
-	return o.ToDataSetRenameColumnOperationPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetRenameColumnOperationOutput) ToDataSetRenameColumnOperationPtrOutputWithContext(ctx context.Context) DataSetRenameColumnOperationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetRenameColumnOperation) *DataSetRenameColumnOperation {
-		return &v
-	}).(DataSetRenameColumnOperationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-columnname
-func (o DataSetRenameColumnOperationOutput) ColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetRenameColumnOperation) string { return v.ColumnName }).(pulumi.StringOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-newcolumnname
-func (o DataSetRenameColumnOperationOutput) NewColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetRenameColumnOperation) string { return v.NewColumnName }).(pulumi.StringOutput)
-}
-
-type DataSetRenameColumnOperationPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetRenameColumnOperationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetRenameColumnOperation)(nil)).Elem()
-}
-
-func (o DataSetRenameColumnOperationPtrOutput) ToDataSetRenameColumnOperationPtrOutput() DataSetRenameColumnOperationPtrOutput {
-	return o
-}
-
-func (o DataSetRenameColumnOperationPtrOutput) ToDataSetRenameColumnOperationPtrOutputWithContext(ctx context.Context) DataSetRenameColumnOperationPtrOutput {
-	return o
-}
-
-func (o DataSetRenameColumnOperationPtrOutput) Elem() DataSetRenameColumnOperationOutput {
-	return o.ApplyT(func(v *DataSetRenameColumnOperation) DataSetRenameColumnOperation {
-		if v != nil {
-			return *v
-		}
-		var ret DataSetRenameColumnOperation
-		return ret
-	}).(DataSetRenameColumnOperationOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-columnname
-func (o DataSetRenameColumnOperationPtrOutput) ColumnName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetRenameColumnOperation) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ColumnName
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-renamecolumnoperation.html#cfn-quicksight-dataset-renamecolumnoperation-newcolumnname
-func (o DataSetRenameColumnOperationPtrOutput) NewColumnName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetRenameColumnOperation) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.NewColumnName
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-resourcepermission.html
+// <p>Permission for the resource.</p>
 type DataSetResourcePermission struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-resourcepermission.html#cfn-quicksight-dataset-resourcepermission-actions
+	// <p>The IAM action to grant or revoke permissions on.</p>
 	Actions []string `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-resourcepermission.html#cfn-quicksight-dataset-resourcepermission-principal
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//         <ul>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
 	Principal string `pulumi:"principal"`
 }
 
@@ -6239,11 +5001,25 @@ type DataSetResourcePermissionInput interface {
 	ToDataSetResourcePermissionOutputWithContext(context.Context) DataSetResourcePermissionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-resourcepermission.html
+// <p>Permission for the resource.</p>
 type DataSetResourcePermissionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-resourcepermission.html#cfn-quicksight-dataset-resourcepermission-actions
+	// <p>The IAM action to grant or revoke permissions on.</p>
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-resourcepermission.html#cfn-quicksight-dataset-resourcepermission-principal
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//         <ul>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
 	Principal pulumi.StringInput `pulumi:"principal"`
 }
 
@@ -6284,7 +5060,7 @@ func (i DataSetResourcePermissionArray) ToDataSetResourcePermissionArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetResourcePermissionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-resourcepermission.html
+// <p>Permission for the resource.</p>
 type DataSetResourcePermissionOutput struct{ *pulumi.OutputState }
 
 func (DataSetResourcePermissionOutput) ElementType() reflect.Type {
@@ -6299,12 +5075,26 @@ func (o DataSetResourcePermissionOutput) ToDataSetResourcePermissionOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-resourcepermission.html#cfn-quicksight-dataset-resourcepermission-actions
+// <p>The IAM action to grant or revoke permissions on.</p>
 func (o DataSetResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSetResourcePermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-resourcepermission.html#cfn-quicksight-dataset-resourcepermission-principal
+// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+//             following:</p>
+//         <ul>
+//             <li>
+//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+//             </li>
+//             <li>
+//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//             </li>
+//             <li>
+//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+//                     (This is less common.) </p>
+//             </li>
+//          </ul>
 func (o DataSetResourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -6329,16 +5119,14 @@ func (o DataSetResourcePermissionArrayOutput) Index(i pulumi.IntInput) DataSetRe
 	}).(DataSetResourcePermissionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html
+// <p>The row-level security configuration for the dataset.</p>
 type DataSetRowLevelPermissionDataSet struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-arn
-	Arn string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-formatversion
+	// <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
+	Arn           string  `pulumi:"arn"`
 	FormatVersion *string `pulumi:"formatVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-namespace
-	Namespace *string `pulumi:"namespace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-permissionpolicy
-	PermissionPolicy string `pulumi:"permissionPolicy"`
+	// <p>The namespace associated with the row-level permissions dataset.</p>
+	Namespace        *string `pulumi:"namespace"`
+	PermissionPolicy string  `pulumi:"permissionPolicy"`
 }
 
 // DataSetRowLevelPermissionDataSetInput is an input type that accepts DataSetRowLevelPermissionDataSetArgs and DataSetRowLevelPermissionDataSetOutput values.
@@ -6352,16 +5140,14 @@ type DataSetRowLevelPermissionDataSetInput interface {
 	ToDataSetRowLevelPermissionDataSetOutputWithContext(context.Context) DataSetRowLevelPermissionDataSetOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html
+// <p>The row-level security configuration for the dataset.</p>
 type DataSetRowLevelPermissionDataSetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-arn
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-formatversion
+	// <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
+	Arn           pulumi.StringInput    `pulumi:"arn"`
 	FormatVersion pulumi.StringPtrInput `pulumi:"formatVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-namespace
-	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-permissionpolicy
-	PermissionPolicy pulumi.StringInput `pulumi:"permissionPolicy"`
+	// <p>The namespace associated with the row-level permissions dataset.</p>
+	Namespace        pulumi.StringPtrInput `pulumi:"namespace"`
+	PermissionPolicy pulumi.StringInput    `pulumi:"permissionPolicy"`
 }
 
 func (DataSetRowLevelPermissionDataSetArgs) ElementType() reflect.Type {
@@ -6417,7 +5203,7 @@ func (i *dataSetRowLevelPermissionDataSetPtrType) ToDataSetRowLevelPermissionDat
 	return pulumi.ToOutputWithContext(ctx, i).(DataSetRowLevelPermissionDataSetPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html
+// <p>The row-level security configuration for the dataset.</p>
 type DataSetRowLevelPermissionDataSetOutput struct{ *pulumi.OutputState }
 
 func (DataSetRowLevelPermissionDataSetOutput) ElementType() reflect.Type {
@@ -6442,22 +5228,20 @@ func (o DataSetRowLevelPermissionDataSetOutput) ToDataSetRowLevelPermissionDataS
 	}).(DataSetRowLevelPermissionDataSetPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-arn
+// <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
 func (o DataSetRowLevelPermissionDataSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetRowLevelPermissionDataSet) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-formatversion
 func (o DataSetRowLevelPermissionDataSetOutput) FormatVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetRowLevelPermissionDataSet) *string { return v.FormatVersion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-namespace
+// <p>The namespace associated with the row-level permissions dataset.</p>
 func (o DataSetRowLevelPermissionDataSetOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetRowLevelPermissionDataSet) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-permissionpolicy
 func (o DataSetRowLevelPermissionDataSetOutput) PermissionPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetRowLevelPermissionDataSet) string { return v.PermissionPolicy }).(pulumi.StringOutput)
 }
@@ -6486,7 +5270,7 @@ func (o DataSetRowLevelPermissionDataSetPtrOutput) Elem() DataSetRowLevelPermiss
 	}).(DataSetRowLevelPermissionDataSetOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-arn
+// <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
 func (o DataSetRowLevelPermissionDataSetPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetRowLevelPermissionDataSet) *string {
 		if v == nil {
@@ -6496,7 +5280,6 @@ func (o DataSetRowLevelPermissionDataSetPtrOutput) Arn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-formatversion
 func (o DataSetRowLevelPermissionDataSetPtrOutput) FormatVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetRowLevelPermissionDataSet) *string {
 		if v == nil {
@@ -6506,7 +5289,7 @@ func (o DataSetRowLevelPermissionDataSetPtrOutput) FormatVersion() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-namespace
+// <p>The namespace associated with the row-level permissions dataset.</p>
 func (o DataSetRowLevelPermissionDataSetPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetRowLevelPermissionDataSet) *string {
 		if v == nil {
@@ -6516,7 +5299,6 @@ func (o DataSetRowLevelPermissionDataSetPtrOutput) Namespace() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiondataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset-permissionpolicy
 func (o DataSetRowLevelPermissionDataSetPtrOutput) PermissionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetRowLevelPermissionDataSet) *string {
 		if v == nil {
@@ -6526,707 +5308,121 @@ func (o DataSetRowLevelPermissionDataSetPtrOutput) PermissionPolicy() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html
-type DataSetS3Source struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-datasourcearn
-	DataSourceArn string `pulumi:"dataSourceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-inputcolumns
-	InputColumns []DataSetInputColumn `pulumi:"inputColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-uploadsettings
-	UploadSettings *DataSetUploadSettings `pulumi:"uploadSettings"`
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type DataSetTag struct {
+	// <p>Tag key.</p>
+	Key string `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value string `pulumi:"value"`
 }
 
-// DataSetS3SourceInput is an input type that accepts DataSetS3SourceArgs and DataSetS3SourceOutput values.
-// You can construct a concrete instance of `DataSetS3SourceInput` via:
+// DataSetTagInput is an input type that accepts DataSetTagArgs and DataSetTagOutput values.
+// You can construct a concrete instance of `DataSetTagInput` via:
 //
-//          DataSetS3SourceArgs{...}
-type DataSetS3SourceInput interface {
+//          DataSetTagArgs{...}
+type DataSetTagInput interface {
 	pulumi.Input
 
-	ToDataSetS3SourceOutput() DataSetS3SourceOutput
-	ToDataSetS3SourceOutputWithContext(context.Context) DataSetS3SourceOutput
+	ToDataSetTagOutput() DataSetTagOutput
+	ToDataSetTagOutputWithContext(context.Context) DataSetTagOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html
-type DataSetS3SourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-datasourcearn
-	DataSourceArn pulumi.StringInput `pulumi:"dataSourceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-inputcolumns
-	InputColumns DataSetInputColumnArrayInput `pulumi:"inputColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-uploadsettings
-	UploadSettings DataSetUploadSettingsPtrInput `pulumi:"uploadSettings"`
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type DataSetTagArgs struct {
+	// <p>Tag key.</p>
+	Key pulumi.StringInput `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
-func (DataSetS3SourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetS3Source)(nil)).Elem()
+func (DataSetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetTag)(nil)).Elem()
 }
 
-func (i DataSetS3SourceArgs) ToDataSetS3SourceOutput() DataSetS3SourceOutput {
-	return i.ToDataSetS3SourceOutputWithContext(context.Background())
+func (i DataSetTagArgs) ToDataSetTagOutput() DataSetTagOutput {
+	return i.ToDataSetTagOutputWithContext(context.Background())
 }
 
-func (i DataSetS3SourceArgs) ToDataSetS3SourceOutputWithContext(ctx context.Context) DataSetS3SourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetS3SourceOutput)
+func (i DataSetTagArgs) ToDataSetTagOutputWithContext(ctx context.Context) DataSetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetTagOutput)
 }
 
-func (i DataSetS3SourceArgs) ToDataSetS3SourcePtrOutput() DataSetS3SourcePtrOutput {
-	return i.ToDataSetS3SourcePtrOutputWithContext(context.Background())
-}
-
-func (i DataSetS3SourceArgs) ToDataSetS3SourcePtrOutputWithContext(ctx context.Context) DataSetS3SourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetS3SourceOutput).ToDataSetS3SourcePtrOutputWithContext(ctx)
-}
-
-// DataSetS3SourcePtrInput is an input type that accepts DataSetS3SourceArgs, DataSetS3SourcePtr and DataSetS3SourcePtrOutput values.
-// You can construct a concrete instance of `DataSetS3SourcePtrInput` via:
+// DataSetTagArrayInput is an input type that accepts DataSetTagArray and DataSetTagArrayOutput values.
+// You can construct a concrete instance of `DataSetTagArrayInput` via:
 //
-//          DataSetS3SourceArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSetS3SourcePtrInput interface {
+//          DataSetTagArray{ DataSetTagArgs{...} }
+type DataSetTagArrayInput interface {
 	pulumi.Input
 
-	ToDataSetS3SourcePtrOutput() DataSetS3SourcePtrOutput
-	ToDataSetS3SourcePtrOutputWithContext(context.Context) DataSetS3SourcePtrOutput
+	ToDataSetTagArrayOutput() DataSetTagArrayOutput
+	ToDataSetTagArrayOutputWithContext(context.Context) DataSetTagArrayOutput
 }
 
-type dataSetS3SourcePtrType DataSetS3SourceArgs
+type DataSetTagArray []DataSetTagInput
 
-func DataSetS3SourcePtr(v *DataSetS3SourceArgs) DataSetS3SourcePtrInput {
-	return (*dataSetS3SourcePtrType)(v)
+func (DataSetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetTag)(nil)).Elem()
 }
 
-func (*dataSetS3SourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetS3Source)(nil)).Elem()
+func (i DataSetTagArray) ToDataSetTagArrayOutput() DataSetTagArrayOutput {
+	return i.ToDataSetTagArrayOutputWithContext(context.Background())
 }
 
-func (i *dataSetS3SourcePtrType) ToDataSetS3SourcePtrOutput() DataSetS3SourcePtrOutput {
-	return i.ToDataSetS3SourcePtrOutputWithContext(context.Background())
+func (i DataSetTagArray) ToDataSetTagArrayOutputWithContext(ctx context.Context) DataSetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetTagArrayOutput)
 }
 
-func (i *dataSetS3SourcePtrType) ToDataSetS3SourcePtrOutputWithContext(ctx context.Context) DataSetS3SourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetS3SourcePtrOutput)
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type DataSetTagOutput struct{ *pulumi.OutputState }
+
+func (DataSetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetTag)(nil)).Elem()
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html
-type DataSetS3SourceOutput struct{ *pulumi.OutputState }
-
-func (DataSetS3SourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetS3Source)(nil)).Elem()
-}
-
-func (o DataSetS3SourceOutput) ToDataSetS3SourceOutput() DataSetS3SourceOutput {
+func (o DataSetTagOutput) ToDataSetTagOutput() DataSetTagOutput {
 	return o
 }
 
-func (o DataSetS3SourceOutput) ToDataSetS3SourceOutputWithContext(ctx context.Context) DataSetS3SourceOutput {
+func (o DataSetTagOutput) ToDataSetTagOutputWithContext(ctx context.Context) DataSetTagOutput {
 	return o
 }
 
-func (o DataSetS3SourceOutput) ToDataSetS3SourcePtrOutput() DataSetS3SourcePtrOutput {
-	return o.ToDataSetS3SourcePtrOutputWithContext(context.Background())
+// <p>Tag key.</p>
+func (o DataSetTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o DataSetS3SourceOutput) ToDataSetS3SourcePtrOutputWithContext(ctx context.Context) DataSetS3SourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetS3Source) *DataSetS3Source {
-		return &v
-	}).(DataSetS3SourcePtrOutput)
+// <p>Tag value.</p>
+func (o DataSetTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSetTag) string { return v.Value }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-datasourcearn
-func (o DataSetS3SourceOutput) DataSourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetS3Source) string { return v.DataSourceArn }).(pulumi.StringOutput)
+type DataSetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetTag)(nil)).Elem()
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-inputcolumns
-func (o DataSetS3SourceOutput) InputColumns() DataSetInputColumnArrayOutput {
-	return o.ApplyT(func(v DataSetS3Source) []DataSetInputColumn { return v.InputColumns }).(DataSetInputColumnArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-uploadsettings
-func (o DataSetS3SourceOutput) UploadSettings() DataSetUploadSettingsPtrOutput {
-	return o.ApplyT(func(v DataSetS3Source) *DataSetUploadSettings { return v.UploadSettings }).(DataSetUploadSettingsPtrOutput)
-}
-
-type DataSetS3SourcePtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetS3SourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetS3Source)(nil)).Elem()
-}
-
-func (o DataSetS3SourcePtrOutput) ToDataSetS3SourcePtrOutput() DataSetS3SourcePtrOutput {
+func (o DataSetTagArrayOutput) ToDataSetTagArrayOutput() DataSetTagArrayOutput {
 	return o
 }
 
-func (o DataSetS3SourcePtrOutput) ToDataSetS3SourcePtrOutputWithContext(ctx context.Context) DataSetS3SourcePtrOutput {
+func (o DataSetTagArrayOutput) ToDataSetTagArrayOutputWithContext(ctx context.Context) DataSetTagArrayOutput {
 	return o
 }
 
-func (o DataSetS3SourcePtrOutput) Elem() DataSetS3SourceOutput {
-	return o.ApplyT(func(v *DataSetS3Source) DataSetS3Source {
-		if v != nil {
-			return *v
-		}
-		var ret DataSetS3Source
-		return ret
-	}).(DataSetS3SourceOutput)
+func (o DataSetTagArrayOutput) Index(i pulumi.IntInput) DataSetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetTag {
+		return vs[0].([]DataSetTag)[vs[1].(int)]
+	}).(DataSetTagOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-datasourcearn
-func (o DataSetS3SourcePtrOutput) DataSourceArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetS3Source) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSourceArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-inputcolumns
-func (o DataSetS3SourcePtrOutput) InputColumns() DataSetInputColumnArrayOutput {
-	return o.ApplyT(func(v *DataSetS3Source) []DataSetInputColumn {
-		if v == nil {
-			return nil
-		}
-		return v.InputColumns
-	}).(DataSetInputColumnArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html#cfn-quicksight-dataset-s3source-uploadsettings
-func (o DataSetS3SourcePtrOutput) UploadSettings() DataSetUploadSettingsPtrOutput {
-	return o.ApplyT(func(v *DataSetS3Source) *DataSetUploadSettings {
-		if v == nil {
-			return nil
-		}
-		return v.UploadSettings
-	}).(DataSetUploadSettingsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html
-type DataSetTagColumnOperation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-columnname
-	ColumnName string `pulumi:"columnName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-tags
-	Tags []DataSetColumnTag `pulumi:"tags"`
-}
-
-// DataSetTagColumnOperationInput is an input type that accepts DataSetTagColumnOperationArgs and DataSetTagColumnOperationOutput values.
-// You can construct a concrete instance of `DataSetTagColumnOperationInput` via:
-//
-//          DataSetTagColumnOperationArgs{...}
-type DataSetTagColumnOperationInput interface {
-	pulumi.Input
-
-	ToDataSetTagColumnOperationOutput() DataSetTagColumnOperationOutput
-	ToDataSetTagColumnOperationOutputWithContext(context.Context) DataSetTagColumnOperationOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html
-type DataSetTagColumnOperationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-columnname
-	ColumnName pulumi.StringInput `pulumi:"columnName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-tags
-	Tags DataSetColumnTagArrayInput `pulumi:"tags"`
-}
-
-func (DataSetTagColumnOperationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetTagColumnOperation)(nil)).Elem()
-}
-
-func (i DataSetTagColumnOperationArgs) ToDataSetTagColumnOperationOutput() DataSetTagColumnOperationOutput {
-	return i.ToDataSetTagColumnOperationOutputWithContext(context.Background())
-}
-
-func (i DataSetTagColumnOperationArgs) ToDataSetTagColumnOperationOutputWithContext(ctx context.Context) DataSetTagColumnOperationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetTagColumnOperationOutput)
-}
-
-func (i DataSetTagColumnOperationArgs) ToDataSetTagColumnOperationPtrOutput() DataSetTagColumnOperationPtrOutput {
-	return i.ToDataSetTagColumnOperationPtrOutputWithContext(context.Background())
-}
-
-func (i DataSetTagColumnOperationArgs) ToDataSetTagColumnOperationPtrOutputWithContext(ctx context.Context) DataSetTagColumnOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetTagColumnOperationOutput).ToDataSetTagColumnOperationPtrOutputWithContext(ctx)
-}
-
-// DataSetTagColumnOperationPtrInput is an input type that accepts DataSetTagColumnOperationArgs, DataSetTagColumnOperationPtr and DataSetTagColumnOperationPtrOutput values.
-// You can construct a concrete instance of `DataSetTagColumnOperationPtrInput` via:
-//
-//          DataSetTagColumnOperationArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSetTagColumnOperationPtrInput interface {
-	pulumi.Input
-
-	ToDataSetTagColumnOperationPtrOutput() DataSetTagColumnOperationPtrOutput
-	ToDataSetTagColumnOperationPtrOutputWithContext(context.Context) DataSetTagColumnOperationPtrOutput
-}
-
-type dataSetTagColumnOperationPtrType DataSetTagColumnOperationArgs
-
-func DataSetTagColumnOperationPtr(v *DataSetTagColumnOperationArgs) DataSetTagColumnOperationPtrInput {
-	return (*dataSetTagColumnOperationPtrType)(v)
-}
-
-func (*dataSetTagColumnOperationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetTagColumnOperation)(nil)).Elem()
-}
-
-func (i *dataSetTagColumnOperationPtrType) ToDataSetTagColumnOperationPtrOutput() DataSetTagColumnOperationPtrOutput {
-	return i.ToDataSetTagColumnOperationPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSetTagColumnOperationPtrType) ToDataSetTagColumnOperationPtrOutputWithContext(ctx context.Context) DataSetTagColumnOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetTagColumnOperationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html
-type DataSetTagColumnOperationOutput struct{ *pulumi.OutputState }
-
-func (DataSetTagColumnOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetTagColumnOperation)(nil)).Elem()
-}
-
-func (o DataSetTagColumnOperationOutput) ToDataSetTagColumnOperationOutput() DataSetTagColumnOperationOutput {
-	return o
-}
-
-func (o DataSetTagColumnOperationOutput) ToDataSetTagColumnOperationOutputWithContext(ctx context.Context) DataSetTagColumnOperationOutput {
-	return o
-}
-
-func (o DataSetTagColumnOperationOutput) ToDataSetTagColumnOperationPtrOutput() DataSetTagColumnOperationPtrOutput {
-	return o.ToDataSetTagColumnOperationPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetTagColumnOperationOutput) ToDataSetTagColumnOperationPtrOutputWithContext(ctx context.Context) DataSetTagColumnOperationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetTagColumnOperation) *DataSetTagColumnOperation {
-		return &v
-	}).(DataSetTagColumnOperationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-columnname
-func (o DataSetTagColumnOperationOutput) ColumnName() pulumi.StringOutput {
-	return o.ApplyT(func(v DataSetTagColumnOperation) string { return v.ColumnName }).(pulumi.StringOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-tags
-func (o DataSetTagColumnOperationOutput) Tags() DataSetColumnTagArrayOutput {
-	return o.ApplyT(func(v DataSetTagColumnOperation) []DataSetColumnTag { return v.Tags }).(DataSetColumnTagArrayOutput)
-}
-
-type DataSetTagColumnOperationPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetTagColumnOperationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetTagColumnOperation)(nil)).Elem()
-}
-
-func (o DataSetTagColumnOperationPtrOutput) ToDataSetTagColumnOperationPtrOutput() DataSetTagColumnOperationPtrOutput {
-	return o
-}
-
-func (o DataSetTagColumnOperationPtrOutput) ToDataSetTagColumnOperationPtrOutputWithContext(ctx context.Context) DataSetTagColumnOperationPtrOutput {
-	return o
-}
-
-func (o DataSetTagColumnOperationPtrOutput) Elem() DataSetTagColumnOperationOutput {
-	return o.ApplyT(func(v *DataSetTagColumnOperation) DataSetTagColumnOperation {
-		if v != nil {
-			return *v
-		}
-		var ret DataSetTagColumnOperation
-		return ret
-	}).(DataSetTagColumnOperationOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-columnname
-func (o DataSetTagColumnOperationPtrOutput) ColumnName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetTagColumnOperation) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ColumnName
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-tagcolumnoperation.html#cfn-quicksight-dataset-tagcolumnoperation-tags
-func (o DataSetTagColumnOperationPtrOutput) Tags() DataSetColumnTagArrayOutput {
-	return o.ApplyT(func(v *DataSetTagColumnOperation) []DataSetColumnTag {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(DataSetColumnTagArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html
-type DataSetTransformOperation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-castcolumntypeoperation
-	CastColumnTypeOperation *DataSetCastColumnTypeOperation `pulumi:"castColumnTypeOperation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-createcolumnsoperation
-	CreateColumnsOperation *DataSetCreateColumnsOperation `pulumi:"createColumnsOperation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-filteroperation
-	FilterOperation *DataSetFilterOperation `pulumi:"filterOperation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-projectoperation
-	ProjectOperation *DataSetProjectOperation `pulumi:"projectOperation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-renamecolumnoperation
-	RenameColumnOperation *DataSetRenameColumnOperation `pulumi:"renameColumnOperation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-tagcolumnoperation
-	TagColumnOperation *DataSetTagColumnOperation `pulumi:"tagColumnOperation"`
-}
-
-// DataSetTransformOperationInput is an input type that accepts DataSetTransformOperationArgs and DataSetTransformOperationOutput values.
-// You can construct a concrete instance of `DataSetTransformOperationInput` via:
-//
-//          DataSetTransformOperationArgs{...}
-type DataSetTransformOperationInput interface {
-	pulumi.Input
-
-	ToDataSetTransformOperationOutput() DataSetTransformOperationOutput
-	ToDataSetTransformOperationOutputWithContext(context.Context) DataSetTransformOperationOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html
-type DataSetTransformOperationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-castcolumntypeoperation
-	CastColumnTypeOperation DataSetCastColumnTypeOperationPtrInput `pulumi:"castColumnTypeOperation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-createcolumnsoperation
-	CreateColumnsOperation DataSetCreateColumnsOperationPtrInput `pulumi:"createColumnsOperation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-filteroperation
-	FilterOperation DataSetFilterOperationPtrInput `pulumi:"filterOperation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-projectoperation
-	ProjectOperation DataSetProjectOperationPtrInput `pulumi:"projectOperation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-renamecolumnoperation
-	RenameColumnOperation DataSetRenameColumnOperationPtrInput `pulumi:"renameColumnOperation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-tagcolumnoperation
-	TagColumnOperation DataSetTagColumnOperationPtrInput `pulumi:"tagColumnOperation"`
-}
-
-func (DataSetTransformOperationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetTransformOperation)(nil)).Elem()
-}
-
-func (i DataSetTransformOperationArgs) ToDataSetTransformOperationOutput() DataSetTransformOperationOutput {
-	return i.ToDataSetTransformOperationOutputWithContext(context.Background())
-}
-
-func (i DataSetTransformOperationArgs) ToDataSetTransformOperationOutputWithContext(ctx context.Context) DataSetTransformOperationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetTransformOperationOutput)
-}
-
-// DataSetTransformOperationArrayInput is an input type that accepts DataSetTransformOperationArray and DataSetTransformOperationArrayOutput values.
-// You can construct a concrete instance of `DataSetTransformOperationArrayInput` via:
-//
-//          DataSetTransformOperationArray{ DataSetTransformOperationArgs{...} }
-type DataSetTransformOperationArrayInput interface {
-	pulumi.Input
-
-	ToDataSetTransformOperationArrayOutput() DataSetTransformOperationArrayOutput
-	ToDataSetTransformOperationArrayOutputWithContext(context.Context) DataSetTransformOperationArrayOutput
-}
-
-type DataSetTransformOperationArray []DataSetTransformOperationInput
-
-func (DataSetTransformOperationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSetTransformOperation)(nil)).Elem()
-}
-
-func (i DataSetTransformOperationArray) ToDataSetTransformOperationArrayOutput() DataSetTransformOperationArrayOutput {
-	return i.ToDataSetTransformOperationArrayOutputWithContext(context.Background())
-}
-
-func (i DataSetTransformOperationArray) ToDataSetTransformOperationArrayOutputWithContext(ctx context.Context) DataSetTransformOperationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetTransformOperationArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html
-type DataSetTransformOperationOutput struct{ *pulumi.OutputState }
-
-func (DataSetTransformOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetTransformOperation)(nil)).Elem()
-}
-
-func (o DataSetTransformOperationOutput) ToDataSetTransformOperationOutput() DataSetTransformOperationOutput {
-	return o
-}
-
-func (o DataSetTransformOperationOutput) ToDataSetTransformOperationOutputWithContext(ctx context.Context) DataSetTransformOperationOutput {
-	return o
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-castcolumntypeoperation
-func (o DataSetTransformOperationOutput) CastColumnTypeOperation() DataSetCastColumnTypeOperationPtrOutput {
-	return o.ApplyT(func(v DataSetTransformOperation) *DataSetCastColumnTypeOperation { return v.CastColumnTypeOperation }).(DataSetCastColumnTypeOperationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-createcolumnsoperation
-func (o DataSetTransformOperationOutput) CreateColumnsOperation() DataSetCreateColumnsOperationPtrOutput {
-	return o.ApplyT(func(v DataSetTransformOperation) *DataSetCreateColumnsOperation { return v.CreateColumnsOperation }).(DataSetCreateColumnsOperationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-filteroperation
-func (o DataSetTransformOperationOutput) FilterOperation() DataSetFilterOperationPtrOutput {
-	return o.ApplyT(func(v DataSetTransformOperation) *DataSetFilterOperation { return v.FilterOperation }).(DataSetFilterOperationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-projectoperation
-func (o DataSetTransformOperationOutput) ProjectOperation() DataSetProjectOperationPtrOutput {
-	return o.ApplyT(func(v DataSetTransformOperation) *DataSetProjectOperation { return v.ProjectOperation }).(DataSetProjectOperationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-renamecolumnoperation
-func (o DataSetTransformOperationOutput) RenameColumnOperation() DataSetRenameColumnOperationPtrOutput {
-	return o.ApplyT(func(v DataSetTransformOperation) *DataSetRenameColumnOperation { return v.RenameColumnOperation }).(DataSetRenameColumnOperationPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html#cfn-quicksight-dataset-transformoperation-tagcolumnoperation
-func (o DataSetTransformOperationOutput) TagColumnOperation() DataSetTagColumnOperationPtrOutput {
-	return o.ApplyT(func(v DataSetTransformOperation) *DataSetTagColumnOperation { return v.TagColumnOperation }).(DataSetTagColumnOperationPtrOutput)
-}
-
-type DataSetTransformOperationArrayOutput struct{ *pulumi.OutputState }
-
-func (DataSetTransformOperationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSetTransformOperation)(nil)).Elem()
-}
-
-func (o DataSetTransformOperationArrayOutput) ToDataSetTransformOperationArrayOutput() DataSetTransformOperationArrayOutput {
-	return o
-}
-
-func (o DataSetTransformOperationArrayOutput) ToDataSetTransformOperationArrayOutputWithContext(ctx context.Context) DataSetTransformOperationArrayOutput {
-	return o
-}
-
-func (o DataSetTransformOperationArrayOutput) Index(i pulumi.IntInput) DataSetTransformOperationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetTransformOperation {
-		return vs[0].([]DataSetTransformOperation)[vs[1].(int)]
-	}).(DataSetTransformOperationOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html
-type DataSetUploadSettings struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-containsheader
-	ContainsHeader *bool `pulumi:"containsHeader"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-delimiter
-	Delimiter *string `pulumi:"delimiter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-format
-	Format *string `pulumi:"format"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-startfromrow
-	StartFromRow *float64 `pulumi:"startFromRow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-textqualifier
-	TextQualifier *string `pulumi:"textQualifier"`
-}
-
-// DataSetUploadSettingsInput is an input type that accepts DataSetUploadSettingsArgs and DataSetUploadSettingsOutput values.
-// You can construct a concrete instance of `DataSetUploadSettingsInput` via:
-//
-//          DataSetUploadSettingsArgs{...}
-type DataSetUploadSettingsInput interface {
-	pulumi.Input
-
-	ToDataSetUploadSettingsOutput() DataSetUploadSettingsOutput
-	ToDataSetUploadSettingsOutputWithContext(context.Context) DataSetUploadSettingsOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html
-type DataSetUploadSettingsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-containsheader
-	ContainsHeader pulumi.BoolPtrInput `pulumi:"containsHeader"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-delimiter
-	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-format
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-startfromrow
-	StartFromRow pulumi.Float64PtrInput `pulumi:"startFromRow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-textqualifier
-	TextQualifier pulumi.StringPtrInput `pulumi:"textQualifier"`
-}
-
-func (DataSetUploadSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetUploadSettings)(nil)).Elem()
-}
-
-func (i DataSetUploadSettingsArgs) ToDataSetUploadSettingsOutput() DataSetUploadSettingsOutput {
-	return i.ToDataSetUploadSettingsOutputWithContext(context.Background())
-}
-
-func (i DataSetUploadSettingsArgs) ToDataSetUploadSettingsOutputWithContext(ctx context.Context) DataSetUploadSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetUploadSettingsOutput)
-}
-
-func (i DataSetUploadSettingsArgs) ToDataSetUploadSettingsPtrOutput() DataSetUploadSettingsPtrOutput {
-	return i.ToDataSetUploadSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i DataSetUploadSettingsArgs) ToDataSetUploadSettingsPtrOutputWithContext(ctx context.Context) DataSetUploadSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetUploadSettingsOutput).ToDataSetUploadSettingsPtrOutputWithContext(ctx)
-}
-
-// DataSetUploadSettingsPtrInput is an input type that accepts DataSetUploadSettingsArgs, DataSetUploadSettingsPtr and DataSetUploadSettingsPtrOutput values.
-// You can construct a concrete instance of `DataSetUploadSettingsPtrInput` via:
-//
-//          DataSetUploadSettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSetUploadSettingsPtrInput interface {
-	pulumi.Input
-
-	ToDataSetUploadSettingsPtrOutput() DataSetUploadSettingsPtrOutput
-	ToDataSetUploadSettingsPtrOutputWithContext(context.Context) DataSetUploadSettingsPtrOutput
-}
-
-type dataSetUploadSettingsPtrType DataSetUploadSettingsArgs
-
-func DataSetUploadSettingsPtr(v *DataSetUploadSettingsArgs) DataSetUploadSettingsPtrInput {
-	return (*dataSetUploadSettingsPtrType)(v)
-}
-
-func (*dataSetUploadSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetUploadSettings)(nil)).Elem()
-}
-
-func (i *dataSetUploadSettingsPtrType) ToDataSetUploadSettingsPtrOutput() DataSetUploadSettingsPtrOutput {
-	return i.ToDataSetUploadSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSetUploadSettingsPtrType) ToDataSetUploadSettingsPtrOutputWithContext(ctx context.Context) DataSetUploadSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSetUploadSettingsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html
-type DataSetUploadSettingsOutput struct{ *pulumi.OutputState }
-
-func (DataSetUploadSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetUploadSettings)(nil)).Elem()
-}
-
-func (o DataSetUploadSettingsOutput) ToDataSetUploadSettingsOutput() DataSetUploadSettingsOutput {
-	return o
-}
-
-func (o DataSetUploadSettingsOutput) ToDataSetUploadSettingsOutputWithContext(ctx context.Context) DataSetUploadSettingsOutput {
-	return o
-}
-
-func (o DataSetUploadSettingsOutput) ToDataSetUploadSettingsPtrOutput() DataSetUploadSettingsPtrOutput {
-	return o.ToDataSetUploadSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetUploadSettingsOutput) ToDataSetUploadSettingsPtrOutputWithContext(ctx context.Context) DataSetUploadSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetUploadSettings) *DataSetUploadSettings {
-		return &v
-	}).(DataSetUploadSettingsPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-containsheader
-func (o DataSetUploadSettingsOutput) ContainsHeader() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DataSetUploadSettings) *bool { return v.ContainsHeader }).(pulumi.BoolPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-delimiter
-func (o DataSetUploadSettingsOutput) Delimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSetUploadSettings) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-format
-func (o DataSetUploadSettingsOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSetUploadSettings) *string { return v.Format }).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-startfromrow
-func (o DataSetUploadSettingsOutput) StartFromRow() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DataSetUploadSettings) *float64 { return v.StartFromRow }).(pulumi.Float64PtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-textqualifier
-func (o DataSetUploadSettingsOutput) TextQualifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataSetUploadSettings) *string { return v.TextQualifier }).(pulumi.StringPtrOutput)
-}
-
-type DataSetUploadSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetUploadSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetUploadSettings)(nil)).Elem()
-}
-
-func (o DataSetUploadSettingsPtrOutput) ToDataSetUploadSettingsPtrOutput() DataSetUploadSettingsPtrOutput {
-	return o
-}
-
-func (o DataSetUploadSettingsPtrOutput) ToDataSetUploadSettingsPtrOutputWithContext(ctx context.Context) DataSetUploadSettingsPtrOutput {
-	return o
-}
-
-func (o DataSetUploadSettingsPtrOutput) Elem() DataSetUploadSettingsOutput {
-	return o.ApplyT(func(v *DataSetUploadSettings) DataSetUploadSettings {
-		if v != nil {
-			return *v
-		}
-		var ret DataSetUploadSettings
-		return ret
-	}).(DataSetUploadSettingsOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-containsheader
-func (o DataSetUploadSettingsPtrOutput) ContainsHeader() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DataSetUploadSettings) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ContainsHeader
-	}).(pulumi.BoolPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-delimiter
-func (o DataSetUploadSettingsPtrOutput) Delimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetUploadSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Delimiter
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-format
-func (o DataSetUploadSettingsPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetUploadSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Format
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-startfromrow
-func (o DataSetUploadSettingsPtrOutput) StartFromRow() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *DataSetUploadSettings) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.StartFromRow
-	}).(pulumi.Float64PtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html#cfn-quicksight-dataset-uploadsettings-textqualifier
-func (o DataSetUploadSettingsPtrOutput) TextQualifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataSetUploadSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TextQualifier
-	}).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html
+// <p>Amazon Elasticsearch Service parameters.</p>
 type DataSourceAmazonElasticsearchParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html#cfn-quicksight-datasource-amazonelasticsearchparameters-domain
+	// <p>The Amazon Elasticsearch Service domain.</p>
 	Domain string `pulumi:"domain"`
 }
 
@@ -7241,9 +5437,9 @@ type DataSourceAmazonElasticsearchParametersInput interface {
 	ToDataSourceAmazonElasticsearchParametersOutputWithContext(context.Context) DataSourceAmazonElasticsearchParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html
+// <p>Amazon Elasticsearch Service parameters.</p>
 type DataSourceAmazonElasticsearchParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html#cfn-quicksight-datasource-amazonelasticsearchparameters-domain
+	// <p>The Amazon Elasticsearch Service domain.</p>
 	Domain pulumi.StringInput `pulumi:"domain"`
 }
 
@@ -7300,7 +5496,7 @@ func (i *dataSourceAmazonElasticsearchParametersPtrType) ToDataSourceAmazonElast
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAmazonElasticsearchParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html
+// <p>Amazon Elasticsearch Service parameters.</p>
 type DataSourceAmazonElasticsearchParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceAmazonElasticsearchParametersOutput) ElementType() reflect.Type {
@@ -7325,7 +5521,7 @@ func (o DataSourceAmazonElasticsearchParametersOutput) ToDataSourceAmazonElastic
 	}).(DataSourceAmazonElasticsearchParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html#cfn-quicksight-datasource-amazonelasticsearchparameters-domain
+// <p>The Amazon Elasticsearch Service domain.</p>
 func (o DataSourceAmazonElasticsearchParametersOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceAmazonElasticsearchParameters) string { return v.Domain }).(pulumi.StringOutput)
 }
@@ -7354,7 +5550,7 @@ func (o DataSourceAmazonElasticsearchParametersPtrOutput) Elem() DataSourceAmazo
 	}).(DataSourceAmazonElasticsearchParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html#cfn-quicksight-datasource-amazonelasticsearchparameters-domain
+// <p>The Amazon Elasticsearch Service domain.</p>
 func (o DataSourceAmazonElasticsearchParametersPtrOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceAmazonElasticsearchParameters) *string {
 		if v == nil {
@@ -7364,9 +5560,9 @@ func (o DataSourceAmazonElasticsearchParametersPtrOutput) Domain() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html
+// <p>Amazon Athena parameters.</p>
 type DataSourceAthenaParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html#cfn-quicksight-datasource-athenaparameters-workgroup
+	// <p>The workgroup that Amazon Athena uses.</p>
 	WorkGroup *string `pulumi:"workGroup"`
 }
 
@@ -7381,9 +5577,9 @@ type DataSourceAthenaParametersInput interface {
 	ToDataSourceAthenaParametersOutputWithContext(context.Context) DataSourceAthenaParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html
+// <p>Amazon Athena parameters.</p>
 type DataSourceAthenaParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html#cfn-quicksight-datasource-athenaparameters-workgroup
+	// <p>The workgroup that Amazon Athena uses.</p>
 	WorkGroup pulumi.StringPtrInput `pulumi:"workGroup"`
 }
 
@@ -7440,7 +5636,7 @@ func (i *dataSourceAthenaParametersPtrType) ToDataSourceAthenaParametersPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAthenaParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html
+// <p>Amazon Athena parameters.</p>
 type DataSourceAthenaParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceAthenaParametersOutput) ElementType() reflect.Type {
@@ -7465,7 +5661,7 @@ func (o DataSourceAthenaParametersOutput) ToDataSourceAthenaParametersPtrOutputW
 	}).(DataSourceAthenaParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html#cfn-quicksight-datasource-athenaparameters-workgroup
+// <p>The workgroup that Amazon Athena uses.</p>
 func (o DataSourceAthenaParametersOutput) WorkGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceAthenaParameters) *string { return v.WorkGroup }).(pulumi.StringPtrOutput)
 }
@@ -7494,7 +5690,7 @@ func (o DataSourceAthenaParametersPtrOutput) Elem() DataSourceAthenaParametersOu
 	}).(DataSourceAthenaParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html#cfn-quicksight-datasource-athenaparameters-workgroup
+// <p>The workgroup that Amazon Athena uses.</p>
 func (o DataSourceAthenaParametersPtrOutput) WorkGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceAthenaParameters) *string {
 		if v == nil {
@@ -7504,13 +5700,13 @@ func (o DataSourceAthenaParametersPtrOutput) WorkGroup() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html
+// <p>Amazon Aurora parameters.</p>
 type DataSourceAuroraParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-database
+	// <p>Database.</p>
 	Database string `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-host
+	// <p>Host.</p>
 	Host string `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-port
+	// <p>Port.</p>
 	Port float64 `pulumi:"port"`
 }
 
@@ -7525,13 +5721,13 @@ type DataSourceAuroraParametersInput interface {
 	ToDataSourceAuroraParametersOutputWithContext(context.Context) DataSourceAuroraParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html
+// <p>Amazon Aurora parameters.</p>
 type DataSourceAuroraParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-database
+	// <p>Database.</p>
 	Database pulumi.StringInput `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-host
+	// <p>Host.</p>
 	Host pulumi.StringInput `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-port
+	// <p>Port.</p>
 	Port pulumi.Float64Input `pulumi:"port"`
 }
 
@@ -7588,7 +5784,7 @@ func (i *dataSourceAuroraParametersPtrType) ToDataSourceAuroraParametersPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAuroraParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html
+// <p>Amazon Aurora parameters.</p>
 type DataSourceAuroraParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceAuroraParametersOutput) ElementType() reflect.Type {
@@ -7613,17 +5809,17 @@ func (o DataSourceAuroraParametersOutput) ToDataSourceAuroraParametersPtrOutputW
 	}).(DataSourceAuroraParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-database
+// <p>Database.</p>
 func (o DataSourceAuroraParametersOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceAuroraParameters) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-host
+// <p>Host.</p>
 func (o DataSourceAuroraParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceAuroraParameters) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-port
+// <p>Port.</p>
 func (o DataSourceAuroraParametersOutput) Port() pulumi.Float64Output {
 	return o.ApplyT(func(v DataSourceAuroraParameters) float64 { return v.Port }).(pulumi.Float64Output)
 }
@@ -7652,7 +5848,7 @@ func (o DataSourceAuroraParametersPtrOutput) Elem() DataSourceAuroraParametersOu
 	}).(DataSourceAuroraParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-database
+// <p>Database.</p>
 func (o DataSourceAuroraParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceAuroraParameters) *string {
 		if v == nil {
@@ -7662,7 +5858,7 @@ func (o DataSourceAuroraParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-host
+// <p>Host.</p>
 func (o DataSourceAuroraParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceAuroraParameters) *string {
 		if v == nil {
@@ -7672,7 +5868,7 @@ func (o DataSourceAuroraParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-port
+// <p>Port.</p>
 func (o DataSourceAuroraParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataSourceAuroraParameters) *float64 {
 		if v == nil {
@@ -7682,13 +5878,13 @@ func (o DataSourceAuroraParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html
+// <p>Amazon Aurora with PostgreSQL compatibility parameters.</p>
 type DataSourceAuroraPostgreSqlParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-database
+	// <p>Database.</p>
 	Database string `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-host
+	// <p>Host.</p>
 	Host string `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-port
+	// <p>Port.</p>
 	Port float64 `pulumi:"port"`
 }
 
@@ -7703,13 +5899,13 @@ type DataSourceAuroraPostgreSqlParametersInput interface {
 	ToDataSourceAuroraPostgreSqlParametersOutputWithContext(context.Context) DataSourceAuroraPostgreSqlParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html
+// <p>Amazon Aurora with PostgreSQL compatibility parameters.</p>
 type DataSourceAuroraPostgreSqlParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-database
+	// <p>Database.</p>
 	Database pulumi.StringInput `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-host
+	// <p>Host.</p>
 	Host pulumi.StringInput `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-port
+	// <p>Port.</p>
 	Port pulumi.Float64Input `pulumi:"port"`
 }
 
@@ -7766,7 +5962,7 @@ func (i *dataSourceAuroraPostgreSqlParametersPtrType) ToDataSourceAuroraPostgreS
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAuroraPostgreSqlParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html
+// <p>Amazon Aurora with PostgreSQL compatibility parameters.</p>
 type DataSourceAuroraPostgreSqlParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceAuroraPostgreSqlParametersOutput) ElementType() reflect.Type {
@@ -7791,17 +5987,17 @@ func (o DataSourceAuroraPostgreSqlParametersOutput) ToDataSourceAuroraPostgreSql
 	}).(DataSourceAuroraPostgreSqlParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-database
+// <p>Database.</p>
 func (o DataSourceAuroraPostgreSqlParametersOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceAuroraPostgreSqlParameters) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-host
+// <p>Host.</p>
 func (o DataSourceAuroraPostgreSqlParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceAuroraPostgreSqlParameters) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-port
+// <p>Port.</p>
 func (o DataSourceAuroraPostgreSqlParametersOutput) Port() pulumi.Float64Output {
 	return o.ApplyT(func(v DataSourceAuroraPostgreSqlParameters) float64 { return v.Port }).(pulumi.Float64Output)
 }
@@ -7830,7 +6026,7 @@ func (o DataSourceAuroraPostgreSqlParametersPtrOutput) Elem() DataSourceAuroraPo
 	}).(DataSourceAuroraPostgreSqlParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-database
+// <p>Database.</p>
 func (o DataSourceAuroraPostgreSqlParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceAuroraPostgreSqlParameters) *string {
 		if v == nil {
@@ -7840,7 +6036,7 @@ func (o DataSourceAuroraPostgreSqlParametersPtrOutput) Database() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-host
+// <p>Host.</p>
 func (o DataSourceAuroraPostgreSqlParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceAuroraPostgreSqlParameters) *string {
 		if v == nil {
@@ -7850,7 +6046,7 @@ func (o DataSourceAuroraPostgreSqlParametersPtrOutput) Host() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-aurorapostgresqlparameters.html#cfn-quicksight-datasource-aurorapostgresqlparameters-port
+// <p>Port.</p>
 func (o DataSourceAuroraPostgreSqlParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataSourceAuroraPostgreSqlParameters) *float64 {
 		if v == nil {
@@ -7860,13 +6056,21 @@ func (o DataSourceAuroraPostgreSqlParametersPtrOutput) Port() pulumi.Float64PtrO
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html
+// <p>The combination of user name and password that are used as credentials.</p>
 type DataSourceCredentialPair struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-alternatedatasourceparameters
+	// <p>A set of alternate data source parameters that you want to share for these
+	//             credentials. The credentials are applied in tandem with the data source parameters when
+	//             you copy a data source by using a create or update request. The API operation compares
+	//             the <code>DataSourceParameters</code> structure that's in the request with the
+	//             structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+	//             structures are an exact match, the request is allowed to use the new data source with
+	//             the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
+	//             null, the <code>DataSourceParameters</code> originally used with these
+	//                 <code>Credentials</code> is automatically allowed.</p>
 	AlternateDataSourceParameters []DataSourceDataSourceParameters `pulumi:"alternateDataSourceParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-password
+	// <p>Password.</p>
 	Password string `pulumi:"password"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-username
+	// <p>User name.</p>
 	Username string `pulumi:"username"`
 }
 
@@ -7881,13 +6085,21 @@ type DataSourceCredentialPairInput interface {
 	ToDataSourceCredentialPairOutputWithContext(context.Context) DataSourceCredentialPairOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html
+// <p>The combination of user name and password that are used as credentials.</p>
 type DataSourceCredentialPairArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-alternatedatasourceparameters
+	// <p>A set of alternate data source parameters that you want to share for these
+	//             credentials. The credentials are applied in tandem with the data source parameters when
+	//             you copy a data source by using a create or update request. The API operation compares
+	//             the <code>DataSourceParameters</code> structure that's in the request with the
+	//             structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+	//             structures are an exact match, the request is allowed to use the new data source with
+	//             the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
+	//             null, the <code>DataSourceParameters</code> originally used with these
+	//                 <code>Credentials</code> is automatically allowed.</p>
 	AlternateDataSourceParameters DataSourceDataSourceParametersArrayInput `pulumi:"alternateDataSourceParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-password
+	// <p>Password.</p>
 	Password pulumi.StringInput `pulumi:"password"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-username
+	// <p>User name.</p>
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -7944,7 +6156,7 @@ func (i *dataSourceCredentialPairPtrType) ToDataSourceCredentialPairPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceCredentialPairPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html
+// <p>The combination of user name and password that are used as credentials.</p>
 type DataSourceCredentialPairOutput struct{ *pulumi.OutputState }
 
 func (DataSourceCredentialPairOutput) ElementType() reflect.Type {
@@ -7969,19 +6181,27 @@ func (o DataSourceCredentialPairOutput) ToDataSourceCredentialPairPtrOutputWithC
 	}).(DataSourceCredentialPairPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-alternatedatasourceparameters
+// <p>A set of alternate data source parameters that you want to share for these
+//             credentials. The credentials are applied in tandem with the data source parameters when
+//             you copy a data source by using a create or update request. The API operation compares
+//             the <code>DataSourceParameters</code> structure that's in the request with the
+//             structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+//             structures are an exact match, the request is allowed to use the new data source with
+//             the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
+//             null, the <code>DataSourceParameters</code> originally used with these
+//                 <code>Credentials</code> is automatically allowed.</p>
 func (o DataSourceCredentialPairOutput) AlternateDataSourceParameters() DataSourceDataSourceParametersArrayOutput {
 	return o.ApplyT(func(v DataSourceCredentialPair) []DataSourceDataSourceParameters {
 		return v.AlternateDataSourceParameters
 	}).(DataSourceDataSourceParametersArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-password
+// <p>Password.</p>
 func (o DataSourceCredentialPairOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCredentialPair) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-username
+// <p>User name.</p>
 func (o DataSourceCredentialPairOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceCredentialPair) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -8010,7 +6230,15 @@ func (o DataSourceCredentialPairPtrOutput) Elem() DataSourceCredentialPairOutput
 	}).(DataSourceCredentialPairOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-alternatedatasourceparameters
+// <p>A set of alternate data source parameters that you want to share for these
+//             credentials. The credentials are applied in tandem with the data source parameters when
+//             you copy a data source by using a create or update request. The API operation compares
+//             the <code>DataSourceParameters</code> structure that's in the request with the
+//             structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+//             structures are an exact match, the request is allowed to use the new data source with
+//             the existing credentials. If the <code>AlternateDataSourceParameters</code> list is
+//             null, the <code>DataSourceParameters</code> originally used with these
+//                 <code>Credentials</code> is automatically allowed.</p>
 func (o DataSourceCredentialPairPtrOutput) AlternateDataSourceParameters() DataSourceDataSourceParametersArrayOutput {
 	return o.ApplyT(func(v *DataSourceCredentialPair) []DataSourceDataSourceParameters {
 		if v == nil {
@@ -8020,7 +6248,7 @@ func (o DataSourceCredentialPairPtrOutput) AlternateDataSourceParameters() DataS
 	}).(DataSourceDataSourceParametersArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-password
+// <p>Password.</p>
 func (o DataSourceCredentialPairPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentialPair) *string {
 		if v == nil {
@@ -8030,7 +6258,7 @@ func (o DataSourceCredentialPairPtrOutput) Password() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-username
+// <p>User name.</p>
 func (o DataSourceCredentialPairPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentialPair) *string {
 		if v == nil {
@@ -8040,11 +6268,14 @@ func (o DataSourceCredentialPairPtrOutput) Username() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html
+// <p>Data source credentials. This is a variant type structure. For this structure to be
+//             valid, only one of the attributes can be non-null.</p>
 type DataSourceDataSourceCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-copysourcearn
-	CopySourceArn *string `pulumi:"copySourceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-credentialpair
+	// <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
+	//             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
+	//             data source in the ARN is used as the credentials for the
+	//             <code>DataSourceCredentials</code> structure.</p>
+	CopySourceArn  *string                   `pulumi:"copySourceArn"`
 	CredentialPair *DataSourceCredentialPair `pulumi:"credentialPair"`
 }
 
@@ -8059,11 +6290,14 @@ type DataSourceDataSourceCredentialsInput interface {
 	ToDataSourceDataSourceCredentialsOutputWithContext(context.Context) DataSourceDataSourceCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html
+// <p>Data source credentials. This is a variant type structure. For this structure to be
+//             valid, only one of the attributes can be non-null.</p>
 type DataSourceDataSourceCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-copysourcearn
-	CopySourceArn pulumi.StringPtrInput `pulumi:"copySourceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-credentialpair
+	// <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
+	//             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
+	//             data source in the ARN is used as the credentials for the
+	//             <code>DataSourceCredentials</code> structure.</p>
+	CopySourceArn  pulumi.StringPtrInput            `pulumi:"copySourceArn"`
 	CredentialPair DataSourceCredentialPairPtrInput `pulumi:"credentialPair"`
 }
 
@@ -8120,7 +6354,8 @@ func (i *dataSourceDataSourceCredentialsPtrType) ToDataSourceDataSourceCredentia
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html
+// <p>Data source credentials. This is a variant type structure. For this structure to be
+//             valid, only one of the attributes can be non-null.</p>
 type DataSourceDataSourceCredentialsOutput struct{ *pulumi.OutputState }
 
 func (DataSourceDataSourceCredentialsOutput) ElementType() reflect.Type {
@@ -8145,12 +6380,14 @@ func (o DataSourceDataSourceCredentialsOutput) ToDataSourceDataSourceCredentials
 	}).(DataSourceDataSourceCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-copysourcearn
+// <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
+//             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
+//             data source in the ARN is used as the credentials for the
+//             <code>DataSourceCredentials</code> structure.</p>
 func (o DataSourceDataSourceCredentialsOutput) CopySourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceCredentials) *string { return v.CopySourceArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-credentialpair
 func (o DataSourceDataSourceCredentialsOutput) CredentialPair() DataSourceCredentialPairPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceCredentials) *DataSourceCredentialPair { return v.CredentialPair }).(DataSourceCredentialPairPtrOutput)
 }
@@ -8179,7 +6416,10 @@ func (o DataSourceDataSourceCredentialsPtrOutput) Elem() DataSourceDataSourceCre
 	}).(DataSourceDataSourceCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-copysourcearn
+// <p>The Amazon Resource Name (ARN) of a data source that has the credential pair that you
+//             want to use. When <code>CopySourceArn</code> is not null, the credential pair from the
+//             data source in the ARN is used as the credentials for the
+//             <code>DataSourceCredentials</code> structure.</p>
 func (o DataSourceDataSourceCredentialsPtrOutput) CopySourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceCredentials) *string {
 		if v == nil {
@@ -8189,7 +6429,6 @@ func (o DataSourceDataSourceCredentialsPtrOutput) CopySourceArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-credentialpair
 func (o DataSourceDataSourceCredentialsPtrOutput) CredentialPair() DataSourceCredentialPairPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceCredentials) *DataSourceCredentialPair {
 		if v == nil {
@@ -8199,12 +6438,11 @@ func (o DataSourceDataSourceCredentialsPtrOutput) CredentialPair() DataSourceCre
 	}).(DataSourceCredentialPairPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html
+// <p>Error information for the data source creation or update.</p>
 type DataSourceDataSourceErrorInfo struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-message
+	// <p>Error message.</p>
 	Message *string `pulumi:"message"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-type
-	Type *string `pulumi:"type"`
+	Type    *string `pulumi:"type"`
 }
 
 // DataSourceDataSourceErrorInfoInput is an input type that accepts DataSourceDataSourceErrorInfoArgs and DataSourceDataSourceErrorInfoOutput values.
@@ -8218,12 +6456,11 @@ type DataSourceDataSourceErrorInfoInput interface {
 	ToDataSourceDataSourceErrorInfoOutputWithContext(context.Context) DataSourceDataSourceErrorInfoOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html
+// <p>Error information for the data source creation or update.</p>
 type DataSourceDataSourceErrorInfoArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-message
+	// <p>Error message.</p>
 	Message pulumi.StringPtrInput `pulumi:"message"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (DataSourceDataSourceErrorInfoArgs) ElementType() reflect.Type {
@@ -8279,7 +6516,7 @@ func (i *dataSourceDataSourceErrorInfoPtrType) ToDataSourceDataSourceErrorInfoPt
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceErrorInfoPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html
+// <p>Error information for the data source creation or update.</p>
 type DataSourceDataSourceErrorInfoOutput struct{ *pulumi.OutputState }
 
 func (DataSourceDataSourceErrorInfoOutput) ElementType() reflect.Type {
@@ -8304,12 +6541,11 @@ func (o DataSourceDataSourceErrorInfoOutput) ToDataSourceDataSourceErrorInfoPtrO
 	}).(DataSourceDataSourceErrorInfoPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-message
+// <p>Error message.</p>
 func (o DataSourceDataSourceErrorInfoOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceErrorInfo) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-type
 func (o DataSourceDataSourceErrorInfoOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceErrorInfo) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -8338,7 +6574,7 @@ func (o DataSourceDataSourceErrorInfoPtrOutput) Elem() DataSourceDataSourceError
 	}).(DataSourceDataSourceErrorInfoOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-message
+// <p>Error message.</p>
 func (o DataSourceDataSourceErrorInfoPtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceErrorInfo) *string {
 		if v == nil {
@@ -8348,7 +6584,6 @@ func (o DataSourceDataSourceErrorInfoPtrOutput) Message() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceerrorinfo.html#cfn-quicksight-datasource-datasourceerrorinfo-type
 func (o DataSourceDataSourceErrorInfoPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceErrorInfo) *string {
 		if v == nil {
@@ -8358,40 +6593,26 @@ func (o DataSourceDataSourceErrorInfoPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html
+// <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
+//             This is a variant type structure. For this structure to be valid, only one of the
+//             attributes can be non-null.</p>
 type DataSourceDataSourceParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-amazonelasticsearchparameters
 	AmazonElasticsearchParameters *DataSourceAmazonElasticsearchParameters `pulumi:"amazonElasticsearchParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-athenaparameters
-	AthenaParameters *DataSourceAthenaParameters `pulumi:"athenaParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-auroraparameters
-	AuroraParameters *DataSourceAuroraParameters `pulumi:"auroraParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-aurorapostgresqlparameters
-	AuroraPostgreSqlParameters *DataSourceAuroraPostgreSqlParameters `pulumi:"auroraPostgreSqlParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mariadbparameters
-	MariaDbParameters *DataSourceMariaDbParameters `pulumi:"mariaDbParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mysqlparameters
-	MySqlParameters *DataSourceMySqlParameters `pulumi:"mySqlParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-oracleparameters
-	OracleParameters *DataSourceOracleParameters `pulumi:"oracleParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-postgresqlparameters
-	PostgreSqlParameters *DataSourcePostgreSqlParameters `pulumi:"postgreSqlParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-prestoparameters
-	PrestoParameters *DataSourcePrestoParameters `pulumi:"prestoParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-rdsparameters
-	RdsParameters *DataSourceRdsParameters `pulumi:"rdsParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-redshiftparameters
-	RedshiftParameters *DataSourceRedshiftParameters `pulumi:"redshiftParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-s3parameters
-	S3Parameters *DataSourceS3Parameters `pulumi:"s3Parameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-snowflakeparameters
-	SnowflakeParameters *DataSourceSnowflakeParameters `pulumi:"snowflakeParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sparkparameters
-	SparkParameters *DataSourceSparkParameters `pulumi:"sparkParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sqlserverparameters
-	SqlServerParameters *DataSourceSqlServerParameters `pulumi:"sqlServerParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-teradataparameters
-	TeradataParameters *DataSourceTeradataParameters `pulumi:"teradataParameters"`
+	AthenaParameters              *DataSourceAthenaParameters              `pulumi:"athenaParameters"`
+	AuroraParameters              *DataSourceAuroraParameters              `pulumi:"auroraParameters"`
+	AuroraPostgreSqlParameters    *DataSourceAuroraPostgreSqlParameters    `pulumi:"auroraPostgreSqlParameters"`
+	MariaDbParameters             *DataSourceMariaDbParameters             `pulumi:"mariaDbParameters"`
+	MySqlParameters               *DataSourceMySqlParameters               `pulumi:"mySqlParameters"`
+	OracleParameters              *DataSourceOracleParameters              `pulumi:"oracleParameters"`
+	PostgreSqlParameters          *DataSourcePostgreSqlParameters          `pulumi:"postgreSqlParameters"`
+	PrestoParameters              *DataSourcePrestoParameters              `pulumi:"prestoParameters"`
+	RdsParameters                 *DataSourceRdsParameters                 `pulumi:"rdsParameters"`
+	RedshiftParameters            *DataSourceRedshiftParameters            `pulumi:"redshiftParameters"`
+	S3Parameters                  *DataSourceS3Parameters                  `pulumi:"s3Parameters"`
+	SnowflakeParameters           *DataSourceSnowflakeParameters           `pulumi:"snowflakeParameters"`
+	SparkParameters               *DataSourceSparkParameters               `pulumi:"sparkParameters"`
+	SqlServerParameters           *DataSourceSqlServerParameters           `pulumi:"sqlServerParameters"`
+	TeradataParameters            *DataSourceTeradataParameters            `pulumi:"teradataParameters"`
 }
 
 // DataSourceDataSourceParametersInput is an input type that accepts DataSourceDataSourceParametersArgs and DataSourceDataSourceParametersOutput values.
@@ -8405,40 +6626,26 @@ type DataSourceDataSourceParametersInput interface {
 	ToDataSourceDataSourceParametersOutputWithContext(context.Context) DataSourceDataSourceParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html
+// <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
+//             This is a variant type structure. For this structure to be valid, only one of the
+//             attributes can be non-null.</p>
 type DataSourceDataSourceParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-amazonelasticsearchparameters
 	AmazonElasticsearchParameters DataSourceAmazonElasticsearchParametersPtrInput `pulumi:"amazonElasticsearchParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-athenaparameters
-	AthenaParameters DataSourceAthenaParametersPtrInput `pulumi:"athenaParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-auroraparameters
-	AuroraParameters DataSourceAuroraParametersPtrInput `pulumi:"auroraParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-aurorapostgresqlparameters
-	AuroraPostgreSqlParameters DataSourceAuroraPostgreSqlParametersPtrInput `pulumi:"auroraPostgreSqlParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mariadbparameters
-	MariaDbParameters DataSourceMariaDbParametersPtrInput `pulumi:"mariaDbParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mysqlparameters
-	MySqlParameters DataSourceMySqlParametersPtrInput `pulumi:"mySqlParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-oracleparameters
-	OracleParameters DataSourceOracleParametersPtrInput `pulumi:"oracleParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-postgresqlparameters
-	PostgreSqlParameters DataSourcePostgreSqlParametersPtrInput `pulumi:"postgreSqlParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-prestoparameters
-	PrestoParameters DataSourcePrestoParametersPtrInput `pulumi:"prestoParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-rdsparameters
-	RdsParameters DataSourceRdsParametersPtrInput `pulumi:"rdsParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-redshiftparameters
-	RedshiftParameters DataSourceRedshiftParametersPtrInput `pulumi:"redshiftParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-s3parameters
-	S3Parameters DataSourceS3ParametersPtrInput `pulumi:"s3Parameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-snowflakeparameters
-	SnowflakeParameters DataSourceSnowflakeParametersPtrInput `pulumi:"snowflakeParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sparkparameters
-	SparkParameters DataSourceSparkParametersPtrInput `pulumi:"sparkParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sqlserverparameters
-	SqlServerParameters DataSourceSqlServerParametersPtrInput `pulumi:"sqlServerParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-teradataparameters
-	TeradataParameters DataSourceTeradataParametersPtrInput `pulumi:"teradataParameters"`
+	AthenaParameters              DataSourceAthenaParametersPtrInput              `pulumi:"athenaParameters"`
+	AuroraParameters              DataSourceAuroraParametersPtrInput              `pulumi:"auroraParameters"`
+	AuroraPostgreSqlParameters    DataSourceAuroraPostgreSqlParametersPtrInput    `pulumi:"auroraPostgreSqlParameters"`
+	MariaDbParameters             DataSourceMariaDbParametersPtrInput             `pulumi:"mariaDbParameters"`
+	MySqlParameters               DataSourceMySqlParametersPtrInput               `pulumi:"mySqlParameters"`
+	OracleParameters              DataSourceOracleParametersPtrInput              `pulumi:"oracleParameters"`
+	PostgreSqlParameters          DataSourcePostgreSqlParametersPtrInput          `pulumi:"postgreSqlParameters"`
+	PrestoParameters              DataSourcePrestoParametersPtrInput              `pulumi:"prestoParameters"`
+	RdsParameters                 DataSourceRdsParametersPtrInput                 `pulumi:"rdsParameters"`
+	RedshiftParameters            DataSourceRedshiftParametersPtrInput            `pulumi:"redshiftParameters"`
+	S3Parameters                  DataSourceS3ParametersPtrInput                  `pulumi:"s3Parameters"`
+	SnowflakeParameters           DataSourceSnowflakeParametersPtrInput           `pulumi:"snowflakeParameters"`
+	SparkParameters               DataSourceSparkParametersPtrInput               `pulumi:"sparkParameters"`
+	SqlServerParameters           DataSourceSqlServerParametersPtrInput           `pulumi:"sqlServerParameters"`
+	TeradataParameters            DataSourceTeradataParametersPtrInput            `pulumi:"teradataParameters"`
 }
 
 func (DataSourceDataSourceParametersArgs) ElementType() reflect.Type {
@@ -8519,7 +6726,9 @@ func (i DataSourceDataSourceParametersArray) ToDataSourceDataSourceParametersArr
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDataSourceParametersArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html
+// <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
+//             This is a variant type structure. For this structure to be valid, only one of the
+//             attributes can be non-null.</p>
 type DataSourceDataSourceParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceDataSourceParametersOutput) ElementType() reflect.Type {
@@ -8544,86 +6753,70 @@ func (o DataSourceDataSourceParametersOutput) ToDataSourceDataSourceParametersPt
 	}).(DataSourceDataSourceParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-amazonelasticsearchparameters
 func (o DataSourceDataSourceParametersOutput) AmazonElasticsearchParameters() DataSourceAmazonElasticsearchParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceAmazonElasticsearchParameters {
 		return v.AmazonElasticsearchParameters
 	}).(DataSourceAmazonElasticsearchParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-athenaparameters
 func (o DataSourceDataSourceParametersOutput) AthenaParameters() DataSourceAthenaParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceAthenaParameters { return v.AthenaParameters }).(DataSourceAthenaParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-auroraparameters
 func (o DataSourceDataSourceParametersOutput) AuroraParameters() DataSourceAuroraParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceAuroraParameters { return v.AuroraParameters }).(DataSourceAuroraParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-aurorapostgresqlparameters
 func (o DataSourceDataSourceParametersOutput) AuroraPostgreSqlParameters() DataSourceAuroraPostgreSqlParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceAuroraPostgreSqlParameters {
 		return v.AuroraPostgreSqlParameters
 	}).(DataSourceAuroraPostgreSqlParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mariadbparameters
 func (o DataSourceDataSourceParametersOutput) MariaDbParameters() DataSourceMariaDbParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceMariaDbParameters { return v.MariaDbParameters }).(DataSourceMariaDbParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mysqlparameters
 func (o DataSourceDataSourceParametersOutput) MySqlParameters() DataSourceMySqlParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceMySqlParameters { return v.MySqlParameters }).(DataSourceMySqlParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-oracleparameters
 func (o DataSourceDataSourceParametersOutput) OracleParameters() DataSourceOracleParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceOracleParameters { return v.OracleParameters }).(DataSourceOracleParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-postgresqlparameters
 func (o DataSourceDataSourceParametersOutput) PostgreSqlParameters() DataSourcePostgreSqlParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourcePostgreSqlParameters { return v.PostgreSqlParameters }).(DataSourcePostgreSqlParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-prestoparameters
 func (o DataSourceDataSourceParametersOutput) PrestoParameters() DataSourcePrestoParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourcePrestoParameters { return v.PrestoParameters }).(DataSourcePrestoParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-rdsparameters
 func (o DataSourceDataSourceParametersOutput) RdsParameters() DataSourceRdsParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceRdsParameters { return v.RdsParameters }).(DataSourceRdsParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-redshiftparameters
 func (o DataSourceDataSourceParametersOutput) RedshiftParameters() DataSourceRedshiftParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceRedshiftParameters { return v.RedshiftParameters }).(DataSourceRedshiftParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-s3parameters
 func (o DataSourceDataSourceParametersOutput) S3Parameters() DataSourceS3ParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceS3Parameters { return v.S3Parameters }).(DataSourceS3ParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-snowflakeparameters
 func (o DataSourceDataSourceParametersOutput) SnowflakeParameters() DataSourceSnowflakeParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceSnowflakeParameters { return v.SnowflakeParameters }).(DataSourceSnowflakeParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sparkparameters
 func (o DataSourceDataSourceParametersOutput) SparkParameters() DataSourceSparkParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceSparkParameters { return v.SparkParameters }).(DataSourceSparkParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sqlserverparameters
 func (o DataSourceDataSourceParametersOutput) SqlServerParameters() DataSourceSqlServerParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceSqlServerParameters { return v.SqlServerParameters }).(DataSourceSqlServerParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-teradataparameters
 func (o DataSourceDataSourceParametersOutput) TeradataParameters() DataSourceTeradataParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceDataSourceParameters) *DataSourceTeradataParameters { return v.TeradataParameters }).(DataSourceTeradataParametersPtrOutput)
 }
@@ -8652,7 +6845,6 @@ func (o DataSourceDataSourceParametersPtrOutput) Elem() DataSourceDataSourcePara
 	}).(DataSourceDataSourceParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-amazonelasticsearchparameters
 func (o DataSourceDataSourceParametersPtrOutput) AmazonElasticsearchParameters() DataSourceAmazonElasticsearchParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceAmazonElasticsearchParameters {
 		if v == nil {
@@ -8662,7 +6854,6 @@ func (o DataSourceDataSourceParametersPtrOutput) AmazonElasticsearchParameters()
 	}).(DataSourceAmazonElasticsearchParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-athenaparameters
 func (o DataSourceDataSourceParametersPtrOutput) AthenaParameters() DataSourceAthenaParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceAthenaParameters {
 		if v == nil {
@@ -8672,7 +6863,6 @@ func (o DataSourceDataSourceParametersPtrOutput) AthenaParameters() DataSourceAt
 	}).(DataSourceAthenaParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-auroraparameters
 func (o DataSourceDataSourceParametersPtrOutput) AuroraParameters() DataSourceAuroraParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceAuroraParameters {
 		if v == nil {
@@ -8682,7 +6872,6 @@ func (o DataSourceDataSourceParametersPtrOutput) AuroraParameters() DataSourceAu
 	}).(DataSourceAuroraParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-aurorapostgresqlparameters
 func (o DataSourceDataSourceParametersPtrOutput) AuroraPostgreSqlParameters() DataSourceAuroraPostgreSqlParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceAuroraPostgreSqlParameters {
 		if v == nil {
@@ -8692,7 +6881,6 @@ func (o DataSourceDataSourceParametersPtrOutput) AuroraPostgreSqlParameters() Da
 	}).(DataSourceAuroraPostgreSqlParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mariadbparameters
 func (o DataSourceDataSourceParametersPtrOutput) MariaDbParameters() DataSourceMariaDbParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceMariaDbParameters {
 		if v == nil {
@@ -8702,7 +6890,6 @@ func (o DataSourceDataSourceParametersPtrOutput) MariaDbParameters() DataSourceM
 	}).(DataSourceMariaDbParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-mysqlparameters
 func (o DataSourceDataSourceParametersPtrOutput) MySqlParameters() DataSourceMySqlParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceMySqlParameters {
 		if v == nil {
@@ -8712,7 +6899,6 @@ func (o DataSourceDataSourceParametersPtrOutput) MySqlParameters() DataSourceMyS
 	}).(DataSourceMySqlParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-oracleparameters
 func (o DataSourceDataSourceParametersPtrOutput) OracleParameters() DataSourceOracleParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceOracleParameters {
 		if v == nil {
@@ -8722,7 +6908,6 @@ func (o DataSourceDataSourceParametersPtrOutput) OracleParameters() DataSourceOr
 	}).(DataSourceOracleParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-postgresqlparameters
 func (o DataSourceDataSourceParametersPtrOutput) PostgreSqlParameters() DataSourcePostgreSqlParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourcePostgreSqlParameters {
 		if v == nil {
@@ -8732,7 +6917,6 @@ func (o DataSourceDataSourceParametersPtrOutput) PostgreSqlParameters() DataSour
 	}).(DataSourcePostgreSqlParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-prestoparameters
 func (o DataSourceDataSourceParametersPtrOutput) PrestoParameters() DataSourcePrestoParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourcePrestoParameters {
 		if v == nil {
@@ -8742,7 +6926,6 @@ func (o DataSourceDataSourceParametersPtrOutput) PrestoParameters() DataSourcePr
 	}).(DataSourcePrestoParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-rdsparameters
 func (o DataSourceDataSourceParametersPtrOutput) RdsParameters() DataSourceRdsParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceRdsParameters {
 		if v == nil {
@@ -8752,7 +6935,6 @@ func (o DataSourceDataSourceParametersPtrOutput) RdsParameters() DataSourceRdsPa
 	}).(DataSourceRdsParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-redshiftparameters
 func (o DataSourceDataSourceParametersPtrOutput) RedshiftParameters() DataSourceRedshiftParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceRedshiftParameters {
 		if v == nil {
@@ -8762,7 +6944,6 @@ func (o DataSourceDataSourceParametersPtrOutput) RedshiftParameters() DataSource
 	}).(DataSourceRedshiftParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-s3parameters
 func (o DataSourceDataSourceParametersPtrOutput) S3Parameters() DataSourceS3ParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceS3Parameters {
 		if v == nil {
@@ -8772,7 +6953,6 @@ func (o DataSourceDataSourceParametersPtrOutput) S3Parameters() DataSourceS3Para
 	}).(DataSourceS3ParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-snowflakeparameters
 func (o DataSourceDataSourceParametersPtrOutput) SnowflakeParameters() DataSourceSnowflakeParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceSnowflakeParameters {
 		if v == nil {
@@ -8782,7 +6962,6 @@ func (o DataSourceDataSourceParametersPtrOutput) SnowflakeParameters() DataSourc
 	}).(DataSourceSnowflakeParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sparkparameters
 func (o DataSourceDataSourceParametersPtrOutput) SparkParameters() DataSourceSparkParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceSparkParameters {
 		if v == nil {
@@ -8792,7 +6971,6 @@ func (o DataSourceDataSourceParametersPtrOutput) SparkParameters() DataSourceSpa
 	}).(DataSourceSparkParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-sqlserverparameters
 func (o DataSourceDataSourceParametersPtrOutput) SqlServerParameters() DataSourceSqlServerParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceSqlServerParameters {
 		if v == nil {
@@ -8802,7 +6980,6 @@ func (o DataSourceDataSourceParametersPtrOutput) SqlServerParameters() DataSourc
 	}).(DataSourceSqlServerParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourceparameters.html#cfn-quicksight-datasource-datasourceparameters-teradataparameters
 func (o DataSourceDataSourceParametersPtrOutput) TeradataParameters() DataSourceTeradataParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceDataSourceParameters) *DataSourceTeradataParameters {
 		if v == nil {
@@ -8832,11 +7009,11 @@ func (o DataSourceDataSourceParametersArrayOutput) Index(i pulumi.IntInput) Data
 	}).(DataSourceDataSourceParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html
+// <p>Amazon S3 manifest file location.</p>
 type DataSourceManifestFileLocation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-bucket
+	// <p>Amazon S3 bucket.</p>
 	Bucket string `pulumi:"bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-key
+	// <p>Amazon S3 key that identifies an object.</p>
 	Key string `pulumi:"key"`
 }
 
@@ -8851,11 +7028,11 @@ type DataSourceManifestFileLocationInput interface {
 	ToDataSourceManifestFileLocationOutputWithContext(context.Context) DataSourceManifestFileLocationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html
+// <p>Amazon S3 manifest file location.</p>
 type DataSourceManifestFileLocationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-bucket
+	// <p>Amazon S3 bucket.</p>
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-key
+	// <p>Amazon S3 key that identifies an object.</p>
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -8912,7 +7089,7 @@ func (i *dataSourceManifestFileLocationPtrType) ToDataSourceManifestFileLocation
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceManifestFileLocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html
+// <p>Amazon S3 manifest file location.</p>
 type DataSourceManifestFileLocationOutput struct{ *pulumi.OutputState }
 
 func (DataSourceManifestFileLocationOutput) ElementType() reflect.Type {
@@ -8937,12 +7114,12 @@ func (o DataSourceManifestFileLocationOutput) ToDataSourceManifestFileLocationPt
 	}).(DataSourceManifestFileLocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-bucket
+// <p>Amazon S3 bucket.</p>
 func (o DataSourceManifestFileLocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceManifestFileLocation) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-key
+// <p>Amazon S3 key that identifies an object.</p>
 func (o DataSourceManifestFileLocationOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceManifestFileLocation) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -8971,7 +7148,7 @@ func (o DataSourceManifestFileLocationPtrOutput) Elem() DataSourceManifestFileLo
 	}).(DataSourceManifestFileLocationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-bucket
+// <p>Amazon S3 bucket.</p>
 func (o DataSourceManifestFileLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceManifestFileLocation) *string {
 		if v == nil {
@@ -8981,7 +7158,7 @@ func (o DataSourceManifestFileLocationPtrOutput) Bucket() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-manifestfilelocation.html#cfn-quicksight-datasource-manifestfilelocation-key
+// <p>Amazon S3 key that identifies an object.</p>
 func (o DataSourceManifestFileLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceManifestFileLocation) *string {
 		if v == nil {
@@ -8991,13 +7168,13 @@ func (o DataSourceManifestFileLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html
+// <p>MariaDB parameters.</p>
 type DataSourceMariaDbParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-database
+	// <p>Database.</p>
 	Database string `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-host
+	// <p>Host.</p>
 	Host string `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-port
+	// <p>Port.</p>
 	Port float64 `pulumi:"port"`
 }
 
@@ -9012,13 +7189,13 @@ type DataSourceMariaDbParametersInput interface {
 	ToDataSourceMariaDbParametersOutputWithContext(context.Context) DataSourceMariaDbParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html
+// <p>MariaDB parameters.</p>
 type DataSourceMariaDbParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-database
+	// <p>Database.</p>
 	Database pulumi.StringInput `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-host
+	// <p>Host.</p>
 	Host pulumi.StringInput `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-port
+	// <p>Port.</p>
 	Port pulumi.Float64Input `pulumi:"port"`
 }
 
@@ -9075,7 +7252,7 @@ func (i *dataSourceMariaDbParametersPtrType) ToDataSourceMariaDbParametersPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceMariaDbParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html
+// <p>MariaDB parameters.</p>
 type DataSourceMariaDbParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceMariaDbParametersOutput) ElementType() reflect.Type {
@@ -9100,17 +7277,17 @@ func (o DataSourceMariaDbParametersOutput) ToDataSourceMariaDbParametersPtrOutpu
 	}).(DataSourceMariaDbParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-database
+// <p>Database.</p>
 func (o DataSourceMariaDbParametersOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceMariaDbParameters) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-host
+// <p>Host.</p>
 func (o DataSourceMariaDbParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceMariaDbParameters) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-port
+// <p>Port.</p>
 func (o DataSourceMariaDbParametersOutput) Port() pulumi.Float64Output {
 	return o.ApplyT(func(v DataSourceMariaDbParameters) float64 { return v.Port }).(pulumi.Float64Output)
 }
@@ -9139,7 +7316,7 @@ func (o DataSourceMariaDbParametersPtrOutput) Elem() DataSourceMariaDbParameters
 	}).(DataSourceMariaDbParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-database
+// <p>Database.</p>
 func (o DataSourceMariaDbParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceMariaDbParameters) *string {
 		if v == nil {
@@ -9149,7 +7326,7 @@ func (o DataSourceMariaDbParametersPtrOutput) Database() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-host
+// <p>Host.</p>
 func (o DataSourceMariaDbParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceMariaDbParameters) *string {
 		if v == nil {
@@ -9159,7 +7336,7 @@ func (o DataSourceMariaDbParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html#cfn-quicksight-datasource-mariadbparameters-port
+// <p>Port.</p>
 func (o DataSourceMariaDbParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataSourceMariaDbParameters) *float64 {
 		if v == nil {
@@ -9169,13 +7346,13 @@ func (o DataSourceMariaDbParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html
+// <p>MySQL parameters.</p>
 type DataSourceMySqlParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-database
+	// <p>Database.</p>
 	Database string `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-host
+	// <p>Host.</p>
 	Host string `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-port
+	// <p>Port.</p>
 	Port float64 `pulumi:"port"`
 }
 
@@ -9190,13 +7367,13 @@ type DataSourceMySqlParametersInput interface {
 	ToDataSourceMySqlParametersOutputWithContext(context.Context) DataSourceMySqlParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html
+// <p>MySQL parameters.</p>
 type DataSourceMySqlParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-database
+	// <p>Database.</p>
 	Database pulumi.StringInput `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-host
+	// <p>Host.</p>
 	Host pulumi.StringInput `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-port
+	// <p>Port.</p>
 	Port pulumi.Float64Input `pulumi:"port"`
 }
 
@@ -9253,7 +7430,7 @@ func (i *dataSourceMySqlParametersPtrType) ToDataSourceMySqlParametersPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceMySqlParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html
+// <p>MySQL parameters.</p>
 type DataSourceMySqlParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceMySqlParametersOutput) ElementType() reflect.Type {
@@ -9278,17 +7455,17 @@ func (o DataSourceMySqlParametersOutput) ToDataSourceMySqlParametersPtrOutputWit
 	}).(DataSourceMySqlParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-database
+// <p>Database.</p>
 func (o DataSourceMySqlParametersOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceMySqlParameters) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-host
+// <p>Host.</p>
 func (o DataSourceMySqlParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceMySqlParameters) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-port
+// <p>Port.</p>
 func (o DataSourceMySqlParametersOutput) Port() pulumi.Float64Output {
 	return o.ApplyT(func(v DataSourceMySqlParameters) float64 { return v.Port }).(pulumi.Float64Output)
 }
@@ -9317,7 +7494,7 @@ func (o DataSourceMySqlParametersPtrOutput) Elem() DataSourceMySqlParametersOutp
 	}).(DataSourceMySqlParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-database
+// <p>Database.</p>
 func (o DataSourceMySqlParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceMySqlParameters) *string {
 		if v == nil {
@@ -9327,7 +7504,7 @@ func (o DataSourceMySqlParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-host
+// <p>Host.</p>
 func (o DataSourceMySqlParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceMySqlParameters) *string {
 		if v == nil {
@@ -9337,7 +7514,7 @@ func (o DataSourceMySqlParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-port
+// <p>Port.</p>
 func (o DataSourceMySqlParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataSourceMySqlParameters) *float64 {
 		if v == nil {
@@ -9347,14 +7524,10 @@ func (o DataSourceMySqlParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html
 type DataSourceOracleParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-database
-	Database string `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-host
-	Host string `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-port
-	Port float64 `pulumi:"port"`
+	Database string  `pulumi:"database"`
+	Host     string  `pulumi:"host"`
+	Port     float64 `pulumi:"port"`
 }
 
 // DataSourceOracleParametersInput is an input type that accepts DataSourceOracleParametersArgs and DataSourceOracleParametersOutput values.
@@ -9368,14 +7541,10 @@ type DataSourceOracleParametersInput interface {
 	ToDataSourceOracleParametersOutputWithContext(context.Context) DataSourceOracleParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html
 type DataSourceOracleParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-database
-	Database pulumi.StringInput `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-host
-	Host pulumi.StringInput `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-port
-	Port pulumi.Float64Input `pulumi:"port"`
+	Database pulumi.StringInput  `pulumi:"database"`
+	Host     pulumi.StringInput  `pulumi:"host"`
+	Port     pulumi.Float64Input `pulumi:"port"`
 }
 
 func (DataSourceOracleParametersArgs) ElementType() reflect.Type {
@@ -9431,7 +7600,6 @@ func (i *dataSourceOracleParametersPtrType) ToDataSourceOracleParametersPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOracleParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html
 type DataSourceOracleParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceOracleParametersOutput) ElementType() reflect.Type {
@@ -9456,17 +7624,14 @@ func (o DataSourceOracleParametersOutput) ToDataSourceOracleParametersPtrOutputW
 	}).(DataSourceOracleParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-database
 func (o DataSourceOracleParametersOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceOracleParameters) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-host
 func (o DataSourceOracleParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceOracleParameters) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-port
 func (o DataSourceOracleParametersOutput) Port() pulumi.Float64Output {
 	return o.ApplyT(func(v DataSourceOracleParameters) float64 { return v.Port }).(pulumi.Float64Output)
 }
@@ -9495,7 +7660,6 @@ func (o DataSourceOracleParametersPtrOutput) Elem() DataSourceOracleParametersOu
 	}).(DataSourceOracleParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-database
 func (o DataSourceOracleParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOracleParameters) *string {
 		if v == nil {
@@ -9505,7 +7669,6 @@ func (o DataSourceOracleParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-host
 func (o DataSourceOracleParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOracleParameters) *string {
 		if v == nil {
@@ -9515,7 +7678,6 @@ func (o DataSourceOracleParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oracleparameters.html#cfn-quicksight-datasource-oracleparameters-port
 func (o DataSourceOracleParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataSourceOracleParameters) *float64 {
 		if v == nil {
@@ -9525,13 +7687,13 @@ func (o DataSourceOracleParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html
+// <p>PostgreSQL parameters.</p>
 type DataSourcePostgreSqlParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-database
+	// <p>Database.</p>
 	Database string `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-host
+	// <p>Host.</p>
 	Host string `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-port
+	// <p>Port.</p>
 	Port float64 `pulumi:"port"`
 }
 
@@ -9546,13 +7708,13 @@ type DataSourcePostgreSqlParametersInput interface {
 	ToDataSourcePostgreSqlParametersOutputWithContext(context.Context) DataSourcePostgreSqlParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html
+// <p>PostgreSQL parameters.</p>
 type DataSourcePostgreSqlParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-database
+	// <p>Database.</p>
 	Database pulumi.StringInput `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-host
+	// <p>Host.</p>
 	Host pulumi.StringInput `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-port
+	// <p>Port.</p>
 	Port pulumi.Float64Input `pulumi:"port"`
 }
 
@@ -9609,7 +7771,7 @@ func (i *dataSourcePostgreSqlParametersPtrType) ToDataSourcePostgreSqlParameters
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePostgreSqlParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html
+// <p>PostgreSQL parameters.</p>
 type DataSourcePostgreSqlParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourcePostgreSqlParametersOutput) ElementType() reflect.Type {
@@ -9634,17 +7796,17 @@ func (o DataSourcePostgreSqlParametersOutput) ToDataSourcePostgreSqlParametersPt
 	}).(DataSourcePostgreSqlParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-database
+// <p>Database.</p>
 func (o DataSourcePostgreSqlParametersOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourcePostgreSqlParameters) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-host
+// <p>Host.</p>
 func (o DataSourcePostgreSqlParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourcePostgreSqlParameters) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-port
+// <p>Port.</p>
 func (o DataSourcePostgreSqlParametersOutput) Port() pulumi.Float64Output {
 	return o.ApplyT(func(v DataSourcePostgreSqlParameters) float64 { return v.Port }).(pulumi.Float64Output)
 }
@@ -9673,7 +7835,7 @@ func (o DataSourcePostgreSqlParametersPtrOutput) Elem() DataSourcePostgreSqlPara
 	}).(DataSourcePostgreSqlParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-database
+// <p>Database.</p>
 func (o DataSourcePostgreSqlParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourcePostgreSqlParameters) *string {
 		if v == nil {
@@ -9683,7 +7845,7 @@ func (o DataSourcePostgreSqlParametersPtrOutput) Database() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-host
+// <p>Host.</p>
 func (o DataSourcePostgreSqlParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourcePostgreSqlParameters) *string {
 		if v == nil {
@@ -9693,7 +7855,7 @@ func (o DataSourcePostgreSqlParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-postgresqlparameters.html#cfn-quicksight-datasource-postgresqlparameters-port
+// <p>Port.</p>
 func (o DataSourcePostgreSqlParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataSourcePostgreSqlParameters) *float64 {
 		if v == nil {
@@ -9703,13 +7865,13 @@ func (o DataSourcePostgreSqlParametersPtrOutput) Port() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html
+// <p>Presto parameters.</p>
 type DataSourcePrestoParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-catalog
+	// <p>Catalog.</p>
 	Catalog string `pulumi:"catalog"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-host
+	// <p>Host.</p>
 	Host string `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-port
+	// <p>Port.</p>
 	Port float64 `pulumi:"port"`
 }
 
@@ -9724,13 +7886,13 @@ type DataSourcePrestoParametersInput interface {
 	ToDataSourcePrestoParametersOutputWithContext(context.Context) DataSourcePrestoParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html
+// <p>Presto parameters.</p>
 type DataSourcePrestoParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-catalog
+	// <p>Catalog.</p>
 	Catalog pulumi.StringInput `pulumi:"catalog"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-host
+	// <p>Host.</p>
 	Host pulumi.StringInput `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-port
+	// <p>Port.</p>
 	Port pulumi.Float64Input `pulumi:"port"`
 }
 
@@ -9787,7 +7949,7 @@ func (i *dataSourcePrestoParametersPtrType) ToDataSourcePrestoParametersPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePrestoParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html
+// <p>Presto parameters.</p>
 type DataSourcePrestoParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourcePrestoParametersOutput) ElementType() reflect.Type {
@@ -9812,17 +7974,17 @@ func (o DataSourcePrestoParametersOutput) ToDataSourcePrestoParametersPtrOutputW
 	}).(DataSourcePrestoParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-catalog
+// <p>Catalog.</p>
 func (o DataSourcePrestoParametersOutput) Catalog() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourcePrestoParameters) string { return v.Catalog }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-host
+// <p>Host.</p>
 func (o DataSourcePrestoParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourcePrestoParameters) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-port
+// <p>Port.</p>
 func (o DataSourcePrestoParametersOutput) Port() pulumi.Float64Output {
 	return o.ApplyT(func(v DataSourcePrestoParameters) float64 { return v.Port }).(pulumi.Float64Output)
 }
@@ -9851,7 +8013,7 @@ func (o DataSourcePrestoParametersPtrOutput) Elem() DataSourcePrestoParametersOu
 	}).(DataSourcePrestoParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-catalog
+// <p>Catalog.</p>
 func (o DataSourcePrestoParametersPtrOutput) Catalog() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourcePrestoParameters) *string {
 		if v == nil {
@@ -9861,7 +8023,7 @@ func (o DataSourcePrestoParametersPtrOutput) Catalog() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-host
+// <p>Host.</p>
 func (o DataSourcePrestoParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourcePrestoParameters) *string {
 		if v == nil {
@@ -9871,7 +8033,7 @@ func (o DataSourcePrestoParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-port
+// <p>Port.</p>
 func (o DataSourcePrestoParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataSourcePrestoParameters) *float64 {
 		if v == nil {
@@ -9881,11 +8043,11 @@ func (o DataSourcePrestoParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html
+// <p>Amazon RDS parameters.</p>
 type DataSourceRdsParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-database
+	// <p>Database.</p>
 	Database string `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-instanceid
+	// <p>Instance ID.</p>
 	InstanceId string `pulumi:"instanceId"`
 }
 
@@ -9900,11 +8062,11 @@ type DataSourceRdsParametersInput interface {
 	ToDataSourceRdsParametersOutputWithContext(context.Context) DataSourceRdsParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html
+// <p>Amazon RDS parameters.</p>
 type DataSourceRdsParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-database
+	// <p>Database.</p>
 	Database pulumi.StringInput `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-instanceid
+	// <p>Instance ID.</p>
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 }
 
@@ -9961,7 +8123,7 @@ func (i *dataSourceRdsParametersPtrType) ToDataSourceRdsParametersPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRdsParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html
+// <p>Amazon RDS parameters.</p>
 type DataSourceRdsParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceRdsParametersOutput) ElementType() reflect.Type {
@@ -9986,12 +8148,12 @@ func (o DataSourceRdsParametersOutput) ToDataSourceRdsParametersPtrOutputWithCon
 	}).(DataSourceRdsParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-database
+// <p>Database.</p>
 func (o DataSourceRdsParametersOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceRdsParameters) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-instanceid
+// <p>Instance ID.</p>
 func (o DataSourceRdsParametersOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceRdsParameters) string { return v.InstanceId }).(pulumi.StringOutput)
 }
@@ -10020,7 +8182,7 @@ func (o DataSourceRdsParametersPtrOutput) Elem() DataSourceRdsParametersOutput {
 	}).(DataSourceRdsParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-database
+// <p>Database.</p>
 func (o DataSourceRdsParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceRdsParameters) *string {
 		if v == nil {
@@ -10030,7 +8192,7 @@ func (o DataSourceRdsParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-instanceid
+// <p>Instance ID.</p>
 func (o DataSourceRdsParametersPtrOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceRdsParameters) *string {
 		if v == nil {
@@ -10040,15 +8202,18 @@ func (o DataSourceRdsParametersPtrOutput) InstanceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html
+// <p>Amazon Redshift parameters. The <code>ClusterId</code> field can be blank if
+//             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
+//             <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
 type DataSourceRedshiftParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-clusterid
+	// <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are
+	//             provided.</p>
 	ClusterId *string `pulumi:"clusterId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-database
+	// <p>Database.</p>
 	Database string `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-host
+	// <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
 	Host *string `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-port
+	// <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
 	Port *float64 `pulumi:"port"`
 }
 
@@ -10063,15 +8228,18 @@ type DataSourceRedshiftParametersInput interface {
 	ToDataSourceRedshiftParametersOutputWithContext(context.Context) DataSourceRedshiftParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html
+// <p>Amazon Redshift parameters. The <code>ClusterId</code> field can be blank if
+//             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
+//             <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
 type DataSourceRedshiftParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-clusterid
+	// <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are
+	//             provided.</p>
 	ClusterId pulumi.StringPtrInput `pulumi:"clusterId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-database
+	// <p>Database.</p>
 	Database pulumi.StringInput `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-host
+	// <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-port
+	// <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
 	Port pulumi.Float64PtrInput `pulumi:"port"`
 }
 
@@ -10128,7 +8296,9 @@ func (i *dataSourceRedshiftParametersPtrType) ToDataSourceRedshiftParametersPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRedshiftParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html
+// <p>Amazon Redshift parameters. The <code>ClusterId</code> field can be blank if
+//             <code>Host</code> and <code>Port</code> are both set. The <code>Host</code> and
+//             <code>Port</code> fields can be blank if the <code>ClusterId</code> field is set.</p>
 type DataSourceRedshiftParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceRedshiftParametersOutput) ElementType() reflect.Type {
@@ -10153,22 +8323,23 @@ func (o DataSourceRedshiftParametersOutput) ToDataSourceRedshiftParametersPtrOut
 	}).(DataSourceRedshiftParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-clusterid
+// <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are
+//             provided.</p>
 func (o DataSourceRedshiftParametersOutput) ClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceRedshiftParameters) *string { return v.ClusterId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-database
+// <p>Database.</p>
 func (o DataSourceRedshiftParametersOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceRedshiftParameters) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-host
+// <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
 func (o DataSourceRedshiftParametersOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceRedshiftParameters) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-port
+// <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
 func (o DataSourceRedshiftParametersOutput) Port() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DataSourceRedshiftParameters) *float64 { return v.Port }).(pulumi.Float64PtrOutput)
 }
@@ -10197,7 +8368,8 @@ func (o DataSourceRedshiftParametersPtrOutput) Elem() DataSourceRedshiftParamete
 	}).(DataSourceRedshiftParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-clusterid
+// <p>Cluster ID. This field can be blank if the <code>Host</code> and <code>Port</code> are
+//             provided.</p>
 func (o DataSourceRedshiftParametersPtrOutput) ClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceRedshiftParameters) *string {
 		if v == nil {
@@ -10207,7 +8379,7 @@ func (o DataSourceRedshiftParametersPtrOutput) ClusterId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-database
+// <p>Database.</p>
 func (o DataSourceRedshiftParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceRedshiftParameters) *string {
 		if v == nil {
@@ -10217,7 +8389,7 @@ func (o DataSourceRedshiftParametersPtrOutput) Database() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-host
+// <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
 func (o DataSourceRedshiftParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceRedshiftParameters) *string {
 		if v == nil {
@@ -10227,7 +8399,7 @@ func (o DataSourceRedshiftParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-port
+// <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
 func (o DataSourceRedshiftParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataSourceRedshiftParameters) *float64 {
 		if v == nil {
@@ -10237,11 +8409,25 @@ func (o DataSourceRedshiftParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html
+// <p>Permission for the resource.</p>
 type DataSourceResourcePermission struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html#cfn-quicksight-datasource-resourcepermission-actions
+	// <p>The IAM action to grant or revoke permissions on.</p>
 	Actions []string `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html#cfn-quicksight-datasource-resourcepermission-principal
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//         <ul>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
 	Principal string `pulumi:"principal"`
 }
 
@@ -10256,11 +8442,25 @@ type DataSourceResourcePermissionInput interface {
 	ToDataSourceResourcePermissionOutputWithContext(context.Context) DataSourceResourcePermissionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html
+// <p>Permission for the resource.</p>
 type DataSourceResourcePermissionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html#cfn-quicksight-datasource-resourcepermission-actions
+	// <p>The IAM action to grant or revoke permissions on.</p>
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html#cfn-quicksight-datasource-resourcepermission-principal
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//         <ul>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
 	Principal pulumi.StringInput `pulumi:"principal"`
 }
 
@@ -10301,7 +8501,7 @@ func (i DataSourceResourcePermissionArray) ToDataSourceResourcePermissionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceResourcePermissionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html
+// <p>Permission for the resource.</p>
 type DataSourceResourcePermissionOutput struct{ *pulumi.OutputState }
 
 func (DataSourceResourcePermissionOutput) ElementType() reflect.Type {
@@ -10316,12 +8516,26 @@ func (o DataSourceResourcePermissionOutput) ToDataSourceResourcePermissionOutput
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html#cfn-quicksight-datasource-resourcepermission-actions
+// <p>The IAM action to grant or revoke permissions on.</p>
 func (o DataSourceResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSourceResourcePermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-resourcepermission.html#cfn-quicksight-datasource-resourcepermission-principal
+// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+//             following:</p>
+//         <ul>
+//             <li>
+//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+//             </li>
+//             <li>
+//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//             </li>
+//             <li>
+//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+//                     (This is less common.) </p>
+//             </li>
+//          </ul>
 func (o DataSourceResourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -10346,9 +8560,8 @@ func (o DataSourceResourcePermissionArrayOutput) Index(i pulumi.IntInput) DataSo
 	}).(DataSourceResourcePermissionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html
+// <p>S3 parameters.</p>
 type DataSourceS3Parameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html#cfn-quicksight-datasource-s3parameters-manifestfilelocation
 	ManifestFileLocation DataSourceManifestFileLocation `pulumi:"manifestFileLocation"`
 }
 
@@ -10363,9 +8576,8 @@ type DataSourceS3ParametersInput interface {
 	ToDataSourceS3ParametersOutputWithContext(context.Context) DataSourceS3ParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html
+// <p>S3 parameters.</p>
 type DataSourceS3ParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html#cfn-quicksight-datasource-s3parameters-manifestfilelocation
 	ManifestFileLocation DataSourceManifestFileLocationInput `pulumi:"manifestFileLocation"`
 }
 
@@ -10422,7 +8634,7 @@ func (i *dataSourceS3ParametersPtrType) ToDataSourceS3ParametersPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceS3ParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html
+// <p>S3 parameters.</p>
 type DataSourceS3ParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceS3ParametersOutput) ElementType() reflect.Type {
@@ -10447,7 +8659,6 @@ func (o DataSourceS3ParametersOutput) ToDataSourceS3ParametersPtrOutputWithConte
 	}).(DataSourceS3ParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html#cfn-quicksight-datasource-s3parameters-manifestfilelocation
 func (o DataSourceS3ParametersOutput) ManifestFileLocation() DataSourceManifestFileLocationOutput {
 	return o.ApplyT(func(v DataSourceS3Parameters) DataSourceManifestFileLocation { return v.ManifestFileLocation }).(DataSourceManifestFileLocationOutput)
 }
@@ -10476,7 +8687,6 @@ func (o DataSourceS3ParametersPtrOutput) Elem() DataSourceS3ParametersOutput {
 	}).(DataSourceS3ParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html#cfn-quicksight-datasource-s3parameters-manifestfilelocation
 func (o DataSourceS3ParametersPtrOutput) ManifestFileLocation() DataSourceManifestFileLocationPtrOutput {
 	return o.ApplyT(func(v *DataSourceS3Parameters) *DataSourceManifestFileLocation {
 		if v == nil {
@@ -10486,13 +8696,13 @@ func (o DataSourceS3ParametersPtrOutput) ManifestFileLocation() DataSourceManife
 	}).(DataSourceManifestFileLocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html
+// <p>Snowflake parameters.</p>
 type DataSourceSnowflakeParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-database
+	// <p>Database.</p>
 	Database string `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-host
+	// <p>Host.</p>
 	Host string `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-warehouse
+	// <p>Warehouse.</p>
 	Warehouse string `pulumi:"warehouse"`
 }
 
@@ -10507,13 +8717,13 @@ type DataSourceSnowflakeParametersInput interface {
 	ToDataSourceSnowflakeParametersOutputWithContext(context.Context) DataSourceSnowflakeParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html
+// <p>Snowflake parameters.</p>
 type DataSourceSnowflakeParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-database
+	// <p>Database.</p>
 	Database pulumi.StringInput `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-host
+	// <p>Host.</p>
 	Host pulumi.StringInput `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-warehouse
+	// <p>Warehouse.</p>
 	Warehouse pulumi.StringInput `pulumi:"warehouse"`
 }
 
@@ -10570,7 +8780,7 @@ func (i *dataSourceSnowflakeParametersPtrType) ToDataSourceSnowflakeParametersPt
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSnowflakeParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html
+// <p>Snowflake parameters.</p>
 type DataSourceSnowflakeParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceSnowflakeParametersOutput) ElementType() reflect.Type {
@@ -10595,17 +8805,17 @@ func (o DataSourceSnowflakeParametersOutput) ToDataSourceSnowflakeParametersPtrO
 	}).(DataSourceSnowflakeParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-database
+// <p>Database.</p>
 func (o DataSourceSnowflakeParametersOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceSnowflakeParameters) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-host
+// <p>Host.</p>
 func (o DataSourceSnowflakeParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceSnowflakeParameters) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-warehouse
+// <p>Warehouse.</p>
 func (o DataSourceSnowflakeParametersOutput) Warehouse() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceSnowflakeParameters) string { return v.Warehouse }).(pulumi.StringOutput)
 }
@@ -10634,7 +8844,7 @@ func (o DataSourceSnowflakeParametersPtrOutput) Elem() DataSourceSnowflakeParame
 	}).(DataSourceSnowflakeParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-database
+// <p>Database.</p>
 func (o DataSourceSnowflakeParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSnowflakeParameters) *string {
 		if v == nil {
@@ -10644,7 +8854,7 @@ func (o DataSourceSnowflakeParametersPtrOutput) Database() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-host
+// <p>Host.</p>
 func (o DataSourceSnowflakeParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSnowflakeParameters) *string {
 		if v == nil {
@@ -10654,7 +8864,7 @@ func (o DataSourceSnowflakeParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html#cfn-quicksight-datasource-snowflakeparameters-warehouse
+// <p>Warehouse.</p>
 func (o DataSourceSnowflakeParametersPtrOutput) Warehouse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSnowflakeParameters) *string {
 		if v == nil {
@@ -10664,11 +8874,11 @@ func (o DataSourceSnowflakeParametersPtrOutput) Warehouse() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html
+// <p>Spark parameters.</p>
 type DataSourceSparkParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-host
+	// <p>Host.</p>
 	Host string `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-port
+	// <p>Port.</p>
 	Port float64 `pulumi:"port"`
 }
 
@@ -10683,11 +8893,11 @@ type DataSourceSparkParametersInput interface {
 	ToDataSourceSparkParametersOutputWithContext(context.Context) DataSourceSparkParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html
+// <p>Spark parameters.</p>
 type DataSourceSparkParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-host
+	// <p>Host.</p>
 	Host pulumi.StringInput `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-port
+	// <p>Port.</p>
 	Port pulumi.Float64Input `pulumi:"port"`
 }
 
@@ -10744,7 +8954,7 @@ func (i *dataSourceSparkParametersPtrType) ToDataSourceSparkParametersPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSparkParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html
+// <p>Spark parameters.</p>
 type DataSourceSparkParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceSparkParametersOutput) ElementType() reflect.Type {
@@ -10769,12 +8979,12 @@ func (o DataSourceSparkParametersOutput) ToDataSourceSparkParametersPtrOutputWit
 	}).(DataSourceSparkParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-host
+// <p>Host.</p>
 func (o DataSourceSparkParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceSparkParameters) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-port
+// <p>Port.</p>
 func (o DataSourceSparkParametersOutput) Port() pulumi.Float64Output {
 	return o.ApplyT(func(v DataSourceSparkParameters) float64 { return v.Port }).(pulumi.Float64Output)
 }
@@ -10803,7 +9013,7 @@ func (o DataSourceSparkParametersPtrOutput) Elem() DataSourceSparkParametersOutp
 	}).(DataSourceSparkParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-host
+// <p>Host.</p>
 func (o DataSourceSparkParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSparkParameters) *string {
 		if v == nil {
@@ -10813,7 +9023,7 @@ func (o DataSourceSparkParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sparkparameters.html#cfn-quicksight-datasource-sparkparameters-port
+// <p>Port.</p>
 func (o DataSourceSparkParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataSourceSparkParameters) *float64 {
 		if v == nil {
@@ -10823,13 +9033,13 @@ func (o DataSourceSparkParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html
+// <p>SQL Server parameters.</p>
 type DataSourceSqlServerParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-database
+	// <p>Database.</p>
 	Database string `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-host
+	// <p>Host.</p>
 	Host string `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-port
+	// <p>Port.</p>
 	Port float64 `pulumi:"port"`
 }
 
@@ -10844,13 +9054,13 @@ type DataSourceSqlServerParametersInput interface {
 	ToDataSourceSqlServerParametersOutputWithContext(context.Context) DataSourceSqlServerParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html
+// <p>SQL Server parameters.</p>
 type DataSourceSqlServerParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-database
+	// <p>Database.</p>
 	Database pulumi.StringInput `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-host
+	// <p>Host.</p>
 	Host pulumi.StringInput `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-port
+	// <p>Port.</p>
 	Port pulumi.Float64Input `pulumi:"port"`
 }
 
@@ -10907,7 +9117,7 @@ func (i *dataSourceSqlServerParametersPtrType) ToDataSourceSqlServerParametersPt
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSqlServerParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html
+// <p>SQL Server parameters.</p>
 type DataSourceSqlServerParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceSqlServerParametersOutput) ElementType() reflect.Type {
@@ -10932,17 +9142,17 @@ func (o DataSourceSqlServerParametersOutput) ToDataSourceSqlServerParametersPtrO
 	}).(DataSourceSqlServerParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-database
+// <p>Database.</p>
 func (o DataSourceSqlServerParametersOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceSqlServerParameters) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-host
+// <p>Host.</p>
 func (o DataSourceSqlServerParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceSqlServerParameters) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-port
+// <p>Port.</p>
 func (o DataSourceSqlServerParametersOutput) Port() pulumi.Float64Output {
 	return o.ApplyT(func(v DataSourceSqlServerParameters) float64 { return v.Port }).(pulumi.Float64Output)
 }
@@ -10971,7 +9181,7 @@ func (o DataSourceSqlServerParametersPtrOutput) Elem() DataSourceSqlServerParame
 	}).(DataSourceSqlServerParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-database
+// <p>Database.</p>
 func (o DataSourceSqlServerParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSqlServerParameters) *string {
 		if v == nil {
@@ -10981,7 +9191,7 @@ func (o DataSourceSqlServerParametersPtrOutput) Database() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-host
+// <p>Host.</p>
 func (o DataSourceSqlServerParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSqlServerParameters) *string {
 		if v == nil {
@@ -10991,7 +9201,7 @@ func (o DataSourceSqlServerParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sqlserverparameters.html#cfn-quicksight-datasource-sqlserverparameters-port
+// <p>Port.</p>
 func (o DataSourceSqlServerParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataSourceSqlServerParameters) *float64 {
 		if v == nil {
@@ -11001,9 +9211,10 @@ func (o DataSourceSqlServerParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html
+// <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
+//             underlying data source.</p>
 type DataSourceSslProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html#cfn-quicksight-datasource-sslproperties-disablessl
+	// <p>A Boolean option to control whether SSL should be disabled.</p>
 	DisableSsl *bool `pulumi:"disableSsl"`
 }
 
@@ -11018,9 +9229,10 @@ type DataSourceSslPropertiesInput interface {
 	ToDataSourceSslPropertiesOutputWithContext(context.Context) DataSourceSslPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html
+// <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
+//             underlying data source.</p>
 type DataSourceSslPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html#cfn-quicksight-datasource-sslproperties-disablessl
+	// <p>A Boolean option to control whether SSL should be disabled.</p>
 	DisableSsl pulumi.BoolPtrInput `pulumi:"disableSsl"`
 }
 
@@ -11077,7 +9289,8 @@ func (i *dataSourceSslPropertiesPtrType) ToDataSourceSslPropertiesPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSslPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html
+// <p>Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
+//             underlying data source.</p>
 type DataSourceSslPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DataSourceSslPropertiesOutput) ElementType() reflect.Type {
@@ -11102,7 +9315,7 @@ func (o DataSourceSslPropertiesOutput) ToDataSourceSslPropertiesPtrOutputWithCon
 	}).(DataSourceSslPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html#cfn-quicksight-datasource-sslproperties-disablessl
+// <p>A Boolean option to control whether SSL should be disabled.</p>
 func (o DataSourceSslPropertiesOutput) DisableSsl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSourceSslProperties) *bool { return v.DisableSsl }).(pulumi.BoolPtrOutput)
 }
@@ -11131,7 +9344,7 @@ func (o DataSourceSslPropertiesPtrOutput) Elem() DataSourceSslPropertiesOutput {
 	}).(DataSourceSslPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html#cfn-quicksight-datasource-sslproperties-disablessl
+// <p>A Boolean option to control whether SSL should be disabled.</p>
 func (o DataSourceSslPropertiesPtrOutput) DisableSsl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceSslProperties) *bool {
 		if v == nil {
@@ -11141,13 +9354,125 @@ func (o DataSourceSslPropertiesPtrOutput) DisableSsl() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type DataSourceTag struct {
+	// <p>Tag key.</p>
+	Key string `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value string `pulumi:"value"`
+}
+
+// DataSourceTagInput is an input type that accepts DataSourceTagArgs and DataSourceTagOutput values.
+// You can construct a concrete instance of `DataSourceTagInput` via:
+//
+//          DataSourceTagArgs{...}
+type DataSourceTagInput interface {
+	pulumi.Input
+
+	ToDataSourceTagOutput() DataSourceTagOutput
+	ToDataSourceTagOutputWithContext(context.Context) DataSourceTagOutput
+}
+
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type DataSourceTagArgs struct {
+	// <p>Tag key.</p>
+	Key pulumi.StringInput `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DataSourceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceTag)(nil)).Elem()
+}
+
+func (i DataSourceTagArgs) ToDataSourceTagOutput() DataSourceTagOutput {
+	return i.ToDataSourceTagOutputWithContext(context.Background())
+}
+
+func (i DataSourceTagArgs) ToDataSourceTagOutputWithContext(ctx context.Context) DataSourceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTagOutput)
+}
+
+// DataSourceTagArrayInput is an input type that accepts DataSourceTagArray and DataSourceTagArrayOutput values.
+// You can construct a concrete instance of `DataSourceTagArrayInput` via:
+//
+//          DataSourceTagArray{ DataSourceTagArgs{...} }
+type DataSourceTagArrayInput interface {
+	pulumi.Input
+
+	ToDataSourceTagArrayOutput() DataSourceTagArrayOutput
+	ToDataSourceTagArrayOutputWithContext(context.Context) DataSourceTagArrayOutput
+}
+
+type DataSourceTagArray []DataSourceTagInput
+
+func (DataSourceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceTag)(nil)).Elem()
+}
+
+func (i DataSourceTagArray) ToDataSourceTagArrayOutput() DataSourceTagArrayOutput {
+	return i.ToDataSourceTagArrayOutputWithContext(context.Background())
+}
+
+func (i DataSourceTagArray) ToDataSourceTagArrayOutputWithContext(ctx context.Context) DataSourceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTagArrayOutput)
+}
+
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type DataSourceTagOutput struct{ *pulumi.OutputState }
+
+func (DataSourceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceTag)(nil)).Elem()
+}
+
+func (o DataSourceTagOutput) ToDataSourceTagOutput() DataSourceTagOutput {
+	return o
+}
+
+func (o DataSourceTagOutput) ToDataSourceTagOutputWithContext(ctx context.Context) DataSourceTagOutput {
+	return o
+}
+
+// <p>Tag key.</p>
+func (o DataSourceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// <p>Tag value.</p>
+func (o DataSourceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DataSourceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSourceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSourceTag)(nil)).Elem()
+}
+
+func (o DataSourceTagArrayOutput) ToDataSourceTagArrayOutput() DataSourceTagArrayOutput {
+	return o
+}
+
+func (o DataSourceTagArrayOutput) ToDataSourceTagArrayOutputWithContext(ctx context.Context) DataSourceTagArrayOutput {
+	return o
+}
+
+func (o DataSourceTagArrayOutput) Index(i pulumi.IntInput) DataSourceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceTag {
+		return vs[0].([]DataSourceTag)[vs[1].(int)]
+	}).(DataSourceTagOutput)
+}
+
+// <p>Teradata parameters.</p>
 type DataSourceTeradataParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-database
+	// <p>Database.</p>
 	Database string `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-host
+	// <p>Host.</p>
 	Host string `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-port
+	// <p>Port.</p>
 	Port float64 `pulumi:"port"`
 }
 
@@ -11162,13 +9487,13 @@ type DataSourceTeradataParametersInput interface {
 	ToDataSourceTeradataParametersOutputWithContext(context.Context) DataSourceTeradataParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html
+// <p>Teradata parameters.</p>
 type DataSourceTeradataParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-database
+	// <p>Database.</p>
 	Database pulumi.StringInput `pulumi:"database"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-host
+	// <p>Host.</p>
 	Host pulumi.StringInput `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-port
+	// <p>Port.</p>
 	Port pulumi.Float64Input `pulumi:"port"`
 }
 
@@ -11225,7 +9550,7 @@ func (i *dataSourceTeradataParametersPtrType) ToDataSourceTeradataParametersPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceTeradataParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html
+// <p>Teradata parameters.</p>
 type DataSourceTeradataParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceTeradataParametersOutput) ElementType() reflect.Type {
@@ -11250,17 +9575,17 @@ func (o DataSourceTeradataParametersOutput) ToDataSourceTeradataParametersPtrOut
 	}).(DataSourceTeradataParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-database
+// <p>Database.</p>
 func (o DataSourceTeradataParametersOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceTeradataParameters) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-host
+// <p>Host.</p>
 func (o DataSourceTeradataParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceTeradataParameters) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-port
+// <p>Port.</p>
 func (o DataSourceTeradataParametersOutput) Port() pulumi.Float64Output {
 	return o.ApplyT(func(v DataSourceTeradataParameters) float64 { return v.Port }).(pulumi.Float64Output)
 }
@@ -11289,7 +9614,7 @@ func (o DataSourceTeradataParametersPtrOutput) Elem() DataSourceTeradataParamete
 	}).(DataSourceTeradataParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-database
+// <p>Database.</p>
 func (o DataSourceTeradataParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceTeradataParameters) *string {
 		if v == nil {
@@ -11299,7 +9624,7 @@ func (o DataSourceTeradataParametersPtrOutput) Database() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-host
+// <p>Host.</p>
 func (o DataSourceTeradataParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceTeradataParameters) *string {
 		if v == nil {
@@ -11309,7 +9634,7 @@ func (o DataSourceTeradataParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-teradataparameters.html#cfn-quicksight-datasource-teradataparameters-port
+// <p>Port.</p>
 func (o DataSourceTeradataParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataSourceTeradataParameters) *float64 {
 		if v == nil {
@@ -11319,9 +9644,9 @@ func (o DataSourceTeradataParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html
+// <p>VPC connection properties.</p>
 type DataSourceVpcConnectionProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html#cfn-quicksight-datasource-vpcconnectionproperties-vpcconnectionarn
+	// <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
 	VpcConnectionArn string `pulumi:"vpcConnectionArn"`
 }
 
@@ -11336,9 +9661,9 @@ type DataSourceVpcConnectionPropertiesInput interface {
 	ToDataSourceVpcConnectionPropertiesOutputWithContext(context.Context) DataSourceVpcConnectionPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html
+// <p>VPC connection properties.</p>
 type DataSourceVpcConnectionPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html#cfn-quicksight-datasource-vpcconnectionproperties-vpcconnectionarn
+	// <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
 	VpcConnectionArn pulumi.StringInput `pulumi:"vpcConnectionArn"`
 }
 
@@ -11395,7 +9720,7 @@ func (i *dataSourceVpcConnectionPropertiesPtrType) ToDataSourceVpcConnectionProp
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceVpcConnectionPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html
+// <p>VPC connection properties.</p>
 type DataSourceVpcConnectionPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DataSourceVpcConnectionPropertiesOutput) ElementType() reflect.Type {
@@ -11420,7 +9745,7 @@ func (o DataSourceVpcConnectionPropertiesOutput) ToDataSourceVpcConnectionProper
 	}).(DataSourceVpcConnectionPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html#cfn-quicksight-datasource-vpcconnectionproperties-vpcconnectionarn
+// <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
 func (o DataSourceVpcConnectionPropertiesOutput) VpcConnectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceVpcConnectionProperties) string { return v.VpcConnectionArn }).(pulumi.StringOutput)
 }
@@ -11449,7 +9774,7 @@ func (o DataSourceVpcConnectionPropertiesPtrOutput) Elem() DataSourceVpcConnecti
 	}).(DataSourceVpcConnectionPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html#cfn-quicksight-datasource-vpcconnectionproperties-vpcconnectionarn
+// <p>The Amazon Resource Name (ARN) for the VPC connection.</p>
 func (o DataSourceVpcConnectionPropertiesPtrOutput) VpcConnectionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceVpcConnectionProperties) *string {
 		if v == nil {
@@ -11459,11 +9784,455 @@ func (o DataSourceVpcConnectionPropertiesPtrOutput) VpcConnectionArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html
+// <p>A structure describing the name, data type, and geographic role of the columns.</p>
+type TemplateColumnGroupColumnSchema struct {
+	// <p>The name of the column group's column schema.</p>
+	Name *string `pulumi:"name"`
+}
+
+// TemplateColumnGroupColumnSchemaInput is an input type that accepts TemplateColumnGroupColumnSchemaArgs and TemplateColumnGroupColumnSchemaOutput values.
+// You can construct a concrete instance of `TemplateColumnGroupColumnSchemaInput` via:
+//
+//          TemplateColumnGroupColumnSchemaArgs{...}
+type TemplateColumnGroupColumnSchemaInput interface {
+	pulumi.Input
+
+	ToTemplateColumnGroupColumnSchemaOutput() TemplateColumnGroupColumnSchemaOutput
+	ToTemplateColumnGroupColumnSchemaOutputWithContext(context.Context) TemplateColumnGroupColumnSchemaOutput
+}
+
+// <p>A structure describing the name, data type, and geographic role of the columns.</p>
+type TemplateColumnGroupColumnSchemaArgs struct {
+	// <p>The name of the column group's column schema.</p>
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (TemplateColumnGroupColumnSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateColumnGroupColumnSchema)(nil)).Elem()
+}
+
+func (i TemplateColumnGroupColumnSchemaArgs) ToTemplateColumnGroupColumnSchemaOutput() TemplateColumnGroupColumnSchemaOutput {
+	return i.ToTemplateColumnGroupColumnSchemaOutputWithContext(context.Background())
+}
+
+func (i TemplateColumnGroupColumnSchemaArgs) ToTemplateColumnGroupColumnSchemaOutputWithContext(ctx context.Context) TemplateColumnGroupColumnSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateColumnGroupColumnSchemaOutput)
+}
+
+// TemplateColumnGroupColumnSchemaArrayInput is an input type that accepts TemplateColumnGroupColumnSchemaArray and TemplateColumnGroupColumnSchemaArrayOutput values.
+// You can construct a concrete instance of `TemplateColumnGroupColumnSchemaArrayInput` via:
+//
+//          TemplateColumnGroupColumnSchemaArray{ TemplateColumnGroupColumnSchemaArgs{...} }
+type TemplateColumnGroupColumnSchemaArrayInput interface {
+	pulumi.Input
+
+	ToTemplateColumnGroupColumnSchemaArrayOutput() TemplateColumnGroupColumnSchemaArrayOutput
+	ToTemplateColumnGroupColumnSchemaArrayOutputWithContext(context.Context) TemplateColumnGroupColumnSchemaArrayOutput
+}
+
+type TemplateColumnGroupColumnSchemaArray []TemplateColumnGroupColumnSchemaInput
+
+func (TemplateColumnGroupColumnSchemaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateColumnGroupColumnSchema)(nil)).Elem()
+}
+
+func (i TemplateColumnGroupColumnSchemaArray) ToTemplateColumnGroupColumnSchemaArrayOutput() TemplateColumnGroupColumnSchemaArrayOutput {
+	return i.ToTemplateColumnGroupColumnSchemaArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateColumnGroupColumnSchemaArray) ToTemplateColumnGroupColumnSchemaArrayOutputWithContext(ctx context.Context) TemplateColumnGroupColumnSchemaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateColumnGroupColumnSchemaArrayOutput)
+}
+
+// <p>A structure describing the name, data type, and geographic role of the columns.</p>
+type TemplateColumnGroupColumnSchemaOutput struct{ *pulumi.OutputState }
+
+func (TemplateColumnGroupColumnSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateColumnGroupColumnSchema)(nil)).Elem()
+}
+
+func (o TemplateColumnGroupColumnSchemaOutput) ToTemplateColumnGroupColumnSchemaOutput() TemplateColumnGroupColumnSchemaOutput {
+	return o
+}
+
+func (o TemplateColumnGroupColumnSchemaOutput) ToTemplateColumnGroupColumnSchemaOutputWithContext(ctx context.Context) TemplateColumnGroupColumnSchemaOutput {
+	return o
+}
+
+// <p>The name of the column group's column schema.</p>
+func (o TemplateColumnGroupColumnSchemaOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateColumnGroupColumnSchema) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type TemplateColumnGroupColumnSchemaArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateColumnGroupColumnSchemaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateColumnGroupColumnSchema)(nil)).Elem()
+}
+
+func (o TemplateColumnGroupColumnSchemaArrayOutput) ToTemplateColumnGroupColumnSchemaArrayOutput() TemplateColumnGroupColumnSchemaArrayOutput {
+	return o
+}
+
+func (o TemplateColumnGroupColumnSchemaArrayOutput) ToTemplateColumnGroupColumnSchemaArrayOutputWithContext(ctx context.Context) TemplateColumnGroupColumnSchemaArrayOutput {
+	return o
+}
+
+func (o TemplateColumnGroupColumnSchemaArrayOutput) Index(i pulumi.IntInput) TemplateColumnGroupColumnSchemaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateColumnGroupColumnSchema {
+		return vs[0].([]TemplateColumnGroupColumnSchema)[vs[1].(int)]
+	}).(TemplateColumnGroupColumnSchemaOutput)
+}
+
+// <p>The column group schema.</p>
+type TemplateColumnGroupSchema struct {
+	// <p>A structure containing the list of schemas for column group columns.</p>
+	ColumnGroupColumnSchemaList []TemplateColumnGroupColumnSchema `pulumi:"columnGroupColumnSchemaList"`
+	// <p>The name of the column group schema.</p>
+	Name *string `pulumi:"name"`
+}
+
+// TemplateColumnGroupSchemaInput is an input type that accepts TemplateColumnGroupSchemaArgs and TemplateColumnGroupSchemaOutput values.
+// You can construct a concrete instance of `TemplateColumnGroupSchemaInput` via:
+//
+//          TemplateColumnGroupSchemaArgs{...}
+type TemplateColumnGroupSchemaInput interface {
+	pulumi.Input
+
+	ToTemplateColumnGroupSchemaOutput() TemplateColumnGroupSchemaOutput
+	ToTemplateColumnGroupSchemaOutputWithContext(context.Context) TemplateColumnGroupSchemaOutput
+}
+
+// <p>The column group schema.</p>
+type TemplateColumnGroupSchemaArgs struct {
+	// <p>A structure containing the list of schemas for column group columns.</p>
+	ColumnGroupColumnSchemaList TemplateColumnGroupColumnSchemaArrayInput `pulumi:"columnGroupColumnSchemaList"`
+	// <p>The name of the column group schema.</p>
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (TemplateColumnGroupSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateColumnGroupSchema)(nil)).Elem()
+}
+
+func (i TemplateColumnGroupSchemaArgs) ToTemplateColumnGroupSchemaOutput() TemplateColumnGroupSchemaOutput {
+	return i.ToTemplateColumnGroupSchemaOutputWithContext(context.Background())
+}
+
+func (i TemplateColumnGroupSchemaArgs) ToTemplateColumnGroupSchemaOutputWithContext(ctx context.Context) TemplateColumnGroupSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateColumnGroupSchemaOutput)
+}
+
+// TemplateColumnGroupSchemaArrayInput is an input type that accepts TemplateColumnGroupSchemaArray and TemplateColumnGroupSchemaArrayOutput values.
+// You can construct a concrete instance of `TemplateColumnGroupSchemaArrayInput` via:
+//
+//          TemplateColumnGroupSchemaArray{ TemplateColumnGroupSchemaArgs{...} }
+type TemplateColumnGroupSchemaArrayInput interface {
+	pulumi.Input
+
+	ToTemplateColumnGroupSchemaArrayOutput() TemplateColumnGroupSchemaArrayOutput
+	ToTemplateColumnGroupSchemaArrayOutputWithContext(context.Context) TemplateColumnGroupSchemaArrayOutput
+}
+
+type TemplateColumnGroupSchemaArray []TemplateColumnGroupSchemaInput
+
+func (TemplateColumnGroupSchemaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateColumnGroupSchema)(nil)).Elem()
+}
+
+func (i TemplateColumnGroupSchemaArray) ToTemplateColumnGroupSchemaArrayOutput() TemplateColumnGroupSchemaArrayOutput {
+	return i.ToTemplateColumnGroupSchemaArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateColumnGroupSchemaArray) ToTemplateColumnGroupSchemaArrayOutputWithContext(ctx context.Context) TemplateColumnGroupSchemaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateColumnGroupSchemaArrayOutput)
+}
+
+// <p>The column group schema.</p>
+type TemplateColumnGroupSchemaOutput struct{ *pulumi.OutputState }
+
+func (TemplateColumnGroupSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateColumnGroupSchema)(nil)).Elem()
+}
+
+func (o TemplateColumnGroupSchemaOutput) ToTemplateColumnGroupSchemaOutput() TemplateColumnGroupSchemaOutput {
+	return o
+}
+
+func (o TemplateColumnGroupSchemaOutput) ToTemplateColumnGroupSchemaOutputWithContext(ctx context.Context) TemplateColumnGroupSchemaOutput {
+	return o
+}
+
+// <p>A structure containing the list of schemas for column group columns.</p>
+func (o TemplateColumnGroupSchemaOutput) ColumnGroupColumnSchemaList() TemplateColumnGroupColumnSchemaArrayOutput {
+	return o.ApplyT(func(v TemplateColumnGroupSchema) []TemplateColumnGroupColumnSchema {
+		return v.ColumnGroupColumnSchemaList
+	}).(TemplateColumnGroupColumnSchemaArrayOutput)
+}
+
+// <p>The name of the column group schema.</p>
+func (o TemplateColumnGroupSchemaOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateColumnGroupSchema) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type TemplateColumnGroupSchemaArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateColumnGroupSchemaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateColumnGroupSchema)(nil)).Elem()
+}
+
+func (o TemplateColumnGroupSchemaArrayOutput) ToTemplateColumnGroupSchemaArrayOutput() TemplateColumnGroupSchemaArrayOutput {
+	return o
+}
+
+func (o TemplateColumnGroupSchemaArrayOutput) ToTemplateColumnGroupSchemaArrayOutputWithContext(ctx context.Context) TemplateColumnGroupSchemaArrayOutput {
+	return o
+}
+
+func (o TemplateColumnGroupSchemaArrayOutput) Index(i pulumi.IntInput) TemplateColumnGroupSchemaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateColumnGroupSchema {
+		return vs[0].([]TemplateColumnGroupSchema)[vs[1].(int)]
+	}).(TemplateColumnGroupSchemaOutput)
+}
+
+// <p>The column schema.</p>
+type TemplateColumnSchema struct {
+	// <p>The data type of the column schema.</p>
+	DataType *string `pulumi:"dataType"`
+	// <p>The geographic role of the column schema.</p>
+	GeographicRole *string `pulumi:"geographicRole"`
+	// <p>The name of the column schema.</p>
+	Name *string `pulumi:"name"`
+}
+
+// TemplateColumnSchemaInput is an input type that accepts TemplateColumnSchemaArgs and TemplateColumnSchemaOutput values.
+// You can construct a concrete instance of `TemplateColumnSchemaInput` via:
+//
+//          TemplateColumnSchemaArgs{...}
+type TemplateColumnSchemaInput interface {
+	pulumi.Input
+
+	ToTemplateColumnSchemaOutput() TemplateColumnSchemaOutput
+	ToTemplateColumnSchemaOutputWithContext(context.Context) TemplateColumnSchemaOutput
+}
+
+// <p>The column schema.</p>
+type TemplateColumnSchemaArgs struct {
+	// <p>The data type of the column schema.</p>
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+	// <p>The geographic role of the column schema.</p>
+	GeographicRole pulumi.StringPtrInput `pulumi:"geographicRole"`
+	// <p>The name of the column schema.</p>
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (TemplateColumnSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateColumnSchema)(nil)).Elem()
+}
+
+func (i TemplateColumnSchemaArgs) ToTemplateColumnSchemaOutput() TemplateColumnSchemaOutput {
+	return i.ToTemplateColumnSchemaOutputWithContext(context.Background())
+}
+
+func (i TemplateColumnSchemaArgs) ToTemplateColumnSchemaOutputWithContext(ctx context.Context) TemplateColumnSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateColumnSchemaOutput)
+}
+
+// TemplateColumnSchemaArrayInput is an input type that accepts TemplateColumnSchemaArray and TemplateColumnSchemaArrayOutput values.
+// You can construct a concrete instance of `TemplateColumnSchemaArrayInput` via:
+//
+//          TemplateColumnSchemaArray{ TemplateColumnSchemaArgs{...} }
+type TemplateColumnSchemaArrayInput interface {
+	pulumi.Input
+
+	ToTemplateColumnSchemaArrayOutput() TemplateColumnSchemaArrayOutput
+	ToTemplateColumnSchemaArrayOutputWithContext(context.Context) TemplateColumnSchemaArrayOutput
+}
+
+type TemplateColumnSchemaArray []TemplateColumnSchemaInput
+
+func (TemplateColumnSchemaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateColumnSchema)(nil)).Elem()
+}
+
+func (i TemplateColumnSchemaArray) ToTemplateColumnSchemaArrayOutput() TemplateColumnSchemaArrayOutput {
+	return i.ToTemplateColumnSchemaArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateColumnSchemaArray) ToTemplateColumnSchemaArrayOutputWithContext(ctx context.Context) TemplateColumnSchemaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateColumnSchemaArrayOutput)
+}
+
+// <p>The column schema.</p>
+type TemplateColumnSchemaOutput struct{ *pulumi.OutputState }
+
+func (TemplateColumnSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateColumnSchema)(nil)).Elem()
+}
+
+func (o TemplateColumnSchemaOutput) ToTemplateColumnSchemaOutput() TemplateColumnSchemaOutput {
+	return o
+}
+
+func (o TemplateColumnSchemaOutput) ToTemplateColumnSchemaOutputWithContext(ctx context.Context) TemplateColumnSchemaOutput {
+	return o
+}
+
+// <p>The data type of the column schema.</p>
+func (o TemplateColumnSchemaOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateColumnSchema) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+// <p>The geographic role of the column schema.</p>
+func (o TemplateColumnSchemaOutput) GeographicRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateColumnSchema) *string { return v.GeographicRole }).(pulumi.StringPtrOutput)
+}
+
+// <p>The name of the column schema.</p>
+func (o TemplateColumnSchemaOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateColumnSchema) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type TemplateColumnSchemaArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateColumnSchemaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateColumnSchema)(nil)).Elem()
+}
+
+func (o TemplateColumnSchemaArrayOutput) ToTemplateColumnSchemaArrayOutput() TemplateColumnSchemaArrayOutput {
+	return o
+}
+
+func (o TemplateColumnSchemaArrayOutput) ToTemplateColumnSchemaArrayOutputWithContext(ctx context.Context) TemplateColumnSchemaArrayOutput {
+	return o
+}
+
+func (o TemplateColumnSchemaArrayOutput) Index(i pulumi.IntInput) TemplateColumnSchemaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateColumnSchema {
+		return vs[0].([]TemplateColumnSchema)[vs[1].(int)]
+	}).(TemplateColumnSchemaOutput)
+}
+
+// <p>Dataset configuration.</p>
+type TemplateDataSetConfiguration struct {
+	// <p>A structure containing the list of column group schemas.</p>
+	ColumnGroupSchemaList []TemplateColumnGroupSchema `pulumi:"columnGroupSchemaList"`
+	DataSetSchema         *TemplateDataSetSchema      `pulumi:"dataSetSchema"`
+	// <p>Placeholder.</p>
+	Placeholder *string `pulumi:"placeholder"`
+}
+
+// TemplateDataSetConfigurationInput is an input type that accepts TemplateDataSetConfigurationArgs and TemplateDataSetConfigurationOutput values.
+// You can construct a concrete instance of `TemplateDataSetConfigurationInput` via:
+//
+//          TemplateDataSetConfigurationArgs{...}
+type TemplateDataSetConfigurationInput interface {
+	pulumi.Input
+
+	ToTemplateDataSetConfigurationOutput() TemplateDataSetConfigurationOutput
+	ToTemplateDataSetConfigurationOutputWithContext(context.Context) TemplateDataSetConfigurationOutput
+}
+
+// <p>Dataset configuration.</p>
+type TemplateDataSetConfigurationArgs struct {
+	// <p>A structure containing the list of column group schemas.</p>
+	ColumnGroupSchemaList TemplateColumnGroupSchemaArrayInput `pulumi:"columnGroupSchemaList"`
+	DataSetSchema         TemplateDataSetSchemaPtrInput       `pulumi:"dataSetSchema"`
+	// <p>Placeholder.</p>
+	Placeholder pulumi.StringPtrInput `pulumi:"placeholder"`
+}
+
+func (TemplateDataSetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateDataSetConfiguration)(nil)).Elem()
+}
+
+func (i TemplateDataSetConfigurationArgs) ToTemplateDataSetConfigurationOutput() TemplateDataSetConfigurationOutput {
+	return i.ToTemplateDataSetConfigurationOutputWithContext(context.Background())
+}
+
+func (i TemplateDataSetConfigurationArgs) ToTemplateDataSetConfigurationOutputWithContext(ctx context.Context) TemplateDataSetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateDataSetConfigurationOutput)
+}
+
+// TemplateDataSetConfigurationArrayInput is an input type that accepts TemplateDataSetConfigurationArray and TemplateDataSetConfigurationArrayOutput values.
+// You can construct a concrete instance of `TemplateDataSetConfigurationArrayInput` via:
+//
+//          TemplateDataSetConfigurationArray{ TemplateDataSetConfigurationArgs{...} }
+type TemplateDataSetConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToTemplateDataSetConfigurationArrayOutput() TemplateDataSetConfigurationArrayOutput
+	ToTemplateDataSetConfigurationArrayOutputWithContext(context.Context) TemplateDataSetConfigurationArrayOutput
+}
+
+type TemplateDataSetConfigurationArray []TemplateDataSetConfigurationInput
+
+func (TemplateDataSetConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateDataSetConfiguration)(nil)).Elem()
+}
+
+func (i TemplateDataSetConfigurationArray) ToTemplateDataSetConfigurationArrayOutput() TemplateDataSetConfigurationArrayOutput {
+	return i.ToTemplateDataSetConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateDataSetConfigurationArray) ToTemplateDataSetConfigurationArrayOutputWithContext(ctx context.Context) TemplateDataSetConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateDataSetConfigurationArrayOutput)
+}
+
+// <p>Dataset configuration.</p>
+type TemplateDataSetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TemplateDataSetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateDataSetConfiguration)(nil)).Elem()
+}
+
+func (o TemplateDataSetConfigurationOutput) ToTemplateDataSetConfigurationOutput() TemplateDataSetConfigurationOutput {
+	return o
+}
+
+func (o TemplateDataSetConfigurationOutput) ToTemplateDataSetConfigurationOutputWithContext(ctx context.Context) TemplateDataSetConfigurationOutput {
+	return o
+}
+
+// <p>A structure containing the list of column group schemas.</p>
+func (o TemplateDataSetConfigurationOutput) ColumnGroupSchemaList() TemplateColumnGroupSchemaArrayOutput {
+	return o.ApplyT(func(v TemplateDataSetConfiguration) []TemplateColumnGroupSchema { return v.ColumnGroupSchemaList }).(TemplateColumnGroupSchemaArrayOutput)
+}
+
+func (o TemplateDataSetConfigurationOutput) DataSetSchema() TemplateDataSetSchemaPtrOutput {
+	return o.ApplyT(func(v TemplateDataSetConfiguration) *TemplateDataSetSchema { return v.DataSetSchema }).(TemplateDataSetSchemaPtrOutput)
+}
+
+// <p>Placeholder.</p>
+func (o TemplateDataSetConfigurationOutput) Placeholder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateDataSetConfiguration) *string { return v.Placeholder }).(pulumi.StringPtrOutput)
+}
+
+type TemplateDataSetConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateDataSetConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateDataSetConfiguration)(nil)).Elem()
+}
+
+func (o TemplateDataSetConfigurationArrayOutput) ToTemplateDataSetConfigurationArrayOutput() TemplateDataSetConfigurationArrayOutput {
+	return o
+}
+
+func (o TemplateDataSetConfigurationArrayOutput) ToTemplateDataSetConfigurationArrayOutputWithContext(ctx context.Context) TemplateDataSetConfigurationArrayOutput {
+	return o
+}
+
+func (o TemplateDataSetConfigurationArrayOutput) Index(i pulumi.IntInput) TemplateDataSetConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateDataSetConfiguration {
+		return vs[0].([]TemplateDataSetConfiguration)[vs[1].(int)]
+	}).(TemplateDataSetConfigurationOutput)
+}
+
+// <p>Dataset reference.</p>
 type TemplateDataSetReference struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html#cfn-quicksight-template-datasetreference-datasetarn
+	// <p>Dataset Amazon Resource Name (ARN).</p>
 	DataSetArn string `pulumi:"dataSetArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html#cfn-quicksight-template-datasetreference-datasetplaceholder
+	// <p>Dataset placeholder.</p>
 	DataSetPlaceholder string `pulumi:"dataSetPlaceholder"`
 }
 
@@ -11478,11 +10247,11 @@ type TemplateDataSetReferenceInput interface {
 	ToTemplateDataSetReferenceOutputWithContext(context.Context) TemplateDataSetReferenceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html
+// <p>Dataset reference.</p>
 type TemplateDataSetReferenceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html#cfn-quicksight-template-datasetreference-datasetarn
+	// <p>Dataset Amazon Resource Name (ARN).</p>
 	DataSetArn pulumi.StringInput `pulumi:"dataSetArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html#cfn-quicksight-template-datasetreference-datasetplaceholder
+	// <p>Dataset placeholder.</p>
 	DataSetPlaceholder pulumi.StringInput `pulumi:"dataSetPlaceholder"`
 }
 
@@ -11523,7 +10292,7 @@ func (i TemplateDataSetReferenceArray) ToTemplateDataSetReferenceArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateDataSetReferenceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html
+// <p>Dataset reference.</p>
 type TemplateDataSetReferenceOutput struct{ *pulumi.OutputState }
 
 func (TemplateDataSetReferenceOutput) ElementType() reflect.Type {
@@ -11538,12 +10307,12 @@ func (o TemplateDataSetReferenceOutput) ToTemplateDataSetReferenceOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html#cfn-quicksight-template-datasetreference-datasetarn
+// <p>Dataset Amazon Resource Name (ARN).</p>
 func (o TemplateDataSetReferenceOutput) DataSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateDataSetReference) string { return v.DataSetArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html#cfn-quicksight-template-datasetreference-datasetplaceholder
+// <p>Dataset placeholder.</p>
 func (o TemplateDataSetReferenceOutput) DataSetPlaceholder() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateDataSetReference) string { return v.DataSetPlaceholder }).(pulumi.StringOutput)
 }
@@ -11568,11 +10337,165 @@ func (o TemplateDataSetReferenceArrayOutput) Index(i pulumi.IntInput) TemplateDa
 	}).(TemplateDataSetReferenceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-resourcepermission.html
+// <p>Dataset schema.</p>
+type TemplateDataSetSchema struct {
+	// <p>A structure containing the list of column schemas.</p>
+	ColumnSchemaList []TemplateColumnSchema `pulumi:"columnSchemaList"`
+}
+
+// TemplateDataSetSchemaInput is an input type that accepts TemplateDataSetSchemaArgs and TemplateDataSetSchemaOutput values.
+// You can construct a concrete instance of `TemplateDataSetSchemaInput` via:
+//
+//          TemplateDataSetSchemaArgs{...}
+type TemplateDataSetSchemaInput interface {
+	pulumi.Input
+
+	ToTemplateDataSetSchemaOutput() TemplateDataSetSchemaOutput
+	ToTemplateDataSetSchemaOutputWithContext(context.Context) TemplateDataSetSchemaOutput
+}
+
+// <p>Dataset schema.</p>
+type TemplateDataSetSchemaArgs struct {
+	// <p>A structure containing the list of column schemas.</p>
+	ColumnSchemaList TemplateColumnSchemaArrayInput `pulumi:"columnSchemaList"`
+}
+
+func (TemplateDataSetSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateDataSetSchema)(nil)).Elem()
+}
+
+func (i TemplateDataSetSchemaArgs) ToTemplateDataSetSchemaOutput() TemplateDataSetSchemaOutput {
+	return i.ToTemplateDataSetSchemaOutputWithContext(context.Background())
+}
+
+func (i TemplateDataSetSchemaArgs) ToTemplateDataSetSchemaOutputWithContext(ctx context.Context) TemplateDataSetSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateDataSetSchemaOutput)
+}
+
+func (i TemplateDataSetSchemaArgs) ToTemplateDataSetSchemaPtrOutput() TemplateDataSetSchemaPtrOutput {
+	return i.ToTemplateDataSetSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateDataSetSchemaArgs) ToTemplateDataSetSchemaPtrOutputWithContext(ctx context.Context) TemplateDataSetSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateDataSetSchemaOutput).ToTemplateDataSetSchemaPtrOutputWithContext(ctx)
+}
+
+// TemplateDataSetSchemaPtrInput is an input type that accepts TemplateDataSetSchemaArgs, TemplateDataSetSchemaPtr and TemplateDataSetSchemaPtrOutput values.
+// You can construct a concrete instance of `TemplateDataSetSchemaPtrInput` via:
+//
+//          TemplateDataSetSchemaArgs{...}
+//
+//  or:
+//
+//          nil
+type TemplateDataSetSchemaPtrInput interface {
+	pulumi.Input
+
+	ToTemplateDataSetSchemaPtrOutput() TemplateDataSetSchemaPtrOutput
+	ToTemplateDataSetSchemaPtrOutputWithContext(context.Context) TemplateDataSetSchemaPtrOutput
+}
+
+type templateDataSetSchemaPtrType TemplateDataSetSchemaArgs
+
+func TemplateDataSetSchemaPtr(v *TemplateDataSetSchemaArgs) TemplateDataSetSchemaPtrInput {
+	return (*templateDataSetSchemaPtrType)(v)
+}
+
+func (*templateDataSetSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateDataSetSchema)(nil)).Elem()
+}
+
+func (i *templateDataSetSchemaPtrType) ToTemplateDataSetSchemaPtrOutput() TemplateDataSetSchemaPtrOutput {
+	return i.ToTemplateDataSetSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *templateDataSetSchemaPtrType) ToTemplateDataSetSchemaPtrOutputWithContext(ctx context.Context) TemplateDataSetSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateDataSetSchemaPtrOutput)
+}
+
+// <p>Dataset schema.</p>
+type TemplateDataSetSchemaOutput struct{ *pulumi.OutputState }
+
+func (TemplateDataSetSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateDataSetSchema)(nil)).Elem()
+}
+
+func (o TemplateDataSetSchemaOutput) ToTemplateDataSetSchemaOutput() TemplateDataSetSchemaOutput {
+	return o
+}
+
+func (o TemplateDataSetSchemaOutput) ToTemplateDataSetSchemaOutputWithContext(ctx context.Context) TemplateDataSetSchemaOutput {
+	return o
+}
+
+func (o TemplateDataSetSchemaOutput) ToTemplateDataSetSchemaPtrOutput() TemplateDataSetSchemaPtrOutput {
+	return o.ToTemplateDataSetSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateDataSetSchemaOutput) ToTemplateDataSetSchemaPtrOutputWithContext(ctx context.Context) TemplateDataSetSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateDataSetSchema) *TemplateDataSetSchema {
+		return &v
+	}).(TemplateDataSetSchemaPtrOutput)
+}
+
+// <p>A structure containing the list of column schemas.</p>
+func (o TemplateDataSetSchemaOutput) ColumnSchemaList() TemplateColumnSchemaArrayOutput {
+	return o.ApplyT(func(v TemplateDataSetSchema) []TemplateColumnSchema { return v.ColumnSchemaList }).(TemplateColumnSchemaArrayOutput)
+}
+
+type TemplateDataSetSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateDataSetSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateDataSetSchema)(nil)).Elem()
+}
+
+func (o TemplateDataSetSchemaPtrOutput) ToTemplateDataSetSchemaPtrOutput() TemplateDataSetSchemaPtrOutput {
+	return o
+}
+
+func (o TemplateDataSetSchemaPtrOutput) ToTemplateDataSetSchemaPtrOutputWithContext(ctx context.Context) TemplateDataSetSchemaPtrOutput {
+	return o
+}
+
+func (o TemplateDataSetSchemaPtrOutput) Elem() TemplateDataSetSchemaOutput {
+	return o.ApplyT(func(v *TemplateDataSetSchema) TemplateDataSetSchema {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateDataSetSchema
+		return ret
+	}).(TemplateDataSetSchemaOutput)
+}
+
+// <p>A structure containing the list of column schemas.</p>
+func (o TemplateDataSetSchemaPtrOutput) ColumnSchemaList() TemplateColumnSchemaArrayOutput {
+	return o.ApplyT(func(v *TemplateDataSetSchema) []TemplateColumnSchema {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnSchemaList
+	}).(TemplateColumnSchemaArrayOutput)
+}
+
+// <p>Permission for the resource.</p>
 type TemplateResourcePermission struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-resourcepermission.html#cfn-quicksight-template-resourcepermission-actions
+	// <p>The IAM action to grant or revoke permissions on.</p>
 	Actions []string `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-resourcepermission.html#cfn-quicksight-template-resourcepermission-principal
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//         <ul>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
 	Principal string `pulumi:"principal"`
 }
 
@@ -11587,11 +10510,25 @@ type TemplateResourcePermissionInput interface {
 	ToTemplateResourcePermissionOutputWithContext(context.Context) TemplateResourcePermissionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-resourcepermission.html
+// <p>Permission for the resource.</p>
 type TemplateResourcePermissionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-resourcepermission.html#cfn-quicksight-template-resourcepermission-actions
+	// <p>The IAM action to grant or revoke permissions on.</p>
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-resourcepermission.html#cfn-quicksight-template-resourcepermission-principal
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//         <ul>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
 	Principal pulumi.StringInput `pulumi:"principal"`
 }
 
@@ -11632,7 +10569,7 @@ func (i TemplateResourcePermissionArray) ToTemplateResourcePermissionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateResourcePermissionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-resourcepermission.html
+// <p>Permission for the resource.</p>
 type TemplateResourcePermissionOutput struct{ *pulumi.OutputState }
 
 func (TemplateResourcePermissionOutput) ElementType() reflect.Type {
@@ -11647,12 +10584,26 @@ func (o TemplateResourcePermissionOutput) ToTemplateResourcePermissionOutputWith
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-resourcepermission.html#cfn-quicksight-template-resourcepermission-actions
+// <p>The IAM action to grant or revoke permissions on.</p>
 func (o TemplateResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TemplateResourcePermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-resourcepermission.html#cfn-quicksight-template-resourcepermission-principal
+// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+//             following:</p>
+//         <ul>
+//             <li>
+//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+//             </li>
+//             <li>
+//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//             </li>
+//             <li>
+//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+//                     (This is less common.) </p>
+//             </li>
+//          </ul>
 func (o TemplateResourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -11677,11 +10628,354 @@ func (o TemplateResourcePermissionArrayOutput) Index(i pulumi.IntInput) Template
 	}).(TemplateResourcePermissionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html
+// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
+//             contains at least one sheet. Each sheet contains at least one visualization widget, for
+//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//             components, such as controls, filters, and so on.</p>
+type TemplateSheet struct {
+	// <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
+	//             console.</p>
+	Name *string `pulumi:"name"`
+	// <p>The unique identifier associated with a sheet.</p>
+	SheetId *string `pulumi:"sheetId"`
+}
+
+// TemplateSheetInput is an input type that accepts TemplateSheetArgs and TemplateSheetOutput values.
+// You can construct a concrete instance of `TemplateSheetInput` via:
+//
+//          TemplateSheetArgs{...}
+type TemplateSheetInput interface {
+	pulumi.Input
+
+	ToTemplateSheetOutput() TemplateSheetOutput
+	ToTemplateSheetOutputWithContext(context.Context) TemplateSheetOutput
+}
+
+// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
+//             contains at least one sheet. Each sheet contains at least one visualization widget, for
+//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//             components, such as controls, filters, and so on.</p>
+type TemplateSheetArgs struct {
+	// <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
+	//             console.</p>
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// <p>The unique identifier associated with a sheet.</p>
+	SheetId pulumi.StringPtrInput `pulumi:"sheetId"`
+}
+
+func (TemplateSheetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSheet)(nil)).Elem()
+}
+
+func (i TemplateSheetArgs) ToTemplateSheetOutput() TemplateSheetOutput {
+	return i.ToTemplateSheetOutputWithContext(context.Background())
+}
+
+func (i TemplateSheetArgs) ToTemplateSheetOutputWithContext(ctx context.Context) TemplateSheetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSheetOutput)
+}
+
+// TemplateSheetArrayInput is an input type that accepts TemplateSheetArray and TemplateSheetArrayOutput values.
+// You can construct a concrete instance of `TemplateSheetArrayInput` via:
+//
+//          TemplateSheetArray{ TemplateSheetArgs{...} }
+type TemplateSheetArrayInput interface {
+	pulumi.Input
+
+	ToTemplateSheetArrayOutput() TemplateSheetArrayOutput
+	ToTemplateSheetArrayOutputWithContext(context.Context) TemplateSheetArrayOutput
+}
+
+type TemplateSheetArray []TemplateSheetInput
+
+func (TemplateSheetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateSheet)(nil)).Elem()
+}
+
+func (i TemplateSheetArray) ToTemplateSheetArrayOutput() TemplateSheetArrayOutput {
+	return i.ToTemplateSheetArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateSheetArray) ToTemplateSheetArrayOutputWithContext(ctx context.Context) TemplateSheetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateSheetArrayOutput)
+}
+
+// <p>A <i>sheet</i>, which is an object that contains a set of visuals that
+//             are viewed together on one page in the Amazon QuickSight console. Every analysis and dashboard
+//             contains at least one sheet. Each sheet contains at least one visualization widget, for
+//             example a chart, pivot table, or narrative insight. Sheets can be associated with other
+//             components, such as controls, filters, and so on.</p>
+type TemplateSheetOutput struct{ *pulumi.OutputState }
+
+func (TemplateSheetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSheet)(nil)).Elem()
+}
+
+func (o TemplateSheetOutput) ToTemplateSheetOutput() TemplateSheetOutput {
+	return o
+}
+
+func (o TemplateSheetOutput) ToTemplateSheetOutputWithContext(ctx context.Context) TemplateSheetOutput {
+	return o
+}
+
+// <p>The name of a sheet. This name is displayed on the sheet's tab in the QuickSight
+//             console.</p>
+func (o TemplateSheetOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateSheet) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// <p>The unique identifier associated with a sheet.</p>
+func (o TemplateSheetOutput) SheetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateSheet) *string { return v.SheetId }).(pulumi.StringPtrOutput)
+}
+
+type TemplateSheetArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateSheetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateSheet)(nil)).Elem()
+}
+
+func (o TemplateSheetArrayOutput) ToTemplateSheetArrayOutput() TemplateSheetArrayOutput {
+	return o
+}
+
+func (o TemplateSheetArrayOutput) ToTemplateSheetArrayOutputWithContext(ctx context.Context) TemplateSheetArrayOutput {
+	return o
+}
+
+func (o TemplateSheetArrayOutput) Index(i pulumi.IntInput) TemplateSheetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateSheet {
+		return vs[0].([]TemplateSheet)[vs[1].(int)]
+	}).(TemplateSheetOutput)
+}
+
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type TemplateTag struct {
+	// <p>Tag key.</p>
+	Key string `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value string `pulumi:"value"`
+}
+
+// TemplateTagInput is an input type that accepts TemplateTagArgs and TemplateTagOutput values.
+// You can construct a concrete instance of `TemplateTagInput` via:
+//
+//          TemplateTagArgs{...}
+type TemplateTagInput interface {
+	pulumi.Input
+
+	ToTemplateTagOutput() TemplateTagOutput
+	ToTemplateTagOutputWithContext(context.Context) TemplateTagOutput
+}
+
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type TemplateTagArgs struct {
+	// <p>Tag key.</p>
+	Key pulumi.StringInput `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TemplateTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTag)(nil)).Elem()
+}
+
+func (i TemplateTagArgs) ToTemplateTagOutput() TemplateTagOutput {
+	return i.ToTemplateTagOutputWithContext(context.Background())
+}
+
+func (i TemplateTagArgs) ToTemplateTagOutputWithContext(ctx context.Context) TemplateTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTagOutput)
+}
+
+// TemplateTagArrayInput is an input type that accepts TemplateTagArray and TemplateTagArrayOutput values.
+// You can construct a concrete instance of `TemplateTagArrayInput` via:
+//
+//          TemplateTagArray{ TemplateTagArgs{...} }
+type TemplateTagArrayInput interface {
+	pulumi.Input
+
+	ToTemplateTagArrayOutput() TemplateTagArrayOutput
+	ToTemplateTagArrayOutputWithContext(context.Context) TemplateTagArrayOutput
+}
+
+type TemplateTagArray []TemplateTagInput
+
+func (TemplateTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateTag)(nil)).Elem()
+}
+
+func (i TemplateTagArray) ToTemplateTagArrayOutput() TemplateTagArrayOutput {
+	return i.ToTemplateTagArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateTagArray) ToTemplateTagArrayOutputWithContext(ctx context.Context) TemplateTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTagArrayOutput)
+}
+
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type TemplateTagOutput struct{ *pulumi.OutputState }
+
+func (TemplateTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTag)(nil)).Elem()
+}
+
+func (o TemplateTagOutput) ToTemplateTagOutput() TemplateTagOutput {
+	return o
+}
+
+func (o TemplateTagOutput) ToTemplateTagOutputWithContext(ctx context.Context) TemplateTagOutput {
+	return o
+}
+
+// <p>Tag key.</p>
+func (o TemplateTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// <p>Tag value.</p>
+func (o TemplateTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TemplateTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateTag)(nil)).Elem()
+}
+
+func (o TemplateTagArrayOutput) ToTemplateTagArrayOutput() TemplateTagArrayOutput {
+	return o
+}
+
+func (o TemplateTagArrayOutput) ToTemplateTagArrayOutputWithContext(ctx context.Context) TemplateTagArrayOutput {
+	return o
+}
+
+func (o TemplateTagArrayOutput) Index(i pulumi.IntInput) TemplateTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateTag {
+		return vs[0].([]TemplateTag)[vs[1].(int)]
+	}).(TemplateTagOutput)
+}
+
+// <p>List of errors that occurred when the template version creation failed.</p>
+type TemplateTemplateError struct {
+	// <p>Description of the error type.</p>
+	Message *string `pulumi:"message"`
+	Type    *string `pulumi:"type"`
+}
+
+// TemplateTemplateErrorInput is an input type that accepts TemplateTemplateErrorArgs and TemplateTemplateErrorOutput values.
+// You can construct a concrete instance of `TemplateTemplateErrorInput` via:
+//
+//          TemplateTemplateErrorArgs{...}
+type TemplateTemplateErrorInput interface {
+	pulumi.Input
+
+	ToTemplateTemplateErrorOutput() TemplateTemplateErrorOutput
+	ToTemplateTemplateErrorOutputWithContext(context.Context) TemplateTemplateErrorOutput
+}
+
+// <p>List of errors that occurred when the template version creation failed.</p>
+type TemplateTemplateErrorArgs struct {
+	// <p>Description of the error type.</p>
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (TemplateTemplateErrorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTemplateError)(nil)).Elem()
+}
+
+func (i TemplateTemplateErrorArgs) ToTemplateTemplateErrorOutput() TemplateTemplateErrorOutput {
+	return i.ToTemplateTemplateErrorOutputWithContext(context.Background())
+}
+
+func (i TemplateTemplateErrorArgs) ToTemplateTemplateErrorOutputWithContext(ctx context.Context) TemplateTemplateErrorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateErrorOutput)
+}
+
+// TemplateTemplateErrorArrayInput is an input type that accepts TemplateTemplateErrorArray and TemplateTemplateErrorArrayOutput values.
+// You can construct a concrete instance of `TemplateTemplateErrorArrayInput` via:
+//
+//          TemplateTemplateErrorArray{ TemplateTemplateErrorArgs{...} }
+type TemplateTemplateErrorArrayInput interface {
+	pulumi.Input
+
+	ToTemplateTemplateErrorArrayOutput() TemplateTemplateErrorArrayOutput
+	ToTemplateTemplateErrorArrayOutputWithContext(context.Context) TemplateTemplateErrorArrayOutput
+}
+
+type TemplateTemplateErrorArray []TemplateTemplateErrorInput
+
+func (TemplateTemplateErrorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateTemplateError)(nil)).Elem()
+}
+
+func (i TemplateTemplateErrorArray) ToTemplateTemplateErrorArrayOutput() TemplateTemplateErrorArrayOutput {
+	return i.ToTemplateTemplateErrorArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateTemplateErrorArray) ToTemplateTemplateErrorArrayOutputWithContext(ctx context.Context) TemplateTemplateErrorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateErrorArrayOutput)
+}
+
+// <p>List of errors that occurred when the template version creation failed.</p>
+type TemplateTemplateErrorOutput struct{ *pulumi.OutputState }
+
+func (TemplateTemplateErrorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTemplateError)(nil)).Elem()
+}
+
+func (o TemplateTemplateErrorOutput) ToTemplateTemplateErrorOutput() TemplateTemplateErrorOutput {
+	return o
+}
+
+func (o TemplateTemplateErrorOutput) ToTemplateTemplateErrorOutputWithContext(ctx context.Context) TemplateTemplateErrorOutput {
+	return o
+}
+
+// <p>Description of the error type.</p>
+func (o TemplateTemplateErrorOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateTemplateError) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateTemplateErrorOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateTemplateError) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type TemplateTemplateErrorArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateTemplateErrorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateTemplateError)(nil)).Elem()
+}
+
+func (o TemplateTemplateErrorArrayOutput) ToTemplateTemplateErrorArrayOutput() TemplateTemplateErrorArrayOutput {
+	return o
+}
+
+func (o TemplateTemplateErrorArrayOutput) ToTemplateTemplateErrorArrayOutputWithContext(ctx context.Context) TemplateTemplateErrorArrayOutput {
+	return o
+}
+
+func (o TemplateTemplateErrorArrayOutput) Index(i pulumi.IntInput) TemplateTemplateErrorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateTemplateError {
+		return vs[0].([]TemplateTemplateError)[vs[1].(int)]
+	}).(TemplateTemplateErrorOutput)
+}
+
+// <p>The source analysis of the template.</p>
 type TemplateTemplateSourceAnalysis struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-arn
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
 	Arn string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-datasetreferences
+	// <p>A structure containing information about the dataset references used as placeholders
+	//             in the template.</p>
 	DataSetReferences []TemplateDataSetReference `pulumi:"dataSetReferences"`
 }
 
@@ -11696,11 +10990,12 @@ type TemplateTemplateSourceAnalysisInput interface {
 	ToTemplateTemplateSourceAnalysisOutputWithContext(context.Context) TemplateTemplateSourceAnalysisOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html
+// <p>The source analysis of the template.</p>
 type TemplateTemplateSourceAnalysisArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-arn
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-datasetreferences
+	// <p>A structure containing information about the dataset references used as placeholders
+	//             in the template.</p>
 	DataSetReferences TemplateDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
 }
 
@@ -11757,7 +11052,7 @@ func (i *templateTemplateSourceAnalysisPtrType) ToTemplateTemplateSourceAnalysis
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateSourceAnalysisPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html
+// <p>The source analysis of the template.</p>
 type TemplateTemplateSourceAnalysisOutput struct{ *pulumi.OutputState }
 
 func (TemplateTemplateSourceAnalysisOutput) ElementType() reflect.Type {
@@ -11782,12 +11077,13 @@ func (o TemplateTemplateSourceAnalysisOutput) ToTemplateTemplateSourceAnalysisPt
 	}).(TemplateTemplateSourceAnalysisPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-arn
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o TemplateTemplateSourceAnalysisOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateTemplateSourceAnalysis) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-datasetreferences
+// <p>A structure containing information about the dataset references used as placeholders
+//             in the template.</p>
 func (o TemplateTemplateSourceAnalysisOutput) DataSetReferences() TemplateDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v TemplateTemplateSourceAnalysis) []TemplateDataSetReference { return v.DataSetReferences }).(TemplateDataSetReferenceArrayOutput)
 }
@@ -11816,7 +11112,7 @@ func (o TemplateTemplateSourceAnalysisPtrOutput) Elem() TemplateTemplateSourceAn
 	}).(TemplateTemplateSourceAnalysisOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-arn
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o TemplateTemplateSourceAnalysisPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTemplateSourceAnalysis) *string {
 		if v == nil {
@@ -11826,7 +11122,8 @@ func (o TemplateTemplateSourceAnalysisPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-datasetreferences
+// <p>A structure containing information about the dataset references used as placeholders
+//             in the template.</p>
 func (o TemplateTemplateSourceAnalysisPtrOutput) DataSetReferences() TemplateDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v *TemplateTemplateSourceAnalysis) []TemplateDataSetReference {
 		if v == nil {
@@ -11836,11 +11133,9 @@ func (o TemplateTemplateSourceAnalysisPtrOutput) DataSetReferences() TemplateDat
 	}).(TemplateDataSetReferenceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html
+// <p>The source entity of the template.</p>
 type TemplateTemplateSourceEntity struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourceanalysis
 	SourceAnalysis *TemplateTemplateSourceAnalysis `pulumi:"sourceAnalysis"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourcetemplate
 	SourceTemplate *TemplateTemplateSourceTemplate `pulumi:"sourceTemplate"`
 }
 
@@ -11855,11 +11150,9 @@ type TemplateTemplateSourceEntityInput interface {
 	ToTemplateTemplateSourceEntityOutputWithContext(context.Context) TemplateTemplateSourceEntityOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html
+// <p>The source entity of the template.</p>
 type TemplateTemplateSourceEntityArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourceanalysis
 	SourceAnalysis TemplateTemplateSourceAnalysisPtrInput `pulumi:"sourceAnalysis"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourcetemplate
 	SourceTemplate TemplateTemplateSourceTemplatePtrInput `pulumi:"sourceTemplate"`
 }
 
@@ -11916,7 +11209,7 @@ func (i *templateTemplateSourceEntityPtrType) ToTemplateTemplateSourceEntityPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateSourceEntityPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html
+// <p>The source entity of the template.</p>
 type TemplateTemplateSourceEntityOutput struct{ *pulumi.OutputState }
 
 func (TemplateTemplateSourceEntityOutput) ElementType() reflect.Type {
@@ -11941,12 +11234,10 @@ func (o TemplateTemplateSourceEntityOutput) ToTemplateTemplateSourceEntityPtrOut
 	}).(TemplateTemplateSourceEntityPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourceanalysis
 func (o TemplateTemplateSourceEntityOutput) SourceAnalysis() TemplateTemplateSourceAnalysisPtrOutput {
 	return o.ApplyT(func(v TemplateTemplateSourceEntity) *TemplateTemplateSourceAnalysis { return v.SourceAnalysis }).(TemplateTemplateSourceAnalysisPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourcetemplate
 func (o TemplateTemplateSourceEntityOutput) SourceTemplate() TemplateTemplateSourceTemplatePtrOutput {
 	return o.ApplyT(func(v TemplateTemplateSourceEntity) *TemplateTemplateSourceTemplate { return v.SourceTemplate }).(TemplateTemplateSourceTemplatePtrOutput)
 }
@@ -11975,7 +11266,6 @@ func (o TemplateTemplateSourceEntityPtrOutput) Elem() TemplateTemplateSourceEnti
 	}).(TemplateTemplateSourceEntityOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourceanalysis
 func (o TemplateTemplateSourceEntityPtrOutput) SourceAnalysis() TemplateTemplateSourceAnalysisPtrOutput {
 	return o.ApplyT(func(v *TemplateTemplateSourceEntity) *TemplateTemplateSourceAnalysis {
 		if v == nil {
@@ -11985,7 +11275,6 @@ func (o TemplateTemplateSourceEntityPtrOutput) SourceAnalysis() TemplateTemplate
 	}).(TemplateTemplateSourceAnalysisPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourcetemplate
 func (o TemplateTemplateSourceEntityPtrOutput) SourceTemplate() TemplateTemplateSourceTemplatePtrOutput {
 	return o.ApplyT(func(v *TemplateTemplateSourceEntity) *TemplateTemplateSourceTemplate {
 		if v == nil {
@@ -11995,9 +11284,9 @@ func (o TemplateTemplateSourceEntityPtrOutput) SourceTemplate() TemplateTemplate
 	}).(TemplateTemplateSourceTemplatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourcetemplate.html
+// <p>The source template of the template.</p>
 type TemplateTemplateSourceTemplate struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourcetemplate.html#cfn-quicksight-template-templatesourcetemplate-arn
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
 	Arn string `pulumi:"arn"`
 }
 
@@ -12012,9 +11301,9 @@ type TemplateTemplateSourceTemplateInput interface {
 	ToTemplateTemplateSourceTemplateOutputWithContext(context.Context) TemplateTemplateSourceTemplateOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourcetemplate.html
+// <p>The source template of the template.</p>
 type TemplateTemplateSourceTemplateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourcetemplate.html#cfn-quicksight-template-templatesourcetemplate-arn
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -12071,7 +11360,7 @@ func (i *templateTemplateSourceTemplatePtrType) ToTemplateTemplateSourceTemplate
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateSourceTemplatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourcetemplate.html
+// <p>The source template of the template.</p>
 type TemplateTemplateSourceTemplateOutput struct{ *pulumi.OutputState }
 
 func (TemplateTemplateSourceTemplateOutput) ElementType() reflect.Type {
@@ -12096,7 +11385,7 @@ func (o TemplateTemplateSourceTemplateOutput) ToTemplateTemplateSourceTemplatePt
 	}).(TemplateTemplateSourceTemplatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourcetemplate.html#cfn-quicksight-template-templatesourcetemplate-arn
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o TemplateTemplateSourceTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateTemplateSourceTemplate) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -12125,7 +11414,7 @@ func (o TemplateTemplateSourceTemplatePtrOutput) Elem() TemplateTemplateSourceTe
 	}).(TemplateTemplateSourceTemplateOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourcetemplate.html#cfn-quicksight-template-templatesourcetemplate-arn
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
 func (o TemplateTemplateSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTemplateSourceTemplate) *string {
 		if v == nil {
@@ -12135,9 +11424,309 @@ func (o TemplateTemplateSourceTemplatePtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html
+// <p>A version of a template.</p>
+type TemplateTemplateVersion struct {
+	// <p>The time that this template version was created.</p>
+	CreatedTime *string `pulumi:"createdTime"`
+	// <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
+	//             template should be bound to new datasets matching the same schema described through this
+	//             API operation.</p>
+	DataSetConfigurations []TemplateDataSetConfiguration `pulumi:"dataSetConfigurations"`
+	// <p>The description of the template.</p>
+	Description *string `pulumi:"description"`
+	// <p>Errors associated with this template version.</p>
+	Errors []TemplateTemplateError `pulumi:"errors"`
+	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+	Sheets []TemplateSheet `pulumi:"sheets"`
+	// <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
+	//             template.</p>
+	SourceEntityArn *string `pulumi:"sourceEntityArn"`
+	Status          *string `pulumi:"status"`
+	// <p>The ARN of the theme associated with this version of the template.</p>
+	ThemeArn *string `pulumi:"themeArn"`
+	// <p>The version number of the template version.</p>
+	VersionNumber *float64 `pulumi:"versionNumber"`
+}
+
+// TemplateTemplateVersionInput is an input type that accepts TemplateTemplateVersionArgs and TemplateTemplateVersionOutput values.
+// You can construct a concrete instance of `TemplateTemplateVersionInput` via:
+//
+//          TemplateTemplateVersionArgs{...}
+type TemplateTemplateVersionInput interface {
+	pulumi.Input
+
+	ToTemplateTemplateVersionOutput() TemplateTemplateVersionOutput
+	ToTemplateTemplateVersionOutputWithContext(context.Context) TemplateTemplateVersionOutput
+}
+
+// <p>A version of a template.</p>
+type TemplateTemplateVersionArgs struct {
+	// <p>The time that this template version was created.</p>
+	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
+	// <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
+	//             template should be bound to new datasets matching the same schema described through this
+	//             API operation.</p>
+	DataSetConfigurations TemplateDataSetConfigurationArrayInput `pulumi:"dataSetConfigurations"`
+	// <p>The description of the template.</p>
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// <p>Errors associated with this template version.</p>
+	Errors TemplateTemplateErrorArrayInput `pulumi:"errors"`
+	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+	Sheets TemplateSheetArrayInput `pulumi:"sheets"`
+	// <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
+	//             template.</p>
+	SourceEntityArn pulumi.StringPtrInput `pulumi:"sourceEntityArn"`
+	Status          pulumi.StringPtrInput `pulumi:"status"`
+	// <p>The ARN of the theme associated with this version of the template.</p>
+	ThemeArn pulumi.StringPtrInput `pulumi:"themeArn"`
+	// <p>The version number of the template version.</p>
+	VersionNumber pulumi.Float64PtrInput `pulumi:"versionNumber"`
+}
+
+func (TemplateTemplateVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTemplateVersion)(nil)).Elem()
+}
+
+func (i TemplateTemplateVersionArgs) ToTemplateTemplateVersionOutput() TemplateTemplateVersionOutput {
+	return i.ToTemplateTemplateVersionOutputWithContext(context.Background())
+}
+
+func (i TemplateTemplateVersionArgs) ToTemplateTemplateVersionOutputWithContext(ctx context.Context) TemplateTemplateVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateVersionOutput)
+}
+
+func (i TemplateTemplateVersionArgs) ToTemplateTemplateVersionPtrOutput() TemplateTemplateVersionPtrOutput {
+	return i.ToTemplateTemplateVersionPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateTemplateVersionArgs) ToTemplateTemplateVersionPtrOutputWithContext(ctx context.Context) TemplateTemplateVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateVersionOutput).ToTemplateTemplateVersionPtrOutputWithContext(ctx)
+}
+
+// TemplateTemplateVersionPtrInput is an input type that accepts TemplateTemplateVersionArgs, TemplateTemplateVersionPtr and TemplateTemplateVersionPtrOutput values.
+// You can construct a concrete instance of `TemplateTemplateVersionPtrInput` via:
+//
+//          TemplateTemplateVersionArgs{...}
+//
+//  or:
+//
+//          nil
+type TemplateTemplateVersionPtrInput interface {
+	pulumi.Input
+
+	ToTemplateTemplateVersionPtrOutput() TemplateTemplateVersionPtrOutput
+	ToTemplateTemplateVersionPtrOutputWithContext(context.Context) TemplateTemplateVersionPtrOutput
+}
+
+type templateTemplateVersionPtrType TemplateTemplateVersionArgs
+
+func TemplateTemplateVersionPtr(v *TemplateTemplateVersionArgs) TemplateTemplateVersionPtrInput {
+	return (*templateTemplateVersionPtrType)(v)
+}
+
+func (*templateTemplateVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTemplateVersion)(nil)).Elem()
+}
+
+func (i *templateTemplateVersionPtrType) ToTemplateTemplateVersionPtrOutput() TemplateTemplateVersionPtrOutput {
+	return i.ToTemplateTemplateVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *templateTemplateVersionPtrType) ToTemplateTemplateVersionPtrOutputWithContext(ctx context.Context) TemplateTemplateVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTemplateVersionPtrOutput)
+}
+
+// <p>A version of a template.</p>
+type TemplateTemplateVersionOutput struct{ *pulumi.OutputState }
+
+func (TemplateTemplateVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTemplateVersion)(nil)).Elem()
+}
+
+func (o TemplateTemplateVersionOutput) ToTemplateTemplateVersionOutput() TemplateTemplateVersionOutput {
+	return o
+}
+
+func (o TemplateTemplateVersionOutput) ToTemplateTemplateVersionOutputWithContext(ctx context.Context) TemplateTemplateVersionOutput {
+	return o
+}
+
+func (o TemplateTemplateVersionOutput) ToTemplateTemplateVersionPtrOutput() TemplateTemplateVersionPtrOutput {
+	return o.ToTemplateTemplateVersionPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateTemplateVersionOutput) ToTemplateTemplateVersionPtrOutputWithContext(ctx context.Context) TemplateTemplateVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateTemplateVersion) *TemplateTemplateVersion {
+		return &v
+	}).(TemplateTemplateVersionPtrOutput)
+}
+
+// <p>The time that this template version was created.</p>
+func (o TemplateTemplateVersionOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateTemplateVersion) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+// <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
+//             template should be bound to new datasets matching the same schema described through this
+//             API operation.</p>
+func (o TemplateTemplateVersionOutput) DataSetConfigurations() TemplateDataSetConfigurationArrayOutput {
+	return o.ApplyT(func(v TemplateTemplateVersion) []TemplateDataSetConfiguration { return v.DataSetConfigurations }).(TemplateDataSetConfigurationArrayOutput)
+}
+
+// <p>The description of the template.</p>
+func (o TemplateTemplateVersionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateTemplateVersion) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// <p>Errors associated with this template version.</p>
+func (o TemplateTemplateVersionOutput) Errors() TemplateTemplateErrorArrayOutput {
+	return o.ApplyT(func(v TemplateTemplateVersion) []TemplateTemplateError { return v.Errors }).(TemplateTemplateErrorArrayOutput)
+}
+
+// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+func (o TemplateTemplateVersionOutput) Sheets() TemplateSheetArrayOutput {
+	return o.ApplyT(func(v TemplateTemplateVersion) []TemplateSheet { return v.Sheets }).(TemplateSheetArrayOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
+//             template.</p>
+func (o TemplateTemplateVersionOutput) SourceEntityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateTemplateVersion) *string { return v.SourceEntityArn }).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateTemplateVersionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateTemplateVersion) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// <p>The ARN of the theme associated with this version of the template.</p>
+func (o TemplateTemplateVersionOutput) ThemeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TemplateTemplateVersion) *string { return v.ThemeArn }).(pulumi.StringPtrOutput)
+}
+
+// <p>The version number of the template version.</p>
+func (o TemplateTemplateVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TemplateTemplateVersion) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
+}
+
+type TemplateTemplateVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateTemplateVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateTemplateVersion)(nil)).Elem()
+}
+
+func (o TemplateTemplateVersionPtrOutput) ToTemplateTemplateVersionPtrOutput() TemplateTemplateVersionPtrOutput {
+	return o
+}
+
+func (o TemplateTemplateVersionPtrOutput) ToTemplateTemplateVersionPtrOutputWithContext(ctx context.Context) TemplateTemplateVersionPtrOutput {
+	return o
+}
+
+func (o TemplateTemplateVersionPtrOutput) Elem() TemplateTemplateVersionOutput {
+	return o.ApplyT(func(v *TemplateTemplateVersion) TemplateTemplateVersion {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateTemplateVersion
+		return ret
+	}).(TemplateTemplateVersionOutput)
+}
+
+// <p>The time that this template version was created.</p>
+func (o TemplateTemplateVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateTemplateVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
+//             template should be bound to new datasets matching the same schema described through this
+//             API operation.</p>
+func (o TemplateTemplateVersionPtrOutput) DataSetConfigurations() TemplateDataSetConfigurationArrayOutput {
+	return o.ApplyT(func(v *TemplateTemplateVersion) []TemplateDataSetConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DataSetConfigurations
+	}).(TemplateDataSetConfigurationArrayOutput)
+}
+
+// <p>The description of the template.</p>
+func (o TemplateTemplateVersionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateTemplateVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Errors associated with this template version.</p>
+func (o TemplateTemplateVersionPtrOutput) Errors() TemplateTemplateErrorArrayOutput {
+	return o.ApplyT(func(v *TemplateTemplateVersion) []TemplateTemplateError {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(TemplateTemplateErrorArrayOutput)
+}
+
+// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+func (o TemplateTemplateVersionPtrOutput) Sheets() TemplateSheetArrayOutput {
+	return o.ApplyT(func(v *TemplateTemplateVersion) []TemplateSheet {
+		if v == nil {
+			return nil
+		}
+		return v.Sheets
+	}).(TemplateSheetArrayOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
+//             template.</p>
+func (o TemplateTemplateVersionPtrOutput) SourceEntityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateTemplateVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SourceEntityArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TemplateTemplateVersionPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateTemplateVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The ARN of the theme associated with this version of the template.</p>
+func (o TemplateTemplateVersionPtrOutput) ThemeArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateTemplateVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ThemeArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The version number of the template version.</p>
+func (o TemplateTemplateVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateTemplateVersion) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.VersionNumber
+	}).(pulumi.Float64PtrOutput)
+}
+
+// <p>The display options for tile borders for visuals.</p>
 type ThemeBorderStyle struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html#cfn-quicksight-theme-borderstyle-show
+	// <p>The option to enable display of borders for visuals.</p>
 	Show *bool `pulumi:"show"`
 }
 
@@ -12152,9 +11741,9 @@ type ThemeBorderStyleInput interface {
 	ToThemeBorderStyleOutputWithContext(context.Context) ThemeBorderStyleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html
+// <p>The display options for tile borders for visuals.</p>
 type ThemeBorderStyleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html#cfn-quicksight-theme-borderstyle-show
+	// <p>The option to enable display of borders for visuals.</p>
 	Show pulumi.BoolPtrInput `pulumi:"show"`
 }
 
@@ -12211,7 +11800,7 @@ func (i *themeBorderStylePtrType) ToThemeBorderStylePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeBorderStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html
+// <p>The display options for tile borders for visuals.</p>
 type ThemeBorderStyleOutput struct{ *pulumi.OutputState }
 
 func (ThemeBorderStyleOutput) ElementType() reflect.Type {
@@ -12236,7 +11825,7 @@ func (o ThemeBorderStyleOutput) ToThemeBorderStylePtrOutputWithContext(ctx conte
 	}).(ThemeBorderStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html#cfn-quicksight-theme-borderstyle-show
+// <p>The option to enable display of borders for visuals.</p>
 func (o ThemeBorderStyleOutput) Show() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ThemeBorderStyle) *bool { return v.Show }).(pulumi.BoolPtrOutput)
 }
@@ -12265,7 +11854,7 @@ func (o ThemeBorderStylePtrOutput) Elem() ThemeBorderStyleOutput {
 	}).(ThemeBorderStyleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-borderstyle.html#cfn-quicksight-theme-borderstyle-show
+// <p>The option to enable display of borders for visuals.</p>
 func (o ThemeBorderStylePtrOutput) Show() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ThemeBorderStyle) *bool {
 		if v == nil {
@@ -12275,13 +11864,16 @@ func (o ThemeBorderStylePtrOutput) Show() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html
+// <p>The theme colors that are used for data colors in charts. The colors description is a
+//             hexadecimal color code that consists of six alphanumerical characters, prefixed with
+//                 <code>#</code>, for example #37BFF5. </p>
 type ThemeDataColorPalette struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-colors
+	// <p>The hexadecimal codes for the colors.</p>
 	Colors []string `pulumi:"colors"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-emptyfillcolor
+	// <p>The hexadecimal code of a color that applies to charts where a lack of data is
+	//             highlighted.</p>
 	EmptyFillColor *string `pulumi:"emptyFillColor"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-minmaxgradient
+	// <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
 	MinMaxGradient []string `pulumi:"minMaxGradient"`
 }
 
@@ -12296,13 +11888,16 @@ type ThemeDataColorPaletteInput interface {
 	ToThemeDataColorPaletteOutputWithContext(context.Context) ThemeDataColorPaletteOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html
+// <p>The theme colors that are used for data colors in charts. The colors description is a
+//             hexadecimal color code that consists of six alphanumerical characters, prefixed with
+//                 <code>#</code>, for example #37BFF5. </p>
 type ThemeDataColorPaletteArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-colors
+	// <p>The hexadecimal codes for the colors.</p>
 	Colors pulumi.StringArrayInput `pulumi:"colors"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-emptyfillcolor
+	// <p>The hexadecimal code of a color that applies to charts where a lack of data is
+	//             highlighted.</p>
 	EmptyFillColor pulumi.StringPtrInput `pulumi:"emptyFillColor"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-minmaxgradient
+	// <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
 	MinMaxGradient pulumi.StringArrayInput `pulumi:"minMaxGradient"`
 }
 
@@ -12359,7 +11954,9 @@ func (i *themeDataColorPalettePtrType) ToThemeDataColorPalettePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeDataColorPalettePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html
+// <p>The theme colors that are used for data colors in charts. The colors description is a
+//             hexadecimal color code that consists of six alphanumerical characters, prefixed with
+//                 <code>#</code>, for example #37BFF5. </p>
 type ThemeDataColorPaletteOutput struct{ *pulumi.OutputState }
 
 func (ThemeDataColorPaletteOutput) ElementType() reflect.Type {
@@ -12384,17 +11981,18 @@ func (o ThemeDataColorPaletteOutput) ToThemeDataColorPalettePtrOutputWithContext
 	}).(ThemeDataColorPalettePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-colors
+// <p>The hexadecimal codes for the colors.</p>
 func (o ThemeDataColorPaletteOutput) Colors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ThemeDataColorPalette) []string { return v.Colors }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-emptyfillcolor
+// <p>The hexadecimal code of a color that applies to charts where a lack of data is
+//             highlighted.</p>
 func (o ThemeDataColorPaletteOutput) EmptyFillColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeDataColorPalette) *string { return v.EmptyFillColor }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-minmaxgradient
+// <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
 func (o ThemeDataColorPaletteOutput) MinMaxGradient() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ThemeDataColorPalette) []string { return v.MinMaxGradient }).(pulumi.StringArrayOutput)
 }
@@ -12423,7 +12021,7 @@ func (o ThemeDataColorPalettePtrOutput) Elem() ThemeDataColorPaletteOutput {
 	}).(ThemeDataColorPaletteOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-colors
+// <p>The hexadecimal codes for the colors.</p>
 func (o ThemeDataColorPalettePtrOutput) Colors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ThemeDataColorPalette) []string {
 		if v == nil {
@@ -12433,7 +12031,8 @@ func (o ThemeDataColorPalettePtrOutput) Colors() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-emptyfillcolor
+// <p>The hexadecimal code of a color that applies to charts where a lack of data is
+//             highlighted.</p>
 func (o ThemeDataColorPalettePtrOutput) EmptyFillColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeDataColorPalette) *string {
 		if v == nil {
@@ -12443,7 +12042,7 @@ func (o ThemeDataColorPalettePtrOutput) EmptyFillColor() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-minmaxgradient
+// <p>The minimum and maximum hexadecimal codes that describe a color gradient. </p>
 func (o ThemeDataColorPalettePtrOutput) MinMaxGradient() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ThemeDataColorPalette) []string {
 		if v == nil {
@@ -12453,9 +12052,7 @@ func (o ThemeDataColorPalettePtrOutput) MinMaxGradient() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html
 type ThemeFont struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html#cfn-quicksight-theme-font-fontfamily
 	FontFamily *string `pulumi:"fontFamily"`
 }
 
@@ -12470,9 +12067,7 @@ type ThemeFontInput interface {
 	ToThemeFontOutputWithContext(context.Context) ThemeFontOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html
 type ThemeFontArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html#cfn-quicksight-theme-font-fontfamily
 	FontFamily pulumi.StringPtrInput `pulumi:"fontFamily"`
 }
 
@@ -12513,7 +12108,6 @@ func (i ThemeFontArray) ToThemeFontArrayOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeFontArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html
 type ThemeFontOutput struct{ *pulumi.OutputState }
 
 func (ThemeFontOutput) ElementType() reflect.Type {
@@ -12528,7 +12122,6 @@ func (o ThemeFontOutput) ToThemeFontOutputWithContext(ctx context.Context) Theme
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-font.html#cfn-quicksight-theme-font-fontfamily
 func (o ThemeFontOutput) FontFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeFont) *string { return v.FontFamily }).(pulumi.StringPtrOutput)
 }
@@ -12553,9 +12146,10 @@ func (o ThemeFontArrayOutput) Index(i pulumi.IntInput) ThemeFontOutput {
 	}).(ThemeFontOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html
+// <p>The display options for gutter spacing between tiles on a sheet.</p>
 type ThemeGutterStyle struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html#cfn-quicksight-theme-gutterstyle-show
+	// <p>This Boolean value controls whether to display a gutter space between sheet tiles.
+	//         </p>
 	Show *bool `pulumi:"show"`
 }
 
@@ -12570,9 +12164,10 @@ type ThemeGutterStyleInput interface {
 	ToThemeGutterStyleOutputWithContext(context.Context) ThemeGutterStyleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html
+// <p>The display options for gutter spacing between tiles on a sheet.</p>
 type ThemeGutterStyleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html#cfn-quicksight-theme-gutterstyle-show
+	// <p>This Boolean value controls whether to display a gutter space between sheet tiles.
+	//         </p>
 	Show pulumi.BoolPtrInput `pulumi:"show"`
 }
 
@@ -12629,7 +12224,7 @@ func (i *themeGutterStylePtrType) ToThemeGutterStylePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeGutterStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html
+// <p>The display options for gutter spacing between tiles on a sheet.</p>
 type ThemeGutterStyleOutput struct{ *pulumi.OutputState }
 
 func (ThemeGutterStyleOutput) ElementType() reflect.Type {
@@ -12654,7 +12249,8 @@ func (o ThemeGutterStyleOutput) ToThemeGutterStylePtrOutputWithContext(ctx conte
 	}).(ThemeGutterStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html#cfn-quicksight-theme-gutterstyle-show
+// <p>This Boolean value controls whether to display a gutter space between sheet tiles.
+//         </p>
 func (o ThemeGutterStyleOutput) Show() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ThemeGutterStyle) *bool { return v.Show }).(pulumi.BoolPtrOutput)
 }
@@ -12683,7 +12279,8 @@ func (o ThemeGutterStylePtrOutput) Elem() ThemeGutterStyleOutput {
 	}).(ThemeGutterStyleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html#cfn-quicksight-theme-gutterstyle-show
+// <p>This Boolean value controls whether to display a gutter space between sheet tiles.
+//         </p>
 func (o ThemeGutterStylePtrOutput) Show() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ThemeGutterStyle) *bool {
 		if v == nil {
@@ -12693,9 +12290,9 @@ func (o ThemeGutterStylePtrOutput) Show() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html
+// <p>The display options for margins around the outside edge of sheets.</p>
 type ThemeMarginStyle struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html#cfn-quicksight-theme-marginstyle-show
+	// <p>This Boolean value controls whether to display sheet margins.</p>
 	Show *bool `pulumi:"show"`
 }
 
@@ -12710,9 +12307,9 @@ type ThemeMarginStyleInput interface {
 	ToThemeMarginStyleOutputWithContext(context.Context) ThemeMarginStyleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html
+// <p>The display options for margins around the outside edge of sheets.</p>
 type ThemeMarginStyleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html#cfn-quicksight-theme-marginstyle-show
+	// <p>This Boolean value controls whether to display sheet margins.</p>
 	Show pulumi.BoolPtrInput `pulumi:"show"`
 }
 
@@ -12769,7 +12366,7 @@ func (i *themeMarginStylePtrType) ToThemeMarginStylePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeMarginStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html
+// <p>The display options for margins around the outside edge of sheets.</p>
 type ThemeMarginStyleOutput struct{ *pulumi.OutputState }
 
 func (ThemeMarginStyleOutput) ElementType() reflect.Type {
@@ -12794,7 +12391,7 @@ func (o ThemeMarginStyleOutput) ToThemeMarginStylePtrOutputWithContext(ctx conte
 	}).(ThemeMarginStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html#cfn-quicksight-theme-marginstyle-show
+// <p>This Boolean value controls whether to display sheet margins.</p>
 func (o ThemeMarginStyleOutput) Show() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ThemeMarginStyle) *bool { return v.Show }).(pulumi.BoolPtrOutput)
 }
@@ -12823,7 +12420,7 @@ func (o ThemeMarginStylePtrOutput) Elem() ThemeMarginStyleOutput {
 	}).(ThemeMarginStyleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html#cfn-quicksight-theme-marginstyle-show
+// <p>This Boolean value controls whether to display sheet margins.</p>
 func (o ThemeMarginStylePtrOutput) Show() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ThemeMarginStyle) *bool {
 		if v == nil {
@@ -12833,11 +12430,25 @@ func (o ThemeMarginStylePtrOutput) Show() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html
+// <p>Permission for the resource.</p>
 type ThemeResourcePermission struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html#cfn-quicksight-theme-resourcepermission-actions
+	// <p>The IAM action to grant or revoke permissions on.</p>
 	Actions []string `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html#cfn-quicksight-theme-resourcepermission-principal
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//         <ul>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
 	Principal string `pulumi:"principal"`
 }
 
@@ -12852,11 +12463,25 @@ type ThemeResourcePermissionInput interface {
 	ToThemeResourcePermissionOutputWithContext(context.Context) ThemeResourcePermissionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html
+// <p>Permission for the resource.</p>
 type ThemeResourcePermissionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html#cfn-quicksight-theme-resourcepermission-actions
+	// <p>The IAM action to grant or revoke permissions on.</p>
 	Actions pulumi.StringArrayInput `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html#cfn-quicksight-theme-resourcepermission-principal
+	// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+	//             following:</p>
+	//         <ul>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+	//             </li>
+	//             <li>
+	//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+	//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+	//                     (This is less common.) </p>
+	//             </li>
+	//          </ul>
 	Principal pulumi.StringInput `pulumi:"principal"`
 }
 
@@ -12897,7 +12522,7 @@ func (i ThemeResourcePermissionArray) ToThemeResourcePermissionArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeResourcePermissionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html
+// <p>Permission for the resource.</p>
 type ThemeResourcePermissionOutput struct{ *pulumi.OutputState }
 
 func (ThemeResourcePermissionOutput) ElementType() reflect.Type {
@@ -12912,12 +12537,26 @@ func (o ThemeResourcePermissionOutput) ToThemeResourcePermissionOutputWithContex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html#cfn-quicksight-theme-resourcepermission-actions
+// <p>The IAM action to grant or revoke permissions on.</p>
 func (o ThemeResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ThemeResourcePermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-resourcepermission.html#cfn-quicksight-theme-resourcepermission-principal
+// <p>The Amazon Resource Name (ARN) of the principal. This can be one of the
+//             following:</p>
+//         <ul>
+//             <li>
+//                 <p>The ARN of an Amazon QuickSight user or group associated with a data source or dataset. (This is common.)</p>
+//             </li>
+//             <li>
+//                 <p>The ARN of an Amazon QuickSight user, group, or namespace associated with an analysis, dashboard, template, or theme. (This is common.)</p>
+//             </li>
+//             <li>
+//                 <p>The ARN of an AWS account root: This is an IAM ARN rather than a QuickSight
+//                     ARN. Use this option only to share resources (templates) across AWS accounts.
+//                     (This is less common.) </p>
+//             </li>
+//          </ul>
 func (o ThemeResourcePermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v ThemeResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
 }
@@ -12942,11 +12581,9 @@ func (o ThemeResourcePermissionArrayOutput) Index(i pulumi.IntInput) ThemeResour
 	}).(ThemeResourcePermissionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html
+// <p>The theme display options for sheets. </p>
 type ThemeSheetStyle struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tile
-	Tile *ThemeTileStyle `pulumi:"tile"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tilelayout
+	Tile       *ThemeTileStyle       `pulumi:"tile"`
 	TileLayout *ThemeTileLayoutStyle `pulumi:"tileLayout"`
 }
 
@@ -12961,11 +12598,9 @@ type ThemeSheetStyleInput interface {
 	ToThemeSheetStyleOutputWithContext(context.Context) ThemeSheetStyleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html
+// <p>The theme display options for sheets. </p>
 type ThemeSheetStyleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tile
-	Tile ThemeTileStylePtrInput `pulumi:"tile"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tilelayout
+	Tile       ThemeTileStylePtrInput       `pulumi:"tile"`
 	TileLayout ThemeTileLayoutStylePtrInput `pulumi:"tileLayout"`
 }
 
@@ -13022,7 +12657,7 @@ func (i *themeSheetStylePtrType) ToThemeSheetStylePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeSheetStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html
+// <p>The theme display options for sheets. </p>
 type ThemeSheetStyleOutput struct{ *pulumi.OutputState }
 
 func (ThemeSheetStyleOutput) ElementType() reflect.Type {
@@ -13047,12 +12682,10 @@ func (o ThemeSheetStyleOutput) ToThemeSheetStylePtrOutputWithContext(ctx context
 	}).(ThemeSheetStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tile
 func (o ThemeSheetStyleOutput) Tile() ThemeTileStylePtrOutput {
 	return o.ApplyT(func(v ThemeSheetStyle) *ThemeTileStyle { return v.Tile }).(ThemeTileStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tilelayout
 func (o ThemeSheetStyleOutput) TileLayout() ThemeTileLayoutStylePtrOutput {
 	return o.ApplyT(func(v ThemeSheetStyle) *ThemeTileLayoutStyle { return v.TileLayout }).(ThemeTileLayoutStylePtrOutput)
 }
@@ -13081,7 +12714,6 @@ func (o ThemeSheetStylePtrOutput) Elem() ThemeSheetStyleOutput {
 	}).(ThemeSheetStyleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tile
 func (o ThemeSheetStylePtrOutput) Tile() ThemeTileStylePtrOutput {
 	return o.ApplyT(func(v *ThemeSheetStyle) *ThemeTileStyle {
 		if v == nil {
@@ -13091,7 +12723,6 @@ func (o ThemeSheetStylePtrOutput) Tile() ThemeTileStylePtrOutput {
 	}).(ThemeTileStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-sheetstyle.html#cfn-quicksight-theme-sheetstyle-tilelayout
 func (o ThemeSheetStylePtrOutput) TileLayout() ThemeTileLayoutStylePtrOutput {
 	return o.ApplyT(func(v *ThemeSheetStyle) *ThemeTileLayoutStyle {
 		if v == nil {
@@ -13101,16 +12732,125 @@ func (o ThemeSheetStylePtrOutput) TileLayout() ThemeTileLayoutStylePtrOutput {
 	}).(ThemeTileLayoutStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type ThemeTag struct {
+	// <p>Tag key.</p>
+	Key string `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value string `pulumi:"value"`
+}
+
+// ThemeTagInput is an input type that accepts ThemeTagArgs and ThemeTagOutput values.
+// You can construct a concrete instance of `ThemeTagInput` via:
+//
+//          ThemeTagArgs{...}
+type ThemeTagInput interface {
+	pulumi.Input
+
+	ToThemeTagOutput() ThemeTagOutput
+	ToThemeTagOutputWithContext(context.Context) ThemeTagOutput
+}
+
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type ThemeTagArgs struct {
+	// <p>Tag key.</p>
+	Key pulumi.StringInput `pulumi:"key"`
+	// <p>Tag value.</p>
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ThemeTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeTag)(nil)).Elem()
+}
+
+func (i ThemeTagArgs) ToThemeTagOutput() ThemeTagOutput {
+	return i.ToThemeTagOutputWithContext(context.Background())
+}
+
+func (i ThemeTagArgs) ToThemeTagOutputWithContext(ctx context.Context) ThemeTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeTagOutput)
+}
+
+// ThemeTagArrayInput is an input type that accepts ThemeTagArray and ThemeTagArrayOutput values.
+// You can construct a concrete instance of `ThemeTagArrayInput` via:
+//
+//          ThemeTagArray{ ThemeTagArgs{...} }
+type ThemeTagArrayInput interface {
+	pulumi.Input
+
+	ToThemeTagArrayOutput() ThemeTagArrayOutput
+	ToThemeTagArrayOutputWithContext(context.Context) ThemeTagArrayOutput
+}
+
+type ThemeTagArray []ThemeTagInput
+
+func (ThemeTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemeTag)(nil)).Elem()
+}
+
+func (i ThemeTagArray) ToThemeTagArrayOutput() ThemeTagArrayOutput {
+	return i.ToThemeTagArrayOutputWithContext(context.Background())
+}
+
+func (i ThemeTagArray) ToThemeTagArrayOutputWithContext(ctx context.Context) ThemeTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeTagArrayOutput)
+}
+
+// <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
+//             resource.</p>
+type ThemeTagOutput struct{ *pulumi.OutputState }
+
+func (ThemeTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeTag)(nil)).Elem()
+}
+
+func (o ThemeTagOutput) ToThemeTagOutput() ThemeTagOutput {
+	return o
+}
+
+func (o ThemeTagOutput) ToThemeTagOutputWithContext(ctx context.Context) ThemeTagOutput {
+	return o
+}
+
+// <p>Tag key.</p>
+func (o ThemeTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ThemeTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// <p>Tag value.</p>
+func (o ThemeTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ThemeTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ThemeTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ThemeTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemeTag)(nil)).Elem()
+}
+
+func (o ThemeTagArrayOutput) ToThemeTagArrayOutput() ThemeTagArrayOutput {
+	return o
+}
+
+func (o ThemeTagArrayOutput) ToThemeTagArrayOutputWithContext(ctx context.Context) ThemeTagArrayOutput {
+	return o
+}
+
+func (o ThemeTagArrayOutput) Index(i pulumi.IntInput) ThemeTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThemeTag {
+		return vs[0].([]ThemeTag)[vs[1].(int)]
+	}).(ThemeTagOutput)
+}
+
+// <p>The theme configuration. This configuration contains all of the display properties for
+//             a theme.</p>
 type ThemeThemeConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-datacolorpalette
 	DataColorPalette *ThemeDataColorPalette `pulumi:"dataColorPalette"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-sheet
-	Sheet *ThemeSheetStyle `pulumi:"sheet"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-typography
-	Typography *ThemeTypography `pulumi:"typography"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-uicolorpalette
-	UIColorPalette *ThemeUIColorPalette `pulumi:"uIColorPalette"`
+	Sheet            *ThemeSheetStyle       `pulumi:"sheet"`
+	Typography       *ThemeTypography       `pulumi:"typography"`
+	UIColorPalette   *ThemeUIColorPalette   `pulumi:"uIColorPalette"`
 }
 
 // ThemeThemeConfigurationInput is an input type that accepts ThemeThemeConfigurationArgs and ThemeThemeConfigurationOutput values.
@@ -13124,16 +12864,13 @@ type ThemeThemeConfigurationInput interface {
 	ToThemeThemeConfigurationOutputWithContext(context.Context) ThemeThemeConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html
+// <p>The theme configuration. This configuration contains all of the display properties for
+//             a theme.</p>
 type ThemeThemeConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-datacolorpalette
 	DataColorPalette ThemeDataColorPalettePtrInput `pulumi:"dataColorPalette"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-sheet
-	Sheet ThemeSheetStylePtrInput `pulumi:"sheet"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-typography
-	Typography ThemeTypographyPtrInput `pulumi:"typography"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-uicolorpalette
-	UIColorPalette ThemeUIColorPalettePtrInput `pulumi:"uIColorPalette"`
+	Sheet            ThemeSheetStylePtrInput       `pulumi:"sheet"`
+	Typography       ThemeTypographyPtrInput       `pulumi:"typography"`
+	UIColorPalette   ThemeUIColorPalettePtrInput   `pulumi:"uIColorPalette"`
 }
 
 func (ThemeThemeConfigurationArgs) ElementType() reflect.Type {
@@ -13189,7 +12926,8 @@ func (i *themeThemeConfigurationPtrType) ToThemeThemeConfigurationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeThemeConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html
+// <p>The theme configuration. This configuration contains all of the display properties for
+//             a theme.</p>
 type ThemeThemeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ThemeThemeConfigurationOutput) ElementType() reflect.Type {
@@ -13214,22 +12952,18 @@ func (o ThemeThemeConfigurationOutput) ToThemeThemeConfigurationPtrOutputWithCon
 	}).(ThemeThemeConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-datacolorpalette
 func (o ThemeThemeConfigurationOutput) DataColorPalette() ThemeDataColorPalettePtrOutput {
 	return o.ApplyT(func(v ThemeThemeConfiguration) *ThemeDataColorPalette { return v.DataColorPalette }).(ThemeDataColorPalettePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-sheet
 func (o ThemeThemeConfigurationOutput) Sheet() ThemeSheetStylePtrOutput {
 	return o.ApplyT(func(v ThemeThemeConfiguration) *ThemeSheetStyle { return v.Sheet }).(ThemeSheetStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-typography
 func (o ThemeThemeConfigurationOutput) Typography() ThemeTypographyPtrOutput {
 	return o.ApplyT(func(v ThemeThemeConfiguration) *ThemeTypography { return v.Typography }).(ThemeTypographyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-uicolorpalette
 func (o ThemeThemeConfigurationOutput) UIColorPalette() ThemeUIColorPalettePtrOutput {
 	return o.ApplyT(func(v ThemeThemeConfiguration) *ThemeUIColorPalette { return v.UIColorPalette }).(ThemeUIColorPalettePtrOutput)
 }
@@ -13258,7 +12992,6 @@ func (o ThemeThemeConfigurationPtrOutput) Elem() ThemeThemeConfigurationOutput {
 	}).(ThemeThemeConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-datacolorpalette
 func (o ThemeThemeConfigurationPtrOutput) DataColorPalette() ThemeDataColorPalettePtrOutput {
 	return o.ApplyT(func(v *ThemeThemeConfiguration) *ThemeDataColorPalette {
 		if v == nil {
@@ -13268,7 +13001,6 @@ func (o ThemeThemeConfigurationPtrOutput) DataColorPalette() ThemeDataColorPalet
 	}).(ThemeDataColorPalettePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-sheet
 func (o ThemeThemeConfigurationPtrOutput) Sheet() ThemeSheetStylePtrOutput {
 	return o.ApplyT(func(v *ThemeThemeConfiguration) *ThemeSheetStyle {
 		if v == nil {
@@ -13278,7 +13010,6 @@ func (o ThemeThemeConfigurationPtrOutput) Sheet() ThemeSheetStylePtrOutput {
 	}).(ThemeSheetStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-typography
 func (o ThemeThemeConfigurationPtrOutput) Typography() ThemeTypographyPtrOutput {
 	return o.ApplyT(func(v *ThemeThemeConfiguration) *ThemeTypography {
 		if v == nil {
@@ -13288,7 +13019,6 @@ func (o ThemeThemeConfigurationPtrOutput) Typography() ThemeTypographyPtrOutput 
 	}).(ThemeTypographyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeconfiguration.html#cfn-quicksight-theme-themeconfiguration-uicolorpalette
 func (o ThemeThemeConfigurationPtrOutput) UIColorPalette() ThemeUIColorPalettePtrOutput {
 	return o.ApplyT(func(v *ThemeThemeConfiguration) *ThemeUIColorPalette {
 		if v == nil {
@@ -13298,11 +13028,384 @@ func (o ThemeThemeConfigurationPtrOutput) UIColorPalette() ThemeUIColorPalettePt
 	}).(ThemeUIColorPalettePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html
+// <p>Theme error.</p>
+type ThemeThemeError struct {
+	// <p>The error message.</p>
+	Message *string `pulumi:"message"`
+	Type    *string `pulumi:"type"`
+}
+
+// ThemeThemeErrorInput is an input type that accepts ThemeThemeErrorArgs and ThemeThemeErrorOutput values.
+// You can construct a concrete instance of `ThemeThemeErrorInput` via:
+//
+//          ThemeThemeErrorArgs{...}
+type ThemeThemeErrorInput interface {
+	pulumi.Input
+
+	ToThemeThemeErrorOutput() ThemeThemeErrorOutput
+	ToThemeThemeErrorOutputWithContext(context.Context) ThemeThemeErrorOutput
+}
+
+// <p>Theme error.</p>
+type ThemeThemeErrorArgs struct {
+	// <p>The error message.</p>
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ThemeThemeErrorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeThemeError)(nil)).Elem()
+}
+
+func (i ThemeThemeErrorArgs) ToThemeThemeErrorOutput() ThemeThemeErrorOutput {
+	return i.ToThemeThemeErrorOutputWithContext(context.Background())
+}
+
+func (i ThemeThemeErrorArgs) ToThemeThemeErrorOutputWithContext(ctx context.Context) ThemeThemeErrorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeThemeErrorOutput)
+}
+
+// ThemeThemeErrorArrayInput is an input type that accepts ThemeThemeErrorArray and ThemeThemeErrorArrayOutput values.
+// You can construct a concrete instance of `ThemeThemeErrorArrayInput` via:
+//
+//          ThemeThemeErrorArray{ ThemeThemeErrorArgs{...} }
+type ThemeThemeErrorArrayInput interface {
+	pulumi.Input
+
+	ToThemeThemeErrorArrayOutput() ThemeThemeErrorArrayOutput
+	ToThemeThemeErrorArrayOutputWithContext(context.Context) ThemeThemeErrorArrayOutput
+}
+
+type ThemeThemeErrorArray []ThemeThemeErrorInput
+
+func (ThemeThemeErrorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemeThemeError)(nil)).Elem()
+}
+
+func (i ThemeThemeErrorArray) ToThemeThemeErrorArrayOutput() ThemeThemeErrorArrayOutput {
+	return i.ToThemeThemeErrorArrayOutputWithContext(context.Background())
+}
+
+func (i ThemeThemeErrorArray) ToThemeThemeErrorArrayOutputWithContext(ctx context.Context) ThemeThemeErrorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeThemeErrorArrayOutput)
+}
+
+// <p>Theme error.</p>
+type ThemeThemeErrorOutput struct{ *pulumi.OutputState }
+
+func (ThemeThemeErrorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeThemeError)(nil)).Elem()
+}
+
+func (o ThemeThemeErrorOutput) ToThemeThemeErrorOutput() ThemeThemeErrorOutput {
+	return o
+}
+
+func (o ThemeThemeErrorOutput) ToThemeThemeErrorOutputWithContext(ctx context.Context) ThemeThemeErrorOutput {
+	return o
+}
+
+// <p>The error message.</p>
+func (o ThemeThemeErrorOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeThemeError) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeThemeErrorOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeThemeError) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ThemeThemeErrorArrayOutput struct{ *pulumi.OutputState }
+
+func (ThemeThemeErrorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemeThemeError)(nil)).Elem()
+}
+
+func (o ThemeThemeErrorArrayOutput) ToThemeThemeErrorArrayOutput() ThemeThemeErrorArrayOutput {
+	return o
+}
+
+func (o ThemeThemeErrorArrayOutput) ToThemeThemeErrorArrayOutputWithContext(ctx context.Context) ThemeThemeErrorArrayOutput {
+	return o
+}
+
+func (o ThemeThemeErrorArrayOutput) Index(i pulumi.IntInput) ThemeThemeErrorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThemeThemeError {
+		return vs[0].([]ThemeThemeError)[vs[1].(int)]
+	}).(ThemeThemeErrorOutput)
+}
+
+// <p>A version of a theme.</p>
+type ThemeThemeVersion struct {
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn *string `pulumi:"arn"`
+	// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+	//             themes initially inherit from a default QuickSight theme.</p>
+	BaseThemeId   *string                  `pulumi:"baseThemeId"`
+	Configuration *ThemeThemeConfiguration `pulumi:"configuration"`
+	// <p>The date and time that this theme version was created.</p>
+	CreatedTime *string `pulumi:"createdTime"`
+	// <p>The description of the theme.</p>
+	Description *string `pulumi:"description"`
+	// <p>Errors associated with the theme.</p>
+	Errors []ThemeThemeError `pulumi:"errors"`
+	Status *string           `pulumi:"status"`
+	// <p>The version number of the theme.</p>
+	VersionNumber *float64 `pulumi:"versionNumber"`
+}
+
+// ThemeThemeVersionInput is an input type that accepts ThemeThemeVersionArgs and ThemeThemeVersionOutput values.
+// You can construct a concrete instance of `ThemeThemeVersionInput` via:
+//
+//          ThemeThemeVersionArgs{...}
+type ThemeThemeVersionInput interface {
+	pulumi.Input
+
+	ToThemeThemeVersionOutput() ThemeThemeVersionOutput
+	ToThemeThemeVersionOutputWithContext(context.Context) ThemeThemeVersionOutput
+}
+
+// <p>A version of a theme.</p>
+type ThemeThemeVersionArgs struct {
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+	//             themes initially inherit from a default QuickSight theme.</p>
+	BaseThemeId   pulumi.StringPtrInput           `pulumi:"baseThemeId"`
+	Configuration ThemeThemeConfigurationPtrInput `pulumi:"configuration"`
+	// <p>The date and time that this theme version was created.</p>
+	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
+	// <p>The description of the theme.</p>
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// <p>Errors associated with the theme.</p>
+	Errors ThemeThemeErrorArrayInput `pulumi:"errors"`
+	Status pulumi.StringPtrInput     `pulumi:"status"`
+	// <p>The version number of the theme.</p>
+	VersionNumber pulumi.Float64PtrInput `pulumi:"versionNumber"`
+}
+
+func (ThemeThemeVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeThemeVersion)(nil)).Elem()
+}
+
+func (i ThemeThemeVersionArgs) ToThemeThemeVersionOutput() ThemeThemeVersionOutput {
+	return i.ToThemeThemeVersionOutputWithContext(context.Background())
+}
+
+func (i ThemeThemeVersionArgs) ToThemeThemeVersionOutputWithContext(ctx context.Context) ThemeThemeVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeThemeVersionOutput)
+}
+
+func (i ThemeThemeVersionArgs) ToThemeThemeVersionPtrOutput() ThemeThemeVersionPtrOutput {
+	return i.ToThemeThemeVersionPtrOutputWithContext(context.Background())
+}
+
+func (i ThemeThemeVersionArgs) ToThemeThemeVersionPtrOutputWithContext(ctx context.Context) ThemeThemeVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeThemeVersionOutput).ToThemeThemeVersionPtrOutputWithContext(ctx)
+}
+
+// ThemeThemeVersionPtrInput is an input type that accepts ThemeThemeVersionArgs, ThemeThemeVersionPtr and ThemeThemeVersionPtrOutput values.
+// You can construct a concrete instance of `ThemeThemeVersionPtrInput` via:
+//
+//          ThemeThemeVersionArgs{...}
+//
+//  or:
+//
+//          nil
+type ThemeThemeVersionPtrInput interface {
+	pulumi.Input
+
+	ToThemeThemeVersionPtrOutput() ThemeThemeVersionPtrOutput
+	ToThemeThemeVersionPtrOutputWithContext(context.Context) ThemeThemeVersionPtrOutput
+}
+
+type themeThemeVersionPtrType ThemeThemeVersionArgs
+
+func ThemeThemeVersionPtr(v *ThemeThemeVersionArgs) ThemeThemeVersionPtrInput {
+	return (*themeThemeVersionPtrType)(v)
+}
+
+func (*themeThemeVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeThemeVersion)(nil)).Elem()
+}
+
+func (i *themeThemeVersionPtrType) ToThemeThemeVersionPtrOutput() ThemeThemeVersionPtrOutput {
+	return i.ToThemeThemeVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *themeThemeVersionPtrType) ToThemeThemeVersionPtrOutputWithContext(ctx context.Context) ThemeThemeVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeThemeVersionPtrOutput)
+}
+
+// <p>A version of a theme.</p>
+type ThemeThemeVersionOutput struct{ *pulumi.OutputState }
+
+func (ThemeThemeVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeThemeVersion)(nil)).Elem()
+}
+
+func (o ThemeThemeVersionOutput) ToThemeThemeVersionOutput() ThemeThemeVersionOutput {
+	return o
+}
+
+func (o ThemeThemeVersionOutput) ToThemeThemeVersionOutputWithContext(ctx context.Context) ThemeThemeVersionOutput {
+	return o
+}
+
+func (o ThemeThemeVersionOutput) ToThemeThemeVersionPtrOutput() ThemeThemeVersionPtrOutput {
+	return o.ToThemeThemeVersionPtrOutputWithContext(context.Background())
+}
+
+func (o ThemeThemeVersionOutput) ToThemeThemeVersionPtrOutputWithContext(ctx context.Context) ThemeThemeVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeThemeVersion) *ThemeThemeVersion {
+		return &v
+	}).(ThemeThemeVersionPtrOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o ThemeThemeVersionOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeThemeVersion) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+//             themes initially inherit from a default QuickSight theme.</p>
+func (o ThemeThemeVersionOutput) BaseThemeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeThemeVersion) *string { return v.BaseThemeId }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeThemeVersionOutput) Configuration() ThemeThemeConfigurationPtrOutput {
+	return o.ApplyT(func(v ThemeThemeVersion) *ThemeThemeConfiguration { return v.Configuration }).(ThemeThemeConfigurationPtrOutput)
+}
+
+// <p>The date and time that this theme version was created.</p>
+func (o ThemeThemeVersionOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeThemeVersion) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
+}
+
+// <p>The description of the theme.</p>
+func (o ThemeThemeVersionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeThemeVersion) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// <p>Errors associated with the theme.</p>
+func (o ThemeThemeVersionOutput) Errors() ThemeThemeErrorArrayOutput {
+	return o.ApplyT(func(v ThemeThemeVersion) []ThemeThemeError { return v.Errors }).(ThemeThemeErrorArrayOutput)
+}
+
+func (o ThemeThemeVersionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeThemeVersion) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// <p>The version number of the theme.</p>
+func (o ThemeThemeVersionOutput) VersionNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ThemeThemeVersion) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
+}
+
+type ThemeThemeVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeThemeVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeThemeVersion)(nil)).Elem()
+}
+
+func (o ThemeThemeVersionPtrOutput) ToThemeThemeVersionPtrOutput() ThemeThemeVersionPtrOutput {
+	return o
+}
+
+func (o ThemeThemeVersionPtrOutput) ToThemeThemeVersionPtrOutputWithContext(ctx context.Context) ThemeThemeVersionPtrOutput {
+	return o
+}
+
+func (o ThemeThemeVersionPtrOutput) Elem() ThemeThemeVersionOutput {
+	return o.ApplyT(func(v *ThemeThemeVersion) ThemeThemeVersion {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeThemeVersion
+		return ret
+	}).(ThemeThemeVersionOutput)
+}
+
+// <p>The Amazon Resource Name (ARN) of the resource.</p>
+func (o ThemeThemeVersionPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+//             themes initially inherit from a default QuickSight theme.</p>
+func (o ThemeThemeVersionPtrOutput) BaseThemeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaseThemeId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeThemeVersionPtrOutput) Configuration() ThemeThemeConfigurationPtrOutput {
+	return o.ApplyT(func(v *ThemeThemeVersion) *ThemeThemeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Configuration
+	}).(ThemeThemeConfigurationPtrOutput)
+}
+
+// <p>The date and time that this theme version was created.</p>
+func (o ThemeThemeVersionPtrOutput) CreatedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The description of the theme.</p>
+func (o ThemeThemeVersionPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>Errors associated with the theme.</p>
+func (o ThemeThemeVersionPtrOutput) Errors() ThemeThemeErrorArrayOutput {
+	return o.ApplyT(func(v *ThemeThemeVersion) []ThemeThemeError {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(ThemeThemeErrorArrayOutput)
+}
+
+func (o ThemeThemeVersionPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThemeThemeVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// <p>The version number of the theme.</p>
+func (o ThemeThemeVersionPtrOutput) VersionNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ThemeThemeVersion) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.VersionNumber
+	}).(pulumi.Float64PtrOutput)
+}
+
+// <p>The display options for the layout of tiles on a sheet.</p>
 type ThemeTileLayoutStyle struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-gutter
 	Gutter *ThemeGutterStyle `pulumi:"gutter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-margin
 	Margin *ThemeMarginStyle `pulumi:"margin"`
 }
 
@@ -13317,11 +13420,9 @@ type ThemeTileLayoutStyleInput interface {
 	ToThemeTileLayoutStyleOutputWithContext(context.Context) ThemeTileLayoutStyleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html
+// <p>The display options for the layout of tiles on a sheet.</p>
 type ThemeTileLayoutStyleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-gutter
 	Gutter ThemeGutterStylePtrInput `pulumi:"gutter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-margin
 	Margin ThemeMarginStylePtrInput `pulumi:"margin"`
 }
 
@@ -13378,7 +13479,7 @@ func (i *themeTileLayoutStylePtrType) ToThemeTileLayoutStylePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeTileLayoutStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html
+// <p>The display options for the layout of tiles on a sheet.</p>
 type ThemeTileLayoutStyleOutput struct{ *pulumi.OutputState }
 
 func (ThemeTileLayoutStyleOutput) ElementType() reflect.Type {
@@ -13403,12 +13504,10 @@ func (o ThemeTileLayoutStyleOutput) ToThemeTileLayoutStylePtrOutputWithContext(c
 	}).(ThemeTileLayoutStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-gutter
 func (o ThemeTileLayoutStyleOutput) Gutter() ThemeGutterStylePtrOutput {
 	return o.ApplyT(func(v ThemeTileLayoutStyle) *ThemeGutterStyle { return v.Gutter }).(ThemeGutterStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-margin
 func (o ThemeTileLayoutStyleOutput) Margin() ThemeMarginStylePtrOutput {
 	return o.ApplyT(func(v ThemeTileLayoutStyle) *ThemeMarginStyle { return v.Margin }).(ThemeMarginStylePtrOutput)
 }
@@ -13437,7 +13536,6 @@ func (o ThemeTileLayoutStylePtrOutput) Elem() ThemeTileLayoutStyleOutput {
 	}).(ThemeTileLayoutStyleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-gutter
 func (o ThemeTileLayoutStylePtrOutput) Gutter() ThemeGutterStylePtrOutput {
 	return o.ApplyT(func(v *ThemeTileLayoutStyle) *ThemeGutterStyle {
 		if v == nil {
@@ -13447,7 +13545,6 @@ func (o ThemeTileLayoutStylePtrOutput) Gutter() ThemeGutterStylePtrOutput {
 	}).(ThemeGutterStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-margin
 func (o ThemeTileLayoutStylePtrOutput) Margin() ThemeMarginStylePtrOutput {
 	return o.ApplyT(func(v *ThemeTileLayoutStyle) *ThemeMarginStyle {
 		if v == nil {
@@ -13457,9 +13554,8 @@ func (o ThemeTileLayoutStylePtrOutput) Margin() ThemeMarginStylePtrOutput {
 	}).(ThemeMarginStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html
+// <p>Display options related to tiles on a sheet.</p>
 type ThemeTileStyle struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html#cfn-quicksight-theme-tilestyle-border
 	Border *ThemeBorderStyle `pulumi:"border"`
 }
 
@@ -13474,9 +13570,8 @@ type ThemeTileStyleInput interface {
 	ToThemeTileStyleOutputWithContext(context.Context) ThemeTileStyleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html
+// <p>Display options related to tiles on a sheet.</p>
 type ThemeTileStyleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html#cfn-quicksight-theme-tilestyle-border
 	Border ThemeBorderStylePtrInput `pulumi:"border"`
 }
 
@@ -13533,7 +13628,7 @@ func (i *themeTileStylePtrType) ToThemeTileStylePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeTileStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html
+// <p>Display options related to tiles on a sheet.</p>
 type ThemeTileStyleOutput struct{ *pulumi.OutputState }
 
 func (ThemeTileStyleOutput) ElementType() reflect.Type {
@@ -13558,7 +13653,6 @@ func (o ThemeTileStyleOutput) ToThemeTileStylePtrOutputWithContext(ctx context.C
 	}).(ThemeTileStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html#cfn-quicksight-theme-tilestyle-border
 func (o ThemeTileStyleOutput) Border() ThemeBorderStylePtrOutput {
 	return o.ApplyT(func(v ThemeTileStyle) *ThemeBorderStyle { return v.Border }).(ThemeBorderStylePtrOutput)
 }
@@ -13587,7 +13681,6 @@ func (o ThemeTileStylePtrOutput) Elem() ThemeTileStyleOutput {
 	}).(ThemeTileStyleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html#cfn-quicksight-theme-tilestyle-border
 func (o ThemeTileStylePtrOutput) Border() ThemeBorderStylePtrOutput {
 	return o.ApplyT(func(v *ThemeTileStyle) *ThemeBorderStyle {
 		if v == nil {
@@ -13597,9 +13690,7 @@ func (o ThemeTileStylePtrOutput) Border() ThemeBorderStylePtrOutput {
 	}).(ThemeBorderStylePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html
 type ThemeTypography struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html#cfn-quicksight-theme-typography-fontfamilies
 	FontFamilies []ThemeFont `pulumi:"fontFamilies"`
 }
 
@@ -13614,9 +13705,7 @@ type ThemeTypographyInput interface {
 	ToThemeTypographyOutputWithContext(context.Context) ThemeTypographyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html
 type ThemeTypographyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html#cfn-quicksight-theme-typography-fontfamilies
 	FontFamilies ThemeFontArrayInput `pulumi:"fontFamilies"`
 }
 
@@ -13673,7 +13762,6 @@ func (i *themeTypographyPtrType) ToThemeTypographyPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeTypographyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html
 type ThemeTypographyOutput struct{ *pulumi.OutputState }
 
 func (ThemeTypographyOutput) ElementType() reflect.Type {
@@ -13698,7 +13786,6 @@ func (o ThemeTypographyOutput) ToThemeTypographyPtrOutputWithContext(ctx context
 	}).(ThemeTypographyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html#cfn-quicksight-theme-typography-fontfamilies
 func (o ThemeTypographyOutput) FontFamilies() ThemeFontArrayOutput {
 	return o.ApplyT(func(v ThemeTypography) []ThemeFont { return v.FontFamilies }).(ThemeFontArrayOutput)
 }
@@ -13727,7 +13814,6 @@ func (o ThemeTypographyPtrOutput) Elem() ThemeTypographyOutput {
 	}).(ThemeTypographyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html#cfn-quicksight-theme-typography-fontfamilies
 func (o ThemeTypographyPtrOutput) FontFamilies() ThemeFontArrayOutput {
 	return o.ApplyT(func(v *ThemeTypography) []ThemeFont {
 		if v == nil {
@@ -13737,39 +13823,53 @@ func (o ThemeTypographyPtrOutput) FontFamilies() ThemeFontArrayOutput {
 	}).(ThemeFontArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html
+// <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
+//             description is a hexadecimal color code that consists of six alphanumerical characters,
+//             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+//                 Guide.</i>
+//         </p>
 type ThemeUIColorPalette struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-accent
+	// <p>This color is that applies to selected states and buttons.</p>
 	Accent *string `pulumi:"accent"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-accentforeground
+	// <p>The foreground color that applies to any text or other elements that appear over the
+	//             accent color.</p>
 	AccentForeground *string `pulumi:"accentForeground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-danger
+	// <p>The color that applies to error messages.</p>
 	Danger *string `pulumi:"danger"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dangerforeground
+	// <p>The foreground color that applies to any text or other elements that appear over the
+	//             error color.</p>
 	DangerForeground *string `pulumi:"dangerForeground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dimension
+	// <p>The color that applies to the names of fields that are identified as
+	//             dimensions.</p>
 	Dimension *string `pulumi:"dimension"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dimensionforeground
+	// <p>The foreground color that applies to any text or other elements that appear over the
+	//             dimension color.</p>
 	DimensionForeground *string `pulumi:"dimensionForeground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-measure
+	// <p>The color that applies to the names of fields that are identified as measures.</p>
 	Measure *string `pulumi:"measure"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-measureforeground
+	// <p>The foreground color that applies to any text or other elements that appear over the
+	//             measure color.</p>
 	MeasureForeground *string `pulumi:"measureForeground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-primarybackground
+	// <p>The background color that applies to visuals and other high emphasis UI.</p>
 	PrimaryBackground *string `pulumi:"primaryBackground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-primaryforeground
+	// <p>The color of text and other foreground elements that appear over the primary
+	//             background regions, such as grid lines, borders, table banding, icons, and so on.</p>
 	PrimaryForeground *string `pulumi:"primaryForeground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-secondarybackground
+	// <p>The background color that applies to the sheet background and sheet controls.</p>
 	SecondaryBackground *string `pulumi:"secondaryBackground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-secondaryforeground
+	// <p>The foreground color that applies to any sheet title, sheet control text, or UI that
+	//             appears over the secondary background.</p>
 	SecondaryForeground *string `pulumi:"secondaryForeground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-success
+	// <p>The color that applies to success messages, for example the check mark for a
+	//             successful download.</p>
 	Success *string `pulumi:"success"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-successforeground
+	// <p>The foreground color that applies to any text or other elements that appear over the
+	//             success color.</p>
 	SuccessForeground *string `pulumi:"successForeground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-warning
+	// <p>This color that applies to warning and informational messages.</p>
 	Warning *string `pulumi:"warning"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-warningforeground
+	// <p>The foreground color that applies to any text or other elements that appear over the
+	//             warning color.</p>
 	WarningForeground *string `pulumi:"warningForeground"`
 }
 
@@ -13784,39 +13884,53 @@ type ThemeUIColorPaletteInput interface {
 	ToThemeUIColorPaletteOutputWithContext(context.Context) ThemeUIColorPaletteOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html
+// <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
+//             description is a hexadecimal color code that consists of six alphanumerical characters,
+//             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+//                 Guide.</i>
+//         </p>
 type ThemeUIColorPaletteArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-accent
+	// <p>This color is that applies to selected states and buttons.</p>
 	Accent pulumi.StringPtrInput `pulumi:"accent"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-accentforeground
+	// <p>The foreground color that applies to any text or other elements that appear over the
+	//             accent color.</p>
 	AccentForeground pulumi.StringPtrInput `pulumi:"accentForeground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-danger
+	// <p>The color that applies to error messages.</p>
 	Danger pulumi.StringPtrInput `pulumi:"danger"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dangerforeground
+	// <p>The foreground color that applies to any text or other elements that appear over the
+	//             error color.</p>
 	DangerForeground pulumi.StringPtrInput `pulumi:"dangerForeground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dimension
+	// <p>The color that applies to the names of fields that are identified as
+	//             dimensions.</p>
 	Dimension pulumi.StringPtrInput `pulumi:"dimension"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dimensionforeground
+	// <p>The foreground color that applies to any text or other elements that appear over the
+	//             dimension color.</p>
 	DimensionForeground pulumi.StringPtrInput `pulumi:"dimensionForeground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-measure
+	// <p>The color that applies to the names of fields that are identified as measures.</p>
 	Measure pulumi.StringPtrInput `pulumi:"measure"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-measureforeground
+	// <p>The foreground color that applies to any text or other elements that appear over the
+	//             measure color.</p>
 	MeasureForeground pulumi.StringPtrInput `pulumi:"measureForeground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-primarybackground
+	// <p>The background color that applies to visuals and other high emphasis UI.</p>
 	PrimaryBackground pulumi.StringPtrInput `pulumi:"primaryBackground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-primaryforeground
+	// <p>The color of text and other foreground elements that appear over the primary
+	//             background regions, such as grid lines, borders, table banding, icons, and so on.</p>
 	PrimaryForeground pulumi.StringPtrInput `pulumi:"primaryForeground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-secondarybackground
+	// <p>The background color that applies to the sheet background and sheet controls.</p>
 	SecondaryBackground pulumi.StringPtrInput `pulumi:"secondaryBackground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-secondaryforeground
+	// <p>The foreground color that applies to any sheet title, sheet control text, or UI that
+	//             appears over the secondary background.</p>
 	SecondaryForeground pulumi.StringPtrInput `pulumi:"secondaryForeground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-success
+	// <p>The color that applies to success messages, for example the check mark for a
+	//             successful download.</p>
 	Success pulumi.StringPtrInput `pulumi:"success"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-successforeground
+	// <p>The foreground color that applies to any text or other elements that appear over the
+	//             success color.</p>
 	SuccessForeground pulumi.StringPtrInput `pulumi:"successForeground"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-warning
+	// <p>This color that applies to warning and informational messages.</p>
 	Warning pulumi.StringPtrInput `pulumi:"warning"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-warningforeground
+	// <p>The foreground color that applies to any text or other elements that appear over the
+	//             warning color.</p>
 	WarningForeground pulumi.StringPtrInput `pulumi:"warningForeground"`
 }
 
@@ -13873,7 +13987,11 @@ func (i *themeUIColorPalettePtrType) ToThemeUIColorPalettePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeUIColorPalettePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html
+// <p>The theme colors that apply to UI and to charts, excluding data colors. The colors
+//             description is a hexadecimal color code that consists of six alphanumerical characters,
+//             prefixed with <code>#</code>, for example #37BFF5. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User
+//                 Guide.</i>
+//         </p>
 type ThemeUIColorPaletteOutput struct{ *pulumi.OutputState }
 
 func (ThemeUIColorPaletteOutput) ElementType() reflect.Type {
@@ -13898,82 +14016,92 @@ func (o ThemeUIColorPaletteOutput) ToThemeUIColorPalettePtrOutputWithContext(ctx
 	}).(ThemeUIColorPalettePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-accent
+// <p>This color is that applies to selected states and buttons.</p>
 func (o ThemeUIColorPaletteOutput) Accent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.Accent }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-accentforeground
+// <p>The foreground color that applies to any text or other elements that appear over the
+//             accent color.</p>
 func (o ThemeUIColorPaletteOutput) AccentForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.AccentForeground }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-danger
+// <p>The color that applies to error messages.</p>
 func (o ThemeUIColorPaletteOutput) Danger() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.Danger }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dangerforeground
+// <p>The foreground color that applies to any text or other elements that appear over the
+//             error color.</p>
 func (o ThemeUIColorPaletteOutput) DangerForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.DangerForeground }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dimension
+// <p>The color that applies to the names of fields that are identified as
+//             dimensions.</p>
 func (o ThemeUIColorPaletteOutput) Dimension() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.Dimension }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dimensionforeground
+// <p>The foreground color that applies to any text or other elements that appear over the
+//             dimension color.</p>
 func (o ThemeUIColorPaletteOutput) DimensionForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.DimensionForeground }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-measure
+// <p>The color that applies to the names of fields that are identified as measures.</p>
 func (o ThemeUIColorPaletteOutput) Measure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.Measure }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-measureforeground
+// <p>The foreground color that applies to any text or other elements that appear over the
+//             measure color.</p>
 func (o ThemeUIColorPaletteOutput) MeasureForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.MeasureForeground }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-primarybackground
+// <p>The background color that applies to visuals and other high emphasis UI.</p>
 func (o ThemeUIColorPaletteOutput) PrimaryBackground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.PrimaryBackground }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-primaryforeground
+// <p>The color of text and other foreground elements that appear over the primary
+//             background regions, such as grid lines, borders, table banding, icons, and so on.</p>
 func (o ThemeUIColorPaletteOutput) PrimaryForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.PrimaryForeground }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-secondarybackground
+// <p>The background color that applies to the sheet background and sheet controls.</p>
 func (o ThemeUIColorPaletteOutput) SecondaryBackground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.SecondaryBackground }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-secondaryforeground
+// <p>The foreground color that applies to any sheet title, sheet control text, or UI that
+//             appears over the secondary background.</p>
 func (o ThemeUIColorPaletteOutput) SecondaryForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.SecondaryForeground }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-success
+// <p>The color that applies to success messages, for example the check mark for a
+//             successful download.</p>
 func (o ThemeUIColorPaletteOutput) Success() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.Success }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-successforeground
+// <p>The foreground color that applies to any text or other elements that appear over the
+//             success color.</p>
 func (o ThemeUIColorPaletteOutput) SuccessForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.SuccessForeground }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-warning
+// <p>This color that applies to warning and informational messages.</p>
 func (o ThemeUIColorPaletteOutput) Warning() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.Warning }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-warningforeground
+// <p>The foreground color that applies to any text or other elements that appear over the
+//             warning color.</p>
 func (o ThemeUIColorPaletteOutput) WarningForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeUIColorPalette) *string { return v.WarningForeground }).(pulumi.StringPtrOutput)
 }
@@ -14002,7 +14130,7 @@ func (o ThemeUIColorPalettePtrOutput) Elem() ThemeUIColorPaletteOutput {
 	}).(ThemeUIColorPaletteOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-accent
+// <p>This color is that applies to selected states and buttons.</p>
 func (o ThemeUIColorPalettePtrOutput) Accent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -14012,7 +14140,8 @@ func (o ThemeUIColorPalettePtrOutput) Accent() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-accentforeground
+// <p>The foreground color that applies to any text or other elements that appear over the
+//             accent color.</p>
 func (o ThemeUIColorPalettePtrOutput) AccentForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -14022,7 +14151,7 @@ func (o ThemeUIColorPalettePtrOutput) AccentForeground() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-danger
+// <p>The color that applies to error messages.</p>
 func (o ThemeUIColorPalettePtrOutput) Danger() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -14032,7 +14161,8 @@ func (o ThemeUIColorPalettePtrOutput) Danger() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dangerforeground
+// <p>The foreground color that applies to any text or other elements that appear over the
+//             error color.</p>
 func (o ThemeUIColorPalettePtrOutput) DangerForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -14042,7 +14172,8 @@ func (o ThemeUIColorPalettePtrOutput) DangerForeground() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dimension
+// <p>The color that applies to the names of fields that are identified as
+//             dimensions.</p>
 func (o ThemeUIColorPalettePtrOutput) Dimension() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -14052,7 +14183,8 @@ func (o ThemeUIColorPalettePtrOutput) Dimension() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-dimensionforeground
+// <p>The foreground color that applies to any text or other elements that appear over the
+//             dimension color.</p>
 func (o ThemeUIColorPalettePtrOutput) DimensionForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -14062,7 +14194,7 @@ func (o ThemeUIColorPalettePtrOutput) DimensionForeground() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-measure
+// <p>The color that applies to the names of fields that are identified as measures.</p>
 func (o ThemeUIColorPalettePtrOutput) Measure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -14072,7 +14204,8 @@ func (o ThemeUIColorPalettePtrOutput) Measure() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-measureforeground
+// <p>The foreground color that applies to any text or other elements that appear over the
+//             measure color.</p>
 func (o ThemeUIColorPalettePtrOutput) MeasureForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -14082,7 +14215,7 @@ func (o ThemeUIColorPalettePtrOutput) MeasureForeground() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-primarybackground
+// <p>The background color that applies to visuals and other high emphasis UI.</p>
 func (o ThemeUIColorPalettePtrOutput) PrimaryBackground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -14092,7 +14225,8 @@ func (o ThemeUIColorPalettePtrOutput) PrimaryBackground() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-primaryforeground
+// <p>The color of text and other foreground elements that appear over the primary
+//             background regions, such as grid lines, borders, table banding, icons, and so on.</p>
 func (o ThemeUIColorPalettePtrOutput) PrimaryForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -14102,7 +14236,7 @@ func (o ThemeUIColorPalettePtrOutput) PrimaryForeground() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-secondarybackground
+// <p>The background color that applies to the sheet background and sheet controls.</p>
 func (o ThemeUIColorPalettePtrOutput) SecondaryBackground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -14112,7 +14246,8 @@ func (o ThemeUIColorPalettePtrOutput) SecondaryBackground() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-secondaryforeground
+// <p>The foreground color that applies to any sheet title, sheet control text, or UI that
+//             appears over the secondary background.</p>
 func (o ThemeUIColorPalettePtrOutput) SecondaryForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -14122,7 +14257,8 @@ func (o ThemeUIColorPalettePtrOutput) SecondaryForeground() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-success
+// <p>The color that applies to success messages, for example the check mark for a
+//             successful download.</p>
 func (o ThemeUIColorPalettePtrOutput) Success() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -14132,7 +14268,8 @@ func (o ThemeUIColorPalettePtrOutput) Success() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-successforeground
+// <p>The foreground color that applies to any text or other elements that appear over the
+//             success color.</p>
 func (o ThemeUIColorPalettePtrOutput) SuccessForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -14142,7 +14279,7 @@ func (o ThemeUIColorPalettePtrOutput) SuccessForeground() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-warning
+// <p>This color that applies to warning and informational messages.</p>
 func (o ThemeUIColorPalettePtrOutput) Warning() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -14152,7 +14289,8 @@ func (o ThemeUIColorPalettePtrOutput) Warning() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-uicolorpalette.html#cfn-quicksight-theme-uicolorpalette-warningforeground
+// <p>The foreground color that applies to any text or other elements that appear over the
+//             warning color.</p>
 func (o ThemeUIColorPalettePtrOutput) WarningForeground() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeUIColorPalette) *string {
 		if v == nil {
@@ -14185,14 +14323,20 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisSheetArrayOutput{})
 	pulumi.RegisterOutputType(AnalysisStringParameterOutput{})
 	pulumi.RegisterOutputType(AnalysisStringParameterArrayOutput{})
+	pulumi.RegisterOutputType(AnalysisTagOutput{})
+	pulumi.RegisterOutputType(AnalysisTagArrayOutput{})
 	pulumi.RegisterOutputType(DashboardAdHocFilteringOptionOutput{})
 	pulumi.RegisterOutputType(DashboardAdHocFilteringOptionPtrOutput{})
+	pulumi.RegisterOutputType(DashboardDashboardErrorOutput{})
+	pulumi.RegisterOutputType(DashboardDashboardErrorArrayOutput{})
 	pulumi.RegisterOutputType(DashboardDashboardPublishOptionsOutput{})
 	pulumi.RegisterOutputType(DashboardDashboardPublishOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DashboardDashboardSourceEntityOutput{})
 	pulumi.RegisterOutputType(DashboardDashboardSourceEntityPtrOutput{})
 	pulumi.RegisterOutputType(DashboardDashboardSourceTemplateOutput{})
 	pulumi.RegisterOutputType(DashboardDashboardSourceTemplatePtrOutput{})
+	pulumi.RegisterOutputType(DashboardDashboardVersionOutput{})
+	pulumi.RegisterOutputType(DashboardDashboardVersionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardDataSetReferenceOutput{})
 	pulumi.RegisterOutputType(DashboardDataSetReferenceArrayOutput{})
 	pulumi.RegisterOutputType(DashboardDateTimeParameterOutput{})
@@ -14207,65 +14351,36 @@ func init() {
 	pulumi.RegisterOutputType(DashboardParametersPtrOutput{})
 	pulumi.RegisterOutputType(DashboardResourcePermissionOutput{})
 	pulumi.RegisterOutputType(DashboardResourcePermissionArrayOutput{})
+	pulumi.RegisterOutputType(DashboardSheetOutput{})
+	pulumi.RegisterOutputType(DashboardSheetArrayOutput{})
 	pulumi.RegisterOutputType(DashboardSheetControlsOptionOutput{})
 	pulumi.RegisterOutputType(DashboardSheetControlsOptionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardStringParameterOutput{})
 	pulumi.RegisterOutputType(DashboardStringParameterArrayOutput{})
-	pulumi.RegisterOutputType(DataSetCalculatedColumnOutput{})
-	pulumi.RegisterOutputType(DataSetCalculatedColumnArrayOutput{})
-	pulumi.RegisterOutputType(DataSetCastColumnTypeOperationOutput{})
-	pulumi.RegisterOutputType(DataSetCastColumnTypeOperationPtrOutput{})
-	pulumi.RegisterOutputType(DataSetColumnDescriptionOutput{})
-	pulumi.RegisterOutputType(DataSetColumnDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(DashboardTagOutput{})
+	pulumi.RegisterOutputType(DashboardTagArrayOutput{})
 	pulumi.RegisterOutputType(DataSetColumnGroupOutput{})
 	pulumi.RegisterOutputType(DataSetColumnGroupArrayOutput{})
 	pulumi.RegisterOutputType(DataSetColumnLevelPermissionRuleOutput{})
 	pulumi.RegisterOutputType(DataSetColumnLevelPermissionRuleArrayOutput{})
-	pulumi.RegisterOutputType(DataSetColumnTagOutput{})
-	pulumi.RegisterOutputType(DataSetColumnTagArrayOutput{})
-	pulumi.RegisterOutputType(DataSetCreateColumnsOperationOutput{})
-	pulumi.RegisterOutputType(DataSetCreateColumnsOperationPtrOutput{})
-	pulumi.RegisterOutputType(DataSetCustomSqlOutput{})
-	pulumi.RegisterOutputType(DataSetCustomSqlPtrOutput{})
-	pulumi.RegisterOutputType(DataSetFieldFolderOutput{})
 	pulumi.RegisterOutputType(DataSetFieldFolderMapOutput{})
-	pulumi.RegisterOutputType(DataSetFilterOperationOutput{})
-	pulumi.RegisterOutputType(DataSetFilterOperationPtrOutput{})
+	pulumi.RegisterOutputType(DataSetFieldFolderMapPtrOutput{})
 	pulumi.RegisterOutputType(DataSetGeoSpatialColumnGroupOutput{})
 	pulumi.RegisterOutputType(DataSetGeoSpatialColumnGroupPtrOutput{})
 	pulumi.RegisterOutputType(DataSetIngestionWaitPolicyOutput{})
 	pulumi.RegisterOutputType(DataSetIngestionWaitPolicyPtrOutput{})
-	pulumi.RegisterOutputType(DataSetInputColumnOutput{})
-	pulumi.RegisterOutputType(DataSetInputColumnArrayOutput{})
-	pulumi.RegisterOutputType(DataSetJoinInstructionOutput{})
-	pulumi.RegisterOutputType(DataSetJoinInstructionPtrOutput{})
-	pulumi.RegisterOutputType(DataSetJoinKeyPropertiesOutput{})
-	pulumi.RegisterOutputType(DataSetJoinKeyPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(DataSetLogicalTableOutput{})
 	pulumi.RegisterOutputType(DataSetLogicalTableMapOutput{})
-	pulumi.RegisterOutputType(DataSetLogicalTableSourceOutput{})
+	pulumi.RegisterOutputType(DataSetLogicalTableMapPtrOutput{})
 	pulumi.RegisterOutputType(DataSetOutputColumnOutput{})
 	pulumi.RegisterOutputType(DataSetOutputColumnArrayOutput{})
-	pulumi.RegisterOutputType(DataSetPhysicalTableOutput{})
 	pulumi.RegisterOutputType(DataSetPhysicalTableMapOutput{})
-	pulumi.RegisterOutputType(DataSetProjectOperationOutput{})
-	pulumi.RegisterOutputType(DataSetProjectOperationPtrOutput{})
-	pulumi.RegisterOutputType(DataSetRelationalTableOutput{})
-	pulumi.RegisterOutputType(DataSetRelationalTablePtrOutput{})
-	pulumi.RegisterOutputType(DataSetRenameColumnOperationOutput{})
-	pulumi.RegisterOutputType(DataSetRenameColumnOperationPtrOutput{})
+	pulumi.RegisterOutputType(DataSetPhysicalTableMapPtrOutput{})
 	pulumi.RegisterOutputType(DataSetResourcePermissionOutput{})
 	pulumi.RegisterOutputType(DataSetResourcePermissionArrayOutput{})
 	pulumi.RegisterOutputType(DataSetRowLevelPermissionDataSetOutput{})
 	pulumi.RegisterOutputType(DataSetRowLevelPermissionDataSetPtrOutput{})
-	pulumi.RegisterOutputType(DataSetS3SourceOutput{})
-	pulumi.RegisterOutputType(DataSetS3SourcePtrOutput{})
-	pulumi.RegisterOutputType(DataSetTagColumnOperationOutput{})
-	pulumi.RegisterOutputType(DataSetTagColumnOperationPtrOutput{})
-	pulumi.RegisterOutputType(DataSetTransformOperationOutput{})
-	pulumi.RegisterOutputType(DataSetTransformOperationArrayOutput{})
-	pulumi.RegisterOutputType(DataSetUploadSettingsOutput{})
-	pulumi.RegisterOutputType(DataSetUploadSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataSetTagOutput{})
+	pulumi.RegisterOutputType(DataSetTagArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceAmazonElasticsearchParametersOutput{})
 	pulumi.RegisterOutputType(DataSourceAmazonElasticsearchParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAthenaParametersOutput{})
@@ -14311,20 +14426,40 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceSqlServerParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceSslPropertiesOutput{})
 	pulumi.RegisterOutputType(DataSourceSslPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceTagOutput{})
+	pulumi.RegisterOutputType(DataSourceTagArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceTeradataParametersOutput{})
 	pulumi.RegisterOutputType(DataSourceTeradataParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConnectionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TemplateColumnGroupColumnSchemaOutput{})
+	pulumi.RegisterOutputType(TemplateColumnGroupColumnSchemaArrayOutput{})
+	pulumi.RegisterOutputType(TemplateColumnGroupSchemaOutput{})
+	pulumi.RegisterOutputType(TemplateColumnGroupSchemaArrayOutput{})
+	pulumi.RegisterOutputType(TemplateColumnSchemaOutput{})
+	pulumi.RegisterOutputType(TemplateColumnSchemaArrayOutput{})
+	pulumi.RegisterOutputType(TemplateDataSetConfigurationOutput{})
+	pulumi.RegisterOutputType(TemplateDataSetConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(TemplateDataSetReferenceOutput{})
 	pulumi.RegisterOutputType(TemplateDataSetReferenceArrayOutput{})
+	pulumi.RegisterOutputType(TemplateDataSetSchemaOutput{})
+	pulumi.RegisterOutputType(TemplateDataSetSchemaPtrOutput{})
 	pulumi.RegisterOutputType(TemplateResourcePermissionOutput{})
 	pulumi.RegisterOutputType(TemplateResourcePermissionArrayOutput{})
+	pulumi.RegisterOutputType(TemplateSheetOutput{})
+	pulumi.RegisterOutputType(TemplateSheetArrayOutput{})
+	pulumi.RegisterOutputType(TemplateTagOutput{})
+	pulumi.RegisterOutputType(TemplateTagArrayOutput{})
+	pulumi.RegisterOutputType(TemplateTemplateErrorOutput{})
+	pulumi.RegisterOutputType(TemplateTemplateErrorArrayOutput{})
 	pulumi.RegisterOutputType(TemplateTemplateSourceAnalysisOutput{})
 	pulumi.RegisterOutputType(TemplateTemplateSourceAnalysisPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTemplateSourceEntityOutput{})
 	pulumi.RegisterOutputType(TemplateTemplateSourceEntityPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTemplateSourceTemplateOutput{})
 	pulumi.RegisterOutputType(TemplateTemplateSourceTemplatePtrOutput{})
+	pulumi.RegisterOutputType(TemplateTemplateVersionOutput{})
+	pulumi.RegisterOutputType(TemplateTemplateVersionPtrOutput{})
 	pulumi.RegisterOutputType(ThemeBorderStyleOutput{})
 	pulumi.RegisterOutputType(ThemeBorderStylePtrOutput{})
 	pulumi.RegisterOutputType(ThemeDataColorPaletteOutput{})
@@ -14339,8 +14474,14 @@ func init() {
 	pulumi.RegisterOutputType(ThemeResourcePermissionArrayOutput{})
 	pulumi.RegisterOutputType(ThemeSheetStyleOutput{})
 	pulumi.RegisterOutputType(ThemeSheetStylePtrOutput{})
+	pulumi.RegisterOutputType(ThemeTagOutput{})
+	pulumi.RegisterOutputType(ThemeTagArrayOutput{})
 	pulumi.RegisterOutputType(ThemeThemeConfigurationOutput{})
 	pulumi.RegisterOutputType(ThemeThemeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ThemeThemeErrorOutput{})
+	pulumi.RegisterOutputType(ThemeThemeErrorArrayOutput{})
+	pulumi.RegisterOutputType(ThemeThemeVersionOutput{})
+	pulumi.RegisterOutputType(ThemeThemeVersionPtrOutput{})
 	pulumi.RegisterOutputType(ThemeTileLayoutStyleOutput{})
 	pulumi.RegisterOutputType(ThemeTileLayoutStylePtrOutput{})
 	pulumi.RegisterOutputType(ThemeTileStyleOutput{})

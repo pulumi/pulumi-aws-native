@@ -10,14 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RoboMaker
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html
+    /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:robomaker:SimulationApplicationVersion")]
     public partial class SimulationApplicationVersion : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-application
-        /// </summary>
         [Output("application")]
         public Output<string> Application { get; private set; } = null!;
 
@@ -28,7 +25,7 @@ namespace Pulumi.AwsNative.RoboMaker
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-currentrevisionid
+        /// The revision ID of robot application.
         /// </summary>
         [Output("currentRevisionId")]
         public Output<string?> CurrentRevisionId { get; private set; } = null!;
@@ -78,14 +75,11 @@ namespace Pulumi.AwsNative.RoboMaker
 
     public sealed class SimulationApplicationVersionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-application
-        /// </summary>
         [Input("application", required: true)]
         public Input<string> Application { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-currentrevisionid
+        /// The revision ID of robot application.
         /// </summary>
         [Input("currentRevisionId")]
         public Input<string>? CurrentRevisionId { get; set; }

@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['StreamKeyArgs', 'StreamKey']
 
@@ -16,11 +16,11 @@ __all__ = ['StreamKeyArgs', 'StreamKey']
 class StreamKeyArgs:
     def __init__(__self__, *,
                  channel_arn: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['StreamKeyTagArgs']]]] = None):
         """
         The set of arguments for constructing a StreamKey resource.
-        :param pulumi.Input[str] channel_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
+        :param pulumi.Input[str] channel_arn: Channel ARN for the stream.
+        :param pulumi.Input[Sequence[pulumi.Input['StreamKeyTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
         pulumi.set(__self__, "channel_arn", channel_arn)
         if tags is not None:
@@ -30,7 +30,7 @@ class StreamKeyArgs:
     @pulumi.getter(name="channelArn")
     def channel_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
+        Channel ARN for the stream.
         """
         return pulumi.get(self, "channel_arn")
 
@@ -40,14 +40,14 @@ class StreamKeyArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamKeyTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
+        A list of key-value pairs that contain metadata for the asset model.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamKeyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -57,15 +57,15 @@ class StreamKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamKeyTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html
+        Resource Type definition for AWS::IVS::StreamKey
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] channel_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
+        :param pulumi.Input[str] channel_arn: Channel ARN for the stream.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamKeyTagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
         ...
     @overload
@@ -74,7 +74,7 @@ class StreamKey(pulumi.CustomResource):
                  args: StreamKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html
+        Resource Type definition for AWS::IVS::StreamKey
 
         :param str resource_name: The name of the resource.
         :param StreamKeyArgs args: The arguments to use to populate this resource's properties.
@@ -92,7 +92,7 @@ class StreamKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StreamKeyTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -142,26 +142,32 @@ class StreamKey(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="channelArn")
     def channel_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
+        Channel ARN for the stream.
         """
         return pulumi.get(self, "channel_arn")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.StreamKeyTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
+        A list of key-value pairs that contain metadata for the asset model.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def value(self) -> pulumi.Output[str]:
+        """
+        Stream-key value.
+        """
         return pulumi.get(self, "value")
 

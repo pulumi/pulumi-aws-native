@@ -10,47 +10,58 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFormation
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html
+    /// Test and Publish a resource that has been registered in the CloudFormation Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudformation:PublicTypeVersion")]
     public partial class PublicTypeVersion : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-arn
+        /// The Amazon Resource Number (ARN) of the extension.
         /// </summary>
         [Output("arn")]
         public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-logdeliverybucket
+        /// A url to the S3 bucket where logs for the testType run will be available
         /// </summary>
         [Output("logDeliveryBucket")]
         public Output<string?> LogDeliveryBucket { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Number (ARN) assigned to the public extension upon publication
+        /// </summary>
         [Output("publicTypeArn")]
         public Output<string> PublicTypeArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-publicversionnumber
+        /// The version number of a public third-party extension
         /// </summary>
         [Output("publicVersionNumber")]
         public Output<string?> PublicVersionNumber { get; private set; } = null!;
 
+        /// <summary>
+        /// The publisher id assigned by CloudFormation for publishing in this region.
+        /// </summary>
         [Output("publisherId")]
         public Output<string> PublisherId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-type
+        /// The kind of extension
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-typename
+        /// The name of the type being registered.
+        /// 
+        /// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         /// </summary>
         [Output("typeName")]
         public Output<string?> TypeName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Number (ARN) of the extension with the versionId.
+        /// </summary>
         [Output("typeVersionArn")]
         public Output<string> TypeVersionArn { get; private set; } = null!;
 
@@ -100,31 +111,33 @@ namespace Pulumi.AwsNative.CloudFormation
     public sealed class PublicTypeVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-arn
+        /// The Amazon Resource Number (ARN) of the extension.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-logdeliverybucket
+        /// A url to the S3 bucket where logs for the testType run will be available
         /// </summary>
         [Input("logDeliveryBucket")]
         public Input<string>? LogDeliveryBucket { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-publicversionnumber
+        /// The version number of a public third-party extension
         /// </summary>
         [Input("publicVersionNumber")]
         public Input<string>? PublicVersionNumber { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-type
+        /// The kind of extension
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-typename
+        /// The name of the type being registered.
+        /// 
+        /// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         /// </summary>
         [Input("typeName")]
         public Input<string>? TypeName { get; set; }

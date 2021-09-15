@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html
+    /// Creates an authorizer.
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:Authorizer")]
     public partial class Authorizer : Pulumi.CustomResource
@@ -18,47 +18,26 @@ namespace Pulumi.AwsNative.IoT
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
-        /// </summary>
         [Output("authorizerFunctionArn")]
         public Output<string> AuthorizerFunctionArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
-        /// </summary>
         [Output("authorizerName")]
         public Output<string?> AuthorizerName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
-        /// </summary>
         [Output("signingDisabled")]
         public Output<bool?> SigningDisabled { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
-        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AuthorizerTag>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
-        /// </summary>
         [Output("tokenKeyName")]
         public Output<string?> TokenKeyName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
-        /// </summary>
         [Output("tokenSigningPublicKeys")]
-        public Output<ImmutableDictionary<string, string>?> TokenSigningPublicKeys { get; private set; } = null!;
+        public Output<object?> TokenSigningPublicKeys { get; private set; } = null!;
 
 
         /// <summary>
@@ -105,59 +84,31 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class AuthorizerArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
-        /// </summary>
         [Input("authorizerFunctionArn", required: true)]
         public Input<string> AuthorizerFunctionArn { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
-        /// </summary>
         [Input("authorizerName")]
         public Input<string>? AuthorizerName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
-        /// </summary>
         [Input("signingDisabled")]
         public Input<bool>? SigningDisabled { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.AuthorizerTagArgs>? _tags;
+        public InputList<Inputs.AuthorizerTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.AuthorizerTagArgs>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
-        /// </summary>
         [Input("tokenKeyName")]
         public Input<string>? TokenKeyName { get; set; }
 
         [Input("tokenSigningPublicKeys")]
-        private InputMap<string>? _tokenSigningPublicKeys;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
-        /// </summary>
-        public InputMap<string> TokenSigningPublicKeys
-        {
-            get => _tokenSigningPublicKeys ?? (_tokenSigningPublicKeys = new InputMap<string>());
-            set => _tokenSigningPublicKeys = value;
-        }
+        public Input<object>? TokenSigningPublicKeys { get; set; }
 
         public AuthorizerArgs()
         {

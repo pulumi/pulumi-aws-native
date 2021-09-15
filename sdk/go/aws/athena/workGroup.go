@@ -8,31 +8,29 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html
+// Resource schema for AWS::Athena::WorkGroup
 type WorkGroup struct {
 	pulumi.CustomResourceState
 
+	// The date and time the workgroup was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description
+	// The workgroup description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name
+	// The workGroup name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
+	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	RecursiveDeleteOption pulumi.BoolPtrOutput `pulumi:"recursiveDeleteOption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
+	// The state of the workgroup: ENABLED or DISABLED.
 	State pulumi.StringPtrOutput `pulumi:"state"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
-	WorkGroupConfiguration                                    WorkGroupWorkGroupConfigurationPtrOutput `pulumi:"workGroupConfiguration"`
-	WorkGroupConfigurationEngineVersionEffectiveEngineVersion pulumi.StringOutput                      `pulumi:"workGroupConfigurationEngineVersionEffectiveEngineVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
-	WorkGroupConfigurationUpdates                                    WorkGroupWorkGroupConfigurationUpdatesPtrOutput `pulumi:"workGroupConfigurationUpdates"`
-	WorkGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion pulumi.StringOutput                             `pulumi:"workGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion"`
+	// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
+	Tags WorkGroupTagArrayOutput `pulumi:"tags"`
+	// The workgroup configuration
+	WorkGroupConfiguration WorkGroupWorkGroupConfigurationPtrOutput `pulumi:"workGroupConfiguration"`
+	// The workgroup configuration update object
+	WorkGroupConfigurationUpdates WorkGroupWorkGroupConfigurationUpdatesPtrOutput `pulumi:"workGroupConfigurationUpdates"`
 }
 
 // NewWorkGroup registers a new resource with the given unique name, arguments, and options.
@@ -77,37 +75,37 @@ func (WorkGroupState) ElementType() reflect.Type {
 }
 
 type workGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description
+	// The workgroup description.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name
+	// The workGroup name.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
+	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	RecursiveDeleteOption *bool `pulumi:"recursiveDeleteOption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
+	// The state of the workgroup: ENABLED or DISABLED.
 	State *string `pulumi:"state"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
+	// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
+	Tags []WorkGroupTag `pulumi:"tags"`
+	// The workgroup configuration
 	WorkGroupConfiguration *WorkGroupWorkGroupConfiguration `pulumi:"workGroupConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
+	// The workgroup configuration update object
 	WorkGroupConfigurationUpdates *WorkGroupWorkGroupConfigurationUpdates `pulumi:"workGroupConfigurationUpdates"`
 }
 
 // The set of arguments for constructing a WorkGroup resource.
 type WorkGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description
+	// The workgroup description.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name
+	// The workGroup name.
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
+	// The option to delete the workgroup and its contents even if the workgroup contains any named queries.
 	RecursiveDeleteOption pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
+	// The state of the workgroup: ENABLED or DISABLED.
 	State pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
+	// One or more tags, separated by commas, that you want to attach to the workgroup as you create it
+	Tags WorkGroupTagArrayInput
+	// The workgroup configuration
 	WorkGroupConfiguration WorkGroupWorkGroupConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
+	// The workgroup configuration update object
 	WorkGroupConfigurationUpdates WorkGroupWorkGroupConfigurationUpdatesPtrInput
 }
 

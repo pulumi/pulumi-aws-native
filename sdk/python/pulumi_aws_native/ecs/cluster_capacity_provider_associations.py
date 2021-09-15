@@ -20,9 +20,6 @@ class ClusterCapacityProviderAssociationsArgs:
                  default_capacity_provider_strategy: pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]]):
         """
         The set of arguments for constructing a ClusterCapacityProviderAssociations resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] capacity_providers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-capacityproviders
-        :param pulumi.Input[str] cluster: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-cluster
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]] default_capacity_provider_strategy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-defaultcapacityproviderstrategy
         """
         pulumi.set(__self__, "capacity_providers", capacity_providers)
         pulumi.set(__self__, "cluster", cluster)
@@ -31,9 +28,6 @@ class ClusterCapacityProviderAssociationsArgs:
     @property
     @pulumi.getter(name="capacityProviders")
     def capacity_providers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-capacityproviders
-        """
         return pulumi.get(self, "capacity_providers")
 
     @capacity_providers.setter
@@ -43,9 +37,6 @@ class ClusterCapacityProviderAssociationsArgs:
     @property
     @pulumi.getter
     def cluster(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-cluster
-        """
         return pulumi.get(self, "cluster")
 
     @cluster.setter
@@ -55,9 +46,6 @@ class ClusterCapacityProviderAssociationsArgs:
     @property
     @pulumi.getter(name="defaultCapacityProviderStrategy")
     def default_capacity_provider_strategy(self) -> pulumi.Input[Sequence[pulumi.Input['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-defaultcapacityproviderstrategy
-        """
         return pulumi.get(self, "default_capacity_provider_strategy")
 
     @default_capacity_provider_strategy.setter
@@ -75,13 +63,10 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
                  default_capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html
+        Associate a set of ECS Capacity Providers with a specified ECS Cluster
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] capacity_providers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-capacityproviders
-        :param pulumi.Input[str] cluster: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-cluster
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs']]]] default_capacity_provider_strategy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-defaultcapacityproviderstrategy
         """
         ...
     @overload
@@ -90,7 +75,7 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
                  args: ClusterCapacityProviderAssociationsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html
+        Associate a set of ECS Capacity Providers with a specified ECS Cluster
 
         :param str resource_name: The name of the resource.
         :param ClusterCapacityProviderAssociationsArgs args: The arguments to use to populate this resource's properties.
@@ -160,25 +145,16 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="capacityProviders")
-    def capacity_providers(self) -> pulumi.Output[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-capacityproviders
-        """
+    def capacity_providers(self) -> pulumi.Output[Sequence[Any]]:
         return pulumi.get(self, "capacity_providers")
 
     @property
     @pulumi.getter
     def cluster(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-cluster
-        """
         return pulumi.get(self, "cluster")
 
     @property
     @pulumi.getter(name="defaultCapacityProviderStrategy")
     def default_capacity_provider_strategy(self) -> pulumi.Output[Sequence['outputs.ClusterCapacityProviderAssociationsCapacityProviderStrategy']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-defaultcapacityproviderstrategy
-        """
         return pulumi.get(self, "default_capacity_provider_strategy")
 

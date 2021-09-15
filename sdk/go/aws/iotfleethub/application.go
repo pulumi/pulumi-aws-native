@@ -8,30 +8,37 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html
+// Resource schema for AWS::IoTFleetHub::Application
 type Application struct {
 	pulumi.CustomResourceState
 
-	ApplicationArn          pulumi.StringOutput `pulumi:"applicationArn"`
-	ApplicationCreationDate pulumi.IntOutput    `pulumi:"applicationCreationDate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationdescription
-	ApplicationDescription    pulumi.StringPtrOutput `pulumi:"applicationDescription"`
-	ApplicationId             pulumi.StringOutput    `pulumi:"applicationId"`
-	ApplicationLastUpdateDate pulumi.IntOutput       `pulumi:"applicationLastUpdateDate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationname
-	ApplicationName  pulumi.StringOutput `pulumi:"applicationName"`
+	// The ARN of the application.
+	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
+	// When the Application was created
+	ApplicationCreationDate pulumi.IntOutput `pulumi:"applicationCreationDate"`
+	// Application Description, should be between 1 and 2048 characters.
+	ApplicationDescription pulumi.StringPtrOutput `pulumi:"applicationDescription"`
+	// The ID of the application.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// When the Application was last updated
+	ApplicationLastUpdateDate pulumi.IntOutput `pulumi:"applicationLastUpdateDate"`
+	// Application Name, should be between 1 and 256 characters.
+	ApplicationName pulumi.StringOutput `pulumi:"applicationName"`
+	// The current state of the application.
 	ApplicationState pulumi.StringOutput `pulumi:"applicationState"`
-	ApplicationUrl   pulumi.StringOutput `pulumi:"applicationUrl"`
-	ErrorMessage     pulumi.StringOutput `pulumi:"errorMessage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-rolearn
-	RoleArn     pulumi.StringOutput `pulumi:"roleArn"`
+	// The URL of the application.
+	ApplicationUrl pulumi.StringOutput `pulumi:"applicationUrl"`
+	// A message indicating why Create or Delete Application failed.
+	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
+	// The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// The AWS SSO application generated client ID (used with AWS SSO APIs).
 	SsoClientId pulumi.StringOutput `pulumi:"ssoClientId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the application.
+	Tags ApplicationTagArrayOutput `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -79,26 +86,26 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationdescription
+	// Application Description, should be between 1 and 2048 characters.
 	ApplicationDescription *string `pulumi:"applicationDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationname
+	// Application Name, should be between 1 and 256 characters.
 	ApplicationName string `pulumi:"applicationName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-rolearn
+	// The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
 	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the application.
+	Tags []ApplicationTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationdescription
+	// Application Description, should be between 1 and 2048 characters.
 	ApplicationDescription pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationname
+	// Application Name, should be between 1 and 256 characters.
 	ApplicationName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-rolearn
+	// The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
 	RoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-tags
-	Tags aws.TagArrayInput
+	// A list of key-value pairs that contain metadata for the application.
+	Tags ApplicationTagArrayInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {

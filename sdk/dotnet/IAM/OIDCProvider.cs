@@ -10,35 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IAM
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html
+    /// Resource Type definition for AWS::IAM::OIDCProvider
     /// </summary>
     [AwsNativeResourceType("aws-native:iam:OIDCProvider")]
     public partial class OIDCProvider : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the OIDC provider
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-clientidlist
-        /// </summary>
         [Output("clientIdList")]
         public Output<ImmutableArray<string>> ClientIdList { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.OIDCProviderTag>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-thumbprintlist
-        /// </summary>
         [Output("thumbprintList")]
         public Output<ImmutableArray<string>> ThumbprintList { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-url
-        /// </summary>
         [Output("url")]
         public Output<string?> Url { get; private set; } = null!;
 
@@ -89,10 +80,6 @@ namespace Pulumi.AwsNative.IAM
     {
         [Input("clientIdList")]
         private InputList<string>? _clientIdList;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-clientidlist
-        /// </summary>
         public InputList<string> ClientIdList
         {
             get => _clientIdList ?? (_clientIdList = new InputList<string>());
@@ -100,32 +87,21 @@ namespace Pulumi.AwsNative.IAM
         }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.OIDCProviderTagArgs>? _tags;
+        public InputList<Inputs.OIDCProviderTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.OIDCProviderTagArgs>());
             set => _tags = value;
         }
 
         [Input("thumbprintList", required: true)]
         private InputList<string>? _thumbprintList;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-thumbprintlist
-        /// </summary>
         public InputList<string> ThumbprintList
         {
             get => _thumbprintList ?? (_thumbprintList = new InputList<string>());
             set => _thumbprintList = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-url
-        /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
 

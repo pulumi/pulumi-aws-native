@@ -10,34 +10,34 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AccessAnalyzer
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html
+    /// The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account
     /// </summary>
     [AwsNativeResourceType("aws-native:accessanalyzer:Analyzer")]
     public partial class Analyzer : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
+        /// Analyzer name
         /// </summary>
         [Output("analyzerName")]
         public Output<string?> AnalyzerName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
-        /// </summary>
         [Output("archiveRules")]
         public Output<ImmutableArray<Outputs.AnalyzerArchiveRule>> ArchiveRules { get; private set; } = null!;
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the analyzer
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AnalyzerTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
+        /// The type of the analyzer, must be ACCOUNT or ORGANIZATION
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -88,17 +88,13 @@ namespace Pulumi.AwsNative.AccessAnalyzer
     public sealed class AnalyzerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
+        /// Analyzer name
         /// </summary>
         [Input("analyzerName")]
         public Input<string>? AnalyzerName { get; set; }
 
         [Input("archiveRules")]
         private InputList<Inputs.AnalyzerArchiveRuleArgs>? _archiveRules;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
-        /// </summary>
         public InputList<Inputs.AnalyzerArchiveRuleArgs> ArchiveRules
         {
             get => _archiveRules ?? (_archiveRules = new InputList<Inputs.AnalyzerArchiveRuleArgs>());
@@ -106,19 +102,19 @@ namespace Pulumi.AwsNative.AccessAnalyzer
         }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.AnalyzerTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.AnalyzerTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.AnalyzerTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
+        /// The type of the analyzer, must be ACCOUNT or ORGANIZATION
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

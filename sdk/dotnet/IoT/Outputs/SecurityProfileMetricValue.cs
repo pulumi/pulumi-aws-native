@@ -11,33 +11,33 @@ namespace Pulumi.AwsNative.IoT.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html
+    /// The value to be compared with the metric.
     /// </summary>
     [OutputType]
     public sealed class SecurityProfileMetricValue
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-cidrs
+        /// If the ComparisonOperator calls for a set of CIDRs, use this to specify that set to be compared with the metric.
         /// </summary>
         public readonly ImmutableArray<string> Cidrs;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-count
+        /// If the ComparisonOperator calls for a numeric value, use this to specify that (integer) numeric value to be compared with the metric.
         /// </summary>
         public readonly string? Count;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-number
+        /// The numeral value of a metric.
         /// </summary>
         public readonly double? Number;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-numbers
+        /// The numeral values of a metric.
         /// </summary>
         public readonly ImmutableArray<double> Numbers;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-ports
+        /// If the ComparisonOperator calls for a set of ports, use this to specify that set to be compared with the metric.
         /// </summary>
         public readonly ImmutableArray<int> Ports;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricvalue.html#cfn-iot-securityprofile-metricvalue-strings
+        /// The string values of a metric.
         /// </summary>
         public readonly ImmutableArray<string> Strings;
 

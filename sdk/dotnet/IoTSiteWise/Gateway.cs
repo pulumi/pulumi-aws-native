@@ -10,37 +10,40 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTSiteWise
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html
+    /// Resource schema for AWS::IoTSiteWise::Gateway
     /// </summary>
     [AwsNativeResourceType("aws-native:iotsitewise:Gateway")]
     public partial class Gateway : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
+        /// A list of gateway capability summaries that each contain a namespace and status.
         /// </summary>
         [Output("gatewayCapabilitySummaries")]
         public Output<ImmutableArray<Outputs.GatewayGatewayCapabilitySummary>> GatewayCapabilitySummaries { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the gateway device.
+        /// </summary>
         [Output("gatewayId")]
         public Output<string> GatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
+        /// A unique, friendly name for the gateway.
         /// </summary>
         [Output("gatewayName")]
         public Output<string> GatewayName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
+        /// The gateway's platform. You can only specify one platform in a gateway.
         /// </summary>
         [Output("gatewayPlatform")]
         public Output<Outputs.GatewayGatewayPlatform> GatewayPlatform { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
+        /// A list of key-value pairs that contain metadata for the gateway.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GatewayTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -91,7 +94,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         private InputList<Inputs.GatewayGatewayCapabilitySummaryArgs>? _gatewayCapabilitySummaries;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
+        /// A list of gateway capability summaries that each contain a namespace and status.
         /// </summary>
         public InputList<Inputs.GatewayGatewayCapabilitySummaryArgs> GatewayCapabilitySummaries
         {
@@ -100,26 +103,26 @@ namespace Pulumi.AwsNative.IoTSiteWise
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
+        /// A unique, friendly name for the gateway.
         /// </summary>
         [Input("gatewayName", required: true)]
         public Input<string> GatewayName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
+        /// The gateway's platform. You can only specify one platform in a gateway.
         /// </summary>
         [Input("gatewayPlatform", required: true)]
         public Input<Inputs.GatewayGatewayPlatformArgs> GatewayPlatform { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.GatewayTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
+        /// A list of key-value pairs that contain metadata for the gateway.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.GatewayTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.GatewayTagArgs>());
             set => _tags = value;
         }
 

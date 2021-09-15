@@ -8,59 +8,36 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html
+// Resource Type definition for AWS::OpsWorksCM::Server
 type Server struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-associatepublicipaddress
-	AssociatePublicIpAddress pulumi.BoolPtrOutput `pulumi:"associatePublicIpAddress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupid
-	BackupId pulumi.StringPtrOutput `pulumi:"backupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupretentioncount
-	BackupRetentionCount pulumi.IntPtrOutput `pulumi:"backupRetentionCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customcertificate
-	CustomCertificate pulumi.StringPtrOutput `pulumi:"customCertificate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customdomain
-	CustomDomain pulumi.StringPtrOutput `pulumi:"customDomain"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customprivatekey
-	CustomPrivateKey pulumi.StringPtrOutput `pulumi:"customPrivateKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-disableautomatedbackup
-	DisableAutomatedBackup pulumi.BoolPtrOutput `pulumi:"disableAutomatedBackup"`
-	Endpoint               pulumi.StringOutput  `pulumi:"endpoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engine
-	Engine pulumi.StringPtrOutput `pulumi:"engine"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineattributes
-	EngineAttributes ServerEngineAttributeArrayOutput `pulumi:"engineAttributes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-enginemodel
-	EngineModel pulumi.StringPtrOutput `pulumi:"engineModel"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineversion
-	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
-	Id            pulumi.StringOutput    `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instanceprofilearn
-	InstanceProfileArn pulumi.StringOutput `pulumi:"instanceProfileArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instancetype
-	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-keypair
-	KeyPair pulumi.StringPtrOutput `pulumi:"keyPair"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredbackupwindow
-	PreferredBackupWindow pulumi.StringPtrOutput `pulumi:"preferredBackupWindow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredmaintenancewindow
-	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-securitygroupids
-	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servername
-	ServerName pulumi.StringPtrOutput `pulumi:"serverName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servicerolearn
-	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-subnetids
-	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Arn                        pulumi.StringOutput              `pulumi:"arn"`
+	AssociatePublicIpAddress   pulumi.BoolPtrOutput             `pulumi:"associatePublicIpAddress"`
+	BackupId                   pulumi.StringPtrOutput           `pulumi:"backupId"`
+	BackupRetentionCount       pulumi.IntPtrOutput              `pulumi:"backupRetentionCount"`
+	CustomCertificate          pulumi.StringPtrOutput           `pulumi:"customCertificate"`
+	CustomDomain               pulumi.StringPtrOutput           `pulumi:"customDomain"`
+	CustomPrivateKey           pulumi.StringPtrOutput           `pulumi:"customPrivateKey"`
+	DisableAutomatedBackup     pulumi.BoolPtrOutput             `pulumi:"disableAutomatedBackup"`
+	Endpoint                   pulumi.StringOutput              `pulumi:"endpoint"`
+	Engine                     pulumi.StringPtrOutput           `pulumi:"engine"`
+	EngineAttributes           ServerEngineAttributeArrayOutput `pulumi:"engineAttributes"`
+	EngineModel                pulumi.StringPtrOutput           `pulumi:"engineModel"`
+	EngineVersion              pulumi.StringPtrOutput           `pulumi:"engineVersion"`
+	InstanceProfileArn         pulumi.StringOutput              `pulumi:"instanceProfileArn"`
+	InstanceType               pulumi.StringOutput              `pulumi:"instanceType"`
+	KeyPair                    pulumi.StringPtrOutput           `pulumi:"keyPair"`
+	PreferredBackupWindow      pulumi.StringPtrOutput           `pulumi:"preferredBackupWindow"`
+	PreferredMaintenanceWindow pulumi.StringPtrOutput           `pulumi:"preferredMaintenanceWindow"`
+	SecurityGroupIds           pulumi.StringArrayOutput         `pulumi:"securityGroupIds"`
+	ServerName                 pulumi.StringPtrOutput           `pulumi:"serverName"`
+	ServiceRoleArn             pulumi.StringOutput              `pulumi:"serviceRoleArn"`
+	SubnetIds                  pulumi.StringArrayOutput         `pulumi:"subnetIds"`
+	Tags                       ServerTagArrayOutput             `pulumi:"tags"`
 }
 
 // NewServer registers a new resource with the given unique name, arguments, and options.
@@ -111,94 +88,52 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-associatepublicipaddress
-	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupid
-	BackupId *string `pulumi:"backupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupretentioncount
-	BackupRetentionCount *int `pulumi:"backupRetentionCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customcertificate
-	CustomCertificate *string `pulumi:"customCertificate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customdomain
-	CustomDomain *string `pulumi:"customDomain"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customprivatekey
-	CustomPrivateKey *string `pulumi:"customPrivateKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-disableautomatedbackup
-	DisableAutomatedBackup *bool `pulumi:"disableAutomatedBackup"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engine
-	Engine *string `pulumi:"engine"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineattributes
-	EngineAttributes []ServerEngineAttribute `pulumi:"engineAttributes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-enginemodel
-	EngineModel *string `pulumi:"engineModel"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineversion
-	EngineVersion *string `pulumi:"engineVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instanceprofilearn
-	InstanceProfileArn string `pulumi:"instanceProfileArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instancetype
-	InstanceType string `pulumi:"instanceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-keypair
-	KeyPair *string `pulumi:"keyPair"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredbackupwindow
-	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredmaintenancewindow
-	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-securitygroupids
-	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servername
-	ServerName *string `pulumi:"serverName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servicerolearn
-	ServiceRoleArn string `pulumi:"serviceRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-subnetids
-	SubnetIds []string `pulumi:"subnetIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	AssociatePublicIpAddress   *bool                   `pulumi:"associatePublicIpAddress"`
+	BackupId                   *string                 `pulumi:"backupId"`
+	BackupRetentionCount       *int                    `pulumi:"backupRetentionCount"`
+	CustomCertificate          *string                 `pulumi:"customCertificate"`
+	CustomDomain               *string                 `pulumi:"customDomain"`
+	CustomPrivateKey           *string                 `pulumi:"customPrivateKey"`
+	DisableAutomatedBackup     *bool                   `pulumi:"disableAutomatedBackup"`
+	Engine                     *string                 `pulumi:"engine"`
+	EngineAttributes           []ServerEngineAttribute `pulumi:"engineAttributes"`
+	EngineModel                *string                 `pulumi:"engineModel"`
+	EngineVersion              *string                 `pulumi:"engineVersion"`
+	InstanceProfileArn         string                  `pulumi:"instanceProfileArn"`
+	InstanceType               string                  `pulumi:"instanceType"`
+	KeyPair                    *string                 `pulumi:"keyPair"`
+	PreferredBackupWindow      *string                 `pulumi:"preferredBackupWindow"`
+	PreferredMaintenanceWindow *string                 `pulumi:"preferredMaintenanceWindow"`
+	SecurityGroupIds           []string                `pulumi:"securityGroupIds"`
+	ServerName                 *string                 `pulumi:"serverName"`
+	ServiceRoleArn             string                  `pulumi:"serviceRoleArn"`
+	SubnetIds                  []string                `pulumi:"subnetIds"`
+	Tags                       []ServerTag             `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-associatepublicipaddress
-	AssociatePublicIpAddress pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupid
-	BackupId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupretentioncount
-	BackupRetentionCount pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customcertificate
-	CustomCertificate pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customdomain
-	CustomDomain pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customprivatekey
-	CustomPrivateKey pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-disableautomatedbackup
-	DisableAutomatedBackup pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engine
-	Engine pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineattributes
-	EngineAttributes ServerEngineAttributeArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-enginemodel
-	EngineModel pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-engineversion
-	EngineVersion pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instanceprofilearn
-	InstanceProfileArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-instancetype
-	InstanceType pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-keypair
-	KeyPair pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredbackupwindow
-	PreferredBackupWindow pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-preferredmaintenancewindow
+	AssociatePublicIpAddress   pulumi.BoolPtrInput
+	BackupId                   pulumi.StringPtrInput
+	BackupRetentionCount       pulumi.IntPtrInput
+	CustomCertificate          pulumi.StringPtrInput
+	CustomDomain               pulumi.StringPtrInput
+	CustomPrivateKey           pulumi.StringPtrInput
+	DisableAutomatedBackup     pulumi.BoolPtrInput
+	Engine                     pulumi.StringPtrInput
+	EngineAttributes           ServerEngineAttributeArrayInput
+	EngineModel                pulumi.StringPtrInput
+	EngineVersion              pulumi.StringPtrInput
+	InstanceProfileArn         pulumi.StringInput
+	InstanceType               pulumi.StringInput
+	KeyPair                    pulumi.StringPtrInput
+	PreferredBackupWindow      pulumi.StringPtrInput
 	PreferredMaintenanceWindow pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-securitygroupids
-	SecurityGroupIds pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servername
-	ServerName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-servicerolearn
-	ServiceRoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-subnetids
-	SubnetIds pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-tags
-	Tags aws.TagArrayInput
+	SecurityGroupIds           pulumi.StringArrayInput
+	ServerName                 pulumi.StringPtrInput
+	ServiceRoleArn             pulumi.StringInput
+	SubnetIds                  pulumi.StringArrayInput
+	Tags                       ServerTagArrayInput
 }
 
 func (ServerArgs) ElementType() reflect.Type {

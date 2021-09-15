@@ -11,22 +11,16 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html
+    /// Source Code Repository
     /// </summary>
     [OutputType]
     public sealed class ServiceCodeRepository
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-codeconfiguration
-        /// </summary>
         public readonly Outputs.ServiceCodeConfiguration? CodeConfiguration;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-repositoryurl
+        /// Repository Url
         /// </summary>
         public readonly string RepositoryUrl;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-coderepository.html#cfn-apprunner-service-coderepository-sourcecodeversion
-        /// </summary>
         public readonly Outputs.ServiceSourceCodeVersion SourceCodeVersion;
 
         [OutputConstructor]

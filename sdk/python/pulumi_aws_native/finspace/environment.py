@@ -22,11 +22,10 @@ class EnvironmentArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Environment resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-name
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-description
-        :param pulumi.Input[str] federation_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationmode
-        :param pulumi.Input['EnvironmentFederationParametersArgs'] federation_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationparameters
-        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-kmskeyid
+        :param pulumi.Input[str] name: Name of the Environment
+        :param pulumi.Input[str] description: Description of the Environment
+        :param pulumi.Input[str] federation_mode: Federation mode used with the Environment
+        :param pulumi.Input[str] kms_key_id: KMS key used to encrypt customer data within FinSpace Environment infrastructure
         """
         pulumi.set(__self__, "name", name)
         if description is not None:
@@ -42,7 +41,7 @@ class EnvironmentArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-name
+        Name of the Environment
         """
         return pulumi.get(self, "name")
 
@@ -54,7 +53,7 @@ class EnvironmentArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-description
+        Description of the Environment
         """
         return pulumi.get(self, "description")
 
@@ -66,7 +65,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="federationMode")
     def federation_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationmode
+        Federation mode used with the Environment
         """
         return pulumi.get(self, "federation_mode")
 
@@ -77,9 +76,6 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="federationParameters")
     def federation_parameters(self) -> Optional[pulumi.Input['EnvironmentFederationParametersArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationparameters
-        """
         return pulumi.get(self, "federation_parameters")
 
     @federation_parameters.setter
@@ -90,7 +86,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-kmskeyid
+        KMS key used to encrypt customer data within FinSpace Environment infrastructure
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -111,15 +107,14 @@ class Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-description
-        :param pulumi.Input[str] federation_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationmode
-        :param pulumi.Input[pulumi.InputType['EnvironmentFederationParametersArgs']] federation_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationparameters
-        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-kmskeyid
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-name
+        :param pulumi.Input[str] description: Description of the Environment
+        :param pulumi.Input[str] federation_mode: Federation mode used with the Environment
+        :param pulumi.Input[str] kms_key_id: KMS key used to encrypt customer data within FinSpace Environment infrastructure
+        :param pulumi.Input[str] name: Name of the Environment
         """
         ...
     @overload
@@ -128,7 +123,7 @@ class Environment(pulumi.CustomResource):
                  args: EnvironmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html
+        An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.
@@ -215,57 +210,69 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[str]:
+        """
+        AWS account ID associated with the Environment
+        """
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter(name="dedicatedServiceAccountId")
     def dedicated_service_account_id(self) -> pulumi.Output[str]:
+        """
+        ID for FinSpace created account used to store Environment artifacts
+        """
         return pulumi.get(self, "dedicated_service_account_id")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-description
+        Description of the Environment
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="environmentArn")
     def environment_arn(self) -> pulumi.Output[str]:
+        """
+        ARN of the Environment
+        """
         return pulumi.get(self, "environment_arn")
 
     @property
     @pulumi.getter(name="environmentId")
     def environment_id(self) -> pulumi.Output[str]:
+        """
+        Unique identifier for representing FinSpace Environment
+        """
         return pulumi.get(self, "environment_id")
 
     @property
     @pulumi.getter(name="environmentUrl")
     def environment_url(self) -> pulumi.Output[str]:
+        """
+        URL used to login to the Environment
+        """
         return pulumi.get(self, "environment_url")
 
     @property
     @pulumi.getter(name="federationMode")
     def federation_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationmode
+        Federation mode used with the Environment
         """
         return pulumi.get(self, "federation_mode")
 
     @property
     @pulumi.getter(name="federationParameters")
     def federation_parameters(self) -> pulumi.Output[Optional['outputs.EnvironmentFederationParameters']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationparameters
-        """
         return pulumi.get(self, "federation_parameters")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-kmskeyid
+        KMS key used to encrypt customer data within FinSpace Environment infrastructure
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -273,17 +280,23 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-name
+        Name of the Environment
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="sageMakerStudioDomainUrl")
     def sage_maker_studio_domain_url(self) -> pulumi.Output[str]:
+        """
+        SageMaker Studio Domain URL associated with the Environment
+        """
         return pulumi.get(self, "sage_maker_studio_domain_url")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        State of the Environment
+        """
         return pulumi.get(self, "status")
 

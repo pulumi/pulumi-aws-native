@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html
 type CloudFormationProvisionedProductProvisioningParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameter-key
-	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameter-value
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -29,11 +26,8 @@ type CloudFormationProvisionedProductProvisioningParameterInput interface {
 	ToCloudFormationProvisionedProductProvisioningParameterOutputWithContext(context.Context) CloudFormationProvisionedProductProvisioningParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html
 type CloudFormationProvisionedProductProvisioningParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameter-key
-	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameter-value
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -74,7 +68,6 @@ func (i CloudFormationProvisionedProductProvisioningParameterArray) ToCloudForma
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProvisionedProductProvisioningParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html
 type CloudFormationProvisionedProductProvisioningParameterOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationProvisionedProductProvisioningParameterOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o CloudFormationProvisionedProductProvisioningParameterOutput) ToCloudForm
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameter-key
 func (o CloudFormationProvisionedProductProvisioningParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameter-value
 func (o CloudFormationProvisionedProductProvisioningParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -119,22 +110,14 @@ func (o CloudFormationProvisionedProductProvisioningParameterArrayOutput) Index(
 	}).(CloudFormationProvisionedProductProvisioningParameterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html
 type CloudFormationProvisionedProductProvisioningPreferences struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetaccounts
-	StackSetAccounts []string `pulumi:"stackSetAccounts"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetfailuretolerancecount
-	StackSetFailureToleranceCount *int `pulumi:"stackSetFailureToleranceCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetfailuretolerancepercentage
-	StackSetFailureTolerancePercentage *int `pulumi:"stackSetFailureTolerancePercentage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetmaxconcurrencycount
-	StackSetMaxConcurrencyCount *int `pulumi:"stackSetMaxConcurrencyCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetmaxconcurrencypercentage
-	StackSetMaxConcurrencyPercentage *int `pulumi:"stackSetMaxConcurrencyPercentage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetoperationtype
-	StackSetOperationType *string `pulumi:"stackSetOperationType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetregions
-	StackSetRegions []string `pulumi:"stackSetRegions"`
+	StackSetAccounts                   []string `pulumi:"stackSetAccounts"`
+	StackSetFailureToleranceCount      *int     `pulumi:"stackSetFailureToleranceCount"`
+	StackSetFailureTolerancePercentage *int     `pulumi:"stackSetFailureTolerancePercentage"`
+	StackSetMaxConcurrencyCount        *int     `pulumi:"stackSetMaxConcurrencyCount"`
+	StackSetMaxConcurrencyPercentage   *int     `pulumi:"stackSetMaxConcurrencyPercentage"`
+	StackSetOperationType              *string  `pulumi:"stackSetOperationType"`
+	StackSetRegions                    []string `pulumi:"stackSetRegions"`
 }
 
 // CloudFormationProvisionedProductProvisioningPreferencesInput is an input type that accepts CloudFormationProvisionedProductProvisioningPreferencesArgs and CloudFormationProvisionedProductProvisioningPreferencesOutput values.
@@ -148,22 +131,14 @@ type CloudFormationProvisionedProductProvisioningPreferencesInput interface {
 	ToCloudFormationProvisionedProductProvisioningPreferencesOutputWithContext(context.Context) CloudFormationProvisionedProductProvisioningPreferencesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html
 type CloudFormationProvisionedProductProvisioningPreferencesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetaccounts
-	StackSetAccounts pulumi.StringArrayInput `pulumi:"stackSetAccounts"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetfailuretolerancecount
-	StackSetFailureToleranceCount pulumi.IntPtrInput `pulumi:"stackSetFailureToleranceCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetfailuretolerancepercentage
-	StackSetFailureTolerancePercentage pulumi.IntPtrInput `pulumi:"stackSetFailureTolerancePercentage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetmaxconcurrencycount
-	StackSetMaxConcurrencyCount pulumi.IntPtrInput `pulumi:"stackSetMaxConcurrencyCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetmaxconcurrencypercentage
-	StackSetMaxConcurrencyPercentage pulumi.IntPtrInput `pulumi:"stackSetMaxConcurrencyPercentage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetoperationtype
-	StackSetOperationType pulumi.StringPtrInput `pulumi:"stackSetOperationType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetregions
-	StackSetRegions pulumi.StringArrayInput `pulumi:"stackSetRegions"`
+	StackSetAccounts                   pulumi.StringArrayInput `pulumi:"stackSetAccounts"`
+	StackSetFailureToleranceCount      pulumi.IntPtrInput      `pulumi:"stackSetFailureToleranceCount"`
+	StackSetFailureTolerancePercentage pulumi.IntPtrInput      `pulumi:"stackSetFailureTolerancePercentage"`
+	StackSetMaxConcurrencyCount        pulumi.IntPtrInput      `pulumi:"stackSetMaxConcurrencyCount"`
+	StackSetMaxConcurrencyPercentage   pulumi.IntPtrInput      `pulumi:"stackSetMaxConcurrencyPercentage"`
+	StackSetOperationType              pulumi.StringPtrInput   `pulumi:"stackSetOperationType"`
+	StackSetRegions                    pulumi.StringArrayInput `pulumi:"stackSetRegions"`
 }
 
 func (CloudFormationProvisionedProductProvisioningPreferencesArgs) ElementType() reflect.Type {
@@ -219,7 +194,6 @@ func (i *cloudFormationProvisionedProductProvisioningPreferencesPtrType) ToCloud
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProvisionedProductProvisioningPreferencesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html
 type CloudFormationProvisionedProductProvisioningPreferencesOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationProvisionedProductProvisioningPreferencesOutput) ElementType() reflect.Type {
@@ -244,47 +218,40 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) ToCloudFo
 	}).(CloudFormationProvisionedProductProvisioningPreferencesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetaccounts
 func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningPreferences) []string { return v.StackSetAccounts }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetfailuretolerancecount
 func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetFailureToleranceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningPreferences) *int {
 		return v.StackSetFailureToleranceCount
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetfailuretolerancepercentage
 func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetFailureTolerancePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningPreferences) *int {
 		return v.StackSetFailureTolerancePercentage
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetmaxconcurrencycount
 func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetMaxConcurrencyCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningPreferences) *int {
 		return v.StackSetMaxConcurrencyCount
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetmaxconcurrencypercentage
 func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetMaxConcurrencyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningPreferences) *int {
 		return v.StackSetMaxConcurrencyPercentage
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetoperationtype
 func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetOperationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningPreferences) *string {
 		return v.StackSetOperationType
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetregions
 func (o CloudFormationProvisionedProductProvisioningPreferencesOutput) StackSetRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CloudFormationProvisionedProductProvisioningPreferences) []string { return v.StackSetRegions }).(pulumi.StringArrayOutput)
 }
@@ -313,7 +280,6 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) Elem()
 	}).(CloudFormationProvisionedProductProvisioningPreferencesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetaccounts
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferences) []string {
 		if v == nil {
@@ -323,7 +289,6 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackS
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetfailuretolerancecount
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetFailureToleranceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferences) *int {
 		if v == nil {
@@ -333,7 +298,6 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackS
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetfailuretolerancepercentage
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetFailureTolerancePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferences) *int {
 		if v == nil {
@@ -343,7 +307,6 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackS
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetmaxconcurrencycount
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetMaxConcurrencyCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferences) *int {
 		if v == nil {
@@ -353,7 +316,6 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackS
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetmaxconcurrencypercentage
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetMaxConcurrencyPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferences) *int {
 		if v == nil {
@@ -363,7 +325,6 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackS
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetoperationtype
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetOperationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferences) *string {
 		if v == nil {
@@ -373,7 +334,6 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackS
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences-stacksetregions
 func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackSetRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProductProvisioningPreferences) []string {
 		if v == nil {
@@ -383,11 +343,108 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesPtrOutput) StackS
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html
+type CloudFormationProvisionedProductTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// CloudFormationProvisionedProductTagInput is an input type that accepts CloudFormationProvisionedProductTagArgs and CloudFormationProvisionedProductTagOutput values.
+// You can construct a concrete instance of `CloudFormationProvisionedProductTagInput` via:
+//
+//          CloudFormationProvisionedProductTagArgs{...}
+type CloudFormationProvisionedProductTagInput interface {
+	pulumi.Input
+
+	ToCloudFormationProvisionedProductTagOutput() CloudFormationProvisionedProductTagOutput
+	ToCloudFormationProvisionedProductTagOutputWithContext(context.Context) CloudFormationProvisionedProductTagOutput
+}
+
+type CloudFormationProvisionedProductTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CloudFormationProvisionedProductTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProvisionedProductTag)(nil)).Elem()
+}
+
+func (i CloudFormationProvisionedProductTagArgs) ToCloudFormationProvisionedProductTagOutput() CloudFormationProvisionedProductTagOutput {
+	return i.ToCloudFormationProvisionedProductTagOutputWithContext(context.Background())
+}
+
+func (i CloudFormationProvisionedProductTagArgs) ToCloudFormationProvisionedProductTagOutputWithContext(ctx context.Context) CloudFormationProvisionedProductTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProvisionedProductTagOutput)
+}
+
+// CloudFormationProvisionedProductTagArrayInput is an input type that accepts CloudFormationProvisionedProductTagArray and CloudFormationProvisionedProductTagArrayOutput values.
+// You can construct a concrete instance of `CloudFormationProvisionedProductTagArrayInput` via:
+//
+//          CloudFormationProvisionedProductTagArray{ CloudFormationProvisionedProductTagArgs{...} }
+type CloudFormationProvisionedProductTagArrayInput interface {
+	pulumi.Input
+
+	ToCloudFormationProvisionedProductTagArrayOutput() CloudFormationProvisionedProductTagArrayOutput
+	ToCloudFormationProvisionedProductTagArrayOutputWithContext(context.Context) CloudFormationProvisionedProductTagArrayOutput
+}
+
+type CloudFormationProvisionedProductTagArray []CloudFormationProvisionedProductTagInput
+
+func (CloudFormationProvisionedProductTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudFormationProvisionedProductTag)(nil)).Elem()
+}
+
+func (i CloudFormationProvisionedProductTagArray) ToCloudFormationProvisionedProductTagArrayOutput() CloudFormationProvisionedProductTagArrayOutput {
+	return i.ToCloudFormationProvisionedProductTagArrayOutputWithContext(context.Background())
+}
+
+func (i CloudFormationProvisionedProductTagArray) ToCloudFormationProvisionedProductTagArrayOutputWithContext(ctx context.Context) CloudFormationProvisionedProductTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProvisionedProductTagArrayOutput)
+}
+
+type CloudFormationProvisionedProductTagOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProvisionedProductTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CloudFormationProvisionedProductTag)(nil)).Elem()
+}
+
+func (o CloudFormationProvisionedProductTagOutput) ToCloudFormationProvisionedProductTagOutput() CloudFormationProvisionedProductTagOutput {
+	return o
+}
+
+func (o CloudFormationProvisionedProductTagOutput) ToCloudFormationProvisionedProductTagOutputWithContext(ctx context.Context) CloudFormationProvisionedProductTagOutput {
+	return o
+}
+
+func (o CloudFormationProvisionedProductTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudFormationProvisionedProductTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o CloudFormationProvisionedProductTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CloudFormationProvisionedProductTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CloudFormationProvisionedProductTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CloudFormationProvisionedProductTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CloudFormationProvisionedProductTag)(nil)).Elem()
+}
+
+func (o CloudFormationProvisionedProductTagArrayOutput) ToCloudFormationProvisionedProductTagArrayOutput() CloudFormationProvisionedProductTagArrayOutput {
+	return o
+}
+
+func (o CloudFormationProvisionedProductTagArrayOutput) ToCloudFormationProvisionedProductTagArrayOutputWithContext(ctx context.Context) CloudFormationProvisionedProductTagArrayOutput {
+	return o
+}
+
+func (o CloudFormationProvisionedProductTagArrayOutput) Index(i pulumi.IntInput) CloudFormationProvisionedProductTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudFormationProvisionedProductTag {
+		return vs[0].([]CloudFormationProvisionedProductTag)[vs[1].(int)]
+	}).(CloudFormationProvisionedProductTagOutput)
+}
+
 type ServiceActionDefinitionParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-key
-	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-value
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -402,11 +459,8 @@ type ServiceActionDefinitionParameterInput interface {
 	ToServiceActionDefinitionParameterOutputWithContext(context.Context) ServiceActionDefinitionParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html
 type ServiceActionDefinitionParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-key
-	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-value
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -447,7 +501,6 @@ func (i ServiceActionDefinitionParameterArray) ToServiceActionDefinitionParamete
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionDefinitionParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html
 type ServiceActionDefinitionParameterOutput struct{ *pulumi.OutputState }
 
 func (ServiceActionDefinitionParameterOutput) ElementType() reflect.Type {
@@ -462,12 +515,10 @@ func (o ServiceActionDefinitionParameterOutput) ToServiceActionDefinitionParamet
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-key
 func (o ServiceActionDefinitionParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceActionDefinitionParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-serviceaction-definitionparameter.html#cfn-servicecatalog-serviceaction-definitionparameter-value
 func (o ServiceActionDefinitionParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceActionDefinitionParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -497,6 +548,8 @@ func init() {
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningParameterArrayOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningPreferencesOutput{})
 	pulumi.RegisterOutputType(CloudFormationProvisionedProductProvisioningPreferencesPtrOutput{})
+	pulumi.RegisterOutputType(CloudFormationProvisionedProductTagOutput{})
+	pulumi.RegisterOutputType(CloudFormationProvisionedProductTagArrayOutput{})
 	pulumi.RegisterOutputType(ServiceActionDefinitionParameterOutput{})
 	pulumi.RegisterOutputType(ServiceActionDefinitionParameterArrayOutput{})
 }

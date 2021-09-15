@@ -11,16 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html
+// The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
 type AccessPoint struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The date and time when the Object lambda Access Point was created.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-name
+	// The name you want to assign to this Object lambda Access Point.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration
+	// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
 	ObjectLambdaConfiguration AccessPointObjectLambdaConfigurationPtrOutput `pulumi:"objectLambdaConfiguration"`
+	PolicyStatus              pulumi.AnyOutput                              `pulumi:"policyStatus"`
+	// The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
+	PublicAccessBlockConfiguration AccessPointPublicAccessBlockConfigurationOutput `pulumi:"publicAccessBlockConfiguration"`
 }
 
 // NewAccessPoint registers a new resource with the given unique name, arguments, and options.
@@ -65,17 +69,17 @@ func (AccessPointState) ElementType() reflect.Type {
 }
 
 type accessPointArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-name
+	// The name you want to assign to this Object lambda Access Point.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration
+	// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
 	ObjectLambdaConfiguration *AccessPointObjectLambdaConfiguration `pulumi:"objectLambdaConfiguration"`
 }
 
 // The set of arguments for constructing a AccessPoint resource.
 type AccessPointArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-name
+	// The name you want to assign to this Object lambda Access Point.
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration
+	// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
 	ObjectLambdaConfiguration AccessPointObjectLambdaConfigurationPtrInput
 }
 

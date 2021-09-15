@@ -7,43 +7,44 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html
+// Resource schema for AWS::ImageBuilder::ContainerRecipe
 type ContainerRecipe struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the container recipe.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-components
+	// Components for build and test that are included in the container recipe.
 	Components ContainerRecipeComponentConfigurationArrayOutput `pulumi:"components"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-containertype
-	ContainerType pulumi.StringOutput `pulumi:"containerType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-description
+	// Specifies the type of container, such as Docker.
+	ContainerType pulumi.StringPtrOutput `pulumi:"containerType"`
+	// The description of the container recipe.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplatedata
+	// Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
 	DockerfileTemplateData pulumi.StringPtrOutput `pulumi:"dockerfileTemplateData"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplateuri
+	// The S3 URI for the Dockerfile that will be used to build your container image.
 	DockerfileTemplateUri pulumi.StringPtrOutput `pulumi:"dockerfileTemplateUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-imageosversionoverride
+	// Specifies the operating system version for the source image.
 	ImageOsVersionOverride pulumi.StringPtrOutput `pulumi:"imageOsVersionOverride"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-instanceconfiguration
+	// A group of options that can be used to configure an instance for building and testing container images.
 	InstanceConfiguration ContainerRecipeInstanceConfigurationPtrOutput `pulumi:"instanceConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-kmskeyid
+	// Identifies which KMS key is used to encrypt the container image.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	Name     pulumi.StringOutput    `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-parentimage
-	ParentImage pulumi.StringOutput `pulumi:"parentImage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-platformoverride
+	// The name of the container recipe.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The source image for the container recipe.
+	ParentImage pulumi.StringPtrOutput `pulumi:"parentImage"`
+	// Specifies the operating system platform when you use a custom source image.
 	PlatformOverride pulumi.StringPtrOutput `pulumi:"platformOverride"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-targetrepository
-	TargetRepository ContainerRecipeTargetContainerRepositoryOutput `pulumi:"targetRepository"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-version
-	Version pulumi.StringOutput `pulumi:"version"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-workingdirectory
+	// Tags that are attached to the container recipe.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
+	// The destination repository for the container image.
+	TargetRepository ContainerRecipeTargetContainerRepositoryPtrOutput `pulumi:"targetRepository"`
+	// The semantic version of the container recipe (<major>.<minor>.<patch>).
+	Version pulumi.StringPtrOutput `pulumi:"version"`
+	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrOutput `pulumi:"workingDirectory"`
 }
 
@@ -51,27 +52,9 @@ type ContainerRecipe struct {
 func NewContainerRecipe(ctx *pulumi.Context,
 	name string, args *ContainerRecipeArgs, opts ...pulumi.ResourceOption) (*ContainerRecipe, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ContainerRecipeArgs{}
 	}
 
-	if args.Components == nil {
-		return nil, errors.New("invalid value for required argument 'Components'")
-	}
-	if args.ContainerType == nil {
-		return nil, errors.New("invalid value for required argument 'ContainerType'")
-	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
-	if args.ParentImage == nil {
-		return nil, errors.New("invalid value for required argument 'ParentImage'")
-	}
-	if args.TargetRepository == nil {
-		return nil, errors.New("invalid value for required argument 'TargetRepository'")
-	}
-	if args.Version == nil {
-		return nil, errors.New("invalid value for required argument 'Version'")
-	}
 	var resource ContainerRecipe
 	err := ctx.RegisterResource("aws-native:imagebuilder:ContainerRecipe", name, args, &resource, opts...)
 	if err != nil {
@@ -104,69 +87,69 @@ func (ContainerRecipeState) ElementType() reflect.Type {
 }
 
 type containerRecipeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-components
+	// Components for build and test that are included in the container recipe.
 	Components []ContainerRecipeComponentConfiguration `pulumi:"components"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-containertype
-	ContainerType string `pulumi:"containerType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-description
+	// Specifies the type of container, such as Docker.
+	ContainerType *string `pulumi:"containerType"`
+	// The description of the container recipe.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplatedata
+	// Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
 	DockerfileTemplateData *string `pulumi:"dockerfileTemplateData"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplateuri
+	// The S3 URI for the Dockerfile that will be used to build your container image.
 	DockerfileTemplateUri *string `pulumi:"dockerfileTemplateUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-imageosversionoverride
+	// Specifies the operating system version for the source image.
 	ImageOsVersionOverride *string `pulumi:"imageOsVersionOverride"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-instanceconfiguration
+	// A group of options that can be used to configure an instance for building and testing container images.
 	InstanceConfiguration *ContainerRecipeInstanceConfiguration `pulumi:"instanceConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-kmskeyid
+	// Identifies which KMS key is used to encrypt the container image.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-parentimage
-	ParentImage string `pulumi:"parentImage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-platformoverride
+	// The name of the container recipe.
+	Name *string `pulumi:"name"`
+	// The source image for the container recipe.
+	ParentImage *string `pulumi:"parentImage"`
+	// Specifies the operating system platform when you use a custom source image.
 	PlatformOverride *string `pulumi:"platformOverride"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-tags
-	Tags map[string]string `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-targetrepository
-	TargetRepository ContainerRecipeTargetContainerRepository `pulumi:"targetRepository"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-version
-	Version string `pulumi:"version"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-workingdirectory
+	// Tags that are attached to the container recipe.
+	Tags interface{} `pulumi:"tags"`
+	// The destination repository for the container image.
+	TargetRepository *ContainerRecipeTargetContainerRepository `pulumi:"targetRepository"`
+	// The semantic version of the container recipe (<major>.<minor>.<patch>).
+	Version *string `pulumi:"version"`
+	// The working directory to be used during build and test workflows.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
 }
 
 // The set of arguments for constructing a ContainerRecipe resource.
 type ContainerRecipeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-components
+	// Components for build and test that are included in the container recipe.
 	Components ContainerRecipeComponentConfigurationArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-containertype
-	ContainerType pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-description
+	// Specifies the type of container, such as Docker.
+	ContainerType pulumi.StringPtrInput
+	// The description of the container recipe.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplatedata
+	// Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
 	DockerfileTemplateData pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplateuri
+	// The S3 URI for the Dockerfile that will be used to build your container image.
 	DockerfileTemplateUri pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-imageosversionoverride
+	// Specifies the operating system version for the source image.
 	ImageOsVersionOverride pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-instanceconfiguration
+	// A group of options that can be used to configure an instance for building and testing container images.
 	InstanceConfiguration ContainerRecipeInstanceConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-kmskeyid
+	// Identifies which KMS key is used to encrypt the container image.
 	KmsKeyId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-name
-	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-parentimage
-	ParentImage pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-platformoverride
+	// The name of the container recipe.
+	Name pulumi.StringPtrInput
+	// The source image for the container recipe.
+	ParentImage pulumi.StringPtrInput
+	// Specifies the operating system platform when you use a custom source image.
 	PlatformOverride pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-tags
-	Tags pulumi.StringMapInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-targetrepository
-	TargetRepository ContainerRecipeTargetContainerRepositoryInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-version
-	Version pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-workingdirectory
+	// Tags that are attached to the container recipe.
+	Tags pulumi.Input
+	// The destination repository for the container image.
+	TargetRepository ContainerRecipeTargetContainerRepositoryPtrInput
+	// The semantic version of the container recipe (<major>.<minor>.<patch>).
+	Version pulumi.StringPtrInput
+	// The working directory to be used during build and test workflows.
 	WorkingDirectory pulumi.StringPtrInput
 }
 

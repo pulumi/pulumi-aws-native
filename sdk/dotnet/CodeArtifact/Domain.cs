@@ -10,40 +10,52 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeArtifact
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html
+    /// The resource schema to create a CodeArtifact domain.
     /// </summary>
     [AwsNativeResourceType("aws-native:codeartifact:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the domain.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
+        /// The name of the domain.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
+        /// </summary>
         [Output("encryptionKey")]
         public Output<string> EncryptionKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the domain. This field is used for GetAtt
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The 12-digit account ID of the AWS account that owns the domain. This field is used for GetAtt
+        /// </summary>
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
+        /// The access control resource policy on the provided domain.
         /// </summary>
         [Output("permissionsPolicyDocument")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> PermissionsPolicyDocument { get; private set; } = null!;
+        public Output<object?> PermissionsPolicyDocument { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DomainTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -91,32 +103,26 @@ namespace Pulumi.AwsNative.CodeArtifact
     public sealed class DomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
+        /// The name of the domain.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-encryptionkey
-        /// </summary>
-        [Input("encryptionKey")]
-        public Input<string>? EncryptionKey { get; set; }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
+        /// The access control resource policy on the provided domain.
         /// </summary>
         [Input("permissionsPolicyDocument")]
-        public InputUnion<System.Text.Json.JsonElement, string>? PermissionsPolicyDocument { get; set; }
+        public Input<object>? PermissionsPolicyDocument { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.DomainTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.DomainTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.DomainTagArgs>());
             set => _tags = value;
         }
 

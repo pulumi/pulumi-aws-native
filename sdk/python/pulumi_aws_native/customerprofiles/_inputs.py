@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'DomainTagArgs',
     'IntegrationConnectorOperatorArgs',
     'IntegrationFlowDefinitionArgs',
     'IntegrationIncrementalPullConfigArgs',
@@ -19,6 +20,7 @@ __all__ = [
     'IntegrationServiceNowSourcePropertiesArgs',
     'IntegrationSourceConnectorPropertiesArgs',
     'IntegrationSourceFlowConfigArgs',
+    'IntegrationTagArgs',
     'IntegrationTaskPropertiesMapArgs',
     'IntegrationTaskArgs',
     'IntegrationTriggerConfigArgs',
@@ -28,7 +30,35 @@ __all__ = [
     'ObjectTypeKeyMapArgs',
     'ObjectTypeObjectTypeFieldArgs',
     'ObjectTypeObjectTypeKeyArgs',
+    'ObjectTypeTagArgs',
 ]
+
+@pulumi.input_type
+class DomainTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class IntegrationConnectorOperatorArgs:
@@ -38,14 +68,6 @@ class IntegrationConnectorOperatorArgs:
                  salesforce: Optional[pulumi.Input[str]] = None,
                  service_now: Optional[pulumi.Input[str]] = None,
                  zendesk: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html
-        :param pulumi.Input[str] marketo: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-marketo
-        :param pulumi.Input[str] s3: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-s3
-        :param pulumi.Input[str] salesforce: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-salesforce
-        :param pulumi.Input[str] service_now: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-servicenow
-        :param pulumi.Input[str] zendesk: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-zendesk
-        """
         if marketo is not None:
             pulumi.set(__self__, "marketo", marketo)
         if s3 is not None:
@@ -60,9 +82,6 @@ class IntegrationConnectorOperatorArgs:
     @property
     @pulumi.getter
     def marketo(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-marketo
-        """
         return pulumi.get(self, "marketo")
 
     @marketo.setter
@@ -72,9 +91,6 @@ class IntegrationConnectorOperatorArgs:
     @property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-s3
-        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -84,9 +100,6 @@ class IntegrationConnectorOperatorArgs:
     @property
     @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-salesforce
-        """
         return pulumi.get(self, "salesforce")
 
     @salesforce.setter
@@ -96,9 +109,6 @@ class IntegrationConnectorOperatorArgs:
     @property
     @pulumi.getter(name="serviceNow")
     def service_now(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-servicenow
-        """
         return pulumi.get(self, "service_now")
 
     @service_now.setter
@@ -108,9 +118,6 @@ class IntegrationConnectorOperatorArgs:
     @property
     @pulumi.getter
     def zendesk(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-connectoroperator.html#cfn-customerprofiles-integration-connectoroperator-zendesk
-        """
         return pulumi.get(self, "zendesk")
 
     @zendesk.setter
@@ -127,15 +134,6 @@ class IntegrationFlowDefinitionArgs:
                  tasks: pulumi.Input[Sequence[pulumi.Input['IntegrationTaskArgs']]],
                  trigger_config: pulumi.Input['IntegrationTriggerConfigArgs'],
                  description: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html
-        :param pulumi.Input[str] flow_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-flowname
-        :param pulumi.Input[str] kms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-kmsarn
-        :param pulumi.Input['IntegrationSourceFlowConfigArgs'] source_flow_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-sourceflowconfig
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationTaskArgs']]] tasks: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-tasks
-        :param pulumi.Input['IntegrationTriggerConfigArgs'] trigger_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-triggerconfig
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-description
-        """
         pulumi.set(__self__, "flow_name", flow_name)
         pulumi.set(__self__, "kms_arn", kms_arn)
         pulumi.set(__self__, "source_flow_config", source_flow_config)
@@ -147,9 +145,6 @@ class IntegrationFlowDefinitionArgs:
     @property
     @pulumi.getter(name="flowName")
     def flow_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-flowname
-        """
         return pulumi.get(self, "flow_name")
 
     @flow_name.setter
@@ -159,9 +154,6 @@ class IntegrationFlowDefinitionArgs:
     @property
     @pulumi.getter(name="kmsArn")
     def kms_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-kmsarn
-        """
         return pulumi.get(self, "kms_arn")
 
     @kms_arn.setter
@@ -171,9 +163,6 @@ class IntegrationFlowDefinitionArgs:
     @property
     @pulumi.getter(name="sourceFlowConfig")
     def source_flow_config(self) -> pulumi.Input['IntegrationSourceFlowConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-sourceflowconfig
-        """
         return pulumi.get(self, "source_flow_config")
 
     @source_flow_config.setter
@@ -183,9 +172,6 @@ class IntegrationFlowDefinitionArgs:
     @property
     @pulumi.getter
     def tasks(self) -> pulumi.Input[Sequence[pulumi.Input['IntegrationTaskArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-tasks
-        """
         return pulumi.get(self, "tasks")
 
     @tasks.setter
@@ -195,9 +181,6 @@ class IntegrationFlowDefinitionArgs:
     @property
     @pulumi.getter(name="triggerConfig")
     def trigger_config(self) -> pulumi.Input['IntegrationTriggerConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-triggerconfig
-        """
         return pulumi.get(self, "trigger_config")
 
     @trigger_config.setter
@@ -207,9 +190,6 @@ class IntegrationFlowDefinitionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-flowdefinition.html#cfn-customerprofiles-integration-flowdefinition-description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -221,19 +201,12 @@ class IntegrationFlowDefinitionArgs:
 class IntegrationIncrementalPullConfigArgs:
     def __init__(__self__, *,
                  datetime_type_field_name: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html
-        :param pulumi.Input[str] datetime_type_field_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html#cfn-customerprofiles-integration-incrementalpullconfig-datetimetypefieldname
-        """
         if datetime_type_field_name is not None:
             pulumi.set(__self__, "datetime_type_field_name", datetime_type_field_name)
 
     @property
     @pulumi.getter(name="datetimeTypeFieldName")
     def datetime_type_field_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html#cfn-customerprofiles-integration-incrementalpullconfig-datetimetypefieldname
-        """
         return pulumi.get(self, "datetime_type_field_name")
 
     @datetime_type_field_name.setter
@@ -245,18 +218,11 @@ class IntegrationIncrementalPullConfigArgs:
 class IntegrationMarketoSourcePropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html
-        :param pulumi.Input[str] object: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html#cfn-customerprofiles-integration-marketosourceproperties-object
-        """
         pulumi.set(__self__, "object", object)
 
     @property
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html#cfn-customerprofiles-integration-marketosourceproperties-object
-        """
         return pulumi.get(self, "object")
 
     @object.setter
@@ -269,11 +235,6 @@ class IntegrationS3SourcePropertiesArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
                  bucket_prefix: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html
-        :param pulumi.Input[str] bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html#cfn-customerprofiles-integration-s3sourceproperties-bucketname
-        :param pulumi.Input[str] bucket_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html#cfn-customerprofiles-integration-s3sourceproperties-bucketprefix
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         if bucket_prefix is not None:
             pulumi.set(__self__, "bucket_prefix", bucket_prefix)
@@ -281,9 +242,6 @@ class IntegrationS3SourcePropertiesArgs:
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html#cfn-customerprofiles-integration-s3sourceproperties-bucketname
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -293,9 +251,6 @@ class IntegrationS3SourcePropertiesArgs:
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-s3sourceproperties.html#cfn-customerprofiles-integration-s3sourceproperties-bucketprefix
-        """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
@@ -309,12 +264,6 @@ class IntegrationSalesforceSourcePropertiesArgs:
                  object: pulumi.Input[str],
                  enable_dynamic_field_update: Optional[pulumi.Input[bool]] = None,
                  include_deleted_records: Optional[pulumi.Input[bool]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html
-        :param pulumi.Input[str] object: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-object
-        :param pulumi.Input[bool] enable_dynamic_field_update: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-enabledynamicfieldupdate
-        :param pulumi.Input[bool] include_deleted_records: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-includedeletedrecords
-        """
         pulumi.set(__self__, "object", object)
         if enable_dynamic_field_update is not None:
             pulumi.set(__self__, "enable_dynamic_field_update", enable_dynamic_field_update)
@@ -324,9 +273,6 @@ class IntegrationSalesforceSourcePropertiesArgs:
     @property
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-object
-        """
         return pulumi.get(self, "object")
 
     @object.setter
@@ -336,9 +282,6 @@ class IntegrationSalesforceSourcePropertiesArgs:
     @property
     @pulumi.getter(name="enableDynamicFieldUpdate")
     def enable_dynamic_field_update(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-enabledynamicfieldupdate
-        """
         return pulumi.get(self, "enable_dynamic_field_update")
 
     @enable_dynamic_field_update.setter
@@ -348,9 +291,6 @@ class IntegrationSalesforceSourcePropertiesArgs:
     @property
     @pulumi.getter(name="includeDeletedRecords")
     def include_deleted_records(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-salesforcesourceproperties.html#cfn-customerprofiles-integration-salesforcesourceproperties-includedeletedrecords
-        """
         return pulumi.get(self, "include_deleted_records")
 
     @include_deleted_records.setter
@@ -368,16 +308,6 @@ class IntegrationScheduledTriggerPropertiesArgs:
                  schedule_offset: Optional[pulumi.Input[int]] = None,
                  schedule_start_time: Optional[pulumi.Input[float]] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html
-        :param pulumi.Input[str] schedule_expression: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleexpression
-        :param pulumi.Input[str] data_pull_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-datapullmode
-        :param pulumi.Input[float] first_execution_from: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-firstexecutionfrom
-        :param pulumi.Input[float] schedule_end_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleendtime
-        :param pulumi.Input[int] schedule_offset: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleoffset
-        :param pulumi.Input[float] schedule_start_time: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-schedulestarttime
-        :param pulumi.Input[str] timezone: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-timezone
-        """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
         if data_pull_mode is not None:
             pulumi.set(__self__, "data_pull_mode", data_pull_mode)
@@ -395,9 +325,6 @@ class IntegrationScheduledTriggerPropertiesArgs:
     @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleexpression
-        """
         return pulumi.get(self, "schedule_expression")
 
     @schedule_expression.setter
@@ -407,9 +334,6 @@ class IntegrationScheduledTriggerPropertiesArgs:
     @property
     @pulumi.getter(name="dataPullMode")
     def data_pull_mode(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-datapullmode
-        """
         return pulumi.get(self, "data_pull_mode")
 
     @data_pull_mode.setter
@@ -419,9 +343,6 @@ class IntegrationScheduledTriggerPropertiesArgs:
     @property
     @pulumi.getter(name="firstExecutionFrom")
     def first_execution_from(self) -> Optional[pulumi.Input[float]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-firstexecutionfrom
-        """
         return pulumi.get(self, "first_execution_from")
 
     @first_execution_from.setter
@@ -431,9 +352,6 @@ class IntegrationScheduledTriggerPropertiesArgs:
     @property
     @pulumi.getter(name="scheduleEndTime")
     def schedule_end_time(self) -> Optional[pulumi.Input[float]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleendtime
-        """
         return pulumi.get(self, "schedule_end_time")
 
     @schedule_end_time.setter
@@ -443,9 +361,6 @@ class IntegrationScheduledTriggerPropertiesArgs:
     @property
     @pulumi.getter(name="scheduleOffset")
     def schedule_offset(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-scheduleoffset
-        """
         return pulumi.get(self, "schedule_offset")
 
     @schedule_offset.setter
@@ -455,9 +370,6 @@ class IntegrationScheduledTriggerPropertiesArgs:
     @property
     @pulumi.getter(name="scheduleStartTime")
     def schedule_start_time(self) -> Optional[pulumi.Input[float]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-schedulestarttime
-        """
         return pulumi.get(self, "schedule_start_time")
 
     @schedule_start_time.setter
@@ -467,9 +379,6 @@ class IntegrationScheduledTriggerPropertiesArgs:
     @property
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-scheduledtriggerproperties.html#cfn-customerprofiles-integration-scheduledtriggerproperties-timezone
-        """
         return pulumi.get(self, "timezone")
 
     @timezone.setter
@@ -481,18 +390,11 @@ class IntegrationScheduledTriggerPropertiesArgs:
 class IntegrationServiceNowSourcePropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html
-        :param pulumi.Input[str] object: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html#cfn-customerprofiles-integration-servicenowsourceproperties-object
-        """
         pulumi.set(__self__, "object", object)
 
     @property
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-servicenowsourceproperties.html#cfn-customerprofiles-integration-servicenowsourceproperties-object
-        """
         return pulumi.get(self, "object")
 
     @object.setter
@@ -508,14 +410,6 @@ class IntegrationSourceConnectorPropertiesArgs:
                  salesforce: Optional[pulumi.Input['IntegrationSalesforceSourcePropertiesArgs']] = None,
                  service_now: Optional[pulumi.Input['IntegrationServiceNowSourcePropertiesArgs']] = None,
                  zendesk: Optional[pulumi.Input['IntegrationZendeskSourcePropertiesArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html
-        :param pulumi.Input['IntegrationMarketoSourcePropertiesArgs'] marketo: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-marketo
-        :param pulumi.Input['IntegrationS3SourcePropertiesArgs'] s3: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-s3
-        :param pulumi.Input['IntegrationSalesforceSourcePropertiesArgs'] salesforce: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-salesforce
-        :param pulumi.Input['IntegrationServiceNowSourcePropertiesArgs'] service_now: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-servicenow
-        :param pulumi.Input['IntegrationZendeskSourcePropertiesArgs'] zendesk: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-zendesk
-        """
         if marketo is not None:
             pulumi.set(__self__, "marketo", marketo)
         if s3 is not None:
@@ -530,9 +424,6 @@ class IntegrationSourceConnectorPropertiesArgs:
     @property
     @pulumi.getter
     def marketo(self) -> Optional[pulumi.Input['IntegrationMarketoSourcePropertiesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-marketo
-        """
         return pulumi.get(self, "marketo")
 
     @marketo.setter
@@ -542,9 +433,6 @@ class IntegrationSourceConnectorPropertiesArgs:
     @property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['IntegrationS3SourcePropertiesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-s3
-        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -554,9 +442,6 @@ class IntegrationSourceConnectorPropertiesArgs:
     @property
     @pulumi.getter
     def salesforce(self) -> Optional[pulumi.Input['IntegrationSalesforceSourcePropertiesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-salesforce
-        """
         return pulumi.get(self, "salesforce")
 
     @salesforce.setter
@@ -566,9 +451,6 @@ class IntegrationSourceConnectorPropertiesArgs:
     @property
     @pulumi.getter(name="serviceNow")
     def service_now(self) -> Optional[pulumi.Input['IntegrationServiceNowSourcePropertiesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-servicenow
-        """
         return pulumi.get(self, "service_now")
 
     @service_now.setter
@@ -578,9 +460,6 @@ class IntegrationSourceConnectorPropertiesArgs:
     @property
     @pulumi.getter
     def zendesk(self) -> Optional[pulumi.Input['IntegrationZendeskSourcePropertiesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceconnectorproperties.html#cfn-customerprofiles-integration-sourceconnectorproperties-zendesk
-        """
         return pulumi.get(self, "zendesk")
 
     @zendesk.setter
@@ -595,13 +474,6 @@ class IntegrationSourceFlowConfigArgs:
                  source_connector_properties: pulumi.Input['IntegrationSourceConnectorPropertiesArgs'],
                  connector_profile_name: Optional[pulumi.Input[str]] = None,
                  incremental_pull_config: Optional[pulumi.Input['IntegrationIncrementalPullConfigArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html
-        :param pulumi.Input[str] connector_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-connectortype
-        :param pulumi.Input['IntegrationSourceConnectorPropertiesArgs'] source_connector_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-sourceconnectorproperties
-        :param pulumi.Input[str] connector_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-connectorprofilename
-        :param pulumi.Input['IntegrationIncrementalPullConfigArgs'] incremental_pull_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-incrementalpullconfig
-        """
         pulumi.set(__self__, "connector_type", connector_type)
         pulumi.set(__self__, "source_connector_properties", source_connector_properties)
         if connector_profile_name is not None:
@@ -612,9 +484,6 @@ class IntegrationSourceFlowConfigArgs:
     @property
     @pulumi.getter(name="connectorType")
     def connector_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-connectortype
-        """
         return pulumi.get(self, "connector_type")
 
     @connector_type.setter
@@ -624,9 +493,6 @@ class IntegrationSourceFlowConfigArgs:
     @property
     @pulumi.getter(name="sourceConnectorProperties")
     def source_connector_properties(self) -> pulumi.Input['IntegrationSourceConnectorPropertiesArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-sourceconnectorproperties
-        """
         return pulumi.get(self, "source_connector_properties")
 
     @source_connector_properties.setter
@@ -636,9 +502,6 @@ class IntegrationSourceFlowConfigArgs:
     @property
     @pulumi.getter(name="connectorProfileName")
     def connector_profile_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-connectorprofilename
-        """
         return pulumi.get(self, "connector_profile_name")
 
     @connector_profile_name.setter
@@ -648,9 +511,6 @@ class IntegrationSourceFlowConfigArgs:
     @property
     @pulumi.getter(name="incrementalPullConfig")
     def incremental_pull_config(self) -> Optional[pulumi.Input['IntegrationIncrementalPullConfigArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-sourceflowconfig.html#cfn-customerprofiles-integration-sourceflowconfig-incrementalpullconfig
-        """
         return pulumi.get(self, "incremental_pull_config")
 
     @incremental_pull_config.setter
@@ -659,24 +519,43 @@ class IntegrationSourceFlowConfigArgs:
 
 
 @pulumi.input_type
+class IntegrationTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class IntegrationTaskPropertiesMapArgs:
     def __init__(__self__, *,
                  operator_property_key: pulumi.Input[str],
                  property: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html
-        :param pulumi.Input[str] operator_property_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html#cfn-customerprofiles-integration-taskpropertiesmap-operatorpropertykey
-        :param pulumi.Input[str] property: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html#cfn-customerprofiles-integration-taskpropertiesmap-property
-        """
         pulumi.set(__self__, "operator_property_key", operator_property_key)
         pulumi.set(__self__, "property", property)
 
     @property
     @pulumi.getter(name="operatorPropertyKey")
     def operator_property_key(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html#cfn-customerprofiles-integration-taskpropertiesmap-operatorpropertykey
-        """
         return pulumi.get(self, "operator_property_key")
 
     @operator_property_key.setter
@@ -686,9 +565,6 @@ class IntegrationTaskPropertiesMapArgs:
     @property
     @pulumi.getter
     def property(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-taskpropertiesmap.html#cfn-customerprofiles-integration-taskpropertiesmap-property
-        """
         return pulumi.get(self, "property")
 
     @property.setter
@@ -704,14 +580,6 @@ class IntegrationTaskArgs:
                  connector_operator: Optional[pulumi.Input['IntegrationConnectorOperatorArgs']] = None,
                  destination_field: Optional[pulumi.Input[str]] = None,
                  task_properties: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_fields: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-sourcefields
-        :param pulumi.Input[str] task_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-tasktype
-        :param pulumi.Input['IntegrationConnectorOperatorArgs'] connector_operator: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-connectoroperator
-        :param pulumi.Input[str] destination_field: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-destinationfield
-        :param pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]] task_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-taskproperties
-        """
         pulumi.set(__self__, "source_fields", source_fields)
         pulumi.set(__self__, "task_type", task_type)
         if connector_operator is not None:
@@ -724,9 +592,6 @@ class IntegrationTaskArgs:
     @property
     @pulumi.getter(name="sourceFields")
     def source_fields(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-sourcefields
-        """
         return pulumi.get(self, "source_fields")
 
     @source_fields.setter
@@ -736,9 +601,6 @@ class IntegrationTaskArgs:
     @property
     @pulumi.getter(name="taskType")
     def task_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-tasktype
-        """
         return pulumi.get(self, "task_type")
 
     @task_type.setter
@@ -748,9 +610,6 @@ class IntegrationTaskArgs:
     @property
     @pulumi.getter(name="connectorOperator")
     def connector_operator(self) -> Optional[pulumi.Input['IntegrationConnectorOperatorArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-connectoroperator
-        """
         return pulumi.get(self, "connector_operator")
 
     @connector_operator.setter
@@ -760,9 +619,6 @@ class IntegrationTaskArgs:
     @property
     @pulumi.getter(name="destinationField")
     def destination_field(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-destinationfield
-        """
         return pulumi.get(self, "destination_field")
 
     @destination_field.setter
@@ -772,9 +628,6 @@ class IntegrationTaskArgs:
     @property
     @pulumi.getter(name="taskProperties")
     def task_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-task.html#cfn-customerprofiles-integration-task-taskproperties
-        """
         return pulumi.get(self, "task_properties")
 
     @task_properties.setter
@@ -787,11 +640,6 @@ class IntegrationTriggerConfigArgs:
     def __init__(__self__, *,
                  trigger_type: pulumi.Input[str],
                  trigger_properties: Optional[pulumi.Input['IntegrationTriggerPropertiesArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html
-        :param pulumi.Input[str] trigger_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggertype
-        :param pulumi.Input['IntegrationTriggerPropertiesArgs'] trigger_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggerproperties
-        """
         pulumi.set(__self__, "trigger_type", trigger_type)
         if trigger_properties is not None:
             pulumi.set(__self__, "trigger_properties", trigger_properties)
@@ -799,9 +647,6 @@ class IntegrationTriggerConfigArgs:
     @property
     @pulumi.getter(name="triggerType")
     def trigger_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggertype
-        """
         return pulumi.get(self, "trigger_type")
 
     @trigger_type.setter
@@ -811,9 +656,6 @@ class IntegrationTriggerConfigArgs:
     @property
     @pulumi.getter(name="triggerProperties")
     def trigger_properties(self) -> Optional[pulumi.Input['IntegrationTriggerPropertiesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerconfig.html#cfn-customerprofiles-integration-triggerconfig-triggerproperties
-        """
         return pulumi.get(self, "trigger_properties")
 
     @trigger_properties.setter
@@ -825,19 +667,12 @@ class IntegrationTriggerConfigArgs:
 class IntegrationTriggerPropertiesArgs:
     def __init__(__self__, *,
                  scheduled: Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html
-        :param pulumi.Input['IntegrationScheduledTriggerPropertiesArgs'] scheduled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html#cfn-customerprofiles-integration-triggerproperties-scheduled
-        """
         if scheduled is not None:
             pulumi.set(__self__, "scheduled", scheduled)
 
     @property
     @pulumi.getter
     def scheduled(self) -> Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-triggerproperties.html#cfn-customerprofiles-integration-triggerproperties-scheduled
-        """
         return pulumi.get(self, "scheduled")
 
     @scheduled.setter
@@ -849,18 +684,11 @@ class IntegrationTriggerPropertiesArgs:
 class IntegrationZendeskSourcePropertiesArgs:
     def __init__(__self__, *,
                  object: pulumi.Input[str]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-zendesksourceproperties.html
-        :param pulumi.Input[str] object: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-zendesksourceproperties.html#cfn-customerprofiles-integration-zendesksourceproperties-object
-        """
         pulumi.set(__self__, "object", object)
 
     @property
     @pulumi.getter
     def object(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-zendesksourceproperties.html#cfn-customerprofiles-integration-zendesksourceproperties-object
-        """
         return pulumi.get(self, "object")
 
     @object.setter
@@ -873,11 +701,6 @@ class ObjectTypeFieldMapArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  object_type_field: Optional[pulumi.Input['ObjectTypeObjectTypeFieldArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-name
-        :param pulumi.Input['ObjectTypeObjectTypeFieldArgs'] object_type_field: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-objecttypefield
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if object_type_field is not None:
@@ -886,9 +709,6 @@ class ObjectTypeFieldMapArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -898,9 +718,6 @@ class ObjectTypeFieldMapArgs:
     @property
     @pulumi.getter(name="objectTypeField")
     def object_type_field(self) -> Optional[pulumi.Input['ObjectTypeObjectTypeFieldArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-fieldmap.html#cfn-customerprofiles-objecttype-fieldmap-objecttypefield
-        """
         return pulumi.get(self, "object_type_field")
 
     @object_type_field.setter
@@ -913,11 +730,6 @@ class ObjectTypeKeyMapArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  object_type_key_list: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeObjectTypeKeyArgs']]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-name
-        :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeObjectTypeKeyArgs']]] object_type_key_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-objecttypekeylist
-        """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if object_type_key_list is not None:
@@ -926,9 +738,6 @@ class ObjectTypeKeyMapArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-name
-        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -938,9 +747,6 @@ class ObjectTypeKeyMapArgs:
     @property
     @pulumi.getter(name="objectTypeKeyList")
     def object_type_key_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeObjectTypeKeyArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-keymap.html#cfn-customerprofiles-objecttype-keymap-objecttypekeylist
-        """
         return pulumi.get(self, "object_type_key_list")
 
     @object_type_key_list.setter
@@ -955,10 +761,10 @@ class ObjectTypeObjectTypeFieldArgs:
                  source: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html
-        :param pulumi.Input[str] content_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-contenttype
-        :param pulumi.Input[str] source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-source
-        :param pulumi.Input[str] target: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-target
+        Represents a field in a ProfileObjectType.
+        :param pulumi.Input[str] content_type: The content type of the field. Used for determining equality when searching.
+        :param pulumi.Input[str] source: A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
+        :param pulumi.Input[str] target: The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
         """
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
@@ -971,7 +777,7 @@ class ObjectTypeObjectTypeFieldArgs:
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-contenttype
+        The content type of the field. Used for determining equality when searching.
         """
         return pulumi.get(self, "content_type")
 
@@ -983,7 +789,7 @@ class ObjectTypeObjectTypeFieldArgs:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-source
+        A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
         """
         return pulumi.get(self, "source")
 
@@ -995,7 +801,7 @@ class ObjectTypeObjectTypeFieldArgs:
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypefield.html#cfn-customerprofiles-objecttype-objecttypefield-target
+        The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
         """
         return pulumi.get(self, "target")
 
@@ -1010,9 +816,9 @@ class ObjectTypeObjectTypeKeyArgs:
                  field_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  standard_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] field_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html#cfn-customerprofiles-objecttype-objecttypekey-fieldnames
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] standard_identifiers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html#cfn-customerprofiles-objecttype-objecttypekey-standardidentifiers
+        An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] field_names: The reference for the key name of the fields map. 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] standard_identifiers: The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
         """
         if field_names is not None:
             pulumi.set(__self__, "field_names", field_names)
@@ -1023,7 +829,7 @@ class ObjectTypeObjectTypeKeyArgs:
     @pulumi.getter(name="fieldNames")
     def field_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html#cfn-customerprofiles-objecttype-objecttypekey-fieldnames
+        The reference for the key name of the fields map. 
         """
         return pulumi.get(self, "field_names")
 
@@ -1035,12 +841,39 @@ class ObjectTypeObjectTypeKeyArgs:
     @pulumi.getter(name="standardIdentifiers")
     def standard_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-objecttype-objecttypekey.html#cfn-customerprofiles-objecttype-objecttypekey-standardidentifiers
+        The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
         """
         return pulumi.get(self, "standard_identifiers")
 
     @standard_identifiers.setter
     def standard_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "standard_identifiers", value)
+
+
+@pulumi.input_type
+class ObjectTypeTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 

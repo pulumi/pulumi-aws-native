@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html
+    /// launchTemplateConfiguration settings that apply to image distribution.
     /// </summary>
     [OutputType]
     public sealed class DistributionConfigurationLaunchTemplateConfiguration
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-accountid
+        /// The account ID that this configuration applies to.
         /// </summary>
         public readonly string? AccountId;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-launchtemplateid
+        /// Identifies the EC2 launch template to use.
         /// </summary>
         public readonly string? LaunchTemplateId;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-setdefaultversion
+        /// Set the specified EC2 launch template as the default launch template for the specified account.
         /// </summary>
         public readonly bool? SetDefaultVersion;
 

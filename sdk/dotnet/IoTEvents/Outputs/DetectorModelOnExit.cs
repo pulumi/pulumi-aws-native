@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html
+    /// When exiting this state, perform these `actions` if the specified `condition` is `TRUE`.
     /// </summary>
     [OutputType]
     public sealed class DetectorModelOnExit
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html#cfn-iotevents-detectormodel-onexit-events
+        /// Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE`.
         /// </summary>
         public readonly ImmutableArray<Outputs.DetectorModelEvent> Events;
 

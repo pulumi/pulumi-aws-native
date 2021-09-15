@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html
+ * Resource Type definition for AWS::CloudFront::Distribution
  */
 export class Distribution extends pulumi.CustomResource {
     /**
@@ -35,16 +35,9 @@ export class Distribution extends pulumi.CustomResource {
         return obj['__pulumiType'] === Distribution.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
-     */
     public readonly distributionConfig!: pulumi.Output<outputs.cloudfront.DistributionDistributionConfig>;
     public /*out*/ readonly domainName!: pulumi.Output<string>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.cloudfront.DistributionTag[] | undefined>;
 
     /**
      * Create a Distribution resource with the given unique name, arguments, and options.
@@ -63,11 +56,9 @@ export class Distribution extends pulumi.CustomResource {
             inputs["distributionConfig"] = args ? args.distributionConfig : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["domainName"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
         } else {
             inputs["distributionConfig"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -81,12 +72,6 @@ export class Distribution extends pulumi.CustomResource {
  * The set of arguments for constructing a Distribution resource.
  */
 export interface DistributionArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
-     */
     distributionConfig: pulumi.Input<inputs.cloudfront.DistributionDistributionConfigArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.cloudfront.DistributionTagArgs>[]>;
 }

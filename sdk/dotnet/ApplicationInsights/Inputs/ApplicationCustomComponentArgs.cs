@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html
+    /// The custom grouped component.
     /// </summary>
     public sealed class ApplicationCustomComponentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-componentname
+        /// The name of the component.
         /// </summary>
         [Input("componentName", required: true)]
         public Input<string> ComponentName { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         private InputList<string>? _resourceList;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-resourcelist
+        /// The list of resource ARNs that belong to the component.
         /// </summary>
         public InputList<string> ResourceList
         {

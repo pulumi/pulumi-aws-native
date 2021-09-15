@@ -27,16 +27,14 @@ class EndpointGroupArgs:
                  traffic_dial_percentage: Optional[pulumi.Input[float]] = None):
         """
         The set of arguments for constructing a EndpointGroup resource.
-        :param pulumi.Input[str] endpoint_group_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
-        :param pulumi.Input[str] listener_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]] endpoint_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
-        :param pulumi.Input[int] health_check_interval_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
-        :param pulumi.Input[str] health_check_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
-        :param pulumi.Input[int] health_check_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
-        :param pulumi.Input[str] health_check_protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]] port_overrides: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
-        :param pulumi.Input[int] threshold_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
-        :param pulumi.Input[float] traffic_dial_percentage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
+        :param pulumi.Input[str] endpoint_group_region: The name of the AWS Region where the endpoint group is located
+        :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]] endpoint_configurations: The list of endpoint objects.
+        :param pulumi.Input[int] health_check_interval_seconds: The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
+        :param pulumi.Input[int] health_check_port: The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
+        :param pulumi.Input[str] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
+        :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of the endpoint to unhealthy.
+        :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to sent to an AWS Region
         """
         pulumi.set(__self__, "endpoint_group_region", endpoint_group_region)
         pulumi.set(__self__, "listener_arn", listener_arn)
@@ -61,7 +59,7 @@ class EndpointGroupArgs:
     @pulumi.getter(name="endpointGroupRegion")
     def endpoint_group_region(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
+        The name of the AWS Region where the endpoint group is located
         """
         return pulumi.get(self, "endpoint_group_region")
 
@@ -73,7 +71,7 @@ class EndpointGroupArgs:
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
+        The Amazon Resource Name (ARN) of the listener
         """
         return pulumi.get(self, "listener_arn")
 
@@ -85,7 +83,7 @@ class EndpointGroupArgs:
     @pulumi.getter(name="endpointConfigurations")
     def endpoint_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
+        The list of endpoint objects.
         """
         return pulumi.get(self, "endpoint_configurations")
 
@@ -97,7 +95,7 @@ class EndpointGroupArgs:
     @pulumi.getter(name="healthCheckIntervalSeconds")
     def health_check_interval_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
+        The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
         """
         return pulumi.get(self, "health_check_interval_seconds")
 
@@ -108,9 +106,6 @@ class EndpointGroupArgs:
     @property
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
-        """
         return pulumi.get(self, "health_check_path")
 
     @health_check_path.setter
@@ -121,7 +116,7 @@ class EndpointGroupArgs:
     @pulumi.getter(name="healthCheckPort")
     def health_check_port(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
+        The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         """
         return pulumi.get(self, "health_check_port")
 
@@ -133,7 +128,7 @@ class EndpointGroupArgs:
     @pulumi.getter(name="healthCheckProtocol")
     def health_check_protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
+        The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         """
         return pulumi.get(self, "health_check_protocol")
 
@@ -144,9 +139,6 @@ class EndpointGroupArgs:
     @property
     @pulumi.getter(name="portOverrides")
     def port_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
-        """
         return pulumi.get(self, "port_overrides")
 
     @port_overrides.setter
@@ -157,7 +149,7 @@ class EndpointGroupArgs:
     @pulumi.getter(name="thresholdCount")
     def threshold_count(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
+        The number of consecutive health checks required to set the state of the endpoint to unhealthy.
         """
         return pulumi.get(self, "threshold_count")
 
@@ -169,7 +161,7 @@ class EndpointGroupArgs:
     @pulumi.getter(name="trafficDialPercentage")
     def traffic_dial_percentage(self) -> Optional[pulumi.Input[float]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
+        The percentage of traffic to sent to an AWS Region
         """
         return pulumi.get(self, "traffic_dial_percentage")
 
@@ -195,20 +187,18 @@ class EndpointGroup(pulumi.CustomResource):
                  traffic_dial_percentage: Optional[pulumi.Input[float]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html
+        Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupEndpointConfigurationArgs']]]] endpoint_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
-        :param pulumi.Input[str] endpoint_group_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
-        :param pulumi.Input[int] health_check_interval_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
-        :param pulumi.Input[str] health_check_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
-        :param pulumi.Input[int] health_check_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
-        :param pulumi.Input[str] health_check_protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
-        :param pulumi.Input[str] listener_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]] port_overrides: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
-        :param pulumi.Input[int] threshold_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
-        :param pulumi.Input[float] traffic_dial_percentage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupEndpointConfigurationArgs']]]] endpoint_configurations: The list of endpoint objects.
+        :param pulumi.Input[str] endpoint_group_region: The name of the AWS Region where the endpoint group is located
+        :param pulumi.Input[int] health_check_interval_seconds: The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
+        :param pulumi.Input[int] health_check_port: The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
+        :param pulumi.Input[str] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
+        :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener
+        :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of the endpoint to unhealthy.
+        :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to sent to an AWS Region
         """
         ...
     @overload
@@ -217,7 +207,7 @@ class EndpointGroup(pulumi.CustomResource):
                  args: EndpointGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html
+        Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
 
         :param str resource_name: The name of the resource.
         :param EndpointGroupArgs args: The arguments to use to populate this resource's properties.
@@ -310,20 +300,23 @@ class EndpointGroup(pulumi.CustomResource):
     @pulumi.getter(name="endpointConfigurations")
     def endpoint_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointGroupEndpointConfiguration']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
+        The list of endpoint objects.
         """
         return pulumi.get(self, "endpoint_configurations")
 
     @property
     @pulumi.getter(name="endpointGroupArn")
     def endpoint_group_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the endpoint group
+        """
         return pulumi.get(self, "endpoint_group_arn")
 
     @property
     @pulumi.getter(name="endpointGroupRegion")
     def endpoint_group_region(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
+        The name of the AWS Region where the endpoint group is located
         """
         return pulumi.get(self, "endpoint_group_region")
 
@@ -331,23 +324,20 @@ class EndpointGroup(pulumi.CustomResource):
     @pulumi.getter(name="healthCheckIntervalSeconds")
     def health_check_interval_seconds(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
+        The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
         """
         return pulumi.get(self, "health_check_interval_seconds")
 
     @property
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
-        """
         return pulumi.get(self, "health_check_path")
 
     @property
     @pulumi.getter(name="healthCheckPort")
     def health_check_port(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
+        The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         """
         return pulumi.get(self, "health_check_port")
 
@@ -355,7 +345,7 @@ class EndpointGroup(pulumi.CustomResource):
     @pulumi.getter(name="healthCheckProtocol")
     def health_check_protocol(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
+        The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         """
         return pulumi.get(self, "health_check_protocol")
 
@@ -363,23 +353,20 @@ class EndpointGroup(pulumi.CustomResource):
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
+        The Amazon Resource Name (ARN) of the listener
         """
         return pulumi.get(self, "listener_arn")
 
     @property
     @pulumi.getter(name="portOverrides")
     def port_overrides(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointGroupPortOverride']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
-        """
         return pulumi.get(self, "port_overrides")
 
     @property
     @pulumi.getter(name="thresholdCount")
     def threshold_count(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
+        The number of consecutive health checks required to set the state of the endpoint to unhealthy.
         """
         return pulumi.get(self, "threshold_count")
 
@@ -387,7 +374,7 @@ class EndpointGroup(pulumi.CustomResource):
     @pulumi.getter(name="trafficDialPercentage")
     def traffic_dial_percentage(self) -> pulumi.Output[Optional[float]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
+        The percentage of traffic to sent to an AWS Region
         """
         return pulumi.get(self, "traffic_dial_percentage")
 

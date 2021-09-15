@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html
+    /// Contains the ARN of AWS IoT Greengrass Group that the gateway runs on.
     /// </summary>
     [OutputType]
     public sealed class GatewayGreengrass
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html#cfn-iotsitewise-gateway-greengrass-grouparn
+        /// The ARN of the Greengrass group.
         /// </summary>
         public readonly string GroupArn;
 

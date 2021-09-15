@@ -10,44 +10,62 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53Resolver
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html
+    /// Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53resolver:ResolverQueryLoggingConfig")]
     public partial class ResolverQueryLoggingConfig : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Arn
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Count
+        /// </summary>
         [Output("associationCount")]
         public Output<int> AssociationCount { get; private set; } = null!;
 
+        /// <summary>
+        /// Rfc3339TimeString
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The id of the creator request.
+        /// </summary>
         [Output("creatorRequestId")]
         public Output<string> CreatorRequestId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
+        /// destination arn
         /// </summary>
         [Output("destinationArn")]
         public Output<string?> DestinationArn { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
+        /// ResolverQueryLogConfigName
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// AccountId
+        /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
+        /// <summary>
+        /// ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
+        /// </summary>
         [Output("shareStatus")]
         public Output<string> ShareStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -97,13 +115,13 @@ namespace Pulumi.AwsNative.Route53Resolver
     public sealed class ResolverQueryLoggingConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
+        /// destination arn
         /// </summary>
         [Input("destinationArn")]
         public Input<string>? DestinationArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
+        /// ResolverQueryLogConfigName
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

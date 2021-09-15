@@ -10,15 +10,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html
 type AccessPointPublicAccessBlockConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicacls
+	// Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+	// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+	//  - PUT Object calls fail if the request includes a public ACL.
+	//    . - PUT Bucket calls fail if the request includes a public ACL.
+	//    Enabling this setting doesn't affect existing policies or ACLs.
 	BlockPublicAcls *bool `pulumi:"blockPublicAcls"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicpolicy
+	// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
 	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-ignorepublicacls
+	// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
 	IgnorePublicAcls *bool `pulumi:"ignorePublicAcls"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+	// Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+	// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
 	RestrictPublicBuckets *bool `pulumi:"restrictPublicBuckets"`
 }
 
@@ -33,15 +37,19 @@ type AccessPointPublicAccessBlockConfigurationInput interface {
 	ToAccessPointPublicAccessBlockConfigurationOutputWithContext(context.Context) AccessPointPublicAccessBlockConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html
 type AccessPointPublicAccessBlockConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicacls
+	// Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+	// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+	//  - PUT Object calls fail if the request includes a public ACL.
+	//    . - PUT Bucket calls fail if the request includes a public ACL.
+	//    Enabling this setting doesn't affect existing policies or ACLs.
 	BlockPublicAcls pulumi.BoolPtrInput `pulumi:"blockPublicAcls"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicpolicy
+	// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
 	BlockPublicPolicy pulumi.BoolPtrInput `pulumi:"blockPublicPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-ignorepublicacls
+	// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
 	IgnorePublicAcls pulumi.BoolPtrInput `pulumi:"ignorePublicAcls"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+	// Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+	// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
 	RestrictPublicBuckets pulumi.BoolPtrInput `pulumi:"restrictPublicBuckets"`
 }
 
@@ -98,7 +106,6 @@ func (i *accessPointPublicAccessBlockConfigurationPtrType) ToAccessPointPublicAc
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPublicAccessBlockConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html
 type AccessPointPublicAccessBlockConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccessPointPublicAccessBlockConfigurationOutput) ElementType() reflect.Type {
@@ -123,22 +130,27 @@ func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAcce
 	}).(AccessPointPublicAccessBlockConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicacls
+// Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+//  - PUT Object calls fail if the request includes a public ACL.
+//    . - PUT Bucket calls fail if the request includes a public ACL.
+//    Enabling this setting doesn't affect existing policies or ACLs.
 func (o AccessPointPublicAccessBlockConfigurationOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicpolicy
+// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
 func (o AccessPointPublicAccessBlockConfigurationOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-ignorepublicacls
+// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
 func (o AccessPointPublicAccessBlockConfigurationOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.IgnorePublicAcls }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+// Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
 func (o AccessPointPublicAccessBlockConfigurationOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *bool { return v.RestrictPublicBuckets }).(pulumi.BoolPtrOutput)
 }
@@ -167,7 +179,11 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) Elem() AccessPointPu
 	}).(AccessPointPublicAccessBlockConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicacls
+// Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+//  - PUT Object calls fail if the request includes a public ACL.
+//    . - PUT Bucket calls fail if the request includes a public ACL.
+//    Enabling this setting doesn't affect existing policies or ACLs.
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
 		if v == nil {
@@ -177,7 +193,7 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicAcls() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-blockpublicpolicy
+// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
 		if v == nil {
@@ -187,7 +203,7 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicPolicy() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-ignorepublicacls
+// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
 		if v == nil {
@@ -197,7 +213,8 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) IgnorePublicAcls() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-publicaccessblockconfiguration.html#cfn-s3-accesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+// Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) *bool {
 		if v == nil {
@@ -207,9 +224,9 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) RestrictPublicBucket
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html
+// The Virtual Private Cloud (VPC) configuration for a bucket access point.
 type AccessPointVpcConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html#cfn-s3-accesspoint-vpcconfiguration-vpcid
+	// If this field is specified, this access point will only allow connections from the specified VPC ID.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -224,9 +241,9 @@ type AccessPointVpcConfigurationInput interface {
 	ToAccessPointVpcConfigurationOutputWithContext(context.Context) AccessPointVpcConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html
+// The Virtual Private Cloud (VPC) configuration for a bucket access point.
 type AccessPointVpcConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html#cfn-s3-accesspoint-vpcconfiguration-vpcid
+	// If this field is specified, this access point will only allow connections from the specified VPC ID.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
@@ -283,7 +300,7 @@ func (i *accessPointVpcConfigurationPtrType) ToAccessPointVpcConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointVpcConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html
+// The Virtual Private Cloud (VPC) configuration for a bucket access point.
 type AccessPointVpcConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccessPointVpcConfigurationOutput) ElementType() reflect.Type {
@@ -308,7 +325,7 @@ func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationPtrOutpu
 	}).(AccessPointVpcConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html#cfn-s3-accesspoint-vpcconfiguration-vpcid
+// If this field is specified, this access point will only allow connections from the specified VPC ID.
 func (o AccessPointVpcConfigurationOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPointVpcConfiguration) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -337,7 +354,7 @@ func (o AccessPointVpcConfigurationPtrOutput) Elem() AccessPointVpcConfiguration
 	}).(AccessPointVpcConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html#cfn-s3-accesspoint-vpcconfiguration-vpcid
+// If this field is specified, this access point will only allow connections from the specified VPC ID.
 func (o AccessPointVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointVpcConfiguration) *string {
 		if v == nil {
@@ -347,15 +364,19 @@ func (o AccessPointVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html
 type MultiRegionAccessPointPublicAccessBlockConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicacls
+	// Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+	// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+	//  - PUT Object calls fail if the request includes a public ACL.
+	//    . - PUT Bucket calls fail if the request includes a public ACL.
+	//    Enabling this setting doesn't affect existing policies or ACLs.
 	BlockPublicAcls *bool `pulumi:"blockPublicAcls"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicpolicy
+	// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
 	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-ignorepublicacls
+	// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
 	IgnorePublicAcls *bool `pulumi:"ignorePublicAcls"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+	// Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+	// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
 	RestrictPublicBuckets *bool `pulumi:"restrictPublicBuckets"`
 }
 
@@ -370,15 +391,19 @@ type MultiRegionAccessPointPublicAccessBlockConfigurationInput interface {
 	ToMultiRegionAccessPointPublicAccessBlockConfigurationOutputWithContext(context.Context) MultiRegionAccessPointPublicAccessBlockConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html
 type MultiRegionAccessPointPublicAccessBlockConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicacls
+	// Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+	// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+	//  - PUT Object calls fail if the request includes a public ACL.
+	//    . - PUT Bucket calls fail if the request includes a public ACL.
+	//    Enabling this setting doesn't affect existing policies or ACLs.
 	BlockPublicAcls pulumi.BoolPtrInput `pulumi:"blockPublicAcls"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicpolicy
+	// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
 	BlockPublicPolicy pulumi.BoolPtrInput `pulumi:"blockPublicPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-ignorepublicacls
+	// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
 	IgnorePublicAcls pulumi.BoolPtrInput `pulumi:"ignorePublicAcls"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+	// Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+	// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
 	RestrictPublicBuckets pulumi.BoolPtrInput `pulumi:"restrictPublicBuckets"`
 }
 
@@ -435,7 +460,6 @@ func (i *multiRegionAccessPointPublicAccessBlockConfigurationPtrType) ToMultiReg
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html
 type MultiRegionAccessPointPublicAccessBlockConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointPublicAccessBlockConfigurationOutput) ElementType() reflect.Type {
@@ -460,22 +484,27 @@ func (o MultiRegionAccessPointPublicAccessBlockConfigurationOutput) ToMultiRegio
 	}).(MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicacls
+// Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+//  - PUT Object calls fail if the request includes a public ACL.
+//    . - PUT Bucket calls fail if the request includes a public ACL.
+//    Enabling this setting doesn't affect existing policies or ACLs.
 func (o MultiRegionAccessPointPublicAccessBlockConfigurationOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicpolicy
+// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
 func (o MultiRegionAccessPointPublicAccessBlockConfigurationOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointPublicAccessBlockConfiguration) *bool { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-ignorepublicacls
+// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
 func (o MultiRegionAccessPointPublicAccessBlockConfigurationOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointPublicAccessBlockConfiguration) *bool { return v.IgnorePublicAcls }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+// Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
 func (o MultiRegionAccessPointPublicAccessBlockConfigurationOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointPublicAccessBlockConfiguration) *bool { return v.RestrictPublicBuckets }).(pulumi.BoolPtrOutput)
 }
@@ -504,7 +533,11 @@ func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) Elem() Mu
 	}).(MultiRegionAccessPointPublicAccessBlockConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicacls
+// Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
+// - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+//  - PUT Object calls fail if the request includes a public ACL.
+//    . - PUT Bucket calls fail if the request includes a public ACL.
+//    Enabling this setting doesn't affect existing policies or ACLs.
 func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPublicAccessBlockConfiguration) *bool {
 		if v == nil {
@@ -514,7 +547,7 @@ func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) BlockPubl
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-blockpublicpolicy
+// Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
 func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPublicAccessBlockConfiguration) *bool {
 		if v == nil {
@@ -524,7 +557,7 @@ func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) BlockPubl
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-ignorepublicacls
+// Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
 func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPublicAccessBlockConfiguration) *bool {
 		if v == nil {
@@ -534,7 +567,8 @@ func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) IgnorePub
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration-restrictpublicbuckets
+// Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+// Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
 func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPublicAccessBlockConfiguration) *bool {
 		if v == nil {
@@ -544,9 +578,7 @@ func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) RestrictP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html
 type MultiRegionAccessPointRegion struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html#cfn-s3-multiregionaccesspoint-region-bucket
 	Bucket string `pulumi:"bucket"`
 }
 
@@ -561,9 +593,7 @@ type MultiRegionAccessPointRegionInput interface {
 	ToMultiRegionAccessPointRegionOutputWithContext(context.Context) MultiRegionAccessPointRegionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html
 type MultiRegionAccessPointRegionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html#cfn-s3-multiregionaccesspoint-region-bucket
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 }
 
@@ -604,7 +634,6 @@ func (i MultiRegionAccessPointRegionArray) ToMultiRegionAccessPointRegionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointRegionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html
 type MultiRegionAccessPointRegionOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointRegionOutput) ElementType() reflect.Type {
@@ -619,7 +648,6 @@ func (o MultiRegionAccessPointRegionOutput) ToMultiRegionAccessPointRegionOutput
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html#cfn-s3-multiregionaccesspoint-region-bucket
 func (o MultiRegionAccessPointRegionOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointRegion) string { return v.Bucket }).(pulumi.StringOutput)
 }
@@ -644,12 +672,10 @@ func (o MultiRegionAccessPointRegionArrayOutput) Index(i pulumi.IntInput) MultiR
 	}).(MultiRegionAccessPointRegionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html
+// Account-level metrics configurations.
 type StorageLensAccountLevel struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
 	ActivityMetrics *StorageLensActivityMetrics `pulumi:"activityMetrics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
-	BucketLevel StorageLensBucketLevel `pulumi:"bucketLevel"`
+	BucketLevel     StorageLensBucketLevel      `pulumi:"bucketLevel"`
 }
 
 // StorageLensAccountLevelInput is an input type that accepts StorageLensAccountLevelArgs and StorageLensAccountLevelOutput values.
@@ -663,12 +689,10 @@ type StorageLensAccountLevelInput interface {
 	ToStorageLensAccountLevelOutputWithContext(context.Context) StorageLensAccountLevelOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html
+// Account-level metrics configurations.
 type StorageLensAccountLevelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
 	ActivityMetrics StorageLensActivityMetricsPtrInput `pulumi:"activityMetrics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
-	BucketLevel StorageLensBucketLevelInput `pulumi:"bucketLevel"`
+	BucketLevel     StorageLensBucketLevelInput        `pulumi:"bucketLevel"`
 }
 
 func (StorageLensAccountLevelArgs) ElementType() reflect.Type {
@@ -724,7 +748,7 @@ func (i *storageLensAccountLevelPtrType) ToStorageLensAccountLevelPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAccountLevelPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html
+// Account-level metrics configurations.
 type StorageLensAccountLevelOutput struct{ *pulumi.OutputState }
 
 func (StorageLensAccountLevelOutput) ElementType() reflect.Type {
@@ -749,12 +773,10 @@ func (o StorageLensAccountLevelOutput) ToStorageLensAccountLevelPtrOutputWithCon
 	}).(StorageLensAccountLevelPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
 func (o StorageLensAccountLevelOutput) ActivityMetrics() StorageLensActivityMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensActivityMetrics { return v.ActivityMetrics }).(StorageLensActivityMetricsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
 func (o StorageLensAccountLevelOutput) BucketLevel() StorageLensBucketLevelOutput {
 	return o.ApplyT(func(v StorageLensAccountLevel) StorageLensBucketLevel { return v.BucketLevel }).(StorageLensBucketLevelOutput)
 }
@@ -783,7 +805,6 @@ func (o StorageLensAccountLevelPtrOutput) Elem() StorageLensAccountLevelOutput {
 	}).(StorageLensAccountLevelOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-activitymetrics
 func (o StorageLensAccountLevelPtrOutput) ActivityMetrics() StorageLensActivityMetricsPtrOutput {
 	return o.ApplyT(func(v *StorageLensAccountLevel) *StorageLensActivityMetrics {
 		if v == nil {
@@ -793,7 +814,6 @@ func (o StorageLensAccountLevelPtrOutput) ActivityMetrics() StorageLensActivityM
 	}).(StorageLensActivityMetricsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html#cfn-s3-storagelens-accountlevel-bucketlevel
 func (o StorageLensAccountLevelPtrOutput) BucketLevel() StorageLensBucketLevelPtrOutput {
 	return o.ApplyT(func(v *StorageLensAccountLevel) *StorageLensBucketLevel {
 		if v == nil {
@@ -803,9 +823,9 @@ func (o StorageLensAccountLevelPtrOutput) BucketLevel() StorageLensBucketLevelPt
 	}).(StorageLensBucketLevelPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html
+// Enables activity metrics.
 type StorageLensActivityMetrics struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
+	// Specifies whether activity metrics are enabled or disabled.
 	IsEnabled *bool `pulumi:"isEnabled"`
 }
 
@@ -820,9 +840,9 @@ type StorageLensActivityMetricsInput interface {
 	ToStorageLensActivityMetricsOutputWithContext(context.Context) StorageLensActivityMetricsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html
+// Enables activity metrics.
 type StorageLensActivityMetricsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
+	// Specifies whether activity metrics are enabled or disabled.
 	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
 }
 
@@ -879,7 +899,7 @@ func (i *storageLensActivityMetricsPtrType) ToStorageLensActivityMetricsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensActivityMetricsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html
+// Enables activity metrics.
 type StorageLensActivityMetricsOutput struct{ *pulumi.OutputState }
 
 func (StorageLensActivityMetricsOutput) ElementType() reflect.Type {
@@ -904,7 +924,7 @@ func (o StorageLensActivityMetricsOutput) ToStorageLensActivityMetricsPtrOutputW
 	}).(StorageLensActivityMetricsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
+// Specifies whether activity metrics are enabled or disabled.
 func (o StorageLensActivityMetricsOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensActivityMetrics) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -933,7 +953,7 @@ func (o StorageLensActivityMetricsPtrOutput) Elem() StorageLensActivityMetricsOu
 	}).(StorageLensActivityMetricsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
+// Specifies whether activity metrics are enabled or disabled.
 func (o StorageLensActivityMetricsPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageLensActivityMetrics) *bool {
 		if v == nil {
@@ -943,9 +963,8 @@ func (o StorageLensActivityMetricsPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html
+// The AWS Organizations ARN to use in the Amazon S3 Storage Lens configuration.
 type StorageLensAwsOrg struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html#cfn-s3-storagelens-awsorg-arn
 	Arn string `pulumi:"arn"`
 }
 
@@ -960,9 +979,8 @@ type StorageLensAwsOrgInput interface {
 	ToStorageLensAwsOrgOutputWithContext(context.Context) StorageLensAwsOrgOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html
+// The AWS Organizations ARN to use in the Amazon S3 Storage Lens configuration.
 type StorageLensAwsOrgArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html#cfn-s3-storagelens-awsorg-arn
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -1019,7 +1037,7 @@ func (i *storageLensAwsOrgPtrType) ToStorageLensAwsOrgPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAwsOrgPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html
+// The AWS Organizations ARN to use in the Amazon S3 Storage Lens configuration.
 type StorageLensAwsOrgOutput struct{ *pulumi.OutputState }
 
 func (StorageLensAwsOrgOutput) ElementType() reflect.Type {
@@ -1044,7 +1062,6 @@ func (o StorageLensAwsOrgOutput) ToStorageLensAwsOrgPtrOutputWithContext(ctx con
 	}).(StorageLensAwsOrgPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html#cfn-s3-storagelens-awsorg-arn
 func (o StorageLensAwsOrgOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensAwsOrg) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -1073,7 +1090,6 @@ func (o StorageLensAwsOrgPtrOutput) Elem() StorageLensAwsOrgOutput {
 	}).(StorageLensAwsOrgOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html#cfn-s3-storagelens-awsorg-arn
 func (o StorageLensAwsOrgPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensAwsOrg) *string {
 		if v == nil {
@@ -1083,12 +1099,10 @@ func (o StorageLensAwsOrgPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html
+// Bucket-level metrics configurations.
 type StorageLensBucketLevel struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-activitymetrics
 	ActivityMetrics *StorageLensActivityMetrics `pulumi:"activityMetrics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
-	PrefixLevel *StorageLensPrefixLevel `pulumi:"prefixLevel"`
+	PrefixLevel     *StorageLensPrefixLevel     `pulumi:"prefixLevel"`
 }
 
 // StorageLensBucketLevelInput is an input type that accepts StorageLensBucketLevelArgs and StorageLensBucketLevelOutput values.
@@ -1102,12 +1116,10 @@ type StorageLensBucketLevelInput interface {
 	ToStorageLensBucketLevelOutputWithContext(context.Context) StorageLensBucketLevelOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html
+// Bucket-level metrics configurations.
 type StorageLensBucketLevelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-activitymetrics
 	ActivityMetrics StorageLensActivityMetricsPtrInput `pulumi:"activityMetrics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
-	PrefixLevel StorageLensPrefixLevelPtrInput `pulumi:"prefixLevel"`
+	PrefixLevel     StorageLensPrefixLevelPtrInput     `pulumi:"prefixLevel"`
 }
 
 func (StorageLensBucketLevelArgs) ElementType() reflect.Type {
@@ -1163,7 +1175,7 @@ func (i *storageLensBucketLevelPtrType) ToStorageLensBucketLevelPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensBucketLevelPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html
+// Bucket-level metrics configurations.
 type StorageLensBucketLevelOutput struct{ *pulumi.OutputState }
 
 func (StorageLensBucketLevelOutput) ElementType() reflect.Type {
@@ -1188,12 +1200,10 @@ func (o StorageLensBucketLevelOutput) ToStorageLensBucketLevelPtrOutputWithConte
 	}).(StorageLensBucketLevelPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-activitymetrics
 func (o StorageLensBucketLevelOutput) ActivityMetrics() StorageLensActivityMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensActivityMetrics { return v.ActivityMetrics }).(StorageLensActivityMetricsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
 func (o StorageLensBucketLevelOutput) PrefixLevel() StorageLensPrefixLevelPtrOutput {
 	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensPrefixLevel { return v.PrefixLevel }).(StorageLensPrefixLevelPtrOutput)
 }
@@ -1222,7 +1232,6 @@ func (o StorageLensBucketLevelPtrOutput) Elem() StorageLensBucketLevelOutput {
 	}).(StorageLensBucketLevelOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-activitymetrics
 func (o StorageLensBucketLevelPtrOutput) ActivityMetrics() StorageLensActivityMetricsPtrOutput {
 	return o.ApplyT(func(v *StorageLensBucketLevel) *StorageLensActivityMetrics {
 		if v == nil {
@@ -1232,7 +1241,6 @@ func (o StorageLensBucketLevelPtrOutput) ActivityMetrics() StorageLensActivityMe
 	}).(StorageLensActivityMetricsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-prefixlevel
 func (o StorageLensBucketLevelPtrOutput) PrefixLevel() StorageLensPrefixLevelPtrOutput {
 	return o.ApplyT(func(v *StorageLensBucketLevel) *StorageLensPrefixLevel {
 		if v == nil {
@@ -1242,11 +1250,9 @@ func (o StorageLensBucketLevelPtrOutput) PrefixLevel() StorageLensPrefixLevelPtr
 	}).(StorageLensPrefixLevelPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html
+// S3 buckets and Regions to include/exclude in the Amazon S3 Storage Lens configuration.
 type StorageLensBucketsAndRegions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
 	Buckets []string `pulumi:"buckets"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
 	Regions []string `pulumi:"regions"`
 }
 
@@ -1261,11 +1267,9 @@ type StorageLensBucketsAndRegionsInput interface {
 	ToStorageLensBucketsAndRegionsOutputWithContext(context.Context) StorageLensBucketsAndRegionsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html
+// S3 buckets and Regions to include/exclude in the Amazon S3 Storage Lens configuration.
 type StorageLensBucketsAndRegionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
 	Buckets pulumi.StringArrayInput `pulumi:"buckets"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
 }
 
@@ -1322,7 +1326,7 @@ func (i *storageLensBucketsAndRegionsPtrType) ToStorageLensBucketsAndRegionsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensBucketsAndRegionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html
+// S3 buckets and Regions to include/exclude in the Amazon S3 Storage Lens configuration.
 type StorageLensBucketsAndRegionsOutput struct{ *pulumi.OutputState }
 
 func (StorageLensBucketsAndRegionsOutput) ElementType() reflect.Type {
@@ -1347,12 +1351,10 @@ func (o StorageLensBucketsAndRegionsOutput) ToStorageLensBucketsAndRegionsPtrOut
 	}).(StorageLensBucketsAndRegionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
 func (o StorageLensBucketsAndRegionsOutput) Buckets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StorageLensBucketsAndRegions) []string { return v.Buckets }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
 func (o StorageLensBucketsAndRegionsOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StorageLensBucketsAndRegions) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -1381,7 +1383,6 @@ func (o StorageLensBucketsAndRegionsPtrOutput) Elem() StorageLensBucketsAndRegio
 	}).(StorageLensBucketsAndRegionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
 func (o StorageLensBucketsAndRegionsPtrOutput) Buckets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StorageLensBucketsAndRegions) []string {
 		if v == nil {
@@ -1391,7 +1392,6 @@ func (o StorageLensBucketsAndRegionsPtrOutput) Buckets() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
 func (o StorageLensBucketsAndRegionsPtrOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StorageLensBucketsAndRegions) []string {
 		if v == nil {
@@ -1401,9 +1401,8 @@ func (o StorageLensBucketsAndRegionsPtrOutput) Regions() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
+// Specifies how Amazon S3 Storage Lens metrics should be exported.
 type StorageLensDataExport struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
 	S3BucketDestination StorageLensS3BucketDestination `pulumi:"s3BucketDestination"`
 }
 
@@ -1418,9 +1417,8 @@ type StorageLensDataExportInput interface {
 	ToStorageLensDataExportOutputWithContext(context.Context) StorageLensDataExportOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
+// Specifies how Amazon S3 Storage Lens metrics should be exported.
 type StorageLensDataExportArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
 	S3BucketDestination StorageLensS3BucketDestinationInput `pulumi:"s3BucketDestination"`
 }
 
@@ -1477,7 +1475,7 @@ func (i *storageLensDataExportPtrType) ToStorageLensDataExportPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensDataExportPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
+// Specifies how Amazon S3 Storage Lens metrics should be exported.
 type StorageLensDataExportOutput struct{ *pulumi.OutputState }
 
 func (StorageLensDataExportOutput) ElementType() reflect.Type {
@@ -1502,7 +1500,6 @@ func (o StorageLensDataExportOutput) ToStorageLensDataExportPtrOutputWithContext
 	}).(StorageLensDataExportPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
 func (o StorageLensDataExportOutput) S3BucketDestination() StorageLensS3BucketDestinationOutput {
 	return o.ApplyT(func(v StorageLensDataExport) StorageLensS3BucketDestination { return v.S3BucketDestination }).(StorageLensS3BucketDestinationOutput)
 }
@@ -1531,7 +1528,6 @@ func (o StorageLensDataExportPtrOutput) Elem() StorageLensDataExportOutput {
 	}).(StorageLensDataExportOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
 func (o StorageLensDataExportPtrOutput) S3BucketDestination() StorageLensS3BucketDestinationPtrOutput {
 	return o.ApplyT(func(v *StorageLensDataExport) *StorageLensS3BucketDestination {
 		if v == nil {
@@ -1541,7 +1537,7 @@ func (o StorageLensDataExportPtrOutput) S3BucketDestination() StorageLensS3Bucke
 	}).(StorageLensS3BucketDestinationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html
+// Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
 type StorageLensEncryption struct {
 }
 
@@ -1556,7 +1552,7 @@ type StorageLensEncryptionInput interface {
 	ToStorageLensEncryptionOutputWithContext(context.Context) StorageLensEncryptionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html
+// Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
 type StorageLensEncryptionArgs struct {
 }
 
@@ -1613,7 +1609,7 @@ func (i *storageLensEncryptionPtrType) ToStorageLensEncryptionPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html
+// Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
 type StorageLensEncryptionOutput struct{ *pulumi.OutputState }
 
 func (StorageLensEncryptionOutput) ElementType() reflect.Type {
@@ -1662,9 +1658,8 @@ func (o StorageLensEncryptionPtrOutput) Elem() StorageLensEncryptionOutput {
 	}).(StorageLensEncryptionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
+// Prefix-level metrics configurations.
 type StorageLensPrefixLevel struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
 	StorageMetrics StorageLensPrefixLevelStorageMetrics `pulumi:"storageMetrics"`
 }
 
@@ -1679,9 +1674,8 @@ type StorageLensPrefixLevelInput interface {
 	ToStorageLensPrefixLevelOutputWithContext(context.Context) StorageLensPrefixLevelOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
+// Prefix-level metrics configurations.
 type StorageLensPrefixLevelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
 	StorageMetrics StorageLensPrefixLevelStorageMetricsInput `pulumi:"storageMetrics"`
 }
 
@@ -1738,7 +1732,7 @@ func (i *storageLensPrefixLevelPtrType) ToStorageLensPrefixLevelPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensPrefixLevelPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
+// Prefix-level metrics configurations.
 type StorageLensPrefixLevelOutput struct{ *pulumi.OutputState }
 
 func (StorageLensPrefixLevelOutput) ElementType() reflect.Type {
@@ -1763,7 +1757,6 @@ func (o StorageLensPrefixLevelOutput) ToStorageLensPrefixLevelPtrOutputWithConte
 	}).(StorageLensPrefixLevelPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
 func (o StorageLensPrefixLevelOutput) StorageMetrics() StorageLensPrefixLevelStorageMetricsOutput {
 	return o.ApplyT(func(v StorageLensPrefixLevel) StorageLensPrefixLevelStorageMetrics { return v.StorageMetrics }).(StorageLensPrefixLevelStorageMetricsOutput)
 }
@@ -1792,7 +1785,6 @@ func (o StorageLensPrefixLevelPtrOutput) Elem() StorageLensPrefixLevelOutput {
 	}).(StorageLensPrefixLevelOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
 func (o StorageLensPrefixLevelPtrOutput) StorageMetrics() StorageLensPrefixLevelStorageMetricsPtrOutput {
 	return o.ApplyT(func(v *StorageLensPrefixLevel) *StorageLensPrefixLevelStorageMetrics {
 		if v == nil {
@@ -1802,11 +1794,9 @@ func (o StorageLensPrefixLevelPtrOutput) StorageMetrics() StorageLensPrefixLevel
 	}).(StorageLensPrefixLevelStorageMetricsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html
 type StorageLensPrefixLevelStorageMetrics struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-isenabled
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-selectioncriteria
+	// Specifies whether prefix-level storage metrics are enabled or disabled.
+	IsEnabled         *bool                         `pulumi:"isEnabled"`
 	SelectionCriteria *StorageLensSelectionCriteria `pulumi:"selectionCriteria"`
 }
 
@@ -1821,11 +1811,9 @@ type StorageLensPrefixLevelStorageMetricsInput interface {
 	ToStorageLensPrefixLevelStorageMetricsOutputWithContext(context.Context) StorageLensPrefixLevelStorageMetricsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html
 type StorageLensPrefixLevelStorageMetricsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-isenabled
-	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-selectioncriteria
+	// Specifies whether prefix-level storage metrics are enabled or disabled.
+	IsEnabled         pulumi.BoolPtrInput                  `pulumi:"isEnabled"`
 	SelectionCriteria StorageLensSelectionCriteriaPtrInput `pulumi:"selectionCriteria"`
 }
 
@@ -1882,7 +1870,6 @@ func (i *storageLensPrefixLevelStorageMetricsPtrType) ToStorageLensPrefixLevelSt
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensPrefixLevelStorageMetricsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html
 type StorageLensPrefixLevelStorageMetricsOutput struct{ *pulumi.OutputState }
 
 func (StorageLensPrefixLevelStorageMetricsOutput) ElementType() reflect.Type {
@@ -1907,12 +1894,11 @@ func (o StorageLensPrefixLevelStorageMetricsOutput) ToStorageLensPrefixLevelStor
 	}).(StorageLensPrefixLevelStorageMetricsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-isenabled
+// Specifies whether prefix-level storage metrics are enabled or disabled.
 func (o StorageLensPrefixLevelStorageMetricsOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensPrefixLevelStorageMetrics) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-selectioncriteria
 func (o StorageLensPrefixLevelStorageMetricsOutput) SelectionCriteria() StorageLensSelectionCriteriaPtrOutput {
 	return o.ApplyT(func(v StorageLensPrefixLevelStorageMetrics) *StorageLensSelectionCriteria { return v.SelectionCriteria }).(StorageLensSelectionCriteriaPtrOutput)
 }
@@ -1941,7 +1927,7 @@ func (o StorageLensPrefixLevelStorageMetricsPtrOutput) Elem() StorageLensPrefixL
 	}).(StorageLensPrefixLevelStorageMetricsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-isenabled
+// Specifies whether prefix-level storage metrics are enabled or disabled.
 func (o StorageLensPrefixLevelStorageMetricsPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageLensPrefixLevelStorageMetrics) *bool {
 		if v == nil {
@@ -1951,7 +1937,6 @@ func (o StorageLensPrefixLevelStorageMetricsPtrOutput) IsEnabled() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html#cfn-s3-storagelens-prefixlevelstoragemetrics-selectioncriteria
 func (o StorageLensPrefixLevelStorageMetricsPtrOutput) SelectionCriteria() StorageLensSelectionCriteriaPtrOutput {
 	return o.ApplyT(func(v *StorageLensPrefixLevelStorageMetrics) *StorageLensSelectionCriteria {
 		if v == nil {
@@ -1961,19 +1946,18 @@ func (o StorageLensPrefixLevelStorageMetricsPtrOutput) SelectionCriteria() Stora
 	}).(StorageLensSelectionCriteriaPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html
+// S3 bucket destination settings for the Amazon S3 Storage Lens metrics export.
 type StorageLensS3BucketDestination struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-accountid
+	// The AWS account ID that owns the destination S3 bucket.
 	AccountId string `pulumi:"accountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-arn
-	Arn string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption
+	// The ARN of the bucket to which Amazon S3 Storage Lens exports will be placed.
+	Arn        string                 `pulumi:"arn"`
 	Encryption *StorageLensEncryption `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-format
+	// Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
 	Format string `pulumi:"format"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-outputschemaversion
+	// The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
 	OutputSchemaVersion string `pulumi:"outputSchemaVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-prefix
+	// The prefix to use for Amazon S3 Storage Lens export.
 	Prefix *string `pulumi:"prefix"`
 }
 
@@ -1988,19 +1972,18 @@ type StorageLensS3BucketDestinationInput interface {
 	ToStorageLensS3BucketDestinationOutputWithContext(context.Context) StorageLensS3BucketDestinationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html
+// S3 bucket destination settings for the Amazon S3 Storage Lens metrics export.
 type StorageLensS3BucketDestinationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-accountid
+	// The AWS account ID that owns the destination S3 bucket.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-arn
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption
+	// The ARN of the bucket to which Amazon S3 Storage Lens exports will be placed.
+	Arn        pulumi.StringInput            `pulumi:"arn"`
 	Encryption StorageLensEncryptionPtrInput `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-format
+	// Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
 	Format pulumi.StringInput `pulumi:"format"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-outputschemaversion
+	// The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
 	OutputSchemaVersion pulumi.StringInput `pulumi:"outputSchemaVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-prefix
+	// The prefix to use for Amazon S3 Storage Lens export.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
 }
 
@@ -2057,7 +2040,7 @@ func (i *storageLensS3BucketDestinationPtrType) ToStorageLensS3BucketDestination
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensS3BucketDestinationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html
+// S3 bucket destination settings for the Amazon S3 Storage Lens metrics export.
 type StorageLensS3BucketDestinationOutput struct{ *pulumi.OutputState }
 
 func (StorageLensS3BucketDestinationOutput) ElementType() reflect.Type {
@@ -2082,32 +2065,31 @@ func (o StorageLensS3BucketDestinationOutput) ToStorageLensS3BucketDestinationPt
 	}).(StorageLensS3BucketDestinationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-accountid
+// The AWS account ID that owns the destination S3 bucket.
 func (o StorageLensS3BucketDestinationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensS3BucketDestination) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-arn
+// The ARN of the bucket to which Amazon S3 Storage Lens exports will be placed.
 func (o StorageLensS3BucketDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensS3BucketDestination) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption
 func (o StorageLensS3BucketDestinationOutput) Encryption() StorageLensEncryptionPtrOutput {
 	return o.ApplyT(func(v StorageLensS3BucketDestination) *StorageLensEncryption { return v.Encryption }).(StorageLensEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-format
+// Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
 func (o StorageLensS3BucketDestinationOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensS3BucketDestination) string { return v.Format }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-outputschemaversion
+// The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
 func (o StorageLensS3BucketDestinationOutput) OutputSchemaVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensS3BucketDestination) string { return v.OutputSchemaVersion }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-prefix
+// The prefix to use for Amazon S3 Storage Lens export.
 func (o StorageLensS3BucketDestinationOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageLensS3BucketDestination) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -2136,7 +2118,7 @@ func (o StorageLensS3BucketDestinationPtrOutput) Elem() StorageLensS3BucketDesti
 	}).(StorageLensS3BucketDestinationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-accountid
+// The AWS account ID that owns the destination S3 bucket.
 func (o StorageLensS3BucketDestinationPtrOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensS3BucketDestination) *string {
 		if v == nil {
@@ -2146,7 +2128,7 @@ func (o StorageLensS3BucketDestinationPtrOutput) AccountId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-arn
+// The ARN of the bucket to which Amazon S3 Storage Lens exports will be placed.
 func (o StorageLensS3BucketDestinationPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensS3BucketDestination) *string {
 		if v == nil {
@@ -2156,7 +2138,6 @@ func (o StorageLensS3BucketDestinationPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-encryption
 func (o StorageLensS3BucketDestinationPtrOutput) Encryption() StorageLensEncryptionPtrOutput {
 	return o.ApplyT(func(v *StorageLensS3BucketDestination) *StorageLensEncryption {
 		if v == nil {
@@ -2166,7 +2147,7 @@ func (o StorageLensS3BucketDestinationPtrOutput) Encryption() StorageLensEncrypt
 	}).(StorageLensEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-format
+// Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
 func (o StorageLensS3BucketDestinationPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensS3BucketDestination) *string {
 		if v == nil {
@@ -2176,7 +2157,7 @@ func (o StorageLensS3BucketDestinationPtrOutput) Format() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-outputschemaversion
+// The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
 func (o StorageLensS3BucketDestinationPtrOutput) OutputSchemaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensS3BucketDestination) *string {
 		if v == nil {
@@ -2186,7 +2167,7 @@ func (o StorageLensS3BucketDestinationPtrOutput) OutputSchemaVersion() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html#cfn-s3-storagelens-s3bucketdestination-prefix
+// The prefix to use for Amazon S3 Storage Lens export.
 func (o StorageLensS3BucketDestinationPtrOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensS3BucketDestination) *string {
 		if v == nil {
@@ -2196,13 +2177,13 @@ func (o StorageLensS3BucketDestinationPtrOutput) Prefix() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html
+// Selection criteria for prefix-level metrics.
 type StorageLensSelectionCriteria struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter
+	// Delimiter to divide S3 key into hierarchy of prefixes.
 	Delimiter *string `pulumi:"delimiter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth
+	// Max depth of prefixes of S3 key that Amazon S3 Storage Lens will analyze.
 	MaxDepth *int `pulumi:"maxDepth"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-minstoragebytespercentage
+	// The minimum storage bytes threshold for the prefixes to be included in the analysis.
 	MinStorageBytesPercentage *float64 `pulumi:"minStorageBytesPercentage"`
 }
 
@@ -2217,13 +2198,13 @@ type StorageLensSelectionCriteriaInput interface {
 	ToStorageLensSelectionCriteriaOutputWithContext(context.Context) StorageLensSelectionCriteriaOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html
+// Selection criteria for prefix-level metrics.
 type StorageLensSelectionCriteriaArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter
+	// Delimiter to divide S3 key into hierarchy of prefixes.
 	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth
+	// Max depth of prefixes of S3 key that Amazon S3 Storage Lens will analyze.
 	MaxDepth pulumi.IntPtrInput `pulumi:"maxDepth"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-minstoragebytespercentage
+	// The minimum storage bytes threshold for the prefixes to be included in the analysis.
 	MinStorageBytesPercentage pulumi.Float64PtrInput `pulumi:"minStorageBytesPercentage"`
 }
 
@@ -2280,7 +2261,7 @@ func (i *storageLensSelectionCriteriaPtrType) ToStorageLensSelectionCriteriaPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensSelectionCriteriaPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html
+// Selection criteria for prefix-level metrics.
 type StorageLensSelectionCriteriaOutput struct{ *pulumi.OutputState }
 
 func (StorageLensSelectionCriteriaOutput) ElementType() reflect.Type {
@@ -2305,17 +2286,17 @@ func (o StorageLensSelectionCriteriaOutput) ToStorageLensSelectionCriteriaPtrOut
 	}).(StorageLensSelectionCriteriaPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter
+// Delimiter to divide S3 key into hierarchy of prefixes.
 func (o StorageLensSelectionCriteriaOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageLensSelectionCriteria) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth
+// Max depth of prefixes of S3 key that Amazon S3 Storage Lens will analyze.
 func (o StorageLensSelectionCriteriaOutput) MaxDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageLensSelectionCriteria) *int { return v.MaxDepth }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-minstoragebytespercentage
+// The minimum storage bytes threshold for the prefixes to be included in the analysis.
 func (o StorageLensSelectionCriteriaOutput) MinStorageBytesPercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v StorageLensSelectionCriteria) *float64 { return v.MinStorageBytesPercentage }).(pulumi.Float64PtrOutput)
 }
@@ -2344,7 +2325,7 @@ func (o StorageLensSelectionCriteriaPtrOutput) Elem() StorageLensSelectionCriter
 	}).(StorageLensSelectionCriteriaOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter
+// Delimiter to divide S3 key into hierarchy of prefixes.
 func (o StorageLensSelectionCriteriaPtrOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensSelectionCriteria) *string {
 		if v == nil {
@@ -2354,7 +2335,7 @@ func (o StorageLensSelectionCriteriaPtrOutput) Delimiter() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth
+// Max depth of prefixes of S3 key that Amazon S3 Storage Lens will analyze.
 func (o StorageLensSelectionCriteriaPtrOutput) MaxDepth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageLensSelectionCriteria) *int {
 		if v == nil {
@@ -2364,7 +2345,7 @@ func (o StorageLensSelectionCriteriaPtrOutput) MaxDepth() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-minstoragebytespercentage
+// The minimum storage bytes threshold for the prefixes to be included in the analysis.
 func (o StorageLensSelectionCriteriaPtrOutput) MinStorageBytesPercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *StorageLensSelectionCriteria) *float64 {
 		if v == nil {
@@ -2374,23 +2355,17 @@ func (o StorageLensSelectionCriteriaPtrOutput) MinStorageBytesPercentage() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html
+// Specifies the details of Amazon S3 Storage Lens configuration.
 type StorageLensStorageLensConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
-	AccountLevel StorageLensAccountLevel `pulumi:"accountLevel"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
-	AwsOrg *StorageLensAwsOrg `pulumi:"awsOrg"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-dataexport
-	DataExport *StorageLensDataExport `pulumi:"dataExport"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
-	Exclude *StorageLensBucketsAndRegions `pulumi:"exclude"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
-	Id string `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-include
-	Include *StorageLensBucketsAndRegions `pulumi:"include"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-isenabled
+	AccountLevel StorageLensAccountLevel       `pulumi:"accountLevel"`
+	AwsOrg       *StorageLensAwsOrg            `pulumi:"awsOrg"`
+	DataExport   *StorageLensDataExport        `pulumi:"dataExport"`
+	Exclude      *StorageLensBucketsAndRegions `pulumi:"exclude"`
+	Id           string                        `pulumi:"id"`
+	Include      *StorageLensBucketsAndRegions `pulumi:"include"`
+	// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
 	IsEnabled bool `pulumi:"isEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-storagelensarn
+	// The ARN for the Amazon S3 Storage Lens configuration.
 	StorageLensArn *string `pulumi:"storageLensArn"`
 }
 
@@ -2405,23 +2380,17 @@ type StorageLensStorageLensConfigurationInput interface {
 	ToStorageLensStorageLensConfigurationOutputWithContext(context.Context) StorageLensStorageLensConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html
+// Specifies the details of Amazon S3 Storage Lens configuration.
 type StorageLensStorageLensConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
-	AccountLevel StorageLensAccountLevelInput `pulumi:"accountLevel"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
-	AwsOrg StorageLensAwsOrgPtrInput `pulumi:"awsOrg"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-dataexport
-	DataExport StorageLensDataExportPtrInput `pulumi:"dataExport"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
-	Exclude StorageLensBucketsAndRegionsPtrInput `pulumi:"exclude"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
-	Id pulumi.StringInput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-include
-	Include StorageLensBucketsAndRegionsPtrInput `pulumi:"include"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-isenabled
+	AccountLevel StorageLensAccountLevelInput         `pulumi:"accountLevel"`
+	AwsOrg       StorageLensAwsOrgPtrInput            `pulumi:"awsOrg"`
+	DataExport   StorageLensDataExportPtrInput        `pulumi:"dataExport"`
+	Exclude      StorageLensBucketsAndRegionsPtrInput `pulumi:"exclude"`
+	Id           pulumi.StringInput                   `pulumi:"id"`
+	Include      StorageLensBucketsAndRegionsPtrInput `pulumi:"include"`
+	// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-storagelensarn
+	// The ARN for the Amazon S3 Storage Lens configuration.
 	StorageLensArn pulumi.StringPtrInput `pulumi:"storageLensArn"`
 }
 
@@ -2478,7 +2447,7 @@ func (i *storageLensStorageLensConfigurationPtrType) ToStorageLensStorageLensCon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensStorageLensConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html
+// Specifies the details of Amazon S3 Storage Lens configuration.
 type StorageLensStorageLensConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StorageLensStorageLensConfigurationOutput) ElementType() reflect.Type {
@@ -2503,42 +2472,36 @@ func (o StorageLensStorageLensConfigurationOutput) ToStorageLensStorageLensConfi
 	}).(StorageLensStorageLensConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
 func (o StorageLensStorageLensConfigurationOutput) AccountLevel() StorageLensAccountLevelOutput {
 	return o.ApplyT(func(v StorageLensStorageLensConfiguration) StorageLensAccountLevel { return v.AccountLevel }).(StorageLensAccountLevelOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
 func (o StorageLensStorageLensConfigurationOutput) AwsOrg() StorageLensAwsOrgPtrOutput {
 	return o.ApplyT(func(v StorageLensStorageLensConfiguration) *StorageLensAwsOrg { return v.AwsOrg }).(StorageLensAwsOrgPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-dataexport
 func (o StorageLensStorageLensConfigurationOutput) DataExport() StorageLensDataExportPtrOutput {
 	return o.ApplyT(func(v StorageLensStorageLensConfiguration) *StorageLensDataExport { return v.DataExport }).(StorageLensDataExportPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
 func (o StorageLensStorageLensConfigurationOutput) Exclude() StorageLensBucketsAndRegionsPtrOutput {
 	return o.ApplyT(func(v StorageLensStorageLensConfiguration) *StorageLensBucketsAndRegions { return v.Exclude }).(StorageLensBucketsAndRegionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
 func (o StorageLensStorageLensConfigurationOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensStorageLensConfiguration) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-include
 func (o StorageLensStorageLensConfigurationOutput) Include() StorageLensBucketsAndRegionsPtrOutput {
 	return o.ApplyT(func(v StorageLensStorageLensConfiguration) *StorageLensBucketsAndRegions { return v.Include }).(StorageLensBucketsAndRegionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-isenabled
+// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
 func (o StorageLensStorageLensConfigurationOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v StorageLensStorageLensConfiguration) bool { return v.IsEnabled }).(pulumi.BoolOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-storagelensarn
+// The ARN for the Amazon S3 Storage Lens configuration.
 func (o StorageLensStorageLensConfigurationOutput) StorageLensArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageLensStorageLensConfiguration) *string { return v.StorageLensArn }).(pulumi.StringPtrOutput)
 }
@@ -2567,7 +2530,6 @@ func (o StorageLensStorageLensConfigurationPtrOutput) Elem() StorageLensStorageL
 	}).(StorageLensStorageLensConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
 func (o StorageLensStorageLensConfigurationPtrOutput) AccountLevel() StorageLensAccountLevelPtrOutput {
 	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *StorageLensAccountLevel {
 		if v == nil {
@@ -2577,7 +2539,6 @@ func (o StorageLensStorageLensConfigurationPtrOutput) AccountLevel() StorageLens
 	}).(StorageLensAccountLevelPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
 func (o StorageLensStorageLensConfigurationPtrOutput) AwsOrg() StorageLensAwsOrgPtrOutput {
 	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *StorageLensAwsOrg {
 		if v == nil {
@@ -2587,7 +2548,6 @@ func (o StorageLensStorageLensConfigurationPtrOutput) AwsOrg() StorageLensAwsOrg
 	}).(StorageLensAwsOrgPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-dataexport
 func (o StorageLensStorageLensConfigurationPtrOutput) DataExport() StorageLensDataExportPtrOutput {
 	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *StorageLensDataExport {
 		if v == nil {
@@ -2597,7 +2557,6 @@ func (o StorageLensStorageLensConfigurationPtrOutput) DataExport() StorageLensDa
 	}).(StorageLensDataExportPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
 func (o StorageLensStorageLensConfigurationPtrOutput) Exclude() StorageLensBucketsAndRegionsPtrOutput {
 	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *StorageLensBucketsAndRegions {
 		if v == nil {
@@ -2607,7 +2566,6 @@ func (o StorageLensStorageLensConfigurationPtrOutput) Exclude() StorageLensBucke
 	}).(StorageLensBucketsAndRegionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
 func (o StorageLensStorageLensConfigurationPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *string {
 		if v == nil {
@@ -2617,7 +2575,6 @@ func (o StorageLensStorageLensConfigurationPtrOutput) Id() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-include
 func (o StorageLensStorageLensConfigurationPtrOutput) Include() StorageLensBucketsAndRegionsPtrOutput {
 	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *StorageLensBucketsAndRegions {
 		if v == nil {
@@ -2627,7 +2584,7 @@ func (o StorageLensStorageLensConfigurationPtrOutput) Include() StorageLensBucke
 	}).(StorageLensBucketsAndRegionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-isenabled
+// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
 func (o StorageLensStorageLensConfigurationPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *bool {
 		if v == nil {
@@ -2637,7 +2594,7 @@ func (o StorageLensStorageLensConfigurationPtrOutput) IsEnabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-storagelensarn
+// The ARN for the Amazon S3 Storage Lens configuration.
 func (o StorageLensStorageLensConfigurationPtrOutput) StorageLensArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensStorageLensConfiguration) *string {
 		if v == nil {
@@ -2645,6 +2602,106 @@ func (o StorageLensStorageLensConfigurationPtrOutput) StorageLensArn() pulumi.St
 		}
 		return v.StorageLensArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type StorageLensTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// StorageLensTagInput is an input type that accepts StorageLensTagArgs and StorageLensTagOutput values.
+// You can construct a concrete instance of `StorageLensTagInput` via:
+//
+//          StorageLensTagArgs{...}
+type StorageLensTagInput interface {
+	pulumi.Input
+
+	ToStorageLensTagOutput() StorageLensTagOutput
+	ToStorageLensTagOutputWithContext(context.Context) StorageLensTagOutput
+}
+
+type StorageLensTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (StorageLensTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensTag)(nil)).Elem()
+}
+
+func (i StorageLensTagArgs) ToStorageLensTagOutput() StorageLensTagOutput {
+	return i.ToStorageLensTagOutputWithContext(context.Background())
+}
+
+func (i StorageLensTagArgs) ToStorageLensTagOutputWithContext(ctx context.Context) StorageLensTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensTagOutput)
+}
+
+// StorageLensTagArrayInput is an input type that accepts StorageLensTagArray and StorageLensTagArrayOutput values.
+// You can construct a concrete instance of `StorageLensTagArrayInput` via:
+//
+//          StorageLensTagArray{ StorageLensTagArgs{...} }
+type StorageLensTagArrayInput interface {
+	pulumi.Input
+
+	ToStorageLensTagArrayOutput() StorageLensTagArrayOutput
+	ToStorageLensTagArrayOutputWithContext(context.Context) StorageLensTagArrayOutput
+}
+
+type StorageLensTagArray []StorageLensTagInput
+
+func (StorageLensTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageLensTag)(nil)).Elem()
+}
+
+func (i StorageLensTagArray) ToStorageLensTagArrayOutput() StorageLensTagArrayOutput {
+	return i.ToStorageLensTagArrayOutputWithContext(context.Background())
+}
+
+func (i StorageLensTagArray) ToStorageLensTagArrayOutputWithContext(ctx context.Context) StorageLensTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensTagArrayOutput)
+}
+
+type StorageLensTagOutput struct{ *pulumi.OutputState }
+
+func (StorageLensTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensTag)(nil)).Elem()
+}
+
+func (o StorageLensTagOutput) ToStorageLensTagOutput() StorageLensTagOutput {
+	return o
+}
+
+func (o StorageLensTagOutput) ToStorageLensTagOutputWithContext(ctx context.Context) StorageLensTagOutput {
+	return o
+}
+
+func (o StorageLensTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o StorageLensTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StorageLensTagArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageLensTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageLensTag)(nil)).Elem()
+}
+
+func (o StorageLensTagArrayOutput) ToStorageLensTagArrayOutput() StorageLensTagArrayOutput {
+	return o
+}
+
+func (o StorageLensTagArrayOutput) ToStorageLensTagArrayOutputWithContext(ctx context.Context) StorageLensTagArrayOutput {
+	return o
+}
+
+func (o StorageLensTagArrayOutput) Index(i pulumi.IntInput) StorageLensTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageLensTag {
+		return vs[0].([]StorageLensTag)[vs[1].(int)]
+	}).(StorageLensTagOutput)
 }
 
 func init() {
@@ -2680,4 +2737,6 @@ func init() {
 	pulumi.RegisterOutputType(StorageLensSelectionCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensStorageLensConfigurationOutput{})
 	pulumi.RegisterOutputType(StorageLensStorageLensConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensTagOutput{})
+	pulumi.RegisterOutputType(StorageLensTagArrayOutput{})
 }

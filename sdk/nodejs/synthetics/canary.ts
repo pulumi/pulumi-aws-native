@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html
+ * Resource Type definition for AWS::Synthetics::Canary
  */
 export class Canary extends pulumi.CustomResource {
     /**
@@ -36,57 +36,56 @@ export class Canary extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
+     * Provide the s3 bucket output location for test results
      */
     public readonly artifactS3Location!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
+     * Provide the canary script source
      */
     public readonly code!: pulumi.Output<outputs.synthetics.CanaryCode>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
+     * Lambda Execution role used to run your canaries
      */
     public readonly executionRoleArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
+     * Retention period of failed canary runs represented in number of days
      */
     public readonly failureRetentionPeriod!: pulumi.Output<number | undefined>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
+     * Name of the canary.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
+     * Provide canary run configuration
      */
     public readonly runConfig!: pulumi.Output<outputs.synthetics.CanaryRunConfig | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
+     * Runtime version of Synthetics Library
      */
     public readonly runtimeVersion!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
+     * Frequency to run your canaries
      */
     public readonly schedule!: pulumi.Output<outputs.synthetics.CanarySchedule>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
+     * Runs canary if set to True. Default is False
      */
     public readonly startCanaryAfterCreation!: pulumi.Output<boolean>;
+    /**
+     * State of the canary
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
+     * Retention period of successful canary runs represented in number of days
      */
     public readonly successRetentionPeriod!: pulumi.Output<number | undefined>;
+    public readonly tags!: pulumi.Output<outputs.synthetics.CanaryTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
+     * Provide VPC Configuration if enabled.
      */
     public readonly vPCConfig!: pulumi.Output<outputs.synthetics.CanaryVPCConfig | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
+     * Visual reference configuration for visual testing
      */
     public readonly visualReference!: pulumi.Output<outputs.synthetics.CanaryVisualReference | undefined>;
 
@@ -135,14 +134,12 @@ export class Canary extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vPCConfig"] = args ? args.vPCConfig : undefined;
             inputs["visualReference"] = args ? args.visualReference : undefined;
-            inputs["id"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
         } else {
             inputs["artifactS3Location"] = undefined /*out*/;
             inputs["code"] = undefined /*out*/;
             inputs["executionRoleArn"] = undefined /*out*/;
             inputs["failureRetentionPeriod"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["runConfig"] = undefined /*out*/;
             inputs["runtimeVersion"] = undefined /*out*/;
@@ -166,55 +163,52 @@ export class Canary extends pulumi.CustomResource {
  */
 export interface CanaryArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-artifacts3location
+     * Provide the s3 bucket output location for test results
      */
     artifactS3Location: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-code
+     * Provide the canary script source
      */
     code: pulumi.Input<inputs.synthetics.CanaryCodeArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-executionrolearn
+     * Lambda Execution role used to run your canaries
      */
     executionRoleArn: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-failureretentionperiod
+     * Retention period of failed canary runs represented in number of days
      */
     failureRetentionPeriod?: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-name
+     * Name of the canary.
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
+     * Provide canary run configuration
      */
     runConfig?: pulumi.Input<inputs.synthetics.CanaryRunConfigArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion
+     * Runtime version of Synthetics Library
      */
     runtimeVersion: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-schedule
+     * Frequency to run your canaries
      */
     schedule: pulumi.Input<inputs.synthetics.CanaryScheduleArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-startcanaryaftercreation
+     * Runs canary if set to True. Default is False
      */
     startCanaryAfterCreation: pulumi.Input<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-successretentionperiod
+     * Retention period of successful canary runs represented in number of days
      */
     successRetentionPeriod?: pulumi.Input<number>;
+    tags?: pulumi.Input<pulumi.Input<inputs.synthetics.CanaryTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-vpcconfig
+     * Provide VPC Configuration if enabled.
      */
     vPCConfig?: pulumi.Input<inputs.synthetics.CanaryVPCConfigArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-visualreference
+     * Visual reference configuration for visual testing
      */
     visualReference?: pulumi.Input<inputs.synthetics.CanaryVisualReferenceArgs>;
 }

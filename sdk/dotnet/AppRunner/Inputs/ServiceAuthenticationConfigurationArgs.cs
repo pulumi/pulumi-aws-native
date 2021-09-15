@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html
+    /// Authentication Configuration
     /// </summary>
     public sealed class ServiceAuthenticationConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-accessrolearn
+        /// Access Role Arn
         /// </summary>
         [Input("accessRoleArn")]
         public Input<string>? AccessRoleArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html#cfn-apprunner-service-authenticationconfiguration-connectionarn
+        /// Connection Arn
         /// </summary>
         [Input("connectionArn")]
         public Input<string>? ConnectionArn { get; set; }

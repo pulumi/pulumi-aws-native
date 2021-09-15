@@ -10,26 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html
-    /// </summary>
     public sealed class DistributionOriginGroupsArgs : Pulumi.ResourceArgs
     {
         [Input("items")]
         private InputList<Inputs.DistributionOriginGroupArgs>? _items;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-items
-        /// </summary>
         public InputList<Inputs.DistributionOriginGroupArgs> Items
         {
             get => _items ?? (_items = new InputList<Inputs.DistributionOriginGroupArgs>());
             set => _items = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origingroups.html#cfn-cloudfront-distribution-origingroups-quantity
-        /// </summary>
         [Input("quantity", required: true)]
         public Input<int> Quantity { get; set; } = null!;
 

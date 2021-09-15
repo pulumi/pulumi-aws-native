@@ -7,45 +7,42 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html
+// Definition of the AWS::QuickSight::DataSet Resource Type.
 type DataSet struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-awsaccountid
+	// <p>The Amazon Resource Name (ARN) of the resource.</p>
+	Arn          pulumi.StringOutput    `pulumi:"arn"`
 	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columngroups
-	ColumnGroups DataSetColumnGroupArrayOutput `pulumi:"columnGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
-	ColumnLevelPermissionRules   DataSetColumnLevelPermissionRuleArrayOutput `pulumi:"columnLevelPermissionRules"`
-	ConsumedSpiceCapacityInBytes pulumi.Float64Output                        `pulumi:"consumedSpiceCapacityInBytes"`
-	CreatedTime                  pulumi.StringOutput                         `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
-	DataSetId pulumi.StringPtrOutput `pulumi:"dataSetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
-	FieldFolders DataSetFieldFolderMapOutput `pulumi:"fieldFolders"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-importmode
-	ImportMode pulumi.StringPtrOutput `pulumi:"importMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-ingestionwaitpolicy
+	// <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+	ColumnGroups               DataSetColumnGroupArrayOutput               `pulumi:"columnGroups"`
+	ColumnLevelPermissionRules DataSetColumnLevelPermissionRuleArrayOutput `pulumi:"columnLevelPermissionRules"`
+	// <p>The amount of SPICE capacity used by this dataset. This is 0 if the dataset isn't
+	//             imported into SPICE.</p>
+	ConsumedSpiceCapacityInBytes pulumi.Float64Output `pulumi:"consumedSpiceCapacityInBytes"`
+	// <p>The time that this dataset was created.</p>
+	CreatedTime         pulumi.StringOutput                 `pulumi:"createdTime"`
+	DataSetId           pulumi.StringPtrOutput              `pulumi:"dataSetId"`
+	FieldFolders        DataSetFieldFolderMapPtrOutput      `pulumi:"fieldFolders"`
+	ImportMode          pulumi.StringPtrOutput              `pulumi:"importMode"`
 	IngestionWaitPolicy DataSetIngestionWaitPolicyPtrOutput `pulumi:"ingestionWaitPolicy"`
-	LastUpdatedTime     pulumi.StringOutput                 `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
-	LogicalTableMap DataSetLogicalTableMapOutput `pulumi:"logicalTableMap"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
-	Name          pulumi.StringPtrOutput         `pulumi:"name"`
+	// <p>The last time that this dataset was updated.</p>
+	LastUpdatedTime pulumi.StringOutput             `pulumi:"lastUpdatedTime"`
+	LogicalTableMap DataSetLogicalTableMapPtrOutput `pulumi:"logicalTableMap"`
+	// <p>The display name for the dataset.</p>
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// <p>The list of columns after all transforms. These columns are available in templates,
+	//             analyses, and dashboards.</p>
 	OutputColumns DataSetOutputColumnArrayOutput `pulumi:"outputColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
-	Permissions DataSetResourcePermissionArrayOutput `pulumi:"permissions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap
-	PhysicalTableMap DataSetPhysicalTableMapOutput `pulumi:"physicalTableMap"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
+	// <p>A list of resource permissions on the dataset.</p>
+	Permissions               DataSetResourcePermissionArrayOutput      `pulumi:"permissions"`
+	PhysicalTableMap          DataSetPhysicalTableMapPtrOutput          `pulumi:"physicalTableMap"`
 	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrOutput `pulumi:"rowLevelPermissionDataSet"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
+	Tags DataSetTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDataSet registers a new resource with the given unique name, arguments, and options.
@@ -87,62 +84,44 @@ func (DataSetState) ElementType() reflect.Type {
 }
 
 type dataSetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-awsaccountid
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columngroups
-	ColumnGroups []DataSetColumnGroup `pulumi:"columnGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
+	// <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+	ColumnGroups               []DataSetColumnGroup               `pulumi:"columnGroups"`
 	ColumnLevelPermissionRules []DataSetColumnLevelPermissionRule `pulumi:"columnLevelPermissionRules"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
-	DataSetId *string `pulumi:"dataSetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
-	FieldFolders map[string]DataSetFieldFolder `pulumi:"fieldFolders"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-importmode
-	ImportMode *string `pulumi:"importMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-ingestionwaitpolicy
-	IngestionWaitPolicy *DataSetIngestionWaitPolicy `pulumi:"ingestionWaitPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
-	LogicalTableMap map[string]DataSetLogicalTable `pulumi:"logicalTableMap"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
+	DataSetId                  *string                            `pulumi:"dataSetId"`
+	FieldFolders               *DataSetFieldFolderMap             `pulumi:"fieldFolders"`
+	ImportMode                 *string                            `pulumi:"importMode"`
+	IngestionWaitPolicy        *DataSetIngestionWaitPolicy        `pulumi:"ingestionWaitPolicy"`
+	LogicalTableMap            *DataSetLogicalTableMap            `pulumi:"logicalTableMap"`
+	// <p>The display name for the dataset.</p>
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
-	Permissions []DataSetResourcePermission `pulumi:"permissions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap
-	PhysicalTableMap map[string]DataSetPhysicalTable `pulumi:"physicalTableMap"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
+	// <p>A list of resource permissions on the dataset.</p>
+	Permissions               []DataSetResourcePermission       `pulumi:"permissions"`
+	PhysicalTableMap          *DataSetPhysicalTableMap          `pulumi:"physicalTableMap"`
 	RowLevelPermissionDataSet *DataSetRowLevelPermissionDataSet `pulumi:"rowLevelPermissionDataSet"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
+	Tags []DataSetTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataSet resource.
 type DataSetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-awsaccountid
 	AwsAccountId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columngroups
-	ColumnGroups DataSetColumnGroupArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
+	// <p>Groupings of columns that work together in certain QuickSight features. Currently, only geospatial hierarchy is supported.</p>
+	ColumnGroups               DataSetColumnGroupArrayInput
 	ColumnLevelPermissionRules DataSetColumnLevelPermissionRuleArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
-	DataSetId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-fieldfolders
-	FieldFolders DataSetFieldFolderMapInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-importmode
-	ImportMode pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-ingestionwaitpolicy
-	IngestionWaitPolicy DataSetIngestionWaitPolicyPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
-	LogicalTableMap DataSetLogicalTableMapInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-name
+	DataSetId                  pulumi.StringPtrInput
+	FieldFolders               DataSetFieldFolderMapPtrInput
+	ImportMode                 pulumi.StringPtrInput
+	IngestionWaitPolicy        DataSetIngestionWaitPolicyPtrInput
+	LogicalTableMap            DataSetLogicalTableMapPtrInput
+	// <p>The display name for the dataset.</p>
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
-	Permissions DataSetResourcePermissionArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap
-	PhysicalTableMap DataSetPhysicalTableMapInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
+	// <p>A list of resource permissions on the dataset.</p>
+	Permissions               DataSetResourcePermissionArrayInput
+	PhysicalTableMap          DataSetPhysicalTableMapPtrInput
 	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
-	Tags aws.TagArrayInput
+	// <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>
+	Tags DataSetTagArrayInput
 }
 
 func (DataSetArgs) ElementType() reflect.Type {

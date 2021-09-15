@@ -10,18 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFormation.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html
-    /// </summary>
     [OutputType]
     public sealed class ResourceVersionLoggingConfig
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-loggroupname
+        /// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
         /// </summary>
         public readonly string? LogGroupName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-resourceversion-loggingconfig.html#cfn-cloudformation-resourceversion-loggingconfig-logrolearn
+        /// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
         /// </summary>
         public readonly string? LogRoleArn;
 

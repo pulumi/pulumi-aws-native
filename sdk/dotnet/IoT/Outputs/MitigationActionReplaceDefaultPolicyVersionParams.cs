@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.IoT.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html
+    /// Parameters to define a mitigation action that adds a blank policy to restrict permissions.
     /// </summary>
     [OutputType]
     public sealed class MitigationActionReplaceDefaultPolicyVersionParams
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-replacedefaultpolicyversionparams.html#cfn-iot-mitigationaction-replacedefaultpolicyversionparams-templatename
-        /// </summary>
         public readonly string TemplateName;
 
         [OutputConstructor]

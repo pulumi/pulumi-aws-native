@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html
+    /// Allow traffic towards application.
     /// </summary>
     [OutputType]
     public sealed class WebACLAllowAction
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html#cfn-wafv2-webacl-allowaction-customrequesthandling
-        /// </summary>
         public readonly Outputs.WebACLCustomRequestHandling? CustomRequestHandling;
 
         [OutputConstructor]

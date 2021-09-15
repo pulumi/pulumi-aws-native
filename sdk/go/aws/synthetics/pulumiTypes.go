@@ -10,11 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html
 type CanaryBaseScreenshot struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-ignorecoordinates
+	// List of coordinates of rectangles to be ignored during visual testing
 	IgnoreCoordinates []string `pulumi:"ignoreCoordinates"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-screenshotname
+	// Name of the screenshot to be used as base reference for visual testing
 	ScreenshotName string `pulumi:"screenshotName"`
 }
 
@@ -29,11 +28,10 @@ type CanaryBaseScreenshotInput interface {
 	ToCanaryBaseScreenshotOutputWithContext(context.Context) CanaryBaseScreenshotOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html
 type CanaryBaseScreenshotArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-ignorecoordinates
+	// List of coordinates of rectangles to be ignored during visual testing
 	IgnoreCoordinates pulumi.StringArrayInput `pulumi:"ignoreCoordinates"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-screenshotname
+	// Name of the screenshot to be used as base reference for visual testing
 	ScreenshotName pulumi.StringInput `pulumi:"screenshotName"`
 }
 
@@ -74,7 +72,6 @@ func (i CanaryBaseScreenshotArray) ToCanaryBaseScreenshotArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryBaseScreenshotArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html
 type CanaryBaseScreenshotOutput struct{ *pulumi.OutputState }
 
 func (CanaryBaseScreenshotOutput) ElementType() reflect.Type {
@@ -89,12 +86,12 @@ func (o CanaryBaseScreenshotOutput) ToCanaryBaseScreenshotOutputWithContext(ctx 
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-ignorecoordinates
+// List of coordinates of rectangles to be ignored during visual testing
 func (o CanaryBaseScreenshotOutput) IgnoreCoordinates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CanaryBaseScreenshot) []string { return v.IgnoreCoordinates }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-screenshotname
+// Name of the screenshot to be used as base reference for visual testing
 func (o CanaryBaseScreenshotOutput) ScreenshotName() pulumi.StringOutput {
 	return o.ApplyT(func(v CanaryBaseScreenshot) string { return v.ScreenshotName }).(pulumi.StringOutput)
 }
@@ -119,18 +116,12 @@ func (o CanaryBaseScreenshotArrayOutput) Index(i pulumi.IntInput) CanaryBaseScre
 	}).(CanaryBaseScreenshotOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html
 type CanaryCode struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
-	Handler string `pulumi:"handler"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket
-	S3Bucket *string `pulumi:"s3Bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3key
-	S3Key *string `pulumi:"s3Key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3objectversion
+	Handler         string  `pulumi:"handler"`
+	S3Bucket        *string `pulumi:"s3Bucket"`
+	S3Key           *string `pulumi:"s3Key"`
 	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-script
-	Script *string `pulumi:"script"`
+	Script          *string `pulumi:"script"`
 }
 
 // CanaryCodeInput is an input type that accepts CanaryCodeArgs and CanaryCodeOutput values.
@@ -144,18 +135,12 @@ type CanaryCodeInput interface {
 	ToCanaryCodeOutputWithContext(context.Context) CanaryCodeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html
 type CanaryCodeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
-	Handler pulumi.StringInput `pulumi:"handler"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket
-	S3Bucket pulumi.StringPtrInput `pulumi:"s3Bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3key
-	S3Key pulumi.StringPtrInput `pulumi:"s3Key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3objectversion
+	Handler         pulumi.StringInput    `pulumi:"handler"`
+	S3Bucket        pulumi.StringPtrInput `pulumi:"s3Bucket"`
+	S3Key           pulumi.StringPtrInput `pulumi:"s3Key"`
 	S3ObjectVersion pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-script
-	Script pulumi.StringPtrInput `pulumi:"script"`
+	Script          pulumi.StringPtrInput `pulumi:"script"`
 }
 
 func (CanaryCodeArgs) ElementType() reflect.Type {
@@ -211,7 +196,6 @@ func (i *canaryCodePtrType) ToCanaryCodePtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryCodePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html
 type CanaryCodeOutput struct{ *pulumi.OutputState }
 
 func (CanaryCodeOutput) ElementType() reflect.Type {
@@ -236,27 +220,22 @@ func (o CanaryCodeOutput) ToCanaryCodePtrOutputWithContext(ctx context.Context) 
 	}).(CanaryCodePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
 func (o CanaryCodeOutput) Handler() pulumi.StringOutput {
 	return o.ApplyT(func(v CanaryCode) string { return v.Handler }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket
 func (o CanaryCodeOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryCode) *string { return v.S3Bucket }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3key
 func (o CanaryCodeOutput) S3Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryCode) *string { return v.S3Key }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3objectversion
 func (o CanaryCodeOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryCode) *string { return v.S3ObjectVersion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-script
 func (o CanaryCodeOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryCode) *string { return v.Script }).(pulumi.StringPtrOutput)
 }
@@ -285,7 +264,6 @@ func (o CanaryCodePtrOutput) Elem() CanaryCodeOutput {
 	}).(CanaryCodeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
 func (o CanaryCodePtrOutput) Handler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryCode) *string {
 		if v == nil {
@@ -295,7 +273,6 @@ func (o CanaryCodePtrOutput) Handler() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3bucket
 func (o CanaryCodePtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryCode) *string {
 		if v == nil {
@@ -305,7 +282,6 @@ func (o CanaryCodePtrOutput) S3Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3key
 func (o CanaryCodePtrOutput) S3Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryCode) *string {
 		if v == nil {
@@ -315,7 +291,6 @@ func (o CanaryCodePtrOutput) S3Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-s3objectversion
 func (o CanaryCodePtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryCode) *string {
 		if v == nil {
@@ -325,7 +300,6 @@ func (o CanaryCodePtrOutput) S3ObjectVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-script
 func (o CanaryCodePtrOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryCode) *string {
 		if v == nil {
@@ -335,15 +309,14 @@ func (o CanaryCodePtrOutput) Script() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html
 type CanaryRunConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
+	// Enable active tracing if set to true
 	ActiveTracing *bool `pulumi:"activeTracing"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
-	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
+	// Environment variable key-value pairs.
+	EnvironmentVariables interface{} `pulumi:"environmentVariables"`
+	// Provide maximum memory available for canary in MB
 	MemoryInMB *int `pulumi:"memoryInMB"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
+	// Provide maximum canary timeout per run in seconds
 	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
 }
 
@@ -358,15 +331,14 @@ type CanaryRunConfigInput interface {
 	ToCanaryRunConfigOutputWithContext(context.Context) CanaryRunConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html
 type CanaryRunConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
+	// Enable active tracing if set to true
 	ActiveTracing pulumi.BoolPtrInput `pulumi:"activeTracing"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
-	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
+	// Environment variable key-value pairs.
+	EnvironmentVariables pulumi.Input `pulumi:"environmentVariables"`
+	// Provide maximum memory available for canary in MB
 	MemoryInMB pulumi.IntPtrInput `pulumi:"memoryInMB"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
+	// Provide maximum canary timeout per run in seconds
 	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
 }
 
@@ -423,7 +395,6 @@ func (i *canaryRunConfigPtrType) ToCanaryRunConfigPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryRunConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html
 type CanaryRunConfigOutput struct{ *pulumi.OutputState }
 
 func (CanaryRunConfigOutput) ElementType() reflect.Type {
@@ -448,22 +419,22 @@ func (o CanaryRunConfigOutput) ToCanaryRunConfigPtrOutputWithContext(ctx context
 	}).(CanaryRunConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
+// Enable active tracing if set to true
 func (o CanaryRunConfigOutput) ActiveTracing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CanaryRunConfig) *bool { return v.ActiveTracing }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
-func (o CanaryRunConfigOutput) EnvironmentVariables() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CanaryRunConfig) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
+// Environment variable key-value pairs.
+func (o CanaryRunConfigOutput) EnvironmentVariables() pulumi.AnyOutput {
+	return o.ApplyT(func(v CanaryRunConfig) interface{} { return v.EnvironmentVariables }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
+// Provide maximum memory available for canary in MB
 func (o CanaryRunConfigOutput) MemoryInMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CanaryRunConfig) *int { return v.MemoryInMB }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
+// Provide maximum canary timeout per run in seconds
 func (o CanaryRunConfigOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CanaryRunConfig) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -492,7 +463,7 @@ func (o CanaryRunConfigPtrOutput) Elem() CanaryRunConfigOutput {
 	}).(CanaryRunConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
+// Enable active tracing if set to true
 func (o CanaryRunConfigPtrOutput) ActiveTracing() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CanaryRunConfig) *bool {
 		if v == nil {
@@ -502,17 +473,17 @@ func (o CanaryRunConfigPtrOutput) ActiveTracing() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
-func (o CanaryRunConfigPtrOutput) EnvironmentVariables() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *CanaryRunConfig) map[string]string {
+// Environment variable key-value pairs.
+func (o CanaryRunConfigPtrOutput) EnvironmentVariables() pulumi.AnyOutput {
+	return o.ApplyT(func(v *CanaryRunConfig) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.EnvironmentVariables
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
+// Provide maximum memory available for canary in MB
 func (o CanaryRunConfigPtrOutput) MemoryInMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CanaryRunConfig) *int {
 		if v == nil {
@@ -522,7 +493,7 @@ func (o CanaryRunConfigPtrOutput) MemoryInMB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
+// Provide maximum canary timeout per run in seconds
 func (o CanaryRunConfigPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CanaryRunConfig) *int {
 		if v == nil {
@@ -532,12 +503,9 @@ func (o CanaryRunConfigPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html
 type CanarySchedule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
 	DurationInSeconds *string `pulumi:"durationInSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression
-	Expression string `pulumi:"expression"`
+	Expression        string  `pulumi:"expression"`
 }
 
 // CanaryScheduleInput is an input type that accepts CanaryScheduleArgs and CanaryScheduleOutput values.
@@ -551,12 +519,9 @@ type CanaryScheduleInput interface {
 	ToCanaryScheduleOutputWithContext(context.Context) CanaryScheduleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html
 type CanaryScheduleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
 	DurationInSeconds pulumi.StringPtrInput `pulumi:"durationInSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression
-	Expression pulumi.StringInput `pulumi:"expression"`
+	Expression        pulumi.StringInput    `pulumi:"expression"`
 }
 
 func (CanaryScheduleArgs) ElementType() reflect.Type {
@@ -612,7 +577,6 @@ func (i *canarySchedulePtrType) ToCanarySchedulePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CanarySchedulePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html
 type CanaryScheduleOutput struct{ *pulumi.OutputState }
 
 func (CanaryScheduleOutput) ElementType() reflect.Type {
@@ -637,12 +601,10 @@ func (o CanaryScheduleOutput) ToCanarySchedulePtrOutputWithContext(ctx context.C
 	}).(CanarySchedulePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
 func (o CanaryScheduleOutput) DurationInSeconds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanarySchedule) *string { return v.DurationInSeconds }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression
 func (o CanaryScheduleOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v CanarySchedule) string { return v.Expression }).(pulumi.StringOutput)
 }
@@ -671,7 +633,6 @@ func (o CanarySchedulePtrOutput) Elem() CanaryScheduleOutput {
 	}).(CanaryScheduleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
 func (o CanarySchedulePtrOutput) DurationInSeconds() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanarySchedule) *string {
 		if v == nil {
@@ -681,7 +642,6 @@ func (o CanarySchedulePtrOutput) DurationInSeconds() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression
 func (o CanarySchedulePtrOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanarySchedule) *string {
 		if v == nil {
@@ -691,14 +651,119 @@ func (o CanarySchedulePtrOutput) Expression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html
+// A key-value pair to associate with a resource.
+type CanaryTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// CanaryTagInput is an input type that accepts CanaryTagArgs and CanaryTagOutput values.
+// You can construct a concrete instance of `CanaryTagInput` via:
+//
+//          CanaryTagArgs{...}
+type CanaryTagInput interface {
+	pulumi.Input
+
+	ToCanaryTagOutput() CanaryTagOutput
+	ToCanaryTagOutputWithContext(context.Context) CanaryTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type CanaryTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CanaryTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryTag)(nil)).Elem()
+}
+
+func (i CanaryTagArgs) ToCanaryTagOutput() CanaryTagOutput {
+	return i.ToCanaryTagOutputWithContext(context.Background())
+}
+
+func (i CanaryTagArgs) ToCanaryTagOutputWithContext(ctx context.Context) CanaryTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryTagOutput)
+}
+
+// CanaryTagArrayInput is an input type that accepts CanaryTagArray and CanaryTagArrayOutput values.
+// You can construct a concrete instance of `CanaryTagArrayInput` via:
+//
+//          CanaryTagArray{ CanaryTagArgs{...} }
+type CanaryTagArrayInput interface {
+	pulumi.Input
+
+	ToCanaryTagArrayOutput() CanaryTagArrayOutput
+	ToCanaryTagArrayOutputWithContext(context.Context) CanaryTagArrayOutput
+}
+
+type CanaryTagArray []CanaryTagInput
+
+func (CanaryTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CanaryTag)(nil)).Elem()
+}
+
+func (i CanaryTagArray) ToCanaryTagArrayOutput() CanaryTagArrayOutput {
+	return i.ToCanaryTagArrayOutputWithContext(context.Background())
+}
+
+func (i CanaryTagArray) ToCanaryTagArrayOutputWithContext(ctx context.Context) CanaryTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CanaryTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CanaryTagOutput struct{ *pulumi.OutputState }
+
+func (CanaryTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryTag)(nil)).Elem()
+}
+
+func (o CanaryTagOutput) ToCanaryTagOutput() CanaryTagOutput {
+	return o
+}
+
+func (o CanaryTagOutput) ToCanaryTagOutputWithContext(ctx context.Context) CanaryTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CanaryTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CanaryTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CanaryTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CanaryTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CanaryTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CanaryTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CanaryTag)(nil)).Elem()
+}
+
+func (o CanaryTagArrayOutput) ToCanaryTagArrayOutput() CanaryTagArrayOutput {
+	return o
+}
+
+func (o CanaryTagArrayOutput) ToCanaryTagArrayOutputWithContext(ctx context.Context) CanaryTagArrayOutput {
+	return o
+}
+
+func (o CanaryTagArrayOutput) Index(i pulumi.IntInput) CanaryTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CanaryTag {
+		return vs[0].([]CanaryTag)[vs[1].(int)]
+	}).(CanaryTagOutput)
+}
+
 type CanaryVPCConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-securitygroupids
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-subnetids
-	SubnetIds []string `pulumi:"subnetIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-vpcid
-	VpcId *string `pulumi:"vpcId"`
+	SubnetIds        []string `pulumi:"subnetIds"`
+	VpcId            *string  `pulumi:"vpcId"`
 }
 
 // CanaryVPCConfigInput is an input type that accepts CanaryVPCConfigArgs and CanaryVPCConfigOutput values.
@@ -712,14 +777,10 @@ type CanaryVPCConfigInput interface {
 	ToCanaryVPCConfigOutputWithContext(context.Context) CanaryVPCConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html
 type CanaryVPCConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-securitygroupids
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-subnetids
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-vpcid
-	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
+	VpcId            pulumi.StringPtrInput   `pulumi:"vpcId"`
 }
 
 func (CanaryVPCConfigArgs) ElementType() reflect.Type {
@@ -775,7 +836,6 @@ func (i *canaryVPCConfigPtrType) ToCanaryVPCConfigPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryVPCConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html
 type CanaryVPCConfigOutput struct{ *pulumi.OutputState }
 
 func (CanaryVPCConfigOutput) ElementType() reflect.Type {
@@ -800,17 +860,14 @@ func (o CanaryVPCConfigOutput) ToCanaryVPCConfigPtrOutputWithContext(ctx context
 	}).(CanaryVPCConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-securitygroupids
 func (o CanaryVPCConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CanaryVPCConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-subnetids
 func (o CanaryVPCConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CanaryVPCConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-vpcid
 func (o CanaryVPCConfigOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryVPCConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -839,7 +896,6 @@ func (o CanaryVPCConfigPtrOutput) Elem() CanaryVPCConfigOutput {
 	}).(CanaryVPCConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-securitygroupids
 func (o CanaryVPCConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CanaryVPCConfig) []string {
 		if v == nil {
@@ -849,7 +905,6 @@ func (o CanaryVPCConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-subnetids
 func (o CanaryVPCConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CanaryVPCConfig) []string {
 		if v == nil {
@@ -859,7 +914,6 @@ func (o CanaryVPCConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-vpcconfig.html#cfn-synthetics-canary-vpcconfig-vpcid
 func (o CanaryVPCConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryVPCConfig) *string {
 		if v == nil {
@@ -869,11 +923,10 @@ func (o CanaryVPCConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html
 type CanaryVisualReference struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid
+	// Canary run id to be used as base reference for visual testing
 	BaseCanaryRunId string `pulumi:"baseCanaryRunId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
+	// List of screenshots used as base reference for visual testing
 	BaseScreenshots []CanaryBaseScreenshot `pulumi:"baseScreenshots"`
 }
 
@@ -888,11 +941,10 @@ type CanaryVisualReferenceInput interface {
 	ToCanaryVisualReferenceOutputWithContext(context.Context) CanaryVisualReferenceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html
 type CanaryVisualReferenceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid
+	// Canary run id to be used as base reference for visual testing
 	BaseCanaryRunId pulumi.StringInput `pulumi:"baseCanaryRunId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
+	// List of screenshots used as base reference for visual testing
 	BaseScreenshots CanaryBaseScreenshotArrayInput `pulumi:"baseScreenshots"`
 }
 
@@ -949,7 +1001,6 @@ func (i *canaryVisualReferencePtrType) ToCanaryVisualReferencePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryVisualReferencePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html
 type CanaryVisualReferenceOutput struct{ *pulumi.OutputState }
 
 func (CanaryVisualReferenceOutput) ElementType() reflect.Type {
@@ -974,12 +1025,12 @@ func (o CanaryVisualReferenceOutput) ToCanaryVisualReferencePtrOutputWithContext
 	}).(CanaryVisualReferencePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid
+// Canary run id to be used as base reference for visual testing
 func (o CanaryVisualReferenceOutput) BaseCanaryRunId() pulumi.StringOutput {
 	return o.ApplyT(func(v CanaryVisualReference) string { return v.BaseCanaryRunId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
+// List of screenshots used as base reference for visual testing
 func (o CanaryVisualReferenceOutput) BaseScreenshots() CanaryBaseScreenshotArrayOutput {
 	return o.ApplyT(func(v CanaryVisualReference) []CanaryBaseScreenshot { return v.BaseScreenshots }).(CanaryBaseScreenshotArrayOutput)
 }
@@ -1008,7 +1059,7 @@ func (o CanaryVisualReferencePtrOutput) Elem() CanaryVisualReferenceOutput {
 	}).(CanaryVisualReferenceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid
+// Canary run id to be used as base reference for visual testing
 func (o CanaryVisualReferencePtrOutput) BaseCanaryRunId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryVisualReference) *string {
 		if v == nil {
@@ -1018,7 +1069,7 @@ func (o CanaryVisualReferencePtrOutput) BaseCanaryRunId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
+// List of screenshots used as base reference for visual testing
 func (o CanaryVisualReferencePtrOutput) BaseScreenshots() CanaryBaseScreenshotArrayOutput {
 	return o.ApplyT(func(v *CanaryVisualReference) []CanaryBaseScreenshot {
 		if v == nil {
@@ -1037,6 +1088,8 @@ func init() {
 	pulumi.RegisterOutputType(CanaryRunConfigPtrOutput{})
 	pulumi.RegisterOutputType(CanaryScheduleOutput{})
 	pulumi.RegisterOutputType(CanarySchedulePtrOutput{})
+	pulumi.RegisterOutputType(CanaryTagOutput{})
+	pulumi.RegisterOutputType(CanaryTagArrayOutput{})
 	pulumi.RegisterOutputType(CanaryVPCConfigOutput{})
 	pulumi.RegisterOutputType(CanaryVPCConfigPtrOutput{})
 	pulumi.RegisterOutputType(CanaryVisualReferenceOutput{})

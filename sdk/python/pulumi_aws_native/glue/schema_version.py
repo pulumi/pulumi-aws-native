@@ -19,8 +19,7 @@ class SchemaVersionArgs:
                  schema_definition: pulumi.Input[str]):
         """
         The set of arguments for constructing a SchemaVersion resource.
-        :param pulumi.Input['SchemaVersionSchemaArgs'] schema: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
-        :param pulumi.Input[str] schema_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+        :param pulumi.Input[str] schema_definition: Complete definition of the schema in plain-text.
         """
         pulumi.set(__self__, "schema", schema)
         pulumi.set(__self__, "schema_definition", schema_definition)
@@ -28,9 +27,6 @@ class SchemaVersionArgs:
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Input['SchemaVersionSchemaArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
-        """
         return pulumi.get(self, "schema")
 
     @schema.setter
@@ -41,7 +37,7 @@ class SchemaVersionArgs:
     @pulumi.getter(name="schemaDefinition")
     def schema_definition(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+        Complete definition of the schema in plain-text.
         """
         return pulumi.get(self, "schema_definition")
 
@@ -59,12 +55,11 @@ class SchemaVersion(pulumi.CustomResource):
                  schema_definition: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html
+        This resource represents an individual schema version of a schema defined in Glue Schema Registry.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SchemaVersionSchemaArgs']] schema: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
-        :param pulumi.Input[str] schema_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+        :param pulumi.Input[str] schema_definition: Complete definition of the schema in plain-text.
         """
         ...
     @overload
@@ -73,7 +68,7 @@ class SchemaVersion(pulumi.CustomResource):
                  args: SchemaVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html
+        This resource represents an individual schema version of a schema defined in Glue Schema Registry.
 
         :param str resource_name: The name of the resource.
         :param SchemaVersionArgs args: The arguments to use to populate this resource's properties.
@@ -141,21 +136,21 @@ class SchemaVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Output['outputs.SchemaVersionSchema']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
-        """
         return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter(name="schemaDefinition")
     def schema_definition(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+        Complete definition of the schema in plain-text.
         """
         return pulumi.get(self, "schema_definition")
 
     @property
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[str]:
+        """
+        Represents the version ID associated with the schema version.
+        """
         return pulumi.get(self, "version_id")
 

@@ -9,97 +9,18 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ExperimentTemplateExperimentTemplateActionArgs',
+    'ExperimentTemplateExperimentTemplateActionMapArgs',
     'ExperimentTemplateExperimentTemplateStopConditionArgs',
-    'ExperimentTemplateExperimentTemplateTargetFilterArgs',
-    'ExperimentTemplateExperimentTemplateTargetArgs',
+    'ExperimentTemplateExperimentTemplateTargetMapArgs',
 ]
 
 @pulumi.input_type
-class ExperimentTemplateExperimentTemplateActionArgs:
-    def __init__(__self__, *,
-                 action_id: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 start_after: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 targets: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+class ExperimentTemplateExperimentTemplateActionMapArgs:
+    def __init__(__self__):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html
-        :param pulumi.Input[str] action_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-actionid
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-description
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-parameters
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] start_after: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-startafter
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-targets
+        The actions for the experiment.
         """
-        pulumi.set(__self__, "action_id", action_id)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
-        if start_after is not None:
-            pulumi.set(__self__, "start_after", start_after)
-        if targets is not None:
-            pulumi.set(__self__, "targets", targets)
-
-    @property
-    @pulumi.getter(name="actionId")
-    def action_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-actionid
-        """
-        return pulumi.get(self, "action_id")
-
-    @action_id.setter
-    def action_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "action_id", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-description
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-parameters
-        """
-        return pulumi.get(self, "parameters")
-
-    @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "parameters", value)
-
-    @property
-    @pulumi.getter(name="startAfter")
-    def start_after(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-startafter
-        """
-        return pulumi.get(self, "start_after")
-
-    @start_after.setter
-    def start_after(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "start_after", value)
-
-    @property
-    @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-targets
-        """
-        return pulumi.get(self, "targets")
-
-    @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "targets", value)
+        pass
 
 
 @pulumi.input_type
@@ -107,11 +28,6 @@ class ExperimentTemplateExperimentTemplateStopConditionArgs:
     def __init__(__self__, *,
                  source: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html
-        :param pulumi.Input[str] source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html#cfn-fis-experimenttemplate-experimenttemplatestopcondition-source
-        :param pulumi.Input[str] value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html#cfn-fis-experimenttemplate-experimenttemplatestopcondition-value
-        """
         pulumi.set(__self__, "source", source)
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -119,9 +35,6 @@ class ExperimentTemplateExperimentTemplateStopConditionArgs:
     @property
     @pulumi.getter
     def source(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html#cfn-fis-experimenttemplate-experimenttemplatestopcondition-source
-        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -131,9 +44,6 @@ class ExperimentTemplateExperimentTemplateStopConditionArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html#cfn-fis-experimenttemplate-experimenttemplatestopcondition-value
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -142,126 +52,11 @@ class ExperimentTemplateExperimentTemplateStopConditionArgs:
 
 
 @pulumi.input_type
-class ExperimentTemplateExperimentTemplateTargetFilterArgs:
-    def __init__(__self__, *,
-                 path: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+class ExperimentTemplateExperimentTemplateTargetMapArgs:
+    def __init__(__self__):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html
-        :param pulumi.Input[str] path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html#cfn-fis-experimenttemplate-experimenttemplatetargetfilter-path
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html#cfn-fis-experimenttemplate-experimenttemplatetargetfilter-values
+        The targets for the experiment.
         """
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def path(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html#cfn-fis-experimenttemplate-experimenttemplatetargetfilter-path
-        """
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: pulumi.Input[str]):
-        pulumi.set(self, "path", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html#cfn-fis-experimenttemplate-experimenttemplatetargetfilter-values
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "values", value)
-
-
-@pulumi.input_type
-class ExperimentTemplateExperimentTemplateTargetArgs:
-    def __init__(__self__, *,
-                 resource_type: pulumi.Input[str],
-                 selection_mode: pulumi.Input[str],
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentTemplateTargetFilterArgs']]]] = None,
-                 resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html
-        :param pulumi.Input[str] resource_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetype
-        :param pulumi.Input[str] selection_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-selectionmode
-        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentTemplateTargetFilterArgs']]] filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-filters
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcearns
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetags
-        """
-        pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "selection_mode", selection_mode)
-        if filters is not None:
-            pulumi.set(__self__, "filters", filters)
-        if resource_arns is not None:
-            pulumi.set(__self__, "resource_arns", resource_arns)
-        if resource_tags is not None:
-            pulumi.set(__self__, "resource_tags", resource_tags)
-
-    @property
-    @pulumi.getter(name="resourceType")
-    def resource_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetype
-        """
-        return pulumi.get(self, "resource_type")
-
-    @resource_type.setter
-    def resource_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_type", value)
-
-    @property
-    @pulumi.getter(name="selectionMode")
-    def selection_mode(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-selectionmode
-        """
-        return pulumi.get(self, "selection_mode")
-
-    @selection_mode.setter
-    def selection_mode(self, value: pulumi.Input[str]):
-        pulumi.set(self, "selection_mode", value)
-
-    @property
-    @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentTemplateTargetFilterArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-filters
-        """
-        return pulumi.get(self, "filters")
-
-    @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentTemplateTargetFilterArgs']]]]):
-        pulumi.set(self, "filters", value)
-
-    @property
-    @pulumi.getter(name="resourceArns")
-    def resource_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcearns
-        """
-        return pulumi.get(self, "resource_arns")
-
-    @resource_arns.setter
-    def resource_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "resource_arns", value)
-
-    @property
-    @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetags
-        """
-        return pulumi.get(self, "resource_tags")
-
-    @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "resource_tags", value)
+        pass
 
 

@@ -10,28 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html
+    /// Resource Type definition for AWS::ApiGateway::UsagePlanKey
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:UsagePlanKey")]
     public partial class UsagePlanKey : Pulumi.CustomResource
     {
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
+        /// The ID of the usage plan key.
         /// </summary>
         [Output("keyId")]
         public Output<string> KeyId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keytype
+        /// The type of usage plan key. Currently, the only valid key type is API_KEY.
         /// </summary>
         [Output("keyType")]
         public Output<string> KeyType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-usageplanid
+        /// The ID of the usage plan.
         /// </summary>
         [Output("usagePlanId")]
         public Output<string> UsagePlanId { get; private set; } = null!;
@@ -82,19 +79,19 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class UsagePlanKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
+        /// The ID of the usage plan key.
         /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keytype
+        /// The type of usage plan key. Currently, the only valid key type is API_KEY.
         /// </summary>
         [Input("keyType", required: true)]
         public Input<string> KeyType { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-usageplanid
+        /// The ID of the usage plan.
         /// </summary>
         [Input("usagePlanId", required: true)]
         public Input<string> UsagePlanId { get; set; } = null!;

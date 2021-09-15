@@ -10,64 +10,64 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html
+    /// This resource represents a schema of Glue Schema Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:glue:Schema")]
     public partial class Schema : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name for the Schema.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
-        /// </summary>
         [Output("checkpointVersion")]
         public Output<Outputs.SchemaSchemaVersion?> CheckpointVersion { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
+        /// Compatibility setting for the schema.
         /// </summary>
         [Output("compatibility")]
         public Output<string> Compatibility { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
+        /// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
         /// </summary>
         [Output("dataFormat")]
         public Output<string> DataFormat { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
+        /// A description of the schema. If description is not provided, there will not be any default value for this.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Represents the version ID associated with the initial schema version.
+        /// </summary>
         [Output("initialSchemaVersionId")]
         public Output<string> InitialSchemaVersionId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
+        /// Name of the schema.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
-        /// </summary>
         [Output("registry")]
         public Output<Outputs.SchemaRegistry?> Registry { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+        /// Definition for the initial schema version in plain-text.
         /// </summary>
         [Output("schemaDefinition")]
         public Output<string> SchemaDefinition { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
+        /// List of tags to tag the schema
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SchemaTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -114,57 +114,51 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class SchemaArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
-        /// </summary>
         [Input("checkpointVersion")]
         public Input<Inputs.SchemaSchemaVersionArgs>? CheckpointVersion { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
+        /// Compatibility setting for the schema.
         /// </summary>
         [Input("compatibility", required: true)]
         public Input<string> Compatibility { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
+        /// Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
         /// </summary>
         [Input("dataFormat", required: true)]
         public Input<string> DataFormat { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
+        /// A description of the schema. If description is not provided, there will not be any default value for this.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
+        /// Name of the schema.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
-        /// </summary>
         [Input("registry")]
         public Input<Inputs.SchemaRegistryArgs>? Registry { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+        /// Definition for the initial schema version in plain-text.
         /// </summary>
         [Input("schemaDefinition", required: true)]
         public Input<string> SchemaDefinition { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.SchemaTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
+        /// List of tags to tag the schema
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.SchemaTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.SchemaTagArgs>());
             set => _tags = value;
         }
 

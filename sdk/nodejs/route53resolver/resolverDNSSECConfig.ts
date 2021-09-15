@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html
+ * Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
  */
 export class ResolverDNSSECConfig extends pulumi.CustomResource {
     /**
@@ -34,12 +34,17 @@ export class ResolverDNSSECConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResolverDNSSECConfig.__pulumiType;
     }
 
-    public /*out*/ readonly id!: pulumi.Output<string>;
+    /**
+     * AccountId
+     */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html#cfn-route53resolver-resolverdnssecconfig-resourceid
+     * ResourceId
      */
     public readonly resourceId!: pulumi.Output<string | undefined>;
+    /**
+     * ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
+     */
     public /*out*/ readonly validationStatus!: pulumi.Output<string>;
 
     /**
@@ -54,11 +59,9 @@ export class ResolverDNSSECConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["id"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["validationStatus"] = undefined /*out*/;
         } else {
-            inputs["id"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["resourceId"] = undefined /*out*/;
             inputs["validationStatus"] = undefined /*out*/;
@@ -75,7 +78,7 @@ export class ResolverDNSSECConfig extends pulumi.CustomResource {
  */
 export interface ResolverDNSSECConfigArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html#cfn-route53resolver-resolverdnssecconfig-resourceid
+     * ResourceId
      */
     resourceId?: pulumi.Input<string>;
 }

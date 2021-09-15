@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['AgentArgs', 'Agent']
 
@@ -19,16 +19,16 @@ class AgentArgs:
                  agent_name: Optional[pulumi.Input[str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AgentTagArgs']]]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Agent resource.
-        :param pulumi.Input[str] activation_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-activationkey
-        :param pulumi.Input[str] agent_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-agentname
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-securitygrouparns
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-subnetarns
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-tags
-        :param pulumi.Input[str] vpc_endpoint_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-vpcendpointid
+        :param pulumi.Input[str] activation_key: Activation key of the Agent.
+        :param pulumi.Input[str] agent_name: The name configured for the agent. Text reference used to identify the agent in the console.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security group used to protect your data transfer task subnets.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint that the agent has access to.
         """
         pulumi.set(__self__, "activation_key", activation_key)
         if agent_name is not None:
@@ -46,7 +46,7 @@ class AgentArgs:
     @pulumi.getter(name="activationKey")
     def activation_key(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-activationkey
+        Activation key of the Agent.
         """
         return pulumi.get(self, "activation_key")
 
@@ -58,7 +58,7 @@ class AgentArgs:
     @pulumi.getter(name="agentName")
     def agent_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-agentname
+        The name configured for the agent. Text reference used to identify the agent in the console.
         """
         return pulumi.get(self, "agent_name")
 
@@ -70,7 +70,7 @@ class AgentArgs:
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-securitygrouparns
+        The ARNs of the security group used to protect your data transfer task subnets.
         """
         return pulumi.get(self, "security_group_arns")
 
@@ -82,7 +82,7 @@ class AgentArgs:
     @pulumi.getter(name="subnetArns")
     def subnet_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-subnetarns
+        The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         """
         return pulumi.get(self, "subnet_arns")
 
@@ -92,21 +92,21 @@ class AgentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-vpcendpointid
+        The ID of the VPC endpoint that the agent has access to.
         """
         return pulumi.get(self, "vpc_endpoint_id")
 
@@ -124,20 +124,20 @@ class Agent(pulumi.CustomResource):
                  agent_name: Optional[pulumi.Input[str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentTagArgs']]]]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html
+        Resource schema for AWS::DataSync::Agent.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] activation_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-activationkey
-        :param pulumi.Input[str] agent_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-agentname
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-securitygrouparns
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-subnetarns
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-tags
-        :param pulumi.Input[str] vpc_endpoint_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-vpcendpointid
+        :param pulumi.Input[str] activation_key: Activation key of the Agent.
+        :param pulumi.Input[str] agent_name: The name configured for the agent. Text reference used to identify the agent in the console.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security group used to protect your data transfer task subnets.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_arns: The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint that the agent has access to.
         """
         ...
     @overload
@@ -146,7 +146,7 @@ class Agent(pulumi.CustomResource):
                  args: AgentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html
+        Resource schema for AWS::DataSync::Agent.
 
         :param str resource_name: The name of the resource.
         :param AgentArgs args: The arguments to use to populate this resource's properties.
@@ -167,7 +167,7 @@ class Agent(pulumi.CustomResource):
                  agent_name: Optional[pulumi.Input[str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentTagArgs']]]]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -227,33 +227,39 @@ class Agent(pulumi.CustomResource):
     @pulumi.getter(name="activationKey")
     def activation_key(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-activationkey
+        Activation key of the Agent.
         """
         return pulumi.get(self, "activation_key")
 
     @property
     @pulumi.getter(name="agentArn")
     def agent_arn(self) -> pulumi.Output[str]:
+        """
+        The DataSync Agent ARN.
+        """
         return pulumi.get(self, "agent_arn")
 
     @property
     @pulumi.getter(name="agentName")
     def agent_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-agentname
+        The name configured for the agent. Text reference used to identify the agent in the console.
         """
         return pulumi.get(self, "agent_name")
 
     @property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Output[str]:
+        """
+        The service endpoints that the agent will connect to.
+        """
         return pulumi.get(self, "endpoint_type")
 
     @property
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-securitygrouparns
+        The ARNs of the security group used to protect your data transfer task subnets.
         """
         return pulumi.get(self, "security_group_arns")
 
@@ -261,15 +267,15 @@ class Agent(pulumi.CustomResource):
     @pulumi.getter(name="subnetArns")
     def subnet_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-subnetarns
+        The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         """
         return pulumi.get(self, "subnet_arns")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AgentTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
@@ -277,7 +283,7 @@ class Agent(pulumi.CustomResource):
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-vpcendpointid
+        The ID of the VPC endpoint that the agent has access to.
         """
         return pulumi.get(self, "vpc_endpoint_id")
 

@@ -11,17 +11,14 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html
+    /// An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
     /// </summary>
     [OutputType]
     public sealed class AnalyzerArchiveRule
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-filter
-        /// </summary>
         public readonly ImmutableArray<Outputs.AnalyzerFilter> Filter;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-rulename
+        /// The archive rule name
         /// </summary>
         public readonly string RuleName;
 

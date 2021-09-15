@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html
+ * AWS Route53 Recovery Control Control Panel resource schema .
  */
 export class ControlPanel extends pulumi.CustomResource {
     /**
@@ -35,16 +35,28 @@ export class ControlPanel extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-clusterarn
+     * Cluster to associate with the Control Panel
      */
     public readonly clusterArn!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the cluster.
+     */
     public /*out*/ readonly controlPanelArn!: pulumi.Output<string>;
+    /**
+     * A flag that Amazon Route 53 Application Recovery Controller sets to true to designate the default control panel for a cluster. When you create a cluster, Amazon Route 53 Application Recovery Controller creates a control panel, and sets this flag for that control panel. If you create a control panel yourself, this flag is set to false.
+     */
     public /*out*/ readonly defaultControlPanel!: pulumi.Output<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-name
+     * The name of the control panel. You can use any non-white space character in the name.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Count of associated routing controls
+     */
     public /*out*/ readonly routingControlCount!: pulumi.Output<number>;
+    /**
+     * The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
@@ -87,11 +99,11 @@ export class ControlPanel extends pulumi.CustomResource {
  */
 export interface ControlPanelArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-clusterarn
+     * Cluster to associate with the Control Panel
      */
     clusterArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-name
+     * The name of the control panel. You can use any non-white space character in the name.
      */
     name: pulumi.Input<string>;
 }

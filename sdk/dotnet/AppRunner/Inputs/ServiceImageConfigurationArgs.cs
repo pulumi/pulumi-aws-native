@@ -11,22 +11,18 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html
+    /// Image Configuration
     /// </summary>
     public sealed class ServiceImageConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
+        /// Port
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
 
         [Input("runtimeEnvironmentVariables")]
         private InputList<Inputs.ServiceKeyValuePairArgs>? _runtimeEnvironmentVariables;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-runtimeenvironmentvariables
-        /// </summary>
         public InputList<Inputs.ServiceKeyValuePairArgs> RuntimeEnvironmentVariables
         {
             get => _runtimeEnvironmentVariables ?? (_runtimeEnvironmentVariables = new InputList<Inputs.ServiceKeyValuePairArgs>());
@@ -34,7 +30,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-startcommand
+        /// Start Command
         /// </summary>
         [Input("startCommand")]
         public Input<string>? StartCommand { get; set; }

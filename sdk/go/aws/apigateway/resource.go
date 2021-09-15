@@ -11,16 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html
+// Resource Type definition for AWS::ApiGateway::Resource
 type Resource struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
+	// The parent resource's identifier.
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
-	PathPart   pulumi.StringOutput `pulumi:"pathPart"`
+	// The last path segment for this resource.
+	PathPart pulumi.StringOutput `pulumi:"pathPart"`
+	// A unique primary identifier for a Resource
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
+	// The ID of the RestApi resource in which you want to create this resource..
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 }
 
@@ -72,21 +73,21 @@ func (ResourceState) ElementType() reflect.Type {
 }
 
 type resourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
+	// The parent resource's identifier.
 	ParentId string `pulumi:"parentId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
+	// The last path segment for this resource.
 	PathPart string `pulumi:"pathPart"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
+	// The ID of the RestApi resource in which you want to create this resource..
 	RestApiId string `pulumi:"restApiId"`
 }
 
 // The set of arguments for constructing a Resource resource.
 type ResourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
+	// The parent resource's identifier.
 	ParentId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
+	// The last path segment for this resource.
 	PathPart pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
+	// The ID of the RestApi resource in which you want to create this resource..
 	RestApiId pulumi.StringInput
 }
 

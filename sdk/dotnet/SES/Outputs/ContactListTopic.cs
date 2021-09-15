@@ -10,26 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SES.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html
-    /// </summary>
     [OutputType]
     public sealed class ContactListTopic
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-defaultsubscriptionstatus
-        /// </summary>
         public readonly string DefaultSubscriptionStatus;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-description
+        /// The description of the topic.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-displayname
+        /// The display name of the topic.
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-contactlist-topic.html#cfn-ses-contactlist-topic-topicname
+        /// The name of the topic.
         /// </summary>
         public readonly string TopicName;
 

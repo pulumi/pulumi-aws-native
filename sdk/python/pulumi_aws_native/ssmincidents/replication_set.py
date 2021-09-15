@@ -19,8 +19,7 @@ class ReplicationSetArgs:
                  deletion_protected: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ReplicationSet resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetReplicationRegionArgs']]] regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-regions
-        :param pulumi.Input[bool] deletion_protected: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-deletionprotected
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetReplicationRegionArgs']]] regions: The ReplicationSet configuration.
         """
         pulumi.set(__self__, "regions", regions)
         if deletion_protected is not None:
@@ -30,7 +29,7 @@ class ReplicationSetArgs:
     @pulumi.getter
     def regions(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationSetReplicationRegionArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-regions
+        The ReplicationSet configuration.
         """
         return pulumi.get(self, "regions")
 
@@ -41,9 +40,6 @@ class ReplicationSetArgs:
     @property
     @pulumi.getter(name="deletionProtected")
     def deletion_protected(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-deletionprotected
-        """
         return pulumi.get(self, "deletion_protected")
 
     @deletion_protected.setter
@@ -60,12 +56,11 @@ class ReplicationSet(pulumi.CustomResource):
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetReplicationRegionArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html
+        Resource type definition for AWS::SSMIncidents::ReplicationSet
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] deletion_protected: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-deletionprotected
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetReplicationRegionArgs']]]] regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-regions
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetReplicationRegionArgs']]]] regions: The ReplicationSet configuration.
         """
         ...
     @overload
@@ -74,7 +69,7 @@ class ReplicationSet(pulumi.CustomResource):
                  args: ReplicationSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html
+        Resource type definition for AWS::SSMIncidents::ReplicationSet
 
         :param str resource_name: The name of the resource.
         :param ReplicationSetArgs args: The arguments to use to populate this resource's properties.
@@ -140,21 +135,21 @@ class ReplicationSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the ReplicationSet.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="deletionProtected")
     def deletion_protected(self) -> pulumi.Output[Optional[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-deletionprotected
-        """
         return pulumi.get(self, "deletion_protected")
 
     @property
     @pulumi.getter
     def regions(self) -> pulumi.Output[Sequence['outputs.ReplicationSetReplicationRegion']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-regions
+        The ReplicationSet configuration.
         """
         return pulumi.get(self, "regions")
 

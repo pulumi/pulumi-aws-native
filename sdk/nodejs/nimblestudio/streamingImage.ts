@@ -2,10 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html
+ * Resource schema for AWS::NimbleStudio::StreamingImage.
  */
 export class StreamingImage extends pulumi.CustomResource {
     /**
@@ -34,30 +35,16 @@ export class StreamingImage extends pulumi.CustomResource {
         return obj['__pulumiType'] === StreamingImage.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-description
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-ec2imageid
-     */
     public readonly ec2ImageId!: pulumi.Output<string>;
+    public /*out*/ readonly encryptionConfiguration!: pulumi.Output<outputs.nimblestudio.StreamingImageStreamingImageEncryptionConfiguration>;
     public /*out*/ readonly eulaIds!: pulumi.Output<string[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-name
-     */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly owner!: pulumi.Output<string>;
     public /*out*/ readonly platform!: pulumi.Output<string>;
     public /*out*/ readonly streamingImageId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-studioid
-     */
     public readonly studioId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-tags
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
      * Create a StreamingImage resource with the given unique name, arguments, and options.
@@ -84,6 +71,7 @@ export class StreamingImage extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["studioId"] = args ? args.studioId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["encryptionConfiguration"] = undefined /*out*/;
             inputs["eulaIds"] = undefined /*out*/;
             inputs["owner"] = undefined /*out*/;
             inputs["platform"] = undefined /*out*/;
@@ -91,6 +79,7 @@ export class StreamingImage extends pulumi.CustomResource {
         } else {
             inputs["description"] = undefined /*out*/;
             inputs["ec2ImageId"] = undefined /*out*/;
+            inputs["encryptionConfiguration"] = undefined /*out*/;
             inputs["eulaIds"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["owner"] = undefined /*out*/;
@@ -110,24 +99,9 @@ export class StreamingImage extends pulumi.CustomResource {
  * The set of arguments for constructing a StreamingImage resource.
  */
 export interface StreamingImageArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-description
-     */
     description?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-ec2imageid
-     */
     ec2ImageId: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-name
-     */
     name: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-studioid
-     */
     studioId: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-streamingimage.html#cfn-nimblestudio-streamingimage-tags
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: any;
 }

@@ -10,43 +10,46 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaPackage
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html
+    /// Resource schema for AWS::MediaPackage::Channel
     /// </summary>
     [AwsNativeResourceType("aws-native:mediapackage:Channel")]
     public partial class Channel : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) assigned to the Channel.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
+        /// A short text description of the Channel.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+        /// The configuration parameters for egress access logging.
         /// </summary>
         [Output("egressAccessLogs")]
         public Output<Outputs.ChannelLogConfiguration?> EgressAccessLogs { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
+        /// A short text description of the Channel.
         /// </summary>
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
+        [Output("hlsIngest")]
+        public Output<Outputs.ChannelHlsIngest> HlsIngest { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+        /// The configuration parameters for egress access logging.
         /// </summary>
         [Output("ingressAccessLogs")]
         public Output<Outputs.ChannelLogConfiguration?> IngressAccessLogs { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
+        /// A collection of tags associated with a resource
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ChannelTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -56,7 +59,7 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Channel(string name, ChannelArgs args, CustomResourceOptions? options = null)
+        public Channel(string name, ChannelArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:mediapackage:Channel", name, args ?? new ChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -94,38 +97,32 @@ namespace Pulumi.AwsNative.MediaPackage
     public sealed class ChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-description
+        /// A short text description of the Channel.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-egressaccesslogs
+        /// The configuration parameters for egress access logging.
         /// </summary>
         [Input("egressAccessLogs")]
         public Input<Inputs.ChannelLogConfigurationArgs>? EgressAccessLogs { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-id
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-ingressaccesslogs
+        /// The configuration parameters for egress access logging.
         /// </summary>
         [Input("ingressAccessLogs")]
         public Input<Inputs.ChannelLogConfigurationArgs>? IngressAccessLogs { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.ChannelTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-channel.html#cfn-mediapackage-channel-tags
+        /// A collection of tags associated with a resource
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.ChannelTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ChannelTagArgs>());
             set => _tags = value;
         }
 

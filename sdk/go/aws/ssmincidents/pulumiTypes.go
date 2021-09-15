@@ -10,9 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html
+// The ReplicationSet regional configuration.
 type ReplicationSetRegionConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html#cfn-ssmincidents-replicationset-regionconfiguration-ssekmskeyid
 	SseKmsKeyId string `pulumi:"sseKmsKeyId"`
 }
 
@@ -27,9 +26,8 @@ type ReplicationSetRegionConfigurationInput interface {
 	ToReplicationSetRegionConfigurationOutputWithContext(context.Context) ReplicationSetRegionConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html
+// The ReplicationSet regional configuration.
 type ReplicationSetRegionConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html#cfn-ssmincidents-replicationset-regionconfiguration-ssekmskeyid
 	SseKmsKeyId pulumi.StringInput `pulumi:"sseKmsKeyId"`
 }
 
@@ -86,7 +84,7 @@ func (i *replicationSetRegionConfigurationPtrType) ToReplicationSetRegionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSetRegionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html
+// The ReplicationSet regional configuration.
 type ReplicationSetRegionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationSetRegionConfigurationOutput) ElementType() reflect.Type {
@@ -111,7 +109,6 @@ func (o ReplicationSetRegionConfigurationOutput) ToReplicationSetRegionConfigura
 	}).(ReplicationSetRegionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html#cfn-ssmincidents-replicationset-regionconfiguration-ssekmskeyid
 func (o ReplicationSetRegionConfigurationOutput) SseKmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationSetRegionConfiguration) string { return v.SseKmsKeyId }).(pulumi.StringOutput)
 }
@@ -140,7 +137,6 @@ func (o ReplicationSetRegionConfigurationPtrOutput) Elem() ReplicationSetRegionC
 	}).(ReplicationSetRegionConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html#cfn-ssmincidents-replicationset-regionconfiguration-ssekmskeyid
 func (o ReplicationSetRegionConfigurationPtrOutput) SseKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationSetRegionConfiguration) *string {
 		if v == nil {
@@ -150,12 +146,10 @@ func (o ReplicationSetRegionConfigurationPtrOutput) SseKmsKeyId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html
+// The ReplicationSet regional configuration.
 type ReplicationSetReplicationRegion struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionconfiguration
 	RegionConfiguration *ReplicationSetRegionConfiguration `pulumi:"regionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionname
-	RegionName *string `pulumi:"regionName"`
+	RegionName          *string                            `pulumi:"regionName"`
 }
 
 // ReplicationSetReplicationRegionInput is an input type that accepts ReplicationSetReplicationRegionArgs and ReplicationSetReplicationRegionOutput values.
@@ -169,12 +163,10 @@ type ReplicationSetReplicationRegionInput interface {
 	ToReplicationSetReplicationRegionOutputWithContext(context.Context) ReplicationSetReplicationRegionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html
+// The ReplicationSet regional configuration.
 type ReplicationSetReplicationRegionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionconfiguration
 	RegionConfiguration ReplicationSetRegionConfigurationPtrInput `pulumi:"regionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionname
-	RegionName pulumi.StringPtrInput `pulumi:"regionName"`
+	RegionName          pulumi.StringPtrInput                     `pulumi:"regionName"`
 }
 
 func (ReplicationSetReplicationRegionArgs) ElementType() reflect.Type {
@@ -214,7 +206,7 @@ func (i ReplicationSetReplicationRegionArray) ToReplicationSetReplicationRegionA
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSetReplicationRegionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html
+// The ReplicationSet regional configuration.
 type ReplicationSetReplicationRegionOutput struct{ *pulumi.OutputState }
 
 func (ReplicationSetReplicationRegionOutput) ElementType() reflect.Type {
@@ -229,14 +221,12 @@ func (o ReplicationSetReplicationRegionOutput) ToReplicationSetReplicationRegion
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionconfiguration
 func (o ReplicationSetReplicationRegionOutput) RegionConfiguration() ReplicationSetRegionConfigurationPtrOutput {
 	return o.ApplyT(func(v ReplicationSetReplicationRegion) *ReplicationSetRegionConfiguration {
 		return v.RegionConfiguration
 	}).(ReplicationSetRegionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionname
 func (o ReplicationSetReplicationRegionOutput) RegionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationSetReplicationRegion) *string { return v.RegionName }).(pulumi.StringPtrOutput)
 }
@@ -261,9 +251,8 @@ func (o ReplicationSetReplicationRegionArrayOutput) Index(i pulumi.IntInput) Rep
 	}).(ReplicationSetReplicationRegionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html
+// The automation configuration to launch.
 type ResponsePlanAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html#cfn-ssmincidents-responseplan-action-ssmautomation
 	SsmAutomation *ResponsePlanSsmAutomation `pulumi:"ssmAutomation"`
 }
 
@@ -278,9 +267,8 @@ type ResponsePlanActionInput interface {
 	ToResponsePlanActionOutputWithContext(context.Context) ResponsePlanActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html
+// The automation configuration to launch.
 type ResponsePlanActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html#cfn-ssmincidents-responseplan-action-ssmautomation
 	SsmAutomation ResponsePlanSsmAutomationPtrInput `pulumi:"ssmAutomation"`
 }
 
@@ -321,7 +309,7 @@ func (i ResponsePlanActionArray) ToResponsePlanActionArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanActionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html
+// The automation configuration to launch.
 type ResponsePlanActionOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlanActionOutput) ElementType() reflect.Type {
@@ -336,7 +324,6 @@ func (o ResponsePlanActionOutput) ToResponsePlanActionOutputWithContext(ctx cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html#cfn-ssmincidents-responseplan-action-ssmautomation
 func (o ResponsePlanActionOutput) SsmAutomation() ResponsePlanSsmAutomationPtrOutput {
 	return o.ApplyT(func(v ResponsePlanAction) *ResponsePlanSsmAutomation { return v.SsmAutomation }).(ResponsePlanSsmAutomationPtrOutput)
 }
@@ -361,9 +348,8 @@ func (o ResponsePlanActionArrayOutput) Index(i pulumi.IntInput) ResponsePlanActi
 	}).(ResponsePlanActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html
+// The chat channel configuration.
 type ResponsePlanChatChannel struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html#cfn-ssmincidents-responseplan-chatchannel-chatbotsns
 	ChatbotSns []string `pulumi:"chatbotSns"`
 }
 
@@ -378,9 +364,8 @@ type ResponsePlanChatChannelInput interface {
 	ToResponsePlanChatChannelOutputWithContext(context.Context) ResponsePlanChatChannelOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html
+// The chat channel configuration.
 type ResponsePlanChatChannelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html#cfn-ssmincidents-responseplan-chatchannel-chatbotsns
 	ChatbotSns pulumi.StringArrayInput `pulumi:"chatbotSns"`
 }
 
@@ -437,7 +422,7 @@ func (i *responsePlanChatChannelPtrType) ToResponsePlanChatChannelPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanChatChannelPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html
+// The chat channel configuration.
 type ResponsePlanChatChannelOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlanChatChannelOutput) ElementType() reflect.Type {
@@ -462,7 +447,6 @@ func (o ResponsePlanChatChannelOutput) ToResponsePlanChatChannelPtrOutputWithCon
 	}).(ResponsePlanChatChannelPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html#cfn-ssmincidents-responseplan-chatchannel-chatbotsns
 func (o ResponsePlanChatChannelOutput) ChatbotSns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResponsePlanChatChannel) []string { return v.ChatbotSns }).(pulumi.StringArrayOutput)
 }
@@ -491,7 +475,6 @@ func (o ResponsePlanChatChannelPtrOutput) Elem() ResponsePlanChatChannelOutput {
 	}).(ResponsePlanChatChannelOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html#cfn-ssmincidents-responseplan-chatchannel-chatbotsns
 func (o ResponsePlanChatChannelPtrOutput) ChatbotSns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResponsePlanChatChannel) []string {
 		if v == nil {
@@ -501,17 +484,17 @@ func (o ResponsePlanChatChannelPtrOutput) ChatbotSns() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html
+// The incident template configuration.
 type ResponsePlanIncidentTemplate struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-dedupestring
+	// The deduplication string.
 	DedupeString *string `pulumi:"dedupeString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-impact
+	// The impact value.
 	Impact int `pulumi:"impact"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-notificationtargets
+	// The list of notification targets.
 	NotificationTargets []ResponsePlanNotificationTargetItem `pulumi:"notificationTargets"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-summary
+	// The summary string.
 	Summary *string `pulumi:"summary"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-title
+	// The title string.
 	Title string `pulumi:"title"`
 }
 
@@ -526,17 +509,17 @@ type ResponsePlanIncidentTemplateInput interface {
 	ToResponsePlanIncidentTemplateOutputWithContext(context.Context) ResponsePlanIncidentTemplateOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html
+// The incident template configuration.
 type ResponsePlanIncidentTemplateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-dedupestring
+	// The deduplication string.
 	DedupeString pulumi.StringPtrInput `pulumi:"dedupeString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-impact
+	// The impact value.
 	Impact pulumi.IntInput `pulumi:"impact"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-notificationtargets
+	// The list of notification targets.
 	NotificationTargets ResponsePlanNotificationTargetItemArrayInput `pulumi:"notificationTargets"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-summary
+	// The summary string.
 	Summary pulumi.StringPtrInput `pulumi:"summary"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-title
+	// The title string.
 	Title pulumi.StringInput `pulumi:"title"`
 }
 
@@ -593,7 +576,7 @@ func (i *responsePlanIncidentTemplatePtrType) ToResponsePlanIncidentTemplatePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanIncidentTemplatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html
+// The incident template configuration.
 type ResponsePlanIncidentTemplateOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlanIncidentTemplateOutput) ElementType() reflect.Type {
@@ -618,29 +601,29 @@ func (o ResponsePlanIncidentTemplateOutput) ToResponsePlanIncidentTemplatePtrOut
 	}).(ResponsePlanIncidentTemplatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-dedupestring
+// The deduplication string.
 func (o ResponsePlanIncidentTemplateOutput) DedupeString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlanIncidentTemplate) *string { return v.DedupeString }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-impact
+// The impact value.
 func (o ResponsePlanIncidentTemplateOutput) Impact() pulumi.IntOutput {
 	return o.ApplyT(func(v ResponsePlanIncidentTemplate) int { return v.Impact }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-notificationtargets
+// The list of notification targets.
 func (o ResponsePlanIncidentTemplateOutput) NotificationTargets() ResponsePlanNotificationTargetItemArrayOutput {
 	return o.ApplyT(func(v ResponsePlanIncidentTemplate) []ResponsePlanNotificationTargetItem {
 		return v.NotificationTargets
 	}).(ResponsePlanNotificationTargetItemArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-summary
+// The summary string.
 func (o ResponsePlanIncidentTemplateOutput) Summary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlanIncidentTemplate) *string { return v.Summary }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-title
+// The title string.
 func (o ResponsePlanIncidentTemplateOutput) Title() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanIncidentTemplate) string { return v.Title }).(pulumi.StringOutput)
 }
@@ -669,7 +652,7 @@ func (o ResponsePlanIncidentTemplatePtrOutput) Elem() ResponsePlanIncidentTempla
 	}).(ResponsePlanIncidentTemplateOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-dedupestring
+// The deduplication string.
 func (o ResponsePlanIncidentTemplatePtrOutput) DedupeString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) *string {
 		if v == nil {
@@ -679,7 +662,7 @@ func (o ResponsePlanIncidentTemplatePtrOutput) DedupeString() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-impact
+// The impact value.
 func (o ResponsePlanIncidentTemplatePtrOutput) Impact() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) *int {
 		if v == nil {
@@ -689,7 +672,7 @@ func (o ResponsePlanIncidentTemplatePtrOutput) Impact() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-notificationtargets
+// The list of notification targets.
 func (o ResponsePlanIncidentTemplatePtrOutput) NotificationTargets() ResponsePlanNotificationTargetItemArrayOutput {
 	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) []ResponsePlanNotificationTargetItem {
 		if v == nil {
@@ -699,7 +682,7 @@ func (o ResponsePlanIncidentTemplatePtrOutput) NotificationTargets() ResponsePla
 	}).(ResponsePlanNotificationTargetItemArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-summary
+// The summary string.
 func (o ResponsePlanIncidentTemplatePtrOutput) Summary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) *string {
 		if v == nil {
@@ -709,7 +692,7 @@ func (o ResponsePlanIncidentTemplatePtrOutput) Summary() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-incidenttemplate.html#cfn-ssmincidents-responseplan-incidenttemplate-title
+// The title string.
 func (o ResponsePlanIncidentTemplatePtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponsePlanIncidentTemplate) *string {
 		if v == nil {
@@ -719,9 +702,8 @@ func (o ResponsePlanIncidentTemplatePtrOutput) Title() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html
+// A notification target.
 type ResponsePlanNotificationTargetItem struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html#cfn-ssmincidents-responseplan-notificationtargetitem-snstopicarn
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 }
 
@@ -736,9 +718,8 @@ type ResponsePlanNotificationTargetItemInput interface {
 	ToResponsePlanNotificationTargetItemOutputWithContext(context.Context) ResponsePlanNotificationTargetItemOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html
+// A notification target.
 type ResponsePlanNotificationTargetItemArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html#cfn-ssmincidents-responseplan-notificationtargetitem-snstopicarn
 	SnsTopicArn pulumi.StringPtrInput `pulumi:"snsTopicArn"`
 }
 
@@ -779,7 +760,7 @@ func (i ResponsePlanNotificationTargetItemArray) ToResponsePlanNotificationTarge
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanNotificationTargetItemArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html
+// A notification target.
 type ResponsePlanNotificationTargetItemOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlanNotificationTargetItemOutput) ElementType() reflect.Type {
@@ -794,7 +775,6 @@ func (o ResponsePlanNotificationTargetItemOutput) ToResponsePlanNotificationTarg
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-notificationtargetitem.html#cfn-ssmincidents-responseplan-notificationtargetitem-snstopicarn
 func (o ResponsePlanNotificationTargetItemOutput) SnsTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlanNotificationTargetItem) *string { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
 }
@@ -819,17 +799,17 @@ func (o ResponsePlanNotificationTargetItemArrayOutput) Index(i pulumi.IntInput) 
 	}).(ResponsePlanNotificationTargetItemOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html
+// The configuration to use when starting the SSM automation document.
 type ResponsePlanSsmAutomation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentname
+	// The document name to use when starting the SSM automation document.
 	DocumentName string `pulumi:"documentName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentversion
+	// The version of the document to use when starting the SSM automation document.
 	DocumentVersion *string `pulumi:"documentVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-parameters
+	// The parameters to set when starting the SSM automation document.
 	Parameters []ResponsePlanSsmParameter `pulumi:"parameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-rolearn
+	// The role ARN to use when starting the SSM automation document.
 	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-targetaccount
+	// The account type to use when starting the SSM automation document.
 	TargetAccount *string `pulumi:"targetAccount"`
 }
 
@@ -844,17 +824,17 @@ type ResponsePlanSsmAutomationInput interface {
 	ToResponsePlanSsmAutomationOutputWithContext(context.Context) ResponsePlanSsmAutomationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html
+// The configuration to use when starting the SSM automation document.
 type ResponsePlanSsmAutomationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentname
+	// The document name to use when starting the SSM automation document.
 	DocumentName pulumi.StringInput `pulumi:"documentName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentversion
+	// The version of the document to use when starting the SSM automation document.
 	DocumentVersion pulumi.StringPtrInput `pulumi:"documentVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-parameters
+	// The parameters to set when starting the SSM automation document.
 	Parameters ResponsePlanSsmParameterArrayInput `pulumi:"parameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-rolearn
+	// The role ARN to use when starting the SSM automation document.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-targetaccount
+	// The account type to use when starting the SSM automation document.
 	TargetAccount pulumi.StringPtrInput `pulumi:"targetAccount"`
 }
 
@@ -911,7 +891,7 @@ func (i *responsePlanSsmAutomationPtrType) ToResponsePlanSsmAutomationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanSsmAutomationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html
+// The configuration to use when starting the SSM automation document.
 type ResponsePlanSsmAutomationOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlanSsmAutomationOutput) ElementType() reflect.Type {
@@ -936,27 +916,27 @@ func (o ResponsePlanSsmAutomationOutput) ToResponsePlanSsmAutomationPtrOutputWit
 	}).(ResponsePlanSsmAutomationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentname
+// The document name to use when starting the SSM automation document.
 func (o ResponsePlanSsmAutomationOutput) DocumentName() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanSsmAutomation) string { return v.DocumentName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentversion
+// The version of the document to use when starting the SSM automation document.
 func (o ResponsePlanSsmAutomationOutput) DocumentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlanSsmAutomation) *string { return v.DocumentVersion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-parameters
+// The parameters to set when starting the SSM automation document.
 func (o ResponsePlanSsmAutomationOutput) Parameters() ResponsePlanSsmParameterArrayOutput {
 	return o.ApplyT(func(v ResponsePlanSsmAutomation) []ResponsePlanSsmParameter { return v.Parameters }).(ResponsePlanSsmParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-rolearn
+// The role ARN to use when starting the SSM automation document.
 func (o ResponsePlanSsmAutomationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanSsmAutomation) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-targetaccount
+// The account type to use when starting the SSM automation document.
 func (o ResponsePlanSsmAutomationOutput) TargetAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResponsePlanSsmAutomation) *string { return v.TargetAccount }).(pulumi.StringPtrOutput)
 }
@@ -985,7 +965,7 @@ func (o ResponsePlanSsmAutomationPtrOutput) Elem() ResponsePlanSsmAutomationOutp
 	}).(ResponsePlanSsmAutomationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentname
+// The document name to use when starting the SSM automation document.
 func (o ResponsePlanSsmAutomationPtrOutput) DocumentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponsePlanSsmAutomation) *string {
 		if v == nil {
@@ -995,7 +975,7 @@ func (o ResponsePlanSsmAutomationPtrOutput) DocumentName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentversion
+// The version of the document to use when starting the SSM automation document.
 func (o ResponsePlanSsmAutomationPtrOutput) DocumentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponsePlanSsmAutomation) *string {
 		if v == nil {
@@ -1005,7 +985,7 @@ func (o ResponsePlanSsmAutomationPtrOutput) DocumentVersion() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-parameters
+// The parameters to set when starting the SSM automation document.
 func (o ResponsePlanSsmAutomationPtrOutput) Parameters() ResponsePlanSsmParameterArrayOutput {
 	return o.ApplyT(func(v *ResponsePlanSsmAutomation) []ResponsePlanSsmParameter {
 		if v == nil {
@@ -1015,7 +995,7 @@ func (o ResponsePlanSsmAutomationPtrOutput) Parameters() ResponsePlanSsmParamete
 	}).(ResponsePlanSsmParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-rolearn
+// The role ARN to use when starting the SSM automation document.
 func (o ResponsePlanSsmAutomationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponsePlanSsmAutomation) *string {
 		if v == nil {
@@ -1025,7 +1005,7 @@ func (o ResponsePlanSsmAutomationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-targetaccount
+// The account type to use when starting the SSM automation document.
 func (o ResponsePlanSsmAutomationPtrOutput) TargetAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResponsePlanSsmAutomation) *string {
 		if v == nil {
@@ -1035,11 +1015,9 @@ func (o ResponsePlanSsmAutomationPtrOutput) TargetAccount() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html
+// A parameter to set when starting the SSM automation document.
 type ResponsePlanSsmParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-key
-	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-values
+	Key    string   `pulumi:"key"`
 	Values []string `pulumi:"values"`
 }
 
@@ -1054,11 +1032,9 @@ type ResponsePlanSsmParameterInput interface {
 	ToResponsePlanSsmParameterOutputWithContext(context.Context) ResponsePlanSsmParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html
+// A parameter to set when starting the SSM automation document.
 type ResponsePlanSsmParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-key
-	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-values
+	Key    pulumi.StringInput      `pulumi:"key"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1099,7 +1075,7 @@ func (i ResponsePlanSsmParameterArray) ToResponsePlanSsmParameterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanSsmParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html
+// A parameter to set when starting the SSM automation document.
 type ResponsePlanSsmParameterOutput struct{ *pulumi.OutputState }
 
 func (ResponsePlanSsmParameterOutput) ElementType() reflect.Type {
@@ -1114,12 +1090,10 @@ func (o ResponsePlanSsmParameterOutput) ToResponsePlanSsmParameterOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-key
 func (o ResponsePlanSsmParameterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanSsmParameter) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html#cfn-ssmincidents-responseplan-ssmparameter-values
 func (o ResponsePlanSsmParameterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResponsePlanSsmParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1144,6 +1118,109 @@ func (o ResponsePlanSsmParameterArrayOutput) Index(i pulumi.IntInput) ResponsePl
 	}).(ResponsePlanSsmParameterOutput)
 }
 
+// A key-value pair to tag a resource.
+type ResponsePlanTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ResponsePlanTagInput is an input type that accepts ResponsePlanTagArgs and ResponsePlanTagOutput values.
+// You can construct a concrete instance of `ResponsePlanTagInput` via:
+//
+//          ResponsePlanTagArgs{...}
+type ResponsePlanTagInput interface {
+	pulumi.Input
+
+	ToResponsePlanTagOutput() ResponsePlanTagOutput
+	ToResponsePlanTagOutputWithContext(context.Context) ResponsePlanTagOutput
+}
+
+// A key-value pair to tag a resource.
+type ResponsePlanTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ResponsePlanTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlanTag)(nil)).Elem()
+}
+
+func (i ResponsePlanTagArgs) ToResponsePlanTagOutput() ResponsePlanTagOutput {
+	return i.ToResponsePlanTagOutputWithContext(context.Background())
+}
+
+func (i ResponsePlanTagArgs) ToResponsePlanTagOutputWithContext(ctx context.Context) ResponsePlanTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanTagOutput)
+}
+
+// ResponsePlanTagArrayInput is an input type that accepts ResponsePlanTagArray and ResponsePlanTagArrayOutput values.
+// You can construct a concrete instance of `ResponsePlanTagArrayInput` via:
+//
+//          ResponsePlanTagArray{ ResponsePlanTagArgs{...} }
+type ResponsePlanTagArrayInput interface {
+	pulumi.Input
+
+	ToResponsePlanTagArrayOutput() ResponsePlanTagArrayOutput
+	ToResponsePlanTagArrayOutputWithContext(context.Context) ResponsePlanTagArrayOutput
+}
+
+type ResponsePlanTagArray []ResponsePlanTagInput
+
+func (ResponsePlanTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlanTag)(nil)).Elem()
+}
+
+func (i ResponsePlanTagArray) ToResponsePlanTagArrayOutput() ResponsePlanTagArrayOutput {
+	return i.ToResponsePlanTagArrayOutputWithContext(context.Background())
+}
+
+func (i ResponsePlanTagArray) ToResponsePlanTagArrayOutputWithContext(ctx context.Context) ResponsePlanTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponsePlanTagArrayOutput)
+}
+
+// A key-value pair to tag a resource.
+type ResponsePlanTagOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlanTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponsePlanTag)(nil)).Elem()
+}
+
+func (o ResponsePlanTagOutput) ToResponsePlanTagOutput() ResponsePlanTagOutput {
+	return o
+}
+
+func (o ResponsePlanTagOutput) ToResponsePlanTagOutputWithContext(ctx context.Context) ResponsePlanTagOutput {
+	return o
+}
+
+func (o ResponsePlanTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ResponsePlanTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ResponsePlanTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ResponsePlanTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ResponsePlanTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ResponsePlanTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResponsePlanTag)(nil)).Elem()
+}
+
+func (o ResponsePlanTagArrayOutput) ToResponsePlanTagArrayOutput() ResponsePlanTagArrayOutput {
+	return o
+}
+
+func (o ResponsePlanTagArrayOutput) ToResponsePlanTagArrayOutputWithContext(ctx context.Context) ResponsePlanTagArrayOutput {
+	return o
+}
+
+func (o ResponsePlanTagArrayOutput) Index(i pulumi.IntInput) ResponsePlanTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponsePlanTag {
+		return vs[0].([]ResponsePlanTag)[vs[1].(int)]
+	}).(ResponsePlanTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ReplicationSetRegionConfigurationOutput{})
 	pulumi.RegisterOutputType(ReplicationSetRegionConfigurationPtrOutput{})
@@ -1161,4 +1238,6 @@ func init() {
 	pulumi.RegisterOutputType(ResponsePlanSsmAutomationPtrOutput{})
 	pulumi.RegisterOutputType(ResponsePlanSsmParameterOutput{})
 	pulumi.RegisterOutputType(ResponsePlanSsmParameterArrayOutput{})
+	pulumi.RegisterOutputType(ResponsePlanTagOutput{})
+	pulumi.RegisterOutputType(ResponsePlanTagArrayOutput{})
 }

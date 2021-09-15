@@ -18,10 +18,16 @@ require (
 	github.com/google/uuid v1.2.0
 	github.com/hashicorp/hcl/v2 v2.3.0
 	github.com/jpillora/backoff v1.0.0
+	github.com/lestrrat-go/jspointer v0.0.0-20181205001929-82fadba7561c // indirect
+	github.com/lestrrat-go/jsref v0.0.0-20181205001954-1b590508f37d // indirect
+	github.com/lestrrat-go/jsschema v0.0.0-20181205002244-5c81c58ffcc3
+	github.com/lestrrat-go/jsval v0.0.0-20181205002323-20277e9befc0 // indirect
+	github.com/lestrrat-go/pdebug v0.0.0-20210111095411-35b07dbf089b // indirect
+	github.com/lestrrat-go/structinfo v0.0.0-20210312050401-7f8bd69d6acb // indirect
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi/pkg/v3 v3.9.2-0.20210810055824-9c501b5bede1
 	github.com/pulumi/pulumi/sdk/v3 v3.9.1
-	github.com/stretchr/testify v1.6.1
+	github.com/stretchr/testify v1.7.0
 	github.com/zclconf/go-cty v1.3.1
 	google.golang.org/grpc v1.37.0
 )

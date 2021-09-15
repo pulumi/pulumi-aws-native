@@ -10,43 +10,43 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html
+    /// A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
     /// </summary>
     [AwsNativeResourceType("aws-native:configuration:ConformancePack")]
     public partial class ConformancePack : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
+        /// A list of ConformancePackInputParameter objects.
         /// </summary>
         [Output("conformancePackInputParameters")]
         public Output<ImmutableArray<Outputs.ConformancePackConformancePackInputParameter>> ConformancePackInputParameters { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
+        /// Name of the conformance pack which will be assigned as the unique identifier.
         /// </summary>
         [Output("conformancePackName")]
         public Output<string> ConformancePackName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
+        /// AWS Config stores intermediate files while processing conformance pack template.
         /// </summary>
         [Output("deliveryS3Bucket")]
         public Output<string?> DeliveryS3Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
+        /// The prefix for delivery S3 bucket.
         /// </summary>
         [Output("deliveryS3KeyPrefix")]
         public Output<string?> DeliveryS3KeyPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
+        /// A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
         /// </summary>
         [Output("templateBody")]
         public Output<string?> TemplateBody { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
+        /// Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
         /// </summary>
         [Output("templateS3Uri")]
         public Output<string?> TemplateS3Uri { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Configuration
         private InputList<Inputs.ConformancePackConformancePackInputParameterArgs>? _conformancePackInputParameters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackinputparameters
+        /// A list of ConformancePackInputParameter objects.
         /// </summary>
         public InputList<Inputs.ConformancePackConformancePackInputParameterArgs> ConformancePackInputParameters
         {
@@ -109,31 +109,31 @@ namespace Pulumi.AwsNative.Configuration
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-conformancepackname
+        /// Name of the conformance pack which will be assigned as the unique identifier.
         /// </summary>
         [Input("conformancePackName", required: true)]
         public Input<string> ConformancePackName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3bucket
+        /// AWS Config stores intermediate files while processing conformance pack template.
         /// </summary>
         [Input("deliveryS3Bucket")]
         public Input<string>? DeliveryS3Bucket { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-deliverys3keyprefix
+        /// The prefix for delivery S3 bucket.
         /// </summary>
         [Input("deliveryS3KeyPrefix")]
         public Input<string>? DeliveryS3KeyPrefix { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templatebody
+        /// A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
         /// </summary>
         [Input("templateBody")]
         public Input<string>? TemplateBody { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html#cfn-config-conformancepack-templates3uri
+        /// Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
         /// </summary>
         [Input("templateS3Uri")]
         public Input<string>? TemplateS3Uri { get; set; }

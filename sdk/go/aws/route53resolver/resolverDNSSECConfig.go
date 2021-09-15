@@ -10,15 +10,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html
+// Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
 type ResolverDNSSECConfig struct {
 	pulumi.CustomResourceState
 
-	Id      pulumi.StringOutput `pulumi:"id"`
+	// AccountId
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html#cfn-route53resolver-resolverdnssecconfig-resourceid
-	ResourceId       pulumi.StringPtrOutput `pulumi:"resourceId"`
-	ValidationStatus pulumi.StringOutput    `pulumi:"validationStatus"`
+	// ResourceId
+	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
+	// ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
+	ValidationStatus pulumi.StringOutput `pulumi:"validationStatus"`
 }
 
 // NewResolverDNSSECConfig registers a new resource with the given unique name, arguments, and options.
@@ -60,13 +61,13 @@ func (ResolverDNSSECConfigState) ElementType() reflect.Type {
 }
 
 type resolverDNSSECConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html#cfn-route53resolver-resolverdnssecconfig-resourceid
+	// ResourceId
 	ResourceId *string `pulumi:"resourceId"`
 }
 
 // The set of arguments for constructing a ResolverDNSSECConfig resource.
 type ResolverDNSSECConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html#cfn-route53resolver-resolverdnssecconfig-resourceid
+	// ResourceId
 	ResourceId pulumi.StringPtrInput
 }
 

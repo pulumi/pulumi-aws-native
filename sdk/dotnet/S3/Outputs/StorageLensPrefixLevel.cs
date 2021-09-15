@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html
+    /// Prefix-level metrics configurations.
     /// </summary>
     [OutputType]
     public sealed class StorageLensPrefixLevel
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html#cfn-s3-storagelens-prefixlevel-storagemetrics
-        /// </summary>
         public readonly Outputs.StorageLensPrefixLevelStorageMetrics StorageMetrics;
 
         [OutputConstructor]

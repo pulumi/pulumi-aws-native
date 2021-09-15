@@ -10,55 +10,67 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CodeArtifact
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html
+    /// The resource schema to create a CodeArtifact repository.
     /// </summary>
     [AwsNativeResourceType("aws-native:codeartifact:Repository")]
     public partial class Repository : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the repository.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
+        /// A text description of the repository.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the domain that contains the repository.
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// The 12-digit account ID of the AWS account that owns the domain.
+        /// </summary>
         [Output("domainOwner")]
         public Output<string> DomainOwner { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
+        /// A list of external connections associated with the repository.
         /// </summary>
         [Output("externalConnections")]
         public Output<ImmutableArray<string>> ExternalConnections { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the repository. This is used for GetAtt
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
+        /// The access control resource policy on the provided repository.
         /// </summary>
         [Output("permissionsPolicyDocument")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> PermissionsPolicyDocument { get; private set; } = null!;
+        public Output<object?> PermissionsPolicyDocument { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
+        /// The name of the repository.
         /// </summary>
         [Output("repositoryName")]
         public Output<string> RepositoryName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RepositoryTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
+        /// A list of upstream repositories associated with the repository.
         /// </summary>
         [Output("upstreams")]
         public Output<ImmutableArray<string>> Upstreams { get; private set; } = null!;
@@ -109,28 +121,16 @@ namespace Pulumi.AwsNative.CodeArtifact
     public sealed class RepositoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
+        /// A text description of the repository.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainname
-        /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainowner
-        /// </summary>
-        [Input("domainOwner")]
-        public Input<string>? DomainOwner { get; set; }
 
         [Input("externalConnections")]
         private InputList<string>? _externalConnections;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
+        /// A list of external connections associated with the repository.
         /// </summary>
         public InputList<string> ExternalConnections
         {
@@ -139,26 +139,26 @@ namespace Pulumi.AwsNative.CodeArtifact
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
+        /// The access control resource policy on the provided repository.
         /// </summary>
         [Input("permissionsPolicyDocument")]
-        public InputUnion<System.Text.Json.JsonElement, string>? PermissionsPolicyDocument { get; set; }
+        public Input<object>? PermissionsPolicyDocument { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
+        /// The name of the repository.
         /// </summary>
         [Input("repositoryName", required: true)]
         public Input<string> RepositoryName { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.RepositoryTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.RepositoryTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.RepositoryTagArgs>());
             set => _tags = value;
         }
 
@@ -166,7 +166,7 @@ namespace Pulumi.AwsNative.CodeArtifact
         private InputList<string>? _upstreams;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
+        /// A list of upstream repositories associated with the repository.
         /// </summary>
         public InputList<string> Upstreams
         {

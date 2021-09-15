@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['PermissionSetArgs', 'PermissionSet']
 
@@ -18,21 +18,19 @@ class PermissionSetArgs:
                  instance_arn: pulumi.Input[str],
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 inline_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 inline_policy: Optional[Any] = None,
                  managed_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  relay_state_type: Optional[pulumi.Input[str]] = None,
                  session_duration: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetTagArgs']]]] = None):
         """
         The set of arguments for constructing a PermissionSet resource.
-        :param pulumi.Input[str] instance_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description
-        :param pulumi.Input[Union[Any, str]] inline_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies
-        :param pulumi.Input[str] relay_state_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype
-        :param pulumi.Input[str] session_duration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-tags
+        :param pulumi.Input[str] instance_arn: The sso instance arn that the permission set is owned.
+        :param pulumi.Input[str] name: The name you want to assign to this permission set.
+        :param pulumi.Input[str] description: The permission set description.
+        :param Any inline_policy: The inline policy to put in permission set.
+        :param pulumi.Input[str] relay_state_type: The relay state URL that redirect links to any service in the AWS Management Console.
+        :param pulumi.Input[str] session_duration: The length of time that a user can be signed in to an AWS account.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         pulumi.set(__self__, "name", name)
@@ -53,7 +51,7 @@ class PermissionSetArgs:
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn
+        The sso instance arn that the permission set is owned.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -65,7 +63,7 @@ class PermissionSetArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name
+        The name you want to assign to this permission set.
         """
         return pulumi.get(self, "name")
 
@@ -77,7 +75,7 @@ class PermissionSetArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description
+        The permission set description.
         """
         return pulumi.get(self, "description")
 
@@ -87,22 +85,19 @@ class PermissionSetArgs:
 
     @property
     @pulumi.getter(name="inlinePolicy")
-    def inline_policy(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+    def inline_policy(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
+        The inline policy to put in permission set.
         """
         return pulumi.get(self, "inline_policy")
 
     @inline_policy.setter
-    def inline_policy(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def inline_policy(self, value: Optional[Any]):
         pulumi.set(self, "inline_policy", value)
 
     @property
     @pulumi.getter(name="managedPolicies")
     def managed_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies
-        """
         return pulumi.get(self, "managed_policies")
 
     @managed_policies.setter
@@ -113,7 +108,7 @@ class PermissionSetArgs:
     @pulumi.getter(name="relayStateType")
     def relay_state_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype
+        The relay state URL that redirect links to any service in the AWS Management Console.
         """
         return pulumi.get(self, "relay_state_type")
 
@@ -125,7 +120,7 @@ class PermissionSetArgs:
     @pulumi.getter(name="sessionDuration")
     def session_duration(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration
+        The length of time that a user can be signed in to an AWS account.
         """
         return pulumi.get(self, "session_duration")
 
@@ -135,14 +130,11 @@ class PermissionSetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -152,27 +144,25 @@ class PermissionSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 inline_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 inline_policy: Optional[Any] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  managed_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  relay_state_type: Optional[pulumi.Input[str]] = None,
                  session_duration: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PermissionSetTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html
+        Resource Type definition for SSO PermissionSet
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description
-        :param pulumi.Input[Union[Any, str]] inline_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
-        :param pulumi.Input[str] instance_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name
-        :param pulumi.Input[str] relay_state_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype
-        :param pulumi.Input[str] session_duration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-tags
+        :param pulumi.Input[str] description: The permission set description.
+        :param Any inline_policy: The inline policy to put in permission set.
+        :param pulumi.Input[str] instance_arn: The sso instance arn that the permission set is owned.
+        :param pulumi.Input[str] name: The name you want to assign to this permission set.
+        :param pulumi.Input[str] relay_state_type: The relay state URL that redirect links to any service in the AWS Management Console.
+        :param pulumi.Input[str] session_duration: The length of time that a user can be signed in to an AWS account.
         """
         ...
     @overload
@@ -181,7 +171,7 @@ class PermissionSet(pulumi.CustomResource):
                  args: PermissionSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html
+        Resource Type definition for SSO PermissionSet
 
         :param str resource_name: The name of the resource.
         :param PermissionSetArgs args: The arguments to use to populate this resource's properties.
@@ -199,13 +189,13 @@ class PermissionSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 inline_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 inline_policy: Optional[Any] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  managed_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  relay_state_type: Optional[pulumi.Input[str]] = None,
                  session_duration: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PermissionSetTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -268,15 +258,15 @@ class PermissionSet(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description
+        The permission set description.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="inlinePolicy")
-    def inline_policy(self) -> pulumi.Output[Optional[str]]:
+    def inline_policy(self) -> pulumi.Output[Optional[Any]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
+        The inline policy to put in permission set.
         """
         return pulumi.get(self, "inline_policy")
 
@@ -284,36 +274,36 @@ class PermissionSet(pulumi.CustomResource):
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn
+        The sso instance arn that the permission set is owned.
         """
         return pulumi.get(self, "instance_arn")
 
     @property
     @pulumi.getter(name="managedPolicies")
     def managed_policies(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies
-        """
         return pulumi.get(self, "managed_policies")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name
+        The name you want to assign to this permission set.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="permissionSetArn")
     def permission_set_arn(self) -> pulumi.Output[str]:
+        """
+        The permission set that the policy will be attached to
+        """
         return pulumi.get(self, "permission_set_arn")
 
     @property
     @pulumi.getter(name="relayStateType")
     def relay_state_type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype
+        The relay state URL that redirect links to any service in the AWS Management Console.
         """
         return pulumi.get(self, "relay_state_type")
 
@@ -321,15 +311,12 @@ class PermissionSet(pulumi.CustomResource):
     @pulumi.getter(name="sessionDuration")
     def session_duration(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration
+        The length of time that a user can be signed in to an AWS account.
         """
         return pulumi.get(self, "session_duration")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PermissionSetTag']]]:
         return pulumi.get(self, "tags")
 

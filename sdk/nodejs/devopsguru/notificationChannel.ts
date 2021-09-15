@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html
+ * This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
  */
 export class NotificationChannel extends pulumi.CustomResource {
     /**
@@ -35,11 +35,7 @@ export class NotificationChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === NotificationChannel.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
-     */
     public readonly config!: pulumi.Output<outputs.devopsguru.NotificationChannelNotificationChannelConfig>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
 
     /**
      * Create a NotificationChannel resource with the given unique name, arguments, and options.
@@ -56,10 +52,8 @@ export class NotificationChannel extends pulumi.CustomResource {
                 throw new Error("Missing required property 'config'");
             }
             inputs["config"] = args ? args.config : undefined;
-            inputs["id"] = undefined /*out*/;
         } else {
             inputs["config"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -72,8 +66,5 @@ export class NotificationChannel extends pulumi.CustomResource {
  * The set of arguments for constructing a NotificationChannel resource.
  */
 export interface NotificationChannelArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
-     */
     config: pulumi.Input<inputs.devopsguru.NotificationChannelNotificationChannelConfigArgs>;
 }

@@ -21,9 +21,8 @@ class GroupInsightsConfigurationArgs:
                  insights_enabled: Optional[pulumi.Input[bool]] = None,
                  notifications_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html
-        :param pulumi.Input[bool] insights_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html#cfn-xray-group-insightsconfiguration-insightsenabled
-        :param pulumi.Input[bool] notifications_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html#cfn-xray-group-insightsconfiguration-notificationsenabled
+        :param pulumi.Input[bool] insights_enabled: Set the InsightsEnabled value to true to enable insights or false to disable insights.
+        :param pulumi.Input[bool] notifications_enabled: Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
         """
         if insights_enabled is not None:
             pulumi.set(__self__, "insights_enabled", insights_enabled)
@@ -34,7 +33,7 @@ class GroupInsightsConfigurationArgs:
     @pulumi.getter(name="insightsEnabled")
     def insights_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html#cfn-xray-group-insightsconfiguration-insightsenabled
+        Set the InsightsEnabled value to true to enable insights or false to disable insights.
         """
         return pulumi.get(self, "insights_enabled")
 
@@ -46,7 +45,7 @@ class GroupInsightsConfigurationArgs:
     @pulumi.getter(name="notificationsEnabled")
     def notifications_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html#cfn-xray-group-insightsconfiguration-notificationsenabled
+        Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
         """
         return pulumi.get(self, "notifications_enabled")
 
@@ -62,10 +61,8 @@ class SamplingRuleSamplingRuleRecordArgs:
                  modified_at: Optional[pulumi.Input[str]] = None,
                  sampling_rule: Optional[pulumi.Input['SamplingRuleSamplingRuleArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html
-        :param pulumi.Input[str] created_at: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-createdat
-        :param pulumi.Input[str] modified_at: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-modifiedat
-        :param pulumi.Input['SamplingRuleSamplingRuleArgs'] sampling_rule: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-samplingrule
+        :param pulumi.Input[str] created_at: When the rule was created, in Unix time seconds.
+        :param pulumi.Input[str] modified_at: When the rule was modified, in Unix time seconds.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -78,7 +75,7 @@ class SamplingRuleSamplingRuleRecordArgs:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-createdat
+        When the rule was created, in Unix time seconds.
         """
         return pulumi.get(self, "created_at")
 
@@ -90,7 +87,7 @@ class SamplingRuleSamplingRuleRecordArgs:
     @pulumi.getter(name="modifiedAt")
     def modified_at(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-modifiedat
+        When the rule was modified, in Unix time seconds.
         """
         return pulumi.get(self, "modified_at")
 
@@ -101,9 +98,6 @@ class SamplingRuleSamplingRuleRecordArgs:
     @property
     @pulumi.getter(name="samplingRule")
     def sampling_rule(self) -> Optional[pulumi.Input['SamplingRuleSamplingRuleArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-samplingrule
-        """
         return pulumi.get(self, "sampling_rule")
 
     @sampling_rule.setter
@@ -114,7 +108,7 @@ class SamplingRuleSamplingRuleRecordArgs:
 @pulumi.input_type
 class SamplingRuleSamplingRuleUpdateArgs:
     def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 attributes: Optional[Any] = None,
                  fixed_rate: Optional[pulumi.Input[float]] = None,
                  h_ttp_method: Optional[pulumi.Input[str]] = None,
                  host: Optional[pulumi.Input[str]] = None,
@@ -127,19 +121,16 @@ class SamplingRuleSamplingRuleUpdateArgs:
                  service_type: Optional[pulumi.Input[str]] = None,
                  u_rl_path: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-attributes
-        :param pulumi.Input[float] fixed_rate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-fixedrate
-        :param pulumi.Input[str] h_ttp_method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-httpmethod
-        :param pulumi.Input[str] host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-host
-        :param pulumi.Input[int] priority: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-priority
-        :param pulumi.Input[int] reservoir_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-reservoirsize
-        :param pulumi.Input[str] resource_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-resourcearn
-        :param pulumi.Input[str] rule_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulearn
-        :param pulumi.Input[str] rule_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulename
-        :param pulumi.Input[str] service_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicename
-        :param pulumi.Input[str] service_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicetype
-        :param pulumi.Input[str] u_rl_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-urlpath
+        :param Any attributes: Matches attributes derived from the request.
+        :param pulumi.Input[float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
+        :param pulumi.Input[str] h_ttp_method: Matches the HTTP method from a request URL.
+        :param pulumi.Input[str] host: Matches the hostname from a request URL.
+        :param pulumi.Input[int] priority: The priority of the sampling rule.
+        :param pulumi.Input[int] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+        :param pulumi.Input[str] resource_arn: Matches the ARN of the AWS resource on which the service runs.
+        :param pulumi.Input[str] service_name: Matches the name that the service uses to identify itself in segments.
+        :param pulumi.Input[str] service_type: Matches the origin that the service uses to identify its type in segments.
+        :param pulumi.Input[str] u_rl_path: Matches the path from a request URL.
         """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
@@ -168,21 +159,21 @@ class SamplingRuleSamplingRuleUpdateArgs:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def attributes(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-attributes
+        Matches attributes derived from the request.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def attributes(self, value: Optional[Any]):
         pulumi.set(self, "attributes", value)
 
     @property
     @pulumi.getter(name="fixedRate")
     def fixed_rate(self) -> Optional[pulumi.Input[float]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-fixedrate
+        The percentage of matching requests to instrument, after the reservoir is exhausted.
         """
         return pulumi.get(self, "fixed_rate")
 
@@ -194,7 +185,7 @@ class SamplingRuleSamplingRuleUpdateArgs:
     @pulumi.getter(name="hTTPMethod")
     def h_ttp_method(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-httpmethod
+        Matches the HTTP method from a request URL.
         """
         return pulumi.get(self, "h_ttp_method")
 
@@ -206,7 +197,7 @@ class SamplingRuleSamplingRuleUpdateArgs:
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-host
+        Matches the hostname from a request URL.
         """
         return pulumi.get(self, "host")
 
@@ -218,7 +209,7 @@ class SamplingRuleSamplingRuleUpdateArgs:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-priority
+        The priority of the sampling rule.
         """
         return pulumi.get(self, "priority")
 
@@ -230,7 +221,7 @@ class SamplingRuleSamplingRuleUpdateArgs:
     @pulumi.getter(name="reservoirSize")
     def reservoir_size(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-reservoirsize
+        A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         """
         return pulumi.get(self, "reservoir_size")
 
@@ -242,7 +233,7 @@ class SamplingRuleSamplingRuleUpdateArgs:
     @pulumi.getter(name="resourceARN")
     def resource_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-resourcearn
+        Matches the ARN of the AWS resource on which the service runs.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -253,9 +244,6 @@ class SamplingRuleSamplingRuleUpdateArgs:
     @property
     @pulumi.getter(name="ruleARN")
     def rule_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulearn
-        """
         return pulumi.get(self, "rule_arn")
 
     @rule_arn.setter
@@ -265,9 +253,6 @@ class SamplingRuleSamplingRuleUpdateArgs:
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulename
-        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -278,7 +263,7 @@ class SamplingRuleSamplingRuleUpdateArgs:
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicename
+        Matches the name that the service uses to identify itself in segments.
         """
         return pulumi.get(self, "service_name")
 
@@ -290,7 +275,7 @@ class SamplingRuleSamplingRuleUpdateArgs:
     @pulumi.getter(name="serviceType")
     def service_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicetype
+        Matches the origin that the service uses to identify its type in segments.
         """
         return pulumi.get(self, "service_type")
 
@@ -302,7 +287,7 @@ class SamplingRuleSamplingRuleUpdateArgs:
     @pulumi.getter(name="uRLPath")
     def u_rl_path(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-urlpath
+        Matches the path from a request URL.
         """
         return pulumi.get(self, "u_rl_path")
 
@@ -314,7 +299,7 @@ class SamplingRuleSamplingRuleUpdateArgs:
 @pulumi.input_type
 class SamplingRuleSamplingRuleArgs:
     def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 attributes: Optional[Any] = None,
                  fixed_rate: Optional[pulumi.Input[float]] = None,
                  h_ttp_method: Optional[pulumi.Input[str]] = None,
                  host: Optional[pulumi.Input[str]] = None,
@@ -328,20 +313,17 @@ class SamplingRuleSamplingRuleArgs:
                  u_rl_path: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[int]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-attributes
-        :param pulumi.Input[float] fixed_rate: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-fixedrate
-        :param pulumi.Input[str] h_ttp_method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-httpmethod
-        :param pulumi.Input[str] host: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-host
-        :param pulumi.Input[int] priority: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-priority
-        :param pulumi.Input[int] reservoir_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-reservoirsize
-        :param pulumi.Input[str] resource_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-resourcearn
-        :param pulumi.Input[str] rule_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-rulearn
-        :param pulumi.Input[str] rule_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-rulename
-        :param pulumi.Input[str] service_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-servicename
-        :param pulumi.Input[str] service_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-servicetype
-        :param pulumi.Input[str] u_rl_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-urlpath
-        :param pulumi.Input[int] version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-version
+        :param Any attributes: Matches attributes derived from the request.
+        :param pulumi.Input[float] fixed_rate: The percentage of matching requests to instrument, after the reservoir is exhausted.
+        :param pulumi.Input[str] h_ttp_method: Matches the HTTP method from a request URL.
+        :param pulumi.Input[str] host: Matches the hostname from a request URL.
+        :param pulumi.Input[int] priority: The priority of the sampling rule.
+        :param pulumi.Input[int] reservoir_size: A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+        :param pulumi.Input[str] resource_arn: Matches the ARN of the AWS resource on which the service runs.
+        :param pulumi.Input[str] service_name: Matches the name that the service uses to identify itself in segments.
+        :param pulumi.Input[str] service_type: Matches the origin that the service uses to identify its type in segments.
+        :param pulumi.Input[str] u_rl_path: Matches the path from a request URL.
+        :param pulumi.Input[int] version: The version of the sampling rule format (1)
         """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
@@ -372,21 +354,21 @@ class SamplingRuleSamplingRuleArgs:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def attributes(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-attributes
+        Matches attributes derived from the request.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def attributes(self, value: Optional[Any]):
         pulumi.set(self, "attributes", value)
 
     @property
     @pulumi.getter(name="fixedRate")
     def fixed_rate(self) -> Optional[pulumi.Input[float]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-fixedrate
+        The percentage of matching requests to instrument, after the reservoir is exhausted.
         """
         return pulumi.get(self, "fixed_rate")
 
@@ -398,7 +380,7 @@ class SamplingRuleSamplingRuleArgs:
     @pulumi.getter(name="hTTPMethod")
     def h_ttp_method(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-httpmethod
+        Matches the HTTP method from a request URL.
         """
         return pulumi.get(self, "h_ttp_method")
 
@@ -410,7 +392,7 @@ class SamplingRuleSamplingRuleArgs:
     @pulumi.getter
     def host(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-host
+        Matches the hostname from a request URL.
         """
         return pulumi.get(self, "host")
 
@@ -422,7 +404,7 @@ class SamplingRuleSamplingRuleArgs:
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-priority
+        The priority of the sampling rule.
         """
         return pulumi.get(self, "priority")
 
@@ -434,7 +416,7 @@ class SamplingRuleSamplingRuleArgs:
     @pulumi.getter(name="reservoirSize")
     def reservoir_size(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-reservoirsize
+        A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         """
         return pulumi.get(self, "reservoir_size")
 
@@ -446,7 +428,7 @@ class SamplingRuleSamplingRuleArgs:
     @pulumi.getter(name="resourceARN")
     def resource_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-resourcearn
+        Matches the ARN of the AWS resource on which the service runs.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -457,9 +439,6 @@ class SamplingRuleSamplingRuleArgs:
     @property
     @pulumi.getter(name="ruleARN")
     def rule_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-rulearn
-        """
         return pulumi.get(self, "rule_arn")
 
     @rule_arn.setter
@@ -469,9 +448,6 @@ class SamplingRuleSamplingRuleArgs:
     @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-rulename
-        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -482,7 +458,7 @@ class SamplingRuleSamplingRuleArgs:
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-servicename
+        Matches the name that the service uses to identify itself in segments.
         """
         return pulumi.get(self, "service_name")
 
@@ -494,7 +470,7 @@ class SamplingRuleSamplingRuleArgs:
     @pulumi.getter(name="serviceType")
     def service_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-servicetype
+        Matches the origin that the service uses to identify its type in segments.
         """
         return pulumi.get(self, "service_type")
 
@@ -506,7 +482,7 @@ class SamplingRuleSamplingRuleArgs:
     @pulumi.getter(name="uRLPath")
     def u_rl_path(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-urlpath
+        Matches the path from a request URL.
         """
         return pulumi.get(self, "u_rl_path")
 
@@ -518,7 +494,7 @@ class SamplingRuleSamplingRuleArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-version
+        The version of the sampling rule format (1)
         """
         return pulumi.get(self, "version")
 

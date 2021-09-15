@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
+ * Resource Type definition for AWS::CloudFront::KeyGroup
  */
 export class KeyGroup extends pulumi.CustomResource {
     /**
@@ -35,10 +35,6 @@ export class KeyGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === KeyGroup.__pulumiType;
     }
 
-    public /*out*/ readonly id!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
-     */
     public readonly keyGroupConfig!: pulumi.Output<outputs.cloudfront.KeyGroupKeyGroupConfig>;
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
 
@@ -57,10 +53,8 @@ export class KeyGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'keyGroupConfig'");
             }
             inputs["keyGroupConfig"] = args ? args.keyGroupConfig : undefined;
-            inputs["id"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
         } else {
-            inputs["id"] = undefined /*out*/;
             inputs["keyGroupConfig"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
         }
@@ -75,8 +69,5 @@ export class KeyGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a KeyGroup resource.
  */
 export interface KeyGroupArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
-     */
     keyGroupConfig: pulumi.Input<inputs.cloudfront.KeyGroupKeyGroupConfigArgs>;
 }

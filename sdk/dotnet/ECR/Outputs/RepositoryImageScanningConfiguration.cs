@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.ECR.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html
+    /// The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.
     /// </summary>
     [OutputType]
     public sealed class RepositoryImageScanningConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html#cfn-ecr-repository-imagescanningconfiguration-scanonpush
-        /// </summary>
         public readonly bool? ScanOnPush;
 
         [OutputConstructor]

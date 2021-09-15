@@ -11,16 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html
+// Resource Type definition for AWS::ApiGateway::UsagePlanKey
 type UsagePlanKey struct {
 	pulumi.CustomResourceState
 
-	Id pulumi.StringOutput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
+	// The ID of the usage plan key.
 	KeyId pulumi.StringOutput `pulumi:"keyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keytype
+	// The type of usage plan key. Currently, the only valid key type is API_KEY.
 	KeyType pulumi.StringOutput `pulumi:"keyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-usageplanid
+	// The ID of the usage plan.
 	UsagePlanId pulumi.StringOutput `pulumi:"usagePlanId"`
 }
 
@@ -72,21 +71,21 @@ func (UsagePlanKeyState) ElementType() reflect.Type {
 }
 
 type usagePlanKeyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
+	// The ID of the usage plan key.
 	KeyId string `pulumi:"keyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keytype
+	// The type of usage plan key. Currently, the only valid key type is API_KEY.
 	KeyType string `pulumi:"keyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-usageplanid
+	// The ID of the usage plan.
 	UsagePlanId string `pulumi:"usagePlanId"`
 }
 
 // The set of arguments for constructing a UsagePlanKey resource.
 type UsagePlanKeyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
+	// The ID of the usage plan key.
 	KeyId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keytype
+	// The type of usage plan key. Currently, the only valid key type is API_KEY.
 	KeyType pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-usageplanid
+	// The ID of the usage plan.
 	UsagePlanId pulumi.StringInput
 }
 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html
+ * Resource Type definition for AWS::ApiGateway::Resource
  */
 export class Resource extends pulumi.CustomResource {
     /**
@@ -35,16 +35,19 @@ export class Resource extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
+     * The parent resource's identifier.
      */
     public readonly parentId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
+     * The last path segment for this resource.
      */
     public readonly pathPart!: pulumi.Output<string>;
+    /**
+     * A unique primary identifier for a Resource
+     */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
+     * The ID of the RestApi resource in which you want to create this resource..
      */
     public readonly restApiId!: pulumi.Output<string>;
 
@@ -90,15 +93,15 @@ export class Resource extends pulumi.CustomResource {
  */
 export interface ResourceArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
+     * The parent resource's identifier.
      */
     parentId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
+     * The last path segment for this resource.
      */
     pathPart: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
+     * The ID of the RestApi resource in which you want to create this resource..
      */
     restApiId: pulumi.Input<string>;
 }

@@ -10,29 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EventSchemas
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html
+    /// Resource Type definition for AWS::EventSchemas::RegistryPolicy
     /// </summary>
     [AwsNativeResourceType("aws-native:eventschemas:RegistryPolicy")]
     public partial class RegistryPolicy : Pulumi.CustomResource
     {
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
-        /// </summary>
         [Output("policy")]
-        public Output<Union<System.Text.Json.JsonElement, string>> Policy { get; private set; } = null!;
+        public Output<object> Policy { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
-        /// </summary>
         [Output("registryName")]
         public Output<string> RegistryName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid
-        /// </summary>
         [Output("revisionId")]
         public Output<string?> RevisionId { get; private set; } = null!;
 
@@ -81,21 +69,12 @@ namespace Pulumi.AwsNative.EventSchemas
 
     public sealed class RegistryPolicyArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
-        /// </summary>
         [Input("policy", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> Policy { get; set; } = null!;
+        public Input<object> Policy { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
-        /// </summary>
         [Input("registryName", required: true)]
         public Input<string> RegistryName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid
-        /// </summary>
         [Input("revisionId")]
         public Input<string>? RevisionId { get; set; }
 

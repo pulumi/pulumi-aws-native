@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.MWAA.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-tagmap.html
+    /// A map of tags for the environment.
     /// </summary>
     public sealed class EnvironmentTagMapArgs : Pulumi.ResourceArgs
     {

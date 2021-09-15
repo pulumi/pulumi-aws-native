@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html
+ * The AWS::EC2::TransitGatewayMulticastDomain type
  */
 export class TransitGatewayMulticastDomain extends pulumi.CustomResource {
     /**
@@ -35,21 +35,33 @@ export class TransitGatewayMulticastDomain extends pulumi.CustomResource {
         return obj['__pulumiType'] === TransitGatewayMulticastDomain.__pulumiType;
     }
 
+    /**
+     * The time the transit gateway multicast domain was created.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-options
+     * The options for the transit gateway multicast domain.
      */
-    public readonly options!: pulumi.Output<any | string | undefined>;
+    public readonly options!: pulumi.Output<any | undefined>;
+    /**
+     * The state of the transit gateway multicast domain.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-tags
+     * The tags for the transit gateway multicast domain.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.ec2.TransitGatewayMulticastDomainTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-transitgatewayid
+     * The ID of the transit gateway.
      */
     public readonly transitGatewayId!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the transit gateway multicast domain.
+     */
     public /*out*/ readonly transitGatewayMulticastDomainArn!: pulumi.Output<string>;
+    /**
+     * The ID of the transit gateway multicast domain.
+     */
     public /*out*/ readonly transitGatewayMulticastDomainId!: pulumi.Output<string>;
 
     /**
@@ -94,15 +106,15 @@ export class TransitGatewayMulticastDomain extends pulumi.CustomResource {
  */
 export interface TransitGatewayMulticastDomainArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-options
+     * The options for the transit gateway multicast domain.
      */
-    options?: pulumi.Input<any | string>;
+    options?: any;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-tags
+     * The tags for the transit gateway multicast domain.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ec2.TransitGatewayMulticastDomainTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-transitgatewayid
+     * The ID of the transit gateway.
      */
     transitGatewayId: pulumi.Input<string>;
 }

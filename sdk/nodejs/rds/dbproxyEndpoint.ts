@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html
+ * Resource schema for AWS::RDS::DBProxyEndpoint.
  */
 export class DBProxyEndpoint extends pulumi.CustomResource {
     /**
@@ -35,32 +35,44 @@ export class DBProxyEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === DBProxyEndpoint.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) for the DB proxy endpoint.
+     */
     public /*out*/ readonly dBProxyEndpointArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyendpointname
+     * The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
      */
     public readonly dBProxyEndpointName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyname
+     * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
     public readonly dBProxyName!: pulumi.Output<string>;
+    /**
+     * The endpoint that you can use to connect to the DB proxy. You include the endpoint value in the connection string for a database client application.
+     */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
+     * A value that indicates whether this endpoint is the default endpoint for the associated DB proxy. Default DB proxy endpoints always have read/write capability. Other endpoints that you associate with the DB proxy can be either read/write or read-only.
+     */
     public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-tags
+     * An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
      */
     public readonly tags!: pulumi.Output<outputs.rds.DBProxyEndpointTagFormat[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-targetrole
+     * A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
      */
     public readonly targetRole!: pulumi.Output<string | undefined>;
+    /**
+     * VPC ID to associate with the new DB proxy endpoint.
+     */
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsecuritygroupids
+     * VPC security group IDs to associate with the new DB proxy endpoint.
      */
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsubnetids
+     * VPC subnet IDs to associate with the new DB proxy endpoint.
      */
     public readonly vpcSubnetIds!: pulumi.Output<string[]>;
 
@@ -118,27 +130,27 @@ export class DBProxyEndpoint extends pulumi.CustomResource {
  */
 export interface DBProxyEndpointArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyendpointname
+     * The identifier for the DB proxy endpoint. This name must be unique for all DB proxy endpoints owned by your AWS account in the specified AWS Region.
      */
     dBProxyEndpointName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-dbproxyname
+     * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
     dBProxyName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-tags
+     * An optional set of key-value pairs to associate arbitrary data of your choosing with the DB proxy endpoint.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.rds.DBProxyEndpointTagFormatArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-targetrole
+     * A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
      */
     targetRole?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsecuritygroupids
+     * VPC security group IDs to associate with the new DB proxy endpoint.
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxyendpoint.html#cfn-rds-dbproxyendpoint-vpcsubnetids
+     * VPC subnet IDs to associate with the new DB proxy endpoint.
      */
     vpcSubnetIds: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html
+    /// &lt;p&gt;MySQL parameters.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSourceMySqlParameters
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-database
+        /// &lt;p&gt;Database.&lt;/p&gt;
         /// </summary>
         public readonly string Database;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-host
+        /// &lt;p&gt;Host.&lt;/p&gt;
         /// </summary>
         public readonly string Host;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-port
+        /// &lt;p&gt;Port.&lt;/p&gt;
         /// </summary>
         public readonly double Port;
 

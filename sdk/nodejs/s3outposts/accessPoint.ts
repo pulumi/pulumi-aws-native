@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html
+ * Resource Type Definition for AWS::S3Outposts::AccessPoint
  */
 export class AccessPoint extends pulumi.CustomResource {
     /**
@@ -35,21 +35,24 @@ export class AccessPoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessPoint.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the specified AccessPoint.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-bucket
+     * The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-name
+     * A name for the AccessPoint.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-policy
+     * The access point policy associated with this access point.
      */
-    public readonly policy!: pulumi.Output<any | string | undefined>;
+    public readonly policy!: pulumi.Output<any | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-vpcconfiguration
+     * Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
      */
     public readonly vpcConfiguration!: pulumi.Output<outputs.s3outposts.AccessPointVpcConfiguration>;
 
@@ -97,19 +100,19 @@ export class AccessPoint extends pulumi.CustomResource {
  */
 export interface AccessPointArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-bucket
+     * The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
      */
     bucket: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-name
+     * A name for the AccessPoint.
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-policy
+     * The access point policy associated with this access point.
      */
-    policy?: pulumi.Input<any | string>;
+    policy?: any;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-vpcconfiguration
+     * Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
      */
     vpcConfiguration: pulumi.Input<inputs.s3outposts.AccessPointVpcConfigurationArgs>;
 }

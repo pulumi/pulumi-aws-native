@@ -10,19 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DevOpsGuru
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html
+    /// This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
     /// </summary>
     [AwsNativeResourceType("aws-native:devopsguru:NotificationChannel")]
     public partial class NotificationChannel : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
-        /// </summary>
         [Output("config")]
         public Output<Outputs.NotificationChannelNotificationChannelConfig> Config { get; private set; } = null!;
-
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
 
 
         /// <summary>
@@ -69,9 +63,6 @@ namespace Pulumi.AwsNative.DevOpsGuru
 
     public sealed class NotificationChannelArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-notificationchannel.html#cfn-devopsguru-notificationchannel-config
-        /// </summary>
         [Input("config", required: true)]
         public Input<Inputs.NotificationChannelNotificationChannelConfigArgs> Config { get; set; } = null!;
 

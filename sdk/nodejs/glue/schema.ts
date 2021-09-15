@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html
+ * This resource represents a schema of Glue Schema Registry.
  */
 export class Schema extends pulumi.CustomResource {
     /**
@@ -35,40 +35,40 @@ export class Schema extends pulumi.CustomResource {
         return obj['__pulumiType'] === Schema.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
+     * Amazon Resource Name for the Schema.
      */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly checkpointVersion!: pulumi.Output<outputs.glue.SchemaSchemaVersion | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
+     * Compatibility setting for the schema.
      */
     public readonly compatibility!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
+     * Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
      */
     public readonly dataFormat!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
+     * A description of the schema. If description is not provided, there will not be any default value for this.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Represents the version ID associated with the initial schema version.
+     */
     public /*out*/ readonly initialSchemaVersionId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
+     * Name of the schema.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
-     */
     public readonly registry!: pulumi.Output<outputs.glue.SchemaRegistry | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+     * Definition for the initial schema version in plain-text.
      */
     public readonly schemaDefinition!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
+     * List of tags to tag the schema
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.glue.SchemaTag[] | undefined>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.
@@ -126,36 +126,30 @@ export class Schema extends pulumi.CustomResource {
  * The set of arguments for constructing a Schema resource.
  */
 export interface SchemaArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-checkpointversion
-     */
     checkpointVersion?: pulumi.Input<inputs.glue.SchemaSchemaVersionArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-compatibility
+     * Compatibility setting for the schema.
      */
     compatibility: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-dataformat
+     * Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
      */
     dataFormat: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-description
+     * A description of the schema. If description is not provided, there will not be any default value for this.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-name
+     * Name of the schema.
      */
     name: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-registry
-     */
     registry?: pulumi.Input<inputs.glue.SchemaRegistryArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-schemadefinition
+     * Definition for the initial schema version in plain-text.
      */
     schemaDefinition: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schema.html#cfn-glue-schema-tags
+     * List of tags to tag the schema
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.glue.SchemaTagArgs>[]>;
 }

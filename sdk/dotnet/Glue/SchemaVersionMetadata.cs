@@ -10,25 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html
+    /// This resource adds Key-Value metadata to a Schema version of Glue Schema Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:glue:SchemaVersionMetadata")]
     public partial class SchemaVersionMetadata : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
+        /// Metadata key
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
+        /// Represents the version ID associated with the schema version.
         /// </summary>
         [Output("schemaVersionId")]
         public Output<string> SchemaVersionId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
+        /// Metadata value
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
@@ -79,19 +79,19 @@ namespace Pulumi.AwsNative.Glue
     public sealed class SchemaVersionMetadataArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
+        /// Metadata key
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
+        /// Represents the version ID associated with the schema version.
         /// </summary>
         [Input("schemaVersionId", required: true)]
         public Input<string> SchemaVersionId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
+        /// Metadata value
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

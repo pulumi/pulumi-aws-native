@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Macie.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterion.html
+    /// Map of filter criteria.
     /// </summary>
     [OutputType]
     public sealed class FindingsFilterCriterion

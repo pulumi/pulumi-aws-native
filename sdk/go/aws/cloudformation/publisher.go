@@ -11,18 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html
+// Register as a publisher in the CloudFormation Registry.
 type Publisher struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-accepttermsandconditions
+	// Whether you accept the terms and conditions for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to publish public extensions to the CloudFormation registry. The terms and conditions can be found at https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf
 	AcceptTermsAndConditions pulumi.BoolOutput `pulumi:"acceptTermsAndConditions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-connectionarn
-	ConnectionArn    pulumi.StringPtrOutput `pulumi:"connectionArn"`
-	IdentityProvider pulumi.StringOutput    `pulumi:"identityProvider"`
-	PublisherId      pulumi.StringOutput    `pulumi:"publisherId"`
-	PublisherProfile pulumi.StringOutput    `pulumi:"publisherProfile"`
-	PublisherStatus  pulumi.StringOutput    `pulumi:"publisherStatus"`
+	// If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.
+	ConnectionArn pulumi.StringPtrOutput `pulumi:"connectionArn"`
+	// The type of account used as the identity provider when registering this publisher with CloudFormation.
+	IdentityProvider pulumi.StringOutput `pulumi:"identityProvider"`
+	// The publisher id assigned by CloudFormation for publishing in this region.
+	PublisherId pulumi.StringOutput `pulumi:"publisherId"`
+	// The URL to the publisher's profile with the identity provider.
+	PublisherProfile pulumi.StringOutput `pulumi:"publisherProfile"`
+	// Whether the publisher is verified.
+	PublisherStatus pulumi.StringOutput `pulumi:"publisherStatus"`
 }
 
 // NewPublisher registers a new resource with the given unique name, arguments, and options.
@@ -67,17 +71,17 @@ func (PublisherState) ElementType() reflect.Type {
 }
 
 type publisherArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-accepttermsandconditions
+	// Whether you accept the terms and conditions for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to publish public extensions to the CloudFormation registry. The terms and conditions can be found at https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf
 	AcceptTermsAndConditions bool `pulumi:"acceptTermsAndConditions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-connectionarn
+	// If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.
 	ConnectionArn *string `pulumi:"connectionArn"`
 }
 
 // The set of arguments for constructing a Publisher resource.
 type PublisherArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-accepttermsandconditions
+	// Whether you accept the terms and conditions for publishing extensions in the CloudFormation registry. You must accept the terms and conditions in order to publish public extensions to the CloudFormation registry. The terms and conditions can be found at https://cloudformation-registry-documents.s3.amazonaws.com/Terms_and_Conditions_for_AWS_CloudFormation_Registry_Publishers.pdf
 	AcceptTermsAndConditions pulumi.BoolInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publisher.html#cfn-cloudformation-publisher-connectionarn
+	// If you are using a Bitbucket or GitHub account for identity verification, the Amazon Resource Name (ARN) for your connection to that account.
 	ConnectionArn pulumi.StringPtrInput
 }
 

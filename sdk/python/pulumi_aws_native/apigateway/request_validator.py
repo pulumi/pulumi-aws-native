@@ -19,10 +19,10 @@ class RequestValidatorArgs:
                  validate_request_parameters: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RequestValidator resource.
-        :param pulumi.Input[str] rest_api_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-restapiid
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-name
-        :param pulumi.Input[bool] validate_request_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestbody
-        :param pulumi.Input[bool] validate_request_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestparameters
+        :param pulumi.Input[str] rest_api_id: The identifier of the targeted API entity.
+        :param pulumi.Input[str] name: Name of the request validator.
+        :param pulumi.Input[bool] validate_request_body: Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
+        :param pulumi.Input[bool] validate_request_parameters: Indicates whether to validate request parameters.
         """
         pulumi.set(__self__, "rest_api_id", rest_api_id)
         if name is not None:
@@ -36,7 +36,7 @@ class RequestValidatorArgs:
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-restapiid
+        The identifier of the targeted API entity.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -48,7 +48,7 @@ class RequestValidatorArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-name
+        Name of the request validator.
         """
         return pulumi.get(self, "name")
 
@@ -60,7 +60,7 @@ class RequestValidatorArgs:
     @pulumi.getter(name="validateRequestBody")
     def validate_request_body(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestbody
+        Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
         """
         return pulumi.get(self, "validate_request_body")
 
@@ -72,7 +72,7 @@ class RequestValidatorArgs:
     @pulumi.getter(name="validateRequestParameters")
     def validate_request_parameters(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestparameters
+        Indicates whether to validate request parameters.
         """
         return pulumi.get(self, "validate_request_parameters")
 
@@ -92,14 +92,14 @@ class RequestValidator(pulumi.CustomResource):
                  validate_request_parameters: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html
+        Resource Type definition for AWS::ApiGateway::RequestValidator
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-name
-        :param pulumi.Input[str] rest_api_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-restapiid
-        :param pulumi.Input[bool] validate_request_body: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestbody
-        :param pulumi.Input[bool] validate_request_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestparameters
+        :param pulumi.Input[str] name: Name of the request validator.
+        :param pulumi.Input[str] rest_api_id: The identifier of the targeted API entity.
+        :param pulumi.Input[bool] validate_request_body: Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
+        :param pulumi.Input[bool] validate_request_parameters: Indicates whether to validate request parameters.
         """
         ...
     @overload
@@ -108,7 +108,7 @@ class RequestValidator(pulumi.CustomResource):
                  args: RequestValidatorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html
+        Resource Type definition for AWS::ApiGateway::RequestValidator
 
         :param str resource_name: The name of the resource.
         :param RequestValidatorArgs args: The arguments to use to populate this resource's properties.
@@ -181,20 +181,23 @@ class RequestValidator(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-name
+        Name of the request validator.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="requestValidatorId")
     def request_validator_id(self) -> pulumi.Output[str]:
+        """
+        ID of the request validator.
+        """
         return pulumi.get(self, "request_validator_id")
 
     @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-restapiid
+        The identifier of the targeted API entity.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -202,7 +205,7 @@ class RequestValidator(pulumi.CustomResource):
     @pulumi.getter(name="validateRequestBody")
     def validate_request_body(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestbody
+        Indicates whether to validate the request body according to the configured schema for the targeted API and method. 
         """
         return pulumi.get(self, "validate_request_body")
 
@@ -210,7 +213,7 @@ class RequestValidator(pulumi.CustomResource):
     @pulumi.getter(name="validateRequestParameters")
     def validate_request_parameters(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestparameters
+        Indicates whether to validate request parameters.
         """
         return pulumi.get(self, "validate_request_parameters")
 

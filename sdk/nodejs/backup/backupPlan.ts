@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html
+ * Resource Type definition for AWS::Backup::BackupPlan
  */
 export class BackupPlan extends pulumi.CustomResource {
     /**
@@ -35,16 +35,10 @@ export class BackupPlan extends pulumi.CustomResource {
         return obj['__pulumiType'] === BackupPlan.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
-     */
     public readonly backupPlan!: pulumi.Output<outputs.backup.BackupPlanBackupPlanResourceType>;
     public /*out*/ readonly backupPlanArn!: pulumi.Output<string>;
     public /*out*/ readonly backupPlanId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-     */
-    public readonly backupPlanTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly backupPlanTags!: pulumi.Output<any | undefined>;
     public /*out*/ readonly versionId!: pulumi.Output<string>;
 
     /**
@@ -84,12 +78,6 @@ export class BackupPlan extends pulumi.CustomResource {
  * The set of arguments for constructing a BackupPlan resource.
  */
 export interface BackupPlanArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
-     */
     backupPlan: pulumi.Input<inputs.backup.BackupPlanBackupPlanResourceTypeArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-     */
-    backupPlanTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    backupPlanTags?: any;
 }

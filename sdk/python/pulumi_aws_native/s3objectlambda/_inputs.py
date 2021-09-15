@@ -21,11 +21,7 @@ class AccessPointObjectLambdaConfigurationArgs:
                  allowed_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cloud_watch_metrics_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html
-        :param pulumi.Input[str] supporting_access_point: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-supportingaccesspoint
-        :param pulumi.Input[Sequence[pulumi.Input['AccessPointTransformationConfigurationArgs']]] transformation_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-transformationconfigurations
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_features: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-allowedfeatures
-        :param pulumi.Input[bool] cloud_watch_metrics_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-cloudwatchmetricsenabled
+        Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
         """
         pulumi.set(__self__, "supporting_access_point", supporting_access_point)
         pulumi.set(__self__, "transformation_configurations", transformation_configurations)
@@ -37,9 +33,6 @@ class AccessPointObjectLambdaConfigurationArgs:
     @property
     @pulumi.getter(name="supportingAccessPoint")
     def supporting_access_point(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-supportingaccesspoint
-        """
         return pulumi.get(self, "supporting_access_point")
 
     @supporting_access_point.setter
@@ -49,9 +42,6 @@ class AccessPointObjectLambdaConfigurationArgs:
     @property
     @pulumi.getter(name="transformationConfigurations")
     def transformation_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AccessPointTransformationConfigurationArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-transformationconfigurations
-        """
         return pulumi.get(self, "transformation_configurations")
 
     @transformation_configurations.setter
@@ -61,9 +51,6 @@ class AccessPointObjectLambdaConfigurationArgs:
     @property
     @pulumi.getter(name="allowedFeatures")
     def allowed_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-allowedfeatures
-        """
         return pulumi.get(self, "allowed_features")
 
     @allowed_features.setter
@@ -73,9 +60,6 @@ class AccessPointObjectLambdaConfigurationArgs:
     @property
     @pulumi.getter(name="cloudWatchMetricsEnabled")
     def cloud_watch_metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-cloudwatchmetricsenabled
-        """
         return pulumi.get(self, "cloud_watch_metrics_enabled")
 
     @cloud_watch_metrics_enabled.setter
@@ -87,11 +71,9 @@ class AccessPointObjectLambdaConfigurationArgs:
 class AccessPointTransformationConfigurationArgs:
     def __init__(__self__, *,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 content_transformation: Optional[pulumi.Input[Union[Any, str]]] = None):
+                 content_transformation: Optional[Any] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-actions
-        :param pulumi.Input[Union[Any, str]] content_transformation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-contenttransformation
+        Configuration to define what content transformation will be applied on which S3 Action.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -101,9 +83,6 @@ class AccessPointTransformationConfigurationArgs:
     @property
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-actions
-        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -112,14 +91,11 @@ class AccessPointTransformationConfigurationArgs:
 
     @property
     @pulumi.getter(name="contentTransformation")
-    def content_transformation(self) -> Optional[pulumi.Input[Union[Any, str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-contenttransformation
-        """
+    def content_transformation(self) -> Optional[Any]:
         return pulumi.get(self, "content_transformation")
 
     @content_transformation.setter
-    def content_transformation(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def content_transformation(self, value: Optional[Any]):
         pulumi.set(self, "content_transformation", value)
 
 

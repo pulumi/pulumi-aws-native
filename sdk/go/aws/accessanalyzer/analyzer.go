@@ -8,22 +8,21 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html
+// The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account
 type Analyzer struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
-	AnalyzerName pulumi.StringPtrOutput `pulumi:"analyzerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
+	// Analyzer name
+	AnalyzerName pulumi.StringPtrOutput         `pulumi:"analyzerName"`
 	ArchiveRules AnalyzerArchiveRuleArrayOutput `pulumi:"archiveRules"`
-	Arn          pulumi.StringOutput            `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
+	// Amazon Resource Name (ARN) of the analyzer
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// An array of key-value pairs to apply to this resource.
+	Tags AnalyzerTagArrayOutput `pulumi:"tags"`
+	// The type of the analyzer, must be ACCOUNT or ORGANIZATION
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -69,25 +68,23 @@ func (AnalyzerState) ElementType() reflect.Type {
 }
 
 type analyzerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
-	AnalyzerName *string `pulumi:"analyzerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
+	// Analyzer name
+	AnalyzerName *string               `pulumi:"analyzerName"`
 	ArchiveRules []AnalyzerArchiveRule `pulumi:"archiveRules"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
+	// An array of key-value pairs to apply to this resource.
+	Tags []AnalyzerTag `pulumi:"tags"`
+	// The type of the analyzer, must be ACCOUNT or ORGANIZATION
 	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Analyzer resource.
 type AnalyzerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzername
+	// Analyzer name
 	AnalyzerName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-archiverules
 	ArchiveRules AnalyzerArchiveRuleArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-type
+	// An array of key-value pairs to apply to this resource.
+	Tags AnalyzerTagArrayInput
+	// The type of the analyzer, must be ACCOUNT or ORGANIZATION
 	Type pulumi.StringInput
 }
 

@@ -11,15 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html
+// An example resource schema demonstrating some basic constructs and validation rules.
 type SimulationApplicationVersion struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-application
 	Application        pulumi.StringOutput `pulumi:"application"`
 	ApplicationVersion pulumi.StringOutput `pulumi:"applicationVersion"`
 	Arn                pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-currentrevisionid
+	// The revision ID of robot application.
 	CurrentRevisionId pulumi.StringPtrOutput `pulumi:"currentRevisionId"`
 }
 
@@ -65,17 +64,15 @@ func (SimulationApplicationVersionState) ElementType() reflect.Type {
 }
 
 type simulationApplicationVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-application
 	Application string `pulumi:"application"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-currentrevisionid
+	// The revision ID of robot application.
 	CurrentRevisionId *string `pulumi:"currentRevisionId"`
 }
 
 // The set of arguments for constructing a SimulationApplicationVersion resource.
 type SimulationApplicationVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-application
 	Application pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html#cfn-robomaker-simulationapplicationversion-currentrevisionid
+	// The revision ID of robot application.
 	CurrentRevisionId pulumi.StringPtrInput
 }
 

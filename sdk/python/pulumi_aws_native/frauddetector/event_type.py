@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['EventTypeArgs', 'EventType']
@@ -22,15 +20,12 @@ class EventTypeArgs:
                  labels: pulumi.Input[Sequence[pulumi.Input['EventTypeLabelArgs']]],
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]]] = None):
         """
         The set of arguments for constructing a EventType resource.
-        :param pulumi.Input[Sequence[pulumi.Input['EventTypeEntityTypeArgs']]] entity_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-entitytypes
-        :param pulumi.Input[Sequence[pulumi.Input['EventTypeEventVariableArgs']]] event_variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-eventvariables
-        :param pulumi.Input[Sequence[pulumi.Input['EventTypeLabelArgs']]] labels: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-labels
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-name
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-description
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-tags
+        :param pulumi.Input[str] name: The name for the event type
+        :param pulumi.Input[str] description: The description of the event type.
+        :param pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]] tags: Tags associated with this event type.
         """
         pulumi.set(__self__, "entity_types", entity_types)
         pulumi.set(__self__, "event_variables", event_variables)
@@ -44,9 +39,6 @@ class EventTypeArgs:
     @property
     @pulumi.getter(name="entityTypes")
     def entity_types(self) -> pulumi.Input[Sequence[pulumi.Input['EventTypeEntityTypeArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-entitytypes
-        """
         return pulumi.get(self, "entity_types")
 
     @entity_types.setter
@@ -56,9 +48,6 @@ class EventTypeArgs:
     @property
     @pulumi.getter(name="eventVariables")
     def event_variables(self) -> pulumi.Input[Sequence[pulumi.Input['EventTypeEventVariableArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-eventvariables
-        """
         return pulumi.get(self, "event_variables")
 
     @event_variables.setter
@@ -68,9 +57,6 @@ class EventTypeArgs:
     @property
     @pulumi.getter
     def labels(self) -> pulumi.Input[Sequence[pulumi.Input['EventTypeLabelArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-labels
-        """
         return pulumi.get(self, "labels")
 
     @labels.setter
@@ -81,7 +67,7 @@ class EventTypeArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-name
+        The name for the event type
         """
         return pulumi.get(self, "name")
 
@@ -93,7 +79,7 @@ class EventTypeArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-description
+        The description of the event type.
         """
         return pulumi.get(self, "description")
 
@@ -103,14 +89,14 @@ class EventTypeArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-tags
+        Tags associated with this event type.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventTypeTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -124,19 +110,16 @@ class EventType(pulumi.CustomResource):
                  event_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTypeEventVariableArgs']]]]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTypeLabelArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTypeTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html
+        A resource schema for an EventType in Amazon Fraud Detector.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-description
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTypeEntityTypeArgs']]]] entity_types: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-entitytypes
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTypeEventVariableArgs']]]] event_variables: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-eventvariables
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTypeLabelArgs']]]] labels: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-labels
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-tags
+        :param pulumi.Input[str] description: The description of the event type.
+        :param pulumi.Input[str] name: The name for the event type
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTypeTagArgs']]]] tags: Tags associated with this event type.
         """
         ...
     @overload
@@ -145,7 +128,7 @@ class EventType(pulumi.CustomResource):
                  args: EventTypeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html
+        A resource schema for an EventType in Amazon Fraud Detector.
 
         :param str resource_name: The name of the resource.
         :param EventTypeArgs args: The arguments to use to populate this resource's properties.
@@ -167,7 +150,7 @@ class EventType(pulumi.CustomResource):
                  event_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTypeEventVariableArgs']]]]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTypeLabelArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTypeTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -233,63 +216,63 @@ class EventType(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the event type.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[str]:
+        """
+        The time when the event type was created.
+        """
         return pulumi.get(self, "created_time")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-description
+        The description of the event type.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="entityTypes")
     def entity_types(self) -> pulumi.Output[Sequence['outputs.EventTypeEntityType']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-entitytypes
-        """
         return pulumi.get(self, "entity_types")
 
     @property
     @pulumi.getter(name="eventVariables")
     def event_variables(self) -> pulumi.Output[Sequence['outputs.EventTypeEventVariable']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-eventvariables
-        """
         return pulumi.get(self, "event_variables")
 
     @property
     @pulumi.getter
     def labels(self) -> pulumi.Output[Sequence['outputs.EventTypeLabel']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-labels
-        """
         return pulumi.get(self, "labels")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[str]:
+        """
+        The time when the event type was last updated.
+        """
         return pulumi.get(self, "last_updated_time")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-name
+        The name for the event type
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.EventTypeTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-tags
+        Tags associated with this event type.
         """
         return pulumi.get(self, "tags")
 

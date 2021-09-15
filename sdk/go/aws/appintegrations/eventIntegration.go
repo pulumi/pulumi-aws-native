@@ -8,26 +8,27 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html
+// Resource Type definition for AWS::AppIntegrations::EventIntegration
 type EventIntegration struct {
 	pulumi.CustomResourceState
 
+	// The associations with the event integration.
 	Associations EventIntegrationEventIntegrationAssociationArrayOutput `pulumi:"associations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-description
+	// The event integration description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventbridgebus
+	// The Amazon Eventbridge bus for the event integration.
 	EventBridgeBus pulumi.StringOutput `pulumi:"eventBridgeBus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventfilter
-	EventFilter         EventIntegrationEventFilterOutput `pulumi:"eventFilter"`
-	EventIntegrationArn pulumi.StringOutput               `pulumi:"eventIntegrationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-name
+	// The EventFilter (source) associated with the event integration.
+	EventFilter EventIntegrationEventFilterOutput `pulumi:"eventFilter"`
+	// The Amazon Resource Name (ARN) of the event integration.
+	EventIntegrationArn pulumi.StringOutput `pulumi:"eventIntegrationArn"`
+	// The name of the event integration.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The tags (keys and values) associated with the event integration.
+	Tags EventIntegrationTagArrayOutput `pulumi:"tags"`
 }
 
 // NewEventIntegration registers a new resource with the given unique name, arguments, and options.
@@ -78,30 +79,30 @@ func (EventIntegrationState) ElementType() reflect.Type {
 }
 
 type eventIntegrationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-description
+	// The event integration description.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventbridgebus
+	// The Amazon Eventbridge bus for the event integration.
 	EventBridgeBus string `pulumi:"eventBridgeBus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventfilter
+	// The EventFilter (source) associated with the event integration.
 	EventFilter EventIntegrationEventFilter `pulumi:"eventFilter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-name
+	// The name of the event integration.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// The tags (keys and values) associated with the event integration.
+	Tags []EventIntegrationTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventIntegration resource.
 type EventIntegrationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-description
+	// The event integration description.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventbridgebus
+	// The Amazon Eventbridge bus for the event integration.
 	EventBridgeBus pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventfilter
+	// The EventFilter (source) associated with the event integration.
 	EventFilter EventIntegrationEventFilterInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-name
+	// The name of the event integration.
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-tags
-	Tags aws.TagArrayInput
+	// The tags (keys and values) associated with the event integration.
+	Tags EventIntegrationTagArrayInput
 }
 
 func (EventIntegrationArgs) ElementType() reflect.Type {

@@ -11,13 +11,10 @@ namespace Pulumi.AwsNative.DevOpsGuru.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html
+    /// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
     /// </summary>
     public sealed class ResourceCollectionResourceCollectionFilterArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-cloudformation
-        /// </summary>
         [Input("cloudFormation")]
         public Input<Inputs.ResourceCollectionCloudFormationCollectionFilterArgs>? CloudFormation { get; set; }
 

@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html
+    /// The subnet and security group that DataSync uses to access target EFS file system.
     /// </summary>
     public sealed class LocationEFSEc2ConfigArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         private InputList<string>? _securityGroupArns;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-securitygrouparns
+        /// The Amazon Resource Names (ARNs) of the security groups that are configured for the Amazon EC2 resource.
         /// </summary>
         public InputList<string> SecurityGroupArns
         {
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html#cfn-datasync-locationefs-ec2config-subnetarn
+        /// The ARN of the subnet that DataSync uses to access the target EFS file system.
         /// </summary>
         [Input("subnetArn", required: true)]
         public Input<string> SubnetArn { get; set; } = null!;

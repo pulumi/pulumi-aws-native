@@ -11,25 +11,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html
+    /// &lt;p&gt;A list of QuickSight parameters and the list's override values.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class AnalysisParameters
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-datetimeparameters
+        /// &lt;p&gt;Date-time parameters.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDateTimeParameter> DateTimeParameters;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-decimalparameters
+        /// &lt;p&gt;Decimal parameters.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDecimalParameter> DecimalParameters;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-integerparameters
+        /// &lt;p&gt;Integer parameters.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisIntegerParameter> IntegerParameters;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-stringparameters
+        /// &lt;p&gt;String parameters.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisStringParameter> StringParameters;
 

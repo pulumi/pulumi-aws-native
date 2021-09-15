@@ -11,15 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html
+// A snapshot of the documentation of an API.
 type DocumentationVersion struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-description
+	// The description of the API documentation snapshot.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-documentationversion
+	// The version identifier of the API documentation snapshot.
 	DocumentationVersion pulumi.StringOutput `pulumi:"documentationVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-restapiid
+	// The identifier of the API.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 }
 
@@ -68,21 +68,21 @@ func (DocumentationVersionState) ElementType() reflect.Type {
 }
 
 type documentationVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-description
+	// The description of the API documentation snapshot.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-documentationversion
+	// The version identifier of the API documentation snapshot.
 	DocumentationVersion string `pulumi:"documentationVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-restapiid
+	// The identifier of the API.
 	RestApiId string `pulumi:"restApiId"`
 }
 
 // The set of arguments for constructing a DocumentationVersion resource.
 type DocumentationVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-description
+	// The description of the API documentation snapshot.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-documentationversion
+	// The version identifier of the API documentation snapshot.
 	DocumentationVersion pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-restapiid
+	// The identifier of the API.
 	RestApiId pulumi.StringInput
 }
 

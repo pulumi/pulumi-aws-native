@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html
+    /// Resource Type definition for AWS::CloudFront::PublicKey
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:PublicKey")]
     public partial class PublicKey : Pulumi.CustomResource
@@ -18,12 +18,6 @@ namespace Pulumi.AwsNative.CloudFront
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
-        /// </summary>
         [Output("publicKeyConfig")]
         public Output<Outputs.PublicKeyPublicKeyConfig> PublicKeyConfig { get; private set; } = null!;
 
@@ -72,9 +66,6 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class PublicKeyArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
-        /// </summary>
         [Input("publicKeyConfig", required: true)]
         public Input<Inputs.PublicKeyPublicKeyConfigArgs> PublicKeyConfig { get; set; } = null!;
 

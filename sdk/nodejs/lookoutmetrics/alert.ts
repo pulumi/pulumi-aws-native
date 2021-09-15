@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html
+ * Resource Type definition for AWS::LookoutMetrics::Alert
  */
 export class Alert extends pulumi.CustomResource {
     /**
@@ -36,25 +36,28 @@ export class Alert extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-action
+     * The action to be taken by the alert when an anomaly is detected.
      */
     public readonly action!: pulumi.Output<outputs.lookoutmetrics.AlertAction>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertdescription
+     * A description for the alert.
      */
     public readonly alertDescription!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertname
+     * The name of the alert. If not provided, a name is generated automatically.
      */
     public readonly alertName!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertsensitivitythreshold
+     * A number between 0 and 100 (inclusive) that tunes the sensitivity of the alert.
      */
     public readonly alertSensitivityThreshold!: pulumi.Output<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-anomalydetectorarn
+     * The Amazon resource name (ARN) of the Anomaly Detector to alert.
      */
     public readonly anomalyDetectorArn!: pulumi.Output<string>;
+    /**
+     * ARN assigned to the alert.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
 
     /**
@@ -103,23 +106,23 @@ export class Alert extends pulumi.CustomResource {
  */
 export interface AlertArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-action
+     * The action to be taken by the alert when an anomaly is detected.
      */
     action: pulumi.Input<inputs.lookoutmetrics.AlertActionArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertdescription
+     * A description for the alert.
      */
     alertDescription?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertname
+     * The name of the alert. If not provided, a name is generated automatically.
      */
     alertName?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertsensitivitythreshold
+     * A number between 0 and 100 (inclusive) that tunes the sensitivity of the alert.
      */
     alertSensitivityThreshold: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-anomalydetectorarn
+     * The Amazon resource name (ARN) of the Anomaly Detector to alert.
      */
     anomalyDetectorArn: pulumi.Input<string>;
 }

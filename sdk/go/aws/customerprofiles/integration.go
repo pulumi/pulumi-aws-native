@@ -8,25 +8,25 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html
+// The resource schema for creating an Amazon Connect Customer Profiles Integration.
 type Integration struct {
 	pulumi.CustomResourceState
 
+	// The time of this integration got created
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-domainname
-	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-flowdefinition
+	// The unique name of the domain.
+	DomainName     pulumi.StringOutput                `pulumi:"domainName"`
 	FlowDefinition IntegrationFlowDefinitionPtrOutput `pulumi:"flowDefinition"`
-	LastUpdatedAt  pulumi.StringOutput                `pulumi:"lastUpdatedAt"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypename
+	// The time of this integration got last updated at
+	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
+	// The name of the ObjectType defined for the 3rd party data in Profile Service
 	ObjectTypeName pulumi.StringOutput `pulumi:"objectTypeName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-uri
+	// The tags (keys and values) associated with the integration
+	Tags IntegrationTagArrayOutput `pulumi:"tags"`
+	// The URI of the S3 bucket or any other type of data source.
 	Uri pulumi.StringPtrOutput `pulumi:"uri"`
 }
 
@@ -75,29 +75,27 @@ func (IntegrationState) ElementType() reflect.Type {
 }
 
 type integrationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-domainname
-	DomainName string `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-flowdefinition
+	// The unique name of the domain.
+	DomainName     string                     `pulumi:"domainName"`
 	FlowDefinition *IntegrationFlowDefinition `pulumi:"flowDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypename
+	// The name of the ObjectType defined for the 3rd party data in Profile Service
 	ObjectTypeName string `pulumi:"objectTypeName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-uri
+	// The tags (keys and values) associated with the integration
+	Tags []IntegrationTag `pulumi:"tags"`
+	// The URI of the S3 bucket or any other type of data source.
 	Uri *string `pulumi:"uri"`
 }
 
 // The set of arguments for constructing a Integration resource.
 type IntegrationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-domainname
-	DomainName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-flowdefinition
+	// The unique name of the domain.
+	DomainName     pulumi.StringInput
 	FlowDefinition IntegrationFlowDefinitionPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypename
+	// The name of the ObjectType defined for the 3rd party data in Profile Service
 	ObjectTypeName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-uri
+	// The tags (keys and values) associated with the integration
+	Tags IntegrationTagArrayInput
+	// The URI of the S3 bucket or any other type of data source.
 	Uri pulumi.StringPtrInput
 }
 

@@ -11,12 +11,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html
+    /// &lt;p&gt;The display options for gutter spacing between tiles on a sheet.&lt;/p&gt;
     /// </summary>
     public sealed class ThemeGutterStyleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-gutterstyle.html#cfn-quicksight-theme-gutterstyle-show
+        /// &lt;p&gt;This Boolean value controls whether to display a gutter space between sheet tiles.
+        ///         &lt;/p&gt;
         /// </summary>
         [Input("show")]
         public Input<bool>? Show { get; set; }

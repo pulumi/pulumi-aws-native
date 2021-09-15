@@ -22,11 +22,10 @@ class AccessPointArgs:
                  root_directory: Optional[pulumi.Input['AccessPointRootDirectoryArgs']] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
-        :param pulumi.Input[str] file_system_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
-        :param pulumi.Input[Sequence[pulumi.Input['AccessPointAccessPointTagArgs']]] access_point_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
-        :param pulumi.Input[str] client_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
-        :param pulumi.Input['AccessPointPosixUserArgs'] posix_user: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
-        :param pulumi.Input['AccessPointRootDirectoryArgs'] root_directory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
+        :param pulumi.Input[str] file_system_id: The ID of the EFS file system that the access point provides access to.
+        :param pulumi.Input[str] client_token: (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
+        :param pulumi.Input['AccessPointPosixUserArgs'] posix_user: The operating system user and group applied to all file system requests made using the access point.
+        :param pulumi.Input['AccessPointRootDirectoryArgs'] root_directory: Specifies the directory on the Amazon EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the RootDirectory>Path specified does not exist, EFS creates it and applies the CreationInfo settings when a client connects to an access point. When specifying a RootDirectory, you need to provide the Path, and the CreationInfo is optional.
         """
         pulumi.set(__self__, "file_system_id", file_system_id)
         if access_point_tags is not None:
@@ -42,7 +41,7 @@ class AccessPointArgs:
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
+        The ID of the EFS file system that the access point provides access to.
         """
         return pulumi.get(self, "file_system_id")
 
@@ -53,9 +52,6 @@ class AccessPointArgs:
     @property
     @pulumi.getter(name="accessPointTags")
     def access_point_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessPointAccessPointTagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
-        """
         return pulumi.get(self, "access_point_tags")
 
     @access_point_tags.setter
@@ -66,7 +62,7 @@ class AccessPointArgs:
     @pulumi.getter(name="clientToken")
     def client_token(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
+        (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
         """
         return pulumi.get(self, "client_token")
 
@@ -78,7 +74,7 @@ class AccessPointArgs:
     @pulumi.getter(name="posixUser")
     def posix_user(self) -> Optional[pulumi.Input['AccessPointPosixUserArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
+        The operating system user and group applied to all file system requests made using the access point.
         """
         return pulumi.get(self, "posix_user")
 
@@ -90,7 +86,7 @@ class AccessPointArgs:
     @pulumi.getter(name="rootDirectory")
     def root_directory(self) -> Optional[pulumi.Input['AccessPointRootDirectoryArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
+        Specifies the directory on the Amazon EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the RootDirectory>Path specified does not exist, EFS creates it and applies the CreationInfo settings when a client connects to an access point. When specifying a RootDirectory, you need to provide the Path, and the CreationInfo is optional.
         """
         return pulumi.get(self, "root_directory")
 
@@ -111,15 +107,14 @@ class AccessPoint(pulumi.CustomResource):
                  root_directory: Optional[pulumi.Input[pulumi.InputType['AccessPointRootDirectoryArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html
+        Resource Type definition for AWS::EFS::AccessPoint
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessPointAccessPointTagArgs']]]] access_point_tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
-        :param pulumi.Input[str] client_token: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
-        :param pulumi.Input[str] file_system_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
-        :param pulumi.Input[pulumi.InputType['AccessPointPosixUserArgs']] posix_user: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
-        :param pulumi.Input[pulumi.InputType['AccessPointRootDirectoryArgs']] root_directory: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
+        :param pulumi.Input[str] client_token: (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
+        :param pulumi.Input[str] file_system_id: The ID of the EFS file system that the access point provides access to.
+        :param pulumi.Input[pulumi.InputType['AccessPointPosixUserArgs']] posix_user: The operating system user and group applied to all file system requests made using the access point.
+        :param pulumi.Input[pulumi.InputType['AccessPointRootDirectoryArgs']] root_directory: Specifies the directory on the Amazon EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the RootDirectory>Path specified does not exist, EFS creates it and applies the CreationInfo settings when a client connects to an access point. When specifying a RootDirectory, you need to provide the Path, and the CreationInfo is optional.
         """
         ...
     @overload
@@ -128,7 +123,7 @@ class AccessPoint(pulumi.CustomResource):
                  args: AccessPointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html
+        Resource Type definition for AWS::EFS::AccessPoint
 
         :param str resource_name: The name of the resource.
         :param AccessPointArgs args: The arguments to use to populate this resource's properties.
@@ -210,9 +205,6 @@ class AccessPoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="accessPointTags")
     def access_point_tags(self) -> pulumi.Output[Optional[Sequence['outputs.AccessPointAccessPointTag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-accesspointtags
-        """
         return pulumi.get(self, "access_point_tags")
 
     @property
@@ -224,7 +216,7 @@ class AccessPoint(pulumi.CustomResource):
     @pulumi.getter(name="clientToken")
     def client_token(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-clienttoken
+        (optional) A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.
         """
         return pulumi.get(self, "client_token")
 
@@ -232,7 +224,7 @@ class AccessPoint(pulumi.CustomResource):
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-filesystemid
+        The ID of the EFS file system that the access point provides access to.
         """
         return pulumi.get(self, "file_system_id")
 
@@ -240,7 +232,7 @@ class AccessPoint(pulumi.CustomResource):
     @pulumi.getter(name="posixUser")
     def posix_user(self) -> pulumi.Output[Optional['outputs.AccessPointPosixUser']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser
+        The operating system user and group applied to all file system requests made using the access point.
         """
         return pulumi.get(self, "posix_user")
 
@@ -248,7 +240,7 @@ class AccessPoint(pulumi.CustomResource):
     @pulumi.getter(name="rootDirectory")
     def root_directory(self) -> pulumi.Output[Optional['outputs.AccessPointRootDirectory']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-rootdirectory
+        Specifies the directory on the Amazon EFS file system that the access point exposes as the root directory of your file system to NFS clients using the access point. The clients using the access point can only access the root directory and below. If the RootDirectory>Path specified does not exist, EFS creates it and applies the CreationInfo settings when a client connects to an access point. When specifying a RootDirectory, you need to provide the Path, and the CreationInfo is optional.
         """
         return pulumi.get(self, "root_directory")
 

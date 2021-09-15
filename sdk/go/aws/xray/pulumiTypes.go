@@ -10,11 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html
 type GroupInsightsConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html#cfn-xray-group-insightsconfiguration-insightsenabled
+	// Set the InsightsEnabled value to true to enable insights or false to disable insights.
 	InsightsEnabled *bool `pulumi:"insightsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html#cfn-xray-group-insightsconfiguration-notificationsenabled
+	// Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
 	NotificationsEnabled *bool `pulumi:"notificationsEnabled"`
 }
 
@@ -29,11 +28,10 @@ type GroupInsightsConfigurationInput interface {
 	ToGroupInsightsConfigurationOutputWithContext(context.Context) GroupInsightsConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html
 type GroupInsightsConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html#cfn-xray-group-insightsconfiguration-insightsenabled
+	// Set the InsightsEnabled value to true to enable insights or false to disable insights.
 	InsightsEnabled pulumi.BoolPtrInput `pulumi:"insightsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html#cfn-xray-group-insightsconfiguration-notificationsenabled
+	// Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
 	NotificationsEnabled pulumi.BoolPtrInput `pulumi:"notificationsEnabled"`
 }
 
@@ -90,7 +88,6 @@ func (i *groupInsightsConfigurationPtrType) ToGroupInsightsConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInsightsConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html
 type GroupInsightsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GroupInsightsConfigurationOutput) ElementType() reflect.Type {
@@ -115,12 +112,12 @@ func (o GroupInsightsConfigurationOutput) ToGroupInsightsConfigurationPtrOutputW
 	}).(GroupInsightsConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html#cfn-xray-group-insightsconfiguration-insightsenabled
+// Set the InsightsEnabled value to true to enable insights or false to disable insights.
 func (o GroupInsightsConfigurationOutput) InsightsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupInsightsConfiguration) *bool { return v.InsightsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html#cfn-xray-group-insightsconfiguration-notificationsenabled
+// Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
 func (o GroupInsightsConfigurationOutput) NotificationsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupInsightsConfiguration) *bool { return v.NotificationsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -149,7 +146,7 @@ func (o GroupInsightsConfigurationPtrOutput) Elem() GroupInsightsConfigurationOu
 	}).(GroupInsightsConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html#cfn-xray-group-insightsconfiguration-insightsenabled
+// Set the InsightsEnabled value to true to enable insights or false to disable insights.
 func (o GroupInsightsConfigurationPtrOutput) InsightsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupInsightsConfiguration) *bool {
 		if v == nil {
@@ -159,7 +156,7 @@ func (o GroupInsightsConfigurationPtrOutput) InsightsEnabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-group-insightsconfiguration.html#cfn-xray-group-insightsconfiguration-notificationsenabled
+// Set the NotificationsEnabled value to true to enable insights notifications. Notifications can only be enabled on a group with InsightsEnabled set to true.
 func (o GroupInsightsConfigurationPtrOutput) NotificationsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GroupInsightsConfiguration) *bool {
 		if v == nil {
@@ -169,33 +166,30 @@ func (o GroupInsightsConfigurationPtrOutput) NotificationsEnabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html
 type SamplingRuleSamplingRule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-attributes
-	Attributes map[string]string `pulumi:"attributes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-fixedrate
+	// Matches attributes derived from the request.
+	Attributes interface{} `pulumi:"attributes"`
+	// The percentage of matching requests to instrument, after the reservoir is exhausted.
 	FixedRate *float64 `pulumi:"fixedRate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-httpmethod
+	// Matches the HTTP method from a request URL.
 	HTTPMethod *string `pulumi:"hTTPMethod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-host
+	// Matches the hostname from a request URL.
 	Host *string `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-priority
+	// The priority of the sampling rule.
 	Priority *int `pulumi:"priority"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-reservoirsize
+	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 	ReservoirSize *int `pulumi:"reservoirSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-resourcearn
+	// Matches the ARN of the AWS resource on which the service runs.
 	ResourceARN *string `pulumi:"resourceARN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-rulearn
-	RuleARN *string `pulumi:"ruleARN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-rulename
-	RuleName *string `pulumi:"ruleName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-servicename
+	RuleARN     *string `pulumi:"ruleARN"`
+	RuleName    *string `pulumi:"ruleName"`
+	// Matches the name that the service uses to identify itself in segments.
 	ServiceName *string `pulumi:"serviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-servicetype
+	// Matches the origin that the service uses to identify its type in segments.
 	ServiceType *string `pulumi:"serviceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-urlpath
+	// Matches the path from a request URL.
 	URLPath *string `pulumi:"uRLPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-version
+	// The version of the sampling rule format (1)
 	Version *int `pulumi:"version"`
 }
 
@@ -210,33 +204,30 @@ type SamplingRuleSamplingRuleInput interface {
 	ToSamplingRuleSamplingRuleOutputWithContext(context.Context) SamplingRuleSamplingRuleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html
 type SamplingRuleSamplingRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-attributes
-	Attributes pulumi.StringMapInput `pulumi:"attributes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-fixedrate
+	// Matches attributes derived from the request.
+	Attributes pulumi.Input `pulumi:"attributes"`
+	// The percentage of matching requests to instrument, after the reservoir is exhausted.
 	FixedRate pulumi.Float64PtrInput `pulumi:"fixedRate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-httpmethod
+	// Matches the HTTP method from a request URL.
 	HTTPMethod pulumi.StringPtrInput `pulumi:"hTTPMethod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-host
+	// Matches the hostname from a request URL.
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-priority
+	// The priority of the sampling rule.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-reservoirsize
+	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 	ReservoirSize pulumi.IntPtrInput `pulumi:"reservoirSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-resourcearn
+	// Matches the ARN of the AWS resource on which the service runs.
 	ResourceARN pulumi.StringPtrInput `pulumi:"resourceARN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-rulearn
-	RuleARN pulumi.StringPtrInput `pulumi:"ruleARN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-rulename
-	RuleName pulumi.StringPtrInput `pulumi:"ruleName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-servicename
+	RuleARN     pulumi.StringPtrInput `pulumi:"ruleARN"`
+	RuleName    pulumi.StringPtrInput `pulumi:"ruleName"`
+	// Matches the name that the service uses to identify itself in segments.
 	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-servicetype
+	// Matches the origin that the service uses to identify its type in segments.
 	ServiceType pulumi.StringPtrInput `pulumi:"serviceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-urlpath
+	// Matches the path from a request URL.
 	URLPath pulumi.StringPtrInput `pulumi:"uRLPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-version
+	// The version of the sampling rule format (1)
 	Version pulumi.IntPtrInput `pulumi:"version"`
 }
 
@@ -293,7 +284,6 @@ func (i *samplingRuleSamplingRulePtrType) ToSamplingRuleSamplingRulePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleSamplingRulePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html
 type SamplingRuleSamplingRuleOutput struct{ *pulumi.OutputState }
 
 func (SamplingRuleSamplingRuleOutput) ElementType() reflect.Type {
@@ -318,67 +308,65 @@ func (o SamplingRuleSamplingRuleOutput) ToSamplingRuleSamplingRulePtrOutputWithC
 	}).(SamplingRuleSamplingRulePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-attributes
-func (o SamplingRuleSamplingRuleOutput) Attributes() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRule) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
+// Matches attributes derived from the request.
+func (o SamplingRuleSamplingRuleOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v SamplingRuleSamplingRule) interface{} { return v.Attributes }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-fixedrate
+// The percentage of matching requests to instrument, after the reservoir is exhausted.
 func (o SamplingRuleSamplingRuleOutput) FixedRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRule) *float64 { return v.FixedRate }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-httpmethod
+// Matches the HTTP method from a request URL.
 func (o SamplingRuleSamplingRuleOutput) HTTPMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRule) *string { return v.HTTPMethod }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-host
+// Matches the hostname from a request URL.
 func (o SamplingRuleSamplingRuleOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRule) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-priority
+// The priority of the sampling rule.
 func (o SamplingRuleSamplingRuleOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-reservoirsize
+// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 func (o SamplingRuleSamplingRuleOutput) ReservoirSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRule) *int { return v.ReservoirSize }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-resourcearn
+// Matches the ARN of the AWS resource on which the service runs.
 func (o SamplingRuleSamplingRuleOutput) ResourceARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRule) *string { return v.ResourceARN }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-rulearn
 func (o SamplingRuleSamplingRuleOutput) RuleARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRule) *string { return v.RuleARN }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-rulename
 func (o SamplingRuleSamplingRuleOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRule) *string { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-servicename
+// Matches the name that the service uses to identify itself in segments.
 func (o SamplingRuleSamplingRuleOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRule) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-servicetype
+// Matches the origin that the service uses to identify its type in segments.
 func (o SamplingRuleSamplingRuleOutput) ServiceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRule) *string { return v.ServiceType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-urlpath
+// Matches the path from a request URL.
 func (o SamplingRuleSamplingRuleOutput) URLPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRule) *string { return v.URLPath }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-version
+// The version of the sampling rule format (1)
 func (o SamplingRuleSamplingRuleOutput) Version() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRule) *int { return v.Version }).(pulumi.IntPtrOutput)
 }
@@ -407,17 +395,17 @@ func (o SamplingRuleSamplingRulePtrOutput) Elem() SamplingRuleSamplingRuleOutput
 	}).(SamplingRuleSamplingRuleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-attributes
-func (o SamplingRuleSamplingRulePtrOutput) Attributes() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRule) map[string]string {
+// Matches attributes derived from the request.
+func (o SamplingRuleSamplingRulePtrOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SamplingRuleSamplingRule) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Attributes
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-fixedrate
+// The percentage of matching requests to instrument, after the reservoir is exhausted.
 func (o SamplingRuleSamplingRulePtrOutput) FixedRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRule) *float64 {
 		if v == nil {
@@ -427,7 +415,7 @@ func (o SamplingRuleSamplingRulePtrOutput) FixedRate() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-httpmethod
+// Matches the HTTP method from a request URL.
 func (o SamplingRuleSamplingRulePtrOutput) HTTPMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRule) *string {
 		if v == nil {
@@ -437,7 +425,7 @@ func (o SamplingRuleSamplingRulePtrOutput) HTTPMethod() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-host
+// Matches the hostname from a request URL.
 func (o SamplingRuleSamplingRulePtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRule) *string {
 		if v == nil {
@@ -447,7 +435,7 @@ func (o SamplingRuleSamplingRulePtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-priority
+// The priority of the sampling rule.
 func (o SamplingRuleSamplingRulePtrOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRule) *int {
 		if v == nil {
@@ -457,7 +445,7 @@ func (o SamplingRuleSamplingRulePtrOutput) Priority() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-reservoirsize
+// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 func (o SamplingRuleSamplingRulePtrOutput) ReservoirSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRule) *int {
 		if v == nil {
@@ -467,7 +455,7 @@ func (o SamplingRuleSamplingRulePtrOutput) ReservoirSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-resourcearn
+// Matches the ARN of the AWS resource on which the service runs.
 func (o SamplingRuleSamplingRulePtrOutput) ResourceARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRule) *string {
 		if v == nil {
@@ -477,7 +465,6 @@ func (o SamplingRuleSamplingRulePtrOutput) ResourceARN() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-rulearn
 func (o SamplingRuleSamplingRulePtrOutput) RuleARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRule) *string {
 		if v == nil {
@@ -487,7 +474,6 @@ func (o SamplingRuleSamplingRulePtrOutput) RuleARN() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-rulename
 func (o SamplingRuleSamplingRulePtrOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRule) *string {
 		if v == nil {
@@ -497,7 +483,7 @@ func (o SamplingRuleSamplingRulePtrOutput) RuleName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-servicename
+// Matches the name that the service uses to identify itself in segments.
 func (o SamplingRuleSamplingRulePtrOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRule) *string {
 		if v == nil {
@@ -507,7 +493,7 @@ func (o SamplingRuleSamplingRulePtrOutput) ServiceName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-servicetype
+// Matches the origin that the service uses to identify its type in segments.
 func (o SamplingRuleSamplingRulePtrOutput) ServiceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRule) *string {
 		if v == nil {
@@ -517,7 +503,7 @@ func (o SamplingRuleSamplingRulePtrOutput) ServiceType() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-urlpath
+// Matches the path from a request URL.
 func (o SamplingRuleSamplingRulePtrOutput) URLPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRule) *string {
 		if v == nil {
@@ -527,7 +513,7 @@ func (o SamplingRuleSamplingRulePtrOutput) URLPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html#cfn-xray-samplingrule-samplingrule-version
+// The version of the sampling rule format (1)
 func (o SamplingRuleSamplingRulePtrOutput) Version() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRule) *int {
 		if v == nil {
@@ -537,13 +523,11 @@ func (o SamplingRuleSamplingRulePtrOutput) Version() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html
 type SamplingRuleSamplingRuleRecord struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-createdat
+	// When the rule was created, in Unix time seconds.
 	CreatedAt *string `pulumi:"createdAt"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-modifiedat
-	ModifiedAt *string `pulumi:"modifiedAt"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-samplingrule
+	// When the rule was modified, in Unix time seconds.
+	ModifiedAt   *string                   `pulumi:"modifiedAt"`
 	SamplingRule *SamplingRuleSamplingRule `pulumi:"samplingRule"`
 }
 
@@ -558,13 +542,11 @@ type SamplingRuleSamplingRuleRecordInput interface {
 	ToSamplingRuleSamplingRuleRecordOutputWithContext(context.Context) SamplingRuleSamplingRuleRecordOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html
 type SamplingRuleSamplingRuleRecordArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-createdat
+	// When the rule was created, in Unix time seconds.
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-modifiedat
-	ModifiedAt pulumi.StringPtrInput `pulumi:"modifiedAt"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-samplingrule
+	// When the rule was modified, in Unix time seconds.
+	ModifiedAt   pulumi.StringPtrInput            `pulumi:"modifiedAt"`
 	SamplingRule SamplingRuleSamplingRulePtrInput `pulumi:"samplingRule"`
 }
 
@@ -621,7 +603,6 @@ func (i *samplingRuleSamplingRuleRecordPtrType) ToSamplingRuleSamplingRuleRecord
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleSamplingRuleRecordPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html
 type SamplingRuleSamplingRuleRecordOutput struct{ *pulumi.OutputState }
 
 func (SamplingRuleSamplingRuleRecordOutput) ElementType() reflect.Type {
@@ -646,17 +627,16 @@ func (o SamplingRuleSamplingRuleRecordOutput) ToSamplingRuleSamplingRuleRecordPt
 	}).(SamplingRuleSamplingRuleRecordPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-createdat
+// When the rule was created, in Unix time seconds.
 func (o SamplingRuleSamplingRuleRecordOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRuleRecord) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-modifiedat
+// When the rule was modified, in Unix time seconds.
 func (o SamplingRuleSamplingRuleRecordOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRuleRecord) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-samplingrule
 func (o SamplingRuleSamplingRuleRecordOutput) SamplingRule() SamplingRuleSamplingRulePtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRuleRecord) *SamplingRuleSamplingRule { return v.SamplingRule }).(SamplingRuleSamplingRulePtrOutput)
 }
@@ -685,7 +665,7 @@ func (o SamplingRuleSamplingRuleRecordPtrOutput) Elem() SamplingRuleSamplingRule
 	}).(SamplingRuleSamplingRuleRecordOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-createdat
+// When the rule was created, in Unix time seconds.
 func (o SamplingRuleSamplingRuleRecordPtrOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRuleRecord) *string {
 		if v == nil {
@@ -695,7 +675,7 @@ func (o SamplingRuleSamplingRuleRecordPtrOutput) CreatedAt() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-modifiedat
+// When the rule was modified, in Unix time seconds.
 func (o SamplingRuleSamplingRuleRecordPtrOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRuleRecord) *string {
 		if v == nil {
@@ -705,7 +685,6 @@ func (o SamplingRuleSamplingRuleRecordPtrOutput) ModifiedAt() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrulerecord.html#cfn-xray-samplingrule-samplingrulerecord-samplingrule
 func (o SamplingRuleSamplingRuleRecordPtrOutput) SamplingRule() SamplingRuleSamplingRulePtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRuleRecord) *SamplingRuleSamplingRule {
 		if v == nil {
@@ -715,31 +694,28 @@ func (o SamplingRuleSamplingRuleRecordPtrOutput) SamplingRule() SamplingRuleSamp
 	}).(SamplingRuleSamplingRulePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html
 type SamplingRuleSamplingRuleUpdate struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-attributes
-	Attributes map[string]string `pulumi:"attributes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-fixedrate
+	// Matches attributes derived from the request.
+	Attributes interface{} `pulumi:"attributes"`
+	// The percentage of matching requests to instrument, after the reservoir is exhausted.
 	FixedRate *float64 `pulumi:"fixedRate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-httpmethod
+	// Matches the HTTP method from a request URL.
 	HTTPMethod *string `pulumi:"hTTPMethod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-host
+	// Matches the hostname from a request URL.
 	Host *string `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-priority
+	// The priority of the sampling rule.
 	Priority *int `pulumi:"priority"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-reservoirsize
+	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 	ReservoirSize *int `pulumi:"reservoirSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-resourcearn
+	// Matches the ARN of the AWS resource on which the service runs.
 	ResourceARN *string `pulumi:"resourceARN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulearn
-	RuleARN *string `pulumi:"ruleARN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulename
-	RuleName *string `pulumi:"ruleName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicename
+	RuleARN     *string `pulumi:"ruleARN"`
+	RuleName    *string `pulumi:"ruleName"`
+	// Matches the name that the service uses to identify itself in segments.
 	ServiceName *string `pulumi:"serviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicetype
+	// Matches the origin that the service uses to identify its type in segments.
 	ServiceType *string `pulumi:"serviceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-urlpath
+	// Matches the path from a request URL.
 	URLPath *string `pulumi:"uRLPath"`
 }
 
@@ -754,31 +730,28 @@ type SamplingRuleSamplingRuleUpdateInput interface {
 	ToSamplingRuleSamplingRuleUpdateOutputWithContext(context.Context) SamplingRuleSamplingRuleUpdateOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html
 type SamplingRuleSamplingRuleUpdateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-attributes
-	Attributes pulumi.StringMapInput `pulumi:"attributes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-fixedrate
+	// Matches attributes derived from the request.
+	Attributes pulumi.Input `pulumi:"attributes"`
+	// The percentage of matching requests to instrument, after the reservoir is exhausted.
 	FixedRate pulumi.Float64PtrInput `pulumi:"fixedRate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-httpmethod
+	// Matches the HTTP method from a request URL.
 	HTTPMethod pulumi.StringPtrInput `pulumi:"hTTPMethod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-host
+	// Matches the hostname from a request URL.
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-priority
+	// The priority of the sampling rule.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-reservoirsize
+	// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 	ReservoirSize pulumi.IntPtrInput `pulumi:"reservoirSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-resourcearn
+	// Matches the ARN of the AWS resource on which the service runs.
 	ResourceARN pulumi.StringPtrInput `pulumi:"resourceARN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulearn
-	RuleARN pulumi.StringPtrInput `pulumi:"ruleARN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulename
-	RuleName pulumi.StringPtrInput `pulumi:"ruleName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicename
+	RuleARN     pulumi.StringPtrInput `pulumi:"ruleARN"`
+	RuleName    pulumi.StringPtrInput `pulumi:"ruleName"`
+	// Matches the name that the service uses to identify itself in segments.
 	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicetype
+	// Matches the origin that the service uses to identify its type in segments.
 	ServiceType pulumi.StringPtrInput `pulumi:"serviceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-urlpath
+	// Matches the path from a request URL.
 	URLPath pulumi.StringPtrInput `pulumi:"uRLPath"`
 }
 
@@ -835,7 +808,6 @@ func (i *samplingRuleSamplingRuleUpdatePtrType) ToSamplingRuleSamplingRuleUpdate
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleSamplingRuleUpdatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html
 type SamplingRuleSamplingRuleUpdateOutput struct{ *pulumi.OutputState }
 
 func (SamplingRuleSamplingRuleUpdateOutput) ElementType() reflect.Type {
@@ -860,62 +832,60 @@ func (o SamplingRuleSamplingRuleUpdateOutput) ToSamplingRuleSamplingRuleUpdatePt
 	}).(SamplingRuleSamplingRuleUpdatePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-attributes
-func (o SamplingRuleSamplingRuleUpdateOutput) Attributes() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
+// Matches attributes derived from the request.
+func (o SamplingRuleSamplingRuleUpdateOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) interface{} { return v.Attributes }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-fixedrate
+// The percentage of matching requests to instrument, after the reservoir is exhausted.
 func (o SamplingRuleSamplingRuleUpdateOutput) FixedRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *float64 { return v.FixedRate }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-httpmethod
+// Matches the HTTP method from a request URL.
 func (o SamplingRuleSamplingRuleUpdateOutput) HTTPMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *string { return v.HTTPMethod }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-host
+// Matches the hostname from a request URL.
 func (o SamplingRuleSamplingRuleUpdateOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-priority
+// The priority of the sampling rule.
 func (o SamplingRuleSamplingRuleUpdateOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-reservoirsize
+// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 func (o SamplingRuleSamplingRuleUpdateOutput) ReservoirSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *int { return v.ReservoirSize }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-resourcearn
+// Matches the ARN of the AWS resource on which the service runs.
 func (o SamplingRuleSamplingRuleUpdateOutput) ResourceARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *string { return v.ResourceARN }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulearn
 func (o SamplingRuleSamplingRuleUpdateOutput) RuleARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *string { return v.RuleARN }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulename
 func (o SamplingRuleSamplingRuleUpdateOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *string { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicename
+// Matches the name that the service uses to identify itself in segments.
 func (o SamplingRuleSamplingRuleUpdateOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicetype
+// Matches the origin that the service uses to identify its type in segments.
 func (o SamplingRuleSamplingRuleUpdateOutput) ServiceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *string { return v.ServiceType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-urlpath
+// Matches the path from a request URL.
 func (o SamplingRuleSamplingRuleUpdateOutput) URLPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleSamplingRuleUpdate) *string { return v.URLPath }).(pulumi.StringPtrOutput)
 }
@@ -944,17 +914,17 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) Elem() SamplingRuleSamplingRule
 	}).(SamplingRuleSamplingRuleUpdateOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-attributes
-func (o SamplingRuleSamplingRuleUpdatePtrOutput) Attributes() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) map[string]string {
+// Matches attributes derived from the request.
+func (o SamplingRuleSamplingRuleUpdatePtrOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Attributes
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-fixedrate
+// The percentage of matching requests to instrument, after the reservoir is exhausted.
 func (o SamplingRuleSamplingRuleUpdatePtrOutput) FixedRate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *float64 {
 		if v == nil {
@@ -964,7 +934,7 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) FixedRate() pulumi.Float64PtrOu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-httpmethod
+// Matches the HTTP method from a request URL.
 func (o SamplingRuleSamplingRuleUpdatePtrOutput) HTTPMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *string {
 		if v == nil {
@@ -974,7 +944,7 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) HTTPMethod() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-host
+// Matches the hostname from a request URL.
 func (o SamplingRuleSamplingRuleUpdatePtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *string {
 		if v == nil {
@@ -984,7 +954,7 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-priority
+// The priority of the sampling rule.
 func (o SamplingRuleSamplingRuleUpdatePtrOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *int {
 		if v == nil {
@@ -994,7 +964,7 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) Priority() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-reservoirsize
+// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
 func (o SamplingRuleSamplingRuleUpdatePtrOutput) ReservoirSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *int {
 		if v == nil {
@@ -1004,7 +974,7 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) ReservoirSize() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-resourcearn
+// Matches the ARN of the AWS resource on which the service runs.
 func (o SamplingRuleSamplingRuleUpdatePtrOutput) ResourceARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *string {
 		if v == nil {
@@ -1014,7 +984,6 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) ResourceARN() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulearn
 func (o SamplingRuleSamplingRuleUpdatePtrOutput) RuleARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *string {
 		if v == nil {
@@ -1024,7 +993,6 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) RuleARN() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulename
 func (o SamplingRuleSamplingRuleUpdatePtrOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *string {
 		if v == nil {
@@ -1034,7 +1002,7 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) RuleName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicename
+// Matches the name that the service uses to identify itself in segments.
 func (o SamplingRuleSamplingRuleUpdatePtrOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *string {
 		if v == nil {
@@ -1044,7 +1012,7 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) ServiceName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicetype
+// Matches the origin that the service uses to identify its type in segments.
 func (o SamplingRuleSamplingRuleUpdatePtrOutput) ServiceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *string {
 		if v == nil {
@@ -1054,7 +1022,7 @@ func (o SamplingRuleSamplingRuleUpdatePtrOutput) ServiceType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-urlpath
+// Matches the path from a request URL.
 func (o SamplingRuleSamplingRuleUpdatePtrOutput) URLPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRuleSamplingRuleUpdate) *string {
 		if v == nil {

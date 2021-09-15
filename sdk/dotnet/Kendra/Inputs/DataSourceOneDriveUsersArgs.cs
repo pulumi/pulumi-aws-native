@@ -10,26 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html
-    /// </summary>
     public sealed class DataSourceOneDriveUsersArgs : Pulumi.ResourceArgs
     {
         [Input("oneDriveUserList")]
         private InputList<string>? _oneDriveUserList;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveuserlist
-        /// </summary>
         public InputList<string> OneDriveUserList
         {
             get => _oneDriveUserList ?? (_oneDriveUserList = new InputList<string>());
             set => _oneDriveUserList = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveusers3path
-        /// </summary>
         [Input("oneDriveUserS3Path")]
         public Input<Inputs.DataSourceS3PathArgs>? OneDriveUserS3Path { get; set; }
 

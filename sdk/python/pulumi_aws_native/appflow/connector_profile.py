@@ -22,11 +22,11 @@ class ConnectorProfileArgs:
                  k_ms_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ConnectorProfile resource.
-        :param pulumi.Input[str] connection_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
-        :param pulumi.Input[str] connector_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
-        :param pulumi.Input[str] connector_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigArgs'] connector_profile_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
-        :param pulumi.Input[str] k_ms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
+        :param pulumi.Input[str] connection_mode: Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
+        :param pulumi.Input[str] connector_profile_name: The maximum number of items to retrieve in a single batch.
+        :param pulumi.Input[str] connector_type: List of Saas providers that need connector profile to be created
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigArgs'] connector_profile_config: Connector specific configurations needed to create connector profile
+        :param pulumi.Input[str] k_ms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
         pulumi.set(__self__, "connection_mode", connection_mode)
         pulumi.set(__self__, "connector_profile_name", connector_profile_name)
@@ -40,7 +40,7 @@ class ConnectorProfileArgs:
     @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
+        Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
         """
         return pulumi.get(self, "connection_mode")
 
@@ -52,7 +52,7 @@ class ConnectorProfileArgs:
     @pulumi.getter(name="connectorProfileName")
     def connector_profile_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
+        The maximum number of items to retrieve in a single batch.
         """
         return pulumi.get(self, "connector_profile_name")
 
@@ -64,7 +64,7 @@ class ConnectorProfileArgs:
     @pulumi.getter(name="connectorType")
     def connector_type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
+        List of Saas providers that need connector profile to be created
         """
         return pulumi.get(self, "connector_type")
 
@@ -76,7 +76,7 @@ class ConnectorProfileArgs:
     @pulumi.getter(name="connectorProfileConfig")
     def connector_profile_config(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
+        Connector specific configurations needed to create connector profile
         """
         return pulumi.get(self, "connector_profile_config")
 
@@ -88,7 +88,7 @@ class ConnectorProfileArgs:
     @pulumi.getter(name="kMSArn")
     def k_ms_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
+        The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
         return pulumi.get(self, "k_ms_arn")
 
@@ -109,15 +109,15 @@ class ConnectorProfile(pulumi.CustomResource):
                  k_ms_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html
+        Resource Type definition for AWS::AppFlow::ConnectorProfile
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] connection_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
-        :param pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']] connector_profile_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
-        :param pulumi.Input[str] connector_profile_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
-        :param pulumi.Input[str] connector_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
-        :param pulumi.Input[str] k_ms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
+        :param pulumi.Input[str] connection_mode: Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
+        :param pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']] connector_profile_config: Connector specific configurations needed to create connector profile
+        :param pulumi.Input[str] connector_profile_name: The maximum number of items to retrieve in a single batch.
+        :param pulumi.Input[str] connector_type: List of Saas providers that need connector profile to be created
+        :param pulumi.Input[str] k_ms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
         ...
     @overload
@@ -126,7 +126,7 @@ class ConnectorProfile(pulumi.CustomResource):
                  args: ConnectorProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html
+        Resource Type definition for AWS::AppFlow::ConnectorProfile
 
         :param str resource_name: The name of the resource.
         :param ConnectorProfileArgs args: The arguments to use to populate this resource's properties.
@@ -208,20 +208,23 @@ class ConnectorProfile(pulumi.CustomResource):
     @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
+        Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
         """
         return pulumi.get(self, "connection_mode")
 
     @property
     @pulumi.getter(name="connectorProfileArn")
     def connector_profile_arn(self) -> pulumi.Output[str]:
+        """
+        Unique identifier for connector profile resources
+        """
         return pulumi.get(self, "connector_profile_arn")
 
     @property
     @pulumi.getter(name="connectorProfileConfig")
     def connector_profile_config(self) -> pulumi.Output[Optional['outputs.ConnectorProfileConnectorProfileConfig']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
+        Connector specific configurations needed to create connector profile
         """
         return pulumi.get(self, "connector_profile_config")
 
@@ -229,7 +232,7 @@ class ConnectorProfile(pulumi.CustomResource):
     @pulumi.getter(name="connectorProfileName")
     def connector_profile_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
+        The maximum number of items to retrieve in a single batch.
         """
         return pulumi.get(self, "connector_profile_name")
 
@@ -237,20 +240,23 @@ class ConnectorProfile(pulumi.CustomResource):
     @pulumi.getter(name="connectorType")
     def connector_type(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
+        List of Saas providers that need connector profile to be created
         """
         return pulumi.get(self, "connector_type")
 
     @property
     @pulumi.getter(name="credentialsArn")
     def credentials_arn(self) -> pulumi.Output[str]:
+        """
+        A unique Arn for Connector-Profile resource
+        """
         return pulumi.get(self, "credentials_arn")
 
     @property
     @pulumi.getter(name="kMSArn")
     def k_ms_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
+        The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
         return pulumi.get(self, "k_ms_arn")
 

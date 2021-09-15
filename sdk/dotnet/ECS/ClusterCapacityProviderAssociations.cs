@@ -10,26 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html
+    /// Associate a set of ECS Capacity Providers with a specified ECS Cluster
     /// </summary>
     [AwsNativeResourceType("aws-native:ecs:ClusterCapacityProviderAssociations")]
     public partial class ClusterCapacityProviderAssociations : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-capacityproviders
-        /// </summary>
         [Output("capacityProviders")]
         public Output<ImmutableArray<string>> CapacityProviders { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-cluster
-        /// </summary>
         [Output("cluster")]
         public Output<string> Cluster { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-defaultcapacityproviderstrategy
-        /// </summary>
         [Output("defaultCapacityProviderStrategy")]
         public Output<ImmutableArray<Outputs.ClusterCapacityProviderAssociationsCapacityProviderStrategy>> DefaultCapacityProviderStrategy { get; private set; } = null!;
 
@@ -80,28 +71,17 @@ namespace Pulumi.AwsNative.ECS
     {
         [Input("capacityProviders", required: true)]
         private InputList<string>? _capacityProviders;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-capacityproviders
-        /// </summary>
         public InputList<string> CapacityProviders
         {
             get => _capacityProviders ?? (_capacityProviders = new InputList<string>());
             set => _capacityProviders = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-cluster
-        /// </summary>
         [Input("cluster", required: true)]
         public Input<string> Cluster { get; set; } = null!;
 
         [Input("defaultCapacityProviderStrategy", required: true)]
         private InputList<Inputs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs>? _defaultCapacityProviderStrategy;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-clustercapacityproviderassociations.html#cfn-ecs-clustercapacityproviderassociations-defaultcapacityproviderstrategy
-        /// </summary>
         public InputList<Inputs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs> DefaultCapacityProviderStrategy
         {
             get => _defaultCapacityProviderStrategy ?? (_defaultCapacityProviderStrategy = new InputList<Inputs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs>());

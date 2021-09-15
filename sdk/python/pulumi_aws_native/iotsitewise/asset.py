@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['AssetArgs', 'Asset']
@@ -21,14 +19,12 @@ class AssetArgs:
                  asset_name: pulumi.Input[str],
                  asset_hierarchies: Optional[pulumi.Input[Sequence[pulumi.Input['AssetAssetHierarchyArgs']]]] = None,
                  asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input['AssetAssetPropertyArgs']]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]] = None):
         """
         The set of arguments for constructing a Asset resource.
-        :param pulumi.Input[str] asset_model_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
-        :param pulumi.Input[str] asset_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
-        :param pulumi.Input[Sequence[pulumi.Input['AssetAssetHierarchyArgs']]] asset_hierarchies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
-        :param pulumi.Input[Sequence[pulumi.Input['AssetAssetPropertyArgs']]] asset_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
+        :param pulumi.Input[str] asset_model_id: The ID of the asset model from which to create the asset.
+        :param pulumi.Input[str] asset_name: A unique, friendly name for the asset.
+        :param pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]] tags: A list of key-value pairs that contain metadata for the asset.
         """
         pulumi.set(__self__, "asset_model_id", asset_model_id)
         pulumi.set(__self__, "asset_name", asset_name)
@@ -43,7 +39,7 @@ class AssetArgs:
     @pulumi.getter(name="assetModelId")
     def asset_model_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
+        The ID of the asset model from which to create the asset.
         """
         return pulumi.get(self, "asset_model_id")
 
@@ -55,7 +51,7 @@ class AssetArgs:
     @pulumi.getter(name="assetName")
     def asset_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
+        A unique, friendly name for the asset.
         """
         return pulumi.get(self, "asset_name")
 
@@ -66,9 +62,6 @@ class AssetArgs:
     @property
     @pulumi.getter(name="assetHierarchies")
     def asset_hierarchies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetAssetHierarchyArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
-        """
         return pulumi.get(self, "asset_hierarchies")
 
     @asset_hierarchies.setter
@@ -78,9 +71,6 @@ class AssetArgs:
     @property
     @pulumi.getter(name="assetProperties")
     def asset_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetAssetPropertyArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
-        """
         return pulumi.get(self, "asset_properties")
 
     @asset_properties.setter
@@ -89,14 +79,14 @@ class AssetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
+        A list of key-value pairs that contain metadata for the asset.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -109,18 +99,16 @@ class Asset(pulumi.CustomResource):
                  asset_model_id: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
                  asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetAssetPropertyArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html
+        Resource schema for AWS::IoTSiteWise::Asset
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetAssetHierarchyArgs']]]] asset_hierarchies: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
-        :param pulumi.Input[str] asset_model_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
-        :param pulumi.Input[str] asset_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetAssetPropertyArgs']]]] asset_properties: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
+        :param pulumi.Input[str] asset_model_id: The ID of the asset model from which to create the asset.
+        :param pulumi.Input[str] asset_name: A unique, friendly name for the asset.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetTagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset.
         """
         ...
     @overload
@@ -129,7 +117,7 @@ class Asset(pulumi.CustomResource):
                  args: AssetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html
+        Resource schema for AWS::IoTSiteWise::Asset
 
         :param str resource_name: The name of the resource.
         :param AssetArgs args: The arguments to use to populate this resource's properties.
@@ -150,7 +138,7 @@ class Asset(pulumi.CustomResource):
                  asset_model_id: Optional[pulumi.Input[str]] = None,
                  asset_name: Optional[pulumi.Input[str]] = None,
                  asset_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetAssetPropertyArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -208,26 +196,29 @@ class Asset(pulumi.CustomResource):
     @property
     @pulumi.getter(name="assetArn")
     def asset_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the asset
+        """
         return pulumi.get(self, "asset_arn")
 
     @property
     @pulumi.getter(name="assetHierarchies")
     def asset_hierarchies(self) -> pulumi.Output[Optional[Sequence['outputs.AssetAssetHierarchy']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
-        """
         return pulumi.get(self, "asset_hierarchies")
 
     @property
     @pulumi.getter(name="assetId")
     def asset_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the asset
+        """
         return pulumi.get(self, "asset_id")
 
     @property
     @pulumi.getter(name="assetModelId")
     def asset_model_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
+        The ID of the asset model from which to create the asset.
         """
         return pulumi.get(self, "asset_model_id")
 
@@ -235,23 +226,20 @@ class Asset(pulumi.CustomResource):
     @pulumi.getter(name="assetName")
     def asset_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
+        A unique, friendly name for the asset.
         """
         return pulumi.get(self, "asset_name")
 
     @property
     @pulumi.getter(name="assetProperties")
     def asset_properties(self) -> pulumi.Output[Optional[Sequence['outputs.AssetAssetProperty']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
-        """
         return pulumi.get(self, "asset_properties")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.AssetTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
+        A list of key-value pairs that contain metadata for the asset.
         """
         return pulumi.get(self, "tags")
 

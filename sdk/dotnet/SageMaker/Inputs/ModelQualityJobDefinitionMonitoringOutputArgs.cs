@@ -11,13 +11,10 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html
+    /// The output object for a monitoring job.
     /// </summary>
     public sealed class ModelQualityJobDefinitionMonitoringOutputArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringoutput.html#cfn-sagemaker-modelqualityjobdefinition-monitoringoutput-s3output
-        /// </summary>
         [Input("s3Output", required: true)]
         public Input<Inputs.ModelQualityJobDefinitionS3OutputArgs> S3Output { get; set; } = null!;
 

@@ -10,37 +10,34 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.RDS.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html
-    /// </summary>
     public sealed class DBProxyAuthFormatArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-authscheme
+        /// The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
         /// </summary>
         [Input("authScheme")]
         public Input<string>? AuthScheme { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-description
+        /// A user-specified description about the authentication used by a proxy to log in as a specific database user. 
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-iamauth
+        /// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
         /// </summary>
         [Input("iAMAuth")]
         public Input<string>? IAMAuth { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-secretarn
+        /// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
         /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-username
+        /// The name of the database user to which the proxy connects.
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

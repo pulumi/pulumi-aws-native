@@ -10,28 +10,33 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFormation
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html
+    /// The default version of a resource that has been registered in the CloudFormation Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudformation:ResourceDefaultVersion")]
     public partial class ResourceDefaultVersion : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a ResourceDefaultVersion
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typename
+        /// The name of the type being registered.
+        /// 
+        /// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         /// </summary>
         [Output("typeName")]
         public Output<string?> TypeName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typeversionarn
+        /// The Amazon Resource Name (ARN) of the type version.
         /// </summary>
         [Output("typeVersionArn")]
         public Output<string?> TypeVersionArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-versionid
+        /// The ID of an existing version of the resource to set as the default.
         /// </summary>
         [Output("versionId")]
         public Output<string?> VersionId { get; private set; } = null!;
@@ -82,19 +87,21 @@ namespace Pulumi.AwsNative.CloudFormation
     public sealed class ResourceDefaultVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typename
+        /// The name of the type being registered.
+        /// 
+        /// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         /// </summary>
         [Input("typeName")]
         public Input<string>? TypeName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typeversionarn
+        /// The Amazon Resource Name (ARN) of the type version.
         /// </summary>
         [Input("typeVersionArn")]
         public Input<string>? TypeVersionArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-versionid
+        /// The ID of an existing version of the resource to set as the default.
         /// </summary>
         [Input("versionId")]
         public Input<string>? VersionId { get; set; }

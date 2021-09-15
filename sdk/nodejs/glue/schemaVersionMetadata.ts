@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html
+ * This resource adds Key-Value metadata to a Schema version of Glue Schema Registry.
  */
 export class SchemaVersionMetadata extends pulumi.CustomResource {
     /**
@@ -35,15 +35,15 @@ export class SchemaVersionMetadata extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
+     * Metadata key
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
+     * Represents the version ID associated with the schema version.
      */
     public readonly schemaVersionId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
+     * Metadata value
      */
     public readonly value!: pulumi.Output<string>;
 
@@ -87,15 +87,15 @@ export class SchemaVersionMetadata extends pulumi.CustomResource {
  */
 export interface SchemaVersionMetadataArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-key
+     * Metadata key
      */
     key: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-schemaversionid
+     * Represents the version ID associated with the schema version.
      */
     schemaVersionId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversionmetadata.html#cfn-glue-schemaversionmetadata-value
+     * Metadata value
      */
     value: pulumi.Input<string>;
 }

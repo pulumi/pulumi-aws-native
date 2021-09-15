@@ -14,6 +14,7 @@ __all__ = [
     'AssociationTargetArgs',
     'DocumentAttachmentsSourceArgs',
     'DocumentDocumentRequiresArgs',
+    'DocumentTagArgs',
     'ResourceDataSyncAwsOrganizationsSourceArgs',
     'ResourceDataSyncS3DestinationArgs',
     'ResourceDataSyncSyncSourceArgs',
@@ -23,19 +24,12 @@ __all__ = [
 class AssociationInstanceAssociationOutputLocationArgs:
     def __init__(__self__, *,
                  s3_location: Optional[pulumi.Input['AssociationS3OutputLocationArgs']] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html
-        :param pulumi.Input['AssociationS3OutputLocationArgs'] s3_location: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html#cfn-ssm-association-instanceassociationoutputlocation-s3location
-        """
         if s3_location is not None:
             pulumi.set(__self__, "s3_location", s3_location)
 
     @property
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> Optional[pulumi.Input['AssociationS3OutputLocationArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html#cfn-ssm-association-instanceassociationoutputlocation-s3location
-        """
         return pulumi.get(self, "s3_location")
 
     @s3_location.setter
@@ -49,12 +43,6 @@ class AssociationS3OutputLocationArgs:
                  output_s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  output_s3_key_prefix: Optional[pulumi.Input[str]] = None,
                  output_s3_region: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html
-        :param pulumi.Input[str] output_s3_bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3bucketname
-        :param pulumi.Input[str] output_s3_key_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3keyprefix
-        :param pulumi.Input[str] output_s3_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3region
-        """
         if output_s3_bucket_name is not None:
             pulumi.set(__self__, "output_s3_bucket_name", output_s3_bucket_name)
         if output_s3_key_prefix is not None:
@@ -65,9 +53,6 @@ class AssociationS3OutputLocationArgs:
     @property
     @pulumi.getter(name="outputS3BucketName")
     def output_s3_bucket_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3bucketname
-        """
         return pulumi.get(self, "output_s3_bucket_name")
 
     @output_s3_bucket_name.setter
@@ -77,9 +62,6 @@ class AssociationS3OutputLocationArgs:
     @property
     @pulumi.getter(name="outputS3KeyPrefix")
     def output_s3_key_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3keyprefix
-        """
         return pulumi.get(self, "output_s3_key_prefix")
 
     @output_s3_key_prefix.setter
@@ -89,9 +71,6 @@ class AssociationS3OutputLocationArgs:
     @property
     @pulumi.getter(name="outputS3Region")
     def output_s3_region(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3region
-        """
         return pulumi.get(self, "output_s3_region")
 
     @output_s3_region.setter
@@ -104,20 +83,12 @@ class AssociationTargetArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html
-        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-key
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-values
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-key
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -127,9 +98,6 @@ class AssociationTargetArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-values
-        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -144,10 +112,9 @@ class DocumentAttachmentsSourceArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html
-        :param pulumi.Input[str] key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-key
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-name
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-values
+        :param pulumi.Input[str] key: The key of a key-value pair that identifies the location of an attachment to a document.
+        :param pulumi.Input[str] name: The name of the document attachment file.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The value of a key-value pair that identifies the location of an attachment to a document. The format for Value depends on the type of key you specify.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -160,7 +127,7 @@ class DocumentAttachmentsSourceArgs:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-key
+        The key of a key-value pair that identifies the location of an attachment to a document.
         """
         return pulumi.get(self, "key")
 
@@ -172,7 +139,7 @@ class DocumentAttachmentsSourceArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-name
+        The name of the document attachment file.
         """
         return pulumi.get(self, "name")
 
@@ -184,7 +151,7 @@ class DocumentAttachmentsSourceArgs:
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-values
+        The value of a key-value pair that identifies the location of an attachment to a document. The format for Value depends on the type of key you specify.
         """
         return pulumi.get(self, "values")
 
@@ -199,9 +166,8 @@ class DocumentDocumentRequiresArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-name
-        :param pulumi.Input[str] version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-version
+        :param pulumi.Input[str] name: The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
+        :param pulumi.Input[str] version: The document version required by the current document.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -212,7 +178,7 @@ class DocumentDocumentRequiresArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-name
+        The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "name")
 
@@ -224,7 +190,7 @@ class DocumentDocumentRequiresArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-version
+        The document version required by the current document.
         """
         return pulumi.get(self, "version")
 
@@ -234,15 +200,49 @@ class DocumentDocumentRequiresArgs:
 
 
 @pulumi.input_type
+class DocumentTagArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: The name of the tag.
+        :param pulumi.Input[str] value: The value of the tag.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the tag.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class ResourceDataSyncAwsOrganizationsSourceArgs:
     def __init__(__self__, *,
                  organization_source_type: pulumi.Input[str],
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html
-        :param pulumi.Input[str] organization_source_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationsourcetype
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_units: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationalunits
-        """
         pulumi.set(__self__, "organization_source_type", organization_source_type)
         if organizational_units is not None:
             pulumi.set(__self__, "organizational_units", organizational_units)
@@ -250,9 +250,6 @@ class ResourceDataSyncAwsOrganizationsSourceArgs:
     @property
     @pulumi.getter(name="organizationSourceType")
     def organization_source_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationsourcetype
-        """
         return pulumi.get(self, "organization_source_type")
 
     @organization_source_type.setter
@@ -262,9 +259,6 @@ class ResourceDataSyncAwsOrganizationsSourceArgs:
     @property
     @pulumi.getter(name="organizationalUnits")
     def organizational_units(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationalunits
-        """
         return pulumi.get(self, "organizational_units")
 
     @organizational_units.setter
@@ -280,14 +274,6 @@ class ResourceDataSyncS3DestinationArgs:
                  sync_format: pulumi.Input[str],
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
                  k_ms_key_arn: Optional[pulumi.Input[str]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html
-        :param pulumi.Input[str] bucket_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketname
-        :param pulumi.Input[str] bucket_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketregion
-        :param pulumi.Input[str] sync_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-syncformat
-        :param pulumi.Input[str] bucket_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketprefix
-        :param pulumi.Input[str] k_ms_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-kmskeyarn
-        """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "bucket_region", bucket_region)
         pulumi.set(__self__, "sync_format", sync_format)
@@ -299,9 +285,6 @@ class ResourceDataSyncS3DestinationArgs:
     @property
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketname
-        """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
@@ -311,9 +294,6 @@ class ResourceDataSyncS3DestinationArgs:
     @property
     @pulumi.getter(name="bucketRegion")
     def bucket_region(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketregion
-        """
         return pulumi.get(self, "bucket_region")
 
     @bucket_region.setter
@@ -323,9 +303,6 @@ class ResourceDataSyncS3DestinationArgs:
     @property
     @pulumi.getter(name="syncFormat")
     def sync_format(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-syncformat
-        """
         return pulumi.get(self, "sync_format")
 
     @sync_format.setter
@@ -335,9 +312,6 @@ class ResourceDataSyncS3DestinationArgs:
     @property
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketprefix
-        """
         return pulumi.get(self, "bucket_prefix")
 
     @bucket_prefix.setter
@@ -347,9 +321,6 @@ class ResourceDataSyncS3DestinationArgs:
     @property
     @pulumi.getter(name="kMSKeyArn")
     def k_ms_key_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-kmskeyarn
-        """
         return pulumi.get(self, "k_ms_key_arn")
 
     @k_ms_key_arn.setter
@@ -364,13 +335,6 @@ class ResourceDataSyncSyncSourceArgs:
                  source_type: pulumi.Input[str],
                  aws_organizations_source: Optional[pulumi.Input['ResourceDataSyncAwsOrganizationsSourceArgs']] = None,
                  include_future_regions: Optional[pulumi.Input[bool]] = None):
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourceregions
-        :param pulumi.Input[str] source_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourcetype
-        :param pulumi.Input['ResourceDataSyncAwsOrganizationsSourceArgs'] aws_organizations_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-awsorganizationssource
-        :param pulumi.Input[bool] include_future_regions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-includefutureregions
-        """
         pulumi.set(__self__, "source_regions", source_regions)
         pulumi.set(__self__, "source_type", source_type)
         if aws_organizations_source is not None:
@@ -381,9 +345,6 @@ class ResourceDataSyncSyncSourceArgs:
     @property
     @pulumi.getter(name="sourceRegions")
     def source_regions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourceregions
-        """
         return pulumi.get(self, "source_regions")
 
     @source_regions.setter
@@ -393,9 +354,6 @@ class ResourceDataSyncSyncSourceArgs:
     @property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourcetype
-        """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
@@ -405,9 +363,6 @@ class ResourceDataSyncSyncSourceArgs:
     @property
     @pulumi.getter(name="awsOrganizationsSource")
     def aws_organizations_source(self) -> Optional[pulumi.Input['ResourceDataSyncAwsOrganizationsSourceArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-awsorganizationssource
-        """
         return pulumi.get(self, "aws_organizations_source")
 
     @aws_organizations_source.setter
@@ -417,9 +372,6 @@ class ResourceDataSyncSyncSourceArgs:
     @property
     @pulumi.getter(name="includeFutureRegions")
     def include_future_regions(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-includefutureregions
-        """
         return pulumi.get(self, "include_future_regions")
 
     @include_future_regions.setter

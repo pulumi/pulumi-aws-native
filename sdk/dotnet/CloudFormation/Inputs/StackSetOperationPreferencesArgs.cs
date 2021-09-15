@@ -11,46 +11,27 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html
+    /// The user-specified preferences for how AWS CloudFormation performs a stack set operation.
     /// </summary>
     public sealed class StackSetOperationPreferencesArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancecount
-        /// </summary>
         [Input("failureToleranceCount")]
         public Input<int>? FailureToleranceCount { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-failuretolerancepercentage
-        /// </summary>
         [Input("failureTolerancePercentage")]
         public Input<int>? FailureTolerancePercentage { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentcount
-        /// </summary>
         [Input("maxConcurrentCount")]
         public Input<int>? MaxConcurrentCount { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-maxconcurrentpercentage
-        /// </summary>
         [Input("maxConcurrentPercentage")]
         public Input<int>? MaxConcurrentPercentage { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionconcurrencytype
-        /// </summary>
         [Input("regionConcurrencyType")]
         public Input<string>? RegionConcurrencyType { get; set; }
 
         [Input("regionOrder")]
         private InputList<string>? _regionOrder;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html#cfn-cloudformation-stackset-operationpreferences-regionorder
-        /// </summary>
         public InputList<string> RegionOrder
         {
             get => _regionOrder ?? (_regionOrder = new InputList<string>());

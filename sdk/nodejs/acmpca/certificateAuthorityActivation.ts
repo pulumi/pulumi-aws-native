@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html
+ * Used to install the certificate authority certificate and update the certificate authority status.
  */
 export class CertificateAuthorityActivation extends pulumi.CustomResource {
     /**
@@ -35,20 +35,23 @@ export class CertificateAuthorityActivation extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
+     * Certificate Authority certificate that will be installed in the Certificate Authority.
      */
     public readonly certificate!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
+     * Arn of the Certificate Authority.
      */
     public readonly certificateAuthorityArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
+     * Certificate chain for the Certificate Authority certificate.
      */
     public readonly certificateChain!: pulumi.Output<string | undefined>;
+    /**
+     * The complete certificate chain, including the Certificate Authority certificate.
+     */
     public /*out*/ readonly completeCertificateChain!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
+     * The status of the Certificate Authority.
      */
     public readonly status!: pulumi.Output<string | undefined>;
 
@@ -93,19 +96,19 @@ export class CertificateAuthorityActivation extends pulumi.CustomResource {
  */
 export interface CertificateAuthorityActivationArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
+     * Certificate Authority certificate that will be installed in the Certificate Authority.
      */
     certificate: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
+     * Arn of the Certificate Authority.
      */
     certificateAuthorityArn: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
+     * Certificate chain for the Certificate Authority certificate.
      */
     certificateChain?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
+     * The status of the Certificate Authority.
      */
     status?: pulumi.Input<string>;
 }

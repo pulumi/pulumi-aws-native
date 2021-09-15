@@ -11,30 +11,30 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html
+    /// Configurations of Source connector of the flow.
     /// </summary>
     public sealed class FlowSourceFlowConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectorprofilename
+        /// Name of source connector profile
         /// </summary>
         [Input("connectorProfileName")]
         public Input<string>? ConnectorProfileName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectortype
+        /// Type of source connector
         /// </summary>
         [Input("connectorType", required: true)]
         public Input<string> ConnectorType { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-incrementalpullconfig
+        /// Configuration for scheduled incremental data pull
         /// </summary>
         [Input("incrementalPullConfig")]
         public Input<Inputs.FlowIncrementalPullConfigArgs>? IncrementalPullConfig { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-sourceconnectorproperties
+        /// Source connector details required to query a connector
         /// </summary>
         [Input("sourceConnectorProperties", required: true)]
         public Input<Inputs.FlowSourceConnectorPropertiesArgs> SourceConnectorProperties { get; set; } = null!;

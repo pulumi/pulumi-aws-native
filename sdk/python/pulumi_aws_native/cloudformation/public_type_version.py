@@ -20,11 +20,13 @@ class PublicTypeVersionArgs:
                  type_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PublicTypeVersion resource.
-        :param pulumi.Input[str] arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-arn
-        :param pulumi.Input[str] log_delivery_bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-logdeliverybucket
-        :param pulumi.Input[str] public_version_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-publicversionnumber
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-type
-        :param pulumi.Input[str] type_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-typename
+        :param pulumi.Input[str] arn: The Amazon Resource Number (ARN) of the extension.
+        :param pulumi.Input[str] log_delivery_bucket: A url to the S3 bucket where logs for the testType run will be available
+        :param pulumi.Input[str] public_version_number: The version number of a public third-party extension
+        :param pulumi.Input[str] type: The kind of extension
+        :param pulumi.Input[str] type_name: The name of the type being registered.
+               
+               We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -41,7 +43,7 @@ class PublicTypeVersionArgs:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-arn
+        The Amazon Resource Number (ARN) of the extension.
         """
         return pulumi.get(self, "arn")
 
@@ -53,7 +55,7 @@ class PublicTypeVersionArgs:
     @pulumi.getter(name="logDeliveryBucket")
     def log_delivery_bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-logdeliverybucket
+        A url to the S3 bucket where logs for the testType run will be available
         """
         return pulumi.get(self, "log_delivery_bucket")
 
@@ -65,7 +67,7 @@ class PublicTypeVersionArgs:
     @pulumi.getter(name="publicVersionNumber")
     def public_version_number(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-publicversionnumber
+        The version number of a public third-party extension
         """
         return pulumi.get(self, "public_version_number")
 
@@ -77,7 +79,7 @@ class PublicTypeVersionArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-type
+        The kind of extension
         """
         return pulumi.get(self, "type")
 
@@ -89,7 +91,9 @@ class PublicTypeVersionArgs:
     @pulumi.getter(name="typeName")
     def type_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-typename
+        The name of the type being registered.
+
+        We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         """
         return pulumi.get(self, "type_name")
 
@@ -110,15 +114,17 @@ class PublicTypeVersion(pulumi.CustomResource):
                  type_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html
+        Test and Publish a resource that has been registered in the CloudFormation Registry.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-arn
-        :param pulumi.Input[str] log_delivery_bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-logdeliverybucket
-        :param pulumi.Input[str] public_version_number: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-publicversionnumber
-        :param pulumi.Input[str] type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-type
-        :param pulumi.Input[str] type_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-typename
+        :param pulumi.Input[str] arn: The Amazon Resource Number (ARN) of the extension.
+        :param pulumi.Input[str] log_delivery_bucket: A url to the S3 bucket where logs for the testType run will be available
+        :param pulumi.Input[str] public_version_number: The version number of a public third-party extension
+        :param pulumi.Input[str] type: The kind of extension
+        :param pulumi.Input[str] type_name: The name of the type being registered.
+               
+               We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         """
         ...
     @overload
@@ -127,7 +133,7 @@ class PublicTypeVersion(pulumi.CustomResource):
                  args: Optional[PublicTypeVersionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html
+        Test and Publish a resource that has been registered in the CloudFormation Registry.
 
         :param str resource_name: The name of the resource.
         :param PublicTypeVersionArgs args: The arguments to use to populate this resource's properties.
@@ -205,7 +211,7 @@ class PublicTypeVersion(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-arn
+        The Amazon Resource Number (ARN) of the extension.
         """
         return pulumi.get(self, "arn")
 
@@ -213,33 +219,39 @@ class PublicTypeVersion(pulumi.CustomResource):
     @pulumi.getter(name="logDeliveryBucket")
     def log_delivery_bucket(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-logdeliverybucket
+        A url to the S3 bucket where logs for the testType run will be available
         """
         return pulumi.get(self, "log_delivery_bucket")
 
     @property
     @pulumi.getter(name="publicTypeArn")
     def public_type_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Number (ARN) assigned to the public extension upon publication
+        """
         return pulumi.get(self, "public_type_arn")
 
     @property
     @pulumi.getter(name="publicVersionNumber")
     def public_version_number(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-publicversionnumber
+        The version number of a public third-party extension
         """
         return pulumi.get(self, "public_version_number")
 
     @property
     @pulumi.getter(name="publisherId")
     def publisher_id(self) -> pulumi.Output[str]:
+        """
+        The publisher id assigned by CloudFormation for publishing in this region.
+        """
         return pulumi.get(self, "publisher_id")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-type
+        The kind of extension
         """
         return pulumi.get(self, "type")
 
@@ -247,12 +259,17 @@ class PublicTypeVersion(pulumi.CustomResource):
     @pulumi.getter(name="typeName")
     def type_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-typename
+        The name of the type being registered.
+
+        We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         """
         return pulumi.get(self, "type_name")
 
     @property
     @pulumi.getter(name="typeVersionArn")
     def type_version_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Number (ARN) of the extension with the versionId.
+        """
         return pulumi.get(self, "type_version_arn")
 

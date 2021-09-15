@@ -10,17 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html
-    /// </summary>
     public sealed class TaskDefinitionKernelCapabilitiesArgs : Pulumi.ResourceArgs
     {
         [Input("add")]
         private InputList<string>? _add;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-add
-        /// </summary>
         public InputList<string> Add
         {
             get => _add ?? (_add = new InputList<string>());
@@ -29,10 +22,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
 
         [Input("drop")]
         private InputList<string>? _drop;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-kernelcapabilities.html#cfn-ecs-taskdefinition-kernelcapabilities-drop
-        /// </summary>
         public InputList<string> Drop
         {
             get => _drop ?? (_drop = new InputList<string>());

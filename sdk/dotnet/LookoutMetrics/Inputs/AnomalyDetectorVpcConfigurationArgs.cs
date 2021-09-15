@@ -10,17 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html
-    /// </summary>
     public sealed class AnomalyDetectorVpcConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("securityGroupIdList", required: true)]
         private InputList<string>? _securityGroupIdList;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-securitygroupidlist
-        /// </summary>
         public InputList<string> SecurityGroupIdList
         {
             get => _securityGroupIdList ?? (_securityGroupIdList = new InputList<string>());
@@ -29,10 +22,6 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 
         [Input("subnetIdList", required: true)]
         private InputList<string>? _subnetIdList;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-subnetidlist
-        /// </summary>
         public InputList<string> SubnetIdList
         {
             get => _subnetIdList ?? (_subnetIdList = new InputList<string>());

@@ -16,7 +16,7 @@ class DNSSECArgs:
                  hosted_zone_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a DNSSEC resource.
-        :param pulumi.Input[str] hosted_zone_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html#cfn-route53-dnssec-hostedzoneid
+        :param pulumi.Input[str] hosted_zone_id: The unique string (ID) used to identify a hosted zone.
         """
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
 
@@ -24,7 +24,7 @@ class DNSSECArgs:
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html#cfn-route53-dnssec-hostedzoneid
+        The unique string (ID) used to identify a hosted zone.
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -41,11 +41,11 @@ class DNSSEC(pulumi.CustomResource):
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html
+        Resource used to control (enable/disable) DNSSEC in a specific hosted zone.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] hosted_zone_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html#cfn-route53-dnssec-hostedzoneid
+        :param pulumi.Input[str] hosted_zone_id: The unique string (ID) used to identify a hosted zone.
         """
         ...
     @overload
@@ -54,7 +54,7 @@ class DNSSEC(pulumi.CustomResource):
                  args: DNSSECArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html
+        Resource used to control (enable/disable) DNSSEC in a specific hosted zone.
 
         :param str resource_name: The name of the resource.
         :param DNSSECArgs args: The arguments to use to populate this resource's properties.
@@ -116,7 +116,7 @@ class DNSSEC(pulumi.CustomResource):
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html#cfn-route53-dnssec-hostedzoneid
+        The unique string (ID) used to identify a hosted zone.
         """
         return pulumi.get(self, "hosted_zone_id")
 

@@ -11,24 +11,21 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html
+    /// Image Repository
     /// </summary>
     public sealed class ServiceImageRepositoryArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageconfiguration
-        /// </summary>
         [Input("imageConfiguration")]
         public Input<Inputs.ServiceImageConfigurationArgs>? ImageConfiguration { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imageidentifier
+        /// Image Identifier
         /// </summary>
         [Input("imageIdentifier", required: true)]
         public Input<string> ImageIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html#cfn-apprunner-service-imagerepository-imagerepositorytype
+        /// Image Repository Type
         /// </summary>
         [Input("imageRepositoryType", required: true)]
         public Input<string> ImageRepositoryType { get; set; } = null!;

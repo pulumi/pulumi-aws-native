@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html
+    /// &lt;p&gt;A list of QuickSight parameters and the list's override values.&lt;/p&gt;
     /// </summary>
     public sealed class DashboardParametersArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DashboardDateTimeParameterArgs>? _dateTimeParameters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-datetimeparameters
+        /// &lt;p&gt;Date-time parameters.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.DashboardDateTimeParameterArgs> DateTimeParameters
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DashboardDecimalParameterArgs>? _decimalParameters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-decimalparameters
+        /// &lt;p&gt;Decimal parameters.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.DashboardDecimalParameterArgs> DecimalParameters
         {
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DashboardIntegerParameterArgs>? _integerParameters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-integerparameters
+        /// &lt;p&gt;Integer parameters.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.DashboardIntegerParameterArgs> IntegerParameters
         {
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DashboardStringParameterArgs>? _stringParameters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-stringparameters
+        /// &lt;p&gt;String parameters.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.DashboardStringParameterArgs> StringParameters
         {

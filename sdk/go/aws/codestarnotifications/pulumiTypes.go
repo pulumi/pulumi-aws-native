@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html
 type NotificationRuleTarget struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targetaddress
 	TargetAddress string `pulumi:"targetAddress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targettype
-	TargetType string `pulumi:"targetType"`
+	TargetType    string `pulumi:"targetType"`
 }
 
 // NotificationRuleTargetInput is an input type that accepts NotificationRuleTargetArgs and NotificationRuleTargetOutput values.
@@ -29,12 +26,9 @@ type NotificationRuleTargetInput interface {
 	ToNotificationRuleTargetOutputWithContext(context.Context) NotificationRuleTargetOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html
 type NotificationRuleTargetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targetaddress
 	TargetAddress pulumi.StringInput `pulumi:"targetAddress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targettype
-	TargetType pulumi.StringInput `pulumi:"targetType"`
+	TargetType    pulumi.StringInput `pulumi:"targetType"`
 }
 
 func (NotificationRuleTargetArgs) ElementType() reflect.Type {
@@ -74,7 +68,6 @@ func (i NotificationRuleTargetArray) ToNotificationRuleTargetArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleTargetArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html
 type NotificationRuleTargetOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleTargetOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o NotificationRuleTargetOutput) ToNotificationRuleTargetOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targetaddress
 func (o NotificationRuleTargetOutput) TargetAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationRuleTarget) string { return v.TargetAddress }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codestarnotifications-notificationrule-target.html#cfn-codestarnotifications-notificationrule-target-targettype
 func (o NotificationRuleTargetOutput) TargetType() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationRuleTarget) string { return v.TargetType }).(pulumi.StringOutput)
 }

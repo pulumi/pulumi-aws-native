@@ -11,13 +11,10 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html
+    /// The JupyterServer app settings.
     /// </summary>
     public sealed class DomainJupyterServerAppSettingsArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterserverappsettings.html#cfn-sagemaker-domain-jupyterserverappsettings-defaultresourcespec
-        /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.DomainResourceSpecArgs>? DefaultResourceSpec { get; set; }
 

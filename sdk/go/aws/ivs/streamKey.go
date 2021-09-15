@@ -8,19 +8,20 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html
+// Resource Type definition for AWS::IVS::StreamKey
 type StreamKey struct {
 	pulumi.CustomResourceState
 
+	// Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
+	// Channel ARN for the stream.
 	ChannelArn pulumi.StringOutput `pulumi:"channelArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
-	Tags  aws.TagArrayOutput  `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the asset model.
+	Tags StreamKeyTagArrayOutput `pulumi:"tags"`
+	// Stream-key value.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
 
@@ -66,18 +67,18 @@ func (StreamKeyState) ElementType() reflect.Type {
 }
 
 type streamKeyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
+	// Channel ARN for the stream.
 	ChannelArn string `pulumi:"channelArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the asset model.
+	Tags []StreamKeyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StreamKey resource.
 type StreamKeyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
+	// Channel ARN for the stream.
 	ChannelArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
-	Tags aws.TagArrayInput
+	// A list of key-value pairs that contain metadata for the asset model.
+	Tags StreamKeyTagArrayInput
 }
 
 func (StreamKeyArgs) ElementType() reflect.Type {

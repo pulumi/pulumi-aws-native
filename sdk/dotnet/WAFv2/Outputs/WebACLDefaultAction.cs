@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html
+    /// Default Action WebACL will take against ingress traffic when there is no matching Rule.
     /// </summary>
     [OutputType]
     public sealed class WebACLDefaultAction
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
-        /// </summary>
         public readonly Outputs.WebACLAllowAction? Allow;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block
-        /// </summary>
         public readonly Outputs.WebACLBlockAction? Block;
 
         [OutputConstructor]

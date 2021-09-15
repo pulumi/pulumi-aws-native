@@ -16,7 +16,7 @@ class AccountArgs:
                  cloud_watch_role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Account resource.
-        :param pulumi.Input[str] cloud_watch_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html#cfn-apigateway-account-cloudwatchrolearn
+        :param pulumi.Input[str] cloud_watch_role_arn: The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
         """
         if cloud_watch_role_arn is not None:
             pulumi.set(__self__, "cloud_watch_role_arn", cloud_watch_role_arn)
@@ -25,7 +25,7 @@ class AccountArgs:
     @pulumi.getter(name="cloudWatchRoleArn")
     def cloud_watch_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html#cfn-apigateway-account-cloudwatchrolearn
+        The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
         """
         return pulumi.get(self, "cloud_watch_role_arn")
 
@@ -42,11 +42,11 @@ class Account(pulumi.CustomResource):
                  cloud_watch_role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html
+        Resource Type definition for AWS::ApiGateway::Account
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cloud_watch_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html#cfn-apigateway-account-cloudwatchrolearn
+        :param pulumi.Input[str] cloud_watch_role_arn: The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
         """
         ...
     @overload
@@ -55,7 +55,7 @@ class Account(pulumi.CustomResource):
                  args: Optional[AccountArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html
+        Resource Type definition for AWS::ApiGateway::Account
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -86,7 +86,6 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["cloud_watch_role_arn"] = cloud_watch_role_arn
-            __props__.__dict__["id"] = None
         super(Account, __self__).__init__(
             'aws-native:apigateway:Account',
             resource_name,
@@ -110,19 +109,13 @@ class Account(pulumi.CustomResource):
         __props__ = AccountArgs.__new__(AccountArgs)
 
         __props__.__dict__["cloud_watch_role_arn"] = None
-        __props__.__dict__["id"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="cloudWatchRoleArn")
     def cloud_watch_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html#cfn-apigateway-account-cloudwatchrolearn
+        The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
         """
         return pulumi.get(self, "cloud_watch_role_arn")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 

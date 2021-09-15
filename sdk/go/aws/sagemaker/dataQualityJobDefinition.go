@@ -8,36 +8,29 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html
+// Resource Type definition for AWS::SageMaker::DataQualityJobDefinition
 type DataQualityJobDefinition struct {
 	pulumi.CustomResourceState
 
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification
-	DataQualityAppSpecification DataQualityJobDefinitionDataQualityAppSpecificationOutput `pulumi:"dataQualityAppSpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig
-	DataQualityBaselineConfig DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput `pulumi:"dataQualityBaselineConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput
-	DataQualityJobInput DataQualityJobDefinitionDataQualityJobInputOutput `pulumi:"dataQualityJobInput"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjoboutputconfig
-	DataQualityJobOutputConfig DataQualityJobDefinitionMonitoringOutputConfigOutput `pulumi:"dataQualityJobOutputConfig"`
-	JobDefinitionArn           pulumi.StringOutput                                  `pulumi:"jobDefinitionArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobdefinitionname
-	JobDefinitionName pulumi.StringPtrOutput `pulumi:"jobDefinitionName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobresources
-	JobResources DataQualityJobDefinitionMonitoringResourcesOutput `pulumi:"jobResources"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig
-	NetworkConfig DataQualityJobDefinitionNetworkConfigPtrOutput `pulumi:"networkConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-rolearn
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition
+	// The time at which the job definition was created.
+	CreationTime                pulumi.StringOutput                                        `pulumi:"creationTime"`
+	DataQualityAppSpecification DataQualityJobDefinitionDataQualityAppSpecificationOutput  `pulumi:"dataQualityAppSpecification"`
+	DataQualityBaselineConfig   DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput `pulumi:"dataQualityBaselineConfig"`
+	DataQualityJobInput         DataQualityJobDefinitionDataQualityJobInputOutput          `pulumi:"dataQualityJobInput"`
+	DataQualityJobOutputConfig  DataQualityJobDefinitionMonitoringOutputConfigOutput       `pulumi:"dataQualityJobOutputConfig"`
+	// The Amazon Resource Name (ARN) of job definition.
+	JobDefinitionArn  pulumi.StringOutput                               `pulumi:"jobDefinitionArn"`
+	JobDefinitionName pulumi.StringPtrOutput                            `pulumi:"jobDefinitionName"`
+	JobResources      DataQualityJobDefinitionMonitoringResourcesOutput `pulumi:"jobResources"`
+	NetworkConfig     DataQualityJobDefinitionNetworkConfigPtrOutput    `pulumi:"networkConfig"`
+	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+	RoleArn           pulumi.StringOutput                                `pulumi:"roleArn"`
 	StoppingCondition DataQualityJobDefinitionStoppingConditionPtrOutput `pulumi:"stoppingCondition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags DataQualityJobDefinitionTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDataQualityJobDefinition registers a new resource with the given unique name, arguments, and options.
@@ -94,50 +87,34 @@ func (DataQualityJobDefinitionState) ElementType() reflect.Type {
 }
 
 type dataQualityJobDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification
 	DataQualityAppSpecification DataQualityJobDefinitionDataQualityAppSpecification `pulumi:"dataQualityAppSpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig
-	DataQualityBaselineConfig *DataQualityJobDefinitionDataQualityBaselineConfig `pulumi:"dataQualityBaselineConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput
-	DataQualityJobInput DataQualityJobDefinitionDataQualityJobInput `pulumi:"dataQualityJobInput"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjoboutputconfig
-	DataQualityJobOutputConfig DataQualityJobDefinitionMonitoringOutputConfig `pulumi:"dataQualityJobOutputConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobdefinitionname
-	JobDefinitionName *string `pulumi:"jobDefinitionName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobresources
-	JobResources DataQualityJobDefinitionMonitoringResources `pulumi:"jobResources"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig
-	NetworkConfig *DataQualityJobDefinitionNetworkConfig `pulumi:"networkConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition
+	DataQualityBaselineConfig   *DataQualityJobDefinitionDataQualityBaselineConfig  `pulumi:"dataQualityBaselineConfig"`
+	DataQualityJobInput         DataQualityJobDefinitionDataQualityJobInput         `pulumi:"dataQualityJobInput"`
+	DataQualityJobOutputConfig  DataQualityJobDefinitionMonitoringOutputConfig      `pulumi:"dataQualityJobOutputConfig"`
+	JobDefinitionName           *string                                             `pulumi:"jobDefinitionName"`
+	JobResources                DataQualityJobDefinitionMonitoringResources         `pulumi:"jobResources"`
+	NetworkConfig               *DataQualityJobDefinitionNetworkConfig              `pulumi:"networkConfig"`
+	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+	RoleArn           string                                     `pulumi:"roleArn"`
 	StoppingCondition *DataQualityJobDefinitionStoppingCondition `pulumi:"stoppingCondition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []DataQualityJobDefinitionTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataQualityJobDefinition resource.
 type DataQualityJobDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityappspecification
 	DataQualityAppSpecification DataQualityJobDefinitionDataQualityAppSpecificationInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig
-	DataQualityBaselineConfig DataQualityJobDefinitionDataQualityBaselineConfigPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjobinput
-	DataQualityJobInput DataQualityJobDefinitionDataQualityJobInputInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-dataqualityjoboutputconfig
-	DataQualityJobOutputConfig DataQualityJobDefinitionMonitoringOutputConfigInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobdefinitionname
-	JobDefinitionName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-jobresources
-	JobResources DataQualityJobDefinitionMonitoringResourcesInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-networkconfig
-	NetworkConfig DataQualityJobDefinitionNetworkConfigPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-rolearn
-	RoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-stoppingcondition
+	DataQualityBaselineConfig   DataQualityJobDefinitionDataQualityBaselineConfigPtrInput
+	DataQualityJobInput         DataQualityJobDefinitionDataQualityJobInputInput
+	DataQualityJobOutputConfig  DataQualityJobDefinitionMonitoringOutputConfigInput
+	JobDefinitionName           pulumi.StringPtrInput
+	JobResources                DataQualityJobDefinitionMonitoringResourcesInput
+	NetworkConfig               DataQualityJobDefinitionNetworkConfigPtrInput
+	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
+	RoleArn           pulumi.StringInput
 	StoppingCondition DataQualityJobDefinitionStoppingConditionPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html#cfn-sagemaker-dataqualityjobdefinition-tags
-	Tags aws.TagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags DataQualityJobDefinitionTagArrayInput
 }
 
 func (DataQualityJobDefinitionArgs) ElementType() reflect.Type {

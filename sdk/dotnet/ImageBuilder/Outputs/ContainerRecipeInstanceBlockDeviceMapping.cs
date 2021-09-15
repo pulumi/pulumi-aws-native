@@ -11,25 +11,25 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html
+    /// Defines block device mappings for the instance used to configure your image. 
     /// </summary>
     [OutputType]
     public sealed class ContainerRecipeInstanceBlockDeviceMapping
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-devicename
+        /// The device to which these mappings apply.
         /// </summary>
         public readonly string? DeviceName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-ebs
+        /// Use to manage Amazon EBS-specific configuration for this mapping.
         /// </summary>
         public readonly Outputs.ContainerRecipeEbsInstanceBlockDeviceSpecification? Ebs;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-nodevice
+        /// Use to remove a mapping from the parent image.
         /// </summary>
         public readonly string? NoDevice;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-virtualname
+        /// Use to manage instance ephemeral devices.
         /// </summary>
         public readonly string? VirtualName;
 

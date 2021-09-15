@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html
+ * The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
  */
 export class Alias extends pulumi.CustomResource {
     /**
@@ -35,17 +35,20 @@ export class Alias extends pulumi.CustomResource {
         return obj['__pulumiType'] === Alias.__pulumiType;
     }
 
+    /**
+     * Unique alias ID
+     */
     public /*out*/ readonly aliasId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
+     * A human-readable description of the alias.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
+     * A descriptive label that is associated with an alias. Alias names do not need to be unique.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
+     * A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
      */
     public readonly routingStrategy!: pulumi.Output<outputs.gamelift.AliasRoutingStrategy>;
 
@@ -88,15 +91,15 @@ export class Alias extends pulumi.CustomResource {
  */
 export interface AliasArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
+     * A human-readable description of the alias.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
+     * A descriptive label that is associated with an alias. Alias names do not need to be unique.
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
+     * A routing configuration that specifies where traffic is directed for this alias, such as to a fleet or to a message.
      */
     routingStrategy: pulumi.Input<inputs.gamelift.AliasRoutingStrategyArgs>;
 }

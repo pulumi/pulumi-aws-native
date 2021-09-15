@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['FunctionArgs', 'Function']
@@ -33,32 +31,32 @@ class FunctionArgs:
                  package_type: Optional[pulumi.Input[str]] = None,
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionTagArgs']]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  tracing_config: Optional[pulumi.Input['FunctionTracingConfigArgs']] = None,
                  vpc_config: Optional[pulumi.Input['FunctionVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Function resource.
-        :param pulumi.Input['FunctionCodeArgs'] code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-code
-        :param pulumi.Input[str] role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-role
-        :param pulumi.Input[str] code_signing_config_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
-        :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
-        :param pulumi.Input['FunctionEnvironmentArgs'] environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-environment
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionFileSystemConfigArgs']]] file_system_configs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
-        :param pulumi.Input[str] function_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
-        :param pulumi.Input[str] handler: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-handler
-        :param pulumi.Input['FunctionImageConfigArgs'] image_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-imageconfig
-        :param pulumi.Input[str] kms_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-layers
-        :param pulumi.Input[int] memory_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-memorysize
-        :param pulumi.Input[str] package_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
-        :param pulumi.Input[int] reserved_concurrent_executions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
-        :param pulumi.Input[str] runtime: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
-        :param pulumi.Input[int] timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-timeout
-        :param pulumi.Input['FunctionTracingConfigArgs'] tracing_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tracingconfig
-        :param pulumi.Input['FunctionVpcConfigArgs'] vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-vpcconfig
+        :param pulumi.Input['FunctionCodeArgs'] code: The code for the function.
+        :param pulumi.Input[str] role: The Amazon Resource Name (ARN) of the function's execution role.
+        :param pulumi.Input[str] code_signing_config_arn: A unique Arn for CodeSigningConfig resource
+        :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
+        :param pulumi.Input[str] description: A description of the function.
+        :param pulumi.Input['FunctionEnvironmentArgs'] environment: Environment variables that are accessible from function code during execution.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionFileSystemConfigArgs']]] file_system_configs: Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
+        :param pulumi.Input[str] function_name: The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
+        :param pulumi.Input[str] handler: The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
+        :param pulumi.Input['FunctionImageConfigArgs'] image_config: ImageConfig
+        :param pulumi.Input[str] kms_key_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
+        :param pulumi.Input[int] memory_size: The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
+        :param pulumi.Input[str] package_type: PackageType.
+        :param pulumi.Input[int] reserved_concurrent_executions: The number of simultaneous executions to reserve for the function.
+        :param pulumi.Input[str] runtime: The identifier of the function's runtime.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionTagArgs']]] tags: A list of tags to apply to the function.
+        :param pulumi.Input[int] timeout: The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+        :param pulumi.Input['FunctionTracingConfigArgs'] tracing_config: Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
+        :param pulumi.Input['FunctionVpcConfigArgs'] vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "role", role)
@@ -103,7 +101,7 @@ class FunctionArgs:
     @pulumi.getter
     def code(self) -> pulumi.Input['FunctionCodeArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-code
+        The code for the function.
         """
         return pulumi.get(self, "code")
 
@@ -115,7 +113,7 @@ class FunctionArgs:
     @pulumi.getter
     def role(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-role
+        The Amazon Resource Name (ARN) of the function's execution role.
         """
         return pulumi.get(self, "role")
 
@@ -127,7 +125,7 @@ class FunctionArgs:
     @pulumi.getter(name="codeSigningConfigArn")
     def code_signing_config_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
+        A unique Arn for CodeSigningConfig resource
         """
         return pulumi.get(self, "code_signing_config_arn")
 
@@ -139,7 +137,7 @@ class FunctionArgs:
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> Optional[pulumi.Input['FunctionDeadLetterConfigArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
+        A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
         """
         return pulumi.get(self, "dead_letter_config")
 
@@ -151,7 +149,7 @@ class FunctionArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
+        A description of the function.
         """
         return pulumi.get(self, "description")
 
@@ -163,7 +161,7 @@ class FunctionArgs:
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input['FunctionEnvironmentArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-environment
+        Environment variables that are accessible from function code during execution.
         """
         return pulumi.get(self, "environment")
 
@@ -175,7 +173,7 @@ class FunctionArgs:
     @pulumi.getter(name="fileSystemConfigs")
     def file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionFileSystemConfigArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
+        Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
         """
         return pulumi.get(self, "file_system_configs")
 
@@ -187,7 +185,7 @@ class FunctionArgs:
     @pulumi.getter(name="functionName")
     def function_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
+        The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
         """
         return pulumi.get(self, "function_name")
 
@@ -199,7 +197,7 @@ class FunctionArgs:
     @pulumi.getter
     def handler(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-handler
+        The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
         """
         return pulumi.get(self, "handler")
 
@@ -211,7 +209,7 @@ class FunctionArgs:
     @pulumi.getter(name="imageConfig")
     def image_config(self) -> Optional[pulumi.Input['FunctionImageConfigArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-imageconfig
+        ImageConfig
         """
         return pulumi.get(self, "image_config")
 
@@ -223,7 +221,7 @@ class FunctionArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
+        The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -235,7 +233,7 @@ class FunctionArgs:
     @pulumi.getter
     def layers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-layers
+        A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
         """
         return pulumi.get(self, "layers")
 
@@ -247,7 +245,7 @@ class FunctionArgs:
     @pulumi.getter(name="memorySize")
     def memory_size(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-memorysize
+        The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
         """
         return pulumi.get(self, "memory_size")
 
@@ -259,7 +257,7 @@ class FunctionArgs:
     @pulumi.getter(name="packageType")
     def package_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
+        PackageType.
         """
         return pulumi.get(self, "package_type")
 
@@ -271,7 +269,7 @@ class FunctionArgs:
     @pulumi.getter(name="reservedConcurrentExecutions")
     def reserved_concurrent_executions(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
+        The number of simultaneous executions to reserve for the function.
         """
         return pulumi.get(self, "reserved_concurrent_executions")
 
@@ -283,7 +281,7 @@ class FunctionArgs:
     @pulumi.getter
     def runtime(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
+        The identifier of the function's runtime.
         """
         return pulumi.get(self, "runtime")
 
@@ -293,21 +291,21 @@ class FunctionArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
+        A list of tags to apply to the function.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-timeout
+        The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
         """
         return pulumi.get(self, "timeout")
 
@@ -319,7 +317,7 @@ class FunctionArgs:
     @pulumi.getter(name="tracingConfig")
     def tracing_config(self) -> Optional[pulumi.Input['FunctionTracingConfigArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tracingconfig
+        Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
         """
         return pulumi.get(self, "tracing_config")
 
@@ -331,7 +329,7 @@ class FunctionArgs:
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['FunctionVpcConfigArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-vpcconfig
+        For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
         """
         return pulumi.get(self, "vpc_config")
 
@@ -361,36 +359,36 @@ class Function(pulumi.CustomResource):
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionTagArgs']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  tracing_config: Optional[pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
+        Resource Type definition for AWS::Lambda::Function
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FunctionCodeArgs']] code: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-code
-        :param pulumi.Input[str] code_signing_config_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
-        :param pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']] dead_letter_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
-        :param pulumi.Input[pulumi.InputType['FunctionEnvironmentArgs']] environment: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-environment
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']]]] file_system_configs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
-        :param pulumi.Input[str] function_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
-        :param pulumi.Input[str] handler: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-handler
-        :param pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']] image_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-imageconfig
-        :param pulumi.Input[str] kms_key_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-layers
-        :param pulumi.Input[int] memory_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-memorysize
-        :param pulumi.Input[str] package_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
-        :param pulumi.Input[int] reserved_concurrent_executions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
-        :param pulumi.Input[str] role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-role
-        :param pulumi.Input[str] runtime: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
-        :param pulumi.Input[int] timeout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-timeout
-        :param pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']] tracing_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tracingconfig
-        :param pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']] vpc_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-vpcconfig
+        :param pulumi.Input[pulumi.InputType['FunctionCodeArgs']] code: The code for the function.
+        :param pulumi.Input[str] code_signing_config_arn: A unique Arn for CodeSigningConfig resource
+        :param pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']] dead_letter_config: A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
+        :param pulumi.Input[str] description: A description of the function.
+        :param pulumi.Input[pulumi.InputType['FunctionEnvironmentArgs']] environment: Environment variables that are accessible from function code during execution.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']]]] file_system_configs: Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
+        :param pulumi.Input[str] function_name: The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
+        :param pulumi.Input[str] handler: The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
+        :param pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']] image_config: ImageConfig
+        :param pulumi.Input[str] kms_key_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
+        :param pulumi.Input[int] memory_size: The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
+        :param pulumi.Input[str] package_type: PackageType.
+        :param pulumi.Input[int] reserved_concurrent_executions: The number of simultaneous executions to reserve for the function.
+        :param pulumi.Input[str] role: The Amazon Resource Name (ARN) of the function's execution role.
+        :param pulumi.Input[str] runtime: The identifier of the function's runtime.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionTagArgs']]]] tags: A list of tags to apply to the function.
+        :param pulumi.Input[int] timeout: The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
+        :param pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']] tracing_config: Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
+        :param pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']] vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
         """
         ...
     @overload
@@ -399,7 +397,7 @@ class Function(pulumi.CustomResource):
                  args: FunctionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
+        Resource Type definition for AWS::Lambda::Function
 
         :param str resource_name: The name of the resource.
         :param FunctionArgs args: The arguments to use to populate this resource's properties.
@@ -432,7 +430,7 @@ class Function(pulumi.CustomResource):
                  reserved_concurrent_executions: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionTagArgs']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  tracing_config: Optional[pulumi.Input[pulumi.InputType['FunctionTracingConfigArgs']]] = None,
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['FunctionVpcConfigArgs']]] = None,
@@ -521,13 +519,16 @@ class Function(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Unique identifier for function resources
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def code(self) -> pulumi.Output['outputs.FunctionCode']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-code
+        The code for the function.
         """
         return pulumi.get(self, "code")
 
@@ -535,7 +536,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="codeSigningConfigArn")
     def code_signing_config_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
+        A unique Arn for CodeSigningConfig resource
         """
         return pulumi.get(self, "code_signing_config_arn")
 
@@ -543,7 +544,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> pulumi.Output[Optional['outputs.FunctionDeadLetterConfig']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
+        A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
         """
         return pulumi.get(self, "dead_letter_config")
 
@@ -551,7 +552,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
+        A description of the function.
         """
         return pulumi.get(self, "description")
 
@@ -559,7 +560,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def environment(self) -> pulumi.Output[Optional['outputs.FunctionEnvironment']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-environment
+        Environment variables that are accessible from function code during execution.
         """
         return pulumi.get(self, "environment")
 
@@ -567,7 +568,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="fileSystemConfigs")
     def file_system_configs(self) -> pulumi.Output[Optional[Sequence['outputs.FunctionFileSystemConfig']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
+        Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
         """
         return pulumi.get(self, "file_system_configs")
 
@@ -575,7 +576,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
+        The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
         """
         return pulumi.get(self, "function_name")
 
@@ -583,7 +584,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def handler(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-handler
+        The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
         """
         return pulumi.get(self, "handler")
 
@@ -591,7 +592,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="imageConfig")
     def image_config(self) -> pulumi.Output[Optional['outputs.FunctionImageConfig']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-imageconfig
+        ImageConfig
         """
         return pulumi.get(self, "image_config")
 
@@ -599,7 +600,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
+        The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -607,7 +608,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def layers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-layers
+        A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
         """
         return pulumi.get(self, "layers")
 
@@ -615,7 +616,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="memorySize")
     def memory_size(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-memorysize
+        The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
         """
         return pulumi.get(self, "memory_size")
 
@@ -623,7 +624,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="packageType")
     def package_type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
+        PackageType.
         """
         return pulumi.get(self, "package_type")
 
@@ -631,7 +632,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="reservedConcurrentExecutions")
     def reserved_concurrent_executions(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
+        The number of simultaneous executions to reserve for the function.
         """
         return pulumi.get(self, "reserved_concurrent_executions")
 
@@ -639,7 +640,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-role
+        The Amazon Resource Name (ARN) of the function's execution role.
         """
         return pulumi.get(self, "role")
 
@@ -647,15 +648,15 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def runtime(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
+        The identifier of the function's runtime.
         """
         return pulumi.get(self, "runtime")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FunctionTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
+        A list of tags to apply to the function.
         """
         return pulumi.get(self, "tags")
 
@@ -663,7 +664,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def timeout(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-timeout
+        The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
         """
         return pulumi.get(self, "timeout")
 
@@ -671,7 +672,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="tracingConfig")
     def tracing_config(self) -> pulumi.Output[Optional['outputs.FunctionTracingConfig']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tracingconfig
+        Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
         """
         return pulumi.get(self, "tracing_config")
 
@@ -679,7 +680,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output[Optional['outputs.FunctionVpcConfig']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-vpcconfig
+        For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
         """
         return pulumi.get(self, "vpc_config")
 

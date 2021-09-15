@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['GameServerGroupArgs', 'GameServerGroup']
@@ -27,22 +25,22 @@ class GameServerGroupArgs:
                  game_server_protection_policy: Optional[pulumi.Input[str]] = None,
                  max_size: Optional[pulumi.Input[float]] = None,
                  min_size: Optional[pulumi.Input[float]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupTagArgs']]]] = None,
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a GameServerGroup resource.
-        :param pulumi.Input[str] game_server_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
-        :param pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]] instance_definitions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
-        :param pulumi.Input['GameServerGroupLaunchTemplateArgs'] launch_template: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
-        :param pulumi.Input['GameServerGroupAutoScalingPolicyArgs'] auto_scaling_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
-        :param pulumi.Input[str] balancing_strategy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
-        :param pulumi.Input[str] delete_option: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
-        :param pulumi.Input[str] game_server_protection_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
-        :param pulumi.Input[float] max_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
-        :param pulumi.Input[float] min_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+        :param pulumi.Input[str] game_server_group_name: An identifier for the new game server group.
+        :param pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]] instance_definitions: A set of EC2 instance types to use when creating instances in the group.
+        :param pulumi.Input['GameServerGroupLaunchTemplateArgs'] launch_template: The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
+        :param pulumi.Input['GameServerGroupAutoScalingPolicyArgs'] auto_scaling_policy: Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+        :param pulumi.Input[str] balancing_strategy: The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
+        :param pulumi.Input[str] delete_option: The type of delete to perform.
+        :param pulumi.Input[str] game_server_protection_policy: A flag that indicates whether instances in the game server group are protected from early termination.
+        :param pulumi.Input[float] max_size: The maximum number of instances allowed in the EC2 Auto Scaling group.
+        :param pulumi.Input[float] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
+        :param pulumi.Input[Sequence[pulumi.Input['GameServerGroupTagArgs']]] tags: A list of labels to assign to the new game server group resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnets: A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
         """
         pulumi.set(__self__, "game_server_group_name", game_server_group_name)
         pulumi.set(__self__, "instance_definitions", instance_definitions)
@@ -69,7 +67,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="gameServerGroupName")
     def game_server_group_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
+        An identifier for the new game server group.
         """
         return pulumi.get(self, "game_server_group_name")
 
@@ -81,7 +79,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="instanceDefinitions")
     def instance_definitions(self) -> pulumi.Input[Sequence[pulumi.Input['GameServerGroupInstanceDefinitionArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+        A set of EC2 instance types to use when creating instances in the group.
         """
         return pulumi.get(self, "instance_definitions")
 
@@ -93,7 +91,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> pulumi.Input['GameServerGroupLaunchTemplateArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
+        The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
         """
         return pulumi.get(self, "launch_template")
 
@@ -105,7 +103,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
+        The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         """
         return pulumi.get(self, "role_arn")
 
@@ -117,7 +115,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="autoScalingPolicy")
     def auto_scaling_policy(self) -> Optional[pulumi.Input['GameServerGroupAutoScalingPolicyArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
+        Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
         """
         return pulumi.get(self, "auto_scaling_policy")
 
@@ -129,7 +127,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="balancingStrategy")
     def balancing_strategy(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
+        The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
         """
         return pulumi.get(self, "balancing_strategy")
 
@@ -141,7 +139,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="deleteOption")
     def delete_option(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
+        The type of delete to perform.
         """
         return pulumi.get(self, "delete_option")
 
@@ -153,7 +151,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="gameServerProtectionPolicy")
     def game_server_protection_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
+        A flag that indicates whether instances in the game server group are protected from early termination.
         """
         return pulumi.get(self, "game_server_protection_policy")
 
@@ -165,7 +163,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="maxSize")
     def max_size(self) -> Optional[pulumi.Input[float]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
+        The maximum number of instances allowed in the EC2 Auto Scaling group.
         """
         return pulumi.get(self, "max_size")
 
@@ -177,7 +175,7 @@ class GameServerGroupArgs:
     @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[pulumi.Input[float]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
+        The minimum number of instances allowed in the EC2 Auto Scaling group.
         """
         return pulumi.get(self, "min_size")
 
@@ -187,21 +185,21 @@ class GameServerGroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
+        A list of labels to assign to the new game server group resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GameServerGroupTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="vpcSubnets")
     def vpc_subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+        A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
         """
         return pulumi.get(self, "vpc_subnets")
 
@@ -225,26 +223,26 @@ class GameServerGroup(pulumi.CustomResource):
                  max_size: Optional[pulumi.Input[float]] = None,
                  min_size: Optional[pulumi.Input[float]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameServerGroupTagArgs']]]]] = None,
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html
+        The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['GameServerGroupAutoScalingPolicyArgs']] auto_scaling_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
-        :param pulumi.Input[str] balancing_strategy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
-        :param pulumi.Input[str] delete_option: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
-        :param pulumi.Input[str] game_server_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
-        :param pulumi.Input[str] game_server_protection_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameServerGroupInstanceDefinitionArgs']]]] instance_definitions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
-        :param pulumi.Input[pulumi.InputType['GameServerGroupLaunchTemplateArgs']] launch_template: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
-        :param pulumi.Input[float] max_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
-        :param pulumi.Input[float] min_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+        :param pulumi.Input[pulumi.InputType['GameServerGroupAutoScalingPolicyArgs']] auto_scaling_policy: Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
+        :param pulumi.Input[str] balancing_strategy: The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
+        :param pulumi.Input[str] delete_option: The type of delete to perform.
+        :param pulumi.Input[str] game_server_group_name: An identifier for the new game server group.
+        :param pulumi.Input[str] game_server_protection_policy: A flag that indicates whether instances in the game server group are protected from early termination.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameServerGroupInstanceDefinitionArgs']]]] instance_definitions: A set of EC2 instance types to use when creating instances in the group.
+        :param pulumi.Input[pulumi.InputType['GameServerGroupLaunchTemplateArgs']] launch_template: The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
+        :param pulumi.Input[float] max_size: The maximum number of instances allowed in the EC2 Auto Scaling group.
+        :param pulumi.Input[float] min_size: The minimum number of instances allowed in the EC2 Auto Scaling group.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameServerGroupTagArgs']]]] tags: A list of labels to assign to the new game server group resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_subnets: A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
         """
         ...
     @overload
@@ -253,7 +251,7 @@ class GameServerGroup(pulumi.CustomResource):
                  args: GameServerGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html
+        The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
 
         :param str resource_name: The name of the resource.
         :param GameServerGroupArgs args: The arguments to use to populate this resource's properties.
@@ -280,7 +278,7 @@ class GameServerGroup(pulumi.CustomResource):
                  max_size: Optional[pulumi.Input[float]] = None,
                  min_size: Optional[pulumi.Input[float]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GameServerGroupTagArgs']]]]] = None,
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -357,13 +355,16 @@ class GameServerGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoScalingGroupArn")
     def auto_scaling_group_arn(self) -> pulumi.Output[str]:
+        """
+        A generated unique ID for the EC2 Auto Scaling group that is associated with this game server group.
+        """
         return pulumi.get(self, "auto_scaling_group_arn")
 
     @property
     @pulumi.getter(name="autoScalingPolicy")
     def auto_scaling_policy(self) -> pulumi.Output[Optional['outputs.GameServerGroupAutoScalingPolicy']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
+        Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
         """
         return pulumi.get(self, "auto_scaling_policy")
 
@@ -371,7 +372,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="balancingStrategy")
     def balancing_strategy(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
+        The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
         """
         return pulumi.get(self, "balancing_strategy")
 
@@ -379,20 +380,23 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="deleteOption")
     def delete_option(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
+        The type of delete to perform.
         """
         return pulumi.get(self, "delete_option")
 
     @property
     @pulumi.getter(name="gameServerGroupArn")
     def game_server_group_arn(self) -> pulumi.Output[str]:
+        """
+        A generated unique ID for the game server group.
+        """
         return pulumi.get(self, "game_server_group_arn")
 
     @property
     @pulumi.getter(name="gameServerGroupName")
     def game_server_group_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
+        An identifier for the new game server group.
         """
         return pulumi.get(self, "game_server_group_name")
 
@@ -400,7 +404,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="gameServerProtectionPolicy")
     def game_server_protection_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
+        A flag that indicates whether instances in the game server group are protected from early termination.
         """
         return pulumi.get(self, "game_server_protection_policy")
 
@@ -408,7 +412,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="instanceDefinitions")
     def instance_definitions(self) -> pulumi.Output[Sequence['outputs.GameServerGroupInstanceDefinition']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+        A set of EC2 instance types to use when creating instances in the group.
         """
         return pulumi.get(self, "instance_definitions")
 
@@ -416,7 +420,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> pulumi.Output['outputs.GameServerGroupLaunchTemplate']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
+        The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
         """
         return pulumi.get(self, "launch_template")
 
@@ -424,7 +428,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="maxSize")
     def max_size(self) -> pulumi.Output[Optional[float]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
+        The maximum number of instances allowed in the EC2 Auto Scaling group.
         """
         return pulumi.get(self, "max_size")
 
@@ -432,7 +436,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Output[Optional[float]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
+        The minimum number of instances allowed in the EC2 Auto Scaling group.
         """
         return pulumi.get(self, "min_size")
 
@@ -440,15 +444,15 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
+        The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.GameServerGroupTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
+        A list of labels to assign to the new game server group resource.
         """
         return pulumi.get(self, "tags")
 
@@ -456,7 +460,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter(name="vpcSubnets")
     def vpc_subnets(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+        A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
         """
         return pulumi.get(self, "vpc_subnets")
 

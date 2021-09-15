@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['DatasetArgs', 'Dataset']
@@ -22,15 +20,14 @@ class DatasetArgs:
                  format: Optional[pulumi.Input[str]] = None,
                  format_options: Optional[pulumi.Input['DatasetFormatOptionsArgs']] = None,
                  path_options: Optional[pulumi.Input['DatasetPathOptionsArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTagArgs']]]] = None):
         """
         The set of arguments for constructing a Dataset resource.
-        :param pulumi.Input['DatasetInputArgs'] input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
-        :param pulumi.Input[str] format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-format
-        :param pulumi.Input['DatasetFormatOptionsArgs'] format_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
-        :param pulumi.Input['DatasetPathOptionsArgs'] path_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
+        :param pulumi.Input['DatasetInputArgs'] input: Input
+        :param pulumi.Input[str] name: Dataset name
+        :param pulumi.Input[str] format: Dataset format
+        :param pulumi.Input['DatasetFormatOptionsArgs'] format_options: Format options for dataset
+        :param pulumi.Input['DatasetPathOptionsArgs'] path_options: PathOptions
         """
         pulumi.set(__self__, "input", input)
         pulumi.set(__self__, "name", name)
@@ -47,7 +44,7 @@ class DatasetArgs:
     @pulumi.getter
     def input(self) -> pulumi.Input['DatasetInputArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
+        Input
         """
         return pulumi.get(self, "input")
 
@@ -59,7 +56,7 @@ class DatasetArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
+        Dataset name
         """
         return pulumi.get(self, "name")
 
@@ -71,7 +68,7 @@ class DatasetArgs:
     @pulumi.getter
     def format(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-format
+        Dataset format
         """
         return pulumi.get(self, "format")
 
@@ -83,7 +80,7 @@ class DatasetArgs:
     @pulumi.getter(name="formatOptions")
     def format_options(self) -> Optional[pulumi.Input['DatasetFormatOptionsArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
+        Format options for dataset
         """
         return pulumi.get(self, "format_options")
 
@@ -95,7 +92,7 @@ class DatasetArgs:
     @pulumi.getter(name="pathOptions")
     def path_options(self) -> Optional[pulumi.Input['DatasetPathOptionsArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions
+        PathOptions
         """
         return pulumi.get(self, "path_options")
 
@@ -105,14 +102,11 @@ class DatasetArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -126,19 +120,18 @@ class Dataset(pulumi.CustomResource):
                  input: Optional[pulumi.Input[pulumi.InputType['DatasetInputArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path_options: Optional[pulumi.Input[pulumi.InputType['DatasetPathOptionsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html
+        Resource schema for AWS::DataBrew::Dataset.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-format
-        :param pulumi.Input[pulumi.InputType['DatasetFormatOptionsArgs']] format_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
-        :param pulumi.Input[pulumi.InputType['DatasetInputArgs']] input: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
-        :param pulumi.Input[pulumi.InputType['DatasetPathOptionsArgs']] path_options: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
+        :param pulumi.Input[str] format: Dataset format
+        :param pulumi.Input[pulumi.InputType['DatasetFormatOptionsArgs']] format_options: Format options for dataset
+        :param pulumi.Input[pulumi.InputType['DatasetInputArgs']] input: Input
+        :param pulumi.Input[str] name: Dataset name
+        :param pulumi.Input[pulumi.InputType['DatasetPathOptionsArgs']] path_options: PathOptions
         """
         ...
     @overload
@@ -147,7 +140,7 @@ class Dataset(pulumi.CustomResource):
                  args: DatasetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html
+        Resource schema for AWS::DataBrew::Dataset.
 
         :param str resource_name: The name of the resource.
         :param DatasetArgs args: The arguments to use to populate this resource's properties.
@@ -169,7 +162,7 @@ class Dataset(pulumi.CustomResource):
                  input: Optional[pulumi.Input[pulumi.InputType['DatasetInputArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path_options: Optional[pulumi.Input[pulumi.InputType['DatasetPathOptionsArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -226,7 +219,7 @@ class Dataset(pulumi.CustomResource):
     @pulumi.getter
     def format(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-format
+        Dataset format
         """
         return pulumi.get(self, "format")
 
@@ -234,7 +227,7 @@ class Dataset(pulumi.CustomResource):
     @pulumi.getter(name="formatOptions")
     def format_options(self) -> pulumi.Output[Optional['outputs.DatasetFormatOptions']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-formatoptions
+        Format options for dataset
         """
         return pulumi.get(self, "format_options")
 
@@ -242,7 +235,7 @@ class Dataset(pulumi.CustomResource):
     @pulumi.getter
     def input(self) -> pulumi.Output['outputs.DatasetInput']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-input
+        Input
         """
         return pulumi.get(self, "input")
 
@@ -250,7 +243,7 @@ class Dataset(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-name
+        Dataset name
         """
         return pulumi.get(self, "name")
 
@@ -258,15 +251,12 @@ class Dataset(pulumi.CustomResource):
     @pulumi.getter(name="pathOptions")
     def path_options(self) -> pulumi.Output[Optional['outputs.DatasetPathOptions']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-pathoptions
+        PathOptions
         """
         return pulumi.get(self, "path_options")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-dataset.html#cfn-databrew-dataset-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DatasetTag']]]:
         return pulumi.get(self, "tags")
 

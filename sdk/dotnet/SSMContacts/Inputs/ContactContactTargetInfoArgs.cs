@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.SSMContacts.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html
+    /// The contact that SSM Incident Manager is engaging during an incident.
     /// </summary>
     public sealed class ContactContactTargetInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-contactid
+        /// The Amazon Resource Name (ARN) of the contact.
         /// </summary>
         [Input("contactId", required: true)]
         public Input<string> ContactId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-isessential
+        /// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
         /// </summary>
         [Input("isEssential", required: true)]
         public Input<bool> IsEssential { get; set; } = null!;

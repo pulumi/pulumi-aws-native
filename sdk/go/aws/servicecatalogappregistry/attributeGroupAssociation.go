@@ -11,17 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html
+// Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
 type AttributeGroupAssociation struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-application
+	// The name or the Id of the Application.
 	Application    pulumi.StringOutput `pulumi:"application"`
 	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-attributegroup
+	// The name or the Id of the AttributeGroup.
 	AttributeGroup    pulumi.StringOutput `pulumi:"attributeGroup"`
 	AttributeGroupArn pulumi.StringOutput `pulumi:"attributeGroupArn"`
-	Id                pulumi.StringOutput `pulumi:"id"`
 }
 
 // NewAttributeGroupAssociation registers a new resource with the given unique name, arguments, and options.
@@ -69,17 +68,17 @@ func (AttributeGroupAssociationState) ElementType() reflect.Type {
 }
 
 type attributeGroupAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-application
+	// The name or the Id of the Application.
 	Application string `pulumi:"application"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-attributegroup
+	// The name or the Id of the AttributeGroup.
 	AttributeGroup string `pulumi:"attributeGroup"`
 }
 
 // The set of arguments for constructing a AttributeGroupAssociation resource.
 type AttributeGroupAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-application
+	// The name or the Id of the Application.
 	Application pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-attributegroup
+	// The name or the Id of the AttributeGroup.
 	AttributeGroup pulumi.StringInput
 }
 

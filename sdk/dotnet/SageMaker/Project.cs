@@ -10,46 +10,52 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html
+    /// Resource Type definition for AWS::SageMaker::Project
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:Project")]
     public partial class Project : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The time at which the project was created.
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
         [Output("projectArn")]
         public Output<string> ProjectArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
-        /// </summary>
         [Output("projectDescription")]
         public Output<string?> ProjectDescription { get; private set; } = null!;
 
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
-        /// </summary>
         [Output("projectName")]
         public Output<string> ProjectName { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of a project.
+        /// </summary>
         [Output("projectStatus")]
         public Output<string> ProjectStatus { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
+        /// Provisioned ServiceCatalog  Details
         /// </summary>
-        [Output("serviceCatalogProvisioningDetails")]
-        public Output<Union<System.Text.Json.JsonElement, string>> ServiceCatalogProvisioningDetails { get; private set; } = null!;
+        [Output("serviceCatalogProvisionedProductDetails")]
+        public Output<object> ServiceCatalogProvisionedProductDetails { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
+        /// Input ServiceCatalog Provisioning Details
+        /// </summary>
+        [Output("serviceCatalogProvisioningDetails")]
+        public Output<object> ServiceCatalogProvisioningDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ProjectTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -96,33 +102,27 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class ProjectArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
-        /// </summary>
         [Input("projectDescription")]
         public Input<string>? ProjectDescription { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
-        /// </summary>
         [Input("projectName", required: true)]
         public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
+        /// Input ServiceCatalog Provisioning Details
         /// </summary>
         [Input("serviceCatalogProvisioningDetails", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> ServiceCatalogProvisioningDetails { get; set; } = null!;
+        public Input<object> ServiceCatalogProvisioningDetails { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.ProjectTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.ProjectTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ProjectTagArgs>());
             set => _tags = value;
         }
 

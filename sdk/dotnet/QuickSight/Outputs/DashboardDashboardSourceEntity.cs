@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourceentity.html
+    /// &lt;p&gt;Dashboard source entity.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DashboardDashboardSourceEntity
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourceentity.html#cfn-quicksight-dashboard-dashboardsourceentity-sourcetemplate
-        /// </summary>
         public readonly Outputs.DashboardDashboardSourceTemplate? SourceTemplate;
 
         [OutputConstructor]

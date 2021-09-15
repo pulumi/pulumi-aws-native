@@ -9,7 +9,9 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AssetTagArgs',
     'ChannelLogConfigurationArgs',
+    'ChannelTagArgs',
     'OriginEndpointAuthorizationArgs',
     'OriginEndpointCmafEncryptionArgs',
     'OriginEndpointCmafPackageArgs',
@@ -22,6 +24,7 @@ __all__ = [
     'OriginEndpointMssPackageArgs',
     'OriginEndpointSpekeKeyProviderArgs',
     'OriginEndpointStreamSelectionArgs',
+    'OriginEndpointTagArgs',
     'PackagingConfigurationCmafEncryptionArgs',
     'PackagingConfigurationCmafPackageArgs',
     'PackagingConfigurationDashEncryptionArgs',
@@ -35,17 +38,45 @@ __all__ = [
     'PackagingConfigurationMssPackageArgs',
     'PackagingConfigurationSpekeKeyProviderArgs',
     'PackagingConfigurationStreamSelectionArgs',
+    'PackagingConfigurationTagArgs',
     'PackagingGroupAuthorizationArgs',
     'PackagingGroupLogConfigurationArgs',
+    'PackagingGroupTagArgs',
 ]
+
+@pulumi.input_type
+class AssetTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class ChannelLogConfigurationArgs:
     def __init__(__self__, *,
                  log_group_name: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html
-        :param pulumi.Input[str] log_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html#cfn-mediapackage-channel-logconfiguration-loggroupname
+        :param pulumi.Input[str] log_group_name: Sets a custom AWS CloudWatch log group name for access logs. If a log group name isn't specified, the defaults are used: /aws/MediaPackage/EgressAccessLogs for egress access logs and /aws/MediaPackage/IngressAccessLogs for ingress access logs.
         """
         if log_group_name is not None:
             pulumi.set(__self__, "log_group_name", log_group_name)
@@ -54,7 +85,7 @@ class ChannelLogConfigurationArgs:
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html#cfn-mediapackage-channel-logconfiguration-loggroupname
+        Sets a custom AWS CloudWatch log group name for access logs. If a log group name isn't specified, the defaults are used: /aws/MediaPackage/EgressAccessLogs for egress access logs and /aws/MediaPackage/IngressAccessLogs for ingress access logs.
         """
         return pulumi.get(self, "log_group_name")
 
@@ -64,14 +95,41 @@ class ChannelLogConfigurationArgs:
 
 
 @pulumi.input_type
+class ChannelTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class OriginEndpointAuthorizationArgs:
     def __init__(__self__, *,
                  cdn_identifier_secret: pulumi.Input[str],
                  secrets_role_arn: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html
-        :param pulumi.Input[str] cdn_identifier_secret: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-cdnidentifiersecret
-        :param pulumi.Input[str] secrets_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-secretsrolearn
+        CDN Authorization credentials
+        :param pulumi.Input[str] cdn_identifier_secret: The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
+        :param pulumi.Input[str] secrets_role_arn: The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
         """
         pulumi.set(__self__, "cdn_identifier_secret", cdn_identifier_secret)
         pulumi.set(__self__, "secrets_role_arn", secrets_role_arn)
@@ -80,7 +138,7 @@ class OriginEndpointAuthorizationArgs:
     @pulumi.getter(name="cdnIdentifierSecret")
     def cdn_identifier_secret(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-cdnidentifiersecret
+        The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
         """
         return pulumi.get(self, "cdn_identifier_secret")
 
@@ -92,7 +150,7 @@ class OriginEndpointAuthorizationArgs:
     @pulumi.getter(name="secretsRoleArn")
     def secrets_role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-secretsrolearn
+        The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
         """
         return pulumi.get(self, "secrets_role_arn")
 
@@ -108,10 +166,9 @@ class OriginEndpointCmafEncryptionArgs:
                  constant_initialization_vector: Optional[pulumi.Input[str]] = None,
                  key_rotation_interval_seconds: Optional[pulumi.Input[int]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html
-        :param pulumi.Input['OriginEndpointSpekeKeyProviderArgs'] speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-spekekeyprovider
-        :param pulumi.Input[str] constant_initialization_vector: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-constantinitializationvector
-        :param pulumi.Input[int] key_rotation_interval_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-keyrotationintervalseconds
+        A Common Media Application Format (CMAF) encryption configuration.
+        :param pulumi.Input[str] constant_initialization_vector: An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
+        :param pulumi.Input[int] key_rotation_interval_seconds: Time (in seconds) between each encryption key rotation.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
         if constant_initialization_vector is not None:
@@ -122,9 +179,6 @@ class OriginEndpointCmafEncryptionArgs:
     @property
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['OriginEndpointSpekeKeyProviderArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-spekekeyprovider
-        """
         return pulumi.get(self, "speke_key_provider")
 
     @speke_key_provider.setter
@@ -135,7 +189,7 @@ class OriginEndpointCmafEncryptionArgs:
     @pulumi.getter(name="constantInitializationVector")
     def constant_initialization_vector(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-constantinitializationvector
+        An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
         """
         return pulumi.get(self, "constant_initialization_vector")
 
@@ -147,7 +201,7 @@ class OriginEndpointCmafEncryptionArgs:
     @pulumi.getter(name="keyRotationIntervalSeconds")
     def key_rotation_interval_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-keyrotationintervalseconds
+        Time (in seconds) between each encryption key rotation.
         """
         return pulumi.get(self, "key_rotation_interval_seconds")
 
@@ -165,12 +219,10 @@ class OriginEndpointCmafPackageArgs:
                  segment_prefix: Optional[pulumi.Input[str]] = None,
                  stream_selection: Optional[pulumi.Input['OriginEndpointStreamSelectionArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html
-        :param pulumi.Input['OriginEndpointCmafEncryptionArgs'] encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-encryption
-        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestArgs']]] hls_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-hlsmanifests
-        :param pulumi.Input[int] segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentdurationseconds
-        :param pulumi.Input[str] segment_prefix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentprefix
-        :param pulumi.Input['OriginEndpointStreamSelectionArgs'] stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-streamselection
+        A Common Media Application Format (CMAF) packaging configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestArgs']]] hls_manifests: A list of HLS manifest configurations
+        :param pulumi.Input[int] segment_duration_seconds: Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
+        :param pulumi.Input[str] segment_prefix: An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
         """
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
@@ -186,9 +238,6 @@ class OriginEndpointCmafPackageArgs:
     @property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['OriginEndpointCmafEncryptionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-encryption
-        """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
@@ -199,7 +248,7 @@ class OriginEndpointCmafPackageArgs:
     @pulumi.getter(name="hlsManifests")
     def hls_manifests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-hlsmanifests
+        A list of HLS manifest configurations
         """
         return pulumi.get(self, "hls_manifests")
 
@@ -211,7 +260,7 @@ class OriginEndpointCmafPackageArgs:
     @pulumi.getter(name="segmentDurationSeconds")
     def segment_duration_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentdurationseconds
+        Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
         """
         return pulumi.get(self, "segment_duration_seconds")
 
@@ -223,7 +272,7 @@ class OriginEndpointCmafPackageArgs:
     @pulumi.getter(name="segmentPrefix")
     def segment_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentprefix
+        An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
         """
         return pulumi.get(self, "segment_prefix")
 
@@ -234,9 +283,6 @@ class OriginEndpointCmafPackageArgs:
     @property
     @pulumi.getter(name="streamSelection")
     def stream_selection(self) -> Optional[pulumi.Input['OriginEndpointStreamSelectionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-streamselection
-        """
         return pulumi.get(self, "stream_selection")
 
     @stream_selection.setter
@@ -250,9 +296,8 @@ class OriginEndpointDashEncryptionArgs:
                  speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgs'],
                  key_rotation_interval_seconds: Optional[pulumi.Input[int]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html
-        :param pulumi.Input['OriginEndpointSpekeKeyProviderArgs'] speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-spekekeyprovider
-        :param pulumi.Input[int] key_rotation_interval_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-keyrotationintervalseconds
+        A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
+        :param pulumi.Input[int] key_rotation_interval_seconds: Time (in seconds) between each encryption key rotation.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
         if key_rotation_interval_seconds is not None:
@@ -261,9 +306,6 @@ class OriginEndpointDashEncryptionArgs:
     @property
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['OriginEndpointSpekeKeyProviderArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-spekekeyprovider
-        """
         return pulumi.get(self, "speke_key_provider")
 
     @speke_key_provider.setter
@@ -274,7 +316,7 @@ class OriginEndpointDashEncryptionArgs:
     @pulumi.getter(name="keyRotationIntervalSeconds")
     def key_rotation_interval_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-keyrotationintervalseconds
+        Time (in seconds) between each encryption key rotation.
         """
         return pulumi.get(self, "key_rotation_interval_seconds")
 
@@ -302,22 +344,19 @@ class OriginEndpointDashPackageArgs:
                  utc_timing: Optional[pulumi.Input[str]] = None,
                  utc_timing_uri: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ad_triggers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adtriggers
-        :param pulumi.Input[str] ads_on_delivery_restrictions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adsondeliveryrestrictions
-        :param pulumi.Input['OriginEndpointDashEncryptionArgs'] encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-encryption
-        :param pulumi.Input[str] manifest_layout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestlayout
-        :param pulumi.Input[int] manifest_window_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestwindowseconds
-        :param pulumi.Input[int] min_buffer_time_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minbuffertimeseconds
-        :param pulumi.Input[int] min_update_period_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minupdateperiodseconds
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] period_triggers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-periodtriggers
-        :param pulumi.Input[str] profile: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-profile
-        :param pulumi.Input[int] segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmentdurationseconds
-        :param pulumi.Input[str] segment_template_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmenttemplateformat
-        :param pulumi.Input['OriginEndpointStreamSelectionArgs'] stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-streamselection
-        :param pulumi.Input[int] suggested_presentation_delay_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds
-        :param pulumi.Input[str] utc_timing: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiming
-        :param pulumi.Input[str] utc_timing_uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiminguri
+        A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ad_triggers: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+        :param pulumi.Input[str] manifest_layout: Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
+        :param pulumi.Input[int] manifest_window_seconds: Time window (in seconds) contained in each manifest.
+        :param pulumi.Input[int] min_buffer_time_seconds: Minimum duration (in seconds) that a player will buffer media before starting the presentation.
+        :param pulumi.Input[int] min_update_period_seconds: Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] period_triggers: A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
+        :param pulumi.Input[str] profile: The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+        :param pulumi.Input[int] segment_duration_seconds: Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
+        :param pulumi.Input[str] segment_template_format: Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
+        :param pulumi.Input[int] suggested_presentation_delay_seconds: Duration (in seconds) to delay live content before presentation.
+        :param pulumi.Input[str] utc_timing: Determines the type of UTCTiming included in the Media Presentation Description (MPD)
+        :param pulumi.Input[str] utc_timing_uri: Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
         """
         if ad_triggers is not None:
             pulumi.set(__self__, "ad_triggers", ad_triggers)
@@ -354,7 +393,7 @@ class OriginEndpointDashPackageArgs:
     @pulumi.getter(name="adTriggers")
     def ad_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adtriggers
+        A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         """
         return pulumi.get(self, "ad_triggers")
 
@@ -365,9 +404,6 @@ class OriginEndpointDashPackageArgs:
     @property
     @pulumi.getter(name="adsOnDeliveryRestrictions")
     def ads_on_delivery_restrictions(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adsondeliveryrestrictions
-        """
         return pulumi.get(self, "ads_on_delivery_restrictions")
 
     @ads_on_delivery_restrictions.setter
@@ -377,9 +413,6 @@ class OriginEndpointDashPackageArgs:
     @property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['OriginEndpointDashEncryptionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-encryption
-        """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
@@ -390,7 +423,7 @@ class OriginEndpointDashPackageArgs:
     @pulumi.getter(name="manifestLayout")
     def manifest_layout(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestlayout
+        Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
         """
         return pulumi.get(self, "manifest_layout")
 
@@ -402,7 +435,7 @@ class OriginEndpointDashPackageArgs:
     @pulumi.getter(name="manifestWindowSeconds")
     def manifest_window_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestwindowseconds
+        Time window (in seconds) contained in each manifest.
         """
         return pulumi.get(self, "manifest_window_seconds")
 
@@ -414,7 +447,7 @@ class OriginEndpointDashPackageArgs:
     @pulumi.getter(name="minBufferTimeSeconds")
     def min_buffer_time_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minbuffertimeseconds
+        Minimum duration (in seconds) that a player will buffer media before starting the presentation.
         """
         return pulumi.get(self, "min_buffer_time_seconds")
 
@@ -426,7 +459,7 @@ class OriginEndpointDashPackageArgs:
     @pulumi.getter(name="minUpdatePeriodSeconds")
     def min_update_period_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minupdateperiodseconds
+        Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
         """
         return pulumi.get(self, "min_update_period_seconds")
 
@@ -438,7 +471,7 @@ class OriginEndpointDashPackageArgs:
     @pulumi.getter(name="periodTriggers")
     def period_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-periodtriggers
+        A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
         """
         return pulumi.get(self, "period_triggers")
 
@@ -450,7 +483,7 @@ class OriginEndpointDashPackageArgs:
     @pulumi.getter
     def profile(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-profile
+        The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
         """
         return pulumi.get(self, "profile")
 
@@ -462,7 +495,7 @@ class OriginEndpointDashPackageArgs:
     @pulumi.getter(name="segmentDurationSeconds")
     def segment_duration_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmentdurationseconds
+        Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
         """
         return pulumi.get(self, "segment_duration_seconds")
 
@@ -474,7 +507,7 @@ class OriginEndpointDashPackageArgs:
     @pulumi.getter(name="segmentTemplateFormat")
     def segment_template_format(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmenttemplateformat
+        Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
         """
         return pulumi.get(self, "segment_template_format")
 
@@ -485,9 +518,6 @@ class OriginEndpointDashPackageArgs:
     @property
     @pulumi.getter(name="streamSelection")
     def stream_selection(self) -> Optional[pulumi.Input['OriginEndpointStreamSelectionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-streamselection
-        """
         return pulumi.get(self, "stream_selection")
 
     @stream_selection.setter
@@ -498,7 +528,7 @@ class OriginEndpointDashPackageArgs:
     @pulumi.getter(name="suggestedPresentationDelaySeconds")
     def suggested_presentation_delay_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds
+        Duration (in seconds) to delay live content before presentation.
         """
         return pulumi.get(self, "suggested_presentation_delay_seconds")
 
@@ -510,7 +540,7 @@ class OriginEndpointDashPackageArgs:
     @pulumi.getter(name="utcTiming")
     def utc_timing(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiming
+        Determines the type of UTCTiming included in the Media Presentation Description (MPD)
         """
         return pulumi.get(self, "utc_timing")
 
@@ -522,7 +552,7 @@ class OriginEndpointDashPackageArgs:
     @pulumi.getter(name="utcTimingUri")
     def utc_timing_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiminguri
+        Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
         """
         return pulumi.get(self, "utc_timing_uri")
 
@@ -540,12 +570,11 @@ class OriginEndpointHlsEncryptionArgs:
                  key_rotation_interval_seconds: Optional[pulumi.Input[int]] = None,
                  repeat_ext_x_key: Optional[pulumi.Input[bool]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html
-        :param pulumi.Input['OriginEndpointSpekeKeyProviderArgs'] speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-spekekeyprovider
-        :param pulumi.Input[str] constant_initialization_vector: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-constantinitializationvector
-        :param pulumi.Input[str] encryption_method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-encryptionmethod
-        :param pulumi.Input[int] key_rotation_interval_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-keyrotationintervalseconds
-        :param pulumi.Input[bool] repeat_ext_x_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-repeatextxkey
+        An HTTP Live Streaming (HLS) encryption configuration.
+        :param pulumi.Input[str] constant_initialization_vector: A constant initialization vector for encryption (optional). When not specified the initialization vector will be periodically rotated.
+        :param pulumi.Input[str] encryption_method: The encryption method to use.
+        :param pulumi.Input[int] key_rotation_interval_seconds: Interval (in seconds) between each encryption key rotation.
+        :param pulumi.Input[bool] repeat_ext_x_key: When enabled, the EXT-X-KEY tag will be repeated in output manifests.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
         if constant_initialization_vector is not None:
@@ -560,9 +589,6 @@ class OriginEndpointHlsEncryptionArgs:
     @property
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['OriginEndpointSpekeKeyProviderArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-spekekeyprovider
-        """
         return pulumi.get(self, "speke_key_provider")
 
     @speke_key_provider.setter
@@ -573,7 +599,7 @@ class OriginEndpointHlsEncryptionArgs:
     @pulumi.getter(name="constantInitializationVector")
     def constant_initialization_vector(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-constantinitializationvector
+        A constant initialization vector for encryption (optional). When not specified the initialization vector will be periodically rotated.
         """
         return pulumi.get(self, "constant_initialization_vector")
 
@@ -585,7 +611,7 @@ class OriginEndpointHlsEncryptionArgs:
     @pulumi.getter(name="encryptionMethod")
     def encryption_method(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-encryptionmethod
+        The encryption method to use.
         """
         return pulumi.get(self, "encryption_method")
 
@@ -597,7 +623,7 @@ class OriginEndpointHlsEncryptionArgs:
     @pulumi.getter(name="keyRotationIntervalSeconds")
     def key_rotation_interval_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-keyrotationintervalseconds
+        Interval (in seconds) between each encryption key rotation.
         """
         return pulumi.get(self, "key_rotation_interval_seconds")
 
@@ -609,7 +635,7 @@ class OriginEndpointHlsEncryptionArgs:
     @pulumi.getter(name="repeatExtXKey")
     def repeat_ext_x_key(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-repeatextxkey
+        When enabled, the EXT-X-KEY tag will be repeated in output manifests.
         """
         return pulumi.get(self, "repeat_ext_x_key")
 
@@ -632,17 +658,16 @@ class OriginEndpointHlsManifestArgs:
                  program_date_time_interval_seconds: Optional[pulumi.Input[int]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html
-        :param pulumi.Input[str] id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-id
-        :param pulumi.Input[str] ad_markers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-admarkers
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ad_triggers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-adtriggers
-        :param pulumi.Input[str] ads_on_delivery_restrictions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-adsondeliveryrestrictions
-        :param pulumi.Input[bool] include_iframe_only_stream: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-includeiframeonlystream
-        :param pulumi.Input[str] manifest_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-manifestname
-        :param pulumi.Input[str] playlist_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-playlisttype
-        :param pulumi.Input[int] playlist_window_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-playlistwindowseconds
-        :param pulumi.Input[int] program_date_time_interval_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-programdatetimeintervalseconds
-        :param pulumi.Input[str] url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-url
+        A HTTP Live Streaming (HLS) manifest configuration.
+        :param pulumi.Input[str] id: The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
+        :param pulumi.Input[str] ad_markers: This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ad_triggers: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+        :param pulumi.Input[bool] include_iframe_only_stream: When enabled, an I-Frame only stream will be included in the output.
+        :param pulumi.Input[str] manifest_name: An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
+        :param pulumi.Input[str] playlist_type: The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
+        :param pulumi.Input[int] playlist_window_seconds: Time window (in seconds) contained in each parent manifest.
+        :param pulumi.Input[int] program_date_time_interval_seconds: The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
+        :param pulumi.Input[str] url: The URL of the packaged OriginEndpoint for consumption.
         """
         pulumi.set(__self__, "id", id)
         if ad_markers is not None:
@@ -668,7 +693,7 @@ class OriginEndpointHlsManifestArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-id
+        The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
         """
         return pulumi.get(self, "id")
 
@@ -680,7 +705,7 @@ class OriginEndpointHlsManifestArgs:
     @pulumi.getter(name="adMarkers")
     def ad_markers(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-admarkers
+        This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
         """
         return pulumi.get(self, "ad_markers")
 
@@ -692,7 +717,7 @@ class OriginEndpointHlsManifestArgs:
     @pulumi.getter(name="adTriggers")
     def ad_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-adtriggers
+        A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         """
         return pulumi.get(self, "ad_triggers")
 
@@ -703,9 +728,6 @@ class OriginEndpointHlsManifestArgs:
     @property
     @pulumi.getter(name="adsOnDeliveryRestrictions")
     def ads_on_delivery_restrictions(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-adsondeliveryrestrictions
-        """
         return pulumi.get(self, "ads_on_delivery_restrictions")
 
     @ads_on_delivery_restrictions.setter
@@ -716,7 +738,7 @@ class OriginEndpointHlsManifestArgs:
     @pulumi.getter(name="includeIframeOnlyStream")
     def include_iframe_only_stream(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-includeiframeonlystream
+        When enabled, an I-Frame only stream will be included in the output.
         """
         return pulumi.get(self, "include_iframe_only_stream")
 
@@ -728,7 +750,7 @@ class OriginEndpointHlsManifestArgs:
     @pulumi.getter(name="manifestName")
     def manifest_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-manifestname
+        An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
         """
         return pulumi.get(self, "manifest_name")
 
@@ -740,7 +762,7 @@ class OriginEndpointHlsManifestArgs:
     @pulumi.getter(name="playlistType")
     def playlist_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-playlisttype
+        The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
         """
         return pulumi.get(self, "playlist_type")
 
@@ -752,7 +774,7 @@ class OriginEndpointHlsManifestArgs:
     @pulumi.getter(name="playlistWindowSeconds")
     def playlist_window_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-playlistwindowseconds
+        Time window (in seconds) contained in each parent manifest.
         """
         return pulumi.get(self, "playlist_window_seconds")
 
@@ -764,7 +786,7 @@ class OriginEndpointHlsManifestArgs:
     @pulumi.getter(name="programDateTimeIntervalSeconds")
     def program_date_time_interval_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-programdatetimeintervalseconds
+        The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
         """
         return pulumi.get(self, "program_date_time_interval_seconds")
 
@@ -776,7 +798,7 @@ class OriginEndpointHlsManifestArgs:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-url
+        The URL of the packaged OriginEndpoint for consumption.
         """
         return pulumi.get(self, "url")
 
@@ -800,18 +822,15 @@ class OriginEndpointHlsPackageArgs:
                  stream_selection: Optional[pulumi.Input['OriginEndpointStreamSelectionArgs']] = None,
                  use_audio_rendition_group: Optional[pulumi.Input[bool]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html
-        :param pulumi.Input[str] ad_markers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-admarkers
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ad_triggers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adtriggers
-        :param pulumi.Input[str] ads_on_delivery_restrictions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adsondeliveryrestrictions
-        :param pulumi.Input['OriginEndpointHlsEncryptionArgs'] encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-encryption
-        :param pulumi.Input[bool] include_iframe_only_stream: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-includeiframeonlystream
-        :param pulumi.Input[str] playlist_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlisttype
-        :param pulumi.Input[int] playlist_window_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlistwindowseconds
-        :param pulumi.Input[int] program_date_time_interval_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-programdatetimeintervalseconds
-        :param pulumi.Input[int] segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-segmentdurationseconds
-        :param pulumi.Input['OriginEndpointStreamSelectionArgs'] stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-streamselection
-        :param pulumi.Input[bool] use_audio_rendition_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-useaudiorenditiongroup
+        An HTTP Live Streaming (HLS) packaging configuration.
+        :param pulumi.Input[str] ad_markers: This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ad_triggers: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+        :param pulumi.Input[bool] include_iframe_only_stream: When enabled, an I-Frame only stream will be included in the output.
+        :param pulumi.Input[str] playlist_type: The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
+        :param pulumi.Input[int] playlist_window_seconds: Time window (in seconds) contained in each parent manifest.
+        :param pulumi.Input[int] program_date_time_interval_seconds: The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
+        :param pulumi.Input[int] segment_duration_seconds: Duration (in seconds) of each fragment. Actual fragments will be rounded to the nearest multiple of the source fragment duration.
+        :param pulumi.Input[bool] use_audio_rendition_group: When enabled, audio streams will be placed in rendition groups in the output.
         """
         if ad_markers is not None:
             pulumi.set(__self__, "ad_markers", ad_markers)
@@ -840,7 +859,7 @@ class OriginEndpointHlsPackageArgs:
     @pulumi.getter(name="adMarkers")
     def ad_markers(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-admarkers
+        This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
         """
         return pulumi.get(self, "ad_markers")
 
@@ -852,7 +871,7 @@ class OriginEndpointHlsPackageArgs:
     @pulumi.getter(name="adTriggers")
     def ad_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adtriggers
+        A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         """
         return pulumi.get(self, "ad_triggers")
 
@@ -863,9 +882,6 @@ class OriginEndpointHlsPackageArgs:
     @property
     @pulumi.getter(name="adsOnDeliveryRestrictions")
     def ads_on_delivery_restrictions(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adsondeliveryrestrictions
-        """
         return pulumi.get(self, "ads_on_delivery_restrictions")
 
     @ads_on_delivery_restrictions.setter
@@ -875,9 +891,6 @@ class OriginEndpointHlsPackageArgs:
     @property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['OriginEndpointHlsEncryptionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-encryption
-        """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
@@ -888,7 +901,7 @@ class OriginEndpointHlsPackageArgs:
     @pulumi.getter(name="includeIframeOnlyStream")
     def include_iframe_only_stream(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-includeiframeonlystream
+        When enabled, an I-Frame only stream will be included in the output.
         """
         return pulumi.get(self, "include_iframe_only_stream")
 
@@ -900,7 +913,7 @@ class OriginEndpointHlsPackageArgs:
     @pulumi.getter(name="playlistType")
     def playlist_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlisttype
+        The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
         """
         return pulumi.get(self, "playlist_type")
 
@@ -912,7 +925,7 @@ class OriginEndpointHlsPackageArgs:
     @pulumi.getter(name="playlistWindowSeconds")
     def playlist_window_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlistwindowseconds
+        Time window (in seconds) contained in each parent manifest.
         """
         return pulumi.get(self, "playlist_window_seconds")
 
@@ -924,7 +937,7 @@ class OriginEndpointHlsPackageArgs:
     @pulumi.getter(name="programDateTimeIntervalSeconds")
     def program_date_time_interval_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-programdatetimeintervalseconds
+        The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
         """
         return pulumi.get(self, "program_date_time_interval_seconds")
 
@@ -936,7 +949,7 @@ class OriginEndpointHlsPackageArgs:
     @pulumi.getter(name="segmentDurationSeconds")
     def segment_duration_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-segmentdurationseconds
+        Duration (in seconds) of each fragment. Actual fragments will be rounded to the nearest multiple of the source fragment duration.
         """
         return pulumi.get(self, "segment_duration_seconds")
 
@@ -947,9 +960,6 @@ class OriginEndpointHlsPackageArgs:
     @property
     @pulumi.getter(name="streamSelection")
     def stream_selection(self) -> Optional[pulumi.Input['OriginEndpointStreamSelectionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-streamselection
-        """
         return pulumi.get(self, "stream_selection")
 
     @stream_selection.setter
@@ -960,7 +970,7 @@ class OriginEndpointHlsPackageArgs:
     @pulumi.getter(name="useAudioRenditionGroup")
     def use_audio_rendition_group(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-useaudiorenditiongroup
+        When enabled, audio streams will be placed in rendition groups in the output.
         """
         return pulumi.get(self, "use_audio_rendition_group")
 
@@ -974,17 +984,13 @@ class OriginEndpointMssEncryptionArgs:
     def __init__(__self__, *,
                  speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgs']):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html
-        :param pulumi.Input['OriginEndpointSpekeKeyProviderArgs'] speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html#cfn-mediapackage-originendpoint-mssencryption-spekekeyprovider
+        A Microsoft Smooth Streaming (MSS) encryption configuration.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
     @property
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['OriginEndpointSpekeKeyProviderArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html#cfn-mediapackage-originendpoint-mssencryption-spekekeyprovider
-        """
         return pulumi.get(self, "speke_key_provider")
 
     @speke_key_provider.setter
@@ -1000,11 +1006,9 @@ class OriginEndpointMssPackageArgs:
                  segment_duration_seconds: Optional[pulumi.Input[int]] = None,
                  stream_selection: Optional[pulumi.Input['OriginEndpointStreamSelectionArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html
-        :param pulumi.Input['OriginEndpointMssEncryptionArgs'] encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-encryption
-        :param pulumi.Input[int] manifest_window_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-manifestwindowseconds
-        :param pulumi.Input[int] segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-segmentdurationseconds
-        :param pulumi.Input['OriginEndpointStreamSelectionArgs'] stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-streamselection
+        A Microsoft Smooth Streaming (MSS) packaging configuration.
+        :param pulumi.Input[int] manifest_window_seconds: The time window (in seconds) contained in each manifest.
+        :param pulumi.Input[int] segment_duration_seconds: The duration (in seconds) of each segment.
         """
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
@@ -1018,9 +1022,6 @@ class OriginEndpointMssPackageArgs:
     @property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['OriginEndpointMssEncryptionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-encryption
-        """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
@@ -1031,7 +1032,7 @@ class OriginEndpointMssPackageArgs:
     @pulumi.getter(name="manifestWindowSeconds")
     def manifest_window_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-manifestwindowseconds
+        The time window (in seconds) contained in each manifest.
         """
         return pulumi.get(self, "manifest_window_seconds")
 
@@ -1043,7 +1044,7 @@ class OriginEndpointMssPackageArgs:
     @pulumi.getter(name="segmentDurationSeconds")
     def segment_duration_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-segmentdurationseconds
+        The duration (in seconds) of each segment.
         """
         return pulumi.get(self, "segment_duration_seconds")
 
@@ -1054,9 +1055,6 @@ class OriginEndpointMssPackageArgs:
     @property
     @pulumi.getter(name="streamSelection")
     def stream_selection(self) -> Optional[pulumi.Input['OriginEndpointStreamSelectionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-streamselection
-        """
         return pulumi.get(self, "stream_selection")
 
     @stream_selection.setter
@@ -1073,12 +1071,12 @@ class OriginEndpointSpekeKeyProviderArgs:
                  url: pulumi.Input[str],
                  certificate_arn: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html
-        :param pulumi.Input[str] resource_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-resourceid
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] system_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-systemids
-        :param pulumi.Input[str] url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-url
-        :param pulumi.Input[str] certificate_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-certificatearn
+        A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
+        :param pulumi.Input[str] resource_id: The resource ID to include in key requests.
+        :param pulumi.Input[str] role_arn: An Amazon Resource Name (ARN) of an IAM role that AWS Elemental MediaPackage will assume when accessing the key provider service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] system_ids: The system IDs to include in key requests.
+        :param pulumi.Input[str] url: The URL of the external key provider service.
+        :param pulumi.Input[str] certificate_arn: An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
         """
         pulumi.set(__self__, "resource_id", resource_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -1091,7 +1089,7 @@ class OriginEndpointSpekeKeyProviderArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-resourceid
+        The resource ID to include in key requests.
         """
         return pulumi.get(self, "resource_id")
 
@@ -1103,7 +1101,7 @@ class OriginEndpointSpekeKeyProviderArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-rolearn
+        An Amazon Resource Name (ARN) of an IAM role that AWS Elemental MediaPackage will assume when accessing the key provider service.
         """
         return pulumi.get(self, "role_arn")
 
@@ -1115,7 +1113,7 @@ class OriginEndpointSpekeKeyProviderArgs:
     @pulumi.getter(name="systemIds")
     def system_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-systemids
+        The system IDs to include in key requests.
         """
         return pulumi.get(self, "system_ids")
 
@@ -1127,7 +1125,7 @@ class OriginEndpointSpekeKeyProviderArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-url
+        The URL of the external key provider service.
         """
         return pulumi.get(self, "url")
 
@@ -1139,7 +1137,7 @@ class OriginEndpointSpekeKeyProviderArgs:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-certificatearn
+        An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
         """
         return pulumi.get(self, "certificate_arn")
 
@@ -1155,10 +1153,10 @@ class OriginEndpointStreamSelectionArgs:
                  min_video_bits_per_second: Optional[pulumi.Input[int]] = None,
                  stream_order: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html
-        :param pulumi.Input[int] max_video_bits_per_second: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-maxvideobitspersecond
-        :param pulumi.Input[int] min_video_bits_per_second: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-minvideobitspersecond
-        :param pulumi.Input[str] stream_order: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-streamorder
+        A StreamSelection configuration.
+        :param pulumi.Input[int] max_video_bits_per_second: The maximum video bitrate (bps) to include in output.
+        :param pulumi.Input[int] min_video_bits_per_second: The minimum video bitrate (bps) to include in output.
+        :param pulumi.Input[str] stream_order: A directive that determines the order of streams in the output.
         """
         if max_video_bits_per_second is not None:
             pulumi.set(__self__, "max_video_bits_per_second", max_video_bits_per_second)
@@ -1171,7 +1169,7 @@ class OriginEndpointStreamSelectionArgs:
     @pulumi.getter(name="maxVideoBitsPerSecond")
     def max_video_bits_per_second(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-maxvideobitspersecond
+        The maximum video bitrate (bps) to include in output.
         """
         return pulumi.get(self, "max_video_bits_per_second")
 
@@ -1183,7 +1181,7 @@ class OriginEndpointStreamSelectionArgs:
     @pulumi.getter(name="minVideoBitsPerSecond")
     def min_video_bits_per_second(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-minvideobitspersecond
+        The minimum video bitrate (bps) to include in output.
         """
         return pulumi.get(self, "min_video_bits_per_second")
 
@@ -1195,7 +1193,7 @@ class OriginEndpointStreamSelectionArgs:
     @pulumi.getter(name="streamOrder")
     def stream_order(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-streamorder
+        A directive that determines the order of streams in the output.
         """
         return pulumi.get(self, "stream_order")
 
@@ -1205,21 +1203,44 @@ class OriginEndpointStreamSelectionArgs:
 
 
 @pulumi.input_type
+class OriginEndpointTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class PackagingConfigurationCmafEncryptionArgs:
     def __init__(__self__, *,
                  speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs']):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html
-        :param pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs'] speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
+        A CMAF encryption configuration.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
     @property
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
-        """
         return pulumi.get(self, "speke_key_provider")
 
     @speke_key_provider.setter
@@ -1235,11 +1256,9 @@ class PackagingConfigurationCmafPackageArgs:
                  include_encoder_configuration_in_segments: Optional[pulumi.Input[bool]] = None,
                  segment_duration_seconds: Optional[pulumi.Input[int]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html
-        :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationHlsManifestArgs']]] hls_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-hlsmanifests
-        :param pulumi.Input['PackagingConfigurationCmafEncryptionArgs'] encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-encryption
-        :param pulumi.Input[bool] include_encoder_configuration_in_segments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-includeencoderconfigurationinsegments
-        :param pulumi.Input[int] segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
+        A CMAF packaging configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationHlsManifestArgs']]] hls_manifests: A list of HLS manifest configurations.
+        :param pulumi.Input[bool] include_encoder_configuration_in_segments: When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
         """
         pulumi.set(__self__, "hls_manifests", hls_manifests)
         if encryption is not None:
@@ -1253,7 +1272,7 @@ class PackagingConfigurationCmafPackageArgs:
     @pulumi.getter(name="hlsManifests")
     def hls_manifests(self) -> pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationHlsManifestArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-hlsmanifests
+        A list of HLS manifest configurations.
         """
         return pulumi.get(self, "hls_manifests")
 
@@ -1264,9 +1283,6 @@ class PackagingConfigurationCmafPackageArgs:
     @property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['PackagingConfigurationCmafEncryptionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-encryption
-        """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
@@ -1277,7 +1293,7 @@ class PackagingConfigurationCmafPackageArgs:
     @pulumi.getter(name="includeEncoderConfigurationInSegments")
     def include_encoder_configuration_in_segments(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-includeencoderconfigurationinsegments
+        When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
         """
         return pulumi.get(self, "include_encoder_configuration_in_segments")
 
@@ -1288,9 +1304,6 @@ class PackagingConfigurationCmafPackageArgs:
     @property
     @pulumi.getter(name="segmentDurationSeconds")
     def segment_duration_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
-        """
         return pulumi.get(self, "segment_duration_seconds")
 
     @segment_duration_seconds.setter
@@ -1303,17 +1316,13 @@ class PackagingConfigurationDashEncryptionArgs:
     def __init__(__self__, *,
                  speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs']):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html
-        :param pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs'] speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
+        A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
     @property
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
-        """
         return pulumi.get(self, "speke_key_provider")
 
     @speke_key_provider.setter
@@ -1330,12 +1339,10 @@ class PackagingConfigurationDashManifestArgs:
                  profile: Optional[pulumi.Input[str]] = None,
                  stream_selection: Optional[pulumi.Input['PackagingConfigurationStreamSelectionArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html
-        :param pulumi.Input[str] manifest_layout: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-manifestlayout
-        :param pulumi.Input[str] manifest_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-manifestname
-        :param pulumi.Input[int] min_buffer_time_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-minbuffertimeseconds
-        :param pulumi.Input[str] profile: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-profile
-        :param pulumi.Input['PackagingConfigurationStreamSelectionArgs'] stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-streamselection
+        A DASH manifest configuration.
+        :param pulumi.Input[str] manifest_layout: Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
+        :param pulumi.Input[int] min_buffer_time_seconds: Minimum duration (in seconds) that a player will buffer media before starting the presentation.
+        :param pulumi.Input[str] profile: The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
         """
         if manifest_layout is not None:
             pulumi.set(__self__, "manifest_layout", manifest_layout)
@@ -1352,7 +1359,7 @@ class PackagingConfigurationDashManifestArgs:
     @pulumi.getter(name="manifestLayout")
     def manifest_layout(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-manifestlayout
+        Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
         """
         return pulumi.get(self, "manifest_layout")
 
@@ -1363,9 +1370,6 @@ class PackagingConfigurationDashManifestArgs:
     @property
     @pulumi.getter(name="manifestName")
     def manifest_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-manifestname
-        """
         return pulumi.get(self, "manifest_name")
 
     @manifest_name.setter
@@ -1376,7 +1380,7 @@ class PackagingConfigurationDashManifestArgs:
     @pulumi.getter(name="minBufferTimeSeconds")
     def min_buffer_time_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-minbuffertimeseconds
+        Minimum duration (in seconds) that a player will buffer media before starting the presentation.
         """
         return pulumi.get(self, "min_buffer_time_seconds")
 
@@ -1388,7 +1392,7 @@ class PackagingConfigurationDashManifestArgs:
     @pulumi.getter
     def profile(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-profile
+        The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
         """
         return pulumi.get(self, "profile")
 
@@ -1399,9 +1403,6 @@ class PackagingConfigurationDashManifestArgs:
     @property
     @pulumi.getter(name="streamSelection")
     def stream_selection(self) -> Optional[pulumi.Input['PackagingConfigurationStreamSelectionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-streamselection
-        """
         return pulumi.get(self, "stream_selection")
 
     @stream_selection.setter
@@ -1419,13 +1420,11 @@ class PackagingConfigurationDashPackageArgs:
                  segment_duration_seconds: Optional[pulumi.Input[int]] = None,
                  segment_template_format: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html
-        :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashManifestArgs']]] dash_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-dashmanifests
-        :param pulumi.Input['PackagingConfigurationDashEncryptionArgs'] encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
-        :param pulumi.Input[bool] include_encoder_configuration_in_segments: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] period_triggers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
-        :param pulumi.Input[int] segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmentdurationseconds
-        :param pulumi.Input[str] segment_template_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmenttemplateformat
+        A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashManifestArgs']]] dash_manifests: A list of DASH manifest configurations.
+        :param pulumi.Input[bool] include_encoder_configuration_in_segments: When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] period_triggers: A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
+        :param pulumi.Input[str] segment_template_format: Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
         """
         pulumi.set(__self__, "dash_manifests", dash_manifests)
         if encryption is not None:
@@ -1443,7 +1442,7 @@ class PackagingConfigurationDashPackageArgs:
     @pulumi.getter(name="dashManifests")
     def dash_manifests(self) -> pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashManifestArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-dashmanifests
+        A list of DASH manifest configurations.
         """
         return pulumi.get(self, "dash_manifests")
 
@@ -1454,9 +1453,6 @@ class PackagingConfigurationDashPackageArgs:
     @property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['PackagingConfigurationDashEncryptionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
-        """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
@@ -1467,7 +1463,7 @@ class PackagingConfigurationDashPackageArgs:
     @pulumi.getter(name="includeEncoderConfigurationInSegments")
     def include_encoder_configuration_in_segments(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
+        When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
         """
         return pulumi.get(self, "include_encoder_configuration_in_segments")
 
@@ -1479,7 +1475,7 @@ class PackagingConfigurationDashPackageArgs:
     @pulumi.getter(name="periodTriggers")
     def period_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
+        A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
         """
         return pulumi.get(self, "period_triggers")
 
@@ -1490,9 +1486,6 @@ class PackagingConfigurationDashPackageArgs:
     @property
     @pulumi.getter(name="segmentDurationSeconds")
     def segment_duration_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmentdurationseconds
-        """
         return pulumi.get(self, "segment_duration_seconds")
 
     @segment_duration_seconds.setter
@@ -1503,7 +1496,7 @@ class PackagingConfigurationDashPackageArgs:
     @pulumi.getter(name="segmentTemplateFormat")
     def segment_template_format(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmenttemplateformat
+        Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
         """
         return pulumi.get(self, "segment_template_format")
 
@@ -1519,10 +1512,9 @@ class PackagingConfigurationHlsEncryptionArgs:
                  constant_initialization_vector: Optional[pulumi.Input[str]] = None,
                  encryption_method: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html
-        :param pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs'] speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
-        :param pulumi.Input[str] constant_initialization_vector: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-constantinitializationvector
-        :param pulumi.Input[str] encryption_method: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-encryptionmethod
+        An HTTP Live Streaming (HLS) encryption configuration.
+        :param pulumi.Input[str] constant_initialization_vector: An HTTP Live Streaming (HLS) encryption configuration.
+        :param pulumi.Input[str] encryption_method: The encryption method to use.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
         if constant_initialization_vector is not None:
@@ -1533,9 +1525,6 @@ class PackagingConfigurationHlsEncryptionArgs:
     @property
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
-        """
         return pulumi.get(self, "speke_key_provider")
 
     @speke_key_provider.setter
@@ -1546,7 +1535,7 @@ class PackagingConfigurationHlsEncryptionArgs:
     @pulumi.getter(name="constantInitializationVector")
     def constant_initialization_vector(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-constantinitializationvector
+        An HTTP Live Streaming (HLS) encryption configuration.
         """
         return pulumi.get(self, "constant_initialization_vector")
 
@@ -1558,7 +1547,7 @@ class PackagingConfigurationHlsEncryptionArgs:
     @pulumi.getter(name="encryptionMethod")
     def encryption_method(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-encryptionmethod
+        The encryption method to use.
         """
         return pulumi.get(self, "encryption_method")
 
@@ -1577,13 +1566,11 @@ class PackagingConfigurationHlsManifestArgs:
                  repeat_ext_x_key: Optional[pulumi.Input[bool]] = None,
                  stream_selection: Optional[pulumi.Input['PackagingConfigurationStreamSelectionArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html
-        :param pulumi.Input[str] ad_markers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-admarkers
-        :param pulumi.Input[bool] include_iframe_only_stream: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-includeiframeonlystream
-        :param pulumi.Input[str] manifest_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-manifestname
-        :param pulumi.Input[int] program_date_time_interval_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-programdatetimeintervalseconds
-        :param pulumi.Input[bool] repeat_ext_x_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-repeatextxkey
-        :param pulumi.Input['PackagingConfigurationStreamSelectionArgs'] stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-streamselection
+        An HTTP Live Streaming (HLS) manifest configuration.
+        :param pulumi.Input[str] ad_markers: This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
+        :param pulumi.Input[bool] include_iframe_only_stream: When enabled, an I-Frame only stream will be included in the output.
+        :param pulumi.Input[int] program_date_time_interval_seconds: The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
+        :param pulumi.Input[bool] repeat_ext_x_key: When enabled, the EXT-X-KEY tag will be repeated in output manifests.
         """
         if ad_markers is not None:
             pulumi.set(__self__, "ad_markers", ad_markers)
@@ -1602,7 +1589,7 @@ class PackagingConfigurationHlsManifestArgs:
     @pulumi.getter(name="adMarkers")
     def ad_markers(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-admarkers
+        This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
         """
         return pulumi.get(self, "ad_markers")
 
@@ -1614,7 +1601,7 @@ class PackagingConfigurationHlsManifestArgs:
     @pulumi.getter(name="includeIframeOnlyStream")
     def include_iframe_only_stream(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-includeiframeonlystream
+        When enabled, an I-Frame only stream will be included in the output.
         """
         return pulumi.get(self, "include_iframe_only_stream")
 
@@ -1625,9 +1612,6 @@ class PackagingConfigurationHlsManifestArgs:
     @property
     @pulumi.getter(name="manifestName")
     def manifest_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-manifestname
-        """
         return pulumi.get(self, "manifest_name")
 
     @manifest_name.setter
@@ -1638,7 +1622,7 @@ class PackagingConfigurationHlsManifestArgs:
     @pulumi.getter(name="programDateTimeIntervalSeconds")
     def program_date_time_interval_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-programdatetimeintervalseconds
+        The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
         """
         return pulumi.get(self, "program_date_time_interval_seconds")
 
@@ -1650,7 +1634,7 @@ class PackagingConfigurationHlsManifestArgs:
     @pulumi.getter(name="repeatExtXKey")
     def repeat_ext_x_key(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-repeatextxkey
+        When enabled, the EXT-X-KEY tag will be repeated in output manifests.
         """
         return pulumi.get(self, "repeat_ext_x_key")
 
@@ -1661,9 +1645,6 @@ class PackagingConfigurationHlsManifestArgs:
     @property
     @pulumi.getter(name="streamSelection")
     def stream_selection(self) -> Optional[pulumi.Input['PackagingConfigurationStreamSelectionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-streamselection
-        """
         return pulumi.get(self, "stream_selection")
 
     @stream_selection.setter
@@ -1679,11 +1660,9 @@ class PackagingConfigurationHlsPackageArgs:
                  segment_duration_seconds: Optional[pulumi.Input[int]] = None,
                  use_audio_rendition_group: Optional[pulumi.Input[bool]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html
-        :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationHlsManifestArgs']]] hls_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-hlsmanifests
-        :param pulumi.Input['PackagingConfigurationHlsEncryptionArgs'] encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-encryption
-        :param pulumi.Input[int] segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-segmentdurationseconds
-        :param pulumi.Input[bool] use_audio_rendition_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-useaudiorenditiongroup
+        An HTTP Live Streaming (HLS) packaging configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationHlsManifestArgs']]] hls_manifests: A list of HLS manifest configurations.
+        :param pulumi.Input[bool] use_audio_rendition_group: When enabled, audio streams will be placed in rendition groups in the output.
         """
         pulumi.set(__self__, "hls_manifests", hls_manifests)
         if encryption is not None:
@@ -1697,7 +1676,7 @@ class PackagingConfigurationHlsPackageArgs:
     @pulumi.getter(name="hlsManifests")
     def hls_manifests(self) -> pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationHlsManifestArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-hlsmanifests
+        A list of HLS manifest configurations.
         """
         return pulumi.get(self, "hls_manifests")
 
@@ -1708,9 +1687,6 @@ class PackagingConfigurationHlsPackageArgs:
     @property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['PackagingConfigurationHlsEncryptionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-encryption
-        """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
@@ -1720,9 +1696,6 @@ class PackagingConfigurationHlsPackageArgs:
     @property
     @pulumi.getter(name="segmentDurationSeconds")
     def segment_duration_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-segmentdurationseconds
-        """
         return pulumi.get(self, "segment_duration_seconds")
 
     @segment_duration_seconds.setter
@@ -1733,7 +1706,7 @@ class PackagingConfigurationHlsPackageArgs:
     @pulumi.getter(name="useAudioRenditionGroup")
     def use_audio_rendition_group(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-useaudiorenditiongroup
+        When enabled, audio streams will be placed in rendition groups in the output.
         """
         return pulumi.get(self, "use_audio_rendition_group")
 
@@ -1747,17 +1720,13 @@ class PackagingConfigurationMssEncryptionArgs:
     def __init__(__self__, *,
                  speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs']):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html
-        :param pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs'] speke_key_provider: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider
+        A CMAF encryption configuration.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
     @property
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider
-        """
         return pulumi.get(self, "speke_key_provider")
 
     @speke_key_provider.setter
@@ -1771,9 +1740,7 @@ class PackagingConfigurationMssManifestArgs:
                  manifest_name: Optional[pulumi.Input[str]] = None,
                  stream_selection: Optional[pulumi.Input['PackagingConfigurationStreamSelectionArgs']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html
-        :param pulumi.Input[str] manifest_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-manifestname
-        :param pulumi.Input['PackagingConfigurationStreamSelectionArgs'] stream_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-streamselection
+        A Microsoft Smooth Streaming (MSS) manifest configuration.
         """
         if manifest_name is not None:
             pulumi.set(__self__, "manifest_name", manifest_name)
@@ -1783,9 +1750,6 @@ class PackagingConfigurationMssManifestArgs:
     @property
     @pulumi.getter(name="manifestName")
     def manifest_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-manifestname
-        """
         return pulumi.get(self, "manifest_name")
 
     @manifest_name.setter
@@ -1795,9 +1759,6 @@ class PackagingConfigurationMssManifestArgs:
     @property
     @pulumi.getter(name="streamSelection")
     def stream_selection(self) -> Optional[pulumi.Input['PackagingConfigurationStreamSelectionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-streamselection
-        """
         return pulumi.get(self, "stream_selection")
 
     @stream_selection.setter
@@ -1812,10 +1773,8 @@ class PackagingConfigurationMssPackageArgs:
                  encryption: Optional[pulumi.Input['PackagingConfigurationMssEncryptionArgs']] = None,
                  segment_duration_seconds: Optional[pulumi.Input[int]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html
-        :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationMssManifestArgs']]] mss_manifests: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-mssmanifests
-        :param pulumi.Input['PackagingConfigurationMssEncryptionArgs'] encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-encryption
-        :param pulumi.Input[int] segment_duration_seconds: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-segmentdurationseconds
+        A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
+        :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationMssManifestArgs']]] mss_manifests: A list of MSS manifest configurations.
         """
         pulumi.set(__self__, "mss_manifests", mss_manifests)
         if encryption is not None:
@@ -1827,7 +1786,7 @@ class PackagingConfigurationMssPackageArgs:
     @pulumi.getter(name="mssManifests")
     def mss_manifests(self) -> pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationMssManifestArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-mssmanifests
+        A list of MSS manifest configurations.
         """
         return pulumi.get(self, "mss_manifests")
 
@@ -1838,9 +1797,6 @@ class PackagingConfigurationMssPackageArgs:
     @property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['PackagingConfigurationMssEncryptionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-encryption
-        """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
@@ -1850,9 +1806,6 @@ class PackagingConfigurationMssPackageArgs:
     @property
     @pulumi.getter(name="segmentDurationSeconds")
     def segment_duration_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-segmentdurationseconds
-        """
         return pulumi.get(self, "segment_duration_seconds")
 
     @segment_duration_seconds.setter
@@ -1867,10 +1820,9 @@ class PackagingConfigurationSpekeKeyProviderArgs:
                  system_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  url: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] system_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-systemids
-        :param pulumi.Input[str] url: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-url
+        A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] system_ids: The system IDs to include in key requests.
+        :param pulumi.Input[str] url: The URL of the external key provider service.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "system_ids", system_ids)
@@ -1879,9 +1831,6 @@ class PackagingConfigurationSpekeKeyProviderArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-rolearn
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -1892,7 +1841,7 @@ class PackagingConfigurationSpekeKeyProviderArgs:
     @pulumi.getter(name="systemIds")
     def system_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-systemids
+        The system IDs to include in key requests.
         """
         return pulumi.get(self, "system_ids")
 
@@ -1904,7 +1853,7 @@ class PackagingConfigurationSpekeKeyProviderArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-url
+        The URL of the external key provider service.
         """
         return pulumi.get(self, "url")
 
@@ -1920,10 +1869,10 @@ class PackagingConfigurationStreamSelectionArgs:
                  min_video_bits_per_second: Optional[pulumi.Input[int]] = None,
                  stream_order: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html
-        :param pulumi.Input[int] max_video_bits_per_second: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-maxvideobitspersecond
-        :param pulumi.Input[int] min_video_bits_per_second: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-minvideobitspersecond
-        :param pulumi.Input[str] stream_order: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-streamorder
+        A StreamSelection configuration.
+        :param pulumi.Input[int] max_video_bits_per_second: The maximum video bitrate (bps) to include in output.
+        :param pulumi.Input[int] min_video_bits_per_second: The minimum video bitrate (bps) to include in output.
+        :param pulumi.Input[str] stream_order: A directive that determines the order of streams in the output.
         """
         if max_video_bits_per_second is not None:
             pulumi.set(__self__, "max_video_bits_per_second", max_video_bits_per_second)
@@ -1936,7 +1885,7 @@ class PackagingConfigurationStreamSelectionArgs:
     @pulumi.getter(name="maxVideoBitsPerSecond")
     def max_video_bits_per_second(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-maxvideobitspersecond
+        The maximum video bitrate (bps) to include in output.
         """
         return pulumi.get(self, "max_video_bits_per_second")
 
@@ -1948,7 +1897,7 @@ class PackagingConfigurationStreamSelectionArgs:
     @pulumi.getter(name="minVideoBitsPerSecond")
     def min_video_bits_per_second(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-minvideobitspersecond
+        The minimum video bitrate (bps) to include in output.
         """
         return pulumi.get(self, "min_video_bits_per_second")
 
@@ -1960,7 +1909,7 @@ class PackagingConfigurationStreamSelectionArgs:
     @pulumi.getter(name="streamOrder")
     def stream_order(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-streamorder
+        A directive that determines the order of streams in the output.
         """
         return pulumi.get(self, "stream_order")
 
@@ -1970,14 +1919,40 @@ class PackagingConfigurationStreamSelectionArgs:
 
 
 @pulumi.input_type
+class PackagingConfigurationTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class PackagingGroupAuthorizationArgs:
     def __init__(__self__, *,
                  cdn_identifier_secret: pulumi.Input[str],
                  secrets_role_arn: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html
-        :param pulumi.Input[str] cdn_identifier_secret: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-cdnidentifiersecret
-        :param pulumi.Input[str] secrets_role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-secretsrolearn
+        :param pulumi.Input[str] cdn_identifier_secret: The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.
+        :param pulumi.Input[str] secrets_role_arn: The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
         """
         pulumi.set(__self__, "cdn_identifier_secret", cdn_identifier_secret)
         pulumi.set(__self__, "secrets_role_arn", secrets_role_arn)
@@ -1986,7 +1961,7 @@ class PackagingGroupAuthorizationArgs:
     @pulumi.getter(name="cdnIdentifierSecret")
     def cdn_identifier_secret(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-cdnidentifiersecret
+        The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.
         """
         return pulumi.get(self, "cdn_identifier_secret")
 
@@ -1998,7 +1973,7 @@ class PackagingGroupAuthorizationArgs:
     @pulumi.getter(name="secretsRoleArn")
     def secrets_role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-secretsrolearn
+        The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
         """
         return pulumi.get(self, "secrets_role_arn")
 
@@ -2012,8 +1987,7 @@ class PackagingGroupLogConfigurationArgs:
     def __init__(__self__, *,
                  log_group_name: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html
-        :param pulumi.Input[str] log_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html#cfn-mediapackage-packaginggroup-logconfiguration-loggroupname
+        :param pulumi.Input[str] log_group_name: Sets a custom AWS CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/VodEgressAccessLogs.
         """
         if log_group_name is not None:
             pulumi.set(__self__, "log_group_name", log_group_name)
@@ -2022,12 +1996,39 @@ class PackagingGroupLogConfigurationArgs:
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html#cfn-mediapackage-packaginggroup-logconfiguration-loggroupname
+        Sets a custom AWS CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/VodEgressAccessLogs.
         """
         return pulumi.get(self, "log_group_name")
 
     @log_group_name.setter
     def log_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_group_name", value)
+
+
+@pulumi.input_type
+class PackagingGroupTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 

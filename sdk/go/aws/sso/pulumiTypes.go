@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html
 type InstanceAccessControlAttributeConfigurationAccessControlAttribute struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-key
-	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-value
+	Key   string                                                                 `pulumi:"key"`
 	Value InstanceAccessControlAttributeConfigurationAccessControlAttributeValue `pulumi:"value"`
 }
 
@@ -29,11 +26,8 @@ type InstanceAccessControlAttributeConfigurationAccessControlAttributeInput inte
 	ToInstanceAccessControlAttributeConfigurationAccessControlAttributeOutputWithContext(context.Context) InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html
 type InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-key
-	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-value
+	Key   pulumi.StringInput                                                          `pulumi:"key"`
 	Value InstanceAccessControlAttributeConfigurationAccessControlAttributeValueInput `pulumi:"value"`
 }
 
@@ -74,7 +68,6 @@ func (i InstanceAccessControlAttributeConfigurationAccessControlAttributeArray) 
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html
 type InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput struct{ *pulumi.OutputState }
 
 func (InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput)
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-key
 func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceAccessControlAttributeConfigurationAccessControlAttribute) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattribute-value
 func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput) Value() InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput {
 	return o.ApplyT(func(v InstanceAccessControlAttributeConfigurationAccessControlAttribute) InstanceAccessControlAttributeConfigurationAccessControlAttributeValue {
 		return v.Value
@@ -121,9 +112,7 @@ func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOu
 	}).(InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html
 type InstanceAccessControlAttributeConfigurationAccessControlAttributeValue struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source
 	Source []string `pulumi:"source"`
 }
 
@@ -138,9 +127,7 @@ type InstanceAccessControlAttributeConfigurationAccessControlAttributeValueInput
 	ToInstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutputWithContext(context.Context) InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html
 type InstanceAccessControlAttributeConfigurationAccessControlAttributeValueArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source
 	Source pulumi.StringArrayInput `pulumi:"source"`
 }
 
@@ -156,7 +143,6 @@ func (i InstanceAccessControlAttributeConfigurationAccessControlAttributeValueAr
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html
 type InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput struct{ *pulumi.OutputState }
 
 func (InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput) ElementType() reflect.Type {
@@ -171,15 +157,119 @@ func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOu
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributevalue-source
 func (o InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput) Source() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InstanceAccessControlAttributeConfigurationAccessControlAttributeValue) []string {
 		return v.Source
 	}).(pulumi.StringArrayOutput)
 }
 
+// The metadata that you apply to the permission set to help you categorize and organize them.
+type PermissionSetTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// PermissionSetTagInput is an input type that accepts PermissionSetTagArgs and PermissionSetTagOutput values.
+// You can construct a concrete instance of `PermissionSetTagInput` via:
+//
+//          PermissionSetTagArgs{...}
+type PermissionSetTagInput interface {
+	pulumi.Input
+
+	ToPermissionSetTagOutput() PermissionSetTagOutput
+	ToPermissionSetTagOutputWithContext(context.Context) PermissionSetTagOutput
+}
+
+// The metadata that you apply to the permission set to help you categorize and organize them.
+type PermissionSetTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PermissionSetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionSetTag)(nil)).Elem()
+}
+
+func (i PermissionSetTagArgs) ToPermissionSetTagOutput() PermissionSetTagOutput {
+	return i.ToPermissionSetTagOutputWithContext(context.Background())
+}
+
+func (i PermissionSetTagArgs) ToPermissionSetTagOutputWithContext(ctx context.Context) PermissionSetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetTagOutput)
+}
+
+// PermissionSetTagArrayInput is an input type that accepts PermissionSetTagArray and PermissionSetTagArrayOutput values.
+// You can construct a concrete instance of `PermissionSetTagArrayInput` via:
+//
+//          PermissionSetTagArray{ PermissionSetTagArgs{...} }
+type PermissionSetTagArrayInput interface {
+	pulumi.Input
+
+	ToPermissionSetTagArrayOutput() PermissionSetTagArrayOutput
+	ToPermissionSetTagArrayOutputWithContext(context.Context) PermissionSetTagArrayOutput
+}
+
+type PermissionSetTagArray []PermissionSetTagInput
+
+func (PermissionSetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionSetTag)(nil)).Elem()
+}
+
+func (i PermissionSetTagArray) ToPermissionSetTagArrayOutput() PermissionSetTagArrayOutput {
+	return i.ToPermissionSetTagArrayOutputWithContext(context.Background())
+}
+
+func (i PermissionSetTagArray) ToPermissionSetTagArrayOutputWithContext(ctx context.Context) PermissionSetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetTagArrayOutput)
+}
+
+// The metadata that you apply to the permission set to help you categorize and organize them.
+type PermissionSetTagOutput struct{ *pulumi.OutputState }
+
+func (PermissionSetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionSetTag)(nil)).Elem()
+}
+
+func (o PermissionSetTagOutput) ToPermissionSetTagOutput() PermissionSetTagOutput {
+	return o
+}
+
+func (o PermissionSetTagOutput) ToPermissionSetTagOutputWithContext(ctx context.Context) PermissionSetTagOutput {
+	return o
+}
+
+func (o PermissionSetTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionSetTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o PermissionSetTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionSetTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PermissionSetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PermissionSetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionSetTag)(nil)).Elem()
+}
+
+func (o PermissionSetTagArrayOutput) ToPermissionSetTagArrayOutput() PermissionSetTagArrayOutput {
+	return o
+}
+
+func (o PermissionSetTagArrayOutput) ToPermissionSetTagArrayOutputWithContext(ctx context.Context) PermissionSetTagArrayOutput {
+	return o
+}
+
+func (o PermissionSetTagArrayOutput) Index(i pulumi.IntInput) PermissionSetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionSetTag {
+		return vs[0].([]PermissionSetTag)[vs[1].(int)]
+	}).(PermissionSetTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributeConfigurationAccessControlAttributeValueOutput{})
+	pulumi.RegisterOutputType(PermissionSetTagOutput{})
+	pulumi.RegisterOutputType(PermissionSetTagArrayOutput{})
 }

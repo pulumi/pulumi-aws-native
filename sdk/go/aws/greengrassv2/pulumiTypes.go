@@ -10,121 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html
-type ComponentVersionComponentDependencyRequirement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-dependencytype
-	DependencyType *string `pulumi:"dependencyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-versionrequirement
-	VersionRequirement *string `pulumi:"versionRequirement"`
-}
-
-// ComponentVersionComponentDependencyRequirementInput is an input type that accepts ComponentVersionComponentDependencyRequirementArgs and ComponentVersionComponentDependencyRequirementOutput values.
-// You can construct a concrete instance of `ComponentVersionComponentDependencyRequirementInput` via:
-//
-//          ComponentVersionComponentDependencyRequirementArgs{...}
-type ComponentVersionComponentDependencyRequirementInput interface {
-	pulumi.Input
-
-	ToComponentVersionComponentDependencyRequirementOutput() ComponentVersionComponentDependencyRequirementOutput
-	ToComponentVersionComponentDependencyRequirementOutputWithContext(context.Context) ComponentVersionComponentDependencyRequirementOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html
-type ComponentVersionComponentDependencyRequirementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-dependencytype
-	DependencyType pulumi.StringPtrInput `pulumi:"dependencyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-versionrequirement
-	VersionRequirement pulumi.StringPtrInput `pulumi:"versionRequirement"`
-}
-
-func (ComponentVersionComponentDependencyRequirementArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentVersionComponentDependencyRequirement)(nil)).Elem()
-}
-
-func (i ComponentVersionComponentDependencyRequirementArgs) ToComponentVersionComponentDependencyRequirementOutput() ComponentVersionComponentDependencyRequirementOutput {
-	return i.ToComponentVersionComponentDependencyRequirementOutputWithContext(context.Background())
-}
-
-func (i ComponentVersionComponentDependencyRequirementArgs) ToComponentVersionComponentDependencyRequirementOutputWithContext(ctx context.Context) ComponentVersionComponentDependencyRequirementOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionComponentDependencyRequirementOutput)
-}
-
-// ComponentVersionComponentDependencyRequirementMapInput is an input type that accepts ComponentVersionComponentDependencyRequirementMap and ComponentVersionComponentDependencyRequirementMapOutput values.
-// You can construct a concrete instance of `ComponentVersionComponentDependencyRequirementMapInput` via:
-//
-//          ComponentVersionComponentDependencyRequirementMap{ "key": ComponentVersionComponentDependencyRequirementArgs{...} }
-type ComponentVersionComponentDependencyRequirementMapInput interface {
-	pulumi.Input
-
-	ToComponentVersionComponentDependencyRequirementMapOutput() ComponentVersionComponentDependencyRequirementMapOutput
-	ToComponentVersionComponentDependencyRequirementMapOutputWithContext(context.Context) ComponentVersionComponentDependencyRequirementMapOutput
-}
-
-type ComponentVersionComponentDependencyRequirementMap map[string]ComponentVersionComponentDependencyRequirementInput
-
-func (ComponentVersionComponentDependencyRequirementMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ComponentVersionComponentDependencyRequirement)(nil)).Elem()
-}
-
-func (i ComponentVersionComponentDependencyRequirementMap) ToComponentVersionComponentDependencyRequirementMapOutput() ComponentVersionComponentDependencyRequirementMapOutput {
-	return i.ToComponentVersionComponentDependencyRequirementMapOutputWithContext(context.Background())
-}
-
-func (i ComponentVersionComponentDependencyRequirementMap) ToComponentVersionComponentDependencyRequirementMapOutputWithContext(ctx context.Context) ComponentVersionComponentDependencyRequirementMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionComponentDependencyRequirementMapOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html
-type ComponentVersionComponentDependencyRequirementOutput struct{ *pulumi.OutputState }
-
-func (ComponentVersionComponentDependencyRequirementOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentVersionComponentDependencyRequirement)(nil)).Elem()
-}
-
-func (o ComponentVersionComponentDependencyRequirementOutput) ToComponentVersionComponentDependencyRequirementOutput() ComponentVersionComponentDependencyRequirementOutput {
-	return o
-}
-
-func (o ComponentVersionComponentDependencyRequirementOutput) ToComponentVersionComponentDependencyRequirementOutputWithContext(ctx context.Context) ComponentVersionComponentDependencyRequirementOutput {
-	return o
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-dependencytype
-func (o ComponentVersionComponentDependencyRequirementOutput) DependencyType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComponentVersionComponentDependencyRequirement) *string { return v.DependencyType }).(pulumi.StringPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentdependencyrequirement.html#cfn-greengrassv2-componentversion-componentdependencyrequirement-versionrequirement
-func (o ComponentVersionComponentDependencyRequirementOutput) VersionRequirement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ComponentVersionComponentDependencyRequirement) *string { return v.VersionRequirement }).(pulumi.StringPtrOutput)
-}
-
-type ComponentVersionComponentDependencyRequirementMapOutput struct{ *pulumi.OutputState }
-
-func (ComponentVersionComponentDependencyRequirementMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ComponentVersionComponentDependencyRequirement)(nil)).Elem()
-}
-
-func (o ComponentVersionComponentDependencyRequirementMapOutput) ToComponentVersionComponentDependencyRequirementMapOutput() ComponentVersionComponentDependencyRequirementMapOutput {
-	return o
-}
-
-func (o ComponentVersionComponentDependencyRequirementMapOutput) ToComponentVersionComponentDependencyRequirementMapOutputWithContext(ctx context.Context) ComponentVersionComponentDependencyRequirementMapOutput {
-	return o
-}
-
-func (o ComponentVersionComponentDependencyRequirementMapOutput) MapIndex(k pulumi.StringInput) ComponentVersionComponentDependencyRequirementOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ComponentVersionComponentDependencyRequirement {
-		return vs[0].(map[string]ComponentVersionComponentDependencyRequirement)[vs[1].(string)]
-	}).(ComponentVersionComponentDependencyRequirementOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html
 type ComponentVersionComponentPlatform struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-attributes
-	Attributes map[string]string `pulumi:"attributes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-name
-	Name *string `pulumi:"name"`
+	Attributes interface{} `pulumi:"attributes"`
+	Name       *string     `pulumi:"name"`
 }
 
 // ComponentVersionComponentPlatformInput is an input type that accepts ComponentVersionComponentPlatformArgs and ComponentVersionComponentPlatformOutput values.
@@ -138,12 +26,9 @@ type ComponentVersionComponentPlatformInput interface {
 	ToComponentVersionComponentPlatformOutputWithContext(context.Context) ComponentVersionComponentPlatformOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html
 type ComponentVersionComponentPlatformArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-attributes
-	Attributes pulumi.StringMapInput `pulumi:"attributes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Attributes pulumi.Input          `pulumi:"attributes"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (ComponentVersionComponentPlatformArgs) ElementType() reflect.Type {
@@ -183,7 +68,6 @@ func (i ComponentVersionComponentPlatformArray) ToComponentVersionComponentPlatf
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionComponentPlatformArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html
 type ComponentVersionComponentPlatformOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionComponentPlatformOutput) ElementType() reflect.Type {
@@ -198,12 +82,10 @@ func (o ComponentVersionComponentPlatformOutput) ToComponentVersionComponentPlat
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-attributes
-func (o ComponentVersionComponentPlatformOutput) Attributes() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ComponentVersionComponentPlatform) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
+func (o ComponentVersionComponentPlatformOutput) Attributes() pulumi.AnyOutput {
+	return o.ApplyT(func(v ComponentVersionComponentPlatform) interface{} { return v.Attributes }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-componentplatform.html#cfn-greengrassv2-componentversion-componentplatform-name
 func (o ComponentVersionComponentPlatformOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentVersionComponentPlatform) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -228,16 +110,11 @@ func (o ComponentVersionComponentPlatformArrayOutput) Index(i pulumi.IntInput) C
 	}).(ComponentVersionComponentPlatformOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html
 type ComponentVersionLambdaContainerParams struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-devices
-	Devices []ComponentVersionLambdaDeviceMount `pulumi:"devices"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-memorysizeinkb
-	MemorySizeInKB *int `pulumi:"memorySizeInKB"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-mountrosysfs
-	MountROSysfs *bool `pulumi:"mountROSysfs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-volumes
-	Volumes []ComponentVersionLambdaVolumeMount `pulumi:"volumes"`
+	Devices        []ComponentVersionLambdaDeviceMount `pulumi:"devices"`
+	MemorySizeInKB *int                                `pulumi:"memorySizeInKB"`
+	MountROSysfs   *bool                               `pulumi:"mountROSysfs"`
+	Volumes        []ComponentVersionLambdaVolumeMount `pulumi:"volumes"`
 }
 
 // ComponentVersionLambdaContainerParamsInput is an input type that accepts ComponentVersionLambdaContainerParamsArgs and ComponentVersionLambdaContainerParamsOutput values.
@@ -251,16 +128,11 @@ type ComponentVersionLambdaContainerParamsInput interface {
 	ToComponentVersionLambdaContainerParamsOutputWithContext(context.Context) ComponentVersionLambdaContainerParamsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html
 type ComponentVersionLambdaContainerParamsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-devices
-	Devices ComponentVersionLambdaDeviceMountArrayInput `pulumi:"devices"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-memorysizeinkb
-	MemorySizeInKB pulumi.IntPtrInput `pulumi:"memorySizeInKB"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-mountrosysfs
-	MountROSysfs pulumi.BoolPtrInput `pulumi:"mountROSysfs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-volumes
-	Volumes ComponentVersionLambdaVolumeMountArrayInput `pulumi:"volumes"`
+	Devices        ComponentVersionLambdaDeviceMountArrayInput `pulumi:"devices"`
+	MemorySizeInKB pulumi.IntPtrInput                          `pulumi:"memorySizeInKB"`
+	MountROSysfs   pulumi.BoolPtrInput                         `pulumi:"mountROSysfs"`
+	Volumes        ComponentVersionLambdaVolumeMountArrayInput `pulumi:"volumes"`
 }
 
 func (ComponentVersionLambdaContainerParamsArgs) ElementType() reflect.Type {
@@ -316,7 +188,6 @@ func (i *componentVersionLambdaContainerParamsPtrType) ToComponentVersionLambdaC
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaContainerParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html
 type ComponentVersionLambdaContainerParamsOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionLambdaContainerParamsOutput) ElementType() reflect.Type {
@@ -341,22 +212,18 @@ func (o ComponentVersionLambdaContainerParamsOutput) ToComponentVersionLambdaCon
 	}).(ComponentVersionLambdaContainerParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-devices
 func (o ComponentVersionLambdaContainerParamsOutput) Devices() ComponentVersionLambdaDeviceMountArrayOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaContainerParams) []ComponentVersionLambdaDeviceMount { return v.Devices }).(ComponentVersionLambdaDeviceMountArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-memorysizeinkb
 func (o ComponentVersionLambdaContainerParamsOutput) MemorySizeInKB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaContainerParams) *int { return v.MemorySizeInKB }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-mountrosysfs
 func (o ComponentVersionLambdaContainerParamsOutput) MountROSysfs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaContainerParams) *bool { return v.MountROSysfs }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-volumes
 func (o ComponentVersionLambdaContainerParamsOutput) Volumes() ComponentVersionLambdaVolumeMountArrayOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaContainerParams) []ComponentVersionLambdaVolumeMount { return v.Volumes }).(ComponentVersionLambdaVolumeMountArrayOutput)
 }
@@ -385,7 +252,6 @@ func (o ComponentVersionLambdaContainerParamsPtrOutput) Elem() ComponentVersionL
 	}).(ComponentVersionLambdaContainerParamsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-devices
 func (o ComponentVersionLambdaContainerParamsPtrOutput) Devices() ComponentVersionLambdaDeviceMountArrayOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaContainerParams) []ComponentVersionLambdaDeviceMount {
 		if v == nil {
@@ -395,7 +261,6 @@ func (o ComponentVersionLambdaContainerParamsPtrOutput) Devices() ComponentVersi
 	}).(ComponentVersionLambdaDeviceMountArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-memorysizeinkb
 func (o ComponentVersionLambdaContainerParamsPtrOutput) MemorySizeInKB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaContainerParams) *int {
 		if v == nil {
@@ -405,7 +270,6 @@ func (o ComponentVersionLambdaContainerParamsPtrOutput) MemorySizeInKB() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-mountrosysfs
 func (o ComponentVersionLambdaContainerParamsPtrOutput) MountROSysfs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaContainerParams) *bool {
 		if v == nil {
@@ -415,7 +279,6 @@ func (o ComponentVersionLambdaContainerParamsPtrOutput) MountROSysfs() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-volumes
 func (o ComponentVersionLambdaContainerParamsPtrOutput) Volumes() ComponentVersionLambdaVolumeMountArrayOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaContainerParams) []ComponentVersionLambdaVolumeMount {
 		if v == nil {
@@ -425,14 +288,10 @@ func (o ComponentVersionLambdaContainerParamsPtrOutput) Volumes() ComponentVersi
 	}).(ComponentVersionLambdaVolumeMountArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html
 type ComponentVersionLambdaDeviceMount struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-addgroupowner
-	AddGroupOwner *bool `pulumi:"addGroupOwner"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-path
-	Path *string `pulumi:"path"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-permission
-	Permission *string `pulumi:"permission"`
+	AddGroupOwner *bool   `pulumi:"addGroupOwner"`
+	Path          *string `pulumi:"path"`
+	Permission    *string `pulumi:"permission"`
 }
 
 // ComponentVersionLambdaDeviceMountInput is an input type that accepts ComponentVersionLambdaDeviceMountArgs and ComponentVersionLambdaDeviceMountOutput values.
@@ -446,14 +305,10 @@ type ComponentVersionLambdaDeviceMountInput interface {
 	ToComponentVersionLambdaDeviceMountOutputWithContext(context.Context) ComponentVersionLambdaDeviceMountOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html
 type ComponentVersionLambdaDeviceMountArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-addgroupowner
-	AddGroupOwner pulumi.BoolPtrInput `pulumi:"addGroupOwner"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-path
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-permission
-	Permission pulumi.StringPtrInput `pulumi:"permission"`
+	AddGroupOwner pulumi.BoolPtrInput   `pulumi:"addGroupOwner"`
+	Path          pulumi.StringPtrInput `pulumi:"path"`
+	Permission    pulumi.StringPtrInput `pulumi:"permission"`
 }
 
 func (ComponentVersionLambdaDeviceMountArgs) ElementType() reflect.Type {
@@ -493,7 +348,6 @@ func (i ComponentVersionLambdaDeviceMountArray) ToComponentVersionLambdaDeviceMo
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaDeviceMountArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html
 type ComponentVersionLambdaDeviceMountOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionLambdaDeviceMountOutput) ElementType() reflect.Type {
@@ -508,17 +362,14 @@ func (o ComponentVersionLambdaDeviceMountOutput) ToComponentVersionLambdaDeviceM
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-addgroupowner
 func (o ComponentVersionLambdaDeviceMountOutput) AddGroupOwner() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaDeviceMount) *bool { return v.AddGroupOwner }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-path
 func (o ComponentVersionLambdaDeviceMountOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaDeviceMount) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdadevicemount.html#cfn-greengrassv2-componentversion-lambdadevicemount-permission
 func (o ComponentVersionLambdaDeviceMountOutput) Permission() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaDeviceMount) *string { return v.Permission }).(pulumi.StringPtrOutput)
 }
@@ -543,12 +394,9 @@ func (o ComponentVersionLambdaDeviceMountArrayOutput) Index(i pulumi.IntInput) C
 	}).(ComponentVersionLambdaDeviceMountOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html
 type ComponentVersionLambdaEventSource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html#cfn-greengrassv2-componentversion-lambdaeventsource-topic
 	Topic *string `pulumi:"topic"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html#cfn-greengrassv2-componentversion-lambdaeventsource-type
-	Type *string `pulumi:"type"`
+	Type  *string `pulumi:"type"`
 }
 
 // ComponentVersionLambdaEventSourceInput is an input type that accepts ComponentVersionLambdaEventSourceArgs and ComponentVersionLambdaEventSourceOutput values.
@@ -562,12 +410,9 @@ type ComponentVersionLambdaEventSourceInput interface {
 	ToComponentVersionLambdaEventSourceOutputWithContext(context.Context) ComponentVersionLambdaEventSourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html
 type ComponentVersionLambdaEventSourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html#cfn-greengrassv2-componentversion-lambdaeventsource-topic
 	Topic pulumi.StringPtrInput `pulumi:"topic"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html#cfn-greengrassv2-componentversion-lambdaeventsource-type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ComponentVersionLambdaEventSourceArgs) ElementType() reflect.Type {
@@ -607,7 +452,6 @@ func (i ComponentVersionLambdaEventSourceArray) ToComponentVersionLambdaEventSou
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaEventSourceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html
 type ComponentVersionLambdaEventSourceOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionLambdaEventSourceOutput) ElementType() reflect.Type {
@@ -622,12 +466,10 @@ func (o ComponentVersionLambdaEventSourceOutput) ToComponentVersionLambdaEventSo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html#cfn-greengrassv2-componentversion-lambdaeventsource-topic
 func (o ComponentVersionLambdaEventSourceOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaEventSource) *string { return v.Topic }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaeventsource.html#cfn-greengrassv2-componentversion-lambdaeventsource-type
 func (o ComponentVersionLambdaEventSourceOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaEventSource) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -652,30 +494,18 @@ func (o ComponentVersionLambdaEventSourceArrayOutput) Index(i pulumi.IntInput) C
 	}).(ComponentVersionLambdaEventSourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html
 type ComponentVersionLambdaExecutionParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-environmentvariables
-	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-eventsources
-	EventSources []ComponentVersionLambdaEventSource `pulumi:"eventSources"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-execargs
-	ExecArgs []string `pulumi:"execArgs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-inputpayloadencodingtype
-	InputPayloadEncodingType *string `pulumi:"inputPayloadEncodingType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-linuxprocessparams
-	LinuxProcessParams *ComponentVersionLambdaLinuxProcessParams `pulumi:"linuxProcessParams"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxidletimeinseconds
-	MaxIdleTimeInSeconds *int `pulumi:"maxIdleTimeInSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxinstancescount
-	MaxInstancesCount *int `pulumi:"maxInstancesCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxqueuesize
-	MaxQueueSize *int `pulumi:"maxQueueSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-pinned
-	Pinned *bool `pulumi:"pinned"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-statustimeoutinseconds
-	StatusTimeoutInSeconds *int `pulumi:"statusTimeoutInSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-timeoutinseconds
-	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
+	EnvironmentVariables     interface{}                               `pulumi:"environmentVariables"`
+	EventSources             []ComponentVersionLambdaEventSource       `pulumi:"eventSources"`
+	ExecArgs                 []string                                  `pulumi:"execArgs"`
+	InputPayloadEncodingType *string                                   `pulumi:"inputPayloadEncodingType"`
+	LinuxProcessParams       *ComponentVersionLambdaLinuxProcessParams `pulumi:"linuxProcessParams"`
+	MaxIdleTimeInSeconds     *int                                      `pulumi:"maxIdleTimeInSeconds"`
+	MaxInstancesCount        *int                                      `pulumi:"maxInstancesCount"`
+	MaxQueueSize             *int                                      `pulumi:"maxQueueSize"`
+	Pinned                   *bool                                     `pulumi:"pinned"`
+	StatusTimeoutInSeconds   *int                                      `pulumi:"statusTimeoutInSeconds"`
+	TimeoutInSeconds         *int                                      `pulumi:"timeoutInSeconds"`
 }
 
 // ComponentVersionLambdaExecutionParametersInput is an input type that accepts ComponentVersionLambdaExecutionParametersArgs and ComponentVersionLambdaExecutionParametersOutput values.
@@ -689,30 +519,18 @@ type ComponentVersionLambdaExecutionParametersInput interface {
 	ToComponentVersionLambdaExecutionParametersOutputWithContext(context.Context) ComponentVersionLambdaExecutionParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html
 type ComponentVersionLambdaExecutionParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-environmentvariables
-	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-eventsources
-	EventSources ComponentVersionLambdaEventSourceArrayInput `pulumi:"eventSources"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-execargs
-	ExecArgs pulumi.StringArrayInput `pulumi:"execArgs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-inputpayloadencodingtype
-	InputPayloadEncodingType pulumi.StringPtrInput `pulumi:"inputPayloadEncodingType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-linuxprocessparams
-	LinuxProcessParams ComponentVersionLambdaLinuxProcessParamsPtrInput `pulumi:"linuxProcessParams"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxidletimeinseconds
-	MaxIdleTimeInSeconds pulumi.IntPtrInput `pulumi:"maxIdleTimeInSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxinstancescount
-	MaxInstancesCount pulumi.IntPtrInput `pulumi:"maxInstancesCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxqueuesize
-	MaxQueueSize pulumi.IntPtrInput `pulumi:"maxQueueSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-pinned
-	Pinned pulumi.BoolPtrInput `pulumi:"pinned"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-statustimeoutinseconds
-	StatusTimeoutInSeconds pulumi.IntPtrInput `pulumi:"statusTimeoutInSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-timeoutinseconds
-	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
+	EnvironmentVariables     pulumi.Input                                     `pulumi:"environmentVariables"`
+	EventSources             ComponentVersionLambdaEventSourceArrayInput      `pulumi:"eventSources"`
+	ExecArgs                 pulumi.StringArrayInput                          `pulumi:"execArgs"`
+	InputPayloadEncodingType pulumi.StringPtrInput                            `pulumi:"inputPayloadEncodingType"`
+	LinuxProcessParams       ComponentVersionLambdaLinuxProcessParamsPtrInput `pulumi:"linuxProcessParams"`
+	MaxIdleTimeInSeconds     pulumi.IntPtrInput                               `pulumi:"maxIdleTimeInSeconds"`
+	MaxInstancesCount        pulumi.IntPtrInput                               `pulumi:"maxInstancesCount"`
+	MaxQueueSize             pulumi.IntPtrInput                               `pulumi:"maxQueueSize"`
+	Pinned                   pulumi.BoolPtrInput                              `pulumi:"pinned"`
+	StatusTimeoutInSeconds   pulumi.IntPtrInput                               `pulumi:"statusTimeoutInSeconds"`
+	TimeoutInSeconds         pulumi.IntPtrInput                               `pulumi:"timeoutInSeconds"`
 }
 
 func (ComponentVersionLambdaExecutionParametersArgs) ElementType() reflect.Type {
@@ -768,7 +586,6 @@ func (i *componentVersionLambdaExecutionParametersPtrType) ToComponentVersionLam
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaExecutionParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html
 type ComponentVersionLambdaExecutionParametersOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionLambdaExecutionParametersOutput) ElementType() reflect.Type {
@@ -793,61 +610,50 @@ func (o ComponentVersionLambdaExecutionParametersOutput) ToComponentVersionLambd
 	}).(ComponentVersionLambdaExecutionParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-environmentvariables
-func (o ComponentVersionLambdaExecutionParametersOutput) EnvironmentVariables() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
+func (o ComponentVersionLambdaExecutionParametersOutput) EnvironmentVariables() pulumi.AnyOutput {
+	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) interface{} { return v.EnvironmentVariables }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-eventsources
 func (o ComponentVersionLambdaExecutionParametersOutput) EventSources() ComponentVersionLambdaEventSourceArrayOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) []ComponentVersionLambdaEventSource {
 		return v.EventSources
 	}).(ComponentVersionLambdaEventSourceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-execargs
 func (o ComponentVersionLambdaExecutionParametersOutput) ExecArgs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) []string { return v.ExecArgs }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-inputpayloadencodingtype
 func (o ComponentVersionLambdaExecutionParametersOutput) InputPayloadEncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) *string { return v.InputPayloadEncodingType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-linuxprocessparams
 func (o ComponentVersionLambdaExecutionParametersOutput) LinuxProcessParams() ComponentVersionLambdaLinuxProcessParamsPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) *ComponentVersionLambdaLinuxProcessParams {
 		return v.LinuxProcessParams
 	}).(ComponentVersionLambdaLinuxProcessParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxidletimeinseconds
 func (o ComponentVersionLambdaExecutionParametersOutput) MaxIdleTimeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) *int { return v.MaxIdleTimeInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxinstancescount
 func (o ComponentVersionLambdaExecutionParametersOutput) MaxInstancesCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) *int { return v.MaxInstancesCount }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxqueuesize
 func (o ComponentVersionLambdaExecutionParametersOutput) MaxQueueSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) *int { return v.MaxQueueSize }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-pinned
 func (o ComponentVersionLambdaExecutionParametersOutput) Pinned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) *bool { return v.Pinned }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-statustimeoutinseconds
 func (o ComponentVersionLambdaExecutionParametersOutput) StatusTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) *int { return v.StatusTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-timeoutinseconds
 func (o ComponentVersionLambdaExecutionParametersOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -876,17 +682,15 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) Elem() ComponentVers
 	}).(ComponentVersionLambdaExecutionParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-environmentvariables
-func (o ComponentVersionLambdaExecutionParametersPtrOutput) EnvironmentVariables() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) map[string]string {
+func (o ComponentVersionLambdaExecutionParametersPtrOutput) EnvironmentVariables() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.EnvironmentVariables
-	}).(pulumi.StringMapOutput)
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-eventsources
 func (o ComponentVersionLambdaExecutionParametersPtrOutput) EventSources() ComponentVersionLambdaEventSourceArrayOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) []ComponentVersionLambdaEventSource {
 		if v == nil {
@@ -896,7 +700,6 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) EventSources() Compo
 	}).(ComponentVersionLambdaEventSourceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-execargs
 func (o ComponentVersionLambdaExecutionParametersPtrOutput) ExecArgs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) []string {
 		if v == nil {
@@ -906,7 +709,6 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) ExecArgs() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-inputpayloadencodingtype
 func (o ComponentVersionLambdaExecutionParametersPtrOutput) InputPayloadEncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) *string {
 		if v == nil {
@@ -916,7 +718,6 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) InputPayloadEncoding
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-linuxprocessparams
 func (o ComponentVersionLambdaExecutionParametersPtrOutput) LinuxProcessParams() ComponentVersionLambdaLinuxProcessParamsPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) *ComponentVersionLambdaLinuxProcessParams {
 		if v == nil {
@@ -926,7 +727,6 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) LinuxProcessParams()
 	}).(ComponentVersionLambdaLinuxProcessParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxidletimeinseconds
 func (o ComponentVersionLambdaExecutionParametersPtrOutput) MaxIdleTimeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) *int {
 		if v == nil {
@@ -936,7 +736,6 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) MaxIdleTimeInSeconds
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxinstancescount
 func (o ComponentVersionLambdaExecutionParametersPtrOutput) MaxInstancesCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) *int {
 		if v == nil {
@@ -946,7 +745,6 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) MaxInstancesCount() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-maxqueuesize
 func (o ComponentVersionLambdaExecutionParametersPtrOutput) MaxQueueSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) *int {
 		if v == nil {
@@ -956,7 +754,6 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) MaxQueueSize() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-pinned
 func (o ComponentVersionLambdaExecutionParametersPtrOutput) Pinned() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) *bool {
 		if v == nil {
@@ -966,7 +763,6 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) Pinned() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-statustimeoutinseconds
 func (o ComponentVersionLambdaExecutionParametersPtrOutput) StatusTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) *int {
 		if v == nil {
@@ -976,7 +772,6 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) StatusTimeoutInSecon
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdaexecutionparameters.html#cfn-greengrassv2-componentversion-lambdaexecutionparameters-timeoutinseconds
 func (o ComponentVersionLambdaExecutionParametersPtrOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) *int {
 		if v == nil {
@@ -986,20 +781,13 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) TimeoutInSeconds() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html
 type ComponentVersionLambdaFunctionRecipeSource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentdependencies
-	ComponentDependencies map[string]ComponentVersionComponentDependencyRequirement `pulumi:"componentDependencies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentlambdaparameters
+	ComponentDependencies     interface{}                                `pulumi:"componentDependencies"`
 	ComponentLambdaParameters *ComponentVersionLambdaExecutionParameters `pulumi:"componentLambdaParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentname
-	ComponentName *string `pulumi:"componentName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentplatforms
-	ComponentPlatforms []ComponentVersionComponentPlatform `pulumi:"componentPlatforms"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentversion
-	ComponentVersion *string `pulumi:"componentVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-lambdaarn
-	LambdaArn *string `pulumi:"lambdaArn"`
+	ComponentName             *string                                    `pulumi:"componentName"`
+	ComponentPlatforms        []ComponentVersionComponentPlatform        `pulumi:"componentPlatforms"`
+	ComponentVersion          *string                                    `pulumi:"componentVersion"`
+	LambdaArn                 *string                                    `pulumi:"lambdaArn"`
 }
 
 // ComponentVersionLambdaFunctionRecipeSourceInput is an input type that accepts ComponentVersionLambdaFunctionRecipeSourceArgs and ComponentVersionLambdaFunctionRecipeSourceOutput values.
@@ -1013,20 +801,13 @@ type ComponentVersionLambdaFunctionRecipeSourceInput interface {
 	ToComponentVersionLambdaFunctionRecipeSourceOutputWithContext(context.Context) ComponentVersionLambdaFunctionRecipeSourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html
 type ComponentVersionLambdaFunctionRecipeSourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentdependencies
-	ComponentDependencies ComponentVersionComponentDependencyRequirementMapInput `pulumi:"componentDependencies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentlambdaparameters
+	ComponentDependencies     pulumi.Input                                      `pulumi:"componentDependencies"`
 	ComponentLambdaParameters ComponentVersionLambdaExecutionParametersPtrInput `pulumi:"componentLambdaParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentname
-	ComponentName pulumi.StringPtrInput `pulumi:"componentName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentplatforms
-	ComponentPlatforms ComponentVersionComponentPlatformArrayInput `pulumi:"componentPlatforms"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentversion
-	ComponentVersion pulumi.StringPtrInput `pulumi:"componentVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-lambdaarn
-	LambdaArn pulumi.StringPtrInput `pulumi:"lambdaArn"`
+	ComponentName             pulumi.StringPtrInput                             `pulumi:"componentName"`
+	ComponentPlatforms        ComponentVersionComponentPlatformArrayInput       `pulumi:"componentPlatforms"`
+	ComponentVersion          pulumi.StringPtrInput                             `pulumi:"componentVersion"`
+	LambdaArn                 pulumi.StringPtrInput                             `pulumi:"lambdaArn"`
 }
 
 func (ComponentVersionLambdaFunctionRecipeSourceArgs) ElementType() reflect.Type {
@@ -1082,7 +863,6 @@ func (i *componentVersionLambdaFunctionRecipeSourcePtrType) ToComponentVersionLa
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaFunctionRecipeSourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html
 type ComponentVersionLambdaFunctionRecipeSourceOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionLambdaFunctionRecipeSourceOutput) ElementType() reflect.Type {
@@ -1107,38 +887,30 @@ func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ToComponentVersionLamb
 	}).(ComponentVersionLambdaFunctionRecipeSourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentdependencies
-func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ComponentDependencies() ComponentVersionComponentDependencyRequirementMapOutput {
-	return o.ApplyT(func(v ComponentVersionLambdaFunctionRecipeSource) map[string]ComponentVersionComponentDependencyRequirement {
-		return v.ComponentDependencies
-	}).(ComponentVersionComponentDependencyRequirementMapOutput)
+func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ComponentDependencies() pulumi.AnyOutput {
+	return o.ApplyT(func(v ComponentVersionLambdaFunctionRecipeSource) interface{} { return v.ComponentDependencies }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentlambdaparameters
 func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ComponentLambdaParameters() ComponentVersionLambdaExecutionParametersPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaFunctionRecipeSource) *ComponentVersionLambdaExecutionParameters {
 		return v.ComponentLambdaParameters
 	}).(ComponentVersionLambdaExecutionParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentname
 func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ComponentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaFunctionRecipeSource) *string { return v.ComponentName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentplatforms
 func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ComponentPlatforms() ComponentVersionComponentPlatformArrayOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaFunctionRecipeSource) []ComponentVersionComponentPlatform {
 		return v.ComponentPlatforms
 	}).(ComponentVersionComponentPlatformArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentversion
 func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ComponentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaFunctionRecipeSource) *string { return v.ComponentVersion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-lambdaarn
 func (o ComponentVersionLambdaFunctionRecipeSourceOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaFunctionRecipeSource) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
 }
@@ -1167,17 +939,15 @@ func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) Elem() ComponentVer
 	}).(ComponentVersionLambdaFunctionRecipeSourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentdependencies
-func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentDependencies() ComponentVersionComponentDependencyRequirementMapOutput {
-	return o.ApplyT(func(v *ComponentVersionLambdaFunctionRecipeSource) map[string]ComponentVersionComponentDependencyRequirement {
+func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentDependencies() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ComponentVersionLambdaFunctionRecipeSource) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.ComponentDependencies
-	}).(ComponentVersionComponentDependencyRequirementMapOutput)
+	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentlambdaparameters
 func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentLambdaParameters() ComponentVersionLambdaExecutionParametersPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaFunctionRecipeSource) *ComponentVersionLambdaExecutionParameters {
 		if v == nil {
@@ -1187,7 +957,6 @@ func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentLambdaPara
 	}).(ComponentVersionLambdaExecutionParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentname
 func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaFunctionRecipeSource) *string {
 		if v == nil {
@@ -1197,7 +966,6 @@ func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentplatforms
 func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentPlatforms() ComponentVersionComponentPlatformArrayOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaFunctionRecipeSource) []ComponentVersionComponentPlatform {
 		if v == nil {
@@ -1207,7 +975,6 @@ func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentPlatforms(
 	}).(ComponentVersionComponentPlatformArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-componentversion
 func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaFunctionRecipeSource) *string {
 		if v == nil {
@@ -1217,7 +984,6 @@ func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentVersion() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdafunctionrecipesource.html#cfn-greengrassv2-componentversion-lambdafunctionrecipesource-lambdaarn
 func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaFunctionRecipeSource) *string {
 		if v == nil {
@@ -1227,12 +993,9 @@ func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) LambdaArn() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html
 type ComponentVersionLambdaLinuxProcessParams struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-containerparams
 	ContainerParams *ComponentVersionLambdaContainerParams `pulumi:"containerParams"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-isolationmode
-	IsolationMode *string `pulumi:"isolationMode"`
+	IsolationMode   *string                                `pulumi:"isolationMode"`
 }
 
 // ComponentVersionLambdaLinuxProcessParamsInput is an input type that accepts ComponentVersionLambdaLinuxProcessParamsArgs and ComponentVersionLambdaLinuxProcessParamsOutput values.
@@ -1246,12 +1009,9 @@ type ComponentVersionLambdaLinuxProcessParamsInput interface {
 	ToComponentVersionLambdaLinuxProcessParamsOutputWithContext(context.Context) ComponentVersionLambdaLinuxProcessParamsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html
 type ComponentVersionLambdaLinuxProcessParamsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-containerparams
 	ContainerParams ComponentVersionLambdaContainerParamsPtrInput `pulumi:"containerParams"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-isolationmode
-	IsolationMode pulumi.StringPtrInput `pulumi:"isolationMode"`
+	IsolationMode   pulumi.StringPtrInput                         `pulumi:"isolationMode"`
 }
 
 func (ComponentVersionLambdaLinuxProcessParamsArgs) ElementType() reflect.Type {
@@ -1307,7 +1067,6 @@ func (i *componentVersionLambdaLinuxProcessParamsPtrType) ToComponentVersionLamb
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaLinuxProcessParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html
 type ComponentVersionLambdaLinuxProcessParamsOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionLambdaLinuxProcessParamsOutput) ElementType() reflect.Type {
@@ -1332,14 +1091,12 @@ func (o ComponentVersionLambdaLinuxProcessParamsOutput) ToComponentVersionLambda
 	}).(ComponentVersionLambdaLinuxProcessParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-containerparams
 func (o ComponentVersionLambdaLinuxProcessParamsOutput) ContainerParams() ComponentVersionLambdaContainerParamsPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaLinuxProcessParams) *ComponentVersionLambdaContainerParams {
 		return v.ContainerParams
 	}).(ComponentVersionLambdaContainerParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-isolationmode
 func (o ComponentVersionLambdaLinuxProcessParamsOutput) IsolationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaLinuxProcessParams) *string { return v.IsolationMode }).(pulumi.StringPtrOutput)
 }
@@ -1368,7 +1125,6 @@ func (o ComponentVersionLambdaLinuxProcessParamsPtrOutput) Elem() ComponentVersi
 	}).(ComponentVersionLambdaLinuxProcessParamsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-containerparams
 func (o ComponentVersionLambdaLinuxProcessParamsPtrOutput) ContainerParams() ComponentVersionLambdaContainerParamsPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaLinuxProcessParams) *ComponentVersionLambdaContainerParams {
 		if v == nil {
@@ -1378,7 +1134,6 @@ func (o ComponentVersionLambdaLinuxProcessParamsPtrOutput) ContainerParams() Com
 	}).(ComponentVersionLambdaContainerParamsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdalinuxprocessparams.html#cfn-greengrassv2-componentversion-lambdalinuxprocessparams-isolationmode
 func (o ComponentVersionLambdaLinuxProcessParamsPtrOutput) IsolationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaLinuxProcessParams) *string {
 		if v == nil {
@@ -1388,16 +1143,11 @@ func (o ComponentVersionLambdaLinuxProcessParamsPtrOutput) IsolationMode() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html
 type ComponentVersionLambdaVolumeMount struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-addgroupowner
-	AddGroupOwner *bool `pulumi:"addGroupOwner"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-destinationpath
+	AddGroupOwner   *bool   `pulumi:"addGroupOwner"`
 	DestinationPath *string `pulumi:"destinationPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-permission
-	Permission *string `pulumi:"permission"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-sourcepath
-	SourcePath *string `pulumi:"sourcePath"`
+	Permission      *string `pulumi:"permission"`
+	SourcePath      *string `pulumi:"sourcePath"`
 }
 
 // ComponentVersionLambdaVolumeMountInput is an input type that accepts ComponentVersionLambdaVolumeMountArgs and ComponentVersionLambdaVolumeMountOutput values.
@@ -1411,16 +1161,11 @@ type ComponentVersionLambdaVolumeMountInput interface {
 	ToComponentVersionLambdaVolumeMountOutputWithContext(context.Context) ComponentVersionLambdaVolumeMountOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html
 type ComponentVersionLambdaVolumeMountArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-addgroupowner
-	AddGroupOwner pulumi.BoolPtrInput `pulumi:"addGroupOwner"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-destinationpath
+	AddGroupOwner   pulumi.BoolPtrInput   `pulumi:"addGroupOwner"`
 	DestinationPath pulumi.StringPtrInput `pulumi:"destinationPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-permission
-	Permission pulumi.StringPtrInput `pulumi:"permission"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-sourcepath
-	SourcePath pulumi.StringPtrInput `pulumi:"sourcePath"`
+	Permission      pulumi.StringPtrInput `pulumi:"permission"`
+	SourcePath      pulumi.StringPtrInput `pulumi:"sourcePath"`
 }
 
 func (ComponentVersionLambdaVolumeMountArgs) ElementType() reflect.Type {
@@ -1460,7 +1205,6 @@ func (i ComponentVersionLambdaVolumeMountArray) ToComponentVersionLambdaVolumeMo
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaVolumeMountArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html
 type ComponentVersionLambdaVolumeMountOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionLambdaVolumeMountOutput) ElementType() reflect.Type {
@@ -1475,22 +1219,18 @@ func (o ComponentVersionLambdaVolumeMountOutput) ToComponentVersionLambdaVolumeM
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-addgroupowner
 func (o ComponentVersionLambdaVolumeMountOutput) AddGroupOwner() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaVolumeMount) *bool { return v.AddGroupOwner }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-destinationpath
 func (o ComponentVersionLambdaVolumeMountOutput) DestinationPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaVolumeMount) *string { return v.DestinationPath }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-permission
 func (o ComponentVersionLambdaVolumeMountOutput) Permission() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaVolumeMount) *string { return v.Permission }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdavolumemount.html#cfn-greengrassv2-componentversion-lambdavolumemount-sourcepath
 func (o ComponentVersionLambdaVolumeMountOutput) SourcePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaVolumeMount) *string { return v.SourcePath }).(pulumi.StringPtrOutput)
 }
@@ -1516,8 +1256,6 @@ func (o ComponentVersionLambdaVolumeMountArrayOutput) Index(i pulumi.IntInput) C
 }
 
 func init() {
-	pulumi.RegisterOutputType(ComponentVersionComponentDependencyRequirementOutput{})
-	pulumi.RegisterOutputType(ComponentVersionComponentDependencyRequirementMapOutput{})
 	pulumi.RegisterOutputType(ComponentVersionComponentPlatformOutput{})
 	pulumi.RegisterOutputType(ComponentVersionComponentPlatformArrayOutput{})
 	pulumi.RegisterOutputType(ComponentVersionLambdaContainerParamsOutput{})

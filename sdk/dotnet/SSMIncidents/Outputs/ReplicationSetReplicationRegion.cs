@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.SSMIncidents.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html
+    /// The ReplicationSet regional configuration.
     /// </summary>
     [OutputType]
     public sealed class ReplicationSetReplicationRegion
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionconfiguration
-        /// </summary>
         public readonly Outputs.ReplicationSetRegionConfiguration? RegionConfiguration;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-replicationregion.html#cfn-ssmincidents-replicationset-replicationregion-regionname
-        /// </summary>
         public readonly string? RegionName;
 
         [OutputConstructor]

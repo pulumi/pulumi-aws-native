@@ -10,15 +10,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html
+// The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
 type Session struct {
 	pulumi.CustomResourceState
 
+	// AWS account ID of customer
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
+	// A enumeration value that specifies how frequently finding updates are published.
 	FindingPublishingFrequency pulumi.StringPtrOutput `pulumi:"findingPublishingFrequency"`
-	ServiceRole                pulumi.StringOutput    `pulumi:"serviceRole"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
+	// Service role used by Macie
+	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
+	// A enumeration value that specifies the status of the Macie Session.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
@@ -61,17 +63,17 @@ func (SessionState) ElementType() reflect.Type {
 }
 
 type sessionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
+	// A enumeration value that specifies how frequently finding updates are published.
 	FindingPublishingFrequency *string `pulumi:"findingPublishingFrequency"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
+	// A enumeration value that specifies the status of the Macie Session.
 	Status *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Session resource.
 type SessionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
+	// A enumeration value that specifies how frequently finding updates are published.
 	FindingPublishingFrequency pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
+	// A enumeration value that specifies the status of the Macie Session.
 	Status pulumi.StringPtrInput
 }
 

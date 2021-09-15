@@ -7,8 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['TransitGatewayPeeringAttachmentArgs', 'TransitGatewayPeeringAttachment']
 
@@ -19,14 +19,14 @@ class TransitGatewayPeeringAttachmentArgs:
                  peer_region: pulumi.Input[str],
                  peer_transit_gateway_id: pulumi.Input[str],
                  transit_gateway_id: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringAttachmentTagArgs']]]] = None):
         """
         The set of arguments for constructing a TransitGatewayPeeringAttachment resource.
-        :param pulumi.Input[str] peer_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid
-        :param pulumi.Input[str] peer_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion
-        :param pulumi.Input[str] peer_transit_gateway_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peertransitgatewayid
-        :param pulumi.Input[str] transit_gateway_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags
+        :param pulumi.Input[str] peer_account_id: The ID of the peer account
+        :param pulumi.Input[str] peer_region: Peer Region
+        :param pulumi.Input[str] peer_transit_gateway_id: The ID of the peer transit gateway.
+        :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway.
+        :param pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringAttachmentTagArgs']]] tags: The tags for the transit gateway peering attachment.
         """
         pulumi.set(__self__, "peer_account_id", peer_account_id)
         pulumi.set(__self__, "peer_region", peer_region)
@@ -39,7 +39,7 @@ class TransitGatewayPeeringAttachmentArgs:
     @pulumi.getter(name="peerAccountId")
     def peer_account_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid
+        The ID of the peer account
         """
         return pulumi.get(self, "peer_account_id")
 
@@ -51,7 +51,7 @@ class TransitGatewayPeeringAttachmentArgs:
     @pulumi.getter(name="peerRegion")
     def peer_region(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion
+        Peer Region
         """
         return pulumi.get(self, "peer_region")
 
@@ -63,7 +63,7 @@ class TransitGatewayPeeringAttachmentArgs:
     @pulumi.getter(name="peerTransitGatewayId")
     def peer_transit_gateway_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peertransitgatewayid
+        The ID of the peer transit gateway.
         """
         return pulumi.get(self, "peer_transit_gateway_id")
 
@@ -75,7 +75,7 @@ class TransitGatewayPeeringAttachmentArgs:
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid
+        The ID of the transit gateway.
         """
         return pulumi.get(self, "transit_gateway_id")
 
@@ -85,14 +85,14 @@ class TransitGatewayPeeringAttachmentArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringAttachmentTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags
+        The tags for the transit gateway peering attachment.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransitGatewayPeeringAttachmentTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -104,19 +104,19 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
                  peer_account_id: Optional[pulumi.Input[str]] = None,
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_transit_gateway_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayPeeringAttachmentTagArgs']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html
+        The AWS::EC2::TransitGatewayPeeringAttachment type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] peer_account_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid
-        :param pulumi.Input[str] peer_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion
-        :param pulumi.Input[str] peer_transit_gateway_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peertransitgatewayid
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags
-        :param pulumi.Input[str] transit_gateway_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid
+        :param pulumi.Input[str] peer_account_id: The ID of the peer account
+        :param pulumi.Input[str] peer_region: Peer Region
+        :param pulumi.Input[str] peer_transit_gateway_id: The ID of the peer transit gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayPeeringAttachmentTagArgs']]]] tags: The tags for the transit gateway peering attachment.
+        :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway.
         """
         ...
     @overload
@@ -125,7 +125,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
                  args: TransitGatewayPeeringAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html
+        The AWS::EC2::TransitGatewayPeeringAttachment type
 
         :param str resource_name: The name of the resource.
         :param TransitGatewayPeeringAttachmentArgs args: The arguments to use to populate this resource's properties.
@@ -145,7 +145,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
                  peer_account_id: Optional[pulumi.Input[str]] = None,
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_transit_gateway_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TransitGatewayPeeringAttachmentTagArgs']]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -174,6 +174,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["status"] = None
             __props__.__dict__["transit_gateway_attachment_id"] = None
         super(TransitGatewayPeeringAttachment, __self__).__init__(
             'aws-native:ec2:TransitGatewayPeeringAttachment',
@@ -202,6 +203,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
         __props__.__dict__["peer_region"] = None
         __props__.__dict__["peer_transit_gateway_id"] = None
         __props__.__dict__["state"] = None
+        __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["transit_gateway_attachment_id"] = None
         __props__.__dict__["transit_gateway_id"] = None
@@ -210,13 +212,16 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        The time the transit gateway peering attachment was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="peerAccountId")
     def peer_account_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid
+        The ID of the peer account
         """
         return pulumi.get(self, "peer_account_id")
 
@@ -224,7 +229,7 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
     @pulumi.getter(name="peerRegion")
     def peer_region(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion
+        Peer Region
         """
         return pulumi.get(self, "peer_region")
 
@@ -232,33 +237,47 @@ class TransitGatewayPeeringAttachment(pulumi.CustomResource):
     @pulumi.getter(name="peerTransitGatewayId")
     def peer_transit_gateway_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peertransitgatewayid
+        The ID of the peer transit gateway.
         """
         return pulumi.get(self, "peer_transit_gateway_id")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
+        """
+        The state of the transit gateway peering attachment. Note that the initiating state has been deprecated.
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def status(self) -> pulumi.Output['outputs.TransitGatewayPeeringAttachmentPeeringAttachmentStatus']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags
+        The status of the transit gateway peering attachment.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TransitGatewayPeeringAttachmentTag']]]:
+        """
+        The tags for the transit gateway peering attachment.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the transit gateway peering attachment.
+        """
         return pulumi.get(self, "transit_gateway_attachment_id")
 
     @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid
+        The ID of the transit gateway.
         """
         return pulumi.get(self, "transit_gateway_id")
 

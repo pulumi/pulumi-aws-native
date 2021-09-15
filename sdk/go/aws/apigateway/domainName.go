@@ -7,34 +7,25 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
+// Resource Type definition for AWS::ApiGateway::DomainName.
 type DomainName struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
-	CertificateArn           pulumi.StringPtrOutput `pulumi:"certificateArn"`
-	DistributionDomainName   pulumi.StringOutput    `pulumi:"distributionDomainName"`
-	DistributionHostedZoneId pulumi.StringOutput    `pulumi:"distributionHostedZoneId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
-	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
-	EndpointConfiguration DomainNameEndpointConfigurationPtrOutput `pulumi:"endpointConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
-	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrOutput `pulumi:"mutualTlsAuthentication"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-ownershipverificationcertificatearn
-	OwnershipVerificationCertificateArn pulumi.StringPtrOutput `pulumi:"ownershipVerificationCertificateArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
-	RegionalCertificateArn pulumi.StringPtrOutput `pulumi:"regionalCertificateArn"`
-	RegionalDomainName     pulumi.StringOutput    `pulumi:"regionalDomainName"`
-	RegionalHostedZoneId   pulumi.StringOutput    `pulumi:"regionalHostedZoneId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
-	SecurityPolicy pulumi.StringPtrOutput `pulumi:"securityPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	CertificateArn                      pulumi.StringPtrOutput                     `pulumi:"certificateArn"`
+	DistributionDomainName              pulumi.StringOutput                        `pulumi:"distributionDomainName"`
+	DistributionHostedZoneId            pulumi.StringOutput                        `pulumi:"distributionHostedZoneId"`
+	DomainName                          pulumi.StringPtrOutput                     `pulumi:"domainName"`
+	EndpointConfiguration               DomainNameEndpointConfigurationPtrOutput   `pulumi:"endpointConfiguration"`
+	MutualTlsAuthentication             DomainNameMutualTlsAuthenticationPtrOutput `pulumi:"mutualTlsAuthentication"`
+	OwnershipVerificationCertificateArn pulumi.StringPtrOutput                     `pulumi:"ownershipVerificationCertificateArn"`
+	RegionalCertificateArn              pulumi.StringPtrOutput                     `pulumi:"regionalCertificateArn"`
+	RegionalDomainName                  pulumi.StringOutput                        `pulumi:"regionalDomainName"`
+	RegionalHostedZoneId                pulumi.StringOutput                        `pulumi:"regionalHostedZoneId"`
+	SecurityPolicy                      pulumi.StringPtrOutput                     `pulumi:"securityPolicy"`
+	Tags                                DomainNameTagArrayOutput                   `pulumi:"tags"`
 }
 
 // NewDomainName registers a new resource with the given unique name, arguments, and options.
@@ -76,42 +67,26 @@ func (DomainNameState) ElementType() reflect.Type {
 }
 
 type domainNameArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
-	CertificateArn *string `pulumi:"certificateArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
-	DomainName *string `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
-	EndpointConfiguration *DomainNameEndpointConfiguration `pulumi:"endpointConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
-	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-ownershipverificationcertificatearn
-	OwnershipVerificationCertificateArn *string `pulumi:"ownershipVerificationCertificateArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
-	RegionalCertificateArn *string `pulumi:"regionalCertificateArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
-	SecurityPolicy *string `pulumi:"securityPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	CertificateArn                      *string                            `pulumi:"certificateArn"`
+	DomainName                          *string                            `pulumi:"domainName"`
+	EndpointConfiguration               *DomainNameEndpointConfiguration   `pulumi:"endpointConfiguration"`
+	MutualTlsAuthentication             *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
+	OwnershipVerificationCertificateArn *string                            `pulumi:"ownershipVerificationCertificateArn"`
+	RegionalCertificateArn              *string                            `pulumi:"regionalCertificateArn"`
+	SecurityPolicy                      *string                            `pulumi:"securityPolicy"`
+	Tags                                []DomainNameTag                    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DomainName resource.
 type DomainNameArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
-	CertificateArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
-	DomainName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
-	EndpointConfiguration DomainNameEndpointConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
-	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-ownershipverificationcertificatearn
+	CertificateArn                      pulumi.StringPtrInput
+	DomainName                          pulumi.StringPtrInput
+	EndpointConfiguration               DomainNameEndpointConfigurationPtrInput
+	MutualTlsAuthentication             DomainNameMutualTlsAuthenticationPtrInput
 	OwnershipVerificationCertificateArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
-	RegionalCertificateArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
-	SecurityPolicy pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
-	Tags aws.TagArrayInput
+	RegionalCertificateArn              pulumi.StringPtrInput
+	SecurityPolicy                      pulumi.StringPtrInput
+	Tags                                DomainNameTagArrayInput
 }
 
 func (DomainNameArgs) ElementType() reflect.Type {

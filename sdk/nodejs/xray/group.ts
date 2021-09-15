@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html
+ * This schema provides construct and validation rules for AWS-XRay Group resource parameters.
  */
 export class Group extends pulumi.CustomResource {
     /**
@@ -36,22 +36,19 @@ export class Group extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-filterexpression
+     * The filter expression defining criteria by which to group traces.
      */
     public readonly filterExpression!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the group that was generated on creation.
+     */
     public /*out*/ readonly groupARN!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-groupname
+     * The case-sensitive name of the new group. Names must be unique.
      */
     public readonly groupName!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-insightsconfiguration
-     */
     public readonly insightsConfiguration!: pulumi.Output<outputs.xray.GroupInsightsConfiguration | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-tags
-     */
-    public readonly tags!: pulumi.Output<any | string[] | undefined>;
+    public readonly tags!: pulumi.Output<any[] | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -88,19 +85,13 @@ export class Group extends pulumi.CustomResource {
  */
 export interface GroupArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-filterexpression
+     * The filter expression defining criteria by which to group traces.
      */
     filterExpression?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-groupname
+     * The case-sensitive name of the new group. Names must be unique.
      */
     groupName?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-insightsconfiguration
-     */
     insightsConfiguration?: pulumi.Input<inputs.xray.GroupInsightsConfigurationArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<any | string>[]>;
+    tags?: pulumi.Input<any[]>;
 }

@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.RoboMaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html
+    /// Information about a rendering engine.
     /// </summary>
     [OutputType]
     public sealed class SimulationApplicationRenderingEngine
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-name
+        /// The name of the rendering engine.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-version
+        /// The version of the rendering engine.
         /// </summary>
         public readonly string Version;
 

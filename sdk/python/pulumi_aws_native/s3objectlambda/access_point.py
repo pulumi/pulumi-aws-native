@@ -19,8 +19,8 @@ class AccessPointArgs:
                  object_lambda_configuration: Optional[pulumi.Input['AccessPointObjectLambdaConfigurationArgs']] = None):
         """
         The set of arguments for constructing a AccessPoint resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-name
-        :param pulumi.Input['AccessPointObjectLambdaConfigurationArgs'] object_lambda_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration
+        :param pulumi.Input[str] name: The name you want to assign to this Object lambda Access Point.
+        :param pulumi.Input['AccessPointObjectLambdaConfigurationArgs'] object_lambda_configuration: The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
         """
         pulumi.set(__self__, "name", name)
         if object_lambda_configuration is not None:
@@ -30,7 +30,7 @@ class AccessPointArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-name
+        The name you want to assign to this Object lambda Access Point.
         """
         return pulumi.get(self, "name")
 
@@ -42,7 +42,7 @@ class AccessPointArgs:
     @pulumi.getter(name="objectLambdaConfiguration")
     def object_lambda_configuration(self) -> Optional[pulumi.Input['AccessPointObjectLambdaConfigurationArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration
+        The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
         """
         return pulumi.get(self, "object_lambda_configuration")
 
@@ -60,12 +60,12 @@ class AccessPoint(pulumi.CustomResource):
                  object_lambda_configuration: Optional[pulumi.Input[pulumi.InputType['AccessPointObjectLambdaConfigurationArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html
+        The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-name
-        :param pulumi.Input[pulumi.InputType['AccessPointObjectLambdaConfigurationArgs']] object_lambda_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration
+        :param pulumi.Input[str] name: The name you want to assign to this Object lambda Access Point.
+        :param pulumi.Input[pulumi.InputType['AccessPointObjectLambdaConfigurationArgs']] object_lambda_configuration: The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
         """
         ...
     @overload
@@ -74,7 +74,7 @@ class AccessPoint(pulumi.CustomResource):
                  args: AccessPointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html
+        The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
 
         :param str resource_name: The name of the resource.
         :param AccessPointArgs args: The arguments to use to populate this resource's properties.
@@ -111,6 +111,8 @@ class AccessPoint(pulumi.CustomResource):
             __props__.__dict__["object_lambda_configuration"] = object_lambda_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_date"] = None
+            __props__.__dict__["policy_status"] = None
+            __props__.__dict__["public_access_block_configuration"] = None
         super(AccessPoint, __self__).__init__(
             'aws-native:s3objectlambda:AccessPoint',
             resource_name,
@@ -137,6 +139,8 @@ class AccessPoint(pulumi.CustomResource):
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["object_lambda_configuration"] = None
+        __props__.__dict__["policy_status"] = None
+        __props__.__dict__["public_access_block_configuration"] = None
         return AccessPoint(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -147,13 +151,16 @@ class AccessPoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[str]:
+        """
+        The date and time when the Object lambda Access Point was created.
+        """
         return pulumi.get(self, "creation_date")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-name
+        The name you want to assign to this Object lambda Access Point.
         """
         return pulumi.get(self, "name")
 
@@ -161,7 +168,20 @@ class AccessPoint(pulumi.CustomResource):
     @pulumi.getter(name="objectLambdaConfiguration")
     def object_lambda_configuration(self) -> pulumi.Output[Optional['outputs.AccessPointObjectLambdaConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration
+        The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
         """
         return pulumi.get(self, "object_lambda_configuration")
+
+    @property
+    @pulumi.getter(name="policyStatus")
+    def policy_status(self) -> pulumi.Output[Any]:
+        return pulumi.get(self, "policy_status")
+
+    @property
+    @pulumi.getter(name="publicAccessBlockConfiguration")
+    def public_access_block_configuration(self) -> pulumi.Output['outputs.AccessPointPublicAccessBlockConfiguration']:
+        """
+        The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
+        """
+        return pulumi.get(self, "public_access_block_configuration")
 

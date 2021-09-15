@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html
+ * Create and manage wireless gateways, including LoRa gateways.
  */
 export class WirelessGateway extends pulumi.CustomResource {
     /**
@@ -35,32 +35,37 @@ export class WirelessGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === WirelessGateway.__pulumiType;
     }
 
+    /**
+     * Arn for Wireless Gateway. Returned upon successful create.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-description
+     * Description of Wireless Gateway.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-lastuplinkreceivedat
+     * The date and time when the most recent uplink was received.
      */
     public readonly lastUplinkReceivedAt!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-lorawan
+     * The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
      */
     public readonly loRaWAN!: pulumi.Output<outputs.iotwireless.WirelessGatewayLoRaWANGateway>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-name
+     * Name of Wireless Gateway.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-tags
+     * A list of key-value pairs that contain metadata for the gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.iotwireless.WirelessGatewayTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-thingarn
+     * Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
      */
     public readonly thingArn!: pulumi.Output<string | undefined>;
+    /**
+     * Thing Arn. If there is a Thing created, this can be returned with a Get call.
+     */
     public /*out*/ readonly thingName!: pulumi.Output<string>;
 
     /**
@@ -84,12 +89,10 @@ export class WirelessGateway extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["thingArn"] = args ? args.thingArn : undefined;
             inputs["arn"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["thingName"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["lastUplinkReceivedAt"] = undefined /*out*/;
             inputs["loRaWAN"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -109,27 +112,27 @@ export class WirelessGateway extends pulumi.CustomResource {
  */
 export interface WirelessGatewayArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-description
+     * Description of Wireless Gateway.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-lastuplinkreceivedat
+     * The date and time when the most recent uplink was received.
      */
     lastUplinkReceivedAt?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-lorawan
+     * The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Gateway.
      */
     loRaWAN: pulumi.Input<inputs.iotwireless.WirelessGatewayLoRaWANGatewayArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-name
+     * Name of Wireless Gateway.
      */
     name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-tags
+     * A list of key-value pairs that contain metadata for the gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.iotwireless.WirelessGatewayTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessgateway.html#cfn-iotwireless-wirelessgateway-thingarn
+     * Thing Arn. Passed into Update to associate a Thing with the Wireless Gateway.
      */
     thingArn?: pulumi.Input<string>;
 }

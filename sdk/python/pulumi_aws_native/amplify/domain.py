@@ -23,12 +23,6 @@ class DomainArgs:
                  enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Domain resource.
-        :param pulumi.Input[str] app_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid
-        :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname
-        :param pulumi.Input[Sequence[pulumi.Input['DomainSubDomainSettingArgs']]] sub_domain_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_sub_domain_creation_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns
-        :param pulumi.Input[str] auto_sub_domain_iam_role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
-        :param pulumi.Input[bool] enable_auto_sub_domain: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -43,9 +37,6 @@ class DomainArgs:
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid
-        """
         return pulumi.get(self, "app_id")
 
     @app_id.setter
@@ -55,9 +46,6 @@ class DomainArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname
-        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -67,9 +55,6 @@ class DomainArgs:
     @property
     @pulumi.getter(name="subDomainSettings")
     def sub_domain_settings(self) -> pulumi.Input[Sequence[pulumi.Input['DomainSubDomainSettingArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
-        """
         return pulumi.get(self, "sub_domain_settings")
 
     @sub_domain_settings.setter
@@ -79,9 +64,6 @@ class DomainArgs:
     @property
     @pulumi.getter(name="autoSubDomainCreationPatterns")
     def auto_sub_domain_creation_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns
-        """
         return pulumi.get(self, "auto_sub_domain_creation_patterns")
 
     @auto_sub_domain_creation_patterns.setter
@@ -91,9 +73,6 @@ class DomainArgs:
     @property
     @pulumi.getter(name="autoSubDomainIAMRole")
     def auto_sub_domain_iam_role(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
-        """
         return pulumi.get(self, "auto_sub_domain_iam_role")
 
     @auto_sub_domain_iam_role.setter
@@ -103,9 +82,6 @@ class DomainArgs:
     @property
     @pulumi.getter(name="enableAutoSubDomain")
     def enable_auto_sub_domain(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
-        """
         return pulumi.get(self, "enable_auto_sub_domain")
 
     @enable_auto_sub_domain.setter
@@ -126,16 +102,10 @@ class Domain(pulumi.CustomResource):
                  sub_domain_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainSubDomainSettingArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html
+        The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_sub_domain_creation_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns
-        :param pulumi.Input[str] auto_sub_domain_iam_role: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
-        :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname
-        :param pulumi.Input[bool] enable_auto_sub_domain: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainSubDomainSettingArgs']]]] sub_domain_settings: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
         """
         ...
     @overload
@@ -144,7 +114,7 @@ class Domain(pulumi.CustomResource):
                  args: DomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html
+        The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.
@@ -232,9 +202,6 @@ class Domain(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appId")
     def app_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid
-        """
         return pulumi.get(self, "app_id")
 
     @property
@@ -244,12 +211,12 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoSubDomainCreationPatterns")
-    def auto_sub_domain_creation_patterns(self) -> pulumi.Output[Sequence[str]]:
+    def auto_sub_domain_creation_patterns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         return pulumi.get(self, "auto_sub_domain_creation_patterns")
 
     @property
     @pulumi.getter(name="autoSubDomainIAMRole")
-    def auto_sub_domain_iam_role(self) -> pulumi.Output[str]:
+    def auto_sub_domain_iam_role(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "auto_sub_domain_iam_role")
 
     @property
@@ -269,7 +236,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableAutoSubDomain")
-    def enable_auto_sub_domain(self) -> pulumi.Output[bool]:
+    def enable_auto_sub_domain(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "enable_auto_sub_domain")
 
     @property
@@ -280,8 +247,5 @@ class Domain(pulumi.CustomResource):
     @property
     @pulumi.getter(name="subDomainSettings")
     def sub_domain_settings(self) -> pulumi.Output[Sequence['outputs.DomainSubDomainSetting']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
-        """
         return pulumi.get(self, "sub_domain_settings")
 

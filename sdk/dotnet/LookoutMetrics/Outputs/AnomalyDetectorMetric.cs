@@ -10,23 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html
-    /// </summary>
     [OutputType]
     public sealed class AnomalyDetectorMetric
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-aggregationfunction
+        /// Operator used to aggregate metric values
         /// </summary>
         public readonly string AggregationFunction;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-metricname
-        /// </summary>
         public readonly string MetricName;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-namespace
-        /// </summary>
         public readonly string? Namespace;
 
         [OutputConstructor]

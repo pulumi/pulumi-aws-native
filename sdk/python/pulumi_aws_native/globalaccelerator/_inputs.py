@@ -9,10 +9,49 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AcceleratorTagArgs',
     'EndpointGroupEndpointConfigurationArgs',
     'EndpointGroupPortOverrideArgs',
     'ListenerPortRangeArgs',
 ]
+
+@pulumi.input_type
+class AcceleratorTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Tag is a key-value pair associated with accelerator.
+        :param pulumi.Input[str] key: Key of the tag. Value can be 1 to 127 characters.
+        :param pulumi.Input[str] value: Value for the tag. Value can be 1 to 255 characters.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        Key of the tag. Value can be 1 to 127 characters.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Value for the tag. Value can be 1 to 255 characters.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class EndpointGroupEndpointConfigurationArgs:
@@ -21,10 +60,10 @@ class EndpointGroupEndpointConfigurationArgs:
                  client_ip_preservation_enabled: Optional[pulumi.Input[bool]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html
-        :param pulumi.Input[str] endpoint_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-endpointid
-        :param pulumi.Input[bool] client_ip_preservation_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-clientippreservationenabled
-        :param pulumi.Input[int] weight: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-weight
+        The configuration for a given endpoint
+        :param pulumi.Input[str] endpoint_id: Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
+        :param pulumi.Input[bool] client_ip_preservation_enabled: true if client ip should be preserved
+        :param pulumi.Input[int] weight: The weight for the endpoint.
         """
         pulumi.set(__self__, "endpoint_id", endpoint_id)
         if client_ip_preservation_enabled is not None:
@@ -36,7 +75,7 @@ class EndpointGroupEndpointConfigurationArgs:
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-endpointid
+        Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
         """
         return pulumi.get(self, "endpoint_id")
 
@@ -48,7 +87,7 @@ class EndpointGroupEndpointConfigurationArgs:
     @pulumi.getter(name="clientIPPreservationEnabled")
     def client_ip_preservation_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-clientippreservationenabled
+        true if client ip should be preserved
         """
         return pulumi.get(self, "client_ip_preservation_enabled")
 
@@ -60,7 +99,7 @@ class EndpointGroupEndpointConfigurationArgs:
     @pulumi.getter
     def weight(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-endpointconfiguration.html#cfn-globalaccelerator-endpointgroup-endpointconfiguration-weight
+        The weight for the endpoint.
         """
         return pulumi.get(self, "weight")
 
@@ -75,9 +114,7 @@ class EndpointGroupPortOverrideArgs:
                  endpoint_port: pulumi.Input[int],
                  listener_port: pulumi.Input[int]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html
-        :param pulumi.Input[int] endpoint_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-endpointport
-        :param pulumi.Input[int] listener_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-listenerport
+        listener to endpoint port mapping.
         """
         pulumi.set(__self__, "endpoint_port", endpoint_port)
         pulumi.set(__self__, "listener_port", listener_port)
@@ -85,9 +122,6 @@ class EndpointGroupPortOverrideArgs:
     @property
     @pulumi.getter(name="endpointPort")
     def endpoint_port(self) -> pulumi.Input[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-endpointport
-        """
         return pulumi.get(self, "endpoint_port")
 
     @endpoint_port.setter
@@ -97,9 +131,6 @@ class EndpointGroupPortOverrideArgs:
     @property
     @pulumi.getter(name="listenerPort")
     def listener_port(self) -> pulumi.Input[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-endpointgroup-portoverride.html#cfn-globalaccelerator-endpointgroup-portoverride-listenerport
-        """
         return pulumi.get(self, "listener_port")
 
     @listener_port.setter
@@ -113,9 +144,7 @@ class ListenerPortRangeArgs:
                  from_port: pulumi.Input[int],
                  to_port: pulumi.Input[int]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html
-        :param pulumi.Input[int] from_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-fromport
-        :param pulumi.Input[int] to_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-toport
+        A port range to support for connections from  clients to your accelerator.
         """
         pulumi.set(__self__, "from_port", from_port)
         pulumi.set(__self__, "to_port", to_port)
@@ -123,9 +152,6 @@ class ListenerPortRangeArgs:
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Input[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-fromport
-        """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
@@ -135,9 +161,6 @@ class ListenerPortRangeArgs:
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> pulumi.Input[int]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-toport
-        """
         return pulumi.get(self, "to_port")
 
     @to_port.setter

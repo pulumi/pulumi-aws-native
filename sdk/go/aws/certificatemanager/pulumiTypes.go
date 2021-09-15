@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html
 type AccountExpiryEventsConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html#cfn-certificatemanager-account-expiryeventsconfiguration-daysbeforeexpiry
 	DaysBeforeExpiry *int `pulumi:"daysBeforeExpiry"`
 }
 
@@ -27,9 +25,7 @@ type AccountExpiryEventsConfigurationInput interface {
 	ToAccountExpiryEventsConfigurationOutputWithContext(context.Context) AccountExpiryEventsConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html
 type AccountExpiryEventsConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html#cfn-certificatemanager-account-expiryeventsconfiguration-daysbeforeexpiry
 	DaysBeforeExpiry pulumi.IntPtrInput `pulumi:"daysBeforeExpiry"`
 }
 
@@ -86,7 +82,6 @@ func (i *accountExpiryEventsConfigurationPtrType) ToAccountExpiryEventsConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(AccountExpiryEventsConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html
 type AccountExpiryEventsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccountExpiryEventsConfigurationOutput) ElementType() reflect.Type {
@@ -111,7 +106,6 @@ func (o AccountExpiryEventsConfigurationOutput) ToAccountExpiryEventsConfigurati
 	}).(AccountExpiryEventsConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html#cfn-certificatemanager-account-expiryeventsconfiguration-daysbeforeexpiry
 func (o AccountExpiryEventsConfigurationOutput) DaysBeforeExpiry() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountExpiryEventsConfiguration) *int { return v.DaysBeforeExpiry }).(pulumi.IntPtrOutput)
 }
@@ -140,7 +134,6 @@ func (o AccountExpiryEventsConfigurationPtrOutput) Elem() AccountExpiryEventsCon
 	}).(AccountExpiryEventsConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-account-expiryeventsconfiguration.html#cfn-certificatemanager-account-expiryeventsconfiguration-daysbeforeexpiry
 func (o AccountExpiryEventsConfigurationPtrOutput) DaysBeforeExpiry() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountExpiryEventsConfiguration) *int {
 		if v == nil {

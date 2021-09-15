@@ -11,21 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html
+// Resource Schema for AWS::ServiceCatalog::ServiceAction
 type ServiceAction struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-acceptlanguage
-	AcceptLanguage pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definition
-	Definition ServiceActionDefinitionParameterArrayOutput `pulumi:"definition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definitiontype
-	DefinitionType pulumi.StringOutput `pulumi:"definitionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Id          pulumi.StringOutput    `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-name
-	Name pulumi.StringOutput `pulumi:"name"`
+	AcceptLanguage pulumi.StringPtrOutput                      `pulumi:"acceptLanguage"`
+	Definition     ServiceActionDefinitionParameterArrayOutput `pulumi:"definition"`
+	DefinitionType pulumi.StringOutput                         `pulumi:"definitionType"`
+	Description    pulumi.StringPtrOutput                      `pulumi:"description"`
+	Name           pulumi.StringOutput                         `pulumi:"name"`
 }
 
 // NewServiceAction registers a new resource with the given unique name, arguments, and options.
@@ -76,30 +70,20 @@ func (ServiceActionState) ElementType() reflect.Type {
 }
 
 type serviceActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-acceptlanguage
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definition
-	Definition []ServiceActionDefinitionParameter `pulumi:"definition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definitiontype
-	DefinitionType string `pulumi:"definitionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-name
-	Name string `pulumi:"name"`
+	AcceptLanguage *string                            `pulumi:"acceptLanguage"`
+	Definition     []ServiceActionDefinitionParameter `pulumi:"definition"`
+	DefinitionType string                             `pulumi:"definitionType"`
+	Description    *string                            `pulumi:"description"`
+	Name           string                             `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ServiceAction resource.
 type ServiceActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-acceptlanguage
 	AcceptLanguage pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definition
-	Definition ServiceActionDefinitionParameterArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definitiontype
+	Definition     ServiceActionDefinitionParameterArrayInput
 	DefinitionType pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-name
-	Name pulumi.StringInput
+	Description    pulumi.StringPtrInput
+	Name           pulumi.StringInput
 }
 
 func (ServiceActionArgs) ElementType() reflect.Type {

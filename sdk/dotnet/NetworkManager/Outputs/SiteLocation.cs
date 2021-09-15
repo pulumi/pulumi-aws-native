@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.NetworkManager.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html
+    /// The location of the site
     /// </summary>
     [OutputType]
     public sealed class SiteLocation
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-address
+        /// The physical address.
         /// </summary>
         public readonly string? Address;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-latitude
+        /// The latitude.
         /// </summary>
         public readonly string? Latitude;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-longitude
+        /// The longitude.
         /// </summary>
         public readonly string? Longitude;
 

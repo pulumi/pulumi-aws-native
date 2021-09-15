@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html
+ * The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
  */
 export class Domain extends pulumi.CustomResource {
     /**
@@ -35,21 +35,15 @@ export class Domain extends pulumi.CustomResource {
         return obj['__pulumiType'] === Domain.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid
-     */
     public readonly appId!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly autoSubDomainCreationPatterns!: pulumi.Output<string[]>;
-    public readonly autoSubDomainIAMRole!: pulumi.Output<string>;
+    public readonly autoSubDomainCreationPatterns!: pulumi.Output<string[] | undefined>;
+    public readonly autoSubDomainIAMRole!: pulumi.Output<string | undefined>;
     public /*out*/ readonly certificateRecord!: pulumi.Output<string>;
     public readonly domainName!: pulumi.Output<string>;
     public /*out*/ readonly domainStatus!: pulumi.Output<string>;
-    public readonly enableAutoSubDomain!: pulumi.Output<boolean>;
+    public readonly enableAutoSubDomain!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
-     */
     public readonly subDomainSettings!: pulumi.Output<outputs.amplify.DomainSubDomainSetting[]>;
 
     /**
@@ -105,28 +99,10 @@ export class Domain extends pulumi.CustomResource {
  * The set of arguments for constructing a Domain resource.
  */
 export interface DomainArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid
-     */
     appId: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns
-     */
     autoSubDomainCreationPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
-     */
     autoSubDomainIAMRole?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname
-     */
     domainName: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
-     */
     enableAutoSubDomain?: pulumi.Input<boolean>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
-     */
     subDomainSettings: pulumi.Input<pulumi.Input<inputs.amplify.DomainSubDomainSettingArgs>[]>;
 }

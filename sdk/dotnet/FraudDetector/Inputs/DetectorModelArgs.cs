@@ -11,13 +11,10 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html
+    /// A model to associate with a detector.
     /// </summary>
     public sealed class DetectorModelArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html#cfn-frauddetector-detector-model-arn
-        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

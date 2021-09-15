@@ -11,22 +11,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html
+    /// &lt;p&gt;Output column.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSetOutputColumn
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-description
+        /// &lt;p&gt;A description for a column.&lt;/p&gt;
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-name
+        /// &lt;p&gt;A display name for the dataset.&lt;/p&gt;
         /// </summary>
         public readonly string? Name;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-outputcolumn.html#cfn-quicksight-dataset-outputcolumn-type
-        /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]

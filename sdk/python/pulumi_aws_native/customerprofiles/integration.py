@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['IntegrationArgs', 'Integration']
@@ -20,15 +18,14 @@ class IntegrationArgs:
                  domain_name: pulumi.Input[str],
                  object_type_name: pulumi.Input[str],
                  flow_definition: Optional[pulumi.Input['IntegrationFlowDefinitionArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Integration resource.
-        :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-domainname
-        :param pulumi.Input[str] object_type_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypename
-        :param pulumi.Input['IntegrationFlowDefinitionArgs'] flow_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-flowdefinition
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-tags
-        :param pulumi.Input[str] uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-uri
+        :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input[str] object_type_name: The name of the ObjectType defined for the 3rd party data in Profile Service
+        :param pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]] tags: The tags (keys and values) associated with the integration
+        :param pulumi.Input[str] uri: The URI of the S3 bucket or any other type of data source.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "object_type_name", object_type_name)
@@ -43,7 +40,7 @@ class IntegrationArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-domainname
+        The unique name of the domain.
         """
         return pulumi.get(self, "domain_name")
 
@@ -55,7 +52,7 @@ class IntegrationArgs:
     @pulumi.getter(name="objectTypeName")
     def object_type_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypename
+        The name of the ObjectType defined for the 3rd party data in Profile Service
         """
         return pulumi.get(self, "object_type_name")
 
@@ -66,9 +63,6 @@ class IntegrationArgs:
     @property
     @pulumi.getter(name="flowDefinition")
     def flow_definition(self) -> Optional[pulumi.Input['IntegrationFlowDefinitionArgs']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-flowdefinition
-        """
         return pulumi.get(self, "flow_definition")
 
     @flow_definition.setter
@@ -77,21 +71,21 @@ class IntegrationArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-tags
+        The tags (keys and values) associated with the integration
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-uri
+        The URI of the S3 bucket or any other type of data source.
         """
         return pulumi.get(self, "uri")
 
@@ -108,19 +102,18 @@ class Integration(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  flow_definition: Optional[pulumi.Input[pulumi.InputType['IntegrationFlowDefinitionArgs']]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationTagArgs']]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html
+        The resource schema for creating an Amazon Connect Customer Profiles Integration.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-domainname
-        :param pulumi.Input[pulumi.InputType['IntegrationFlowDefinitionArgs']] flow_definition: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-flowdefinition
-        :param pulumi.Input[str] object_type_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypename
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-tags
-        :param pulumi.Input[str] uri: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-uri
+        :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input[str] object_type_name: The name of the ObjectType defined for the 3rd party data in Profile Service
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationTagArgs']]]] tags: The tags (keys and values) associated with the integration
+        :param pulumi.Input[str] uri: The URI of the S3 bucket or any other type of data source.
         """
         ...
     @overload
@@ -129,7 +122,7 @@ class Integration(pulumi.CustomResource):
                  args: IntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html
+        The resource schema for creating an Amazon Connect Customer Profiles Integration.
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.
@@ -149,7 +142,7 @@ class Integration(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  flow_definition: Optional[pulumi.Input[pulumi.InputType['IntegrationFlowDefinitionArgs']]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationTagArgs']]]]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -208,42 +201,45 @@ class Integration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The time of this integration got created
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-domainname
+        The unique name of the domain.
         """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="flowDefinition")
     def flow_definition(self) -> pulumi.Output[Optional['outputs.IntegrationFlowDefinition']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-flowdefinition
-        """
         return pulumi.get(self, "flow_definition")
 
     @property
     @pulumi.getter(name="lastUpdatedAt")
     def last_updated_at(self) -> pulumi.Output[str]:
+        """
+        The time of this integration got last updated at
+        """
         return pulumi.get(self, "last_updated_at")
 
     @property
     @pulumi.getter(name="objectTypeName")
     def object_type_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-objecttypename
+        The name of the ObjectType defined for the 3rd party data in Profile Service
         """
         return pulumi.get(self, "object_type_name")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.IntegrationTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-tags
+        The tags (keys and values) associated with the integration
         """
         return pulumi.get(self, "tags")
 
@@ -251,7 +247,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter
     def uri(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html#cfn-customerprofiles-integration-uri
+        The URI of the S3 bucket or any other type of data source.
         """
         return pulumi.get(self, "uri")
 

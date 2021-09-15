@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html
+ * Resource schema for AWS::MediaPackage::PackagingConfiguration
  */
 export class PackagingConfiguration extends pulumi.CustomResource {
     /**
@@ -35,35 +35,34 @@ export class PackagingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === PackagingConfiguration.__pulumiType;
     }
 
+    /**
+     * The ARN of the PackagingConfiguration.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
+     * A CMAF packaging configuration.
      */
     public readonly cmafPackage!: pulumi.Output<outputs.mediapackage.PackagingConfigurationCmafPackage | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
+     * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
      */
     public readonly dashPackage!: pulumi.Output<outputs.mediapackage.PackagingConfigurationDashPackage | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
+     * An HTTP Live Streaming (HLS) packaging configuration.
      */
     public readonly hlsPackage!: pulumi.Output<outputs.mediapackage.PackagingConfigurationHlsPackage | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
-     */
-    public readonly id!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
+     * A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
      */
     public readonly mssPackage!: pulumi.Output<outputs.mediapackage.PackagingConfigurationMssPackage | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
+     * The ID of a PackagingGroup.
      */
     public readonly packagingGroupId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
+     * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.mediapackage.PackagingConfigurationTag[] | undefined>;
 
     /**
      * Create a PackagingConfiguration resource with the given unique name, arguments, and options.
@@ -76,16 +75,12 @@ export class PackagingConfiguration extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.id === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'id'");
-            }
             if ((!args || args.packagingGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'packagingGroupId'");
             }
             inputs["cmafPackage"] = args ? args.cmafPackage : undefined;
             inputs["dashPackage"] = args ? args.dashPackage : undefined;
             inputs["hlsPackage"] = args ? args.hlsPackage : undefined;
-            inputs["id"] = args ? args.id : undefined;
             inputs["mssPackage"] = args ? args.mssPackage : undefined;
             inputs["packagingGroupId"] = args ? args.packagingGroupId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -95,7 +90,6 @@ export class PackagingConfiguration extends pulumi.CustomResource {
             inputs["cmafPackage"] = undefined /*out*/;
             inputs["dashPackage"] = undefined /*out*/;
             inputs["hlsPackage"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["mssPackage"] = undefined /*out*/;
             inputs["packagingGroupId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -112,31 +106,27 @@ export class PackagingConfiguration extends pulumi.CustomResource {
  */
 export interface PackagingConfigurationArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
+     * A CMAF packaging configuration.
      */
     cmafPackage?: pulumi.Input<inputs.mediapackage.PackagingConfigurationCmafPackageArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
+     * A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
      */
     dashPackage?: pulumi.Input<inputs.mediapackage.PackagingConfigurationDashPackageArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
+     * An HTTP Live Streaming (HLS) packaging configuration.
      */
     hlsPackage?: pulumi.Input<inputs.mediapackage.PackagingConfigurationHlsPackageArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
-     */
-    id: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
+     * A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
      */
     mssPackage?: pulumi.Input<inputs.mediapackage.PackagingConfigurationMssPackageArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
+     * The ID of a PackagingGroup.
      */
     packagingGroupId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
+     * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.mediapackage.PackagingConfigurationTagArgs>[]>;
 }

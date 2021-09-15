@@ -10,64 +10,61 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppRunner
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html
+    /// The AWS::AppRunner::Service resource specifies an AppRunner Service.
     /// </summary>
     [AwsNativeResourceType("aws-native:apprunner:Service")]
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-autoscalingconfigurationarn
+        /// Autoscaling configuration ARN
         /// </summary>
         [Output("autoScalingConfigurationArn")]
         public Output<string?> AutoScalingConfigurationArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-encryptionconfiguration
-        /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.ServiceEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-healthcheckconfiguration
-        /// </summary>
         [Output("healthCheckConfiguration")]
         public Output<Outputs.ServiceHealthCheckConfiguration?> HealthCheckConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-instanceconfiguration
-        /// </summary>
         [Output("instanceConfiguration")]
         public Output<Outputs.ServiceInstanceConfiguration?> InstanceConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AppRunner Service.
+        /// </summary>
         [Output("serviceArn")]
         public Output<string> ServiceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AppRunner Service Id
+        /// </summary>
         [Output("serviceId")]
         public Output<string> ServiceId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-servicename
+        /// The AppRunner Service Name.
         /// </summary>
         [Output("serviceName")]
         public Output<string?> ServiceName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Service Url of the AppRunner Service.
+        /// </summary>
         [Output("serviceUrl")]
         public Output<string> ServiceUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-sourceconfiguration
-        /// </summary>
         [Output("sourceConfiguration")]
         public Output<Outputs.ServiceSourceConfiguration> SourceConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// AppRunner Service status.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -115,50 +112,34 @@ namespace Pulumi.AwsNative.AppRunner
     public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-autoscalingconfigurationarn
+        /// Autoscaling configuration ARN
         /// </summary>
         [Input("autoScalingConfigurationArn")]
         public Input<string>? AutoScalingConfigurationArn { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-encryptionconfiguration
-        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.ServiceEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-healthcheckconfiguration
-        /// </summary>
         [Input("healthCheckConfiguration")]
         public Input<Inputs.ServiceHealthCheckConfigurationArgs>? HealthCheckConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-instanceconfiguration
-        /// </summary>
         [Input("instanceConfiguration")]
         public Input<Inputs.ServiceInstanceConfigurationArgs>? InstanceConfiguration { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-servicename
+        /// The AppRunner Service Name.
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-sourceconfiguration
-        /// </summary>
         [Input("sourceConfiguration", required: true)]
         public Input<Inputs.ServiceSourceConfigurationArgs> SourceConfiguration { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.ServiceTagArgs>? _tags;
+        public InputList<Inputs.ServiceTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ServiceTagArgs>());
             set => _tags = value;
         }
 

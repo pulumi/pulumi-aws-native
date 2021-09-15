@@ -11,13 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html
+// The AWS::NetworkManager::TransitGatewayRegistration type registers a transit gateway in your global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
 type TransitGatewayRegistration struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
+	// The ID of the global network.
 	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
+	// The Amazon Resource Name (ARN) of the transit gateway.
 	TransitGatewayArn pulumi.StringOutput `pulumi:"transitGatewayArn"`
 }
 
@@ -66,17 +66,17 @@ func (TransitGatewayRegistrationState) ElementType() reflect.Type {
 }
 
 type transitGatewayRegistrationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
+	// The ID of the global network.
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
+	// The Amazon Resource Name (ARN) of the transit gateway.
 	TransitGatewayArn string `pulumi:"transitGatewayArn"`
 }
 
 // The set of arguments for constructing a TransitGatewayRegistration resource.
 type TransitGatewayRegistrationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
+	// The ID of the global network.
 	GlobalNetworkId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
+	// The Amazon Resource Name (ARN) of the transit gateway.
 	TransitGatewayArn pulumi.StringInput
 }
 

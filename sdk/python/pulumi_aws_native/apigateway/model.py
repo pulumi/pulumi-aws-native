@@ -17,14 +17,14 @@ class ModelArgs:
                  content_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 schema: Optional[pulumi.Input[Union[Any, str]]] = None):
+                 schema: Optional[Any] = None):
         """
         The set of arguments for constructing a Model resource.
-        :param pulumi.Input[str] rest_api_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-restapiid
-        :param pulumi.Input[str] content_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-contenttype
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-description
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-name
-        :param pulumi.Input[Union[Any, str]] schema: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-schema
+        :param pulumi.Input[str] rest_api_id: The ID of a REST API with which to associate this model.
+        :param pulumi.Input[str] content_type: The content type for the model.
+        :param pulumi.Input[str] description: A description that identifies this model.
+        :param pulumi.Input[str] name: A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.
+        :param Any schema: The schema to use to transform data to one or more output formats. Specify null ({}) if you don't want to specify a schema.
         """
         pulumi.set(__self__, "rest_api_id", rest_api_id)
         if content_type is not None:
@@ -40,7 +40,7 @@ class ModelArgs:
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-restapiid
+        The ID of a REST API with which to associate this model.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -52,7 +52,7 @@ class ModelArgs:
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-contenttype
+        The content type for the model.
         """
         return pulumi.get(self, "content_type")
 
@@ -64,7 +64,7 @@ class ModelArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-description
+        A description that identifies this model.
         """
         return pulumi.get(self, "description")
 
@@ -76,7 +76,7 @@ class ModelArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-name
+        A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.
         """
         return pulumi.get(self, "name")
 
@@ -86,14 +86,14 @@ class ModelArgs:
 
     @property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[Union[Any, str]]]:
+    def schema(self) -> Optional[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-schema
+        The schema to use to transform data to one or more output formats. Specify null ({}) if you don't want to specify a schema.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[Union[Any, str]]]):
+    def schema(self, value: Optional[Any]):
         pulumi.set(self, "schema", value)
 
 
@@ -106,18 +106,18 @@ class Model(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
-                 schema: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 schema: Optional[Any] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html
+        Resource Type definition for AWS::ApiGateway::Model
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] content_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-contenttype
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-description
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-name
-        :param pulumi.Input[str] rest_api_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-restapiid
-        :param pulumi.Input[Union[Any, str]] schema: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-schema
+        :param pulumi.Input[str] content_type: The content type for the model.
+        :param pulumi.Input[str] description: A description that identifies this model.
+        :param pulumi.Input[str] name: A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.
+        :param pulumi.Input[str] rest_api_id: The ID of a REST API with which to associate this model.
+        :param Any schema: The schema to use to transform data to one or more output formats. Specify null ({}) if you don't want to specify a schema.
         """
         ...
     @overload
@@ -126,7 +126,7 @@ class Model(pulumi.CustomResource):
                  args: ModelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html
+        Resource Type definition for AWS::ApiGateway::Model
 
         :param str resource_name: The name of the resource.
         :param ModelArgs args: The arguments to use to populate this resource's properties.
@@ -147,7 +147,7 @@ class Model(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None,
-                 schema: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 schema: Optional[Any] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -200,7 +200,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-contenttype
+        The content type for the model.
         """
         return pulumi.get(self, "content_type")
 
@@ -208,7 +208,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-description
+        A description that identifies this model.
         """
         return pulumi.get(self, "description")
 
@@ -216,7 +216,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-name
+        A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.
         """
         return pulumi.get(self, "name")
 
@@ -224,15 +224,15 @@ class Model(pulumi.CustomResource):
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-restapiid
+        The ID of a REST API with which to associate this model.
         """
         return pulumi.get(self, "rest_api_id")
 
     @property
     @pulumi.getter
-    def schema(self) -> pulumi.Output[Optional[str]]:
+    def schema(self) -> pulumi.Output[Optional[Any]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-schema
+        The schema to use to transform data to one or more output formats. Specify null ({}) if you don't want to specify a schema.
         """
         return pulumi.get(self, "schema")
 

@@ -10,23 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Glue
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html
+    /// This resource represents an individual schema version of a schema defined in Glue Schema Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:glue:SchemaVersion")]
     public partial class SchemaVersion : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
-        /// </summary>
         [Output("schema")]
         public Output<Outputs.SchemaVersionSchema> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+        /// Complete definition of the schema in plain-text.
         /// </summary>
         [Output("schemaDefinition")]
         public Output<string> SchemaDefinition { get; private set; } = null!;
 
+        /// <summary>
+        /// Represents the version ID associated with the schema version.
+        /// </summary>
         [Output("versionId")]
         public Output<string> VersionId { get; private set; } = null!;
 
@@ -75,14 +75,11 @@ namespace Pulumi.AwsNative.Glue
 
     public sealed class SchemaVersionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
-        /// </summary>
         [Input("schema", required: true)]
         public Input<Inputs.SchemaVersionSchemaArgs> Schema { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+        /// Complete definition of the schema in plain-text.
         /// </summary>
         [Input("schemaDefinition", required: true)]
         public Input<string> SchemaDefinition { get; set; } = null!;

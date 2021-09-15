@@ -10,19 +10,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html
+// Resource for Greengrass component version.
 type ComponentVersion struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput `pulumi:"arn"`
-	ComponentName    pulumi.StringOutput `pulumi:"componentName"`
-	ComponentVersion pulumi.StringOutput `pulumi:"componentVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
-	InlineRecipe pulumi.StringPtrOutput `pulumi:"inlineRecipe"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
-	LambdaFunction ComponentVersionLambdaFunctionRecipeSourcePtrOutput `pulumi:"lambdaFunction"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Arn              pulumi.StringOutput                                 `pulumi:"arn"`
+	ComponentName    pulumi.StringOutput                                 `pulumi:"componentName"`
+	ComponentVersion pulumi.StringOutput                                 `pulumi:"componentVersion"`
+	InlineRecipe     pulumi.StringPtrOutput                              `pulumi:"inlineRecipe"`
+	LambdaFunction   ComponentVersionLambdaFunctionRecipeSourcePtrOutput `pulumi:"lambdaFunction"`
+	Tags             pulumi.AnyOutput                                    `pulumi:"tags"`
 }
 
 // NewComponentVersion registers a new resource with the given unique name, arguments, and options.
@@ -64,22 +61,16 @@ func (ComponentVersionState) ElementType() reflect.Type {
 }
 
 type componentVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
-	InlineRecipe *string `pulumi:"inlineRecipe"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
+	InlineRecipe   *string                                     `pulumi:"inlineRecipe"`
 	LambdaFunction *ComponentVersionLambdaFunctionRecipeSource `pulumi:"lambdaFunction"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
-	Tags map[string]string `pulumi:"tags"`
+	Tags           interface{}                                 `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ComponentVersion resource.
 type ComponentVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
-	InlineRecipe pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
+	InlineRecipe   pulumi.StringPtrInput
 	LambdaFunction ComponentVersionLambdaFunctionRecipeSourcePtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
-	Tags pulumi.StringMapInput
+	Tags           pulumi.Input
 }
 
 func (ComponentVersionArgs) ElementType() reflect.Type {

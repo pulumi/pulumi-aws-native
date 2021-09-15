@@ -8,33 +8,33 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html
+// Resource schema for AWS::ApplicationInsights::Application
 type Application struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the ApplicationInsights application.
 	ApplicationARN pulumi.StringOutput `pulumi:"applicationARN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
+	// If set to true, application will be configured with recommended monitoring configuration.
 	AutoConfigurationEnabled pulumi.BoolPtrOutput `pulumi:"autoConfigurationEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
+	// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
 	CWEMonitorEnabled pulumi.BoolPtrOutput `pulumi:"cWEMonitorEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
+	// The monitoring settings of the components.
 	ComponentMonitoringSettings ApplicationComponentMonitoringSettingArrayOutput `pulumi:"componentMonitoringSettings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
+	// The custom grouped components.
 	CustomComponents ApplicationCustomComponentArrayOutput `pulumi:"customComponents"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
+	// The log pattern sets.
 	LogPatternSets ApplicationLogPatternSetArrayOutput `pulumi:"logPatternSets"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
+	// When set to true, creates opsItems for any problems detected on an application.
 	OpsCenterEnabled pulumi.BoolPtrOutput `pulumi:"opsCenterEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
+	// The SNS topic provided to Application Insights that is associated to the created opsItem.
 	OpsItemSNSTopicArn pulumi.StringPtrOutput `pulumi:"opsItemSNSTopicArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
+	// The name of the resource group.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The tags of Application Insights application.
+	Tags ApplicationTagArrayOutput `pulumi:"tags"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -79,46 +79,46 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
+	// If set to true, application will be configured with recommended monitoring configuration.
 	AutoConfigurationEnabled *bool `pulumi:"autoConfigurationEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
+	// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
 	CWEMonitorEnabled *bool `pulumi:"cWEMonitorEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
+	// The monitoring settings of the components.
 	ComponentMonitoringSettings []ApplicationComponentMonitoringSetting `pulumi:"componentMonitoringSettings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
+	// The custom grouped components.
 	CustomComponents []ApplicationCustomComponent `pulumi:"customComponents"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
+	// The log pattern sets.
 	LogPatternSets []ApplicationLogPatternSet `pulumi:"logPatternSets"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
+	// When set to true, creates opsItems for any problems detected on an application.
 	OpsCenterEnabled *bool `pulumi:"opsCenterEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
+	// The SNS topic provided to Application Insights that is associated to the created opsItem.
 	OpsItemSNSTopicArn *string `pulumi:"opsItemSNSTopicArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
+	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// The tags of Application Insights application.
+	Tags []ApplicationTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
+	// If set to true, application will be configured with recommended monitoring configuration.
 	AutoConfigurationEnabled pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
+	// Indicates whether Application Insights can listen to CloudWatch events for the application resources.
 	CWEMonitorEnabled pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
+	// The monitoring settings of the components.
 	ComponentMonitoringSettings ApplicationComponentMonitoringSettingArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
+	// The custom grouped components.
 	CustomComponents ApplicationCustomComponentArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
+	// The log pattern sets.
 	LogPatternSets ApplicationLogPatternSetArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
+	// When set to true, creates opsItems for any problems detected on an application.
 	OpsCenterEnabled pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
+	// The SNS topic provided to Application Insights that is associated to the created opsItem.
 	OpsItemSNSTopicArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
+	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
-	Tags aws.TagArrayInput
+	// The tags of Application Insights application.
+	Tags ApplicationTagArrayInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {

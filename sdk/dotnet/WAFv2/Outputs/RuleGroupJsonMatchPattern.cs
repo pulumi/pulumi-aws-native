@@ -11,23 +11,20 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html
+    /// The pattern to look for in the JSON body.
     /// </summary>
     [OutputType]
     public sealed class RuleGroupJsonMatchPattern
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-all
+        /// Inspect all parts of the web request's JSON body.
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? All;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-includedpaths
-        /// </summary>
+        public readonly object? All;
         public readonly ImmutableArray<string> IncludedPaths;
 
         [OutputConstructor]
         private RuleGroupJsonMatchPattern(
-            Union<System.Text.Json.JsonElement, string>? all,
+            object? all,
 
             ImmutableArray<string> includedPaths)
         {

@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['FlowArgs', 'Flow']
@@ -24,17 +22,17 @@ class FlowArgs:
                  trigger_config: pulumi.Input['FlowTriggerConfigArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  k_ms_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]] = None):
         """
         The set of arguments for constructing a Flow resource.
-        :param pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]] destination_flow_config_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
-        :param pulumi.Input[str] flow_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
-        :param pulumi.Input['FlowSourceFlowConfigArgs'] source_flow_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
-        :param pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]] tasks: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
-        :param pulumi.Input['FlowTriggerConfigArgs'] trigger_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
-        :param pulumi.Input[str] k_ms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
+        :param pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]] destination_flow_config_list: List of Destination connectors of the flow.
+        :param pulumi.Input[str] flow_name: Name of the flow.
+        :param pulumi.Input['FlowSourceFlowConfigArgs'] source_flow_config: Configurations of Source connector of the flow.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]] tasks: List of tasks for the flow.
+        :param pulumi.Input['FlowTriggerConfigArgs'] trigger_config: Trigger settings of the flow.
+        :param pulumi.Input[str] description: Description of the flow.
+        :param pulumi.Input[str] k_ms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+        :param pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]] tags: List of Tags.
         """
         pulumi.set(__self__, "destination_flow_config_list", destination_flow_config_list)
         pulumi.set(__self__, "flow_name", flow_name)
@@ -52,7 +50,7 @@ class FlowArgs:
     @pulumi.getter(name="destinationFlowConfigList")
     def destination_flow_config_list(self) -> pulumi.Input[Sequence[pulumi.Input['FlowDestinationFlowConfigArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
+        List of Destination connectors of the flow.
         """
         return pulumi.get(self, "destination_flow_config_list")
 
@@ -64,7 +62,7 @@ class FlowArgs:
     @pulumi.getter(name="flowName")
     def flow_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
+        Name of the flow.
         """
         return pulumi.get(self, "flow_name")
 
@@ -76,7 +74,7 @@ class FlowArgs:
     @pulumi.getter(name="sourceFlowConfig")
     def source_flow_config(self) -> pulumi.Input['FlowSourceFlowConfigArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
+        Configurations of Source connector of the flow.
         """
         return pulumi.get(self, "source_flow_config")
 
@@ -88,7 +86,7 @@ class FlowArgs:
     @pulumi.getter
     def tasks(self) -> pulumi.Input[Sequence[pulumi.Input['FlowTaskArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
+        List of tasks for the flow.
         """
         return pulumi.get(self, "tasks")
 
@@ -100,7 +98,7 @@ class FlowArgs:
     @pulumi.getter(name="triggerConfig")
     def trigger_config(self) -> pulumi.Input['FlowTriggerConfigArgs']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
+        Trigger settings of the flow.
         """
         return pulumi.get(self, "trigger_config")
 
@@ -112,7 +110,7 @@ class FlowArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
+        Description of the flow.
         """
         return pulumi.get(self, "description")
 
@@ -124,7 +122,7 @@ class FlowArgs:
     @pulumi.getter(name="kMSArn")
     def k_ms_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
+        The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
         return pulumi.get(self, "k_ms_arn")
 
@@ -134,14 +132,14 @@ class FlowArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
+        List of Tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FlowTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -155,23 +153,23 @@ class Flow(pulumi.CustomResource):
                  flow_name: Optional[pulumi.Input[str]] = None,
                  k_ms_arn: Optional[pulumi.Input[str]] = None,
                  source_flow_config: Optional[pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTagArgs']]]]] = None,
                  tasks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTaskArgs']]]]] = None,
                  trigger_config: Optional[pulumi.Input[pulumi.InputType['FlowTriggerConfigArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html
+        Resource schema for AWS::AppFlow::Flow.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowDestinationFlowConfigArgs']]]] destination_flow_config_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
-        :param pulumi.Input[str] flow_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
-        :param pulumi.Input[str] k_ms_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
-        :param pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']] source_flow_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTaskArgs']]]] tasks: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
-        :param pulumi.Input[pulumi.InputType['FlowTriggerConfigArgs']] trigger_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
+        :param pulumi.Input[str] description: Description of the flow.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowDestinationFlowConfigArgs']]]] destination_flow_config_list: List of Destination connectors of the flow.
+        :param pulumi.Input[str] flow_name: Name of the flow.
+        :param pulumi.Input[str] k_ms_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
+        :param pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']] source_flow_config: Configurations of Source connector of the flow.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTagArgs']]]] tags: List of Tags.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTaskArgs']]]] tasks: List of tasks for the flow.
+        :param pulumi.Input[pulumi.InputType['FlowTriggerConfigArgs']] trigger_config: Trigger settings of the flow.
         """
         ...
     @overload
@@ -180,7 +178,7 @@ class Flow(pulumi.CustomResource):
                  args: FlowArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html
+        Resource schema for AWS::AppFlow::Flow.
 
         :param str resource_name: The name of the resource.
         :param FlowArgs args: The arguments to use to populate this resource's properties.
@@ -202,7 +200,7 @@ class Flow(pulumi.CustomResource):
                  flow_name: Optional[pulumi.Input[str]] = None,
                  k_ms_arn: Optional[pulumi.Input[str]] = None,
                  source_flow_config: Optional[pulumi.Input[pulumi.InputType['FlowSourceFlowConfigArgs']]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTagArgs']]]]] = None,
                  tasks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowTaskArgs']]]]] = None,
                  trigger_config: Optional[pulumi.Input[pulumi.InputType['FlowTriggerConfigArgs']]] = None,
                  __props__=None):
@@ -273,7 +271,7 @@ class Flow(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
+        Description of the flow.
         """
         return pulumi.get(self, "description")
 
@@ -281,20 +279,23 @@ class Flow(pulumi.CustomResource):
     @pulumi.getter(name="destinationFlowConfigList")
     def destination_flow_config_list(self) -> pulumi.Output[Sequence['outputs.FlowDestinationFlowConfig']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
+        List of Destination connectors of the flow.
         """
         return pulumi.get(self, "destination_flow_config_list")
 
     @property
     @pulumi.getter(name="flowArn")
     def flow_arn(self) -> pulumi.Output[str]:
+        """
+        ARN identifier of the flow.
+        """
         return pulumi.get(self, "flow_arn")
 
     @property
     @pulumi.getter(name="flowName")
     def flow_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
+        Name of the flow.
         """
         return pulumi.get(self, "flow_name")
 
@@ -302,7 +303,7 @@ class Flow(pulumi.CustomResource):
     @pulumi.getter(name="kMSArn")
     def k_ms_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
+        The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         """
         return pulumi.get(self, "k_ms_arn")
 
@@ -310,15 +311,15 @@ class Flow(pulumi.CustomResource):
     @pulumi.getter(name="sourceFlowConfig")
     def source_flow_config(self) -> pulumi.Output['outputs.FlowSourceFlowConfig']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
+        Configurations of Source connector of the flow.
         """
         return pulumi.get(self, "source_flow_config")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.FlowTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
+        List of Tags.
         """
         return pulumi.get(self, "tags")
 
@@ -326,7 +327,7 @@ class Flow(pulumi.CustomResource):
     @pulumi.getter
     def tasks(self) -> pulumi.Output[Sequence['outputs.FlowTask']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
+        List of tasks for the flow.
         """
         return pulumi.get(self, "tasks")
 
@@ -334,7 +335,7 @@ class Flow(pulumi.CustomResource):
     @pulumi.getter(name="triggerConfig")
     def trigger_config(self) -> pulumi.Output['outputs.FlowTriggerConfig']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
+        Trigger settings of the flow.
         """
         return pulumi.get(self, "trigger_config")
 

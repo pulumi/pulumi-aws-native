@@ -10,38 +10,38 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html
+    /// Resource Type definition for AWS::Events::Connection.
     /// </summary>
     [AwsNativeResourceType("aws-native:events:Connection")]
     public partial class Connection : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The arn of the connection resource.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authparameters
-        /// </summary>
         [Output("authParameters")]
-        public Output<Union<System.Text.Json.JsonElement, string>> AuthParameters { get; private set; } = null!;
+        public Output<object> AuthParameters { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authorizationtype
-        /// </summary>
         [Output("authorizationType")]
         public Output<string> AuthorizationType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-description
+        /// Description of the connection.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-name
+        /// Name of the connection.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The arn of the secrets manager secret created in the customer account.
+        /// </summary>
         [Output("secretArn")]
         public Output<string> SecretArn { get; private set; } = null!;
 
@@ -90,26 +90,20 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class ConnectionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authparameters
-        /// </summary>
         [Input("authParameters", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> AuthParameters { get; set; } = null!;
+        public Input<object> AuthParameters { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authorizationtype
-        /// </summary>
         [Input("authorizationType", required: true)]
         public Input<string> AuthorizationType { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-description
+        /// Description of the connection.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-name
+        /// Name of the connection.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

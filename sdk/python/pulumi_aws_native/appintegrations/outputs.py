@@ -13,18 +13,15 @@ __all__ = [
     'EventIntegrationEventFilter',
     'EventIntegrationEventIntegrationAssociation',
     'EventIntegrationMetadata',
+    'EventIntegrationTag',
 ]
 
 @pulumi.output_type
 class EventIntegrationEventFilter(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html
-    """
     def __init__(__self__, *,
                  source: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html
-        :param str source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html#cfn-appintegrations-eventintegration-eventfilter-source
+        :param str source: The source of the events.
         """
         pulumi.set(__self__, "source", source)
 
@@ -32,16 +29,13 @@ class EventIntegrationEventFilter(dict):
     @pulumi.getter
     def source(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html#cfn-appintegrations-eventintegration-eventfilter-source
+        The source of the events.
         """
         return pulumi.get(self, "source")
 
 
 @pulumi.output_type
 class EventIntegrationEventIntegrationAssociation(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -74,12 +68,11 @@ class EventIntegrationEventIntegrationAssociation(dict):
                  event_integration_association_arn: Optional[str] = None,
                  event_integration_association_id: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html
-        :param Sequence['EventIntegrationMetadata'] client_association_metadata: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-clientassociationmetadata
-        :param str client_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-clientid
-        :param str event_bridge_rule_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventbridgerulename
-        :param str event_integration_association_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventintegrationassociationarn
-        :param str event_integration_association_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventintegrationassociationid
+        :param Sequence['EventIntegrationMetadata'] client_association_metadata: The metadata associated with the client.
+        :param str client_id: The identifier for the client that is associated with the event integration.
+        :param str event_bridge_rule_name: The name of the Eventbridge rule.
+        :param str event_integration_association_arn: The Amazon Resource Name (ARN) for the event integration association.
+        :param str event_integration_association_id: The identifier for the event integration association.
         """
         if client_association_metadata is not None:
             pulumi.set(__self__, "client_association_metadata", client_association_metadata)
@@ -96,7 +89,7 @@ class EventIntegrationEventIntegrationAssociation(dict):
     @pulumi.getter(name="clientAssociationMetadata")
     def client_association_metadata(self) -> Optional[Sequence['outputs.EventIntegrationMetadata']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-clientassociationmetadata
+        The metadata associated with the client.
         """
         return pulumi.get(self, "client_association_metadata")
 
@@ -104,7 +97,7 @@ class EventIntegrationEventIntegrationAssociation(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-clientid
+        The identifier for the client that is associated with the event integration.
         """
         return pulumi.get(self, "client_id")
 
@@ -112,7 +105,7 @@ class EventIntegrationEventIntegrationAssociation(dict):
     @pulumi.getter(name="eventBridgeRuleName")
     def event_bridge_rule_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventbridgerulename
+        The name of the Eventbridge rule.
         """
         return pulumi.get(self, "event_bridge_rule_name")
 
@@ -120,7 +113,7 @@ class EventIntegrationEventIntegrationAssociation(dict):
     @pulumi.getter(name="eventIntegrationAssociationArn")
     def event_integration_association_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventintegrationassociationarn
+        The Amazon Resource Name (ARN) for the event integration association.
         """
         return pulumi.get(self, "event_integration_association_arn")
 
@@ -128,23 +121,19 @@ class EventIntegrationEventIntegrationAssociation(dict):
     @pulumi.getter(name="eventIntegrationAssociationId")
     def event_integration_association_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventintegrationassociationid
+        The identifier for the event integration association.
         """
         return pulumi.get(self, "event_integration_association_id")
 
 
 @pulumi.output_type
 class EventIntegrationMetadata(dict):
-    """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-metadata.html
-    """
     def __init__(__self__, *,
                  key: str,
                  value: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-metadata.html
-        :param str key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-metadata.html#cfn-appintegrations-eventintegration-metadata-key
-        :param str value: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-metadata.html#cfn-appintegrations-eventintegration-metadata-value
+        :param str key: A key to identify the metadata.
+        :param str value: Corresponding metadata value for the key.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -153,7 +142,7 @@ class EventIntegrationMetadata(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-metadata.html#cfn-appintegrations-eventintegration-metadata-key
+        A key to identify the metadata.
         """
         return pulumi.get(self, "key")
 
@@ -161,7 +150,36 @@ class EventIntegrationMetadata(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-metadata.html#cfn-appintegrations-eventintegration-metadata-value
+        Corresponding metadata value for the key.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EventIntegrationTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: A key to identify the tag.
+        :param str value: Corresponding tag value for the key.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        A key to identify the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Corresponding tag value for the key.
         """
         return pulumi.get(self, "value")
 

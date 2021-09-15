@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html
+ * Private certificate authority.
  */
 export class CertificateAuthority extends pulumi.CustomResource {
     /**
@@ -35,38 +35,41 @@ export class CertificateAuthority extends pulumi.CustomResource {
         return obj['__pulumiType'] === CertificateAuthority.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the certificate authority.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The base64 PEM-encoded certificate signing request (CSR) for your certificate authority certificate.
+     */
     public /*out*/ readonly certificateSigningRequest!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
+     * Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
      */
     public readonly csrExtensions!: pulumi.Output<outputs.acmpca.CertificateAuthorityCsrExtensions | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
+     * Public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
      */
     public readonly keyAlgorithm!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard
+     * KeyStorageSecurityStadard defines a cryptographic key management compliance standard used for handling CA keys.
      */
     public readonly keyStorageSecurityStandard!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
+     * Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
      */
     public readonly revocationConfiguration!: pulumi.Output<outputs.acmpca.CertificateAuthorityRevocationConfiguration | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
+     * Algorithm your CA uses to sign certificate requests.
      */
     public readonly signingAlgorithm!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
+     * Structure that contains X.500 distinguished name information for your CA.
      */
     public readonly subject!: pulumi.Output<outputs.acmpca.CertificateAuthoritySubject>;
+    public readonly tags!: pulumi.Output<outputs.acmpca.CertificateAuthorityTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
+     * The type of the certificate authority.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -127,35 +130,32 @@ export class CertificateAuthority extends pulumi.CustomResource {
  */
 export interface CertificateAuthorityArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-csrextensions
+     * Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
      */
     csrExtensions?: pulumi.Input<inputs.acmpca.CertificateAuthorityCsrExtensionsArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keyalgorithm
+     * Public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
      */
     keyAlgorithm: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-keystoragesecuritystandard
+     * KeyStorageSecurityStadard defines a cryptographic key management compliance standard used for handling CA keys.
      */
     keyStorageSecurityStandard?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
+     * Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
      */
     revocationConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityRevocationConfigurationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
+     * Algorithm your CA uses to sign certificate requests.
      */
     signingAlgorithm: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
+     * Structure that contains X.500 distinguished name information for your CA.
      */
     subject: pulumi.Input<inputs.acmpca.CertificateAuthoritySubjectArgs>;
+    tags?: pulumi.Input<pulumi.Input<inputs.acmpca.CertificateAuthorityTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-type
+     * The type of the certificate authority.
      */
     type: pulumi.Input<string>;
 }

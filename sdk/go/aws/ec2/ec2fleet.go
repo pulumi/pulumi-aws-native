@@ -11,35 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html
+// Resource Type definition for AWS::EC2::EC2Fleet
 type EC2Fleet struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
-	Context pulumi.StringPtrOutput `pulumi:"context"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
-	ExcessCapacityTerminationPolicy pulumi.StringPtrOutput `pulumi:"excessCapacityTerminationPolicy"`
-	FleetId                         pulumi.StringOutput    `pulumi:"fleetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
-	LaunchTemplateConfigs EC2FleetFleetLaunchTemplateConfigRequestArrayOutput `pulumi:"launchTemplateConfigs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
-	OnDemandOptions EC2FleetOnDemandOptionsRequestPtrOutput `pulumi:"onDemandOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
-	ReplaceUnhealthyInstances pulumi.BoolPtrOutput `pulumi:"replaceUnhealthyInstances"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
-	SpotOptions EC2FleetSpotOptionsRequestPtrOutput `pulumi:"spotOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
-	TagSpecifications EC2FleetTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
-	TargetCapacitySpecification EC2FleetTargetCapacitySpecificationRequestOutput `pulumi:"targetCapacitySpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
-	TerminateInstancesWithExpiration pulumi.BoolPtrOutput `pulumi:"terminateInstancesWithExpiration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type
-	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
-	ValidFrom pulumi.StringPtrOutput `pulumi:"validFrom"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
-	ValidUntil pulumi.StringPtrOutput `pulumi:"validUntil"`
+	Context                          pulumi.StringPtrOutput                              `pulumi:"context"`
+	ExcessCapacityTerminationPolicy  pulumi.StringPtrOutput                              `pulumi:"excessCapacityTerminationPolicy"`
+	FleetId                          pulumi.StringOutput                                 `pulumi:"fleetId"`
+	LaunchTemplateConfigs            EC2FleetFleetLaunchTemplateConfigRequestArrayOutput `pulumi:"launchTemplateConfigs"`
+	OnDemandOptions                  EC2FleetOnDemandOptionsRequestPtrOutput             `pulumi:"onDemandOptions"`
+	ReplaceUnhealthyInstances        pulumi.BoolPtrOutput                                `pulumi:"replaceUnhealthyInstances"`
+	SpotOptions                      EC2FleetSpotOptionsRequestPtrOutput                 `pulumi:"spotOptions"`
+	TagSpecifications                EC2FleetTagSpecificationArrayOutput                 `pulumi:"tagSpecifications"`
+	TargetCapacitySpecification      EC2FleetTargetCapacitySpecificationRequestOutput    `pulumi:"targetCapacitySpecification"`
+	TerminateInstancesWithExpiration pulumi.BoolPtrOutput                                `pulumi:"terminateInstancesWithExpiration"`
+	Type                             pulumi.StringPtrOutput                              `pulumi:"type"`
+	ValidFrom                        pulumi.StringPtrOutput                              `pulumi:"validFrom"`
+	ValidUntil                       pulumi.StringPtrOutput                              `pulumi:"validUntil"`
 }
 
 // NewEC2Fleet registers a new resource with the given unique name, arguments, and options.
@@ -87,58 +75,34 @@ func (EC2FleetState) ElementType() reflect.Type {
 }
 
 type ec2fleetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
-	Context *string `pulumi:"context"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
-	ExcessCapacityTerminationPolicy *string `pulumi:"excessCapacityTerminationPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
-	LaunchTemplateConfigs []EC2FleetFleetLaunchTemplateConfigRequest `pulumi:"launchTemplateConfigs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
-	OnDemandOptions *EC2FleetOnDemandOptionsRequest `pulumi:"onDemandOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
-	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
-	SpotOptions *EC2FleetSpotOptionsRequest `pulumi:"spotOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
-	TagSpecifications []EC2FleetTagSpecification `pulumi:"tagSpecifications"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
-	TargetCapacitySpecification EC2FleetTargetCapacitySpecificationRequest `pulumi:"targetCapacitySpecification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
-	TerminateInstancesWithExpiration *bool `pulumi:"terminateInstancesWithExpiration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type
-	Type *string `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
-	ValidFrom *string `pulumi:"validFrom"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
-	ValidUntil *string `pulumi:"validUntil"`
+	Context                          *string                                    `pulumi:"context"`
+	ExcessCapacityTerminationPolicy  *string                                    `pulumi:"excessCapacityTerminationPolicy"`
+	LaunchTemplateConfigs            []EC2FleetFleetLaunchTemplateConfigRequest `pulumi:"launchTemplateConfigs"`
+	OnDemandOptions                  *EC2FleetOnDemandOptionsRequest            `pulumi:"onDemandOptions"`
+	ReplaceUnhealthyInstances        *bool                                      `pulumi:"replaceUnhealthyInstances"`
+	SpotOptions                      *EC2FleetSpotOptionsRequest                `pulumi:"spotOptions"`
+	TagSpecifications                []EC2FleetTagSpecification                 `pulumi:"tagSpecifications"`
+	TargetCapacitySpecification      EC2FleetTargetCapacitySpecificationRequest `pulumi:"targetCapacitySpecification"`
+	TerminateInstancesWithExpiration *bool                                      `pulumi:"terminateInstancesWithExpiration"`
+	Type                             *string                                    `pulumi:"type"`
+	ValidFrom                        *string                                    `pulumi:"validFrom"`
+	ValidUntil                       *string                                    `pulumi:"validUntil"`
 }
 
 // The set of arguments for constructing a EC2Fleet resource.
 type EC2FleetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
-	Context pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
-	ExcessCapacityTerminationPolicy pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
-	LaunchTemplateConfigs EC2FleetFleetLaunchTemplateConfigRequestArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
-	OnDemandOptions EC2FleetOnDemandOptionsRequestPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
-	ReplaceUnhealthyInstances pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
-	SpotOptions EC2FleetSpotOptionsRequestPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
-	TagSpecifications EC2FleetTagSpecificationArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
-	TargetCapacitySpecification EC2FleetTargetCapacitySpecificationRequestInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
+	Context                          pulumi.StringPtrInput
+	ExcessCapacityTerminationPolicy  pulumi.StringPtrInput
+	LaunchTemplateConfigs            EC2FleetFleetLaunchTemplateConfigRequestArrayInput
+	OnDemandOptions                  EC2FleetOnDemandOptionsRequestPtrInput
+	ReplaceUnhealthyInstances        pulumi.BoolPtrInput
+	SpotOptions                      EC2FleetSpotOptionsRequestPtrInput
+	TagSpecifications                EC2FleetTagSpecificationArrayInput
+	TargetCapacitySpecification      EC2FleetTargetCapacitySpecificationRequestInput
 	TerminateInstancesWithExpiration pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type
-	Type pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
-	ValidFrom pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
-	ValidUntil pulumi.StringPtrInput
+	Type                             pulumi.StringPtrInput
+	ValidFrom                        pulumi.StringPtrInput
+	ValidUntil                       pulumi.StringPtrInput
 }
 
 func (EC2FleetArgs) ElementType() reflect.Type {

@@ -10,58 +10,61 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppFlow
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html
+    /// Resource schema for AWS::AppFlow::Flow.
     /// </summary>
     [AwsNativeResourceType("aws-native:appflow:Flow")]
     public partial class Flow : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
+        /// Description of the flow.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
+        /// List of Destination connectors of the flow.
         /// </summary>
         [Output("destinationFlowConfigList")]
         public Output<ImmutableArray<Outputs.FlowDestinationFlowConfig>> DestinationFlowConfigList { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN identifier of the flow.
+        /// </summary>
         [Output("flowArn")]
         public Output<string> FlowArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
+        /// Name of the flow.
         /// </summary>
         [Output("flowName")]
         public Output<string> FlowName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
+        /// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         /// </summary>
         [Output("kMSArn")]
         public Output<string?> KMSArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
+        /// Configurations of Source connector of the flow.
         /// </summary>
         [Output("sourceFlowConfig")]
         public Output<Outputs.FlowSourceFlowConfig> SourceFlowConfig { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
+        /// List of Tags.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FlowTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
+        /// List of tasks for the flow.
         /// </summary>
         [Output("tasks")]
         public Output<ImmutableArray<Outputs.FlowTask>> Tasks { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
+        /// Trigger settings of the flow.
         /// </summary>
         [Output("triggerConfig")]
         public Output<Outputs.FlowTriggerConfig> TriggerConfig { get; private set; } = null!;
@@ -112,7 +115,7 @@ namespace Pulumi.AwsNative.AppFlow
     public sealed class FlowArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-description
+        /// Description of the flow.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -121,7 +124,7 @@ namespace Pulumi.AwsNative.AppFlow
         private InputList<Inputs.FlowDestinationFlowConfigArgs>? _destinationFlowConfigList;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-destinationflowconfiglist
+        /// List of Destination connectors of the flow.
         /// </summary>
         public InputList<Inputs.FlowDestinationFlowConfigArgs> DestinationFlowConfigList
         {
@@ -130,32 +133,32 @@ namespace Pulumi.AwsNative.AppFlow
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-flowname
+        /// Name of the flow.
         /// </summary>
         [Input("flowName", required: true)]
         public Input<string> FlowName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-kmsarn
+        /// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         /// </summary>
         [Input("kMSArn")]
         public Input<string>? KMSArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-sourceflowconfig
+        /// Configurations of Source connector of the flow.
         /// </summary>
         [Input("sourceFlowConfig", required: true)]
         public Input<Inputs.FlowSourceFlowConfigArgs> SourceFlowConfig { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.FlowTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tags
+        /// List of Tags.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.FlowTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.FlowTagArgs>());
             set => _tags = value;
         }
 
@@ -163,7 +166,7 @@ namespace Pulumi.AwsNative.AppFlow
         private InputList<Inputs.FlowTaskArgs>? _tasks;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-tasks
+        /// List of tasks for the flow.
         /// </summary>
         public InputList<Inputs.FlowTaskArgs> Tasks
         {
@@ -172,7 +175,7 @@ namespace Pulumi.AwsNative.AppFlow
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html#cfn-appflow-flow-triggerconfig
+        /// Trigger settings of the flow.
         /// </summary>
         [Input("triggerConfig", required: true)]
         public Input<Inputs.FlowTriggerConfigArgs> TriggerConfig { get; set; } = null!;

@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html
+    /// (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
     /// </summary>
     [OutputType]
     public sealed class EventSourceMappingDestinationConfig
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure
+        /// The destination configuration for failed invocations.
         /// </summary>
         public readonly Outputs.EventSourceMappingOnFailure? OnFailure;
 

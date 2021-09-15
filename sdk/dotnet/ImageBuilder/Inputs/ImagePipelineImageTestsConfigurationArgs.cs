@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html
+    /// Image tests configuration.
     /// </summary>
     public sealed class ImagePipelineImageTestsConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-imagetestsenabled
+        /// Defines if tests should be executed when building this image.
         /// </summary>
         [Input("imageTestsEnabled")]
         public Input<bool>? ImageTestsEnabled { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-timeoutminutes
+        /// The maximum time in minutes that tests are permitted to run.
         /// </summary>
         [Input("timeoutMinutes")]
         public Input<int>? TimeoutMinutes { get; set; }

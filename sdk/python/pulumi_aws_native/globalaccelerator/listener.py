@@ -21,10 +21,9 @@ class ListenerArgs:
                  client_affinity: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Listener resource.
-        :param pulumi.Input[str] accelerator_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]] port_ranges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
-        :param pulumi.Input[str] protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
-        :param pulumi.Input[str] client_affinity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
+        :param pulumi.Input[str] accelerator_arn: The Amazon Resource Name (ARN) of the accelerator.
+        :param pulumi.Input[str] protocol: The protocol for the listener.
+        :param pulumi.Input[str] client_affinity: Client affinity lets you direct all requests from a user to the same endpoint.
         """
         pulumi.set(__self__, "accelerator_arn", accelerator_arn)
         pulumi.set(__self__, "port_ranges", port_ranges)
@@ -36,7 +35,7 @@ class ListenerArgs:
     @pulumi.getter(name="acceleratorArn")
     def accelerator_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
+        The Amazon Resource Name (ARN) of the accelerator.
         """
         return pulumi.get(self, "accelerator_arn")
 
@@ -47,9 +46,6 @@ class ListenerArgs:
     @property
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerPortRangeArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
-        """
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
@@ -60,7 +56,7 @@ class ListenerArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
+        The protocol for the listener.
         """
         return pulumi.get(self, "protocol")
 
@@ -72,7 +68,7 @@ class ListenerArgs:
     @pulumi.getter(name="clientAffinity")
     def client_affinity(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
+        Client affinity lets you direct all requests from a user to the same endpoint.
         """
         return pulumi.get(self, "client_affinity")
 
@@ -92,14 +88,13 @@ class Listener(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html
+        Resource Type definition for AWS::GlobalAccelerator::Listener
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] accelerator_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
-        :param pulumi.Input[str] client_affinity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerPortRangeArgs']]]] port_ranges: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
-        :param pulumi.Input[str] protocol: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
+        :param pulumi.Input[str] accelerator_arn: The Amazon Resource Name (ARN) of the accelerator.
+        :param pulumi.Input[str] client_affinity: Client affinity lets you direct all requests from a user to the same endpoint.
+        :param pulumi.Input[str] protocol: The protocol for the listener.
         """
         ...
     @overload
@@ -108,7 +103,7 @@ class Listener(pulumi.CustomResource):
                  args: ListenerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html
+        Resource Type definition for AWS::GlobalAccelerator::Listener
 
         :param str resource_name: The name of the resource.
         :param ListenerArgs args: The arguments to use to populate this resource's properties.
@@ -185,7 +180,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter(name="acceleratorArn")
     def accelerator_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
+        The Amazon Resource Name (ARN) of the accelerator.
         """
         return pulumi.get(self, "accelerator_arn")
 
@@ -193,28 +188,28 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter(name="clientAffinity")
     def client_affinity(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
+        Client affinity lets you direct all requests from a user to the same endpoint.
         """
         return pulumi.get(self, "client_affinity")
 
     @property
     @pulumi.getter(name="listenerArn")
     def listener_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the listener.
+        """
         return pulumi.get(self, "listener_arn")
 
     @property
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> pulumi.Output[Sequence['outputs.ListenerPortRange']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
-        """
         return pulumi.get(self, "port_ranges")
 
     @property
     @pulumi.getter
     def protocol(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
+        The protocol for the listener.
         """
         return pulumi.get(self, "protocol")
 

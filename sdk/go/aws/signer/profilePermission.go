@@ -11,20 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html
+// An example resource schema demonstrating some basic constructs and validation rules.
 type ProfilePermission struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-action
-	Action pulumi.StringOutput `pulumi:"action"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-principal
-	Principal pulumi.StringOutput `pulumi:"principal"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profilename
-	ProfileName pulumi.StringOutput `pulumi:"profileName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion
+	Action         pulumi.StringOutput    `pulumi:"action"`
+	Principal      pulumi.StringOutput    `pulumi:"principal"`
+	ProfileName    pulumi.StringOutput    `pulumi:"profileName"`
 	ProfileVersion pulumi.StringPtrOutput `pulumi:"profileVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid
-	StatementId pulumi.StringOutput `pulumi:"statementId"`
+	StatementId    pulumi.StringOutput    `pulumi:"statementId"`
 }
 
 // NewProfilePermission registers a new resource with the given unique name, arguments, and options.
@@ -78,30 +73,20 @@ func (ProfilePermissionState) ElementType() reflect.Type {
 }
 
 type profilePermissionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-action
-	Action string `pulumi:"action"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-principal
-	Principal string `pulumi:"principal"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profilename
-	ProfileName string `pulumi:"profileName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion
+	Action         string  `pulumi:"action"`
+	Principal      string  `pulumi:"principal"`
+	ProfileName    string  `pulumi:"profileName"`
 	ProfileVersion *string `pulumi:"profileVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid
-	StatementId string `pulumi:"statementId"`
+	StatementId    string  `pulumi:"statementId"`
 }
 
 // The set of arguments for constructing a ProfilePermission resource.
 type ProfilePermissionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-action
-	Action pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-principal
-	Principal pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profilename
-	ProfileName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-profileversion
+	Action         pulumi.StringInput
+	Principal      pulumi.StringInput
+	ProfileName    pulumi.StringInput
 	ProfileVersion pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-profilepermission.html#cfn-signer-profilepermission-statementid
-	StatementId pulumi.StringInput
+	StatementId    pulumi.StringInput
 }
 
 func (ProfilePermissionArgs) ElementType() reflect.Type {

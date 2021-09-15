@@ -10,25 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFormation
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html
+    /// A module that has been registered in the CloudFormation registry as the default version
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudformation:ModuleDefaultVersion")]
     public partial class ModuleDefaultVersion : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
+        /// The Amazon Resource Name (ARN) of the module version to set as the default version.
         /// </summary>
         [Output("arn")]
         public Output<string?> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
+        /// The name of a module existing in the registry.
         /// </summary>
         [Output("moduleName")]
         public Output<string?> ModuleName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+        /// The ID of an existing version of the named module to set as the default.
         /// </summary>
         [Output("versionId")]
         public Output<string?> VersionId { get; private set; } = null!;
@@ -79,19 +79,19 @@ namespace Pulumi.AwsNative.CloudFormation
     public sealed class ModuleDefaultVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
+        /// The Amazon Resource Name (ARN) of the module version to set as the default version.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
+        /// The name of a module existing in the registry.
         /// </summary>
         [Input("moduleName")]
         public Input<string>? ModuleName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+        /// The ID of an existing version of the named module to set as the default.
         /// </summary>
         [Input("versionId")]
         public Input<string>? VersionId { get; set; }

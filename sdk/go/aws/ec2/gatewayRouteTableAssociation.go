@@ -11,14 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html
+// Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
 type GatewayRouteTableAssociation struct {
 	pulumi.CustomResourceState
 
+	// The route table association ID.
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
+	// The ID of the gateway.
 	GatewayId pulumi.StringOutput `pulumi:"gatewayId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
+	// The ID of the route table.
 	RouteTableId pulumi.StringOutput `pulumi:"routeTableId"`
 }
 
@@ -67,17 +68,17 @@ func (GatewayRouteTableAssociationState) ElementType() reflect.Type {
 }
 
 type gatewayRouteTableAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
+	// The ID of the gateway.
 	GatewayId string `pulumi:"gatewayId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
+	// The ID of the route table.
 	RouteTableId string `pulumi:"routeTableId"`
 }
 
 // The set of arguments for constructing a GatewayRouteTableAssociation resource.
 type GatewayRouteTableAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
+	// The ID of the gateway.
 	GatewayId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
+	// The ID of the route table.
 	RouteTableId pulumi.StringInput
 }
 

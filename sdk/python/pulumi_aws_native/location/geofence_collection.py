@@ -20,11 +20,6 @@ class GeofenceCollectionArgs:
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GeofenceCollection resource.
-        :param pulumi.Input[str] collection_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-collectionname
-        :param pulumi.Input[str] pricing_plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplan
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-description
-        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-kmskeyid
-        :param pulumi.Input[str] pricing_plan_data_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplandatasource
         """
         pulumi.set(__self__, "collection_name", collection_name)
         pulumi.set(__self__, "pricing_plan", pricing_plan)
@@ -38,9 +33,6 @@ class GeofenceCollectionArgs:
     @property
     @pulumi.getter(name="collectionName")
     def collection_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-collectionname
-        """
         return pulumi.get(self, "collection_name")
 
     @collection_name.setter
@@ -50,9 +42,6 @@ class GeofenceCollectionArgs:
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplan
-        """
         return pulumi.get(self, "pricing_plan")
 
     @pricing_plan.setter
@@ -62,9 +51,6 @@ class GeofenceCollectionArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -74,9 +60,6 @@ class GeofenceCollectionArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-kmskeyid
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -86,9 +69,6 @@ class GeofenceCollectionArgs:
     @property
     @pulumi.getter(name="pricingPlanDataSource")
     def pricing_plan_data_source(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplandatasource
-        """
         return pulumi.get(self, "pricing_plan_data_source")
 
     @pricing_plan_data_source.setter
@@ -108,15 +88,10 @@ class GeofenceCollection(pulumi.CustomResource):
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html
+        Definition of AWS::Location::GeofenceCollection Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] collection_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-collectionname
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-description
-        :param pulumi.Input[str] kms_key_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-kmskeyid
-        :param pulumi.Input[str] pricing_plan: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplan
-        :param pulumi.Input[str] pricing_plan_data_source: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplandatasource
         """
         ...
     @overload
@@ -125,7 +100,7 @@ class GeofenceCollection(pulumi.CustomResource):
                  args: GeofenceCollectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html
+        Definition of AWS::Location::GeofenceCollection Resource Type
 
         :param str resource_name: The name of the resource.
         :param GeofenceCollectionArgs args: The arguments to use to populate this resource's properties.
@@ -218,9 +193,6 @@ class GeofenceCollection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="collectionName")
     def collection_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-collectionname
-        """
         return pulumi.get(self, "collection_name")
 
     @property
@@ -231,33 +203,21 @@ class GeofenceCollection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-description
-        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-kmskeyid
-        """
         return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplan
-        """
         return pulumi.get(self, "pricing_plan")
 
     @property
     @pulumi.getter(name="pricingPlanDataSource")
     def pricing_plan_data_source(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-geofencecollection.html#cfn-location-geofencecollection-pricingplandatasource
-        """
         return pulumi.get(self, "pricing_plan_data_source")
 
     @property

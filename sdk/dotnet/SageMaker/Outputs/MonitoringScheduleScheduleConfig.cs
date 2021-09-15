@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html
+    /// Configuration details about the monitoring schedule.
     /// </summary>
     [OutputType]
     public sealed class MonitoringScheduleScheduleConfig
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html#cfn-sagemaker-monitoringschedule-scheduleconfig-scheduleexpression
+        /// A cron expression that describes details about the monitoring schedule.
         /// </summary>
         public readonly string ScheduleExpression;
 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html
+ * Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
  */
 export class AttributeGroupAssociation extends pulumi.CustomResource {
     /**
@@ -35,16 +35,15 @@ export class AttributeGroupAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-application
+     * The name or the Id of the Application.
      */
     public readonly application!: pulumi.Output<string>;
     public /*out*/ readonly applicationArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-attributegroup
+     * The name or the Id of the AttributeGroup.
      */
     public readonly attributeGroup!: pulumi.Output<string>;
     public /*out*/ readonly attributeGroupArn!: pulumi.Output<string>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
 
     /**
      * Create a AttributeGroupAssociation resource with the given unique name, arguments, and options.
@@ -67,13 +66,11 @@ export class AttributeGroupAssociation extends pulumi.CustomResource {
             inputs["attributeGroup"] = args ? args.attributeGroup : undefined;
             inputs["applicationArn"] = undefined /*out*/;
             inputs["attributeGroupArn"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
         } else {
             inputs["application"] = undefined /*out*/;
             inputs["applicationArn"] = undefined /*out*/;
             inputs["attributeGroup"] = undefined /*out*/;
             inputs["attributeGroupArn"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -87,11 +84,11 @@ export class AttributeGroupAssociation extends pulumi.CustomResource {
  */
 export interface AttributeGroupAssociationArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-application
+     * The name or the Id of the Application.
      */
     application: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-attributegroup
+     * The name or the Id of the AttributeGroup.
      */
     attributeGroup: pulumi.Input<string>;
 }

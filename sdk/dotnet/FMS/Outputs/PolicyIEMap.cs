@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.FMS.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html
+    /// An FMS includeMap or excludeMap.
     /// </summary>
     [OutputType]
     public sealed class PolicyIEMap
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
-        /// </summary>
         public readonly ImmutableArray<string> ACCOUNT;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
-        /// </summary>
         public readonly ImmutableArray<string> ORGUNIT;
 
         [OutputConstructor]

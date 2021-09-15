@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.SSMIncidents.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html
+    /// The chat channel configuration.
     /// </summary>
     [OutputType]
     public sealed class ResponsePlanChatChannel
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html#cfn-ssmincidents-responseplan-chatchannel-chatbotsns
-        /// </summary>
         public readonly ImmutableArray<string> ChatbotSns;
 
         [OutputConstructor]

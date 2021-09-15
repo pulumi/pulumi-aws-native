@@ -10,17 +10,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html
+// Resource Type definition for AWS::IoT::TopicRuleDestination
 type TopicRuleDestination struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN).
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
+	// HTTP URL destination properties.
 	HttpUrlProperties TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput `pulumi:"httpUrlProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
-	Status       pulumi.StringPtrOutput `pulumi:"status"`
-	StatusReason pulumi.StringOutput    `pulumi:"statusReason"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
+	// The status of the TopicRuleDestination.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// The reasoning for the current status of the TopicRuleDestination.
+	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
+	// VPC destination properties.
 	VpcProperties TopicRuleDestinationVpcDestinationPropertiesPtrOutput `pulumi:"vpcProperties"`
 }
 
@@ -63,21 +65,21 @@ func (TopicRuleDestinationState) ElementType() reflect.Type {
 }
 
 type topicRuleDestinationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
+	// HTTP URL destination properties.
 	HttpUrlProperties *TopicRuleDestinationHttpUrlDestinationSummary `pulumi:"httpUrlProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
+	// The status of the TopicRuleDestination.
 	Status *string `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
+	// VPC destination properties.
 	VpcProperties *TopicRuleDestinationVpcDestinationProperties `pulumi:"vpcProperties"`
 }
 
 // The set of arguments for constructing a TopicRuleDestination resource.
 type TopicRuleDestinationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
+	// HTTP URL destination properties.
 	HttpUrlProperties TopicRuleDestinationHttpUrlDestinationSummaryPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
+	// The status of the TopicRuleDestination.
 	Status pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
+	// VPC destination properties.
 	VpcProperties TopicRuleDestinationVpcDestinationPropertiesPtrInput
 }
 

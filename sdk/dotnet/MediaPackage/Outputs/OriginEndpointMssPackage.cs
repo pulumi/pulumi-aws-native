@@ -11,26 +11,20 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html
+    /// A Microsoft Smooth Streaming (MSS) packaging configuration.
     /// </summary>
     [OutputType]
     public sealed class OriginEndpointMssPackage
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-encryption
-        /// </summary>
         public readonly Outputs.OriginEndpointMssEncryption? Encryption;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-manifestwindowseconds
+        /// The time window (in seconds) contained in each manifest.
         /// </summary>
         public readonly int? ManifestWindowSeconds;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-segmentdurationseconds
+        /// The duration (in seconds) of each segment.
         /// </summary>
         public readonly int? SegmentDurationSeconds;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-streamselection
-        /// </summary>
         public readonly Outputs.OriginEndpointStreamSelection? StreamSelection;
 
         [OutputConstructor]

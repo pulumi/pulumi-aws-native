@@ -11,17 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html
+// Resource Type definition for AWS::EventSchemas::RegistryPolicy
 type RegistryPolicy struct {
 	pulumi.CustomResourceState
 
-	Id pulumi.StringOutput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
-	Policy pulumi.AnyOutput `pulumi:"policy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
-	RegistryName pulumi.StringOutput `pulumi:"registryName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid
-	RevisionId pulumi.StringPtrOutput `pulumi:"revisionId"`
+	Policy       pulumi.AnyOutput       `pulumi:"policy"`
+	RegistryName pulumi.StringOutput    `pulumi:"registryName"`
+	RevisionId   pulumi.StringPtrOutput `pulumi:"revisionId"`
 }
 
 // NewRegistryPolicy registers a new resource with the given unique name, arguments, and options.
@@ -69,22 +65,16 @@ func (RegistryPolicyState) ElementType() reflect.Type {
 }
 
 type registryPolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
-	Policy interface{} `pulumi:"policy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
-	RegistryName string `pulumi:"registryName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid
-	RevisionId *string `pulumi:"revisionId"`
+	Policy       interface{} `pulumi:"policy"`
+	RegistryName string      `pulumi:"registryName"`
+	RevisionId   *string     `pulumi:"revisionId"`
 }
 
 // The set of arguments for constructing a RegistryPolicy resource.
 type RegistryPolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-policy
-	Policy pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-registryname
+	Policy       pulumi.Input
 	RegistryName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eventschemas-registrypolicy.html#cfn-eventschemas-registrypolicy-revisionid
-	RevisionId pulumi.StringPtrInput
+	RevisionId   pulumi.StringPtrInput
 }
 
 func (RegistryPolicyArgs) ElementType() reflect.Type {

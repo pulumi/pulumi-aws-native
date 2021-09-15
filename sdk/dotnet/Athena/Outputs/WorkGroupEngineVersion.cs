@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.Athena.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html
+    /// The Athena engine version for running queries.
     /// </summary>
     [OutputType]
     public sealed class WorkGroupEngineVersion
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-effectiveengineversion
-        /// </summary>
         public readonly string? EffectiveEngineVersion;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-selectedengineversion
-        /// </summary>
         public readonly string? SelectedEngineVersion;
 
         [OutputConstructor]

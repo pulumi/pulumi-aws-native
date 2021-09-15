@@ -10,17 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html
-    /// </summary>
     public sealed class WebACLAndStatementArgs : Pulumi.ResourceArgs
     {
         [Input("statements", required: true)]
         private InputList<Inputs.WebACLStatementArgs>? _statements;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html#cfn-wafv2-webacl-andstatement-statements
-        /// </summary>
         public InputList<Inputs.WebACLStatementArgs> Statements
         {
             get => _statements ?? (_statements = new InputList<Inputs.WebACLStatementArgs>());

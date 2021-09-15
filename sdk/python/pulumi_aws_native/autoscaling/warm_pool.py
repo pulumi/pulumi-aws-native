@@ -19,10 +19,6 @@ class WarmPoolArgs:
                  pool_state: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WarmPool resource.
-        :param pulumi.Input[str] auto_scaling_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-autoscalinggroupname
-        :param pulumi.Input[int] max_group_prepared_capacity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-maxgrouppreparedcapacity
-        :param pulumi.Input[int] min_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-minsize
-        :param pulumi.Input[str] pool_state: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-poolstate
         """
         pulumi.set(__self__, "auto_scaling_group_name", auto_scaling_group_name)
         if max_group_prepared_capacity is not None:
@@ -35,9 +31,6 @@ class WarmPoolArgs:
     @property
     @pulumi.getter(name="autoScalingGroupName")
     def auto_scaling_group_name(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-autoscalinggroupname
-        """
         return pulumi.get(self, "auto_scaling_group_name")
 
     @auto_scaling_group_name.setter
@@ -47,9 +40,6 @@ class WarmPoolArgs:
     @property
     @pulumi.getter(name="maxGroupPreparedCapacity")
     def max_group_prepared_capacity(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-maxgrouppreparedcapacity
-        """
         return pulumi.get(self, "max_group_prepared_capacity")
 
     @max_group_prepared_capacity.setter
@@ -59,9 +49,6 @@ class WarmPoolArgs:
     @property
     @pulumi.getter(name="minSize")
     def min_size(self) -> Optional[pulumi.Input[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-minsize
-        """
         return pulumi.get(self, "min_size")
 
     @min_size.setter
@@ -71,9 +58,6 @@ class WarmPoolArgs:
     @property
     @pulumi.getter(name="poolState")
     def pool_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-poolstate
-        """
         return pulumi.get(self, "pool_state")
 
     @pool_state.setter
@@ -92,14 +76,10 @@ class WarmPool(pulumi.CustomResource):
                  pool_state: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html
+        Resource schema for AWS::AutoScaling::WarmPool.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auto_scaling_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-autoscalinggroupname
-        :param pulumi.Input[int] max_group_prepared_capacity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-maxgrouppreparedcapacity
-        :param pulumi.Input[int] min_size: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-minsize
-        :param pulumi.Input[str] pool_state: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-poolstate
         """
         ...
     @overload
@@ -108,7 +88,7 @@ class WarmPool(pulumi.CustomResource):
                  args: WarmPoolArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html
+        Resource schema for AWS::AutoScaling::WarmPool.
 
         :param str resource_name: The name of the resource.
         :param WarmPoolArgs args: The arguments to use to populate this resource's properties.
@@ -178,32 +158,20 @@ class WarmPool(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoScalingGroupName")
     def auto_scaling_group_name(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-autoscalinggroupname
-        """
         return pulumi.get(self, "auto_scaling_group_name")
 
     @property
     @pulumi.getter(name="maxGroupPreparedCapacity")
     def max_group_prepared_capacity(self) -> pulumi.Output[Optional[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-maxgrouppreparedcapacity
-        """
         return pulumi.get(self, "max_group_prepared_capacity")
 
     @property
     @pulumi.getter(name="minSize")
     def min_size(self) -> pulumi.Output[Optional[int]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-minsize
-        """
         return pulumi.get(self, "min_size")
 
     @property
     @pulumi.getter(name="poolState")
     def pool_state(self) -> pulumi.Output[Optional[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-poolstate
-        """
         return pulumi.get(self, "pool_state")
 

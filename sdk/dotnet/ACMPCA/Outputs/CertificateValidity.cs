@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html
+    /// Validity for a certificate.
     /// </summary>
     [OutputType]
     public sealed class CertificateValidity
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-type
-        /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html#cfn-acmpca-certificate-validity-value
-        /// </summary>
         public readonly double Value;
 
         [OutputConstructor]

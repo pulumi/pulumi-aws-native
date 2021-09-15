@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html
+ * Resource schema for AWS::RDS::DBProxy
  */
 export class DBProxy extends pulumi.CustomResource {
     /**
@@ -36,46 +36,55 @@ export class DBProxy extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
+     * The authorization mechanism that the proxy uses.
      */
     public readonly auth!: pulumi.Output<outputs.rds.DBProxyAuthFormat[]>;
+    /**
+     * The Amazon Resource Name (ARN) for the proxy.
+     */
     public /*out*/ readonly dBProxyArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
+     * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
     public readonly dBProxyName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
+     * Whether the proxy includes detailed information about SQL statements in its logs.
      */
     public readonly debugLogging!: pulumi.Output<boolean | undefined>;
+    /**
+     * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+     */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
+     * The kinds of databases that the proxy can connect to.
      */
     public readonly engineFamily!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
+     * The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
      */
     public readonly idleClientTimeout!: pulumi.Output<number | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
+     * A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      */
     public readonly requireTLS!: pulumi.Output<boolean | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
+     * The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
+     * An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
      */
     public readonly tags!: pulumi.Output<outputs.rds.DBProxyTagFormat[] | undefined>;
+    /**
+     * VPC ID to associate with the new DB proxy.
+     */
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
+     * VPC security group IDs to associate with the new proxy.
      */
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
+     * VPC subnet IDs to associate with the new proxy.
      */
     public readonly vpcSubnetIds!: pulumi.Output<string[]>;
 
@@ -145,43 +154,43 @@ export class DBProxy extends pulumi.CustomResource {
  */
 export interface DBProxyArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-auth
+     * The authorization mechanism that the proxy uses.
      */
     auth: pulumi.Input<pulumi.Input<inputs.rds.DBProxyAuthFormatArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-dbproxyname
+     * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
      */
     dBProxyName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-debuglogging
+     * Whether the proxy includes detailed information about SQL statements in its logs.
      */
     debugLogging?: pulumi.Input<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-enginefamily
+     * The kinds of databases that the proxy can connect to.
      */
     engineFamily: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-idleclienttimeout
+     * The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
      */
     idleClientTimeout?: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-requiretls
+     * A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      */
     requireTLS?: pulumi.Input<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-rolearn
+     * The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      */
     roleArn: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-tags
+     * An optional set of key-value pairs to associate arbitrary data of your choosing with the proxy.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.rds.DBProxyTagFormatArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsecuritygroupids
+     * VPC security group IDs to associate with the new proxy.
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxy.html#cfn-rds-dbproxy-vpcsubnetids
+     * VPC subnet IDs to associate with the new proxy.
      */
     vpcSubnetIds: pulumi.Input<pulumi.Input<string>[]>;
 }

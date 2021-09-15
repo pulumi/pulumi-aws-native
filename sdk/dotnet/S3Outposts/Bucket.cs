@@ -10,37 +10,40 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3Outposts
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html
+    /// Resource Type Definition for AWS::S3Outposts::Bucket
     /// </summary>
     [AwsNativeResourceType("aws-native:s3outposts:Bucket")]
     public partial class Bucket : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the specified bucket.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-bucketname
+        /// A name for the bucket.
         /// </summary>
         [Output("bucketName")]
         public Output<string> BucketName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-lifecycleconfiguration
+        /// Rules that define how Amazon S3Outposts manages objects during their lifetime.
         /// </summary>
         [Output("lifecycleConfiguration")]
         public Output<Outputs.BucketLifecycleConfiguration?> LifecycleConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-outpostid
+        /// The id of the customer outpost on which the bucket resides.
         /// </summary>
         [Output("outpostId")]
         public Output<string> OutpostId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-tags
+        /// An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BucketTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -88,32 +91,32 @@ namespace Pulumi.AwsNative.S3Outposts
     public sealed class BucketArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-bucketname
+        /// A name for the bucket.
         /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-lifecycleconfiguration
+        /// Rules that define how Amazon S3Outposts manages objects during their lifetime.
         /// </summary>
         [Input("lifecycleConfiguration")]
         public Input<Inputs.BucketLifecycleConfigurationArgs>? LifecycleConfiguration { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-outpostid
+        /// The id of the customer outpost on which the bucket resides.
         /// </summary>
         [Input("outpostId", required: true)]
         public Input<string> OutpostId { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.BucketTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-tags
+        /// An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.BucketTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.BucketTagArgs>());
             set => _tags = value;
         }
 

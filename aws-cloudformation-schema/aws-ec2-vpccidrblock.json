@@ -1,0 +1,29 @@
+{
+  "typeName" : "AWS::EC2::VPCCidrBlock",
+  "description" : "Resource Type definition for AWS::EC2::VPCCidrBlock",
+  "additionalProperties" : false,
+  "properties" : {
+    "CidrBlock" : {
+      "type" : "string"
+    },
+    "Ipv6Pool" : {
+      "type" : "string"
+    },
+    "Id" : {
+      "type" : "string"
+    },
+    "VpcId" : {
+      "type" : "string"
+    },
+    "Ipv6CidrBlock" : {
+      "type" : "string"
+    },
+    "AmazonProvidedIpv6CidrBlock" : {
+      "type" : "boolean"
+    }
+  },
+  "required" : [ "VpcId" ],
+  "createOnlyProperties" : [ "/properties/Ipv6Pool", "/properties/VpcId", "/properties/AmazonProvidedIpv6CidrBlock", "/properties/Ipv6CidrBlock", "/properties/CidrBlock" ],
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id" ]
+}

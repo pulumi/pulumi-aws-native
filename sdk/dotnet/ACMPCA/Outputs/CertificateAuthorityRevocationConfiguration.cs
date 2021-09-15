@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.ACMPCA.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html
+    /// Certificate Authority revocation information.
     /// </summary>
     [OutputType]
     public sealed class CertificateAuthorityRevocationConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-crlconfiguration
-        /// </summary>
         public readonly Outputs.CertificateAuthorityCrlConfiguration? CrlConfiguration;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html#cfn-acmpca-certificateauthority-revocationconfiguration-ocspconfiguration
-        /// </summary>
         public readonly Outputs.CertificateAuthorityOcspConfiguration? OcspConfiguration;
 
         [OutputConstructor]

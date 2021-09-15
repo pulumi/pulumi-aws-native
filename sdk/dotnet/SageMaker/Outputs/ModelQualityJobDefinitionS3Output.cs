@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html
+    /// Information about where and how to store the results of a monitoring job.
     /// </summary>
     [OutputType]
     public sealed class ModelQualityJobDefinitionS3Output
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-localpath
+        /// The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         /// </summary>
         public readonly string LocalPath;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-s3uploadmode
+        /// Whether to upload the results of the monitoring job continuously or after the job completes.
         /// </summary>
         public readonly string? S3UploadMode;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-s3output.html#cfn-sagemaker-modelqualityjobdefinition-s3output-s3uri
+        /// A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
         /// </summary>
         public readonly string S3Uri;
 

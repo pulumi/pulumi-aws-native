@@ -11,13 +11,10 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html
+    /// An HTTP Live Streaming (HLS) packaging configuration.
     /// </summary>
     public sealed class PackagingConfigurationHlsPackageArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-encryption
-        /// </summary>
         [Input("encryption")]
         public Input<Inputs.PackagingConfigurationHlsEncryptionArgs>? Encryption { get; set; }
 
@@ -25,7 +22,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         private InputList<Inputs.PackagingConfigurationHlsManifestArgs>? _hlsManifests;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-hlsmanifests
+        /// A list of HLS manifest configurations.
         /// </summary>
         public InputList<Inputs.PackagingConfigurationHlsManifestArgs> HlsManifests
         {
@@ -33,14 +30,11 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
             set => _hlsManifests = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-segmentdurationseconds
-        /// </summary>
         [Input("segmentDurationSeconds")]
         public Input<int>? SegmentDurationSeconds { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-useaudiorenditiongroup
+        /// When enabled, audio streams will be placed in rendition groups in the output.
         /// </summary>
         [Input("useAudioRenditionGroup")]
         public Input<bool>? UseAudioRenditionGroup { get; set; }

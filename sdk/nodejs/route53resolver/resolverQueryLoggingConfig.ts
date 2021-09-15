@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html
+ * Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
  */
 export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
     /**
@@ -34,21 +34,41 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResolverQueryLoggingConfig.__pulumiType;
     }
 
+    /**
+     * Arn
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Count
+     */
     public /*out*/ readonly associationCount!: pulumi.Output<number>;
+    /**
+     * Rfc3339TimeString
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The id of the creator request.
+     */
     public /*out*/ readonly creatorRequestId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
+     * destination arn
      */
     public readonly destinationArn!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
+     * ResolverQueryLogConfigName
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * AccountId
+     */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
+     * ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
+     */
     public /*out*/ readonly shareStatus!: pulumi.Output<string>;
+    /**
+     * ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
@@ -68,7 +88,6 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
             inputs["associationCount"] = undefined /*out*/;
             inputs["creationTime"] = undefined /*out*/;
             inputs["creatorRequestId"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["shareStatus"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
@@ -78,7 +97,6 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
             inputs["creationTime"] = undefined /*out*/;
             inputs["creatorRequestId"] = undefined /*out*/;
             inputs["destinationArn"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["shareStatus"] = undefined /*out*/;
@@ -96,11 +114,11 @@ export class ResolverQueryLoggingConfig extends pulumi.CustomResource {
  */
 export interface ResolverQueryLoggingConfigArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
+     * destination arn
      */
     destinationArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
+     * ResolverQueryLogConfigName
      */
     name?: pulumi.Input<string>;
 }

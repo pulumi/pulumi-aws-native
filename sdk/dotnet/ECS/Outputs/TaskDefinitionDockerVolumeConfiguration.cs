@@ -10,31 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html
-    /// </summary>
     [OutputType]
     public sealed class TaskDefinitionDockerVolumeConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-autoprovision
-        /// </summary>
         public readonly bool? Autoprovision;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driver
-        /// </summary>
         public readonly string? Driver;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driveropts
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? DriverOpts;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-labels
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Labels;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-scope
-        /// </summary>
+        public readonly object? DriverOpts;
+        public readonly object? Labels;
         public readonly string? Scope;
 
         [OutputConstructor]
@@ -43,9 +25,9 @@ namespace Pulumi.AwsNative.ECS.Outputs
 
             string? driver,
 
-            ImmutableDictionary<string, string>? driverOpts,
+            object? driverOpts,
 
-            ImmutableDictionary<string, string>? labels,
+            object? labels,
 
             string? scope)
         {

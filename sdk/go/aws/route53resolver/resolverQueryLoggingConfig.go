@@ -10,22 +10,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html
+// Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
 type ResolverQueryLoggingConfig struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput `pulumi:"arn"`
-	AssociationCount pulumi.IntOutput    `pulumi:"associationCount"`
-	CreationTime     pulumi.StringOutput `pulumi:"creationTime"`
+	// Arn
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Count
+	AssociationCount pulumi.IntOutput `pulumi:"associationCount"`
+	// Rfc3339TimeString
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The id of the creator request.
 	CreatorRequestId pulumi.StringOutput `pulumi:"creatorRequestId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
+	// destination arn
 	DestinationArn pulumi.StringPtrOutput `pulumi:"destinationArn"`
-	Id             pulumi.StringOutput    `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
-	Name        pulumi.StringPtrOutput `pulumi:"name"`
-	OwnerId     pulumi.StringOutput    `pulumi:"ownerId"`
-	ShareStatus pulumi.StringOutput    `pulumi:"shareStatus"`
-	Status      pulumi.StringOutput    `pulumi:"status"`
+	// ResolverQueryLogConfigName
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// AccountId
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
+	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
+	// ResolverQueryLogConfigStatus, possible values are CREATING, CREATED, DELETED AND FAILED.
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewResolverQueryLoggingConfig registers a new resource with the given unique name, arguments, and options.
@@ -67,17 +73,17 @@ func (ResolverQueryLoggingConfigState) ElementType() reflect.Type {
 }
 
 type resolverQueryLoggingConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
+	// destination arn
 	DestinationArn *string `pulumi:"destinationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
+	// ResolverQueryLogConfigName
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ResolverQueryLoggingConfig resource.
 type ResolverQueryLoggingConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-destinationarn
+	// destination arn
 	DestinationArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfig.html#cfn-route53resolver-resolverqueryloggingconfig-name
+	// ResolverQueryLogConfigName
 	Name pulumi.StringPtrInput
 }
 

@@ -10,41 +10,24 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html
-    /// </summary>
     public sealed class AnomalyDetectorS3SourceConfigArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-fileformatdescriptor
-        /// </summary>
         [Input("fileFormatDescriptor", required: true)]
         public Input<Inputs.AnomalyDetectorFileFormatDescriptorArgs> FileFormatDescriptor { get; set; } = null!;
 
         [Input("historicalDataPathList")]
         private InputList<string>? _historicalDataPathList;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-historicaldatapathlist
-        /// </summary>
         public InputList<string> HistoricalDataPathList
         {
             get => _historicalDataPathList ?? (_historicalDataPathList = new InputList<string>());
             set => _historicalDataPathList = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-rolearn
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("templatedPathList")]
         private InputList<string>? _templatedPathList;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-templatedpathlist
-        /// </summary>
         public InputList<string> TemplatedPathList
         {
             get => _templatedPathList ?? (_templatedPathList = new InputList<string>());

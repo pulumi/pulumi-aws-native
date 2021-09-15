@@ -10,16 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html
-    /// </summary>
     public sealed class AnomalyDetectorMetricSetArgs : Pulumi.ResourceArgs
     {
         [Input("dimensionList")]
         private InputList<string>? _dimensionList;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-dimensionlist
+        /// Dimensions for this MetricSet.
         /// </summary>
         public InputList<string> DimensionList
         {
@@ -31,7 +28,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         private InputList<Inputs.AnomalyDetectorMetricArgs>? _metricList;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metriclist
+        /// Metrics captured by this MetricSet.
         /// </summary>
         public InputList<Inputs.AnomalyDetectorMetricArgs> MetricList
         {
@@ -40,44 +37,35 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetdescription
+        /// A description for the MetricSet.
         /// </summary>
         [Input("metricSetDescription")]
         public Input<string>? MetricSetDescription { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetfrequency
+        /// A frequency period to aggregate the data
         /// </summary>
         [Input("metricSetFrequency")]
         public Input<string>? MetricSetFrequency { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetname
+        /// The name of the MetricSet.
         /// </summary>
         [Input("metricSetName", required: true)]
         public Input<string> MetricSetName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsource
-        /// </summary>
         [Input("metricSource", required: true)]
         public Input<Inputs.AnomalyDetectorMetricSourceArgs> MetricSource { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-offset
+        /// Offset, in seconds, between the frequency interval and the time at which the metrics are available.
         /// </summary>
         [Input("offset")]
         public Input<int>? Offset { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-timestampcolumn
-        /// </summary>
         [Input("timestampColumn")]
         public Input<Inputs.AnomalyDetectorTimestampColumnArgs>? TimestampColumn { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-timezone
-        /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 

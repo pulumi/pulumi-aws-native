@@ -11,19 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html
+// Resource Type definition for AWS::CloudFront::RealtimeLogConfig
 type RealtimeLogConfig struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-	EndPoints RealtimeLogConfigEndPointArrayOutput `pulumi:"endPoints"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-	Fields pulumi.StringArrayOutput `pulumi:"fields"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
-	SamplingRate pulumi.Float64Output `pulumi:"samplingRate"`
+	Arn          pulumi.StringOutput                  `pulumi:"arn"`
+	EndPoints    RealtimeLogConfigEndPointArrayOutput `pulumi:"endPoints"`
+	Fields       pulumi.StringArrayOutput             `pulumi:"fields"`
+	Name         pulumi.StringOutput                  `pulumi:"name"`
+	SamplingRate pulumi.Float64Output                 `pulumi:"samplingRate"`
 }
 
 // NewRealtimeLogConfig registers a new resource with the given unique name, arguments, and options.
@@ -77,25 +73,17 @@ func (RealtimeLogConfigState) ElementType() reflect.Type {
 }
 
 type realtimeLogConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-	EndPoints []RealtimeLogConfigEndPoint `pulumi:"endPoints"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-	Fields []string `pulumi:"fields"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
-	SamplingRate float64 `pulumi:"samplingRate"`
+	EndPoints    []RealtimeLogConfigEndPoint `pulumi:"endPoints"`
+	Fields       []string                    `pulumi:"fields"`
+	Name         string                      `pulumi:"name"`
+	SamplingRate float64                     `pulumi:"samplingRate"`
 }
 
 // The set of arguments for constructing a RealtimeLogConfig resource.
 type RealtimeLogConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-	EndPoints RealtimeLogConfigEndPointArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-	Fields pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
+	EndPoints    RealtimeLogConfigEndPointArrayInput
+	Fields       pulumi.StringArrayInput
+	Name         pulumi.StringInput
 	SamplingRate pulumi.Float64Input
 }
 

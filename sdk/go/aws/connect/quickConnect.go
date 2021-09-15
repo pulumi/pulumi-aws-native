@@ -8,25 +8,25 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html
+// Resource Type definition for AWS::Connect::QuickConnect
 type QuickConnect struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-description
+	// The description of the quick connect.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-instancearn
+	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-name
-	Name            pulumi.StringOutput `pulumi:"name"`
+	// The name of the quick connect.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The Amazon Resource Name (ARN) for the quick connect.
 	QuickConnectArn pulumi.StringOutput `pulumi:"quickConnectArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-quickconnectconfig
+	// Configuration settings for the quick connect.
 	QuickConnectConfig QuickConnectQuickConnectConfigOutput `pulumi:"quickConnectConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// One or more tags.
+	Tags QuickConnectTagArrayOutput `pulumi:"tags"`
 }
 
 // NewQuickConnect registers a new resource with the given unique name, arguments, and options.
@@ -77,30 +77,30 @@ func (QuickConnectState) ElementType() reflect.Type {
 }
 
 type quickConnectArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-description
+	// The description of the quick connect.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-instancearn
+	// The identifier of the Amazon Connect instance.
 	InstanceArn string `pulumi:"instanceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-name
+	// The name of the quick connect.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-quickconnectconfig
+	// Configuration settings for the quick connect.
 	QuickConnectConfig QuickConnectQuickConnectConfig `pulumi:"quickConnectConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// One or more tags.
+	Tags []QuickConnectTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a QuickConnect resource.
 type QuickConnectArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-description
+	// The description of the quick connect.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-instancearn
+	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-name
+	// The name of the quick connect.
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-quickconnectconfig
+	// Configuration settings for the quick connect.
 	QuickConnectConfig QuickConnectQuickConnectConfigInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-tags
-	Tags aws.TagArrayInput
+	// One or more tags.
+	Tags QuickConnectTagArrayInput
 }
 
 func (QuickConnectArgs) ElementType() reflect.Type {

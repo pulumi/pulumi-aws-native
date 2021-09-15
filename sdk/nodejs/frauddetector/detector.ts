@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html
+ * A resource schema for a Detector in Amazon Fraud Detector.
  */
 export class Detector extends pulumi.CustomResource {
     /**
@@ -35,45 +35,48 @@ export class Detector extends pulumi.CustomResource {
         return obj['__pulumiType'] === Detector.__pulumiType;
     }
 
+    /**
+     * The ARN of the detector.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-associatedmodels
+     * The models to associate with this detector.
      */
     public readonly associatedModels!: pulumi.Output<outputs.frauddetector.DetectorModel[] | undefined>;
+    /**
+     * The time when the detector was created.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-description
+     * The description of the detector.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorid
+     * The ID of the detector
      */
     public readonly detectorId!: pulumi.Output<string>;
+    /**
+     * The active version ID of the detector
+     */
     public /*out*/ readonly detectorVersionId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorversionstatus
+     * The desired detector version status for the detector
      */
     public readonly detectorVersionStatus!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-eventtype
+     * The event type to associate this detector with.
      */
     public readonly eventType!: pulumi.Output<outputs.frauddetector.DetectorEventType>;
-    public /*out*/ readonly eventTypeArn!: pulumi.Output<string>;
-    public /*out*/ readonly eventTypeCreatedTime!: pulumi.Output<string>;
-    public /*out*/ readonly eventTypeLastUpdatedTime!: pulumi.Output<string>;
+    /**
+     * The time when the detector was last updated.
+     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-ruleexecutionmode
-     */
     public readonly ruleExecutionMode!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-rules
-     */
     public readonly rules!: pulumi.Output<outputs.frauddetector.DetectorRule[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-tags
+     * Tags associated with this detector.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.frauddetector.DetectorTag[] | undefined>;
 
     /**
      * Create a Detector resource with the given unique name, arguments, and options.
@@ -106,9 +109,6 @@ export class Detector extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
             inputs["detectorVersionId"] = undefined /*out*/;
-            inputs["eventTypeArn"] = undefined /*out*/;
-            inputs["eventTypeCreatedTime"] = undefined /*out*/;
-            inputs["eventTypeLastUpdatedTime"] = undefined /*out*/;
             inputs["lastUpdatedTime"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
@@ -119,9 +119,6 @@ export class Detector extends pulumi.CustomResource {
             inputs["detectorVersionId"] = undefined /*out*/;
             inputs["detectorVersionStatus"] = undefined /*out*/;
             inputs["eventType"] = undefined /*out*/;
-            inputs["eventTypeArn"] = undefined /*out*/;
-            inputs["eventTypeCreatedTime"] = undefined /*out*/;
-            inputs["eventTypeLastUpdatedTime"] = undefined /*out*/;
             inputs["lastUpdatedTime"] = undefined /*out*/;
             inputs["ruleExecutionMode"] = undefined /*out*/;
             inputs["rules"] = undefined /*out*/;
@@ -139,35 +136,29 @@ export class Detector extends pulumi.CustomResource {
  */
 export interface DetectorArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-associatedmodels
+     * The models to associate with this detector.
      */
     associatedModels?: pulumi.Input<pulumi.Input<inputs.frauddetector.DetectorModelArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-description
+     * The description of the detector.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorid
+     * The ID of the detector
      */
     detectorId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorversionstatus
+     * The desired detector version status for the detector
      */
     detectorVersionStatus?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-eventtype
+     * The event type to associate this detector with.
      */
     eventType: pulumi.Input<inputs.frauddetector.DetectorEventTypeArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-ruleexecutionmode
-     */
     ruleExecutionMode?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-rules
-     */
     rules: pulumi.Input<pulumi.Input<inputs.frauddetector.DetectorRuleArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-tags
+     * Tags associated with this detector.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.frauddetector.DetectorTagArgs>[]>;
 }

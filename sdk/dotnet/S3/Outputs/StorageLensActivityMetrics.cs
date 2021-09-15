@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html
+    /// Enables activity metrics.
     /// </summary>
     [OutputType]
     public sealed class StorageLensActivityMetrics
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html#cfn-s3-storagelens-activitymetrics-isenabled
+        /// Specifies whether activity metrics are enabled or disabled.
         /// </summary>
         public readonly bool? IsEnabled;
 

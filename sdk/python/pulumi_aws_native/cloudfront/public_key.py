@@ -18,16 +18,12 @@ class PublicKeyArgs:
                  public_key_config: pulumi.Input['PublicKeyPublicKeyConfigArgs']):
         """
         The set of arguments for constructing a PublicKey resource.
-        :param pulumi.Input['PublicKeyPublicKeyConfigArgs'] public_key_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
         """
         pulumi.set(__self__, "public_key_config", public_key_config)
 
     @property
     @pulumi.getter(name="publicKeyConfig")
     def public_key_config(self) -> pulumi.Input['PublicKeyPublicKeyConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
-        """
         return pulumi.get(self, "public_key_config")
 
     @public_key_config.setter
@@ -43,11 +39,10 @@ class PublicKey(pulumi.CustomResource):
                  public_key_config: Optional[pulumi.Input[pulumi.InputType['PublicKeyPublicKeyConfigArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html
+        Resource Type definition for AWS::CloudFront::PublicKey
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PublicKeyPublicKeyConfigArgs']] public_key_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
         """
         ...
     @overload
@@ -56,7 +51,7 @@ class PublicKey(pulumi.CustomResource):
                  args: PublicKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html
+        Resource Type definition for AWS::CloudFront::PublicKey
 
         :param str resource_name: The name of the resource.
         :param PublicKeyArgs args: The arguments to use to populate this resource's properties.
@@ -90,7 +85,6 @@ class PublicKey(pulumi.CustomResource):
                 raise TypeError("Missing required property 'public_key_config'")
             __props__.__dict__["public_key_config"] = public_key_config
             __props__.__dict__["created_time"] = None
-            __props__.__dict__["id"] = None
         super(PublicKey, __self__).__init__(
             'aws-native:cloudfront:PublicKey',
             resource_name,
@@ -114,7 +108,6 @@ class PublicKey(pulumi.CustomResource):
         __props__ = PublicKeyArgs.__new__(PublicKeyArgs)
 
         __props__.__dict__["created_time"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["public_key_config"] = None
         return PublicKey(resource_name, opts=opts, __props__=__props__)
 
@@ -124,15 +117,7 @@ class PublicKey(pulumi.CustomResource):
         return pulumi.get(self, "created_time")
 
     @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="publicKeyConfig")
     def public_key_config(self) -> pulumi.Output['outputs.PublicKeyPublicKeyConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-publickey.html#cfn-cloudfront-publickey-publickeyconfig
-        """
         return pulumi.get(self, "public_key_config")
 

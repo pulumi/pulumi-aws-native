@@ -24,13 +24,13 @@ class FlowEntitlementArgs:
                  entitlement_status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FlowEntitlement resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-description
-        :param pulumi.Input[str] flow_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-flowarn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-name
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subscribers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-subscribers
-        :param pulumi.Input[int] data_transfer_subscriber_fee_percent: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-datatransfersubscriberfeepercent
-        :param pulumi.Input['FlowEntitlementEncryptionArgs'] encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-encryption
-        :param pulumi.Input[str] entitlement_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-entitlementstatus
+        :param pulumi.Input[str] description: A description of the entitlement.
+        :param pulumi.Input[str] flow_arn: The ARN of the flow.
+        :param pulumi.Input[str] name: The name of the entitlement.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subscribers: The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
+        :param pulumi.Input[int] data_transfer_subscriber_fee_percent: Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
+        :param pulumi.Input['FlowEntitlementEncryptionArgs'] encryption: The type of encryption that will be used on the output that is associated with this entitlement.
+        :param pulumi.Input[str] entitlement_status:  An indication of whether the entitlement is enabled.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "flow_arn", flow_arn)
@@ -47,7 +47,7 @@ class FlowEntitlementArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-description
+        A description of the entitlement.
         """
         return pulumi.get(self, "description")
 
@@ -59,7 +59,7 @@ class FlowEntitlementArgs:
     @pulumi.getter(name="flowArn")
     def flow_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-flowarn
+        The ARN of the flow.
         """
         return pulumi.get(self, "flow_arn")
 
@@ -71,7 +71,7 @@ class FlowEntitlementArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-name
+        The name of the entitlement.
         """
         return pulumi.get(self, "name")
 
@@ -83,7 +83,7 @@ class FlowEntitlementArgs:
     @pulumi.getter
     def subscribers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-subscribers
+        The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
         """
         return pulumi.get(self, "subscribers")
 
@@ -95,7 +95,7 @@ class FlowEntitlementArgs:
     @pulumi.getter(name="dataTransferSubscriberFeePercent")
     def data_transfer_subscriber_fee_percent(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-datatransfersubscriberfeepercent
+        Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
         """
         return pulumi.get(self, "data_transfer_subscriber_fee_percent")
 
@@ -107,7 +107,7 @@ class FlowEntitlementArgs:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['FlowEntitlementEncryptionArgs']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-encryption
+        The type of encryption that will be used on the output that is associated with this entitlement.
         """
         return pulumi.get(self, "encryption")
 
@@ -119,7 +119,7 @@ class FlowEntitlementArgs:
     @pulumi.getter(name="entitlementStatus")
     def entitlement_status(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-entitlementstatus
+         An indication of whether the entitlement is enabled.
         """
         return pulumi.get(self, "entitlement_status")
 
@@ -142,17 +142,17 @@ class FlowEntitlement(pulumi.CustomResource):
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html
+        Resource schema for AWS::MediaConnect::FlowEntitlement
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] data_transfer_subscriber_fee_percent: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-datatransfersubscriberfeepercent
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-description
-        :param pulumi.Input[pulumi.InputType['FlowEntitlementEncryptionArgs']] encryption: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-encryption
-        :param pulumi.Input[str] entitlement_status: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-entitlementstatus
-        :param pulumi.Input[str] flow_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-flowarn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-name
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] subscribers: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-subscribers
+        :param pulumi.Input[int] data_transfer_subscriber_fee_percent: Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
+        :param pulumi.Input[str] description: A description of the entitlement.
+        :param pulumi.Input[pulumi.InputType['FlowEntitlementEncryptionArgs']] encryption: The type of encryption that will be used on the output that is associated with this entitlement.
+        :param pulumi.Input[str] entitlement_status:  An indication of whether the entitlement is enabled.
+        :param pulumi.Input[str] flow_arn: The ARN of the flow.
+        :param pulumi.Input[str] name: The name of the entitlement.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subscribers: The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
         """
         ...
     @overload
@@ -161,7 +161,7 @@ class FlowEntitlement(pulumi.CustomResource):
                  args: FlowEntitlementArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html
+        Resource schema for AWS::MediaConnect::FlowEntitlement
 
         :param str resource_name: The name of the resource.
         :param FlowEntitlementArgs args: The arguments to use to populate this resource's properties.
@@ -249,7 +249,7 @@ class FlowEntitlement(pulumi.CustomResource):
     @pulumi.getter(name="dataTransferSubscriberFeePercent")
     def data_transfer_subscriber_fee_percent(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-datatransfersubscriberfeepercent
+        Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
         """
         return pulumi.get(self, "data_transfer_subscriber_fee_percent")
 
@@ -257,7 +257,7 @@ class FlowEntitlement(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-description
+        A description of the entitlement.
         """
         return pulumi.get(self, "description")
 
@@ -265,20 +265,23 @@ class FlowEntitlement(pulumi.CustomResource):
     @pulumi.getter
     def encryption(self) -> pulumi.Output[Optional['outputs.FlowEntitlementEncryption']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-encryption
+        The type of encryption that will be used on the output that is associated with this entitlement.
         """
         return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="entitlementArn")
     def entitlement_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the entitlement.
+        """
         return pulumi.get(self, "entitlement_arn")
 
     @property
     @pulumi.getter(name="entitlementStatus")
     def entitlement_status(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-entitlementstatus
+         An indication of whether the entitlement is enabled.
         """
         return pulumi.get(self, "entitlement_status")
 
@@ -286,7 +289,7 @@ class FlowEntitlement(pulumi.CustomResource):
     @pulumi.getter(name="flowArn")
     def flow_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-flowarn
+        The ARN of the flow.
         """
         return pulumi.get(self, "flow_arn")
 
@@ -294,7 +297,7 @@ class FlowEntitlement(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-name
+        The name of the entitlement.
         """
         return pulumi.get(self, "name")
 
@@ -302,7 +305,7 @@ class FlowEntitlement(pulumi.CustomResource):
     @pulumi.getter
     def subscribers(self) -> pulumi.Output[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-subscribers
+        The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
         """
         return pulumi.get(self, "subscribers")
 

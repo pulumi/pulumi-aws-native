@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html
+ * The AWS::EC2::TransitGatewayPeeringAttachment type
  */
 export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
     /**
@@ -35,27 +35,40 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
         return obj['__pulumiType'] === TransitGatewayPeeringAttachment.__pulumiType;
     }
 
+    /**
+     * The time the transit gateway peering attachment was created.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid
+     * The ID of the peer account
      */
     public readonly peerAccountId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion
+     * Peer Region
      */
     public readonly peerRegion!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peertransitgatewayid
+     * The ID of the peer transit gateway.
      */
     public readonly peerTransitGatewayId!: pulumi.Output<string>;
+    /**
+     * The state of the transit gateway peering attachment. Note that the initiating state has been deprecated.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags
+     * The status of the transit gateway peering attachment.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public /*out*/ readonly status!: pulumi.Output<outputs.ec2.TransitGatewayPeeringAttachmentPeeringAttachmentStatus>;
+    /**
+     * The tags for the transit gateway peering attachment.
+     */
+    public readonly tags!: pulumi.Output<outputs.ec2.TransitGatewayPeeringAttachmentTag[] | undefined>;
+    /**
+     * The ID of the transit gateway peering attachment.
+     */
     public /*out*/ readonly transitGatewayAttachmentId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid
+     * The ID of the transit gateway.
      */
     public readonly transitGatewayId!: pulumi.Output<string>;
 
@@ -89,6 +102,7 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             inputs["creationTime"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["transitGatewayAttachmentId"] = undefined /*out*/;
         } else {
             inputs["creationTime"] = undefined /*out*/;
@@ -96,6 +110,7 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
             inputs["peerRegion"] = undefined /*out*/;
             inputs["peerTransitGatewayId"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["transitGatewayAttachmentId"] = undefined /*out*/;
             inputs["transitGatewayId"] = undefined /*out*/;
@@ -112,23 +127,23 @@ export class TransitGatewayPeeringAttachment extends pulumi.CustomResource {
  */
 export interface TransitGatewayPeeringAttachmentArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peeraccountid
+     * The ID of the peer account
      */
     peerAccountId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peerregion
+     * Peer Region
      */
     peerRegion: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-peertransitgatewayid
+     * The ID of the peer transit gateway.
      */
     peerTransitGatewayId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-tags
+     * The tags for the transit gateway peering attachment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ec2.TransitGatewayPeeringAttachmentTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaypeeringattachment.html#cfn-ec2-transitgatewaypeeringattachment-transitgatewayid
+     * The ID of the transit gateway.
      */
     transitGatewayId: pulumi.Input<string>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html
+ * Resource Type definition for AWS::GlobalAccelerator::Listener
  */
 export class Listener extends pulumi.CustomResource {
     /**
@@ -36,20 +36,20 @@ export class Listener extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
+     * The Amazon Resource Name (ARN) of the accelerator.
      */
     public readonly acceleratorArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
+     * Client affinity lets you direct all requests from a user to the same endpoint.
      */
     public readonly clientAffinity!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly listenerArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
+     * The Amazon Resource Name (ARN) of the listener.
      */
+    public /*out*/ readonly listenerArn!: pulumi.Output<string>;
     public readonly portRanges!: pulumi.Output<outputs.globalaccelerator.ListenerPortRange[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
+     * The protocol for the listener.
      */
     public readonly protocol!: pulumi.Output<string>;
 
@@ -97,19 +97,16 @@ export class Listener extends pulumi.CustomResource {
  */
 export interface ListenerArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
+     * The Amazon Resource Name (ARN) of the accelerator.
      */
     acceleratorArn: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
+     * Client affinity lets you direct all requests from a user to the same endpoint.
      */
     clientAffinity?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
-     */
     portRanges: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRangeArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
+     * The protocol for the listener.
      */
     protocol: pulumi.Input<string>;
 }

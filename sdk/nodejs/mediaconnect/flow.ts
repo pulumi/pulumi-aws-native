@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html
+ * Resource schema for AWS::MediaConnect::Flow
  */
 export class Flow extends pulumi.CustomResource {
     /**
@@ -36,25 +36,29 @@ export class Flow extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone
+     * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
      */
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
+     */
     public /*out*/ readonly flowArn!: pulumi.Output<string>;
+    /**
+     * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
+     */
     public /*out*/ readonly flowAvailabilityZone!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-name
+     * The name of the flow.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-source
+     * The source of the flow.
      */
     public readonly source!: pulumi.Output<outputs.mediaconnect.FlowSource>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
+     * The source failover config of the flow.
      */
     public readonly sourceFailoverConfig!: pulumi.Output<outputs.mediaconnect.FlowFailoverConfig | undefined>;
-    public /*out*/ readonly sourceIngestIp!: pulumi.Output<string>;
-    public /*out*/ readonly sourceSourceArn!: pulumi.Output<string>;
 
     /**
      * Create a Flow resource with the given unique name, arguments, and options.
@@ -79,8 +83,6 @@ export class Flow extends pulumi.CustomResource {
             inputs["sourceFailoverConfig"] = args ? args.sourceFailoverConfig : undefined;
             inputs["flowArn"] = undefined /*out*/;
             inputs["flowAvailabilityZone"] = undefined /*out*/;
-            inputs["sourceIngestIp"] = undefined /*out*/;
-            inputs["sourceSourceArn"] = undefined /*out*/;
         } else {
             inputs["availabilityZone"] = undefined /*out*/;
             inputs["flowArn"] = undefined /*out*/;
@@ -88,8 +90,6 @@ export class Flow extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["source"] = undefined /*out*/;
             inputs["sourceFailoverConfig"] = undefined /*out*/;
-            inputs["sourceIngestIp"] = undefined /*out*/;
-            inputs["sourceSourceArn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -103,19 +103,19 @@ export class Flow extends pulumi.CustomResource {
  */
 export interface FlowArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone
+     * The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-name
+     * The name of the flow.
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-source
+     * The source of the flow.
      */
     source: pulumi.Input<inputs.mediaconnect.FlowSourceArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
+     * The source failover config of the flow.
      */
     sourceFailoverConfig?: pulumi.Input<inputs.mediaconnect.FlowFailoverConfigArgs>;
 }

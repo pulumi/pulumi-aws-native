@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html
+ * A module that has been registered in the CloudFormation registry as the default version
  */
 export class ModuleDefaultVersion extends pulumi.CustomResource {
     /**
@@ -35,15 +35,15 @@ export class ModuleDefaultVersion extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
+     * The Amazon Resource Name (ARN) of the module version to set as the default version.
      */
     public readonly arn!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
+     * The name of a module existing in the registry.
      */
     public readonly moduleName!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+     * The ID of an existing version of the named module to set as the default.
      */
     public readonly versionId!: pulumi.Output<string | undefined>;
 
@@ -78,15 +78,15 @@ export class ModuleDefaultVersion extends pulumi.CustomResource {
  */
 export interface ModuleDefaultVersionArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
+     * The Amazon Resource Name (ARN) of the module version to set as the default version.
      */
     arn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
+     * The name of a module existing in the registry.
      */
     moduleName?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+     * The ID of an existing version of the named module to set as the default.
      */
     versionId?: pulumi.Input<string>;
 }

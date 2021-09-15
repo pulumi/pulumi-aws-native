@@ -11,19 +11,13 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html
+    /// Structure that contains X.509 AccessDescription information.
     /// </summary>
     public sealed class CertificateAuthorityAccessDescriptionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accesslocation
-        /// </summary>
         [Input("accessLocation", required: true)]
         public Input<Inputs.CertificateAuthorityGeneralNameArgs> AccessLocation { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html#cfn-acmpca-certificateauthority-accessdescription-accessmethod
-        /// </summary>
         [Input("accessMethod", required: true)]
         public Input<Inputs.CertificateAuthorityAccessMethodArgs> AccessMethod { get; set; } = null!;
 

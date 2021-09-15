@@ -14,11 +14,11 @@ __all__ = ['BucketPolicyArgs', 'BucketPolicy']
 class BucketPolicyArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
-                 policy_document: pulumi.Input[Union[Any, str]]):
+                 policy_document: Any):
         """
         The set of arguments for constructing a BucketPolicy resource.
-        :param pulumi.Input[str] bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html#cfn-s3outposts-bucketpolicy-bucket
-        :param pulumi.Input[Union[Any, str]] policy_document: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html#cfn-s3outposts-bucketpolicy-policydocument
+        :param pulumi.Input[str] bucket: The Amazon Resource Name (ARN) of the specified bucket.
+        :param Any policy_document: A policy document containing permissions to add to the specified bucket.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "policy_document", policy_document)
@@ -27,7 +27,7 @@ class BucketPolicyArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html#cfn-s3outposts-bucketpolicy-bucket
+        The Amazon Resource Name (ARN) of the specified bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -37,14 +37,14 @@ class BucketPolicyArgs:
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> pulumi.Input[Union[Any, str]]:
+    def policy_document(self) -> Any:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html#cfn-s3outposts-bucketpolicy-policydocument
+        A policy document containing permissions to add to the specified bucket.
         """
         return pulumi.get(self, "policy_document")
 
     @policy_document.setter
-    def policy_document(self, value: pulumi.Input[Union[Any, str]]):
+    def policy_document(self, value: Any):
         pulumi.set(self, "policy_document", value)
 
 
@@ -54,15 +54,15 @@ class BucketPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
-                 policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy_document: Optional[Any] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html
+        Resource Type Definition for AWS::S3Outposts::BucketPolicy
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] bucket: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html#cfn-s3outposts-bucketpolicy-bucket
-        :param pulumi.Input[Union[Any, str]] policy_document: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html#cfn-s3outposts-bucketpolicy-policydocument
+        :param pulumi.Input[str] bucket: The Amazon Resource Name (ARN) of the specified bucket.
+        :param Any policy_document: A policy document containing permissions to add to the specified bucket.
         """
         ...
     @overload
@@ -71,7 +71,7 @@ class BucketPolicy(pulumi.CustomResource):
                  args: BucketPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html
+        Resource Type Definition for AWS::S3Outposts::BucketPolicy
 
         :param str resource_name: The name of the resource.
         :param BucketPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -89,7 +89,7 @@ class BucketPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
-                 policy_document: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy_document: Optional[Any] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -138,15 +138,15 @@ class BucketPolicy(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html#cfn-s3outposts-bucketpolicy-bucket
+        The Amazon Resource Name (ARN) of the specified bucket.
         """
         return pulumi.get(self, "bucket")
 
     @property
     @pulumi.getter(name="policyDocument")
-    def policy_document(self) -> pulumi.Output[str]:
+    def policy_document(self) -> pulumi.Output[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html#cfn-s3outposts-bucketpolicy-policydocument
+        A policy document containing permissions to add to the specified bucket.
         """
         return pulumi.get(self, "policy_document")
 

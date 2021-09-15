@@ -10,22 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3ObjectLambda
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html
+    /// AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
     /// </summary>
     [AwsNativeResourceType("aws-native:s3objectlambda:AccessPointPolicy")]
     public partial class AccessPointPolicy : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-objectlambdaaccesspoint
+        /// The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
         /// </summary>
         [Output("objectLambdaAccessPoint")]
         public Output<string> ObjectLambdaAccessPoint { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-policydocument
+        /// A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide. 
         /// </summary>
         [Output("policyDocument")]
-        public Output<Union<System.Text.Json.JsonElement, string>> PolicyDocument { get; private set; } = null!;
+        public Output<object> PolicyDocument { get; private set; } = null!;
 
 
         /// <summary>
@@ -73,16 +73,16 @@ namespace Pulumi.AwsNative.S3ObjectLambda
     public sealed class AccessPointPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-objectlambdaaccesspoint
+        /// The name of the Amazon S3 ObjectLambdaAccessPoint to which the policy applies.
         /// </summary>
         [Input("objectLambdaAccessPoint", required: true)]
         public Input<string> ObjectLambdaAccessPoint { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspointpolicy.html#cfn-s3objectlambda-accesspointpolicy-policydocument
+        /// A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide. 
         /// </summary>
         [Input("policyDocument", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> PolicyDocument { get; set; } = null!;
+        public Input<object> PolicyDocument { get; set; } = null!;
 
         public AccessPointPolicyArgs()
         {

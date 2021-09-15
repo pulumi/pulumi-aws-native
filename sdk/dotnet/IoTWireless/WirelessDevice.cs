@@ -10,64 +10,67 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoTWireless
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html
+    /// Create and manage wireless gateways, including LoRa gateways.
     /// </summary>
     [AwsNativeResourceType("aws-native:iotwireless:WirelessDevice")]
     public partial class WirelessDevice : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Wireless device arn. Returned after successful create.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-description
+        /// Wireless device description
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-destinationname
+        /// Wireless device destination name
         /// </summary>
         [Output("destinationName")]
         public Output<string> DestinationName { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lastuplinkreceivedat
+        /// The date and time when the most recent uplink was received.
         /// </summary>
         [Output("lastUplinkReceivedAt")]
         public Output<string?> LastUplinkReceivedAt { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lorawan
+        /// The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
         /// </summary>
         [Output("loRaWAN")]
         public Output<Outputs.WirelessDeviceLoRaWANDevice?> LoRaWAN { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-name
+        /// Wireless device name
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-tags
+        /// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.WirelessDeviceTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-thingarn
+        /// Thing arn. Passed into update to associate Thing with Wireless device.
         /// </summary>
         [Output("thingArn")]
         public Output<string?> ThingArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Thing Arn. If there is a Thing created, this can be returned with a Get call.
+        /// </summary>
         [Output("thingName")]
         public Output<string> ThingName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-type
+        /// Wireless device type, currently only Sidewalk and LoRa
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -118,55 +121,55 @@ namespace Pulumi.AwsNative.IoTWireless
     public sealed class WirelessDeviceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-description
+        /// Wireless device description
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-destinationname
+        /// Wireless device destination name
         /// </summary>
         [Input("destinationName", required: true)]
         public Input<string> DestinationName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lastuplinkreceivedat
+        /// The date and time when the most recent uplink was received.
         /// </summary>
         [Input("lastUplinkReceivedAt")]
         public Input<string>? LastUplinkReceivedAt { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-lorawan
+        /// The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
         /// </summary>
         [Input("loRaWAN")]
         public Input<Inputs.WirelessDeviceLoRaWANDeviceArgs>? LoRaWAN { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-name
+        /// Wireless device name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.WirelessDeviceTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-tags
+        /// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.WirelessDeviceTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.WirelessDeviceTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-thingarn
+        /// Thing arn. Passed into update to associate Thing with Wireless device.
         /// </summary>
         [Input("thingArn")]
         public Input<string>? ThingArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdevice.html#cfn-iotwireless-wirelessdevice-type
+        /// Wireless device type, currently only Sidewalk and LoRa
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

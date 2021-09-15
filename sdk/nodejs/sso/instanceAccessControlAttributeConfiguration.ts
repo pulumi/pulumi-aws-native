@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html
+ * Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
  */
 export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomResource {
     /**
@@ -35,12 +35,13 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
         return obj['__pulumiType'] === InstanceAccessControlAttributeConfiguration.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
-     */
     public readonly accessControlAttributes!: pulumi.Output<outputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttribute[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
+     * The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+     */
+    public readonly instanceAccessControlAttributeConfiguration!: pulumi.Output<any | undefined>;
+    /**
+     * The ARN of the AWS SSO instance under which the operation will be executed.
      */
     public readonly instanceArn!: pulumi.Output<string>;
 
@@ -59,9 +60,11 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
                 throw new Error("Missing required property 'instanceArn'");
             }
             inputs["accessControlAttributes"] = args ? args.accessControlAttributes : undefined;
+            inputs["instanceAccessControlAttributeConfiguration"] = args ? args.instanceAccessControlAttributeConfiguration : undefined;
             inputs["instanceArn"] = args ? args.instanceArn : undefined;
         } else {
             inputs["accessControlAttributes"] = undefined /*out*/;
+            inputs["instanceAccessControlAttributeConfiguration"] = undefined /*out*/;
             inputs["instanceArn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -75,12 +78,13 @@ export class InstanceAccessControlAttributeConfiguration extends pulumi.CustomRe
  * The set of arguments for constructing a InstanceAccessControlAttributeConfiguration resource.
  */
 export interface InstanceAccessControlAttributeConfigurationArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
-     */
     accessControlAttributes?: pulumi.Input<pulumi.Input<inputs.sso.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
+     * The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+     */
+    instanceAccessControlAttributeConfiguration?: any;
+    /**
+     * The ARN of the AWS SSO instance under which the operation will be executed.
      */
     instanceArn: pulumi.Input<string>;
 }

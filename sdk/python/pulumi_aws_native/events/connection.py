@@ -13,16 +13,14 @@ __all__ = ['ConnectionArgs', 'Connection']
 @pulumi.input_type
 class ConnectionArgs:
     def __init__(__self__, *,
-                 auth_parameters: pulumi.Input[Union[Any, str]],
+                 auth_parameters: Any,
                  authorization_type: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Connection resource.
-        :param pulumi.Input[Union[Any, str]] auth_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authparameters
-        :param pulumi.Input[str] authorization_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authorizationtype
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-description
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-name
+        :param pulumi.Input[str] description: Description of the connection.
+        :param pulumi.Input[str] name: Name of the connection.
         """
         pulumi.set(__self__, "auth_parameters", auth_parameters)
         pulumi.set(__self__, "authorization_type", authorization_type)
@@ -33,22 +31,16 @@ class ConnectionArgs:
 
     @property
     @pulumi.getter(name="authParameters")
-    def auth_parameters(self) -> pulumi.Input[Union[Any, str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authparameters
-        """
+    def auth_parameters(self) -> Any:
         return pulumi.get(self, "auth_parameters")
 
     @auth_parameters.setter
-    def auth_parameters(self, value: pulumi.Input[Union[Any, str]]):
+    def auth_parameters(self, value: Any):
         pulumi.set(self, "auth_parameters", value)
 
     @property
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authorizationtype
-        """
         return pulumi.get(self, "authorization_type")
 
     @authorization_type.setter
@@ -59,7 +51,7 @@ class ConnectionArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-description
+        Description of the connection.
         """
         return pulumi.get(self, "description")
 
@@ -71,7 +63,7 @@ class ConnectionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-name
+        Name of the connection.
         """
         return pulumi.get(self, "name")
 
@@ -85,20 +77,18 @@ class Connection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_parameters: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 auth_parameters: Optional[Any] = None,
                  authorization_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html
+        Resource Type definition for AWS::Events::Connection.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Any, str]] auth_parameters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authparameters
-        :param pulumi.Input[str] authorization_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authorizationtype
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-description
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-name
+        :param pulumi.Input[str] description: Description of the connection.
+        :param pulumi.Input[str] name: Name of the connection.
         """
         ...
     @overload
@@ -107,7 +97,7 @@ class Connection(pulumi.CustomResource):
                  args: ConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html
+        Resource Type definition for AWS::Events::Connection.
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -124,7 +114,7 @@ class Connection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auth_parameters: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 auth_parameters: Optional[Any] = None,
                  authorization_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -183,29 +173,26 @@ class Connection(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The arn of the connection resource.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authParameters")
-    def auth_parameters(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authparameters
-        """
+    def auth_parameters(self) -> pulumi.Output[Any]:
         return pulumi.get(self, "auth_parameters")
 
     @property
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authorizationtype
-        """
         return pulumi.get(self, "authorization_type")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-description
+        Description of the connection.
         """
         return pulumi.get(self, "description")
 
@@ -213,12 +200,15 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-name
+        Name of the connection.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Output[str]:
+        """
+        The arn of the secrets manager secret created in the customer account.
+        """
         return pulumi.get(self, "secret_arn")
 

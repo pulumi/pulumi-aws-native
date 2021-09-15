@@ -11,55 +11,31 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html
+    /// Destination connector details
     /// </summary>
     public sealed class FlowDestinationConnectorPropertiesArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-eventbridge
-        /// </summary>
         [Input("eventBridge")]
         public Input<Inputs.FlowEventBridgeDestinationPropertiesArgs>? EventBridge { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-lookoutmetrics
-        /// </summary>
         [Input("lookoutMetrics")]
         public Input<Inputs.FlowLookoutMetricsDestinationPropertiesArgs>? LookoutMetrics { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
-        /// </summary>
         [Input("redshift")]
         public Input<Inputs.FlowRedshiftDestinationPropertiesArgs>? Redshift { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-s3
-        /// </summary>
         [Input("s3")]
         public Input<Inputs.FlowS3DestinationPropertiesArgs>? S3 { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-salesforce
-        /// </summary>
         [Input("salesforce")]
         public Input<Inputs.FlowSalesforceDestinationPropertiesArgs>? Salesforce { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-snowflake
-        /// </summary>
         [Input("snowflake")]
         public Input<Inputs.FlowSnowflakeDestinationPropertiesArgs>? Snowflake { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
-        /// </summary>
         [Input("upsolver")]
         public Input<Inputs.FlowUpsolverDestinationPropertiesArgs>? Upsolver { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-zendesk
-        /// </summary>
         [Input("zendesk")]
         public Input<Inputs.FlowZendeskDestinationPropertiesArgs>? Zendesk { get; set; }
 

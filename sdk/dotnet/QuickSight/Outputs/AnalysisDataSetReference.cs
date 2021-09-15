@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html
+    /// &lt;p&gt;Dataset reference.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class AnalysisDataSetReference
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html#cfn-quicksight-analysis-datasetreference-datasetarn
+        /// &lt;p&gt;Dataset Amazon Resource Name (ARN).&lt;/p&gt;
         /// </summary>
         public readonly string DataSetArn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-datasetreference.html#cfn-quicksight-analysis-datasetreference-datasetplaceholder
+        /// &lt;p&gt;Dataset placeholder.&lt;/p&gt;
         /// </summary>
         public readonly string DataSetPlaceholder;
 

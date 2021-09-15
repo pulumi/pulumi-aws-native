@@ -7,15 +7,15 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
+from . import outputs
+from ._inputs import *
 
 __all__ = ['KeyArgs', 'Key']
 
 @pulumi.input_type
 class KeyArgs:
     def __init__(__self__, *,
-                 key_policy: pulumi.Input[Union[Any, str]],
+                 key_policy: Any,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_key_rotation: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -23,18 +23,18 @@ class KeyArgs:
                  key_usage: Optional[pulumi.Input[str]] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['KeyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Key resource.
-        :param pulumi.Input[Union[Any, str]] key_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
-        :param pulumi.Input[bool] enable_key_rotation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
-        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
-        :param pulumi.Input[str] key_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
-        :param pulumi.Input[str] key_usage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
-        :param pulumi.Input[bool] multi_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
-        :param pulumi.Input[int] pending_window_in_days: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
+        :param Any key_policy: The key policy that authorizes use of the CMK. The key policy must observe the following rules.
+        :param pulumi.Input[str] description: A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
+        :param pulumi.Input[bool] enable_key_rotation: Enables automatic rotation of the key material for the specified customer master key (CMK). By default, automation key rotation is not enabled.
+        :param pulumi.Input[bool] enabled: Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
+        :param pulumi.Input[str] key_spec: Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
+        :param pulumi.Input[str] key_usage: Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
+        :param pulumi.Input[bool] multi_region: Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
+        :param pulumi.Input[int] pending_window_in_days: Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
+        :param pulumi.Input[Sequence[pulumi.Input['KeyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "key_policy", key_policy)
         if description is not None:
@@ -56,21 +56,21 @@ class KeyArgs:
 
     @property
     @pulumi.getter(name="keyPolicy")
-    def key_policy(self) -> pulumi.Input[Union[Any, str]]:
+    def key_policy(self) -> Any:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
+        The key policy that authorizes use of the CMK. The key policy must observe the following rules.
         """
         return pulumi.get(self, "key_policy")
 
     @key_policy.setter
-    def key_policy(self, value: pulumi.Input[Union[Any, str]]):
+    def key_policy(self, value: Any):
         pulumi.set(self, "key_policy", value)
 
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
+        A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
         """
         return pulumi.get(self, "description")
 
@@ -82,7 +82,7 @@ class KeyArgs:
     @pulumi.getter(name="enableKeyRotation")
     def enable_key_rotation(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
+        Enables automatic rotation of the key material for the specified customer master key (CMK). By default, automation key rotation is not enabled.
         """
         return pulumi.get(self, "enable_key_rotation")
 
@@ -94,7 +94,7 @@ class KeyArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
+        Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
         """
         return pulumi.get(self, "enabled")
 
@@ -106,7 +106,7 @@ class KeyArgs:
     @pulumi.getter(name="keySpec")
     def key_spec(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
+        Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
         """
         return pulumi.get(self, "key_spec")
 
@@ -118,7 +118,7 @@ class KeyArgs:
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
+        Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
         """
         return pulumi.get(self, "key_usage")
 
@@ -130,7 +130,7 @@ class KeyArgs:
     @pulumi.getter(name="multiRegion")
     def multi_region(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
+        Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
         """
         return pulumi.get(self, "multi_region")
 
@@ -142,7 +142,7 @@ class KeyArgs:
     @pulumi.getter(name="pendingWindowInDays")
     def pending_window_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
+        Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         """
         return pulumi.get(self, "pending_window_in_days")
 
@@ -152,14 +152,14 @@ class KeyArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -171,27 +171,27 @@ class Key(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enable_key_rotation: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 key_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 key_policy: Optional[Any] = None,
                  key_spec: Optional[pulumi.Input[str]] = None,
                  key_usage: Optional[pulumi.Input[str]] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html
+        The AWS::KMS::Key resource specifies a customer master key (CMK) in AWS Key Management Service (AWS KMS). Authorized users can use the CMK to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use CMKs to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
-        :param pulumi.Input[bool] enable_key_rotation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
-        :param pulumi.Input[bool] enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
-        :param pulumi.Input[Union[Any, str]] key_policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
-        :param pulumi.Input[str] key_spec: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
-        :param pulumi.Input[str] key_usage: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
-        :param pulumi.Input[bool] multi_region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
-        :param pulumi.Input[int] pending_window_in_days: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
+        :param pulumi.Input[str] description: A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
+        :param pulumi.Input[bool] enable_key_rotation: Enables automatic rotation of the key material for the specified customer master key (CMK). By default, automation key rotation is not enabled.
+        :param pulumi.Input[bool] enabled: Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
+        :param Any key_policy: The key policy that authorizes use of the CMK. The key policy must observe the following rules.
+        :param pulumi.Input[str] key_spec: Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
+        :param pulumi.Input[str] key_usage: Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
+        :param pulumi.Input[bool] multi_region: Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
+        :param pulumi.Input[int] pending_window_in_days: Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -200,7 +200,7 @@ class Key(pulumi.CustomResource):
                  args: KeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html
+        The AWS::KMS::Key resource specifies a customer master key (CMK) in AWS Key Management Service (AWS KMS). Authorized users can use the CMK to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use CMKs to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
 
         :param str resource_name: The name of the resource.
         :param KeyArgs args: The arguments to use to populate this resource's properties.
@@ -220,12 +220,12 @@ class Key(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  enable_key_rotation: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 key_policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 key_policy: Optional[Any] = None,
                  key_spec: Optional[pulumi.Input[str]] = None,
                  key_usage: Optional[pulumi.Input[str]] = None,
                  multi_region: Optional[pulumi.Input[bool]] = None,
                  pending_window_in_days: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -295,7 +295,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
+        A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
         """
         return pulumi.get(self, "description")
 
@@ -303,7 +303,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="enableKeyRotation")
     def enable_key_rotation(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
+        Enables automatic rotation of the key material for the specified customer master key (CMK). By default, automation key rotation is not enabled.
         """
         return pulumi.get(self, "enable_key_rotation")
 
@@ -311,7 +311,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
+        Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
         """
         return pulumi.get(self, "enabled")
 
@@ -322,9 +322,9 @@ class Key(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyPolicy")
-    def key_policy(self) -> pulumi.Output[str]:
+    def key_policy(self) -> pulumi.Output[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
+        The key policy that authorizes use of the CMK. The key policy must observe the following rules.
         """
         return pulumi.get(self, "key_policy")
 
@@ -332,7 +332,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="keySpec")
     def key_spec(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
+        Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
         """
         return pulumi.get(self, "key_spec")
 
@@ -340,7 +340,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
+        Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
         """
         return pulumi.get(self, "key_usage")
 
@@ -348,7 +348,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="multiRegion")
     def multi_region(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
+        Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
         """
         return pulumi.get(self, "multi_region")
 
@@ -356,15 +356,15 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="pendingWindowInDays")
     def pending_window_in_days(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
+        Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         """
         return pulumi.get(self, "pending_window_in_days")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.KeyTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
+        An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
 

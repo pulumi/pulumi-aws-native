@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html
-    /// </summary>
     public sealed class RecipeRecipeStepArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-action
-        /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.RecipeActionArgs> Action { get; set; } = null!;
 
@@ -25,7 +19,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         private InputList<Inputs.RecipeConditionExpressionArgs>? _conditionExpressions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-conditionexpressions
+        /// Condition expressions applied to the step action
         /// </summary>
         public InputList<Inputs.RecipeConditionExpressionArgs> ConditionExpressions
         {

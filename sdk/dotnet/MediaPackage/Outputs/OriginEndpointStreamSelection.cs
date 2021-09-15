@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html
+    /// A StreamSelection configuration.
     /// </summary>
     [OutputType]
     public sealed class OriginEndpointStreamSelection
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-maxvideobitspersecond
+        /// The maximum video bitrate (bps) to include in output.
         /// </summary>
         public readonly int? MaxVideoBitsPerSecond;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-minvideobitspersecond
+        /// The minimum video bitrate (bps) to include in output.
         /// </summary>
         public readonly int? MinVideoBitsPerSecond;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-streamorder
+        /// A directive that determines the order of streams in the output.
         /// </summary>
         public readonly string? StreamOrder;
 

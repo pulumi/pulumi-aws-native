@@ -18,17 +18,11 @@ class ExperimentTemplateArgs:
                  description: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  stop_conditions: pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentTemplateStopConditionArgs']]],
-                 tags: pulumi.Input[Mapping[str, pulumi.Input[str]]],
-                 targets: pulumi.Input[Mapping[str, pulumi.Input['ExperimentTemplateExperimentTemplateTargetArgs']]],
-                 actions: Optional[pulumi.Input[Mapping[str, pulumi.Input['ExperimentTemplateExperimentTemplateActionArgs']]]] = None):
+                 tags: Any,
+                 targets: pulumi.Input['ExperimentTemplateExperimentTemplateTargetMapArgs'],
+                 actions: Optional[pulumi.Input['ExperimentTemplateExperimentTemplateActionMapArgs']] = None):
         """
         The set of arguments for constructing a ExperimentTemplate resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentTemplateStopConditionArgs']]] stop_conditions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
-        :param pulumi.Input[Mapping[str, pulumi.Input['ExperimentTemplateExperimentTemplateTargetArgs']]] targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
-        :param pulumi.Input[Mapping[str, pulumi.Input['ExperimentTemplateExperimentTemplateActionArgs']]] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -41,9 +35,6 @@ class ExperimentTemplateArgs:
     @property
     @pulumi.getter
     def description(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -53,9 +44,6 @@ class ExperimentTemplateArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn
-        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -65,9 +53,6 @@ class ExperimentTemplateArgs:
     @property
     @pulumi.getter(name="stopConditions")
     def stop_conditions(self) -> pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateExperimentTemplateStopConditionArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
-        """
         return pulumi.get(self, "stop_conditions")
 
     @stop_conditions.setter
@@ -76,38 +61,29 @@ class ExperimentTemplateArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
-        """
+    def tags(self) -> Any:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+    def tags(self, value: Any):
         pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter
-    def targets(self) -> pulumi.Input[Mapping[str, pulumi.Input['ExperimentTemplateExperimentTemplateTargetArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
-        """
+    def targets(self) -> pulumi.Input['ExperimentTemplateExperimentTemplateTargetMapArgs']:
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: pulumi.Input[Mapping[str, pulumi.Input['ExperimentTemplateExperimentTemplateTargetArgs']]]):
+    def targets(self, value: pulumi.Input['ExperimentTemplateExperimentTemplateTargetMapArgs']):
         pulumi.set(self, "targets", value)
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ExperimentTemplateExperimentTemplateActionArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
-        """
+    def actions(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentTemplateActionMapArgs']]:
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ExperimentTemplateExperimentTemplateActionArgs']]]]):
+    def actions(self, value: Optional[pulumi.Input['ExperimentTemplateExperimentTemplateActionMapArgs']]):
         pulumi.set(self, "actions", value)
 
 
@@ -116,24 +92,18 @@ class ExperimentTemplate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateActionMapArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateStopConditionArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 targets: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateTargetArgs']]]]] = None,
+                 tags: Optional[Any] = None,
+                 targets: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateTargetMapArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html
+        Resource schema for AWS::FIS::ExperimentTemplate
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateActionArgs']]]] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateStopConditionArgs']]]] stop_conditions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
-        :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateTargetArgs']]]] targets: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
         """
         ...
     @overload
@@ -142,7 +112,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                  args: ExperimentTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html
+        Resource schema for AWS::FIS::ExperimentTemplate
 
         :param str resource_name: The name of the resource.
         :param ExperimentTemplateArgs args: The arguments to use to populate this resource's properties.
@@ -159,12 +129,12 @@ class ExperimentTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateActionArgs']]]]] = None,
+                 actions: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateActionMapArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateStopConditionArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 targets: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateTargetArgs']]]]] = None,
+                 tags: Optional[Any] = None,
+                 targets: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentTemplateTargetMapArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -193,7 +163,6 @@ class ExperimentTemplate(pulumi.CustomResource):
             if targets is None and not opts.urn:
                 raise TypeError("Missing required property 'targets'")
             __props__.__dict__["targets"] = targets
-            __props__.__dict__["id"] = None
         super(ExperimentTemplate, __self__).__init__(
             'aws-native:fis:ExperimentTemplate',
             resource_name,
@@ -218,7 +187,6 @@ class ExperimentTemplate(pulumi.CustomResource):
 
         __props__.__dict__["actions"] = None
         __props__.__dict__["description"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["stop_conditions"] = None
         __props__.__dict__["tags"] = None
@@ -227,54 +195,31 @@ class ExperimentTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.ExperimentTemplateExperimentTemplateAction']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
-        """
+    def actions(self) -> pulumi.Output[Optional['outputs.ExperimentTemplateExperimentTemplateActionMap']]:
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
-        """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn
-        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="stopConditions")
     def stop_conditions(self) -> pulumi.Output[Sequence['outputs.ExperimentTemplateExperimentTemplateStopCondition']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
-        """
         return pulumi.get(self, "stop_conditions")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Mapping[str, str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
-        """
+    def tags(self) -> pulumi.Output[Any]:
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
-    def targets(self) -> pulumi.Output[Mapping[str, 'outputs.ExperimentTemplateExperimentTemplateTarget']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
-        """
+    def targets(self) -> pulumi.Output['outputs.ExperimentTemplateExperimentTemplateTargetMap']:
         return pulumi.get(self, "targets")
 

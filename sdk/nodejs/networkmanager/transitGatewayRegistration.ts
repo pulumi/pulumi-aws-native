@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html
+ * The AWS::NetworkManager::TransitGatewayRegistration type registers a transit gateway in your global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
  */
 export class TransitGatewayRegistration extends pulumi.CustomResource {
     /**
@@ -35,11 +35,11 @@ export class TransitGatewayRegistration extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
+     * The ID of the global network.
      */
     public readonly globalNetworkId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
+     * The Amazon Resource Name (ARN) of the transit gateway.
      */
     public readonly transitGatewayArn!: pulumi.Output<string>;
 
@@ -78,11 +78,11 @@ export class TransitGatewayRegistration extends pulumi.CustomResource {
  */
 export interface TransitGatewayRegistrationArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
+     * The ID of the global network.
      */
     globalNetworkId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
+     * The Amazon Resource Name (ARN) of the transit gateway.
      */
     transitGatewayArn: pulumi.Input<string>;
 }

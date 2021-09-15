@@ -26,15 +26,15 @@ class GlobalReplicationGroupArgs:
                  regional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a GlobalReplicationGroup resource.
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalReplicationGroupMemberArgs']]] members: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-members
-        :param pulumi.Input[bool] automatic_failover_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-automaticfailoverenabled
-        :param pulumi.Input[str] cache_node_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cachenodetype
-        :param pulumi.Input[str] cache_parameter_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cacheparametergroupname
-        :param pulumi.Input[str] engine_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-engineversion
-        :param pulumi.Input[int] global_node_group_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalnodegroupcount
-        :param pulumi.Input[str] global_replication_group_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupdescription
-        :param pulumi.Input[str] global_replication_group_id_suffix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupidsuffix
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]] regional_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-regionalconfigurations
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalReplicationGroupMemberArgs']]] members: The replication groups that comprise the Global Datastore.
+        :param pulumi.Input[bool] automatic_failover_enabled: AutomaticFailoverEnabled
+        :param pulumi.Input[str] cache_node_type: The cache node type of the Global Datastore
+        :param pulumi.Input[str] cache_parameter_group_name: Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
+        :param pulumi.Input[str] engine_version: The engine version of the Global Datastore.
+        :param pulumi.Input[int] global_node_group_count: Indicates the number of node groups in the Global Datastore.
+        :param pulumi.Input[str] global_replication_group_description: The optional description of the Global Datastore
+        :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. 
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]] regional_configurations: Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore 
         """
         pulumi.set(__self__, "members", members)
         if automatic_failover_enabled is not None:
@@ -58,7 +58,7 @@ class GlobalReplicationGroupArgs:
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalReplicationGroupMemberArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-members
+        The replication groups that comprise the Global Datastore.
         """
         return pulumi.get(self, "members")
 
@@ -70,7 +70,7 @@ class GlobalReplicationGroupArgs:
     @pulumi.getter(name="automaticFailoverEnabled")
     def automatic_failover_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-automaticfailoverenabled
+        AutomaticFailoverEnabled
         """
         return pulumi.get(self, "automatic_failover_enabled")
 
@@ -82,7 +82,7 @@ class GlobalReplicationGroupArgs:
     @pulumi.getter(name="cacheNodeType")
     def cache_node_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cachenodetype
+        The cache node type of the Global Datastore
         """
         return pulumi.get(self, "cache_node_type")
 
@@ -94,7 +94,7 @@ class GlobalReplicationGroupArgs:
     @pulumi.getter(name="cacheParameterGroupName")
     def cache_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cacheparametergroupname
+        Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
         """
         return pulumi.get(self, "cache_parameter_group_name")
 
@@ -106,7 +106,7 @@ class GlobalReplicationGroupArgs:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-engineversion
+        The engine version of the Global Datastore.
         """
         return pulumi.get(self, "engine_version")
 
@@ -118,7 +118,7 @@ class GlobalReplicationGroupArgs:
     @pulumi.getter(name="globalNodeGroupCount")
     def global_node_group_count(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalnodegroupcount
+        Indicates the number of node groups in the Global Datastore.
         """
         return pulumi.get(self, "global_node_group_count")
 
@@ -130,7 +130,7 @@ class GlobalReplicationGroupArgs:
     @pulumi.getter(name="globalReplicationGroupDescription")
     def global_replication_group_description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupdescription
+        The optional description of the Global Datastore
         """
         return pulumi.get(self, "global_replication_group_description")
 
@@ -142,7 +142,7 @@ class GlobalReplicationGroupArgs:
     @pulumi.getter(name="globalReplicationGroupIdSuffix")
     def global_replication_group_id_suffix(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupidsuffix
+        The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. 
         """
         return pulumi.get(self, "global_replication_group_id_suffix")
 
@@ -154,7 +154,7 @@ class GlobalReplicationGroupArgs:
     @pulumi.getter(name="regionalConfigurations")
     def regional_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupRegionalConfigurationArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-regionalconfigurations
+        Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore 
         """
         return pulumi.get(self, "regional_configurations")
 
@@ -179,19 +179,19 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  regional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalReplicationGroupRegionalConfigurationArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html
+        The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] automatic_failover_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-automaticfailoverenabled
-        :param pulumi.Input[str] cache_node_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cachenodetype
-        :param pulumi.Input[str] cache_parameter_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cacheparametergroupname
-        :param pulumi.Input[str] engine_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-engineversion
-        :param pulumi.Input[int] global_node_group_count: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalnodegroupcount
-        :param pulumi.Input[str] global_replication_group_description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupdescription
-        :param pulumi.Input[str] global_replication_group_id_suffix: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupidsuffix
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalReplicationGroupGlobalReplicationGroupMemberArgs']]]] members: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-members
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalReplicationGroupRegionalConfigurationArgs']]]] regional_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-regionalconfigurations
+        :param pulumi.Input[bool] automatic_failover_enabled: AutomaticFailoverEnabled
+        :param pulumi.Input[str] cache_node_type: The cache node type of the Global Datastore
+        :param pulumi.Input[str] cache_parameter_group_name: Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
+        :param pulumi.Input[str] engine_version: The engine version of the Global Datastore.
+        :param pulumi.Input[int] global_node_group_count: Indicates the number of node groups in the Global Datastore.
+        :param pulumi.Input[str] global_replication_group_description: The optional description of the Global Datastore
+        :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. 
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalReplicationGroupGlobalReplicationGroupMemberArgs']]]] members: The replication groups that comprise the Global Datastore.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalReplicationGroupRegionalConfigurationArgs']]]] regional_configurations: Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore 
         """
         ...
     @overload
@@ -200,7 +200,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  args: GlobalReplicationGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html
+        The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.
 
         :param str resource_name: The name of the resource.
         :param GlobalReplicationGroupArgs args: The arguments to use to populate this resource's properties.
@@ -290,7 +290,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="automaticFailoverEnabled")
     def automatic_failover_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-automaticfailoverenabled
+        AutomaticFailoverEnabled
         """
         return pulumi.get(self, "automatic_failover_enabled")
 
@@ -298,7 +298,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="cacheNodeType")
     def cache_node_type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cachenodetype
+        The cache node type of the Global Datastore
         """
         return pulumi.get(self, "cache_node_type")
 
@@ -306,7 +306,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="cacheParameterGroupName")
     def cache_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-cacheparametergroupname
+        Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
         """
         return pulumi.get(self, "cache_parameter_group_name")
 
@@ -314,7 +314,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-engineversion
+        The engine version of the Global Datastore.
         """
         return pulumi.get(self, "engine_version")
 
@@ -322,7 +322,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="globalNodeGroupCount")
     def global_node_group_count(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalnodegroupcount
+        Indicates the number of node groups in the Global Datastore.
         """
         return pulumi.get(self, "global_node_group_count")
 
@@ -330,20 +330,23 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="globalReplicationGroupDescription")
     def global_replication_group_description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupdescription
+        The optional description of the Global Datastore
         """
         return pulumi.get(self, "global_replication_group_description")
 
     @property
     @pulumi.getter(name="globalReplicationGroupId")
     def global_replication_group_id(self) -> pulumi.Output[str]:
+        """
+        The name of the Global Datastore, it is generated by ElastiCache adding a prefix to GlobalReplicationGroupIdSuffix.
+        """
         return pulumi.get(self, "global_replication_group_id")
 
     @property
     @pulumi.getter(name="globalReplicationGroupIdSuffix")
     def global_replication_group_id_suffix(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-globalreplicationgroupidsuffix
+        The suffix name of a Global Datastore. Amazon ElastiCache automatically applies a prefix to the Global Datastore ID when it is created. Each AWS Region has its own prefix. 
         """
         return pulumi.get(self, "global_replication_group_id_suffix")
 
@@ -351,7 +354,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence['outputs.GlobalReplicationGroupGlobalReplicationGroupMember']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-members
+        The replication groups that comprise the Global Datastore.
         """
         return pulumi.get(self, "members")
 
@@ -359,12 +362,15 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="regionalConfigurations")
     def regional_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.GlobalReplicationGroupRegionalConfiguration']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-globalreplicationgroup.html#cfn-elasticache-globalreplicationgroup-regionalconfigurations
+        Describes the replication group IDs, the AWS regions where they are stored and the shard configuration for each that comprise the Global Datastore 
         """
         return pulumi.get(self, "regional_configurations")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The status of the Global Datastore
+        """
         return pulumi.get(self, "status")
 

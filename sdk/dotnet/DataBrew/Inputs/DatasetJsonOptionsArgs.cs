@@ -11,13 +11,10 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html
+    /// Json options
     /// </summary>
     public sealed class DatasetJsonOptionsArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html#cfn-databrew-dataset-jsonoptions-multiline
-        /// </summary>
         [Input("multiLine")]
         public Input<bool>? MultiLine { get; set; }
 

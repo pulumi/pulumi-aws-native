@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html
+ * Macie FindingsFilter resource schema.
  */
 export class FindingsFilter extends pulumi.CustomResource {
     /**
@@ -36,26 +36,31 @@ export class FindingsFilter extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-action
+     * Findings filter action.
      */
     public readonly action!: pulumi.Output<string | undefined>;
+    /**
+     * Findings filter ARN.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description
+     * Findings filter description
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
+     * Findings filter criteria.
      */
     public readonly findingCriteria!: pulumi.Output<outputs.macie.FindingsFilterFindingCriteria>;
-    public /*out*/ readonly findingsFilterListItems!: pulumi.Output<outputs.macie.FindingsFilterFindingsFilterListItem[]>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
+     * Findings filters list.
+     */
+    public /*out*/ readonly findingsFilterListItems!: pulumi.Output<outputs.macie.FindingsFilterFindingsFilterListItem[]>;
+    /**
+     * Findings filter name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
+     * Findings filter position.
      */
     public readonly position!: pulumi.Output<number | undefined>;
 
@@ -83,14 +88,12 @@ export class FindingsFilter extends pulumi.CustomResource {
             inputs["position"] = args ? args.position : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["findingsFilterListItems"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
         } else {
             inputs["action"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["findingCriteria"] = undefined /*out*/;
             inputs["findingsFilterListItems"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["position"] = undefined /*out*/;
         }
@@ -106,23 +109,23 @@ export class FindingsFilter extends pulumi.CustomResource {
  */
 export interface FindingsFilterArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-action
+     * Findings filter action.
      */
     action?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description
+     * Findings filter description
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
+     * Findings filter criteria.
      */
     findingCriteria: pulumi.Input<inputs.macie.FindingsFilterFindingCriteriaArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
+     * Findings filter name
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
+     * Findings filter position.
      */
     position?: pulumi.Input<number>;
 }

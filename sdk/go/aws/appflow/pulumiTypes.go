@@ -10,11 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html
 type ConnectorProfileAmplitudeConnectorProfileCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-apikey
-	ApiKey string `pulumi:"apiKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-secretkey
+	// A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
+	ApiKey    string `pulumi:"apiKey"`
 	SecretKey string `pulumi:"secretKey"`
 }
 
@@ -29,11 +27,9 @@ type ConnectorProfileAmplitudeConnectorProfileCredentialsInput interface {
 	ToConnectorProfileAmplitudeConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileAmplitudeConnectorProfileCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html
 type ConnectorProfileAmplitudeConnectorProfileCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-apikey
-	ApiKey pulumi.StringInput `pulumi:"apiKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-secretkey
+	// A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
+	ApiKey    pulumi.StringInput `pulumi:"apiKey"`
 	SecretKey pulumi.StringInput `pulumi:"secretKey"`
 }
 
@@ -90,7 +86,6 @@ func (i *connectorProfileAmplitudeConnectorProfileCredentialsPtrType) ToConnecto
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html
 type ConnectorProfileAmplitudeConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileAmplitudeConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -115,12 +110,11 @@ func (o ConnectorProfileAmplitudeConnectorProfileCredentialsOutput) ToConnectorP
 	}).(ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-apikey
+// A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileAmplitudeConnectorProfileCredentialsOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileAmplitudeConnectorProfileCredentials) string { return v.ApiKey }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-secretkey
 func (o ConnectorProfileAmplitudeConnectorProfileCredentialsOutput) SecretKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileAmplitudeConnectorProfileCredentials) string { return v.SecretKey }).(pulumi.StringOutput)
 }
@@ -149,7 +143,7 @@ func (o ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput) Elem() Co
 	}).(ConnectorProfileAmplitudeConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-apikey
+// A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileAmplitudeConnectorProfileCredentials) *string {
 		if v == nil {
@@ -159,7 +153,6 @@ func (o ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput) ApiKey() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-amplitudeconnectorprofilecredentials-secretkey
 func (o ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput) SecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileAmplitudeConnectorProfileCredentials) *string {
 		if v == nil {
@@ -169,11 +162,11 @@ func (o ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput) SecretKey
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html
 type ConnectorProfileConnectorOAuthRequest struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-authcode
+	// The code provided by the connector when it has been authenticated via the connected app.
 	AuthCode *string `pulumi:"authCode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-redirecturi
+	// The URL to which the authentication server redirects the browser after authorization has been
+	// granted.
 	RedirectUri *string `pulumi:"redirectUri"`
 }
 
@@ -188,11 +181,11 @@ type ConnectorProfileConnectorOAuthRequestInput interface {
 	ToConnectorProfileConnectorOAuthRequestOutputWithContext(context.Context) ConnectorProfileConnectorOAuthRequestOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html
 type ConnectorProfileConnectorOAuthRequestArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-authcode
+	// The code provided by the connector when it has been authenticated via the connected app.
 	AuthCode pulumi.StringPtrInput `pulumi:"authCode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-redirecturi
+	// The URL to which the authentication server redirects the browser after authorization has been
+	// granted.
 	RedirectUri pulumi.StringPtrInput `pulumi:"redirectUri"`
 }
 
@@ -249,7 +242,6 @@ func (i *connectorProfileConnectorOAuthRequestPtrType) ToConnectorProfileConnect
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorOAuthRequestPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html
 type ConnectorProfileConnectorOAuthRequestOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorOAuthRequestOutput) ElementType() reflect.Type {
@@ -274,12 +266,13 @@ func (o ConnectorProfileConnectorOAuthRequestOutput) ToConnectorProfileConnector
 	}).(ConnectorProfileConnectorOAuthRequestPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-authcode
+// The code provided by the connector when it has been authenticated via the connected app.
 func (o ConnectorProfileConnectorOAuthRequestOutput) AuthCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorOAuthRequest) *string { return v.AuthCode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-redirecturi
+// The URL to which the authentication server redirects the browser after authorization has been
+// granted.
 func (o ConnectorProfileConnectorOAuthRequestOutput) RedirectUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorOAuthRequest) *string { return v.RedirectUri }).(pulumi.StringPtrOutput)
 }
@@ -308,7 +301,7 @@ func (o ConnectorProfileConnectorOAuthRequestPtrOutput) Elem() ConnectorProfileC
 	}).(ConnectorProfileConnectorOAuthRequestOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-authcode
+// The code provided by the connector when it has been authenticated via the connected app.
 func (o ConnectorProfileConnectorOAuthRequestPtrOutput) AuthCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorOAuthRequest) *string {
 		if v == nil {
@@ -318,7 +311,8 @@ func (o ConnectorProfileConnectorOAuthRequestPtrOutput) AuthCode() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html#cfn-appflow-connectorprofile-connectoroauthrequest-redirecturi
+// The URL to which the authentication server redirects the browser after authorization has been
+// granted.
 func (o ConnectorProfileConnectorOAuthRequestPtrOutput) RedirectUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorOAuthRequest) *string {
 		if v == nil {
@@ -328,12 +322,10 @@ func (o ConnectorProfileConnectorOAuthRequestPtrOutput) RedirectUri() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html
+// Connector specific configurations needed to create connector profile
 type ConnectorProfileConnectorProfileConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofilecredentials
 	ConnectorProfileCredentials ConnectorProfileConnectorProfileCredentials `pulumi:"connectorProfileCredentials"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofileproperties
-	ConnectorProfileProperties *ConnectorProfileConnectorProfileProperties `pulumi:"connectorProfileProperties"`
+	ConnectorProfileProperties  *ConnectorProfileConnectorProfileProperties `pulumi:"connectorProfileProperties"`
 }
 
 // ConnectorProfileConnectorProfileConfigInput is an input type that accepts ConnectorProfileConnectorProfileConfigArgs and ConnectorProfileConnectorProfileConfigOutput values.
@@ -347,12 +339,10 @@ type ConnectorProfileConnectorProfileConfigInput interface {
 	ToConnectorProfileConnectorProfileConfigOutputWithContext(context.Context) ConnectorProfileConnectorProfileConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html
+// Connector specific configurations needed to create connector profile
 type ConnectorProfileConnectorProfileConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofilecredentials
-	ConnectorProfileCredentials ConnectorProfileConnectorProfileCredentialsInput `pulumi:"connectorProfileCredentials"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofileproperties
-	ConnectorProfileProperties ConnectorProfileConnectorProfilePropertiesPtrInput `pulumi:"connectorProfileProperties"`
+	ConnectorProfileCredentials ConnectorProfileConnectorProfileCredentialsInput   `pulumi:"connectorProfileCredentials"`
+	ConnectorProfileProperties  ConnectorProfileConnectorProfilePropertiesPtrInput `pulumi:"connectorProfileProperties"`
 }
 
 func (ConnectorProfileConnectorProfileConfigArgs) ElementType() reflect.Type {
@@ -408,7 +398,7 @@ func (i *connectorProfileConnectorProfileConfigPtrType) ToConnectorProfileConnec
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html
+// Connector specific configurations needed to create connector profile
 type ConnectorProfileConnectorProfileConfigOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileConfigOutput) ElementType() reflect.Type {
@@ -433,14 +423,12 @@ func (o ConnectorProfileConnectorProfileConfigOutput) ToConnectorProfileConnecto
 	}).(ConnectorProfileConnectorProfileConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofilecredentials
 func (o ConnectorProfileConnectorProfileConfigOutput) ConnectorProfileCredentials() ConnectorProfileConnectorProfileCredentialsOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfig) ConnectorProfileConnectorProfileCredentials {
 		return v.ConnectorProfileCredentials
 	}).(ConnectorProfileConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofileproperties
 func (o ConnectorProfileConnectorProfileConfigOutput) ConnectorProfileProperties() ConnectorProfileConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfig) *ConnectorProfileConnectorProfileProperties {
 		return v.ConnectorProfileProperties
@@ -471,7 +459,6 @@ func (o ConnectorProfileConnectorProfileConfigPtrOutput) Elem() ConnectorProfile
 	}).(ConnectorProfileConnectorProfileConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofilecredentials
 func (o ConnectorProfileConnectorProfileConfigPtrOutput) ConnectorProfileCredentials() ConnectorProfileConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfig) *ConnectorProfileConnectorProfileCredentials {
 		if v == nil {
@@ -481,7 +468,6 @@ func (o ConnectorProfileConnectorProfileConfigPtrOutput) ConnectorProfileCredent
 	}).(ConnectorProfileConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofileproperties
 func (o ConnectorProfileConnectorProfileConfigPtrOutput) ConnectorProfileProperties() ConnectorProfileConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfig) *ConnectorProfileConnectorProfileProperties {
 		if v == nil {
@@ -491,38 +477,23 @@ func (o ConnectorProfileConnectorProfileConfigPtrOutput) ConnectorProfilePropert
 	}).(ConnectorProfileConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html
+// Connector specific configuration needed to create connector profile based on Authentication mechanism
 type ConnectorProfileConnectorProfileCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-amplitude
-	Amplitude *ConnectorProfileAmplitudeConnectorProfileCredentials `pulumi:"amplitude"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-datadog
-	Datadog *ConnectorProfileDatadogConnectorProfileCredentials `pulumi:"datadog"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-dynatrace
-	Dynatrace *ConnectorProfileDynatraceConnectorProfileCredentials `pulumi:"dynatrace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-googleanalytics
+	Amplitude       *ConnectorProfileAmplitudeConnectorProfileCredentials       `pulumi:"amplitude"`
+	Datadog         *ConnectorProfileDatadogConnectorProfileCredentials         `pulumi:"datadog"`
+	Dynatrace       *ConnectorProfileDynatraceConnectorProfileCredentials       `pulumi:"dynatrace"`
 	GoogleAnalytics *ConnectorProfileGoogleAnalyticsConnectorProfileCredentials `pulumi:"googleAnalytics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-infornexus
-	InforNexus *ConnectorProfileInforNexusConnectorProfileCredentials `pulumi:"inforNexus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-marketo
-	Marketo *ConnectorProfileMarketoConnectorProfileCredentials `pulumi:"marketo"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-redshift
-	Redshift *ConnectorProfileRedshiftConnectorProfileCredentials `pulumi:"redshift"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-salesforce
-	Salesforce *ConnectorProfileSalesforceConnectorProfileCredentials `pulumi:"salesforce"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-servicenow
-	ServiceNow *ConnectorProfileServiceNowConnectorProfileCredentials `pulumi:"serviceNow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-singular
-	Singular *ConnectorProfileSingularConnectorProfileCredentials `pulumi:"singular"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-slack
-	Slack *ConnectorProfileSlackConnectorProfileCredentials `pulumi:"slack"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-snowflake
-	Snowflake *ConnectorProfileSnowflakeConnectorProfileCredentials `pulumi:"snowflake"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-trendmicro
-	Trendmicro *ConnectorProfileTrendmicroConnectorProfileCredentials `pulumi:"trendmicro"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-veeva
-	Veeva *ConnectorProfileVeevaConnectorProfileCredentials `pulumi:"veeva"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-zendesk
-	Zendesk *ConnectorProfileZendeskConnectorProfileCredentials `pulumi:"zendesk"`
+	InforNexus      *ConnectorProfileInforNexusConnectorProfileCredentials      `pulumi:"inforNexus"`
+	Marketo         *ConnectorProfileMarketoConnectorProfileCredentials         `pulumi:"marketo"`
+	Redshift        *ConnectorProfileRedshiftConnectorProfileCredentials        `pulumi:"redshift"`
+	Salesforce      *ConnectorProfileSalesforceConnectorProfileCredentials      `pulumi:"salesforce"`
+	ServiceNow      *ConnectorProfileServiceNowConnectorProfileCredentials      `pulumi:"serviceNow"`
+	Singular        *ConnectorProfileSingularConnectorProfileCredentials        `pulumi:"singular"`
+	Slack           *ConnectorProfileSlackConnectorProfileCredentials           `pulumi:"slack"`
+	Snowflake       *ConnectorProfileSnowflakeConnectorProfileCredentials       `pulumi:"snowflake"`
+	Trendmicro      *ConnectorProfileTrendmicroConnectorProfileCredentials      `pulumi:"trendmicro"`
+	Veeva           *ConnectorProfileVeevaConnectorProfileCredentials           `pulumi:"veeva"`
+	Zendesk         *ConnectorProfileZendeskConnectorProfileCredentials         `pulumi:"zendesk"`
 }
 
 // ConnectorProfileConnectorProfileCredentialsInput is an input type that accepts ConnectorProfileConnectorProfileCredentialsArgs and ConnectorProfileConnectorProfileCredentialsOutput values.
@@ -536,38 +507,23 @@ type ConnectorProfileConnectorProfileCredentialsInput interface {
 	ToConnectorProfileConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileConnectorProfileCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html
+// Connector specific configuration needed to create connector profile based on Authentication mechanism
 type ConnectorProfileConnectorProfileCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-amplitude
-	Amplitude ConnectorProfileAmplitudeConnectorProfileCredentialsPtrInput `pulumi:"amplitude"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-datadog
-	Datadog ConnectorProfileDatadogConnectorProfileCredentialsPtrInput `pulumi:"datadog"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-dynatrace
-	Dynatrace ConnectorProfileDynatraceConnectorProfileCredentialsPtrInput `pulumi:"dynatrace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-googleanalytics
+	Amplitude       ConnectorProfileAmplitudeConnectorProfileCredentialsPtrInput       `pulumi:"amplitude"`
+	Datadog         ConnectorProfileDatadogConnectorProfileCredentialsPtrInput         `pulumi:"datadog"`
+	Dynatrace       ConnectorProfileDynatraceConnectorProfileCredentialsPtrInput       `pulumi:"dynatrace"`
 	GoogleAnalytics ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrInput `pulumi:"googleAnalytics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-infornexus
-	InforNexus ConnectorProfileInforNexusConnectorProfileCredentialsPtrInput `pulumi:"inforNexus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-marketo
-	Marketo ConnectorProfileMarketoConnectorProfileCredentialsPtrInput `pulumi:"marketo"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-redshift
-	Redshift ConnectorProfileRedshiftConnectorProfileCredentialsPtrInput `pulumi:"redshift"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-salesforce
-	Salesforce ConnectorProfileSalesforceConnectorProfileCredentialsPtrInput `pulumi:"salesforce"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-servicenow
-	ServiceNow ConnectorProfileServiceNowConnectorProfileCredentialsPtrInput `pulumi:"serviceNow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-singular
-	Singular ConnectorProfileSingularConnectorProfileCredentialsPtrInput `pulumi:"singular"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-slack
-	Slack ConnectorProfileSlackConnectorProfileCredentialsPtrInput `pulumi:"slack"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-snowflake
-	Snowflake ConnectorProfileSnowflakeConnectorProfileCredentialsPtrInput `pulumi:"snowflake"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-trendmicro
-	Trendmicro ConnectorProfileTrendmicroConnectorProfileCredentialsPtrInput `pulumi:"trendmicro"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-veeva
-	Veeva ConnectorProfileVeevaConnectorProfileCredentialsPtrInput `pulumi:"veeva"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-zendesk
-	Zendesk ConnectorProfileZendeskConnectorProfileCredentialsPtrInput `pulumi:"zendesk"`
+	InforNexus      ConnectorProfileInforNexusConnectorProfileCredentialsPtrInput      `pulumi:"inforNexus"`
+	Marketo         ConnectorProfileMarketoConnectorProfileCredentialsPtrInput         `pulumi:"marketo"`
+	Redshift        ConnectorProfileRedshiftConnectorProfileCredentialsPtrInput        `pulumi:"redshift"`
+	Salesforce      ConnectorProfileSalesforceConnectorProfileCredentialsPtrInput      `pulumi:"salesforce"`
+	ServiceNow      ConnectorProfileServiceNowConnectorProfileCredentialsPtrInput      `pulumi:"serviceNow"`
+	Singular        ConnectorProfileSingularConnectorProfileCredentialsPtrInput        `pulumi:"singular"`
+	Slack           ConnectorProfileSlackConnectorProfileCredentialsPtrInput           `pulumi:"slack"`
+	Snowflake       ConnectorProfileSnowflakeConnectorProfileCredentialsPtrInput       `pulumi:"snowflake"`
+	Trendmicro      ConnectorProfileTrendmicroConnectorProfileCredentialsPtrInput      `pulumi:"trendmicro"`
+	Veeva           ConnectorProfileVeevaConnectorProfileCredentialsPtrInput           `pulumi:"veeva"`
+	Zendesk         ConnectorProfileZendeskConnectorProfileCredentialsPtrInput         `pulumi:"zendesk"`
 }
 
 func (ConnectorProfileConnectorProfileCredentialsArgs) ElementType() reflect.Type {
@@ -623,7 +579,7 @@ func (i *connectorProfileConnectorProfileCredentialsPtrType) ToConnectorProfileC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html
+// Connector specific configuration needed to create connector profile based on Authentication mechanism
 type ConnectorProfileConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -648,105 +604,90 @@ func (o ConnectorProfileConnectorProfileCredentialsOutput) ToConnectorProfileCon
 	}).(ConnectorProfileConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-amplitude
 func (o ConnectorProfileConnectorProfileCredentialsOutput) Amplitude() ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileAmplitudeConnectorProfileCredentials {
 		return v.Amplitude
 	}).(ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-datadog
 func (o ConnectorProfileConnectorProfileCredentialsOutput) Datadog() ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileDatadogConnectorProfileCredentials {
 		return v.Datadog
 	}).(ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-dynatrace
 func (o ConnectorProfileConnectorProfileCredentialsOutput) Dynatrace() ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileDynatraceConnectorProfileCredentials {
 		return v.Dynatrace
 	}).(ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-googleanalytics
 func (o ConnectorProfileConnectorProfileCredentialsOutput) GoogleAnalytics() ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileGoogleAnalyticsConnectorProfileCredentials {
 		return v.GoogleAnalytics
 	}).(ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-infornexus
 func (o ConnectorProfileConnectorProfileCredentialsOutput) InforNexus() ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileInforNexusConnectorProfileCredentials {
 		return v.InforNexus
 	}).(ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-marketo
 func (o ConnectorProfileConnectorProfileCredentialsOutput) Marketo() ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileMarketoConnectorProfileCredentials {
 		return v.Marketo
 	}).(ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-redshift
 func (o ConnectorProfileConnectorProfileCredentialsOutput) Redshift() ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileRedshiftConnectorProfileCredentials {
 		return v.Redshift
 	}).(ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-salesforce
 func (o ConnectorProfileConnectorProfileCredentialsOutput) Salesforce() ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileSalesforceConnectorProfileCredentials {
 		return v.Salesforce
 	}).(ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-servicenow
 func (o ConnectorProfileConnectorProfileCredentialsOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileServiceNowConnectorProfileCredentials {
 		return v.ServiceNow
 	}).(ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-singular
 func (o ConnectorProfileConnectorProfileCredentialsOutput) Singular() ConnectorProfileSingularConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileSingularConnectorProfileCredentials {
 		return v.Singular
 	}).(ConnectorProfileSingularConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-slack
 func (o ConnectorProfileConnectorProfileCredentialsOutput) Slack() ConnectorProfileSlackConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileSlackConnectorProfileCredentials {
 		return v.Slack
 	}).(ConnectorProfileSlackConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-snowflake
 func (o ConnectorProfileConnectorProfileCredentialsOutput) Snowflake() ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileSnowflakeConnectorProfileCredentials {
 		return v.Snowflake
 	}).(ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-trendmicro
 func (o ConnectorProfileConnectorProfileCredentialsOutput) Trendmicro() ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileTrendmicroConnectorProfileCredentials {
 		return v.Trendmicro
 	}).(ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-veeva
 func (o ConnectorProfileConnectorProfileCredentialsOutput) Veeva() ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileVeevaConnectorProfileCredentials {
 		return v.Veeva
 	}).(ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-zendesk
 func (o ConnectorProfileConnectorProfileCredentialsOutput) Zendesk() ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileCredentials) *ConnectorProfileZendeskConnectorProfileCredentials {
 		return v.Zendesk
@@ -777,7 +718,6 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Elem() ConnectorPr
 	}).(ConnectorProfileConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-amplitude
 func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Amplitude() ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileAmplitudeConnectorProfileCredentials {
 		if v == nil {
@@ -787,7 +727,6 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Amplitude() Connec
 	}).(ConnectorProfileAmplitudeConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-datadog
 func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Datadog() ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileDatadogConnectorProfileCredentials {
 		if v == nil {
@@ -797,7 +736,6 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Datadog() Connecto
 	}).(ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-dynatrace
 func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Dynatrace() ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileDynatraceConnectorProfileCredentials {
 		if v == nil {
@@ -807,7 +745,6 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Dynatrace() Connec
 	}).(ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-googleanalytics
 func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) GoogleAnalytics() ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileGoogleAnalyticsConnectorProfileCredentials {
 		if v == nil {
@@ -817,7 +754,6 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) GoogleAnalytics() 
 	}).(ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-infornexus
 func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) InforNexus() ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileInforNexusConnectorProfileCredentials {
 		if v == nil {
@@ -827,7 +763,6 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) InforNexus() Conne
 	}).(ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-marketo
 func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Marketo() ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileMarketoConnectorProfileCredentials {
 		if v == nil {
@@ -837,7 +772,6 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Marketo() Connecto
 	}).(ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-redshift
 func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Redshift() ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileRedshiftConnectorProfileCredentials {
 		if v == nil {
@@ -847,7 +781,6 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Redshift() Connect
 	}).(ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-salesforce
 func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Salesforce() ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileSalesforceConnectorProfileCredentials {
 		if v == nil {
@@ -857,7 +790,6 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Salesforce() Conne
 	}).(ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-servicenow
 func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileServiceNowConnectorProfileCredentials {
 		if v == nil {
@@ -867,7 +799,6 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) ServiceNow() Conne
 	}).(ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-singular
 func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Singular() ConnectorProfileSingularConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileSingularConnectorProfileCredentials {
 		if v == nil {
@@ -877,7 +808,6 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Singular() Connect
 	}).(ConnectorProfileSingularConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-slack
 func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Slack() ConnectorProfileSlackConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileSlackConnectorProfileCredentials {
 		if v == nil {
@@ -887,7 +817,6 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Slack() ConnectorP
 	}).(ConnectorProfileSlackConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-snowflake
 func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Snowflake() ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileSnowflakeConnectorProfileCredentials {
 		if v == nil {
@@ -897,7 +826,6 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Snowflake() Connec
 	}).(ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-trendmicro
 func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Trendmicro() ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileTrendmicroConnectorProfileCredentials {
 		if v == nil {
@@ -907,7 +835,6 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Trendmicro() Conne
 	}).(ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-veeva
 func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Veeva() ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileVeevaConnectorProfileCredentials {
 		if v == nil {
@@ -917,7 +844,6 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Veeva() ConnectorP
 	}).(ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-zendesk
 func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Zendesk() ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileCredentials) *ConnectorProfileZendeskConnectorProfileCredentials {
 		if v == nil {
@@ -927,30 +853,19 @@ func (o ConnectorProfileConnectorProfileCredentialsPtrOutput) Zendesk() Connecto
 	}).(ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html
+// Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
 type ConnectorProfileConnectorProfileProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-datadog
-	Datadog *ConnectorProfileDatadogConnectorProfileProperties `pulumi:"datadog"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-dynatrace
-	Dynatrace *ConnectorProfileDynatraceConnectorProfileProperties `pulumi:"dynatrace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-infornexus
+	Datadog    *ConnectorProfileDatadogConnectorProfileProperties    `pulumi:"datadog"`
+	Dynatrace  *ConnectorProfileDynatraceConnectorProfileProperties  `pulumi:"dynatrace"`
 	InforNexus *ConnectorProfileInforNexusConnectorProfileProperties `pulumi:"inforNexus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-marketo
-	Marketo *ConnectorProfileMarketoConnectorProfileProperties `pulumi:"marketo"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-redshift
-	Redshift *ConnectorProfileRedshiftConnectorProfileProperties `pulumi:"redshift"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-salesforce
+	Marketo    *ConnectorProfileMarketoConnectorProfileProperties    `pulumi:"marketo"`
+	Redshift   *ConnectorProfileRedshiftConnectorProfileProperties   `pulumi:"redshift"`
 	Salesforce *ConnectorProfileSalesforceConnectorProfileProperties `pulumi:"salesforce"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-servicenow
 	ServiceNow *ConnectorProfileServiceNowConnectorProfileProperties `pulumi:"serviceNow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-slack
-	Slack *ConnectorProfileSlackConnectorProfileProperties `pulumi:"slack"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-snowflake
-	Snowflake *ConnectorProfileSnowflakeConnectorProfileProperties `pulumi:"snowflake"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-veeva
-	Veeva *ConnectorProfileVeevaConnectorProfileProperties `pulumi:"veeva"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-zendesk
-	Zendesk *ConnectorProfileZendeskConnectorProfileProperties `pulumi:"zendesk"`
+	Slack      *ConnectorProfileSlackConnectorProfileProperties      `pulumi:"slack"`
+	Snowflake  *ConnectorProfileSnowflakeConnectorProfileProperties  `pulumi:"snowflake"`
+	Veeva      *ConnectorProfileVeevaConnectorProfileProperties      `pulumi:"veeva"`
+	Zendesk    *ConnectorProfileZendeskConnectorProfileProperties    `pulumi:"zendesk"`
 }
 
 // ConnectorProfileConnectorProfilePropertiesInput is an input type that accepts ConnectorProfileConnectorProfilePropertiesArgs and ConnectorProfileConnectorProfilePropertiesOutput values.
@@ -964,30 +879,19 @@ type ConnectorProfileConnectorProfilePropertiesInput interface {
 	ToConnectorProfileConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfileConnectorProfilePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html
+// Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
 type ConnectorProfileConnectorProfilePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-datadog
-	Datadog ConnectorProfileDatadogConnectorProfilePropertiesPtrInput `pulumi:"datadog"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-dynatrace
-	Dynatrace ConnectorProfileDynatraceConnectorProfilePropertiesPtrInput `pulumi:"dynatrace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-infornexus
+	Datadog    ConnectorProfileDatadogConnectorProfilePropertiesPtrInput    `pulumi:"datadog"`
+	Dynatrace  ConnectorProfileDynatraceConnectorProfilePropertiesPtrInput  `pulumi:"dynatrace"`
 	InforNexus ConnectorProfileInforNexusConnectorProfilePropertiesPtrInput `pulumi:"inforNexus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-marketo
-	Marketo ConnectorProfileMarketoConnectorProfilePropertiesPtrInput `pulumi:"marketo"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-redshift
-	Redshift ConnectorProfileRedshiftConnectorProfilePropertiesPtrInput `pulumi:"redshift"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-salesforce
+	Marketo    ConnectorProfileMarketoConnectorProfilePropertiesPtrInput    `pulumi:"marketo"`
+	Redshift   ConnectorProfileRedshiftConnectorProfilePropertiesPtrInput   `pulumi:"redshift"`
 	Salesforce ConnectorProfileSalesforceConnectorProfilePropertiesPtrInput `pulumi:"salesforce"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-servicenow
 	ServiceNow ConnectorProfileServiceNowConnectorProfilePropertiesPtrInput `pulumi:"serviceNow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-slack
-	Slack ConnectorProfileSlackConnectorProfilePropertiesPtrInput `pulumi:"slack"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-snowflake
-	Snowflake ConnectorProfileSnowflakeConnectorProfilePropertiesPtrInput `pulumi:"snowflake"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-veeva
-	Veeva ConnectorProfileVeevaConnectorProfilePropertiesPtrInput `pulumi:"veeva"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-zendesk
-	Zendesk ConnectorProfileZendeskConnectorProfilePropertiesPtrInput `pulumi:"zendesk"`
+	Slack      ConnectorProfileSlackConnectorProfilePropertiesPtrInput      `pulumi:"slack"`
+	Snowflake  ConnectorProfileSnowflakeConnectorProfilePropertiesPtrInput  `pulumi:"snowflake"`
+	Veeva      ConnectorProfileVeevaConnectorProfilePropertiesPtrInput      `pulumi:"veeva"`
+	Zendesk    ConnectorProfileZendeskConnectorProfilePropertiesPtrInput    `pulumi:"zendesk"`
 }
 
 func (ConnectorProfileConnectorProfilePropertiesArgs) ElementType() reflect.Type {
@@ -1043,7 +947,7 @@ func (i *connectorProfileConnectorProfilePropertiesPtrType) ToConnectorProfileCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html
+// Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
 type ConnectorProfileConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileConnectorProfilePropertiesOutput) ElementType() reflect.Type {
@@ -1068,77 +972,66 @@ func (o ConnectorProfileConnectorProfilePropertiesOutput) ToConnectorProfileConn
 	}).(ConnectorProfileConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-datadog
 func (o ConnectorProfileConnectorProfilePropertiesOutput) Datadog() ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileDatadogConnectorProfileProperties {
 		return v.Datadog
 	}).(ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-dynatrace
 func (o ConnectorProfileConnectorProfilePropertiesOutput) Dynatrace() ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileDynatraceConnectorProfileProperties {
 		return v.Dynatrace
 	}).(ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-infornexus
 func (o ConnectorProfileConnectorProfilePropertiesOutput) InforNexus() ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileInforNexusConnectorProfileProperties {
 		return v.InforNexus
 	}).(ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-marketo
 func (o ConnectorProfileConnectorProfilePropertiesOutput) Marketo() ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileMarketoConnectorProfileProperties {
 		return v.Marketo
 	}).(ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-redshift
 func (o ConnectorProfileConnectorProfilePropertiesOutput) Redshift() ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileRedshiftConnectorProfileProperties {
 		return v.Redshift
 	}).(ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-salesforce
 func (o ConnectorProfileConnectorProfilePropertiesOutput) Salesforce() ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileSalesforceConnectorProfileProperties {
 		return v.Salesforce
 	}).(ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-servicenow
 func (o ConnectorProfileConnectorProfilePropertiesOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileServiceNowConnectorProfileProperties {
 		return v.ServiceNow
 	}).(ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-slack
 func (o ConnectorProfileConnectorProfilePropertiesOutput) Slack() ConnectorProfileSlackConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileSlackConnectorProfileProperties {
 		return v.Slack
 	}).(ConnectorProfileSlackConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-snowflake
 func (o ConnectorProfileConnectorProfilePropertiesOutput) Snowflake() ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileSnowflakeConnectorProfileProperties {
 		return v.Snowflake
 	}).(ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-veeva
 func (o ConnectorProfileConnectorProfilePropertiesOutput) Veeva() ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileVeevaConnectorProfileProperties {
 		return v.Veeva
 	}).(ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-zendesk
 func (o ConnectorProfileConnectorProfilePropertiesOutput) Zendesk() ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileProperties) *ConnectorProfileZendeskConnectorProfileProperties {
 		return v.Zendesk
@@ -1169,7 +1062,6 @@ func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Elem() ConnectorPro
 	}).(ConnectorProfileConnectorProfilePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-datadog
 func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Datadog() ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileDatadogConnectorProfileProperties {
 		if v == nil {
@@ -1179,7 +1071,6 @@ func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Datadog() Connector
 	}).(ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-dynatrace
 func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Dynatrace() ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileDynatraceConnectorProfileProperties {
 		if v == nil {
@@ -1189,7 +1080,6 @@ func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Dynatrace() Connect
 	}).(ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-infornexus
 func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) InforNexus() ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileInforNexusConnectorProfileProperties {
 		if v == nil {
@@ -1199,7 +1089,6 @@ func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) InforNexus() Connec
 	}).(ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-marketo
 func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Marketo() ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileMarketoConnectorProfileProperties {
 		if v == nil {
@@ -1209,7 +1098,6 @@ func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Marketo() Connector
 	}).(ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-redshift
 func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Redshift() ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileRedshiftConnectorProfileProperties {
 		if v == nil {
@@ -1219,7 +1107,6 @@ func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Redshift() Connecto
 	}).(ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-salesforce
 func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Salesforce() ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileSalesforceConnectorProfileProperties {
 		if v == nil {
@@ -1229,7 +1116,6 @@ func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Salesforce() Connec
 	}).(ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-servicenow
 func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileServiceNowConnectorProfileProperties {
 		if v == nil {
@@ -1239,7 +1125,6 @@ func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) ServiceNow() Connec
 	}).(ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-slack
 func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Slack() ConnectorProfileSlackConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileSlackConnectorProfileProperties {
 		if v == nil {
@@ -1249,7 +1134,6 @@ func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Slack() ConnectorPr
 	}).(ConnectorProfileSlackConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-snowflake
 func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Snowflake() ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileSnowflakeConnectorProfileProperties {
 		if v == nil {
@@ -1259,7 +1143,6 @@ func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Snowflake() Connect
 	}).(ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-veeva
 func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Veeva() ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileVeevaConnectorProfileProperties {
 		if v == nil {
@@ -1269,7 +1152,6 @@ func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Veeva() ConnectorPr
 	}).(ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html#cfn-appflow-connectorprofile-connectorprofileproperties-zendesk
 func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Zendesk() ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConnectorProfileProperties) *ConnectorProfileZendeskConnectorProfileProperties {
 		if v == nil {
@@ -1279,11 +1161,10 @@ func (o ConnectorProfileConnectorProfilePropertiesPtrOutput) Zendesk() Connector
 	}).(ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html
 type ConnectorProfileDatadogConnectorProfileCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-apikey
+	// A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
 	ApiKey string `pulumi:"apiKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-applicationkey
+	// Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
 	ApplicationKey string `pulumi:"applicationKey"`
 }
 
@@ -1298,11 +1179,10 @@ type ConnectorProfileDatadogConnectorProfileCredentialsInput interface {
 	ToConnectorProfileDatadogConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileDatadogConnectorProfileCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html
 type ConnectorProfileDatadogConnectorProfileCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-apikey
+	// A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
 	ApiKey pulumi.StringInput `pulumi:"apiKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-applicationkey
+	// Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
 	ApplicationKey pulumi.StringInput `pulumi:"applicationKey"`
 }
 
@@ -1359,7 +1239,6 @@ func (i *connectorProfileDatadogConnectorProfileCredentialsPtrType) ToConnectorP
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html
 type ConnectorProfileDatadogConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileDatadogConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -1384,12 +1263,12 @@ func (o ConnectorProfileDatadogConnectorProfileCredentialsOutput) ToConnectorPro
 	}).(ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-apikey
+// A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileDatadogConnectorProfileCredentialsOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileDatadogConnectorProfileCredentials) string { return v.ApiKey }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-applicationkey
+// Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
 func (o ConnectorProfileDatadogConnectorProfileCredentialsOutput) ApplicationKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileDatadogConnectorProfileCredentials) string { return v.ApplicationKey }).(pulumi.StringOutput)
 }
@@ -1418,7 +1297,7 @@ func (o ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput) Elem() Conn
 	}).(ConnectorProfileDatadogConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-apikey
+// A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileDatadogConnectorProfileCredentials) *string {
 		if v == nil {
@@ -1428,7 +1307,7 @@ func (o ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput) ApiKey() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html#cfn-appflow-connectorprofile-datadogconnectorprofilecredentials-applicationkey
+// Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
 func (o ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput) ApplicationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileDatadogConnectorProfileCredentials) *string {
 		if v == nil {
@@ -1438,9 +1317,8 @@ func (o ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput) Application
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofileproperties.html
 type ConnectorProfileDatadogConnectorProfileProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofileproperties.html#cfn-appflow-connectorprofile-datadogconnectorprofileproperties-instanceurl
+	// The location of the Datadog resource
 	InstanceUrl string `pulumi:"instanceUrl"`
 }
 
@@ -1455,9 +1333,8 @@ type ConnectorProfileDatadogConnectorProfilePropertiesInput interface {
 	ToConnectorProfileDatadogConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfileDatadogConnectorProfilePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofileproperties.html
 type ConnectorProfileDatadogConnectorProfilePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofileproperties.html#cfn-appflow-connectorprofile-datadogconnectorprofileproperties-instanceurl
+	// The location of the Datadog resource
 	InstanceUrl pulumi.StringInput `pulumi:"instanceUrl"`
 }
 
@@ -1514,7 +1391,6 @@ func (i *connectorProfileDatadogConnectorProfilePropertiesPtrType) ToConnectorPr
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofileproperties.html
 type ConnectorProfileDatadogConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileDatadogConnectorProfilePropertiesOutput) ElementType() reflect.Type {
@@ -1539,7 +1415,7 @@ func (o ConnectorProfileDatadogConnectorProfilePropertiesOutput) ToConnectorProf
 	}).(ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofileproperties.html#cfn-appflow-connectorprofile-datadogconnectorprofileproperties-instanceurl
+// The location of the Datadog resource
 func (o ConnectorProfileDatadogConnectorProfilePropertiesOutput) InstanceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileDatadogConnectorProfileProperties) string { return v.InstanceUrl }).(pulumi.StringOutput)
 }
@@ -1568,7 +1444,7 @@ func (o ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput) Elem() Conne
 	}).(ConnectorProfileDatadogConnectorProfilePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofileproperties.html#cfn-appflow-connectorprofile-datadogconnectorprofileproperties-instanceurl
+// The location of the Datadog resource
 func (o ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput) InstanceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileDatadogConnectorProfileProperties) *string {
 		if v == nil {
@@ -1578,9 +1454,8 @@ func (o ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput) InstanceUrl(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html
 type ConnectorProfileDynatraceConnectorProfileCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-dynatraceconnectorprofilecredentials-apitoken
+	// The API tokens used by Dynatrace API to authenticate various API calls.
 	ApiToken string `pulumi:"apiToken"`
 }
 
@@ -1595,9 +1470,8 @@ type ConnectorProfileDynatraceConnectorProfileCredentialsInput interface {
 	ToConnectorProfileDynatraceConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileDynatraceConnectorProfileCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html
 type ConnectorProfileDynatraceConnectorProfileCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-dynatraceconnectorprofilecredentials-apitoken
+	// The API tokens used by Dynatrace API to authenticate various API calls.
 	ApiToken pulumi.StringInput `pulumi:"apiToken"`
 }
 
@@ -1654,7 +1528,6 @@ func (i *connectorProfileDynatraceConnectorProfileCredentialsPtrType) ToConnecto
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html
 type ConnectorProfileDynatraceConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileDynatraceConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -1679,7 +1552,7 @@ func (o ConnectorProfileDynatraceConnectorProfileCredentialsOutput) ToConnectorP
 	}).(ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-dynatraceconnectorprofilecredentials-apitoken
+// The API tokens used by Dynatrace API to authenticate various API calls.
 func (o ConnectorProfileDynatraceConnectorProfileCredentialsOutput) ApiToken() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileDynatraceConnectorProfileCredentials) string { return v.ApiToken }).(pulumi.StringOutput)
 }
@@ -1708,7 +1581,7 @@ func (o ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput) Elem() Co
 	}).(ConnectorProfileDynatraceConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-dynatraceconnectorprofilecredentials-apitoken
+// The API tokens used by Dynatrace API to authenticate various API calls.
 func (o ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput) ApiToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileDynatraceConnectorProfileCredentials) *string {
 		if v == nil {
@@ -1718,9 +1591,8 @@ func (o ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput) ApiToken(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html
 type ConnectorProfileDynatraceConnectorProfileProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html#cfn-appflow-connectorprofile-dynatraceconnectorprofileproperties-instanceurl
+	// The location of the Dynatrace resource
 	InstanceUrl string `pulumi:"instanceUrl"`
 }
 
@@ -1735,9 +1607,8 @@ type ConnectorProfileDynatraceConnectorProfilePropertiesInput interface {
 	ToConnectorProfileDynatraceConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfileDynatraceConnectorProfilePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html
 type ConnectorProfileDynatraceConnectorProfilePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html#cfn-appflow-connectorprofile-dynatraceconnectorprofileproperties-instanceurl
+	// The location of the Dynatrace resource
 	InstanceUrl pulumi.StringInput `pulumi:"instanceUrl"`
 }
 
@@ -1794,7 +1665,6 @@ func (i *connectorProfileDynatraceConnectorProfilePropertiesPtrType) ToConnector
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html
 type ConnectorProfileDynatraceConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileDynatraceConnectorProfilePropertiesOutput) ElementType() reflect.Type {
@@ -1819,7 +1689,7 @@ func (o ConnectorProfileDynatraceConnectorProfilePropertiesOutput) ToConnectorPr
 	}).(ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html#cfn-appflow-connectorprofile-dynatraceconnectorprofileproperties-instanceurl
+// The location of the Dynatrace resource
 func (o ConnectorProfileDynatraceConnectorProfilePropertiesOutput) InstanceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileDynatraceConnectorProfileProperties) string { return v.InstanceUrl }).(pulumi.StringOutput)
 }
@@ -1848,7 +1718,7 @@ func (o ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput) Elem() Con
 	}).(ConnectorProfileDynatraceConnectorProfilePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html#cfn-appflow-connectorprofile-dynatraceconnectorprofileproperties-instanceurl
+// The location of the Dynatrace resource
 func (o ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput) InstanceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileDynatraceConnectorProfileProperties) *string {
 		if v == nil {
@@ -1858,17 +1728,16 @@ func (o ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput) InstanceUr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html
 type ConnectorProfileGoogleAnalyticsConnectorProfileCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-accesstoken
+	// The credentials used to access protected resources.
 	AccessToken *string `pulumi:"accessToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-clientid
+	// The identiﬁer for the desired client.
 	ClientId string `pulumi:"clientId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-clientsecret
+	// The client secret used by the oauth client to authenticate to the authorization server.
 	ClientSecret string `pulumi:"clientSecret"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-connectoroauthrequest
+	// The oauth needed to request security tokens from the connector endpoint.
 	ConnectorOAuthRequest *ConnectorProfileConnectorOAuthRequest `pulumi:"connectorOAuthRequest"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-refreshtoken
+	// The credentials used to acquire new access tokens.
 	RefreshToken *string `pulumi:"refreshToken"`
 }
 
@@ -1883,17 +1752,16 @@ type ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsInput interface {
 	ToConnectorProfileGoogleAnalyticsConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html
 type ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-accesstoken
+	// The credentials used to access protected resources.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-clientid
+	// The identiﬁer for the desired client.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-clientsecret
+	// The client secret used by the oauth client to authenticate to the authorization server.
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-connectoroauthrequest
+	// The oauth needed to request security tokens from the connector endpoint.
 	ConnectorOAuthRequest ConnectorProfileConnectorOAuthRequestPtrInput `pulumi:"connectorOAuthRequest"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-refreshtoken
+	// The credentials used to acquire new access tokens.
 	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
 }
 
@@ -1950,7 +1818,6 @@ func (i *connectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrType) ToCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html
 type ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -1975,29 +1842,29 @@ func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsOutput) ToConn
 	}).(ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-accesstoken
+// The credentials used to access protected resources.
 func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileGoogleAnalyticsConnectorProfileCredentials) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-clientid
+// The identiﬁer for the desired client.
 func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileGoogleAnalyticsConnectorProfileCredentials) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-clientsecret
+// The client secret used by the oauth client to authenticate to the authorization server.
 func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileGoogleAnalyticsConnectorProfileCredentials) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-connectoroauthrequest
+// The oauth needed to request security tokens from the connector endpoint.
 func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileGoogleAnalyticsConnectorProfileCredentials) *ConnectorProfileConnectorOAuthRequest {
 		return v.ConnectorOAuthRequest
 	}).(ConnectorProfileConnectorOAuthRequestPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-refreshtoken
+// The credentials used to acquire new access tokens.
 func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileGoogleAnalyticsConnectorProfileCredentials) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
 }
@@ -2026,7 +1893,7 @@ func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput) Ele
 	}).(ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-accesstoken
+// The credentials used to access protected resources.
 func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileGoogleAnalyticsConnectorProfileCredentials) *string {
 		if v == nil {
@@ -2036,7 +1903,7 @@ func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput) Acc
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-clientid
+// The identiﬁer for the desired client.
 func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileGoogleAnalyticsConnectorProfileCredentials) *string {
 		if v == nil {
@@ -2046,7 +1913,7 @@ func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput) Cli
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-clientsecret
+// The client secret used by the oauth client to authenticate to the authorization server.
 func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileGoogleAnalyticsConnectorProfileCredentials) *string {
 		if v == nil {
@@ -2056,7 +1923,7 @@ func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput) Cli
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-connectoroauthrequest
+// The oauth needed to request security tokens from the connector endpoint.
 func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileGoogleAnalyticsConnectorProfileCredentials) *ConnectorProfileConnectorOAuthRequest {
 		if v == nil {
@@ -2066,7 +1933,7 @@ func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput) Con
 	}).(ConnectorProfileConnectorOAuthRequestPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html#cfn-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials-refreshtoken
+// The credentials used to acquire new access tokens.
 func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileGoogleAnalyticsConnectorProfileCredentials) *string {
 		if v == nil {
@@ -2076,15 +1943,14 @@ func (o ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput) Ref
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html
 type ConnectorProfileInforNexusConnectorProfileCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-accesskeyid
+	// The Access Key portion of the credentials.
 	AccessKeyId string `pulumi:"accessKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-datakey
+	// The encryption keys used to encrypt data.
 	Datakey string `pulumi:"datakey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-secretaccesskey
+	// The secret key used to sign requests.
 	SecretAccessKey string `pulumi:"secretAccessKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-userid
+	// The identiﬁer for the user.
 	UserId string `pulumi:"userId"`
 }
 
@@ -2099,15 +1965,14 @@ type ConnectorProfileInforNexusConnectorProfileCredentialsInput interface {
 	ToConnectorProfileInforNexusConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileInforNexusConnectorProfileCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html
 type ConnectorProfileInforNexusConnectorProfileCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-accesskeyid
+	// The Access Key portion of the credentials.
 	AccessKeyId pulumi.StringInput `pulumi:"accessKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-datakey
+	// The encryption keys used to encrypt data.
 	Datakey pulumi.StringInput `pulumi:"datakey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-secretaccesskey
+	// The secret key used to sign requests.
 	SecretAccessKey pulumi.StringInput `pulumi:"secretAccessKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-userid
+	// The identiﬁer for the user.
 	UserId pulumi.StringInput `pulumi:"userId"`
 }
 
@@ -2164,7 +2029,6 @@ func (i *connectorProfileInforNexusConnectorProfileCredentialsPtrType) ToConnect
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html
 type ConnectorProfileInforNexusConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileInforNexusConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -2189,22 +2053,22 @@ func (o ConnectorProfileInforNexusConnectorProfileCredentialsOutput) ToConnector
 	}).(ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-accesskeyid
+// The Access Key portion of the credentials.
 func (o ConnectorProfileInforNexusConnectorProfileCredentialsOutput) AccessKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileInforNexusConnectorProfileCredentials) string { return v.AccessKeyId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-datakey
+// The encryption keys used to encrypt data.
 func (o ConnectorProfileInforNexusConnectorProfileCredentialsOutput) Datakey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileInforNexusConnectorProfileCredentials) string { return v.Datakey }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-secretaccesskey
+// The secret key used to sign requests.
 func (o ConnectorProfileInforNexusConnectorProfileCredentialsOutput) SecretAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileInforNexusConnectorProfileCredentials) string { return v.SecretAccessKey }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-userid
+// The identiﬁer for the user.
 func (o ConnectorProfileInforNexusConnectorProfileCredentialsOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileInforNexusConnectorProfileCredentials) string { return v.UserId }).(pulumi.StringOutput)
 }
@@ -2233,7 +2097,7 @@ func (o ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput) Elem() C
 	}).(ConnectorProfileInforNexusConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-accesskeyid
+// The Access Key portion of the credentials.
 func (o ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput) AccessKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileInforNexusConnectorProfileCredentials) *string {
 		if v == nil {
@@ -2243,7 +2107,7 @@ func (o ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput) AccessKe
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-datakey
+// The encryption keys used to encrypt data.
 func (o ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput) Datakey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileInforNexusConnectorProfileCredentials) *string {
 		if v == nil {
@@ -2253,7 +2117,7 @@ func (o ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput) Datakey(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-secretaccesskey
+// The secret key used to sign requests.
 func (o ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput) SecretAccessKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileInforNexusConnectorProfileCredentials) *string {
 		if v == nil {
@@ -2263,7 +2127,7 @@ func (o ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput) SecretAc
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html#cfn-appflow-connectorprofile-infornexusconnectorprofilecredentials-userid
+// The identiﬁer for the user.
 func (o ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput) UserId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileInforNexusConnectorProfileCredentials) *string {
 		if v == nil {
@@ -2273,9 +2137,8 @@ func (o ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput) UserId()
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html
 type ConnectorProfileInforNexusConnectorProfileProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html#cfn-appflow-connectorprofile-infornexusconnectorprofileproperties-instanceurl
+	// The location of the InforNexus resource
 	InstanceUrl string `pulumi:"instanceUrl"`
 }
 
@@ -2290,9 +2153,8 @@ type ConnectorProfileInforNexusConnectorProfilePropertiesInput interface {
 	ToConnectorProfileInforNexusConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfileInforNexusConnectorProfilePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html
 type ConnectorProfileInforNexusConnectorProfilePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html#cfn-appflow-connectorprofile-infornexusconnectorprofileproperties-instanceurl
+	// The location of the InforNexus resource
 	InstanceUrl pulumi.StringInput `pulumi:"instanceUrl"`
 }
 
@@ -2349,7 +2211,6 @@ func (i *connectorProfileInforNexusConnectorProfilePropertiesPtrType) ToConnecto
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html
 type ConnectorProfileInforNexusConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileInforNexusConnectorProfilePropertiesOutput) ElementType() reflect.Type {
@@ -2374,7 +2235,7 @@ func (o ConnectorProfileInforNexusConnectorProfilePropertiesOutput) ToConnectorP
 	}).(ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html#cfn-appflow-connectorprofile-infornexusconnectorprofileproperties-instanceurl
+// The location of the InforNexus resource
 func (o ConnectorProfileInforNexusConnectorProfilePropertiesOutput) InstanceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileInforNexusConnectorProfileProperties) string { return v.InstanceUrl }).(pulumi.StringOutput)
 }
@@ -2403,7 +2264,7 @@ func (o ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput) Elem() Co
 	}).(ConnectorProfileInforNexusConnectorProfilePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html#cfn-appflow-connectorprofile-infornexusconnectorprofileproperties-instanceurl
+// The location of the InforNexus resource
 func (o ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput) InstanceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileInforNexusConnectorProfileProperties) *string {
 		if v == nil {
@@ -2413,15 +2274,14 @@ func (o ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput) InstanceU
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html
 type ConnectorProfileMarketoConnectorProfileCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-accesstoken
+	// The credentials used to access protected resources.
 	AccessToken *string `pulumi:"accessToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-clientid
+	// The identiﬁer for the desired client.
 	ClientId string `pulumi:"clientId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-clientsecret
+	// The client secret used by the oauth client to authenticate to the authorization server.
 	ClientSecret string `pulumi:"clientSecret"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-connectoroauthrequest
+	// The oauth needed to request security tokens from the connector endpoint.
 	ConnectorOAuthRequest *ConnectorProfileConnectorOAuthRequest `pulumi:"connectorOAuthRequest"`
 }
 
@@ -2436,15 +2296,14 @@ type ConnectorProfileMarketoConnectorProfileCredentialsInput interface {
 	ToConnectorProfileMarketoConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileMarketoConnectorProfileCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html
 type ConnectorProfileMarketoConnectorProfileCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-accesstoken
+	// The credentials used to access protected resources.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-clientid
+	// The identiﬁer for the desired client.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-clientsecret
+	// The client secret used by the oauth client to authenticate to the authorization server.
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-connectoroauthrequest
+	// The oauth needed to request security tokens from the connector endpoint.
 	ConnectorOAuthRequest ConnectorProfileConnectorOAuthRequestPtrInput `pulumi:"connectorOAuthRequest"`
 }
 
@@ -2501,7 +2360,6 @@ func (i *connectorProfileMarketoConnectorProfileCredentialsPtrType) ToConnectorP
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html
 type ConnectorProfileMarketoConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileMarketoConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -2526,22 +2384,22 @@ func (o ConnectorProfileMarketoConnectorProfileCredentialsOutput) ToConnectorPro
 	}).(ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-accesstoken
+// The credentials used to access protected resources.
 func (o ConnectorProfileMarketoConnectorProfileCredentialsOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileMarketoConnectorProfileCredentials) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-clientid
+// The identiﬁer for the desired client.
 func (o ConnectorProfileMarketoConnectorProfileCredentialsOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileMarketoConnectorProfileCredentials) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-clientsecret
+// The client secret used by the oauth client to authenticate to the authorization server.
 func (o ConnectorProfileMarketoConnectorProfileCredentialsOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileMarketoConnectorProfileCredentials) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-connectoroauthrequest
+// The oauth needed to request security tokens from the connector endpoint.
 func (o ConnectorProfileMarketoConnectorProfileCredentialsOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileMarketoConnectorProfileCredentials) *ConnectorProfileConnectorOAuthRequest {
 		return v.ConnectorOAuthRequest
@@ -2572,7 +2430,7 @@ func (o ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput) Elem() Conn
 	}).(ConnectorProfileMarketoConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-accesstoken
+// The credentials used to access protected resources.
 func (o ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileMarketoConnectorProfileCredentials) *string {
 		if v == nil {
@@ -2582,7 +2440,7 @@ func (o ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput) AccessToken
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-clientid
+// The identiﬁer for the desired client.
 func (o ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileMarketoConnectorProfileCredentials) *string {
 		if v == nil {
@@ -2592,7 +2450,7 @@ func (o ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput) ClientId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-clientsecret
+// The client secret used by the oauth client to authenticate to the authorization server.
 func (o ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileMarketoConnectorProfileCredentials) *string {
 		if v == nil {
@@ -2602,7 +2460,7 @@ func (o ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput) ClientSecre
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html#cfn-appflow-connectorprofile-marketoconnectorprofilecredentials-connectoroauthrequest
+// The oauth needed to request security tokens from the connector endpoint.
 func (o ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileMarketoConnectorProfileCredentials) *ConnectorProfileConnectorOAuthRequest {
 		if v == nil {
@@ -2612,9 +2470,8 @@ func (o ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput) ConnectorOA
 	}).(ConnectorProfileConnectorOAuthRequestPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofileproperties.html
 type ConnectorProfileMarketoConnectorProfileProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofileproperties.html#cfn-appflow-connectorprofile-marketoconnectorprofileproperties-instanceurl
+	// The location of the Marketo resource
 	InstanceUrl string `pulumi:"instanceUrl"`
 }
 
@@ -2629,9 +2486,8 @@ type ConnectorProfileMarketoConnectorProfilePropertiesInput interface {
 	ToConnectorProfileMarketoConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfileMarketoConnectorProfilePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofileproperties.html
 type ConnectorProfileMarketoConnectorProfilePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofileproperties.html#cfn-appflow-connectorprofile-marketoconnectorprofileproperties-instanceurl
+	// The location of the Marketo resource
 	InstanceUrl pulumi.StringInput `pulumi:"instanceUrl"`
 }
 
@@ -2688,7 +2544,6 @@ func (i *connectorProfileMarketoConnectorProfilePropertiesPtrType) ToConnectorPr
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofileproperties.html
 type ConnectorProfileMarketoConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileMarketoConnectorProfilePropertiesOutput) ElementType() reflect.Type {
@@ -2713,7 +2568,7 @@ func (o ConnectorProfileMarketoConnectorProfilePropertiesOutput) ToConnectorProf
 	}).(ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofileproperties.html#cfn-appflow-connectorprofile-marketoconnectorprofileproperties-instanceurl
+// The location of the Marketo resource
 func (o ConnectorProfileMarketoConnectorProfilePropertiesOutput) InstanceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileMarketoConnectorProfileProperties) string { return v.InstanceUrl }).(pulumi.StringOutput)
 }
@@ -2742,7 +2597,7 @@ func (o ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput) Elem() Conne
 	}).(ConnectorProfileMarketoConnectorProfilePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofileproperties.html#cfn-appflow-connectorprofile-marketoconnectorprofileproperties-instanceurl
+// The location of the Marketo resource
 func (o ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput) InstanceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileMarketoConnectorProfileProperties) *string {
 		if v == nil {
@@ -2752,11 +2607,10 @@ func (o ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput) InstanceUrl(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html
 type ConnectorProfileRedshiftConnectorProfileCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html#cfn-appflow-connectorprofile-redshiftconnectorprofilecredentials-password
+	// The password that corresponds to the username.
 	Password string `pulumi:"password"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html#cfn-appflow-connectorprofile-redshiftconnectorprofilecredentials-username
+	// The name of the user.
 	Username string `pulumi:"username"`
 }
 
@@ -2771,11 +2625,10 @@ type ConnectorProfileRedshiftConnectorProfileCredentialsInput interface {
 	ToConnectorProfileRedshiftConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileRedshiftConnectorProfileCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html
 type ConnectorProfileRedshiftConnectorProfileCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html#cfn-appflow-connectorprofile-redshiftconnectorprofilecredentials-password
+	// The password that corresponds to the username.
 	Password pulumi.StringInput `pulumi:"password"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html#cfn-appflow-connectorprofile-redshiftconnectorprofilecredentials-username
+	// The name of the user.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -2832,7 +2685,6 @@ func (i *connectorProfileRedshiftConnectorProfileCredentialsPtrType) ToConnector
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html
 type ConnectorProfileRedshiftConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileRedshiftConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -2857,12 +2709,12 @@ func (o ConnectorProfileRedshiftConnectorProfileCredentialsOutput) ToConnectorPr
 	}).(ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html#cfn-appflow-connectorprofile-redshiftconnectorprofilecredentials-password
+// The password that corresponds to the username.
 func (o ConnectorProfileRedshiftConnectorProfileCredentialsOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileCredentials) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html#cfn-appflow-connectorprofile-redshiftconnectorprofilecredentials-username
+// The name of the user.
 func (o ConnectorProfileRedshiftConnectorProfileCredentialsOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileCredentials) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -2891,7 +2743,7 @@ func (o ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput) Elem() Con
 	}).(ConnectorProfileRedshiftConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html#cfn-appflow-connectorprofile-redshiftconnectorprofilecredentials-password
+// The password that corresponds to the username.
 func (o ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileRedshiftConnectorProfileCredentials) *string {
 		if v == nil {
@@ -2901,7 +2753,7 @@ func (o ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput) Password()
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html#cfn-appflow-connectorprofile-redshiftconnectorprofilecredentials-username
+// The name of the user.
 func (o ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileRedshiftConnectorProfileCredentials) *string {
 		if v == nil {
@@ -2911,15 +2763,14 @@ func (o ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput) Username()
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html
 type ConnectorProfileRedshiftConnectorProfileProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketname
+	// The name of the Amazon S3 bucket associated with Redshift.
 	BucketName string `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketprefix
+	// The object key for the destination bucket in which Amazon AppFlow will place the ﬁles.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-databaseurl
+	// The JDBC URL of the Amazon Redshift cluster.
 	DatabaseUrl string `pulumi:"databaseUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-rolearn
+	// The Amazon Resource Name (ARN) of the IAM role.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -2934,15 +2785,14 @@ type ConnectorProfileRedshiftConnectorProfilePropertiesInput interface {
 	ToConnectorProfileRedshiftConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfileRedshiftConnectorProfilePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html
 type ConnectorProfileRedshiftConnectorProfilePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketname
+	// The name of the Amazon S3 bucket associated with Redshift.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketprefix
+	// The object key for the destination bucket in which Amazon AppFlow will place the ﬁles.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-databaseurl
+	// The JDBC URL of the Amazon Redshift cluster.
 	DatabaseUrl pulumi.StringInput `pulumi:"databaseUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-rolearn
+	// The Amazon Resource Name (ARN) of the IAM role.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -2999,7 +2849,6 @@ func (i *connectorProfileRedshiftConnectorProfilePropertiesPtrType) ToConnectorP
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html
 type ConnectorProfileRedshiftConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileRedshiftConnectorProfilePropertiesOutput) ElementType() reflect.Type {
@@ -3024,22 +2873,22 @@ func (o ConnectorProfileRedshiftConnectorProfilePropertiesOutput) ToConnectorPro
 	}).(ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketname
+// The name of the Amazon S3 bucket associated with Redshift.
 func (o ConnectorProfileRedshiftConnectorProfilePropertiesOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileProperties) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketprefix
+// The object key for the destination bucket in which Amazon AppFlow will place the ﬁles.
 func (o ConnectorProfileRedshiftConnectorProfilePropertiesOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileProperties) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-databaseurl
+// The JDBC URL of the Amazon Redshift cluster.
 func (o ConnectorProfileRedshiftConnectorProfilePropertiesOutput) DatabaseUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileProperties) string { return v.DatabaseUrl }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-rolearn
+// The Amazon Resource Name (ARN) of the IAM role.
 func (o ConnectorProfileRedshiftConnectorProfilePropertiesOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileRedshiftConnectorProfileProperties) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -3068,7 +2917,7 @@ func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) Elem() Conn
 	}).(ConnectorProfileRedshiftConnectorProfilePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketname
+// The name of the Amazon S3 bucket associated with Redshift.
 func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileRedshiftConnectorProfileProperties) *string {
 		if v == nil {
@@ -3078,7 +2927,7 @@ func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) BucketName(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketprefix
+// The object key for the destination bucket in which Amazon AppFlow will place the ﬁles.
 func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileRedshiftConnectorProfileProperties) *string {
 		if v == nil {
@@ -3088,7 +2937,7 @@ func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) BucketPrefi
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-databaseurl
+// The JDBC URL of the Amazon Redshift cluster.
 func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) DatabaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileRedshiftConnectorProfileProperties) *string {
 		if v == nil {
@@ -3098,7 +2947,7 @@ func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) DatabaseUrl
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-rolearn
+// The Amazon Resource Name (ARN) of the IAM role.
 func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileRedshiftConnectorProfileProperties) *string {
 		if v == nil {
@@ -3108,15 +2957,14 @@ func (o ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput) RoleArn() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html
 type ConnectorProfileSalesforceConnectorProfileCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-accesstoken
+	// The credentials used to access protected resources.
 	AccessToken *string `pulumi:"accessToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-clientcredentialsarn
+	// The client credentials to fetch access token and refresh token.
 	ClientCredentialsArn *string `pulumi:"clientCredentialsArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-connectoroauthrequest
+	// The oauth needed to request security tokens from the connector endpoint.
 	ConnectorOAuthRequest *ConnectorProfileConnectorOAuthRequest `pulumi:"connectorOAuthRequest"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-refreshtoken
+	// The credentials used to acquire new access tokens.
 	RefreshToken *string `pulumi:"refreshToken"`
 }
 
@@ -3131,15 +2979,14 @@ type ConnectorProfileSalesforceConnectorProfileCredentialsInput interface {
 	ToConnectorProfileSalesforceConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileSalesforceConnectorProfileCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html
 type ConnectorProfileSalesforceConnectorProfileCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-accesstoken
+	// The credentials used to access protected resources.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-clientcredentialsarn
+	// The client credentials to fetch access token and refresh token.
 	ClientCredentialsArn pulumi.StringPtrInput `pulumi:"clientCredentialsArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-connectoroauthrequest
+	// The oauth needed to request security tokens from the connector endpoint.
 	ConnectorOAuthRequest ConnectorProfileConnectorOAuthRequestPtrInput `pulumi:"connectorOAuthRequest"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-refreshtoken
+	// The credentials used to acquire new access tokens.
 	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
 }
 
@@ -3196,7 +3043,6 @@ func (i *connectorProfileSalesforceConnectorProfileCredentialsPtrType) ToConnect
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html
 type ConnectorProfileSalesforceConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileSalesforceConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -3221,24 +3067,24 @@ func (o ConnectorProfileSalesforceConnectorProfileCredentialsOutput) ToConnector
 	}).(ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-accesstoken
+// The credentials used to access protected resources.
 func (o ConnectorProfileSalesforceConnectorProfileCredentialsOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSalesforceConnectorProfileCredentials) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-clientcredentialsarn
+// The client credentials to fetch access token and refresh token.
 func (o ConnectorProfileSalesforceConnectorProfileCredentialsOutput) ClientCredentialsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSalesforceConnectorProfileCredentials) *string { return v.ClientCredentialsArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-connectoroauthrequest
+// The oauth needed to request security tokens from the connector endpoint.
 func (o ConnectorProfileSalesforceConnectorProfileCredentialsOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSalesforceConnectorProfileCredentials) *ConnectorProfileConnectorOAuthRequest {
 		return v.ConnectorOAuthRequest
 	}).(ConnectorProfileConnectorOAuthRequestPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-refreshtoken
+// The credentials used to acquire new access tokens.
 func (o ConnectorProfileSalesforceConnectorProfileCredentialsOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSalesforceConnectorProfileCredentials) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
 }
@@ -3267,7 +3113,7 @@ func (o ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput) Elem() C
 	}).(ConnectorProfileSalesforceConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-accesstoken
+// The credentials used to access protected resources.
 func (o ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSalesforceConnectorProfileCredentials) *string {
 		if v == nil {
@@ -3277,7 +3123,7 @@ func (o ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput) AccessTo
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-clientcredentialsarn
+// The client credentials to fetch access token and refresh token.
 func (o ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput) ClientCredentialsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSalesforceConnectorProfileCredentials) *string {
 		if v == nil {
@@ -3287,7 +3133,7 @@ func (o ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput) ClientCr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-connectoroauthrequest
+// The oauth needed to request security tokens from the connector endpoint.
 func (o ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSalesforceConnectorProfileCredentials) *ConnectorProfileConnectorOAuthRequest {
 		if v == nil {
@@ -3297,7 +3143,7 @@ func (o ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput) Connecto
 	}).(ConnectorProfileConnectorOAuthRequestPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-refreshtoken
+// The credentials used to acquire new access tokens.
 func (o ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput) RefreshToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSalesforceConnectorProfileCredentials) *string {
 		if v == nil {
@@ -3307,12 +3153,10 @@ func (o ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput) RefreshT
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html
 type ConnectorProfileSalesforceConnectorProfileProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-instanceurl
-	InstanceUrl *string `pulumi:"instanceUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-issandboxenvironment
-	IsSandboxEnvironment *bool `pulumi:"isSandboxEnvironment"`
+	// The location of the Salesforce resource
+	InstanceUrl          *string `pulumi:"instanceUrl"`
+	IsSandboxEnvironment *bool   `pulumi:"isSandboxEnvironment"`
 }
 
 // ConnectorProfileSalesforceConnectorProfilePropertiesInput is an input type that accepts ConnectorProfileSalesforceConnectorProfilePropertiesArgs and ConnectorProfileSalesforceConnectorProfilePropertiesOutput values.
@@ -3326,12 +3170,10 @@ type ConnectorProfileSalesforceConnectorProfilePropertiesInput interface {
 	ToConnectorProfileSalesforceConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfileSalesforceConnectorProfilePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html
 type ConnectorProfileSalesforceConnectorProfilePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-instanceurl
-	InstanceUrl pulumi.StringPtrInput `pulumi:"instanceUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-issandboxenvironment
-	IsSandboxEnvironment pulumi.BoolPtrInput `pulumi:"isSandboxEnvironment"`
+	// The location of the Salesforce resource
+	InstanceUrl          pulumi.StringPtrInput `pulumi:"instanceUrl"`
+	IsSandboxEnvironment pulumi.BoolPtrInput   `pulumi:"isSandboxEnvironment"`
 }
 
 func (ConnectorProfileSalesforceConnectorProfilePropertiesArgs) ElementType() reflect.Type {
@@ -3387,7 +3229,6 @@ func (i *connectorProfileSalesforceConnectorProfilePropertiesPtrType) ToConnecto
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html
 type ConnectorProfileSalesforceConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileSalesforceConnectorProfilePropertiesOutput) ElementType() reflect.Type {
@@ -3412,12 +3253,11 @@ func (o ConnectorProfileSalesforceConnectorProfilePropertiesOutput) ToConnectorP
 	}).(ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-instanceurl
+// The location of the Salesforce resource
 func (o ConnectorProfileSalesforceConnectorProfilePropertiesOutput) InstanceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSalesforceConnectorProfileProperties) *string { return v.InstanceUrl }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-issandboxenvironment
 func (o ConnectorProfileSalesforceConnectorProfilePropertiesOutput) IsSandboxEnvironment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSalesforceConnectorProfileProperties) *bool { return v.IsSandboxEnvironment }).(pulumi.BoolPtrOutput)
 }
@@ -3446,7 +3286,7 @@ func (o ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput) Elem() Co
 	}).(ConnectorProfileSalesforceConnectorProfilePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-instanceurl
+// The location of the Salesforce resource
 func (o ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput) InstanceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSalesforceConnectorProfileProperties) *string {
 		if v == nil {
@@ -3456,7 +3296,6 @@ func (o ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput) InstanceU
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html#cfn-appflow-connectorprofile-salesforceconnectorprofileproperties-issandboxenvironment
 func (o ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput) IsSandboxEnvironment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSalesforceConnectorProfileProperties) *bool {
 		if v == nil {
@@ -3466,11 +3305,10 @@ func (o ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput) IsSandbox
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html
 type ConnectorProfileServiceNowConnectorProfileCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html#cfn-appflow-connectorprofile-servicenowconnectorprofilecredentials-password
+	// The password that corresponds to the username.
 	Password string `pulumi:"password"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html#cfn-appflow-connectorprofile-servicenowconnectorprofilecredentials-username
+	// The name of the user.
 	Username string `pulumi:"username"`
 }
 
@@ -3485,11 +3323,10 @@ type ConnectorProfileServiceNowConnectorProfileCredentialsInput interface {
 	ToConnectorProfileServiceNowConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileServiceNowConnectorProfileCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html
 type ConnectorProfileServiceNowConnectorProfileCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html#cfn-appflow-connectorprofile-servicenowconnectorprofilecredentials-password
+	// The password that corresponds to the username.
 	Password pulumi.StringInput `pulumi:"password"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html#cfn-appflow-connectorprofile-servicenowconnectorprofilecredentials-username
+	// The name of the user.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -3546,7 +3383,6 @@ func (i *connectorProfileServiceNowConnectorProfileCredentialsPtrType) ToConnect
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html
 type ConnectorProfileServiceNowConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileServiceNowConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -3571,12 +3407,12 @@ func (o ConnectorProfileServiceNowConnectorProfileCredentialsOutput) ToConnector
 	}).(ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html#cfn-appflow-connectorprofile-servicenowconnectorprofilecredentials-password
+// The password that corresponds to the username.
 func (o ConnectorProfileServiceNowConnectorProfileCredentialsOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileServiceNowConnectorProfileCredentials) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html#cfn-appflow-connectorprofile-servicenowconnectorprofilecredentials-username
+// The name of the user.
 func (o ConnectorProfileServiceNowConnectorProfileCredentialsOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileServiceNowConnectorProfileCredentials) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -3605,7 +3441,7 @@ func (o ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput) Elem() C
 	}).(ConnectorProfileServiceNowConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html#cfn-appflow-connectorprofile-servicenowconnectorprofilecredentials-password
+// The password that corresponds to the username.
 func (o ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileServiceNowConnectorProfileCredentials) *string {
 		if v == nil {
@@ -3615,7 +3451,7 @@ func (o ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput) Password
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html#cfn-appflow-connectorprofile-servicenowconnectorprofilecredentials-username
+// The name of the user.
 func (o ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileServiceNowConnectorProfileCredentials) *string {
 		if v == nil {
@@ -3625,9 +3461,8 @@ func (o ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput) Username
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofileproperties.html
 type ConnectorProfileServiceNowConnectorProfileProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofileproperties.html#cfn-appflow-connectorprofile-servicenowconnectorprofileproperties-instanceurl
+	// The location of the ServiceNow resource
 	InstanceUrl string `pulumi:"instanceUrl"`
 }
 
@@ -3642,9 +3477,8 @@ type ConnectorProfileServiceNowConnectorProfilePropertiesInput interface {
 	ToConnectorProfileServiceNowConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfileServiceNowConnectorProfilePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofileproperties.html
 type ConnectorProfileServiceNowConnectorProfilePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofileproperties.html#cfn-appflow-connectorprofile-servicenowconnectorprofileproperties-instanceurl
+	// The location of the ServiceNow resource
 	InstanceUrl pulumi.StringInput `pulumi:"instanceUrl"`
 }
 
@@ -3701,7 +3535,6 @@ func (i *connectorProfileServiceNowConnectorProfilePropertiesPtrType) ToConnecto
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofileproperties.html
 type ConnectorProfileServiceNowConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileServiceNowConnectorProfilePropertiesOutput) ElementType() reflect.Type {
@@ -3726,7 +3559,7 @@ func (o ConnectorProfileServiceNowConnectorProfilePropertiesOutput) ToConnectorP
 	}).(ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofileproperties.html#cfn-appflow-connectorprofile-servicenowconnectorprofileproperties-instanceurl
+// The location of the ServiceNow resource
 func (o ConnectorProfileServiceNowConnectorProfilePropertiesOutput) InstanceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileServiceNowConnectorProfileProperties) string { return v.InstanceUrl }).(pulumi.StringOutput)
 }
@@ -3755,7 +3588,7 @@ func (o ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput) Elem() Co
 	}).(ConnectorProfileServiceNowConnectorProfilePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofileproperties.html#cfn-appflow-connectorprofile-servicenowconnectorprofileproperties-instanceurl
+// The location of the ServiceNow resource
 func (o ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput) InstanceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileServiceNowConnectorProfileProperties) *string {
 		if v == nil {
@@ -3765,9 +3598,8 @@ func (o ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput) InstanceU
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html
 type ConnectorProfileSingularConnectorProfileCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html#cfn-appflow-connectorprofile-singularconnectorprofilecredentials-apikey
+	// A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
 	ApiKey string `pulumi:"apiKey"`
 }
 
@@ -3782,9 +3614,8 @@ type ConnectorProfileSingularConnectorProfileCredentialsInput interface {
 	ToConnectorProfileSingularConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileSingularConnectorProfileCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html
 type ConnectorProfileSingularConnectorProfileCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html#cfn-appflow-connectorprofile-singularconnectorprofilecredentials-apikey
+	// A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
 	ApiKey pulumi.StringInput `pulumi:"apiKey"`
 }
 
@@ -3841,7 +3672,6 @@ func (i *connectorProfileSingularConnectorProfileCredentialsPtrType) ToConnector
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSingularConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html
 type ConnectorProfileSingularConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileSingularConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -3866,7 +3696,7 @@ func (o ConnectorProfileSingularConnectorProfileCredentialsOutput) ToConnectorPr
 	}).(ConnectorProfileSingularConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html#cfn-appflow-connectorprofile-singularconnectorprofilecredentials-apikey
+// A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileSingularConnectorProfileCredentialsOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileSingularConnectorProfileCredentials) string { return v.ApiKey }).(pulumi.StringOutput)
 }
@@ -3895,7 +3725,7 @@ func (o ConnectorProfileSingularConnectorProfileCredentialsPtrOutput) Elem() Con
 	}).(ConnectorProfileSingularConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html#cfn-appflow-connectorprofile-singularconnectorprofilecredentials-apikey
+// A unique alphanumeric identiﬁer used to authenticate a user, developer, or calling program to your API.
 func (o ConnectorProfileSingularConnectorProfileCredentialsPtrOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSingularConnectorProfileCredentials) *string {
 		if v == nil {
@@ -3905,15 +3735,14 @@ func (o ConnectorProfileSingularConnectorProfileCredentialsPtrOutput) ApiKey() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html
 type ConnectorProfileSlackConnectorProfileCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-accesstoken
+	// The credentials used to access protected resources.
 	AccessToken *string `pulumi:"accessToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-clientid
+	// The identiﬁer for the desired client.
 	ClientId string `pulumi:"clientId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-clientsecret
+	// The client secret used by the oauth client to authenticate to the authorization server.
 	ClientSecret string `pulumi:"clientSecret"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-connectoroauthrequest
+	// The oauth needed to request security tokens from the connector endpoint.
 	ConnectorOAuthRequest *ConnectorProfileConnectorOAuthRequest `pulumi:"connectorOAuthRequest"`
 }
 
@@ -3928,15 +3757,14 @@ type ConnectorProfileSlackConnectorProfileCredentialsInput interface {
 	ToConnectorProfileSlackConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileSlackConnectorProfileCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html
 type ConnectorProfileSlackConnectorProfileCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-accesstoken
+	// The credentials used to access protected resources.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-clientid
+	// The identiﬁer for the desired client.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-clientsecret
+	// The client secret used by the oauth client to authenticate to the authorization server.
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-connectoroauthrequest
+	// The oauth needed to request security tokens from the connector endpoint.
 	ConnectorOAuthRequest ConnectorProfileConnectorOAuthRequestPtrInput `pulumi:"connectorOAuthRequest"`
 }
 
@@ -3993,7 +3821,6 @@ func (i *connectorProfileSlackConnectorProfileCredentialsPtrType) ToConnectorPro
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSlackConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html
 type ConnectorProfileSlackConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileSlackConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -4018,22 +3845,22 @@ func (o ConnectorProfileSlackConnectorProfileCredentialsOutput) ToConnectorProfi
 	}).(ConnectorProfileSlackConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-accesstoken
+// The credentials used to access protected resources.
 func (o ConnectorProfileSlackConnectorProfileCredentialsOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSlackConnectorProfileCredentials) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-clientid
+// The identiﬁer for the desired client.
 func (o ConnectorProfileSlackConnectorProfileCredentialsOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileSlackConnectorProfileCredentials) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-clientsecret
+// The client secret used by the oauth client to authenticate to the authorization server.
 func (o ConnectorProfileSlackConnectorProfileCredentialsOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileSlackConnectorProfileCredentials) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-connectoroauthrequest
+// The oauth needed to request security tokens from the connector endpoint.
 func (o ConnectorProfileSlackConnectorProfileCredentialsOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSlackConnectorProfileCredentials) *ConnectorProfileConnectorOAuthRequest {
 		return v.ConnectorOAuthRequest
@@ -4064,7 +3891,7 @@ func (o ConnectorProfileSlackConnectorProfileCredentialsPtrOutput) Elem() Connec
 	}).(ConnectorProfileSlackConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-accesstoken
+// The credentials used to access protected resources.
 func (o ConnectorProfileSlackConnectorProfileCredentialsPtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSlackConnectorProfileCredentials) *string {
 		if v == nil {
@@ -4074,7 +3901,7 @@ func (o ConnectorProfileSlackConnectorProfileCredentialsPtrOutput) AccessToken()
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-clientid
+// The identiﬁer for the desired client.
 func (o ConnectorProfileSlackConnectorProfileCredentialsPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSlackConnectorProfileCredentials) *string {
 		if v == nil {
@@ -4084,7 +3911,7 @@ func (o ConnectorProfileSlackConnectorProfileCredentialsPtrOutput) ClientId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-clientsecret
+// The client secret used by the oauth client to authenticate to the authorization server.
 func (o ConnectorProfileSlackConnectorProfileCredentialsPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSlackConnectorProfileCredentials) *string {
 		if v == nil {
@@ -4094,7 +3921,7 @@ func (o ConnectorProfileSlackConnectorProfileCredentialsPtrOutput) ClientSecret(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html#cfn-appflow-connectorprofile-slackconnectorprofilecredentials-connectoroauthrequest
+// The oauth needed to request security tokens from the connector endpoint.
 func (o ConnectorProfileSlackConnectorProfileCredentialsPtrOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSlackConnectorProfileCredentials) *ConnectorProfileConnectorOAuthRequest {
 		if v == nil {
@@ -4104,9 +3931,8 @@ func (o ConnectorProfileSlackConnectorProfileCredentialsPtrOutput) ConnectorOAut
 	}).(ConnectorProfileConnectorOAuthRequestPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html
 type ConnectorProfileSlackConnectorProfileProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html#cfn-appflow-connectorprofile-slackconnectorprofileproperties-instanceurl
+	// The location of the Slack resource
 	InstanceUrl string `pulumi:"instanceUrl"`
 }
 
@@ -4121,9 +3947,8 @@ type ConnectorProfileSlackConnectorProfilePropertiesInput interface {
 	ToConnectorProfileSlackConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfileSlackConnectorProfilePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html
 type ConnectorProfileSlackConnectorProfilePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html#cfn-appflow-connectorprofile-slackconnectorprofileproperties-instanceurl
+	// The location of the Slack resource
 	InstanceUrl pulumi.StringInput `pulumi:"instanceUrl"`
 }
 
@@ -4180,7 +4005,6 @@ func (i *connectorProfileSlackConnectorProfilePropertiesPtrType) ToConnectorProf
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSlackConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html
 type ConnectorProfileSlackConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileSlackConnectorProfilePropertiesOutput) ElementType() reflect.Type {
@@ -4205,7 +4029,7 @@ func (o ConnectorProfileSlackConnectorProfilePropertiesOutput) ToConnectorProfil
 	}).(ConnectorProfileSlackConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html#cfn-appflow-connectorprofile-slackconnectorprofileproperties-instanceurl
+// The location of the Slack resource
 func (o ConnectorProfileSlackConnectorProfilePropertiesOutput) InstanceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileSlackConnectorProfileProperties) string { return v.InstanceUrl }).(pulumi.StringOutput)
 }
@@ -4234,7 +4058,7 @@ func (o ConnectorProfileSlackConnectorProfilePropertiesPtrOutput) Elem() Connect
 	}).(ConnectorProfileSlackConnectorProfilePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html#cfn-appflow-connectorprofile-slackconnectorprofileproperties-instanceurl
+// The location of the Slack resource
 func (o ConnectorProfileSlackConnectorProfilePropertiesPtrOutput) InstanceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSlackConnectorProfileProperties) *string {
 		if v == nil {
@@ -4244,11 +4068,10 @@ func (o ConnectorProfileSlackConnectorProfilePropertiesPtrOutput) InstanceUrl() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html
 type ConnectorProfileSnowflakeConnectorProfileCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-password
+	// The password that corresponds to the username.
 	Password string `pulumi:"password"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-username
+	// The name of the user.
 	Username string `pulumi:"username"`
 }
 
@@ -4263,11 +4086,10 @@ type ConnectorProfileSnowflakeConnectorProfileCredentialsInput interface {
 	ToConnectorProfileSnowflakeConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileSnowflakeConnectorProfileCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html
 type ConnectorProfileSnowflakeConnectorProfileCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-password
+	// The password that corresponds to the username.
 	Password pulumi.StringInput `pulumi:"password"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-username
+	// The name of the user.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -4324,7 +4146,6 @@ func (i *connectorProfileSnowflakeConnectorProfileCredentialsPtrType) ToConnecto
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html
 type ConnectorProfileSnowflakeConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileSnowflakeConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -4349,12 +4170,12 @@ func (o ConnectorProfileSnowflakeConnectorProfileCredentialsOutput) ToConnectorP
 	}).(ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-password
+// The password that corresponds to the username.
 func (o ConnectorProfileSnowflakeConnectorProfileCredentialsOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileSnowflakeConnectorProfileCredentials) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-username
+// The name of the user.
 func (o ConnectorProfileSnowflakeConnectorProfileCredentialsOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileSnowflakeConnectorProfileCredentials) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -4383,7 +4204,7 @@ func (o ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput) Elem() Co
 	}).(ConnectorProfileSnowflakeConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-password
+// The password that corresponds to the username.
 func (o ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSnowflakeConnectorProfileCredentials) *string {
 		if v == nil {
@@ -4393,7 +4214,7 @@ func (o ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput) Password(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html#cfn-appflow-connectorprofile-snowflakeconnectorprofilecredentials-username
+// The name of the user.
 func (o ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSnowflakeConnectorProfileCredentials) *string {
 		if v == nil {
@@ -4403,21 +4224,21 @@ func (o ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput) Username(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html
 type ConnectorProfileSnowflakeConnectorProfileProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-accountname
+	// The name of the account.
 	AccountName *string `pulumi:"accountName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-bucketname
+	// The name of the Amazon S3 bucket associated with Snowﬂake.
 	BucketName string `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-bucketprefix
+	// The bucket prefix that refers to the Amazon S3 bucket associated with Snowﬂake.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-privatelinkservicename
+	// The Snowﬂake Private Link service name to be used for private data transfers.
 	PrivateLinkServiceName *string `pulumi:"privateLinkServiceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-region
+	// The region of the Snowﬂake account.
 	Region *string `pulumi:"region"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-stage
+	// The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the
+	// Snowﬂake account. This is written in the following format: < Database>< Schema><Stage Name>.
 	Stage string `pulumi:"stage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-warehouse
+	// The name of the Snowﬂake warehouse.
 	Warehouse string `pulumi:"warehouse"`
 }
 
@@ -4432,21 +4253,21 @@ type ConnectorProfileSnowflakeConnectorProfilePropertiesInput interface {
 	ToConnectorProfileSnowflakeConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfileSnowflakeConnectorProfilePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html
 type ConnectorProfileSnowflakeConnectorProfilePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-accountname
+	// The name of the account.
 	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-bucketname
+	// The name of the Amazon S3 bucket associated with Snowﬂake.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-bucketprefix
+	// The bucket prefix that refers to the Amazon S3 bucket associated with Snowﬂake.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-privatelinkservicename
+	// The Snowﬂake Private Link service name to be used for private data transfers.
 	PrivateLinkServiceName pulumi.StringPtrInput `pulumi:"privateLinkServiceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-region
+	// The region of the Snowﬂake account.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-stage
+	// The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the
+	// Snowﬂake account. This is written in the following format: < Database>< Schema><Stage Name>.
 	Stage pulumi.StringInput `pulumi:"stage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-warehouse
+	// The name of the Snowﬂake warehouse.
 	Warehouse pulumi.StringInput `pulumi:"warehouse"`
 }
 
@@ -4503,7 +4324,6 @@ func (i *connectorProfileSnowflakeConnectorProfilePropertiesPtrType) ToConnector
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html
 type ConnectorProfileSnowflakeConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileSnowflakeConnectorProfilePropertiesOutput) ElementType() reflect.Type {
@@ -4528,37 +4348,38 @@ func (o ConnectorProfileSnowflakeConnectorProfilePropertiesOutput) ToConnectorPr
 	}).(ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-accountname
+// The name of the account.
 func (o ConnectorProfileSnowflakeConnectorProfilePropertiesOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSnowflakeConnectorProfileProperties) *string { return v.AccountName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-bucketname
+// The name of the Amazon S3 bucket associated with Snowﬂake.
 func (o ConnectorProfileSnowflakeConnectorProfilePropertiesOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileSnowflakeConnectorProfileProperties) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-bucketprefix
+// The bucket prefix that refers to the Amazon S3 bucket associated with Snowﬂake.
 func (o ConnectorProfileSnowflakeConnectorProfilePropertiesOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSnowflakeConnectorProfileProperties) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-privatelinkservicename
+// The Snowﬂake Private Link service name to be used for private data transfers.
 func (o ConnectorProfileSnowflakeConnectorProfilePropertiesOutput) PrivateLinkServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSnowflakeConnectorProfileProperties) *string { return v.PrivateLinkServiceName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-region
+// The region of the Snowﬂake account.
 func (o ConnectorProfileSnowflakeConnectorProfilePropertiesOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSnowflakeConnectorProfileProperties) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-stage
+// The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the
+// Snowﬂake account. This is written in the following format: < Database>< Schema><Stage Name>.
 func (o ConnectorProfileSnowflakeConnectorProfilePropertiesOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileSnowflakeConnectorProfileProperties) string { return v.Stage }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-warehouse
+// The name of the Snowﬂake warehouse.
 func (o ConnectorProfileSnowflakeConnectorProfilePropertiesOutput) Warehouse() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileSnowflakeConnectorProfileProperties) string { return v.Warehouse }).(pulumi.StringOutput)
 }
@@ -4587,7 +4408,7 @@ func (o ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput) Elem() Con
 	}).(ConnectorProfileSnowflakeConnectorProfilePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-accountname
+// The name of the account.
 func (o ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput) AccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSnowflakeConnectorProfileProperties) *string {
 		if v == nil {
@@ -4597,7 +4418,7 @@ func (o ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput) AccountNam
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-bucketname
+// The name of the Amazon S3 bucket associated with Snowﬂake.
 func (o ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSnowflakeConnectorProfileProperties) *string {
 		if v == nil {
@@ -4607,7 +4428,7 @@ func (o ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput) BucketName
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-bucketprefix
+// The bucket prefix that refers to the Amazon S3 bucket associated with Snowﬂake.
 func (o ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSnowflakeConnectorProfileProperties) *string {
 		if v == nil {
@@ -4617,7 +4438,7 @@ func (o ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput) BucketPref
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-privatelinkservicename
+// The Snowﬂake Private Link service name to be used for private data transfers.
 func (o ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput) PrivateLinkServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSnowflakeConnectorProfileProperties) *string {
 		if v == nil {
@@ -4627,7 +4448,7 @@ func (o ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput) PrivateLin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-region
+// The region of the Snowﬂake account.
 func (o ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSnowflakeConnectorProfileProperties) *string {
 		if v == nil {
@@ -4637,7 +4458,8 @@ func (o ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput) Region() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-stage
+// The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the
+// Snowﬂake account. This is written in the following format: < Database>< Schema><Stage Name>.
 func (o ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput) Stage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSnowflakeConnectorProfileProperties) *string {
 		if v == nil {
@@ -4647,7 +4469,7 @@ func (o ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput) Stage() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html#cfn-appflow-connectorprofile-snowflakeconnectorprofileproperties-warehouse
+// The name of the Snowﬂake warehouse.
 func (o ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput) Warehouse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSnowflakeConnectorProfileProperties) *string {
 		if v == nil {
@@ -4657,9 +4479,8 @@ func (o ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput) Warehouse(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html
 type ConnectorProfileTrendmicroConnectorProfileCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html#cfn-appflow-connectorprofile-trendmicroconnectorprofilecredentials-apisecretkey
+	// The Secret Access Key portion of the credentials.
 	ApiSecretKey string `pulumi:"apiSecretKey"`
 }
 
@@ -4674,9 +4495,8 @@ type ConnectorProfileTrendmicroConnectorProfileCredentialsInput interface {
 	ToConnectorProfileTrendmicroConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileTrendmicroConnectorProfileCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html
 type ConnectorProfileTrendmicroConnectorProfileCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html#cfn-appflow-connectorprofile-trendmicroconnectorprofilecredentials-apisecretkey
+	// The Secret Access Key portion of the credentials.
 	ApiSecretKey pulumi.StringInput `pulumi:"apiSecretKey"`
 }
 
@@ -4733,7 +4553,6 @@ func (i *connectorProfileTrendmicroConnectorProfileCredentialsPtrType) ToConnect
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html
 type ConnectorProfileTrendmicroConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileTrendmicroConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -4758,7 +4577,7 @@ func (o ConnectorProfileTrendmicroConnectorProfileCredentialsOutput) ToConnector
 	}).(ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html#cfn-appflow-connectorprofile-trendmicroconnectorprofilecredentials-apisecretkey
+// The Secret Access Key portion of the credentials.
 func (o ConnectorProfileTrendmicroConnectorProfileCredentialsOutput) ApiSecretKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileTrendmicroConnectorProfileCredentials) string { return v.ApiSecretKey }).(pulumi.StringOutput)
 }
@@ -4787,7 +4606,7 @@ func (o ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput) Elem() C
 	}).(ConnectorProfileTrendmicroConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html#cfn-appflow-connectorprofile-trendmicroconnectorprofilecredentials-apisecretkey
+// The Secret Access Key portion of the credentials.
 func (o ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput) ApiSecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileTrendmicroConnectorProfileCredentials) *string {
 		if v == nil {
@@ -4797,11 +4616,10 @@ func (o ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput) ApiSecre
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html
 type ConnectorProfileVeevaConnectorProfileCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html#cfn-appflow-connectorprofile-veevaconnectorprofilecredentials-password
+	// The password that corresponds to the username.
 	Password string `pulumi:"password"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html#cfn-appflow-connectorprofile-veevaconnectorprofilecredentials-username
+	// The name of the user.
 	Username string `pulumi:"username"`
 }
 
@@ -4816,11 +4634,10 @@ type ConnectorProfileVeevaConnectorProfileCredentialsInput interface {
 	ToConnectorProfileVeevaConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileVeevaConnectorProfileCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html
 type ConnectorProfileVeevaConnectorProfileCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html#cfn-appflow-connectorprofile-veevaconnectorprofilecredentials-password
+	// The password that corresponds to the username.
 	Password pulumi.StringInput `pulumi:"password"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html#cfn-appflow-connectorprofile-veevaconnectorprofilecredentials-username
+	// The name of the user.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -4877,7 +4694,6 @@ func (i *connectorProfileVeevaConnectorProfileCredentialsPtrType) ToConnectorPro
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html
 type ConnectorProfileVeevaConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileVeevaConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -4902,12 +4718,12 @@ func (o ConnectorProfileVeevaConnectorProfileCredentialsOutput) ToConnectorProfi
 	}).(ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html#cfn-appflow-connectorprofile-veevaconnectorprofilecredentials-password
+// The password that corresponds to the username.
 func (o ConnectorProfileVeevaConnectorProfileCredentialsOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileVeevaConnectorProfileCredentials) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html#cfn-appflow-connectorprofile-veevaconnectorprofilecredentials-username
+// The name of the user.
 func (o ConnectorProfileVeevaConnectorProfileCredentialsOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileVeevaConnectorProfileCredentials) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -4936,7 +4752,7 @@ func (o ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput) Elem() Connec
 	}).(ConnectorProfileVeevaConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html#cfn-appflow-connectorprofile-veevaconnectorprofilecredentials-password
+// The password that corresponds to the username.
 func (o ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileVeevaConnectorProfileCredentials) *string {
 		if v == nil {
@@ -4946,7 +4762,7 @@ func (o ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput) Password() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html#cfn-appflow-connectorprofile-veevaconnectorprofilecredentials-username
+// The name of the user.
 func (o ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileVeevaConnectorProfileCredentials) *string {
 		if v == nil {
@@ -4956,9 +4772,8 @@ func (o ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput) Username() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html
 type ConnectorProfileVeevaConnectorProfileProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html#cfn-appflow-connectorprofile-veevaconnectorprofileproperties-instanceurl
+	// The location of the Veeva resource
 	InstanceUrl string `pulumi:"instanceUrl"`
 }
 
@@ -4973,9 +4788,8 @@ type ConnectorProfileVeevaConnectorProfilePropertiesInput interface {
 	ToConnectorProfileVeevaConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfileVeevaConnectorProfilePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html
 type ConnectorProfileVeevaConnectorProfilePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html#cfn-appflow-connectorprofile-veevaconnectorprofileproperties-instanceurl
+	// The location of the Veeva resource
 	InstanceUrl pulumi.StringInput `pulumi:"instanceUrl"`
 }
 
@@ -5032,7 +4846,6 @@ func (i *connectorProfileVeevaConnectorProfilePropertiesPtrType) ToConnectorProf
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html
 type ConnectorProfileVeevaConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileVeevaConnectorProfilePropertiesOutput) ElementType() reflect.Type {
@@ -5057,7 +4870,7 @@ func (o ConnectorProfileVeevaConnectorProfilePropertiesOutput) ToConnectorProfil
 	}).(ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html#cfn-appflow-connectorprofile-veevaconnectorprofileproperties-instanceurl
+// The location of the Veeva resource
 func (o ConnectorProfileVeevaConnectorProfilePropertiesOutput) InstanceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileVeevaConnectorProfileProperties) string { return v.InstanceUrl }).(pulumi.StringOutput)
 }
@@ -5086,7 +4899,7 @@ func (o ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput) Elem() Connect
 	}).(ConnectorProfileVeevaConnectorProfilePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html#cfn-appflow-connectorprofile-veevaconnectorprofileproperties-instanceurl
+// The location of the Veeva resource
 func (o ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput) InstanceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileVeevaConnectorProfileProperties) *string {
 		if v == nil {
@@ -5096,15 +4909,14 @@ func (o ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput) InstanceUrl() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html
 type ConnectorProfileZendeskConnectorProfileCredentials struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-accesstoken
+	// The credentials used to access protected resources.
 	AccessToken *string `pulumi:"accessToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-clientid
+	// The identiﬁer for the desired client.
 	ClientId string `pulumi:"clientId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-clientsecret
+	// The client secret used by the oauth client to authenticate to the authorization server.
 	ClientSecret string `pulumi:"clientSecret"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-connectoroauthrequest
+	// The oauth needed to request security tokens from the connector endpoint.
 	ConnectorOAuthRequest *ConnectorProfileConnectorOAuthRequest `pulumi:"connectorOAuthRequest"`
 }
 
@@ -5119,15 +4931,14 @@ type ConnectorProfileZendeskConnectorProfileCredentialsInput interface {
 	ToConnectorProfileZendeskConnectorProfileCredentialsOutputWithContext(context.Context) ConnectorProfileZendeskConnectorProfileCredentialsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html
 type ConnectorProfileZendeskConnectorProfileCredentialsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-accesstoken
+	// The credentials used to access protected resources.
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-clientid
+	// The identiﬁer for the desired client.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-clientsecret
+	// The client secret used by the oauth client to authenticate to the authorization server.
 	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-connectoroauthrequest
+	// The oauth needed to request security tokens from the connector endpoint.
 	ConnectorOAuthRequest ConnectorProfileConnectorOAuthRequestPtrInput `pulumi:"connectorOAuthRequest"`
 }
 
@@ -5184,7 +4995,6 @@ func (i *connectorProfileZendeskConnectorProfileCredentialsPtrType) ToConnectorP
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html
 type ConnectorProfileZendeskConnectorProfileCredentialsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileZendeskConnectorProfileCredentialsOutput) ElementType() reflect.Type {
@@ -5209,22 +5019,22 @@ func (o ConnectorProfileZendeskConnectorProfileCredentialsOutput) ToConnectorPro
 	}).(ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-accesstoken
+// The credentials used to access protected resources.
 func (o ConnectorProfileZendeskConnectorProfileCredentialsOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileZendeskConnectorProfileCredentials) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-clientid
+// The identiﬁer for the desired client.
 func (o ConnectorProfileZendeskConnectorProfileCredentialsOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileZendeskConnectorProfileCredentials) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-clientsecret
+// The client secret used by the oauth client to authenticate to the authorization server.
 func (o ConnectorProfileZendeskConnectorProfileCredentialsOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileZendeskConnectorProfileCredentials) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-connectoroauthrequest
+// The oauth needed to request security tokens from the connector endpoint.
 func (o ConnectorProfileZendeskConnectorProfileCredentialsOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileZendeskConnectorProfileCredentials) *ConnectorProfileConnectorOAuthRequest {
 		return v.ConnectorOAuthRequest
@@ -5255,7 +5065,7 @@ func (o ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput) Elem() Conn
 	}).(ConnectorProfileZendeskConnectorProfileCredentialsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-accesstoken
+// The credentials used to access protected resources.
 func (o ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput) AccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileZendeskConnectorProfileCredentials) *string {
 		if v == nil {
@@ -5265,7 +5075,7 @@ func (o ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput) AccessToken
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-clientid
+// The identiﬁer for the desired client.
 func (o ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileZendeskConnectorProfileCredentials) *string {
 		if v == nil {
@@ -5275,7 +5085,7 @@ func (o ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput) ClientId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-clientsecret
+// The client secret used by the oauth client to authenticate to the authorization server.
 func (o ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileZendeskConnectorProfileCredentials) *string {
 		if v == nil {
@@ -5285,7 +5095,7 @@ func (o ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput) ClientSecre
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html#cfn-appflow-connectorprofile-zendeskconnectorprofilecredentials-connectoroauthrequest
+// The oauth needed to request security tokens from the connector endpoint.
 func (o ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileZendeskConnectorProfileCredentials) *ConnectorProfileConnectorOAuthRequest {
 		if v == nil {
@@ -5295,9 +5105,8 @@ func (o ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput) ConnectorOA
 	}).(ConnectorProfileConnectorOAuthRequestPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html
 type ConnectorProfileZendeskConnectorProfileProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html#cfn-appflow-connectorprofile-zendeskconnectorprofileproperties-instanceurl
+	// The location of the Zendesk resource
 	InstanceUrl string `pulumi:"instanceUrl"`
 }
 
@@ -5312,9 +5121,8 @@ type ConnectorProfileZendeskConnectorProfilePropertiesInput interface {
 	ToConnectorProfileZendeskConnectorProfilePropertiesOutputWithContext(context.Context) ConnectorProfileZendeskConnectorProfilePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html
 type ConnectorProfileZendeskConnectorProfilePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html#cfn-appflow-connectorprofile-zendeskconnectorprofileproperties-instanceurl
+	// The location of the Zendesk resource
 	InstanceUrl pulumi.StringInput `pulumi:"instanceUrl"`
 }
 
@@ -5371,7 +5179,6 @@ func (i *connectorProfileZendeskConnectorProfilePropertiesPtrType) ToConnectorPr
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html
 type ConnectorProfileZendeskConnectorProfilePropertiesOutput struct{ *pulumi.OutputState }
 
 func (ConnectorProfileZendeskConnectorProfilePropertiesOutput) ElementType() reflect.Type {
@@ -5396,7 +5203,7 @@ func (o ConnectorProfileZendeskConnectorProfilePropertiesOutput) ToConnectorProf
 	}).(ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html#cfn-appflow-connectorprofile-zendeskconnectorprofileproperties-instanceurl
+// The location of the Zendesk resource
 func (o ConnectorProfileZendeskConnectorProfilePropertiesOutput) InstanceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorProfileZendeskConnectorProfileProperties) string { return v.InstanceUrl }).(pulumi.StringOutput)
 }
@@ -5425,7 +5232,7 @@ func (o ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput) Elem() Conne
 	}).(ConnectorProfileZendeskConnectorProfilePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html#cfn-appflow-connectorprofile-zendeskconnectorprofileproperties-instanceurl
+// The location of the Zendesk resource
 func (o ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput) InstanceUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileZendeskConnectorProfileProperties) *string {
 		if v == nil {
@@ -5435,9 +5242,7 @@ func (o ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput) InstanceUrl(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html
 type FlowAggregationConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html#cfn-appflow-flow-aggregationconfig-aggregationtype
 	AggregationType *string `pulumi:"aggregationType"`
 }
 
@@ -5452,9 +5257,7 @@ type FlowAggregationConfigInput interface {
 	ToFlowAggregationConfigOutputWithContext(context.Context) FlowAggregationConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html
 type FlowAggregationConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html#cfn-appflow-flow-aggregationconfig-aggregationtype
 	AggregationType pulumi.StringPtrInput `pulumi:"aggregationType"`
 }
 
@@ -5511,7 +5314,6 @@ func (i *flowAggregationConfigPtrType) ToFlowAggregationConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FlowAggregationConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html
 type FlowAggregationConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowAggregationConfigOutput) ElementType() reflect.Type {
@@ -5536,7 +5338,6 @@ func (o FlowAggregationConfigOutput) ToFlowAggregationConfigPtrOutputWithContext
 	}).(FlowAggregationConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html#cfn-appflow-flow-aggregationconfig-aggregationtype
 func (o FlowAggregationConfigOutput) AggregationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowAggregationConfig) *string { return v.AggregationType }).(pulumi.StringPtrOutput)
 }
@@ -5565,7 +5366,6 @@ func (o FlowAggregationConfigPtrOutput) Elem() FlowAggregationConfigOutput {
 	}).(FlowAggregationConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html#cfn-appflow-flow-aggregationconfig-aggregationtype
 func (o FlowAggregationConfigPtrOutput) AggregationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowAggregationConfig) *string {
 		if v == nil {
@@ -5575,9 +5375,7 @@ func (o FlowAggregationConfigPtrOutput) AggregationType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-amplitudesourceproperties.html
 type FlowAmplitudeSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-amplitudesourceproperties.html#cfn-appflow-flow-amplitudesourceproperties-object
 	Object string `pulumi:"object"`
 }
 
@@ -5592,9 +5390,7 @@ type FlowAmplitudeSourcePropertiesInput interface {
 	ToFlowAmplitudeSourcePropertiesOutputWithContext(context.Context) FlowAmplitudeSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-amplitudesourceproperties.html
 type FlowAmplitudeSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-amplitudesourceproperties.html#cfn-appflow-flow-amplitudesourceproperties-object
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -5651,7 +5447,6 @@ func (i *flowAmplitudeSourcePropertiesPtrType) ToFlowAmplitudeSourcePropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(FlowAmplitudeSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-amplitudesourceproperties.html
 type FlowAmplitudeSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowAmplitudeSourcePropertiesOutput) ElementType() reflect.Type {
@@ -5676,7 +5471,6 @@ func (o FlowAmplitudeSourcePropertiesOutput) ToFlowAmplitudeSourcePropertiesPtrO
 	}).(FlowAmplitudeSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-amplitudesourceproperties.html#cfn-appflow-flow-amplitudesourceproperties-object
 func (o FlowAmplitudeSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowAmplitudeSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -5705,7 +5499,6 @@ func (o FlowAmplitudeSourcePropertiesPtrOutput) Elem() FlowAmplitudeSourceProper
 	}).(FlowAmplitudeSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-amplitudesourceproperties.html#cfn-appflow-flow-amplitudesourceproperties-object
 func (o FlowAmplitudeSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowAmplitudeSourceProperties) *string {
 		if v == nil {
@@ -5715,36 +5508,22 @@ func (o FlowAmplitudeSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html
+// Operation to be performed on provided source fields
 type FlowConnectorOperator struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-amplitude
-	Amplitude *string `pulumi:"amplitude"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-datadog
-	Datadog *string `pulumi:"datadog"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-dynatrace
-	Dynatrace *string `pulumi:"dynatrace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-googleanalytics
+	Amplitude       *string `pulumi:"amplitude"`
+	Datadog         *string `pulumi:"datadog"`
+	Dynatrace       *string `pulumi:"dynatrace"`
 	GoogleAnalytics *string `pulumi:"googleAnalytics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-infornexus
-	InforNexus *string `pulumi:"inforNexus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-marketo
-	Marketo *string `pulumi:"marketo"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-s3
-	S3 *string `pulumi:"s3"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-salesforce
-	Salesforce *string `pulumi:"salesforce"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-servicenow
-	ServiceNow *string `pulumi:"serviceNow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-singular
-	Singular *string `pulumi:"singular"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-slack
-	Slack *string `pulumi:"slack"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-trendmicro
-	Trendmicro *string `pulumi:"trendmicro"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-veeva
-	Veeva *string `pulumi:"veeva"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-zendesk
-	Zendesk *string `pulumi:"zendesk"`
+	InforNexus      *string `pulumi:"inforNexus"`
+	Marketo         *string `pulumi:"marketo"`
+	S3              *string `pulumi:"s3"`
+	Salesforce      *string `pulumi:"salesforce"`
+	ServiceNow      *string `pulumi:"serviceNow"`
+	Singular        *string `pulumi:"singular"`
+	Slack           *string `pulumi:"slack"`
+	Trendmicro      *string `pulumi:"trendmicro"`
+	Veeva           *string `pulumi:"veeva"`
+	Zendesk         *string `pulumi:"zendesk"`
 }
 
 // FlowConnectorOperatorInput is an input type that accepts FlowConnectorOperatorArgs and FlowConnectorOperatorOutput values.
@@ -5758,36 +5537,22 @@ type FlowConnectorOperatorInput interface {
 	ToFlowConnectorOperatorOutputWithContext(context.Context) FlowConnectorOperatorOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html
+// Operation to be performed on provided source fields
 type FlowConnectorOperatorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-amplitude
-	Amplitude pulumi.StringPtrInput `pulumi:"amplitude"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-datadog
-	Datadog pulumi.StringPtrInput `pulumi:"datadog"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-dynatrace
-	Dynatrace pulumi.StringPtrInput `pulumi:"dynatrace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-googleanalytics
+	Amplitude       pulumi.StringPtrInput `pulumi:"amplitude"`
+	Datadog         pulumi.StringPtrInput `pulumi:"datadog"`
+	Dynatrace       pulumi.StringPtrInput `pulumi:"dynatrace"`
 	GoogleAnalytics pulumi.StringPtrInput `pulumi:"googleAnalytics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-infornexus
-	InforNexus pulumi.StringPtrInput `pulumi:"inforNexus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-marketo
-	Marketo pulumi.StringPtrInput `pulumi:"marketo"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-s3
-	S3 pulumi.StringPtrInput `pulumi:"s3"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-salesforce
-	Salesforce pulumi.StringPtrInput `pulumi:"salesforce"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-servicenow
-	ServiceNow pulumi.StringPtrInput `pulumi:"serviceNow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-singular
-	Singular pulumi.StringPtrInput `pulumi:"singular"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-slack
-	Slack pulumi.StringPtrInput `pulumi:"slack"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-trendmicro
-	Trendmicro pulumi.StringPtrInput `pulumi:"trendmicro"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-veeva
-	Veeva pulumi.StringPtrInput `pulumi:"veeva"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-zendesk
-	Zendesk pulumi.StringPtrInput `pulumi:"zendesk"`
+	InforNexus      pulumi.StringPtrInput `pulumi:"inforNexus"`
+	Marketo         pulumi.StringPtrInput `pulumi:"marketo"`
+	S3              pulumi.StringPtrInput `pulumi:"s3"`
+	Salesforce      pulumi.StringPtrInput `pulumi:"salesforce"`
+	ServiceNow      pulumi.StringPtrInput `pulumi:"serviceNow"`
+	Singular        pulumi.StringPtrInput `pulumi:"singular"`
+	Slack           pulumi.StringPtrInput `pulumi:"slack"`
+	Trendmicro      pulumi.StringPtrInput `pulumi:"trendmicro"`
+	Veeva           pulumi.StringPtrInput `pulumi:"veeva"`
+	Zendesk         pulumi.StringPtrInput `pulumi:"zendesk"`
 }
 
 func (FlowConnectorOperatorArgs) ElementType() reflect.Type {
@@ -5843,7 +5608,7 @@ func (i *flowConnectorOperatorPtrType) ToFlowConnectorOperatorPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FlowConnectorOperatorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html
+// Operation to be performed on provided source fields
 type FlowConnectorOperatorOutput struct{ *pulumi.OutputState }
 
 func (FlowConnectorOperatorOutput) ElementType() reflect.Type {
@@ -5868,72 +5633,58 @@ func (o FlowConnectorOperatorOutput) ToFlowConnectorOperatorPtrOutputWithContext
 	}).(FlowConnectorOperatorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-amplitude
 func (o FlowConnectorOperatorOutput) Amplitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Amplitude }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-datadog
 func (o FlowConnectorOperatorOutput) Datadog() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Datadog }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-dynatrace
 func (o FlowConnectorOperatorOutput) Dynatrace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Dynatrace }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-googleanalytics
 func (o FlowConnectorOperatorOutput) GoogleAnalytics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.GoogleAnalytics }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-infornexus
 func (o FlowConnectorOperatorOutput) InforNexus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.InforNexus }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-marketo
 func (o FlowConnectorOperatorOutput) Marketo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Marketo }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-s3
 func (o FlowConnectorOperatorOutput) S3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.S3 }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-salesforce
 func (o FlowConnectorOperatorOutput) Salesforce() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Salesforce }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-servicenow
 func (o FlowConnectorOperatorOutput) ServiceNow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.ServiceNow }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-singular
 func (o FlowConnectorOperatorOutput) Singular() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Singular }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-slack
 func (o FlowConnectorOperatorOutput) Slack() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Slack }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-trendmicro
 func (o FlowConnectorOperatorOutput) Trendmicro() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Trendmicro }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-veeva
 func (o FlowConnectorOperatorOutput) Veeva() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Veeva }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-zendesk
 func (o FlowConnectorOperatorOutput) Zendesk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowConnectorOperator) *string { return v.Zendesk }).(pulumi.StringPtrOutput)
 }
@@ -5962,7 +5713,6 @@ func (o FlowConnectorOperatorPtrOutput) Elem() FlowConnectorOperatorOutput {
 	}).(FlowConnectorOperatorOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-amplitude
 func (o FlowConnectorOperatorPtrOutput) Amplitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowConnectorOperator) *string {
 		if v == nil {
@@ -5972,7 +5722,6 @@ func (o FlowConnectorOperatorPtrOutput) Amplitude() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-datadog
 func (o FlowConnectorOperatorPtrOutput) Datadog() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowConnectorOperator) *string {
 		if v == nil {
@@ -5982,7 +5731,6 @@ func (o FlowConnectorOperatorPtrOutput) Datadog() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-dynatrace
 func (o FlowConnectorOperatorPtrOutput) Dynatrace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowConnectorOperator) *string {
 		if v == nil {
@@ -5992,7 +5740,6 @@ func (o FlowConnectorOperatorPtrOutput) Dynatrace() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-googleanalytics
 func (o FlowConnectorOperatorPtrOutput) GoogleAnalytics() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowConnectorOperator) *string {
 		if v == nil {
@@ -6002,7 +5749,6 @@ func (o FlowConnectorOperatorPtrOutput) GoogleAnalytics() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-infornexus
 func (o FlowConnectorOperatorPtrOutput) InforNexus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowConnectorOperator) *string {
 		if v == nil {
@@ -6012,7 +5758,6 @@ func (o FlowConnectorOperatorPtrOutput) InforNexus() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-marketo
 func (o FlowConnectorOperatorPtrOutput) Marketo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowConnectorOperator) *string {
 		if v == nil {
@@ -6022,7 +5767,6 @@ func (o FlowConnectorOperatorPtrOutput) Marketo() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-s3
 func (o FlowConnectorOperatorPtrOutput) S3() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowConnectorOperator) *string {
 		if v == nil {
@@ -6032,7 +5776,6 @@ func (o FlowConnectorOperatorPtrOutput) S3() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-salesforce
 func (o FlowConnectorOperatorPtrOutput) Salesforce() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowConnectorOperator) *string {
 		if v == nil {
@@ -6042,7 +5785,6 @@ func (o FlowConnectorOperatorPtrOutput) Salesforce() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-servicenow
 func (o FlowConnectorOperatorPtrOutput) ServiceNow() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowConnectorOperator) *string {
 		if v == nil {
@@ -6052,7 +5794,6 @@ func (o FlowConnectorOperatorPtrOutput) ServiceNow() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-singular
 func (o FlowConnectorOperatorPtrOutput) Singular() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowConnectorOperator) *string {
 		if v == nil {
@@ -6062,7 +5803,6 @@ func (o FlowConnectorOperatorPtrOutput) Singular() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-slack
 func (o FlowConnectorOperatorPtrOutput) Slack() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowConnectorOperator) *string {
 		if v == nil {
@@ -6072,7 +5812,6 @@ func (o FlowConnectorOperatorPtrOutput) Slack() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-trendmicro
 func (o FlowConnectorOperatorPtrOutput) Trendmicro() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowConnectorOperator) *string {
 		if v == nil {
@@ -6082,7 +5821,6 @@ func (o FlowConnectorOperatorPtrOutput) Trendmicro() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-veeva
 func (o FlowConnectorOperatorPtrOutput) Veeva() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowConnectorOperator) *string {
 		if v == nil {
@@ -6092,7 +5830,6 @@ func (o FlowConnectorOperatorPtrOutput) Veeva() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html#cfn-appflow-flow-connectoroperator-zendesk
 func (o FlowConnectorOperatorPtrOutput) Zendesk() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowConnectorOperator) *string {
 		if v == nil {
@@ -6102,9 +5839,7 @@ func (o FlowConnectorOperatorPtrOutput) Zendesk() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datadogsourceproperties.html
 type FlowDatadogSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datadogsourceproperties.html#cfn-appflow-flow-datadogsourceproperties-object
 	Object string `pulumi:"object"`
 }
 
@@ -6119,9 +5854,7 @@ type FlowDatadogSourcePropertiesInput interface {
 	ToFlowDatadogSourcePropertiesOutputWithContext(context.Context) FlowDatadogSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datadogsourceproperties.html
 type FlowDatadogSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datadogsourceproperties.html#cfn-appflow-flow-datadogsourceproperties-object
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -6178,7 +5911,6 @@ func (i *flowDatadogSourcePropertiesPtrType) ToFlowDatadogSourcePropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDatadogSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datadogsourceproperties.html
 type FlowDatadogSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowDatadogSourcePropertiesOutput) ElementType() reflect.Type {
@@ -6203,7 +5935,6 @@ func (o FlowDatadogSourcePropertiesOutput) ToFlowDatadogSourcePropertiesPtrOutpu
 	}).(FlowDatadogSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datadogsourceproperties.html#cfn-appflow-flow-datadogsourceproperties-object
 func (o FlowDatadogSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDatadogSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -6232,7 +5963,6 @@ func (o FlowDatadogSourcePropertiesPtrOutput) Elem() FlowDatadogSourceProperties
 	}).(FlowDatadogSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datadogsourceproperties.html#cfn-appflow-flow-datadogsourceproperties-object
 func (o FlowDatadogSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDatadogSourceProperties) *string {
 		if v == nil {
@@ -6242,24 +5972,16 @@ func (o FlowDatadogSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html
+// Destination connector details
 type FlowDestinationConnectorProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-eventbridge
-	EventBridge *FlowEventBridgeDestinationProperties `pulumi:"eventBridge"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-lookoutmetrics
+	EventBridge    *FlowEventBridgeDestinationProperties    `pulumi:"eventBridge"`
 	LookoutMetrics *FlowLookoutMetricsDestinationProperties `pulumi:"lookoutMetrics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
-	Redshift *FlowRedshiftDestinationProperties `pulumi:"redshift"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-s3
-	S3 *FlowS3DestinationProperties `pulumi:"s3"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-salesforce
-	Salesforce *FlowSalesforceDestinationProperties `pulumi:"salesforce"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-snowflake
-	Snowflake *FlowSnowflakeDestinationProperties `pulumi:"snowflake"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
-	Upsolver *FlowUpsolverDestinationProperties `pulumi:"upsolver"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-zendesk
-	Zendesk *FlowZendeskDestinationProperties `pulumi:"zendesk"`
+	Redshift       *FlowRedshiftDestinationProperties       `pulumi:"redshift"`
+	S3             *FlowS3DestinationProperties             `pulumi:"s3"`
+	Salesforce     *FlowSalesforceDestinationProperties     `pulumi:"salesforce"`
+	Snowflake      *FlowSnowflakeDestinationProperties      `pulumi:"snowflake"`
+	Upsolver       *FlowUpsolverDestinationProperties       `pulumi:"upsolver"`
+	Zendesk        *FlowZendeskDestinationProperties        `pulumi:"zendesk"`
 }
 
 // FlowDestinationConnectorPropertiesInput is an input type that accepts FlowDestinationConnectorPropertiesArgs and FlowDestinationConnectorPropertiesOutput values.
@@ -6273,24 +5995,16 @@ type FlowDestinationConnectorPropertiesInput interface {
 	ToFlowDestinationConnectorPropertiesOutputWithContext(context.Context) FlowDestinationConnectorPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html
+// Destination connector details
 type FlowDestinationConnectorPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-eventbridge
-	EventBridge FlowEventBridgeDestinationPropertiesPtrInput `pulumi:"eventBridge"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-lookoutmetrics
+	EventBridge    FlowEventBridgeDestinationPropertiesPtrInput    `pulumi:"eventBridge"`
 	LookoutMetrics FlowLookoutMetricsDestinationPropertiesPtrInput `pulumi:"lookoutMetrics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
-	Redshift FlowRedshiftDestinationPropertiesPtrInput `pulumi:"redshift"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-s3
-	S3 FlowS3DestinationPropertiesPtrInput `pulumi:"s3"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-salesforce
-	Salesforce FlowSalesforceDestinationPropertiesPtrInput `pulumi:"salesforce"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-snowflake
-	Snowflake FlowSnowflakeDestinationPropertiesPtrInput `pulumi:"snowflake"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
-	Upsolver FlowUpsolverDestinationPropertiesPtrInput `pulumi:"upsolver"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-zendesk
-	Zendesk FlowZendeskDestinationPropertiesPtrInput `pulumi:"zendesk"`
+	Redshift       FlowRedshiftDestinationPropertiesPtrInput       `pulumi:"redshift"`
+	S3             FlowS3DestinationPropertiesPtrInput             `pulumi:"s3"`
+	Salesforce     FlowSalesforceDestinationPropertiesPtrInput     `pulumi:"salesforce"`
+	Snowflake      FlowSnowflakeDestinationPropertiesPtrInput      `pulumi:"snowflake"`
+	Upsolver       FlowUpsolverDestinationPropertiesPtrInput       `pulumi:"upsolver"`
+	Zendesk        FlowZendeskDestinationPropertiesPtrInput        `pulumi:"zendesk"`
 }
 
 func (FlowDestinationConnectorPropertiesArgs) ElementType() reflect.Type {
@@ -6305,7 +6019,7 @@ func (i FlowDestinationConnectorPropertiesArgs) ToFlowDestinationConnectorProper
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationConnectorPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html
+// Destination connector details
 type FlowDestinationConnectorPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationConnectorPropertiesOutput) ElementType() reflect.Type {
@@ -6320,55 +6034,47 @@ func (o FlowDestinationConnectorPropertiesOutput) ToFlowDestinationConnectorProp
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-eventbridge
 func (o FlowDestinationConnectorPropertiesOutput) EventBridge() FlowEventBridgeDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowEventBridgeDestinationProperties { return v.EventBridge }).(FlowEventBridgeDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-lookoutmetrics
 func (o FlowDestinationConnectorPropertiesOutput) LookoutMetrics() FlowLookoutMetricsDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowLookoutMetricsDestinationProperties {
 		return v.LookoutMetrics
 	}).(FlowLookoutMetricsDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-redshift
 func (o FlowDestinationConnectorPropertiesOutput) Redshift() FlowRedshiftDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowRedshiftDestinationProperties { return v.Redshift }).(FlowRedshiftDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-s3
 func (o FlowDestinationConnectorPropertiesOutput) S3() FlowS3DestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowS3DestinationProperties { return v.S3 }).(FlowS3DestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-salesforce
 func (o FlowDestinationConnectorPropertiesOutput) Salesforce() FlowSalesforceDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowSalesforceDestinationProperties { return v.Salesforce }).(FlowSalesforceDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-snowflake
 func (o FlowDestinationConnectorPropertiesOutput) Snowflake() FlowSnowflakeDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowSnowflakeDestinationProperties { return v.Snowflake }).(FlowSnowflakeDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-upsolver
 func (o FlowDestinationConnectorPropertiesOutput) Upsolver() FlowUpsolverDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowUpsolverDestinationProperties { return v.Upsolver }).(FlowUpsolverDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html#cfn-appflow-flow-destinationconnectorproperties-zendesk
 func (o FlowDestinationConnectorPropertiesOutput) Zendesk() FlowZendeskDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowZendeskDestinationProperties { return v.Zendesk }).(FlowZendeskDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html
+// Configurations of destination connector.
 type FlowDestinationFlowConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectorprofilename
+	// Name of destination connector profile
 	ConnectorProfileName *string `pulumi:"connectorProfileName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectortype
+	// Destination connector type
 	ConnectorType string `pulumi:"connectorType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-destinationconnectorproperties
+	// Destination connector details
 	DestinationConnectorProperties FlowDestinationConnectorProperties `pulumi:"destinationConnectorProperties"`
 }
 
@@ -6383,13 +6089,13 @@ type FlowDestinationFlowConfigInput interface {
 	ToFlowDestinationFlowConfigOutputWithContext(context.Context) FlowDestinationFlowConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html
+// Configurations of destination connector.
 type FlowDestinationFlowConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectorprofilename
+	// Name of destination connector profile
 	ConnectorProfileName pulumi.StringPtrInput `pulumi:"connectorProfileName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectortype
+	// Destination connector type
 	ConnectorType pulumi.StringInput `pulumi:"connectorType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-destinationconnectorproperties
+	// Destination connector details
 	DestinationConnectorProperties FlowDestinationConnectorPropertiesInput `pulumi:"destinationConnectorProperties"`
 }
 
@@ -6430,7 +6136,7 @@ func (i FlowDestinationFlowConfigArray) ToFlowDestinationFlowConfigArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDestinationFlowConfigArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html
+// Configurations of destination connector.
 type FlowDestinationFlowConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDestinationFlowConfigOutput) ElementType() reflect.Type {
@@ -6445,17 +6151,17 @@ func (o FlowDestinationFlowConfigOutput) ToFlowDestinationFlowConfigOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectorprofilename
+// Name of destination connector profile
 func (o FlowDestinationFlowConfigOutput) ConnectorProfileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfig) *string { return v.ConnectorProfileName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectortype
+// Destination connector type
 func (o FlowDestinationFlowConfigOutput) ConnectorType() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfig) string { return v.ConnectorType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-destinationconnectorproperties
+// Destination connector details
 func (o FlowDestinationFlowConfigOutput) DestinationConnectorProperties() FlowDestinationConnectorPropertiesOutput {
 	return o.ApplyT(func(v FlowDestinationFlowConfig) FlowDestinationConnectorProperties {
 		return v.DestinationConnectorProperties
@@ -6482,9 +6188,7 @@ func (o FlowDestinationFlowConfigArrayOutput) Index(i pulumi.IntInput) FlowDesti
 	}).(FlowDestinationFlowConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-dynatracesourceproperties.html
 type FlowDynatraceSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-dynatracesourceproperties.html#cfn-appflow-flow-dynatracesourceproperties-object
 	Object string `pulumi:"object"`
 }
 
@@ -6499,9 +6203,7 @@ type FlowDynatraceSourcePropertiesInput interface {
 	ToFlowDynatraceSourcePropertiesOutputWithContext(context.Context) FlowDynatraceSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-dynatracesourceproperties.html
 type FlowDynatraceSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-dynatracesourceproperties.html#cfn-appflow-flow-dynatracesourceproperties-object
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -6558,7 +6260,6 @@ func (i *flowDynatraceSourcePropertiesPtrType) ToFlowDynatraceSourcePropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDynatraceSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-dynatracesourceproperties.html
 type FlowDynatraceSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowDynatraceSourcePropertiesOutput) ElementType() reflect.Type {
@@ -6583,7 +6284,6 @@ func (o FlowDynatraceSourcePropertiesOutput) ToFlowDynatraceSourcePropertiesPtrO
 	}).(FlowDynatraceSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-dynatracesourceproperties.html#cfn-appflow-flow-dynatracesourceproperties-object
 func (o FlowDynatraceSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDynatraceSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -6612,7 +6312,6 @@ func (o FlowDynatraceSourcePropertiesPtrOutput) Elem() FlowDynatraceSourceProper
 	}).(FlowDynatraceSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-dynatracesourceproperties.html#cfn-appflow-flow-dynatracesourceproperties-object
 func (o FlowDynatraceSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowDynatraceSourceProperties) *string {
 		if v == nil {
@@ -6622,14 +6321,10 @@ func (o FlowDynatraceSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html
 type FlowErrorHandlingConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-bucketname
-	BucketName *string `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-bucketprefix
-	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-failonfirsterror
-	FailOnFirstError *bool `pulumi:"failOnFirstError"`
+	BucketName       *string `pulumi:"bucketName"`
+	BucketPrefix     *string `pulumi:"bucketPrefix"`
+	FailOnFirstError *bool   `pulumi:"failOnFirstError"`
 }
 
 // FlowErrorHandlingConfigInput is an input type that accepts FlowErrorHandlingConfigArgs and FlowErrorHandlingConfigOutput values.
@@ -6643,14 +6338,10 @@ type FlowErrorHandlingConfigInput interface {
 	ToFlowErrorHandlingConfigOutputWithContext(context.Context) FlowErrorHandlingConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html
 type FlowErrorHandlingConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-bucketname
-	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-bucketprefix
-	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-failonfirsterror
-	FailOnFirstError pulumi.BoolPtrInput `pulumi:"failOnFirstError"`
+	BucketName       pulumi.StringPtrInput `pulumi:"bucketName"`
+	BucketPrefix     pulumi.StringPtrInput `pulumi:"bucketPrefix"`
+	FailOnFirstError pulumi.BoolPtrInput   `pulumi:"failOnFirstError"`
 }
 
 func (FlowErrorHandlingConfigArgs) ElementType() reflect.Type {
@@ -6706,7 +6397,6 @@ func (i *flowErrorHandlingConfigPtrType) ToFlowErrorHandlingConfigPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FlowErrorHandlingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html
 type FlowErrorHandlingConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowErrorHandlingConfigOutput) ElementType() reflect.Type {
@@ -6731,17 +6421,14 @@ func (o FlowErrorHandlingConfigOutput) ToFlowErrorHandlingConfigPtrOutputWithCon
 	}).(FlowErrorHandlingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-bucketname
 func (o FlowErrorHandlingConfigOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowErrorHandlingConfig) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-bucketprefix
 func (o FlowErrorHandlingConfigOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowErrorHandlingConfig) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-failonfirsterror
 func (o FlowErrorHandlingConfigOutput) FailOnFirstError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowErrorHandlingConfig) *bool { return v.FailOnFirstError }).(pulumi.BoolPtrOutput)
 }
@@ -6770,7 +6457,6 @@ func (o FlowErrorHandlingConfigPtrOutput) Elem() FlowErrorHandlingConfigOutput {
 	}).(FlowErrorHandlingConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-bucketname
 func (o FlowErrorHandlingConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowErrorHandlingConfig) *string {
 		if v == nil {
@@ -6780,7 +6466,6 @@ func (o FlowErrorHandlingConfigPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-bucketprefix
 func (o FlowErrorHandlingConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowErrorHandlingConfig) *string {
 		if v == nil {
@@ -6790,7 +6475,6 @@ func (o FlowErrorHandlingConfigPtrOutput) BucketPrefix() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html#cfn-appflow-flow-errorhandlingconfig-failonfirsterror
 func (o FlowErrorHandlingConfigPtrOutput) FailOnFirstError() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowErrorHandlingConfig) *bool {
 		if v == nil {
@@ -6800,12 +6484,9 @@ func (o FlowErrorHandlingConfigPtrOutput) FailOnFirstError() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html
 type FlowEventBridgeDestinationProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-errorhandlingconfig
 	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-object
-	Object string `pulumi:"object"`
+	Object              string                   `pulumi:"object"`
 }
 
 // FlowEventBridgeDestinationPropertiesInput is an input type that accepts FlowEventBridgeDestinationPropertiesArgs and FlowEventBridgeDestinationPropertiesOutput values.
@@ -6819,12 +6500,9 @@ type FlowEventBridgeDestinationPropertiesInput interface {
 	ToFlowEventBridgeDestinationPropertiesOutputWithContext(context.Context) FlowEventBridgeDestinationPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html
 type FlowEventBridgeDestinationPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-errorhandlingconfig
 	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-object
-	Object pulumi.StringInput `pulumi:"object"`
+	Object              pulumi.StringInput              `pulumi:"object"`
 }
 
 func (FlowEventBridgeDestinationPropertiesArgs) ElementType() reflect.Type {
@@ -6880,7 +6558,6 @@ func (i *flowEventBridgeDestinationPropertiesPtrType) ToFlowEventBridgeDestinati
 	return pulumi.ToOutputWithContext(ctx, i).(FlowEventBridgeDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html
 type FlowEventBridgeDestinationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowEventBridgeDestinationPropertiesOutput) ElementType() reflect.Type {
@@ -6905,12 +6582,10 @@ func (o FlowEventBridgeDestinationPropertiesOutput) ToFlowEventBridgeDestination
 	}).(FlowEventBridgeDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-errorhandlingconfig
 func (o FlowEventBridgeDestinationPropertiesOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowEventBridgeDestinationProperties) *FlowErrorHandlingConfig { return v.ErrorHandlingConfig }).(FlowErrorHandlingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-object
 func (o FlowEventBridgeDestinationPropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowEventBridgeDestinationProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -6939,7 +6614,6 @@ func (o FlowEventBridgeDestinationPropertiesPtrOutput) Elem() FlowEventBridgeDes
 	}).(FlowEventBridgeDestinationPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-errorhandlingconfig
 func (o FlowEventBridgeDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowEventBridgeDestinationProperties) *FlowErrorHandlingConfig {
 		if v == nil {
@@ -6949,7 +6623,6 @@ func (o FlowEventBridgeDestinationPropertiesPtrOutput) ErrorHandlingConfig() Flo
 	}).(FlowErrorHandlingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html#cfn-appflow-flow-eventbridgedestinationproperties-object
 func (o FlowEventBridgeDestinationPropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowEventBridgeDestinationProperties) *string {
 		if v == nil {
@@ -6959,9 +6632,7 @@ func (o FlowEventBridgeDestinationPropertiesPtrOutput) Object() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html
 type FlowGoogleAnalyticsSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html#cfn-appflow-flow-googleanalyticssourceproperties-object
 	Object string `pulumi:"object"`
 }
 
@@ -6976,9 +6647,7 @@ type FlowGoogleAnalyticsSourcePropertiesInput interface {
 	ToFlowGoogleAnalyticsSourcePropertiesOutputWithContext(context.Context) FlowGoogleAnalyticsSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html
 type FlowGoogleAnalyticsSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html#cfn-appflow-flow-googleanalyticssourceproperties-object
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -7035,7 +6704,6 @@ func (i *flowGoogleAnalyticsSourcePropertiesPtrType) ToFlowGoogleAnalyticsSource
 	return pulumi.ToOutputWithContext(ctx, i).(FlowGoogleAnalyticsSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html
 type FlowGoogleAnalyticsSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowGoogleAnalyticsSourcePropertiesOutput) ElementType() reflect.Type {
@@ -7060,7 +6728,6 @@ func (o FlowGoogleAnalyticsSourcePropertiesOutput) ToFlowGoogleAnalyticsSourcePr
 	}).(FlowGoogleAnalyticsSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html#cfn-appflow-flow-googleanalyticssourceproperties-object
 func (o FlowGoogleAnalyticsSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowGoogleAnalyticsSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -7089,7 +6756,6 @@ func (o FlowGoogleAnalyticsSourcePropertiesPtrOutput) Elem() FlowGoogleAnalytics
 	}).(FlowGoogleAnalyticsSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html#cfn-appflow-flow-googleanalyticssourceproperties-object
 func (o FlowGoogleAnalyticsSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowGoogleAnalyticsSourceProperties) *string {
 		if v == nil {
@@ -7099,9 +6765,8 @@ func (o FlowGoogleAnalyticsSourcePropertiesPtrOutput) Object() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html
+// Configuration for scheduled incremental data pull
 type FlowIncrementalPullConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html#cfn-appflow-flow-incrementalpullconfig-datetimetypefieldname
 	DatetimeTypeFieldName *string `pulumi:"datetimeTypeFieldName"`
 }
 
@@ -7116,9 +6781,8 @@ type FlowIncrementalPullConfigInput interface {
 	ToFlowIncrementalPullConfigOutputWithContext(context.Context) FlowIncrementalPullConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html
+// Configuration for scheduled incremental data pull
 type FlowIncrementalPullConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html#cfn-appflow-flow-incrementalpullconfig-datetimetypefieldname
 	DatetimeTypeFieldName pulumi.StringPtrInput `pulumi:"datetimeTypeFieldName"`
 }
 
@@ -7175,7 +6839,7 @@ func (i *flowIncrementalPullConfigPtrType) ToFlowIncrementalPullConfigPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(FlowIncrementalPullConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html
+// Configuration for scheduled incremental data pull
 type FlowIncrementalPullConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowIncrementalPullConfigOutput) ElementType() reflect.Type {
@@ -7200,7 +6864,6 @@ func (o FlowIncrementalPullConfigOutput) ToFlowIncrementalPullConfigPtrOutputWit
 	}).(FlowIncrementalPullConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html#cfn-appflow-flow-incrementalpullconfig-datetimetypefieldname
 func (o FlowIncrementalPullConfigOutput) DatetimeTypeFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowIncrementalPullConfig) *string { return v.DatetimeTypeFieldName }).(pulumi.StringPtrOutput)
 }
@@ -7229,7 +6892,6 @@ func (o FlowIncrementalPullConfigPtrOutput) Elem() FlowIncrementalPullConfigOutp
 	}).(FlowIncrementalPullConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html#cfn-appflow-flow-incrementalpullconfig-datetimetypefieldname
 func (o FlowIncrementalPullConfigPtrOutput) DatetimeTypeFieldName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowIncrementalPullConfig) *string {
 		if v == nil {
@@ -7239,9 +6901,7 @@ func (o FlowIncrementalPullConfigPtrOutput) DatetimeTypeFieldName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-infornexussourceproperties.html
 type FlowInforNexusSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-infornexussourceproperties.html#cfn-appflow-flow-infornexussourceproperties-object
 	Object string `pulumi:"object"`
 }
 
@@ -7256,9 +6916,7 @@ type FlowInforNexusSourcePropertiesInput interface {
 	ToFlowInforNexusSourcePropertiesOutputWithContext(context.Context) FlowInforNexusSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-infornexussourceproperties.html
 type FlowInforNexusSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-infornexussourceproperties.html#cfn-appflow-flow-infornexussourceproperties-object
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -7315,7 +6973,6 @@ func (i *flowInforNexusSourcePropertiesPtrType) ToFlowInforNexusSourceProperties
 	return pulumi.ToOutputWithContext(ctx, i).(FlowInforNexusSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-infornexussourceproperties.html
 type FlowInforNexusSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowInforNexusSourcePropertiesOutput) ElementType() reflect.Type {
@@ -7340,7 +6997,6 @@ func (o FlowInforNexusSourcePropertiesOutput) ToFlowInforNexusSourcePropertiesPt
 	}).(FlowInforNexusSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-infornexussourceproperties.html#cfn-appflow-flow-infornexussourceproperties-object
 func (o FlowInforNexusSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowInforNexusSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -7369,7 +7025,6 @@ func (o FlowInforNexusSourcePropertiesPtrOutput) Elem() FlowInforNexusSourceProp
 	}).(FlowInforNexusSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-infornexussourceproperties.html#cfn-appflow-flow-infornexussourceproperties-object
 func (o FlowInforNexusSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowInforNexusSourceProperties) *string {
 		if v == nil {
@@ -7379,9 +7034,7 @@ func (o FlowInforNexusSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html
 type FlowLookoutMetricsDestinationProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html#cfn-appflow-flow-lookoutmetricsdestinationproperties-object
 	Object *string `pulumi:"object"`
 }
 
@@ -7396,9 +7049,7 @@ type FlowLookoutMetricsDestinationPropertiesInput interface {
 	ToFlowLookoutMetricsDestinationPropertiesOutputWithContext(context.Context) FlowLookoutMetricsDestinationPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html
 type FlowLookoutMetricsDestinationPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html#cfn-appflow-flow-lookoutmetricsdestinationproperties-object
 	Object pulumi.StringPtrInput `pulumi:"object"`
 }
 
@@ -7455,7 +7106,6 @@ func (i *flowLookoutMetricsDestinationPropertiesPtrType) ToFlowLookoutMetricsDes
 	return pulumi.ToOutputWithContext(ctx, i).(FlowLookoutMetricsDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html
 type FlowLookoutMetricsDestinationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowLookoutMetricsDestinationPropertiesOutput) ElementType() reflect.Type {
@@ -7480,7 +7130,6 @@ func (o FlowLookoutMetricsDestinationPropertiesOutput) ToFlowLookoutMetricsDesti
 	}).(FlowLookoutMetricsDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html#cfn-appflow-flow-lookoutmetricsdestinationproperties-object
 func (o FlowLookoutMetricsDestinationPropertiesOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowLookoutMetricsDestinationProperties) *string { return v.Object }).(pulumi.StringPtrOutput)
 }
@@ -7509,7 +7158,6 @@ func (o FlowLookoutMetricsDestinationPropertiesPtrOutput) Elem() FlowLookoutMetr
 	}).(FlowLookoutMetricsDestinationPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html#cfn-appflow-flow-lookoutmetricsdestinationproperties-object
 func (o FlowLookoutMetricsDestinationPropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowLookoutMetricsDestinationProperties) *string {
 		if v == nil {
@@ -7519,9 +7167,7 @@ func (o FlowLookoutMetricsDestinationPropertiesPtrOutput) Object() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html
 type FlowMarketoSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html#cfn-appflow-flow-marketosourceproperties-object
 	Object string `pulumi:"object"`
 }
 
@@ -7536,9 +7182,7 @@ type FlowMarketoSourcePropertiesInput interface {
 	ToFlowMarketoSourcePropertiesOutputWithContext(context.Context) FlowMarketoSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html
 type FlowMarketoSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html#cfn-appflow-flow-marketosourceproperties-object
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -7595,7 +7239,6 @@ func (i *flowMarketoSourcePropertiesPtrType) ToFlowMarketoSourcePropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(FlowMarketoSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html
 type FlowMarketoSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowMarketoSourcePropertiesOutput) ElementType() reflect.Type {
@@ -7620,7 +7263,6 @@ func (o FlowMarketoSourcePropertiesOutput) ToFlowMarketoSourcePropertiesPtrOutpu
 	}).(FlowMarketoSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html#cfn-appflow-flow-marketosourceproperties-object
 func (o FlowMarketoSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowMarketoSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -7649,7 +7291,6 @@ func (o FlowMarketoSourcePropertiesPtrOutput) Elem() FlowMarketoSourceProperties
 	}).(FlowMarketoSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html#cfn-appflow-flow-marketosourceproperties-object
 func (o FlowMarketoSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowMarketoSourceProperties) *string {
 		if v == nil {
@@ -7659,12 +7300,9 @@ func (o FlowMarketoSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html
 type FlowPrefixConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixformat
 	PrefixFormat *string `pulumi:"prefixFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixtype
-	PrefixType *string `pulumi:"prefixType"`
+	PrefixType   *string `pulumi:"prefixType"`
 }
 
 // FlowPrefixConfigInput is an input type that accepts FlowPrefixConfigArgs and FlowPrefixConfigOutput values.
@@ -7678,12 +7316,9 @@ type FlowPrefixConfigInput interface {
 	ToFlowPrefixConfigOutputWithContext(context.Context) FlowPrefixConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html
 type FlowPrefixConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixformat
 	PrefixFormat pulumi.StringPtrInput `pulumi:"prefixFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixtype
-	PrefixType pulumi.StringPtrInput `pulumi:"prefixType"`
+	PrefixType   pulumi.StringPtrInput `pulumi:"prefixType"`
 }
 
 func (FlowPrefixConfigArgs) ElementType() reflect.Type {
@@ -7739,7 +7374,6 @@ func (i *flowPrefixConfigPtrType) ToFlowPrefixConfigPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(FlowPrefixConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html
 type FlowPrefixConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowPrefixConfigOutput) ElementType() reflect.Type {
@@ -7764,12 +7398,10 @@ func (o FlowPrefixConfigOutput) ToFlowPrefixConfigPtrOutputWithContext(ctx conte
 	}).(FlowPrefixConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixformat
 func (o FlowPrefixConfigOutput) PrefixFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowPrefixConfig) *string { return v.PrefixFormat }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixtype
 func (o FlowPrefixConfigOutput) PrefixType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowPrefixConfig) *string { return v.PrefixType }).(pulumi.StringPtrOutput)
 }
@@ -7798,7 +7430,6 @@ func (o FlowPrefixConfigPtrOutput) Elem() FlowPrefixConfigOutput {
 	}).(FlowPrefixConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixformat
 func (o FlowPrefixConfigPtrOutput) PrefixFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowPrefixConfig) *string {
 		if v == nil {
@@ -7808,7 +7439,6 @@ func (o FlowPrefixConfigPtrOutput) PrefixFormat() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html#cfn-appflow-flow-prefixconfig-prefixtype
 func (o FlowPrefixConfigPtrOutput) PrefixType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowPrefixConfig) *string {
 		if v == nil {
@@ -7818,16 +7448,11 @@ func (o FlowPrefixConfigPtrOutput) PrefixType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html
 type FlowRedshiftDestinationProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-bucketprefix
-	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-errorhandlingconfig
-	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-intermediatebucketname
-	IntermediateBucketName string `pulumi:"intermediateBucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-object
-	Object string `pulumi:"object"`
+	BucketPrefix           *string                  `pulumi:"bucketPrefix"`
+	ErrorHandlingConfig    *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
+	IntermediateBucketName string                   `pulumi:"intermediateBucketName"`
+	Object                 string                   `pulumi:"object"`
 }
 
 // FlowRedshiftDestinationPropertiesInput is an input type that accepts FlowRedshiftDestinationPropertiesArgs and FlowRedshiftDestinationPropertiesOutput values.
@@ -7841,16 +7466,11 @@ type FlowRedshiftDestinationPropertiesInput interface {
 	ToFlowRedshiftDestinationPropertiesOutputWithContext(context.Context) FlowRedshiftDestinationPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html
 type FlowRedshiftDestinationPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-bucketprefix
-	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-errorhandlingconfig
-	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-intermediatebucketname
-	IntermediateBucketName pulumi.StringInput `pulumi:"intermediateBucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-object
-	Object pulumi.StringInput `pulumi:"object"`
+	BucketPrefix           pulumi.StringPtrInput           `pulumi:"bucketPrefix"`
+	ErrorHandlingConfig    FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
+	IntermediateBucketName pulumi.StringInput              `pulumi:"intermediateBucketName"`
+	Object                 pulumi.StringInput              `pulumi:"object"`
 }
 
 func (FlowRedshiftDestinationPropertiesArgs) ElementType() reflect.Type {
@@ -7906,7 +7526,6 @@ func (i *flowRedshiftDestinationPropertiesPtrType) ToFlowRedshiftDestinationProp
 	return pulumi.ToOutputWithContext(ctx, i).(FlowRedshiftDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html
 type FlowRedshiftDestinationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowRedshiftDestinationPropertiesOutput) ElementType() reflect.Type {
@@ -7931,22 +7550,18 @@ func (o FlowRedshiftDestinationPropertiesOutput) ToFlowRedshiftDestinationProper
 	}).(FlowRedshiftDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-bucketprefix
 func (o FlowRedshiftDestinationPropertiesOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowRedshiftDestinationProperties) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-errorhandlingconfig
 func (o FlowRedshiftDestinationPropertiesOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowRedshiftDestinationProperties) *FlowErrorHandlingConfig { return v.ErrorHandlingConfig }).(FlowErrorHandlingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-intermediatebucketname
 func (o FlowRedshiftDestinationPropertiesOutput) IntermediateBucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowRedshiftDestinationProperties) string { return v.IntermediateBucketName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-object
 func (o FlowRedshiftDestinationPropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowRedshiftDestinationProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -7975,7 +7590,6 @@ func (o FlowRedshiftDestinationPropertiesPtrOutput) Elem() FlowRedshiftDestinati
 	}).(FlowRedshiftDestinationPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-bucketprefix
 func (o FlowRedshiftDestinationPropertiesPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowRedshiftDestinationProperties) *string {
 		if v == nil {
@@ -7985,7 +7599,6 @@ func (o FlowRedshiftDestinationPropertiesPtrOutput) BucketPrefix() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-errorhandlingconfig
 func (o FlowRedshiftDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowRedshiftDestinationProperties) *FlowErrorHandlingConfig {
 		if v == nil {
@@ -7995,7 +7608,6 @@ func (o FlowRedshiftDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowEr
 	}).(FlowErrorHandlingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-intermediatebucketname
 func (o FlowRedshiftDestinationPropertiesPtrOutput) IntermediateBucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowRedshiftDestinationProperties) *string {
 		if v == nil {
@@ -8005,7 +7617,6 @@ func (o FlowRedshiftDestinationPropertiesPtrOutput) IntermediateBucketName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html#cfn-appflow-flow-redshiftdestinationproperties-object
 func (o FlowRedshiftDestinationPropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowRedshiftDestinationProperties) *string {
 		if v == nil {
@@ -8015,13 +7626,9 @@ func (o FlowRedshiftDestinationPropertiesPtrOutput) Object() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html
 type FlowS3DestinationProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketname
-	BucketName string `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketprefix
-	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-s3outputformatconfig
+	BucketName           string                    `pulumi:"bucketName"`
+	BucketPrefix         *string                   `pulumi:"bucketPrefix"`
 	S3OutputFormatConfig *FlowS3OutputFormatConfig `pulumi:"s3OutputFormatConfig"`
 }
 
@@ -8036,13 +7643,9 @@ type FlowS3DestinationPropertiesInput interface {
 	ToFlowS3DestinationPropertiesOutputWithContext(context.Context) FlowS3DestinationPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html
 type FlowS3DestinationPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketname
-	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketprefix
-	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-s3outputformatconfig
+	BucketName           pulumi.StringInput               `pulumi:"bucketName"`
+	BucketPrefix         pulumi.StringPtrInput            `pulumi:"bucketPrefix"`
 	S3OutputFormatConfig FlowS3OutputFormatConfigPtrInput `pulumi:"s3OutputFormatConfig"`
 }
 
@@ -8099,7 +7702,6 @@ func (i *flowS3DestinationPropertiesPtrType) ToFlowS3DestinationPropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(FlowS3DestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html
 type FlowS3DestinationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowS3DestinationPropertiesOutput) ElementType() reflect.Type {
@@ -8124,17 +7726,14 @@ func (o FlowS3DestinationPropertiesOutput) ToFlowS3DestinationPropertiesPtrOutpu
 	}).(FlowS3DestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketname
 func (o FlowS3DestinationPropertiesOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowS3DestinationProperties) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketprefix
 func (o FlowS3DestinationPropertiesOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowS3DestinationProperties) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-s3outputformatconfig
 func (o FlowS3DestinationPropertiesOutput) S3OutputFormatConfig() FlowS3OutputFormatConfigPtrOutput {
 	return o.ApplyT(func(v FlowS3DestinationProperties) *FlowS3OutputFormatConfig { return v.S3OutputFormatConfig }).(FlowS3OutputFormatConfigPtrOutput)
 }
@@ -8163,7 +7762,6 @@ func (o FlowS3DestinationPropertiesPtrOutput) Elem() FlowS3DestinationProperties
 	}).(FlowS3DestinationPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketname
 func (o FlowS3DestinationPropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowS3DestinationProperties) *string {
 		if v == nil {
@@ -8173,7 +7771,6 @@ func (o FlowS3DestinationPropertiesPtrOutput) BucketName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-bucketprefix
 func (o FlowS3DestinationPropertiesPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowS3DestinationProperties) *string {
 		if v == nil {
@@ -8183,7 +7780,6 @@ func (o FlowS3DestinationPropertiesPtrOutput) BucketPrefix() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html#cfn-appflow-flow-s3destinationproperties-s3outputformatconfig
 func (o FlowS3DestinationPropertiesPtrOutput) S3OutputFormatConfig() FlowS3OutputFormatConfigPtrOutput {
 	return o.ApplyT(func(v *FlowS3DestinationProperties) *FlowS3OutputFormatConfig {
 		if v == nil {
@@ -8193,14 +7789,10 @@ func (o FlowS3DestinationPropertiesPtrOutput) S3OutputFormatConfig() FlowS3Outpu
 	}).(FlowS3OutputFormatConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html
 type FlowS3OutputFormatConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-aggregationconfig
 	AggregationConfig *FlowAggregationConfig `pulumi:"aggregationConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-filetype
-	FileType *string `pulumi:"fileType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-prefixconfig
-	PrefixConfig *FlowPrefixConfig `pulumi:"prefixConfig"`
+	FileType          *string                `pulumi:"fileType"`
+	PrefixConfig      *FlowPrefixConfig      `pulumi:"prefixConfig"`
 }
 
 // FlowS3OutputFormatConfigInput is an input type that accepts FlowS3OutputFormatConfigArgs and FlowS3OutputFormatConfigOutput values.
@@ -8214,14 +7806,10 @@ type FlowS3OutputFormatConfigInput interface {
 	ToFlowS3OutputFormatConfigOutputWithContext(context.Context) FlowS3OutputFormatConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html
 type FlowS3OutputFormatConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-aggregationconfig
 	AggregationConfig FlowAggregationConfigPtrInput `pulumi:"aggregationConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-filetype
-	FileType pulumi.StringPtrInput `pulumi:"fileType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-prefixconfig
-	PrefixConfig FlowPrefixConfigPtrInput `pulumi:"prefixConfig"`
+	FileType          pulumi.StringPtrInput         `pulumi:"fileType"`
+	PrefixConfig      FlowPrefixConfigPtrInput      `pulumi:"prefixConfig"`
 }
 
 func (FlowS3OutputFormatConfigArgs) ElementType() reflect.Type {
@@ -8277,7 +7865,6 @@ func (i *flowS3OutputFormatConfigPtrType) ToFlowS3OutputFormatConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(FlowS3OutputFormatConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html
 type FlowS3OutputFormatConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowS3OutputFormatConfigOutput) ElementType() reflect.Type {
@@ -8302,17 +7889,14 @@ func (o FlowS3OutputFormatConfigOutput) ToFlowS3OutputFormatConfigPtrOutputWithC
 	}).(FlowS3OutputFormatConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-aggregationconfig
 func (o FlowS3OutputFormatConfigOutput) AggregationConfig() FlowAggregationConfigPtrOutput {
 	return o.ApplyT(func(v FlowS3OutputFormatConfig) *FlowAggregationConfig { return v.AggregationConfig }).(FlowAggregationConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-filetype
 func (o FlowS3OutputFormatConfigOutput) FileType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowS3OutputFormatConfig) *string { return v.FileType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-prefixconfig
 func (o FlowS3OutputFormatConfigOutput) PrefixConfig() FlowPrefixConfigPtrOutput {
 	return o.ApplyT(func(v FlowS3OutputFormatConfig) *FlowPrefixConfig { return v.PrefixConfig }).(FlowPrefixConfigPtrOutput)
 }
@@ -8341,7 +7925,6 @@ func (o FlowS3OutputFormatConfigPtrOutput) Elem() FlowS3OutputFormatConfigOutput
 	}).(FlowS3OutputFormatConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-aggregationconfig
 func (o FlowS3OutputFormatConfigPtrOutput) AggregationConfig() FlowAggregationConfigPtrOutput {
 	return o.ApplyT(func(v *FlowS3OutputFormatConfig) *FlowAggregationConfig {
 		if v == nil {
@@ -8351,7 +7934,6 @@ func (o FlowS3OutputFormatConfigPtrOutput) AggregationConfig() FlowAggregationCo
 	}).(FlowAggregationConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-filetype
 func (o FlowS3OutputFormatConfigPtrOutput) FileType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowS3OutputFormatConfig) *string {
 		if v == nil {
@@ -8361,7 +7943,6 @@ func (o FlowS3OutputFormatConfigPtrOutput) FileType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html#cfn-appflow-flow-s3outputformatconfig-prefixconfig
 func (o FlowS3OutputFormatConfigPtrOutput) PrefixConfig() FlowPrefixConfigPtrOutput {
 	return o.ApplyT(func(v *FlowS3OutputFormatConfig) *FlowPrefixConfig {
 		if v == nil {
@@ -8371,11 +7952,8 @@ func (o FlowS3OutputFormatConfigPtrOutput) PrefixConfig() FlowPrefixConfigPtrOut
 	}).(FlowPrefixConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html
 type FlowS3SourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketname
-	BucketName string `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketprefix
+	BucketName   string `pulumi:"bucketName"`
 	BucketPrefix string `pulumi:"bucketPrefix"`
 }
 
@@ -8390,11 +7968,8 @@ type FlowS3SourcePropertiesInput interface {
 	ToFlowS3SourcePropertiesOutputWithContext(context.Context) FlowS3SourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html
 type FlowS3SourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketname
-	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketprefix
+	BucketName   pulumi.StringInput `pulumi:"bucketName"`
 	BucketPrefix pulumi.StringInput `pulumi:"bucketPrefix"`
 }
 
@@ -8451,7 +8026,6 @@ func (i *flowS3SourcePropertiesPtrType) ToFlowS3SourcePropertiesPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FlowS3SourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html
 type FlowS3SourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowS3SourcePropertiesOutput) ElementType() reflect.Type {
@@ -8476,12 +8050,10 @@ func (o FlowS3SourcePropertiesOutput) ToFlowS3SourcePropertiesPtrOutputWithConte
 	}).(FlowS3SourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketname
 func (o FlowS3SourcePropertiesOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowS3SourceProperties) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketprefix
 func (o FlowS3SourcePropertiesOutput) BucketPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowS3SourceProperties) string { return v.BucketPrefix }).(pulumi.StringOutput)
 }
@@ -8510,7 +8082,6 @@ func (o FlowS3SourcePropertiesPtrOutput) Elem() FlowS3SourcePropertiesOutput {
 	}).(FlowS3SourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketname
 func (o FlowS3SourcePropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowS3SourceProperties) *string {
 		if v == nil {
@@ -8520,7 +8091,6 @@ func (o FlowS3SourcePropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html#cfn-appflow-flow-s3sourceproperties-bucketprefix
 func (o FlowS3SourcePropertiesPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowS3SourceProperties) *string {
 		if v == nil {
@@ -8530,16 +8100,12 @@ func (o FlowS3SourcePropertiesPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html
 type FlowSalesforceDestinationProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-errorhandlingconfig
 	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-idfieldnames
-	IdFieldNames []string `pulumi:"idFieldNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-object
-	Object string `pulumi:"object"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-writeoperationtype
-	WriteOperationType *string `pulumi:"writeOperationType"`
+	// List of fields used as ID when performing a write operation.
+	IdFieldNames       []string `pulumi:"idFieldNames"`
+	Object             string   `pulumi:"object"`
+	WriteOperationType *string  `pulumi:"writeOperationType"`
 }
 
 // FlowSalesforceDestinationPropertiesInput is an input type that accepts FlowSalesforceDestinationPropertiesArgs and FlowSalesforceDestinationPropertiesOutput values.
@@ -8553,16 +8119,12 @@ type FlowSalesforceDestinationPropertiesInput interface {
 	ToFlowSalesforceDestinationPropertiesOutputWithContext(context.Context) FlowSalesforceDestinationPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html
 type FlowSalesforceDestinationPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-errorhandlingconfig
 	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-idfieldnames
-	IdFieldNames pulumi.StringArrayInput `pulumi:"idFieldNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-object
-	Object pulumi.StringInput `pulumi:"object"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-writeoperationtype
-	WriteOperationType pulumi.StringPtrInput `pulumi:"writeOperationType"`
+	// List of fields used as ID when performing a write operation.
+	IdFieldNames       pulumi.StringArrayInput `pulumi:"idFieldNames"`
+	Object             pulumi.StringInput      `pulumi:"object"`
+	WriteOperationType pulumi.StringPtrInput   `pulumi:"writeOperationType"`
 }
 
 func (FlowSalesforceDestinationPropertiesArgs) ElementType() reflect.Type {
@@ -8618,7 +8180,6 @@ func (i *flowSalesforceDestinationPropertiesPtrType) ToFlowSalesforceDestination
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSalesforceDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html
 type FlowSalesforceDestinationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowSalesforceDestinationPropertiesOutput) ElementType() reflect.Type {
@@ -8643,22 +8204,19 @@ func (o FlowSalesforceDestinationPropertiesOutput) ToFlowSalesforceDestinationPr
 	}).(FlowSalesforceDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-errorhandlingconfig
 func (o FlowSalesforceDestinationPropertiesOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowSalesforceDestinationProperties) *FlowErrorHandlingConfig { return v.ErrorHandlingConfig }).(FlowErrorHandlingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-idfieldnames
+// List of fields used as ID when performing a write operation.
 func (o FlowSalesforceDestinationPropertiesOutput) IdFieldNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlowSalesforceDestinationProperties) []string { return v.IdFieldNames }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-object
 func (o FlowSalesforceDestinationPropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSalesforceDestinationProperties) string { return v.Object }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-writeoperationtype
 func (o FlowSalesforceDestinationPropertiesOutput) WriteOperationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSalesforceDestinationProperties) *string { return v.WriteOperationType }).(pulumi.StringPtrOutput)
 }
@@ -8687,7 +8245,6 @@ func (o FlowSalesforceDestinationPropertiesPtrOutput) Elem() FlowSalesforceDesti
 	}).(FlowSalesforceDestinationPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-errorhandlingconfig
 func (o FlowSalesforceDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowSalesforceDestinationProperties) *FlowErrorHandlingConfig {
 		if v == nil {
@@ -8697,7 +8254,7 @@ func (o FlowSalesforceDestinationPropertiesPtrOutput) ErrorHandlingConfig() Flow
 	}).(FlowErrorHandlingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-idfieldnames
+// List of fields used as ID when performing a write operation.
 func (o FlowSalesforceDestinationPropertiesPtrOutput) IdFieldNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlowSalesforceDestinationProperties) []string {
 		if v == nil {
@@ -8707,7 +8264,6 @@ func (o FlowSalesforceDestinationPropertiesPtrOutput) IdFieldNames() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-object
 func (o FlowSalesforceDestinationPropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSalesforceDestinationProperties) *string {
 		if v == nil {
@@ -8717,7 +8273,6 @@ func (o FlowSalesforceDestinationPropertiesPtrOutput) Object() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html#cfn-appflow-flow-salesforcedestinationproperties-writeoperationtype
 func (o FlowSalesforceDestinationPropertiesPtrOutput) WriteOperationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSalesforceDestinationProperties) *string {
 		if v == nil {
@@ -8727,14 +8282,10 @@ func (o FlowSalesforceDestinationPropertiesPtrOutput) WriteOperationType() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html
 type FlowSalesforceSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-enabledynamicfieldupdate
-	EnableDynamicFieldUpdate *bool `pulumi:"enableDynamicFieldUpdate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-includedeletedrecords
-	IncludeDeletedRecords *bool `pulumi:"includeDeletedRecords"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-object
-	Object string `pulumi:"object"`
+	EnableDynamicFieldUpdate *bool  `pulumi:"enableDynamicFieldUpdate"`
+	IncludeDeletedRecords    *bool  `pulumi:"includeDeletedRecords"`
+	Object                   string `pulumi:"object"`
 }
 
 // FlowSalesforceSourcePropertiesInput is an input type that accepts FlowSalesforceSourcePropertiesArgs and FlowSalesforceSourcePropertiesOutput values.
@@ -8748,14 +8299,10 @@ type FlowSalesforceSourcePropertiesInput interface {
 	ToFlowSalesforceSourcePropertiesOutputWithContext(context.Context) FlowSalesforceSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html
 type FlowSalesforceSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-enabledynamicfieldupdate
 	EnableDynamicFieldUpdate pulumi.BoolPtrInput `pulumi:"enableDynamicFieldUpdate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-includedeletedrecords
-	IncludeDeletedRecords pulumi.BoolPtrInput `pulumi:"includeDeletedRecords"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-object
-	Object pulumi.StringInput `pulumi:"object"`
+	IncludeDeletedRecords    pulumi.BoolPtrInput `pulumi:"includeDeletedRecords"`
+	Object                   pulumi.StringInput  `pulumi:"object"`
 }
 
 func (FlowSalesforceSourcePropertiesArgs) ElementType() reflect.Type {
@@ -8811,7 +8358,6 @@ func (i *flowSalesforceSourcePropertiesPtrType) ToFlowSalesforceSourceProperties
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSalesforceSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html
 type FlowSalesforceSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowSalesforceSourcePropertiesOutput) ElementType() reflect.Type {
@@ -8836,17 +8382,14 @@ func (o FlowSalesforceSourcePropertiesOutput) ToFlowSalesforceSourcePropertiesPt
 	}).(FlowSalesforceSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-enabledynamicfieldupdate
 func (o FlowSalesforceSourcePropertiesOutput) EnableDynamicFieldUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowSalesforceSourceProperties) *bool { return v.EnableDynamicFieldUpdate }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-includedeletedrecords
 func (o FlowSalesforceSourcePropertiesOutput) IncludeDeletedRecords() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowSalesforceSourceProperties) *bool { return v.IncludeDeletedRecords }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-object
 func (o FlowSalesforceSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSalesforceSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -8875,7 +8418,6 @@ func (o FlowSalesforceSourcePropertiesPtrOutput) Elem() FlowSalesforceSourceProp
 	}).(FlowSalesforceSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-enabledynamicfieldupdate
 func (o FlowSalesforceSourcePropertiesPtrOutput) EnableDynamicFieldUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowSalesforceSourceProperties) *bool {
 		if v == nil {
@@ -8885,7 +8427,6 @@ func (o FlowSalesforceSourcePropertiesPtrOutput) EnableDynamicFieldUpdate() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-includedeletedrecords
 func (o FlowSalesforceSourcePropertiesPtrOutput) IncludeDeletedRecords() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowSalesforceSourceProperties) *bool {
 		if v == nil {
@@ -8895,7 +8436,6 @@ func (o FlowSalesforceSourcePropertiesPtrOutput) IncludeDeletedRecords() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html#cfn-appflow-flow-salesforcesourceproperties-object
 func (o FlowSalesforceSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSalesforceSourceProperties) *string {
 		if v == nil {
@@ -8905,20 +8445,14 @@ func (o FlowSalesforceSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html
+// Details required for scheduled trigger type
 type FlowScheduledTriggerProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-datapullmode
-	DataPullMode *string `pulumi:"dataPullMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleendtime
-	ScheduleEndTime *float64 `pulumi:"scheduleEndTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleexpression
-	ScheduleExpression string `pulumi:"scheduleExpression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleoffset
-	ScheduleOffset *float64 `pulumi:"scheduleOffset"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-schedulestarttime
-	ScheduleStartTime *float64 `pulumi:"scheduleStartTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-timezone
-	TimeZone *string `pulumi:"timeZone"`
+	DataPullMode       *string  `pulumi:"dataPullMode"`
+	ScheduleEndTime    *float64 `pulumi:"scheduleEndTime"`
+	ScheduleExpression string   `pulumi:"scheduleExpression"`
+	ScheduleOffset     *float64 `pulumi:"scheduleOffset"`
+	ScheduleStartTime  *float64 `pulumi:"scheduleStartTime"`
+	TimeZone           *string  `pulumi:"timeZone"`
 }
 
 // FlowScheduledTriggerPropertiesInput is an input type that accepts FlowScheduledTriggerPropertiesArgs and FlowScheduledTriggerPropertiesOutput values.
@@ -8932,20 +8466,14 @@ type FlowScheduledTriggerPropertiesInput interface {
 	ToFlowScheduledTriggerPropertiesOutputWithContext(context.Context) FlowScheduledTriggerPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html
+// Details required for scheduled trigger type
 type FlowScheduledTriggerPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-datapullmode
-	DataPullMode pulumi.StringPtrInput `pulumi:"dataPullMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleendtime
-	ScheduleEndTime pulumi.Float64PtrInput `pulumi:"scheduleEndTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleexpression
-	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleoffset
-	ScheduleOffset pulumi.Float64PtrInput `pulumi:"scheduleOffset"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-schedulestarttime
-	ScheduleStartTime pulumi.Float64PtrInput `pulumi:"scheduleStartTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-timezone
-	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+	DataPullMode       pulumi.StringPtrInput  `pulumi:"dataPullMode"`
+	ScheduleEndTime    pulumi.Float64PtrInput `pulumi:"scheduleEndTime"`
+	ScheduleExpression pulumi.StringInput     `pulumi:"scheduleExpression"`
+	ScheduleOffset     pulumi.Float64PtrInput `pulumi:"scheduleOffset"`
+	ScheduleStartTime  pulumi.Float64PtrInput `pulumi:"scheduleStartTime"`
+	TimeZone           pulumi.StringPtrInput  `pulumi:"timeZone"`
 }
 
 func (FlowScheduledTriggerPropertiesArgs) ElementType() reflect.Type {
@@ -9001,7 +8529,7 @@ func (i *flowScheduledTriggerPropertiesPtrType) ToFlowScheduledTriggerProperties
 	return pulumi.ToOutputWithContext(ctx, i).(FlowScheduledTriggerPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html
+// Details required for scheduled trigger type
 type FlowScheduledTriggerPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowScheduledTriggerPropertiesOutput) ElementType() reflect.Type {
@@ -9026,32 +8554,26 @@ func (o FlowScheduledTriggerPropertiesOutput) ToFlowScheduledTriggerPropertiesPt
 	}).(FlowScheduledTriggerPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-datapullmode
 func (o FlowScheduledTriggerPropertiesOutput) DataPullMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowScheduledTriggerProperties) *string { return v.DataPullMode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleendtime
 func (o FlowScheduledTriggerPropertiesOutput) ScheduleEndTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FlowScheduledTriggerProperties) *float64 { return v.ScheduleEndTime }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleexpression
 func (o FlowScheduledTriggerPropertiesOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowScheduledTriggerProperties) string { return v.ScheduleExpression }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleoffset
 func (o FlowScheduledTriggerPropertiesOutput) ScheduleOffset() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FlowScheduledTriggerProperties) *float64 { return v.ScheduleOffset }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-schedulestarttime
 func (o FlowScheduledTriggerPropertiesOutput) ScheduleStartTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FlowScheduledTriggerProperties) *float64 { return v.ScheduleStartTime }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-timezone
 func (o FlowScheduledTriggerPropertiesOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowScheduledTriggerProperties) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
@@ -9080,7 +8602,6 @@ func (o FlowScheduledTriggerPropertiesPtrOutput) Elem() FlowScheduledTriggerProp
 	}).(FlowScheduledTriggerPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-datapullmode
 func (o FlowScheduledTriggerPropertiesPtrOutput) DataPullMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowScheduledTriggerProperties) *string {
 		if v == nil {
@@ -9090,7 +8611,6 @@ func (o FlowScheduledTriggerPropertiesPtrOutput) DataPullMode() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleendtime
 func (o FlowScheduledTriggerPropertiesPtrOutput) ScheduleEndTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FlowScheduledTriggerProperties) *float64 {
 		if v == nil {
@@ -9100,7 +8620,6 @@ func (o FlowScheduledTriggerPropertiesPtrOutput) ScheduleEndTime() pulumi.Float6
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleexpression
 func (o FlowScheduledTriggerPropertiesPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowScheduledTriggerProperties) *string {
 		if v == nil {
@@ -9110,7 +8629,6 @@ func (o FlowScheduledTriggerPropertiesPtrOutput) ScheduleExpression() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-scheduleoffset
 func (o FlowScheduledTriggerPropertiesPtrOutput) ScheduleOffset() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FlowScheduledTriggerProperties) *float64 {
 		if v == nil {
@@ -9120,7 +8638,6 @@ func (o FlowScheduledTriggerPropertiesPtrOutput) ScheduleOffset() pulumi.Float64
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-schedulestarttime
 func (o FlowScheduledTriggerPropertiesPtrOutput) ScheduleStartTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *FlowScheduledTriggerProperties) *float64 {
 		if v == nil {
@@ -9130,7 +8647,6 @@ func (o FlowScheduledTriggerPropertiesPtrOutput) ScheduleStartTime() pulumi.Floa
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html#cfn-appflow-flow-scheduledtriggerproperties-timezone
 func (o FlowScheduledTriggerPropertiesPtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowScheduledTriggerProperties) *string {
 		if v == nil {
@@ -9140,9 +8656,7 @@ func (o FlowScheduledTriggerPropertiesPtrOutput) TimeZone() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-servicenowsourceproperties.html
 type FlowServiceNowSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-servicenowsourceproperties.html#cfn-appflow-flow-servicenowsourceproperties-object
 	Object string `pulumi:"object"`
 }
 
@@ -9157,9 +8671,7 @@ type FlowServiceNowSourcePropertiesInput interface {
 	ToFlowServiceNowSourcePropertiesOutputWithContext(context.Context) FlowServiceNowSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-servicenowsourceproperties.html
 type FlowServiceNowSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-servicenowsourceproperties.html#cfn-appflow-flow-servicenowsourceproperties-object
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -9216,7 +8728,6 @@ func (i *flowServiceNowSourcePropertiesPtrType) ToFlowServiceNowSourceProperties
 	return pulumi.ToOutputWithContext(ctx, i).(FlowServiceNowSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-servicenowsourceproperties.html
 type FlowServiceNowSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowServiceNowSourcePropertiesOutput) ElementType() reflect.Type {
@@ -9241,7 +8752,6 @@ func (o FlowServiceNowSourcePropertiesOutput) ToFlowServiceNowSourcePropertiesPt
 	}).(FlowServiceNowSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-servicenowsourceproperties.html#cfn-appflow-flow-servicenowsourceproperties-object
 func (o FlowServiceNowSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowServiceNowSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -9270,7 +8780,6 @@ func (o FlowServiceNowSourcePropertiesPtrOutput) Elem() FlowServiceNowSourceProp
 	}).(FlowServiceNowSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-servicenowsourceproperties.html#cfn-appflow-flow-servicenowsourceproperties-object
 func (o FlowServiceNowSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowServiceNowSourceProperties) *string {
 		if v == nil {
@@ -9280,9 +8789,7 @@ func (o FlowServiceNowSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-singularsourceproperties.html
 type FlowSingularSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-singularsourceproperties.html#cfn-appflow-flow-singularsourceproperties-object
 	Object string `pulumi:"object"`
 }
 
@@ -9297,9 +8804,7 @@ type FlowSingularSourcePropertiesInput interface {
 	ToFlowSingularSourcePropertiesOutputWithContext(context.Context) FlowSingularSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-singularsourceproperties.html
 type FlowSingularSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-singularsourceproperties.html#cfn-appflow-flow-singularsourceproperties-object
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -9356,7 +8861,6 @@ func (i *flowSingularSourcePropertiesPtrType) ToFlowSingularSourcePropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSingularSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-singularsourceproperties.html
 type FlowSingularSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowSingularSourcePropertiesOutput) ElementType() reflect.Type {
@@ -9381,7 +8885,6 @@ func (o FlowSingularSourcePropertiesOutput) ToFlowSingularSourcePropertiesPtrOut
 	}).(FlowSingularSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-singularsourceproperties.html#cfn-appflow-flow-singularsourceproperties-object
 func (o FlowSingularSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSingularSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -9410,7 +8913,6 @@ func (o FlowSingularSourcePropertiesPtrOutput) Elem() FlowSingularSourceProperti
 	}).(FlowSingularSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-singularsourceproperties.html#cfn-appflow-flow-singularsourceproperties-object
 func (o FlowSingularSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSingularSourceProperties) *string {
 		if v == nil {
@@ -9420,9 +8922,7 @@ func (o FlowSingularSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-slacksourceproperties.html
 type FlowSlackSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-slacksourceproperties.html#cfn-appflow-flow-slacksourceproperties-object
 	Object string `pulumi:"object"`
 }
 
@@ -9437,9 +8937,7 @@ type FlowSlackSourcePropertiesInput interface {
 	ToFlowSlackSourcePropertiesOutputWithContext(context.Context) FlowSlackSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-slacksourceproperties.html
 type FlowSlackSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-slacksourceproperties.html#cfn-appflow-flow-slacksourceproperties-object
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -9496,7 +8994,6 @@ func (i *flowSlackSourcePropertiesPtrType) ToFlowSlackSourcePropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSlackSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-slacksourceproperties.html
 type FlowSlackSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowSlackSourcePropertiesOutput) ElementType() reflect.Type {
@@ -9521,7 +9018,6 @@ func (o FlowSlackSourcePropertiesOutput) ToFlowSlackSourcePropertiesPtrOutputWit
 	}).(FlowSlackSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-slacksourceproperties.html#cfn-appflow-flow-slacksourceproperties-object
 func (o FlowSlackSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSlackSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -9550,7 +9046,6 @@ func (o FlowSlackSourcePropertiesPtrOutput) Elem() FlowSlackSourcePropertiesOutp
 	}).(FlowSlackSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-slacksourceproperties.html#cfn-appflow-flow-slacksourceproperties-object
 func (o FlowSlackSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSlackSourceProperties) *string {
 		if v == nil {
@@ -9560,16 +9055,11 @@ func (o FlowSlackSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html
 type FlowSnowflakeDestinationProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-bucketprefix
-	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-errorhandlingconfig
-	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-intermediatebucketname
-	IntermediateBucketName string `pulumi:"intermediateBucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-object
-	Object string `pulumi:"object"`
+	BucketPrefix           *string                  `pulumi:"bucketPrefix"`
+	ErrorHandlingConfig    *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
+	IntermediateBucketName string                   `pulumi:"intermediateBucketName"`
+	Object                 string                   `pulumi:"object"`
 }
 
 // FlowSnowflakeDestinationPropertiesInput is an input type that accepts FlowSnowflakeDestinationPropertiesArgs and FlowSnowflakeDestinationPropertiesOutput values.
@@ -9583,16 +9073,11 @@ type FlowSnowflakeDestinationPropertiesInput interface {
 	ToFlowSnowflakeDestinationPropertiesOutputWithContext(context.Context) FlowSnowflakeDestinationPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html
 type FlowSnowflakeDestinationPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-bucketprefix
-	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-errorhandlingconfig
-	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-intermediatebucketname
-	IntermediateBucketName pulumi.StringInput `pulumi:"intermediateBucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-object
-	Object pulumi.StringInput `pulumi:"object"`
+	BucketPrefix           pulumi.StringPtrInput           `pulumi:"bucketPrefix"`
+	ErrorHandlingConfig    FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
+	IntermediateBucketName pulumi.StringInput              `pulumi:"intermediateBucketName"`
+	Object                 pulumi.StringInput              `pulumi:"object"`
 }
 
 func (FlowSnowflakeDestinationPropertiesArgs) ElementType() reflect.Type {
@@ -9648,7 +9133,6 @@ func (i *flowSnowflakeDestinationPropertiesPtrType) ToFlowSnowflakeDestinationPr
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSnowflakeDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html
 type FlowSnowflakeDestinationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowSnowflakeDestinationPropertiesOutput) ElementType() reflect.Type {
@@ -9673,22 +9157,18 @@ func (o FlowSnowflakeDestinationPropertiesOutput) ToFlowSnowflakeDestinationProp
 	}).(FlowSnowflakeDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-bucketprefix
 func (o FlowSnowflakeDestinationPropertiesOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSnowflakeDestinationProperties) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-errorhandlingconfig
 func (o FlowSnowflakeDestinationPropertiesOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowSnowflakeDestinationProperties) *FlowErrorHandlingConfig { return v.ErrorHandlingConfig }).(FlowErrorHandlingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-intermediatebucketname
 func (o FlowSnowflakeDestinationPropertiesOutput) IntermediateBucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSnowflakeDestinationProperties) string { return v.IntermediateBucketName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-object
 func (o FlowSnowflakeDestinationPropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSnowflakeDestinationProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -9717,7 +9197,6 @@ func (o FlowSnowflakeDestinationPropertiesPtrOutput) Elem() FlowSnowflakeDestina
 	}).(FlowSnowflakeDestinationPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-bucketprefix
 func (o FlowSnowflakeDestinationPropertiesPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSnowflakeDestinationProperties) *string {
 		if v == nil {
@@ -9727,7 +9206,6 @@ func (o FlowSnowflakeDestinationPropertiesPtrOutput) BucketPrefix() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-errorhandlingconfig
 func (o FlowSnowflakeDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowSnowflakeDestinationProperties) *FlowErrorHandlingConfig {
 		if v == nil {
@@ -9737,7 +9215,6 @@ func (o FlowSnowflakeDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowE
 	}).(FlowErrorHandlingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-intermediatebucketname
 func (o FlowSnowflakeDestinationPropertiesPtrOutput) IntermediateBucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSnowflakeDestinationProperties) *string {
 		if v == nil {
@@ -9747,7 +9224,6 @@ func (o FlowSnowflakeDestinationPropertiesPtrOutput) IntermediateBucketName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html#cfn-appflow-flow-snowflakedestinationproperties-object
 func (o FlowSnowflakeDestinationPropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSnowflakeDestinationProperties) *string {
 		if v == nil {
@@ -9757,36 +9233,22 @@ func (o FlowSnowflakeDestinationPropertiesPtrOutput) Object() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html
+// Source connector details required to query a connector
 type FlowSourceConnectorProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-amplitude
-	Amplitude *FlowAmplitudeSourceProperties `pulumi:"amplitude"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-datadog
-	Datadog *FlowDatadogSourceProperties `pulumi:"datadog"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-dynatrace
-	Dynatrace *FlowDynatraceSourceProperties `pulumi:"dynatrace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-googleanalytics
+	Amplitude       *FlowAmplitudeSourceProperties       `pulumi:"amplitude"`
+	Datadog         *FlowDatadogSourceProperties         `pulumi:"datadog"`
+	Dynatrace       *FlowDynatraceSourceProperties       `pulumi:"dynatrace"`
 	GoogleAnalytics *FlowGoogleAnalyticsSourceProperties `pulumi:"googleAnalytics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-infornexus
-	InforNexus *FlowInforNexusSourceProperties `pulumi:"inforNexus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-marketo
-	Marketo *FlowMarketoSourceProperties `pulumi:"marketo"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-s3
-	S3 *FlowS3SourceProperties `pulumi:"s3"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-salesforce
-	Salesforce *FlowSalesforceSourceProperties `pulumi:"salesforce"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-servicenow
-	ServiceNow *FlowServiceNowSourceProperties `pulumi:"serviceNow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-singular
-	Singular *FlowSingularSourceProperties `pulumi:"singular"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-slack
-	Slack *FlowSlackSourceProperties `pulumi:"slack"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-trendmicro
-	Trendmicro *FlowTrendmicroSourceProperties `pulumi:"trendmicro"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-veeva
-	Veeva *FlowVeevaSourceProperties `pulumi:"veeva"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-zendesk
-	Zendesk *FlowZendeskSourceProperties `pulumi:"zendesk"`
+	InforNexus      *FlowInforNexusSourceProperties      `pulumi:"inforNexus"`
+	Marketo         *FlowMarketoSourceProperties         `pulumi:"marketo"`
+	S3              *FlowS3SourceProperties              `pulumi:"s3"`
+	Salesforce      *FlowSalesforceSourceProperties      `pulumi:"salesforce"`
+	ServiceNow      *FlowServiceNowSourceProperties      `pulumi:"serviceNow"`
+	Singular        *FlowSingularSourceProperties        `pulumi:"singular"`
+	Slack           *FlowSlackSourceProperties           `pulumi:"slack"`
+	Trendmicro      *FlowTrendmicroSourceProperties      `pulumi:"trendmicro"`
+	Veeva           *FlowVeevaSourceProperties           `pulumi:"veeva"`
+	Zendesk         *FlowZendeskSourceProperties         `pulumi:"zendesk"`
 }
 
 // FlowSourceConnectorPropertiesInput is an input type that accepts FlowSourceConnectorPropertiesArgs and FlowSourceConnectorPropertiesOutput values.
@@ -9800,36 +9262,22 @@ type FlowSourceConnectorPropertiesInput interface {
 	ToFlowSourceConnectorPropertiesOutputWithContext(context.Context) FlowSourceConnectorPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html
+// Source connector details required to query a connector
 type FlowSourceConnectorPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-amplitude
-	Amplitude FlowAmplitudeSourcePropertiesPtrInput `pulumi:"amplitude"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-datadog
-	Datadog FlowDatadogSourcePropertiesPtrInput `pulumi:"datadog"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-dynatrace
-	Dynatrace FlowDynatraceSourcePropertiesPtrInput `pulumi:"dynatrace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-googleanalytics
+	Amplitude       FlowAmplitudeSourcePropertiesPtrInput       `pulumi:"amplitude"`
+	Datadog         FlowDatadogSourcePropertiesPtrInput         `pulumi:"datadog"`
+	Dynatrace       FlowDynatraceSourcePropertiesPtrInput       `pulumi:"dynatrace"`
 	GoogleAnalytics FlowGoogleAnalyticsSourcePropertiesPtrInput `pulumi:"googleAnalytics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-infornexus
-	InforNexus FlowInforNexusSourcePropertiesPtrInput `pulumi:"inforNexus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-marketo
-	Marketo FlowMarketoSourcePropertiesPtrInput `pulumi:"marketo"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-s3
-	S3 FlowS3SourcePropertiesPtrInput `pulumi:"s3"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-salesforce
-	Salesforce FlowSalesforceSourcePropertiesPtrInput `pulumi:"salesforce"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-servicenow
-	ServiceNow FlowServiceNowSourcePropertiesPtrInput `pulumi:"serviceNow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-singular
-	Singular FlowSingularSourcePropertiesPtrInput `pulumi:"singular"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-slack
-	Slack FlowSlackSourcePropertiesPtrInput `pulumi:"slack"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-trendmicro
-	Trendmicro FlowTrendmicroSourcePropertiesPtrInput `pulumi:"trendmicro"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-veeva
-	Veeva FlowVeevaSourcePropertiesPtrInput `pulumi:"veeva"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-zendesk
-	Zendesk FlowZendeskSourcePropertiesPtrInput `pulumi:"zendesk"`
+	InforNexus      FlowInforNexusSourcePropertiesPtrInput      `pulumi:"inforNexus"`
+	Marketo         FlowMarketoSourcePropertiesPtrInput         `pulumi:"marketo"`
+	S3              FlowS3SourcePropertiesPtrInput              `pulumi:"s3"`
+	Salesforce      FlowSalesforceSourcePropertiesPtrInput      `pulumi:"salesforce"`
+	ServiceNow      FlowServiceNowSourcePropertiesPtrInput      `pulumi:"serviceNow"`
+	Singular        FlowSingularSourcePropertiesPtrInput        `pulumi:"singular"`
+	Slack           FlowSlackSourcePropertiesPtrInput           `pulumi:"slack"`
+	Trendmicro      FlowTrendmicroSourcePropertiesPtrInput      `pulumi:"trendmicro"`
+	Veeva           FlowVeevaSourcePropertiesPtrInput           `pulumi:"veeva"`
+	Zendesk         FlowZendeskSourcePropertiesPtrInput         `pulumi:"zendesk"`
 }
 
 func (FlowSourceConnectorPropertiesArgs) ElementType() reflect.Type {
@@ -9885,7 +9333,7 @@ func (i *flowSourceConnectorPropertiesPtrType) ToFlowSourceConnectorPropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceConnectorPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html
+// Source connector details required to query a connector
 type FlowSourceConnectorPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceConnectorPropertiesOutput) ElementType() reflect.Type {
@@ -9910,72 +9358,58 @@ func (o FlowSourceConnectorPropertiesOutput) ToFlowSourceConnectorPropertiesPtrO
 	}).(FlowSourceConnectorPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-amplitude
 func (o FlowSourceConnectorPropertiesOutput) Amplitude() FlowAmplitudeSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowAmplitudeSourceProperties { return v.Amplitude }).(FlowAmplitudeSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-datadog
 func (o FlowSourceConnectorPropertiesOutput) Datadog() FlowDatadogSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowDatadogSourceProperties { return v.Datadog }).(FlowDatadogSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-dynatrace
 func (o FlowSourceConnectorPropertiesOutput) Dynatrace() FlowDynatraceSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowDynatraceSourceProperties { return v.Dynatrace }).(FlowDynatraceSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-googleanalytics
 func (o FlowSourceConnectorPropertiesOutput) GoogleAnalytics() FlowGoogleAnalyticsSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowGoogleAnalyticsSourceProperties { return v.GoogleAnalytics }).(FlowGoogleAnalyticsSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-infornexus
 func (o FlowSourceConnectorPropertiesOutput) InforNexus() FlowInforNexusSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowInforNexusSourceProperties { return v.InforNexus }).(FlowInforNexusSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-marketo
 func (o FlowSourceConnectorPropertiesOutput) Marketo() FlowMarketoSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowMarketoSourceProperties { return v.Marketo }).(FlowMarketoSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-s3
 func (o FlowSourceConnectorPropertiesOutput) S3() FlowS3SourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowS3SourceProperties { return v.S3 }).(FlowS3SourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-salesforce
 func (o FlowSourceConnectorPropertiesOutput) Salesforce() FlowSalesforceSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowSalesforceSourceProperties { return v.Salesforce }).(FlowSalesforceSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-servicenow
 func (o FlowSourceConnectorPropertiesOutput) ServiceNow() FlowServiceNowSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowServiceNowSourceProperties { return v.ServiceNow }).(FlowServiceNowSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-singular
 func (o FlowSourceConnectorPropertiesOutput) Singular() FlowSingularSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowSingularSourceProperties { return v.Singular }).(FlowSingularSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-slack
 func (o FlowSourceConnectorPropertiesOutput) Slack() FlowSlackSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowSlackSourceProperties { return v.Slack }).(FlowSlackSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-trendmicro
 func (o FlowSourceConnectorPropertiesOutput) Trendmicro() FlowTrendmicroSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowTrendmicroSourceProperties { return v.Trendmicro }).(FlowTrendmicroSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-veeva
 func (o FlowSourceConnectorPropertiesOutput) Veeva() FlowVeevaSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowVeevaSourceProperties { return v.Veeva }).(FlowVeevaSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-zendesk
 func (o FlowSourceConnectorPropertiesOutput) Zendesk() FlowZendeskSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowZendeskSourceProperties { return v.Zendesk }).(FlowZendeskSourcePropertiesPtrOutput)
 }
@@ -10004,7 +9438,6 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Elem() FlowSourceConnectorProper
 	}).(FlowSourceConnectorPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-amplitude
 func (o FlowSourceConnectorPropertiesPtrOutput) Amplitude() FlowAmplitudeSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowAmplitudeSourceProperties {
 		if v == nil {
@@ -10014,7 +9447,6 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Amplitude() FlowAmplitudeSourceP
 	}).(FlowAmplitudeSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-datadog
 func (o FlowSourceConnectorPropertiesPtrOutput) Datadog() FlowDatadogSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowDatadogSourceProperties {
 		if v == nil {
@@ -10024,7 +9456,6 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Datadog() FlowDatadogSourcePrope
 	}).(FlowDatadogSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-dynatrace
 func (o FlowSourceConnectorPropertiesPtrOutput) Dynatrace() FlowDynatraceSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowDynatraceSourceProperties {
 		if v == nil {
@@ -10034,7 +9465,6 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Dynatrace() FlowDynatraceSourceP
 	}).(FlowDynatraceSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-googleanalytics
 func (o FlowSourceConnectorPropertiesPtrOutput) GoogleAnalytics() FlowGoogleAnalyticsSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowGoogleAnalyticsSourceProperties {
 		if v == nil {
@@ -10044,7 +9474,6 @@ func (o FlowSourceConnectorPropertiesPtrOutput) GoogleAnalytics() FlowGoogleAnal
 	}).(FlowGoogleAnalyticsSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-infornexus
 func (o FlowSourceConnectorPropertiesPtrOutput) InforNexus() FlowInforNexusSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowInforNexusSourceProperties {
 		if v == nil {
@@ -10054,7 +9483,6 @@ func (o FlowSourceConnectorPropertiesPtrOutput) InforNexus() FlowInforNexusSourc
 	}).(FlowInforNexusSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-marketo
 func (o FlowSourceConnectorPropertiesPtrOutput) Marketo() FlowMarketoSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowMarketoSourceProperties {
 		if v == nil {
@@ -10064,7 +9492,6 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Marketo() FlowMarketoSourcePrope
 	}).(FlowMarketoSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-s3
 func (o FlowSourceConnectorPropertiesPtrOutput) S3() FlowS3SourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowS3SourceProperties {
 		if v == nil {
@@ -10074,7 +9501,6 @@ func (o FlowSourceConnectorPropertiesPtrOutput) S3() FlowS3SourcePropertiesPtrOu
 	}).(FlowS3SourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-salesforce
 func (o FlowSourceConnectorPropertiesPtrOutput) Salesforce() FlowSalesforceSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowSalesforceSourceProperties {
 		if v == nil {
@@ -10084,7 +9510,6 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Salesforce() FlowSalesforceSourc
 	}).(FlowSalesforceSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-servicenow
 func (o FlowSourceConnectorPropertiesPtrOutput) ServiceNow() FlowServiceNowSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowServiceNowSourceProperties {
 		if v == nil {
@@ -10094,7 +9519,6 @@ func (o FlowSourceConnectorPropertiesPtrOutput) ServiceNow() FlowServiceNowSourc
 	}).(FlowServiceNowSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-singular
 func (o FlowSourceConnectorPropertiesPtrOutput) Singular() FlowSingularSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowSingularSourceProperties {
 		if v == nil {
@@ -10104,7 +9528,6 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Singular() FlowSingularSourcePro
 	}).(FlowSingularSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-slack
 func (o FlowSourceConnectorPropertiesPtrOutput) Slack() FlowSlackSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowSlackSourceProperties {
 		if v == nil {
@@ -10114,7 +9537,6 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Slack() FlowSlackSourcePropertie
 	}).(FlowSlackSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-trendmicro
 func (o FlowSourceConnectorPropertiesPtrOutput) Trendmicro() FlowTrendmicroSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowTrendmicroSourceProperties {
 		if v == nil {
@@ -10124,7 +9546,6 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Trendmicro() FlowTrendmicroSourc
 	}).(FlowTrendmicroSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-veeva
 func (o FlowSourceConnectorPropertiesPtrOutput) Veeva() FlowVeevaSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowVeevaSourceProperties {
 		if v == nil {
@@ -10134,7 +9555,6 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Veeva() FlowVeevaSourcePropertie
 	}).(FlowVeevaSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-zendesk
 func (o FlowSourceConnectorPropertiesPtrOutput) Zendesk() FlowZendeskSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowZendeskSourceProperties {
 		if v == nil {
@@ -10144,15 +9564,15 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Zendesk() FlowZendeskSourcePrope
 	}).(FlowZendeskSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html
+// Configurations of Source connector of the flow.
 type FlowSourceFlowConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectorprofilename
+	// Name of source connector profile
 	ConnectorProfileName *string `pulumi:"connectorProfileName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectortype
+	// Type of source connector
 	ConnectorType string `pulumi:"connectorType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-incrementalpullconfig
+	// Configuration for scheduled incremental data pull
 	IncrementalPullConfig *FlowIncrementalPullConfig `pulumi:"incrementalPullConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-sourceconnectorproperties
+	// Source connector details required to query a connector
 	SourceConnectorProperties FlowSourceConnectorProperties `pulumi:"sourceConnectorProperties"`
 }
 
@@ -10167,15 +9587,15 @@ type FlowSourceFlowConfigInput interface {
 	ToFlowSourceFlowConfigOutputWithContext(context.Context) FlowSourceFlowConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html
+// Configurations of Source connector of the flow.
 type FlowSourceFlowConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectorprofilename
+	// Name of source connector profile
 	ConnectorProfileName pulumi.StringPtrInput `pulumi:"connectorProfileName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectortype
+	// Type of source connector
 	ConnectorType pulumi.StringInput `pulumi:"connectorType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-incrementalpullconfig
+	// Configuration for scheduled incremental data pull
 	IncrementalPullConfig FlowIncrementalPullConfigPtrInput `pulumi:"incrementalPullConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-sourceconnectorproperties
+	// Source connector details required to query a connector
 	SourceConnectorProperties FlowSourceConnectorPropertiesInput `pulumi:"sourceConnectorProperties"`
 }
 
@@ -10232,7 +9652,7 @@ func (i *flowSourceFlowConfigPtrType) ToFlowSourceFlowConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceFlowConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html
+// Configurations of Source connector of the flow.
 type FlowSourceFlowConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceFlowConfigOutput) ElementType() reflect.Type {
@@ -10257,22 +9677,22 @@ func (o FlowSourceFlowConfigOutput) ToFlowSourceFlowConfigPtrOutputWithContext(c
 	}).(FlowSourceFlowConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectorprofilename
+// Name of source connector profile
 func (o FlowSourceFlowConfigOutput) ConnectorProfileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfig) *string { return v.ConnectorProfileName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectortype
+// Type of source connector
 func (o FlowSourceFlowConfigOutput) ConnectorType() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfig) string { return v.ConnectorType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-incrementalpullconfig
+// Configuration for scheduled incremental data pull
 func (o FlowSourceFlowConfigOutput) IncrementalPullConfig() FlowIncrementalPullConfigPtrOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfig) *FlowIncrementalPullConfig { return v.IncrementalPullConfig }).(FlowIncrementalPullConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-sourceconnectorproperties
+// Source connector details required to query a connector
 func (o FlowSourceFlowConfigOutput) SourceConnectorProperties() FlowSourceConnectorPropertiesOutput {
 	return o.ApplyT(func(v FlowSourceFlowConfig) FlowSourceConnectorProperties { return v.SourceConnectorProperties }).(FlowSourceConnectorPropertiesOutput)
 }
@@ -10301,7 +9721,7 @@ func (o FlowSourceFlowConfigPtrOutput) Elem() FlowSourceFlowConfigOutput {
 	}).(FlowSourceFlowConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectorprofilename
+// Name of source connector profile
 func (o FlowSourceFlowConfigPtrOutput) ConnectorProfileName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfig) *string {
 		if v == nil {
@@ -10311,7 +9731,7 @@ func (o FlowSourceFlowConfigPtrOutput) ConnectorProfileName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectortype
+// Type of source connector
 func (o FlowSourceFlowConfigPtrOutput) ConnectorType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfig) *string {
 		if v == nil {
@@ -10321,7 +9741,7 @@ func (o FlowSourceFlowConfigPtrOutput) ConnectorType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-incrementalpullconfig
+// Configuration for scheduled incremental data pull
 func (o FlowSourceFlowConfigPtrOutput) IncrementalPullConfig() FlowIncrementalPullConfigPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfig) *FlowIncrementalPullConfig {
 		if v == nil {
@@ -10331,7 +9751,7 @@ func (o FlowSourceFlowConfigPtrOutput) IncrementalPullConfig() FlowIncrementalPu
 	}).(FlowIncrementalPullConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-sourceconnectorproperties
+// Source connector details required to query a connector
 func (o FlowSourceFlowConfigPtrOutput) SourceConnectorProperties() FlowSourceConnectorPropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceFlowConfig) *FlowSourceConnectorProperties {
 		if v == nil {
@@ -10341,17 +9761,125 @@ func (o FlowSourceFlowConfigPtrOutput) SourceConnectorProperties() FlowSourceCon
 	}).(FlowSourceConnectorPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html
+// A label for tagging AppFlow resources
+type FlowTag struct {
+	// A string used to identify this tag
+	Key string `pulumi:"key"`
+	// A string containing the value for the tag
+	Value string `pulumi:"value"`
+}
+
+// FlowTagInput is an input type that accepts FlowTagArgs and FlowTagOutput values.
+// You can construct a concrete instance of `FlowTagInput` via:
+//
+//          FlowTagArgs{...}
+type FlowTagInput interface {
+	pulumi.Input
+
+	ToFlowTagOutput() FlowTagOutput
+	ToFlowTagOutputWithContext(context.Context) FlowTagOutput
+}
+
+// A label for tagging AppFlow resources
+type FlowTagArgs struct {
+	// A string used to identify this tag
+	Key pulumi.StringInput `pulumi:"key"`
+	// A string containing the value for the tag
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FlowTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowTag)(nil)).Elem()
+}
+
+func (i FlowTagArgs) ToFlowTagOutput() FlowTagOutput {
+	return i.ToFlowTagOutputWithContext(context.Background())
+}
+
+func (i FlowTagArgs) ToFlowTagOutputWithContext(ctx context.Context) FlowTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowTagOutput)
+}
+
+// FlowTagArrayInput is an input type that accepts FlowTagArray and FlowTagArrayOutput values.
+// You can construct a concrete instance of `FlowTagArrayInput` via:
+//
+//          FlowTagArray{ FlowTagArgs{...} }
+type FlowTagArrayInput interface {
+	pulumi.Input
+
+	ToFlowTagArrayOutput() FlowTagArrayOutput
+	ToFlowTagArrayOutputWithContext(context.Context) FlowTagArrayOutput
+}
+
+type FlowTagArray []FlowTagInput
+
+func (FlowTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowTag)(nil)).Elem()
+}
+
+func (i FlowTagArray) ToFlowTagArrayOutput() FlowTagArrayOutput {
+	return i.ToFlowTagArrayOutputWithContext(context.Background())
+}
+
+func (i FlowTagArray) ToFlowTagArrayOutputWithContext(ctx context.Context) FlowTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowTagArrayOutput)
+}
+
+// A label for tagging AppFlow resources
+type FlowTagOutput struct{ *pulumi.OutputState }
+
+func (FlowTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowTag)(nil)).Elem()
+}
+
+func (o FlowTagOutput) ToFlowTagOutput() FlowTagOutput {
+	return o
+}
+
+func (o FlowTagOutput) ToFlowTagOutputWithContext(ctx context.Context) FlowTagOutput {
+	return o
+}
+
+// A string used to identify this tag
+func (o FlowTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// A string containing the value for the tag
+func (o FlowTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FlowTagArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowTag)(nil)).Elem()
+}
+
+func (o FlowTagArrayOutput) ToFlowTagArrayOutput() FlowTagArrayOutput {
+	return o
+}
+
+func (o FlowTagArrayOutput) ToFlowTagArrayOutputWithContext(ctx context.Context) FlowTagArrayOutput {
+	return o
+}
+
+func (o FlowTagArrayOutput) Index(i pulumi.IntInput) FlowTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowTag {
+		return vs[0].([]FlowTag)[vs[1].(int)]
+	}).(FlowTagOutput)
+}
+
 type FlowTask struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-connectoroperator
+	// Operation to be performed on provided source fields
 	ConnectorOperator *FlowConnectorOperator `pulumi:"connectorOperator"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-destinationfield
+	// A field value on which source field should be validated
 	DestinationField *string `pulumi:"destinationField"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-sourcefields
+	// Source fields on which particular task will be applied
 	SourceFields []string `pulumi:"sourceFields"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-taskproperties
+	// A Map used to store task related info
 	TaskProperties []FlowTaskPropertiesObject `pulumi:"taskProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-tasktype
+	// Type of task
 	TaskType string `pulumi:"taskType"`
 }
 
@@ -10366,17 +9894,16 @@ type FlowTaskInput interface {
 	ToFlowTaskOutputWithContext(context.Context) FlowTaskOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html
 type FlowTaskArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-connectoroperator
+	// Operation to be performed on provided source fields
 	ConnectorOperator FlowConnectorOperatorPtrInput `pulumi:"connectorOperator"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-destinationfield
+	// A field value on which source field should be validated
 	DestinationField pulumi.StringPtrInput `pulumi:"destinationField"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-sourcefields
+	// Source fields on which particular task will be applied
 	SourceFields pulumi.StringArrayInput `pulumi:"sourceFields"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-taskproperties
+	// A Map used to store task related info
 	TaskProperties FlowTaskPropertiesObjectArrayInput `pulumi:"taskProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-tasktype
+	// Type of task
 	TaskType pulumi.StringInput `pulumi:"taskType"`
 }
 
@@ -10417,7 +9944,6 @@ func (i FlowTaskArray) ToFlowTaskArrayOutputWithContext(ctx context.Context) Flo
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTaskArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html
 type FlowTaskOutput struct{ *pulumi.OutputState }
 
 func (FlowTaskOutput) ElementType() reflect.Type {
@@ -10432,27 +9958,27 @@ func (o FlowTaskOutput) ToFlowTaskOutputWithContext(ctx context.Context) FlowTas
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-connectoroperator
+// Operation to be performed on provided source fields
 func (o FlowTaskOutput) ConnectorOperator() FlowConnectorOperatorPtrOutput {
 	return o.ApplyT(func(v FlowTask) *FlowConnectorOperator { return v.ConnectorOperator }).(FlowConnectorOperatorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-destinationfield
+// A field value on which source field should be validated
 func (o FlowTaskOutput) DestinationField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowTask) *string { return v.DestinationField }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-sourcefields
+// Source fields on which particular task will be applied
 func (o FlowTaskOutput) SourceFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlowTask) []string { return v.SourceFields }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-taskproperties
+// A Map used to store task related info
 func (o FlowTaskOutput) TaskProperties() FlowTaskPropertiesObjectArrayOutput {
 	return o.ApplyT(func(v FlowTask) []FlowTaskPropertiesObject { return v.TaskProperties }).(FlowTaskPropertiesObjectArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-tasktype
+// Type of task
 func (o FlowTaskOutput) TaskType() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowTask) string { return v.TaskType }).(pulumi.StringOutput)
 }
@@ -10477,11 +10003,9 @@ func (o FlowTaskArrayOutput) Index(i pulumi.IntInput) FlowTaskOutput {
 	}).(FlowTaskOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html
+// An object used to store task related info
 type FlowTaskPropertiesObject struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html#cfn-appflow-flow-taskpropertiesobject-key
-	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html#cfn-appflow-flow-taskpropertiesobject-value
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -10496,11 +10020,9 @@ type FlowTaskPropertiesObjectInput interface {
 	ToFlowTaskPropertiesObjectOutputWithContext(context.Context) FlowTaskPropertiesObjectOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html
+// An object used to store task related info
 type FlowTaskPropertiesObjectArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html#cfn-appflow-flow-taskpropertiesobject-key
-	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html#cfn-appflow-flow-taskpropertiesobject-value
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -10541,7 +10063,7 @@ func (i FlowTaskPropertiesObjectArray) ToFlowTaskPropertiesObjectArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTaskPropertiesObjectArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html
+// An object used to store task related info
 type FlowTaskPropertiesObjectOutput struct{ *pulumi.OutputState }
 
 func (FlowTaskPropertiesObjectOutput) ElementType() reflect.Type {
@@ -10556,12 +10078,10 @@ func (o FlowTaskPropertiesObjectOutput) ToFlowTaskPropertiesObjectOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html#cfn-appflow-flow-taskpropertiesobject-key
 func (o FlowTaskPropertiesObjectOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowTaskPropertiesObject) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html#cfn-appflow-flow-taskpropertiesobject-value
 func (o FlowTaskPropertiesObjectOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowTaskPropertiesObject) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -10586,9 +10106,7 @@ func (o FlowTaskPropertiesObjectArrayOutput) Index(i pulumi.IntInput) FlowTaskPr
 	}).(FlowTaskPropertiesObjectOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-trendmicrosourceproperties.html
 type FlowTrendmicroSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-trendmicrosourceproperties.html#cfn-appflow-flow-trendmicrosourceproperties-object
 	Object string `pulumi:"object"`
 }
 
@@ -10603,9 +10121,7 @@ type FlowTrendmicroSourcePropertiesInput interface {
 	ToFlowTrendmicroSourcePropertiesOutputWithContext(context.Context) FlowTrendmicroSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-trendmicrosourceproperties.html
 type FlowTrendmicroSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-trendmicrosourceproperties.html#cfn-appflow-flow-trendmicrosourceproperties-object
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -10662,7 +10178,6 @@ func (i *flowTrendmicroSourcePropertiesPtrType) ToFlowTrendmicroSourceProperties
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTrendmicroSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-trendmicrosourceproperties.html
 type FlowTrendmicroSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowTrendmicroSourcePropertiesOutput) ElementType() reflect.Type {
@@ -10687,7 +10202,6 @@ func (o FlowTrendmicroSourcePropertiesOutput) ToFlowTrendmicroSourcePropertiesPt
 	}).(FlowTrendmicroSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-trendmicrosourceproperties.html#cfn-appflow-flow-trendmicrosourceproperties-object
 func (o FlowTrendmicroSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowTrendmicroSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -10716,7 +10230,6 @@ func (o FlowTrendmicroSourcePropertiesPtrOutput) Elem() FlowTrendmicroSourceProp
 	}).(FlowTrendmicroSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-trendmicrosourceproperties.html#cfn-appflow-flow-trendmicrosourceproperties-object
 func (o FlowTrendmicroSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowTrendmicroSourceProperties) *string {
 		if v == nil {
@@ -10726,11 +10239,11 @@ func (o FlowTrendmicroSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html
+// Trigger settings of the flow.
 type FlowTriggerConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggerproperties
+	// Details required based on the type of trigger
 	TriggerProperties *FlowScheduledTriggerProperties `pulumi:"triggerProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggertype
+	// Trigger type of the flow
 	TriggerType string `pulumi:"triggerType"`
 }
 
@@ -10745,11 +10258,11 @@ type FlowTriggerConfigInput interface {
 	ToFlowTriggerConfigOutputWithContext(context.Context) FlowTriggerConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html
+// Trigger settings of the flow.
 type FlowTriggerConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggerproperties
+	// Details required based on the type of trigger
 	TriggerProperties FlowScheduledTriggerPropertiesPtrInput `pulumi:"triggerProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggertype
+	// Trigger type of the flow
 	TriggerType pulumi.StringInput `pulumi:"triggerType"`
 }
 
@@ -10806,7 +10319,7 @@ func (i *flowTriggerConfigPtrType) ToFlowTriggerConfigPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(FlowTriggerConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html
+// Trigger settings of the flow.
 type FlowTriggerConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowTriggerConfigOutput) ElementType() reflect.Type {
@@ -10831,12 +10344,12 @@ func (o FlowTriggerConfigOutput) ToFlowTriggerConfigPtrOutputWithContext(ctx con
 	}).(FlowTriggerConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggerproperties
+// Details required based on the type of trigger
 func (o FlowTriggerConfigOutput) TriggerProperties() FlowScheduledTriggerPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowTriggerConfig) *FlowScheduledTriggerProperties { return v.TriggerProperties }).(FlowScheduledTriggerPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggertype
+// Trigger type of the flow
 func (o FlowTriggerConfigOutput) TriggerType() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowTriggerConfig) string { return v.TriggerType }).(pulumi.StringOutput)
 }
@@ -10865,7 +10378,7 @@ func (o FlowTriggerConfigPtrOutput) Elem() FlowTriggerConfigOutput {
 	}).(FlowTriggerConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggerproperties
+// Details required based on the type of trigger
 func (o FlowTriggerConfigPtrOutput) TriggerProperties() FlowScheduledTriggerPropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowTriggerConfig) *FlowScheduledTriggerProperties {
 		if v == nil {
@@ -10875,7 +10388,7 @@ func (o FlowTriggerConfigPtrOutput) TriggerProperties() FlowScheduledTriggerProp
 	}).(FlowScheduledTriggerPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html#cfn-appflow-flow-triggerconfig-triggertype
+// Trigger type of the flow
 func (o FlowTriggerConfigPtrOutput) TriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowTriggerConfig) *string {
 		if v == nil {
@@ -10885,13 +10398,9 @@ func (o FlowTriggerConfigPtrOutput) TriggerType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html
 type FlowUpsolverDestinationProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketname
-	BucketName string `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketprefix
-	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-s3outputformatconfig
+	BucketName           string                           `pulumi:"bucketName"`
+	BucketPrefix         *string                          `pulumi:"bucketPrefix"`
 	S3OutputFormatConfig FlowUpsolverS3OutputFormatConfig `pulumi:"s3OutputFormatConfig"`
 }
 
@@ -10906,13 +10415,9 @@ type FlowUpsolverDestinationPropertiesInput interface {
 	ToFlowUpsolverDestinationPropertiesOutputWithContext(context.Context) FlowUpsolverDestinationPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html
 type FlowUpsolverDestinationPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketname
-	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketprefix
-	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-s3outputformatconfig
+	BucketName           pulumi.StringInput                    `pulumi:"bucketName"`
+	BucketPrefix         pulumi.StringPtrInput                 `pulumi:"bucketPrefix"`
 	S3OutputFormatConfig FlowUpsolverS3OutputFormatConfigInput `pulumi:"s3OutputFormatConfig"`
 }
 
@@ -10969,7 +10474,6 @@ func (i *flowUpsolverDestinationPropertiesPtrType) ToFlowUpsolverDestinationProp
 	return pulumi.ToOutputWithContext(ctx, i).(FlowUpsolverDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html
 type FlowUpsolverDestinationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowUpsolverDestinationPropertiesOutput) ElementType() reflect.Type {
@@ -10994,17 +10498,14 @@ func (o FlowUpsolverDestinationPropertiesOutput) ToFlowUpsolverDestinationProper
 	}).(FlowUpsolverDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketname
 func (o FlowUpsolverDestinationPropertiesOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowUpsolverDestinationProperties) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketprefix
 func (o FlowUpsolverDestinationPropertiesOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowUpsolverDestinationProperties) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-s3outputformatconfig
 func (o FlowUpsolverDestinationPropertiesOutput) S3OutputFormatConfig() FlowUpsolverS3OutputFormatConfigOutput {
 	return o.ApplyT(func(v FlowUpsolverDestinationProperties) FlowUpsolverS3OutputFormatConfig {
 		return v.S3OutputFormatConfig
@@ -11035,7 +10536,6 @@ func (o FlowUpsolverDestinationPropertiesPtrOutput) Elem() FlowUpsolverDestinati
 	}).(FlowUpsolverDestinationPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketname
 func (o FlowUpsolverDestinationPropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowUpsolverDestinationProperties) *string {
 		if v == nil {
@@ -11045,7 +10545,6 @@ func (o FlowUpsolverDestinationPropertiesPtrOutput) BucketName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-bucketprefix
 func (o FlowUpsolverDestinationPropertiesPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowUpsolverDestinationProperties) *string {
 		if v == nil {
@@ -11055,7 +10554,6 @@ func (o FlowUpsolverDestinationPropertiesPtrOutput) BucketPrefix() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html#cfn-appflow-flow-upsolverdestinationproperties-s3outputformatconfig
 func (o FlowUpsolverDestinationPropertiesPtrOutput) S3OutputFormatConfig() FlowUpsolverS3OutputFormatConfigPtrOutput {
 	return o.ApplyT(func(v *FlowUpsolverDestinationProperties) *FlowUpsolverS3OutputFormatConfig {
 		if v == nil {
@@ -11065,14 +10563,10 @@ func (o FlowUpsolverDestinationPropertiesPtrOutput) S3OutputFormatConfig() FlowU
 	}).(FlowUpsolverS3OutputFormatConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html
 type FlowUpsolverS3OutputFormatConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-aggregationconfig
 	AggregationConfig *FlowAggregationConfig `pulumi:"aggregationConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-filetype
-	FileType *string `pulumi:"fileType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-prefixconfig
-	PrefixConfig FlowPrefixConfig `pulumi:"prefixConfig"`
+	FileType          *string                `pulumi:"fileType"`
+	PrefixConfig      FlowPrefixConfig       `pulumi:"prefixConfig"`
 }
 
 // FlowUpsolverS3OutputFormatConfigInput is an input type that accepts FlowUpsolverS3OutputFormatConfigArgs and FlowUpsolverS3OutputFormatConfigOutput values.
@@ -11086,14 +10580,10 @@ type FlowUpsolverS3OutputFormatConfigInput interface {
 	ToFlowUpsolverS3OutputFormatConfigOutputWithContext(context.Context) FlowUpsolverS3OutputFormatConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html
 type FlowUpsolverS3OutputFormatConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-aggregationconfig
 	AggregationConfig FlowAggregationConfigPtrInput `pulumi:"aggregationConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-filetype
-	FileType pulumi.StringPtrInput `pulumi:"fileType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-prefixconfig
-	PrefixConfig FlowPrefixConfigInput `pulumi:"prefixConfig"`
+	FileType          pulumi.StringPtrInput         `pulumi:"fileType"`
+	PrefixConfig      FlowPrefixConfigInput         `pulumi:"prefixConfig"`
 }
 
 func (FlowUpsolverS3OutputFormatConfigArgs) ElementType() reflect.Type {
@@ -11149,7 +10639,6 @@ func (i *flowUpsolverS3OutputFormatConfigPtrType) ToFlowUpsolverS3OutputFormatCo
 	return pulumi.ToOutputWithContext(ctx, i).(FlowUpsolverS3OutputFormatConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html
 type FlowUpsolverS3OutputFormatConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowUpsolverS3OutputFormatConfigOutput) ElementType() reflect.Type {
@@ -11174,17 +10663,14 @@ func (o FlowUpsolverS3OutputFormatConfigOutput) ToFlowUpsolverS3OutputFormatConf
 	}).(FlowUpsolverS3OutputFormatConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-aggregationconfig
 func (o FlowUpsolverS3OutputFormatConfigOutput) AggregationConfig() FlowAggregationConfigPtrOutput {
 	return o.ApplyT(func(v FlowUpsolverS3OutputFormatConfig) *FlowAggregationConfig { return v.AggregationConfig }).(FlowAggregationConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-filetype
 func (o FlowUpsolverS3OutputFormatConfigOutput) FileType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowUpsolverS3OutputFormatConfig) *string { return v.FileType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-prefixconfig
 func (o FlowUpsolverS3OutputFormatConfigOutput) PrefixConfig() FlowPrefixConfigOutput {
 	return o.ApplyT(func(v FlowUpsolverS3OutputFormatConfig) FlowPrefixConfig { return v.PrefixConfig }).(FlowPrefixConfigOutput)
 }
@@ -11213,7 +10699,6 @@ func (o FlowUpsolverS3OutputFormatConfigPtrOutput) Elem() FlowUpsolverS3OutputFo
 	}).(FlowUpsolverS3OutputFormatConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-aggregationconfig
 func (o FlowUpsolverS3OutputFormatConfigPtrOutput) AggregationConfig() FlowAggregationConfigPtrOutput {
 	return o.ApplyT(func(v *FlowUpsolverS3OutputFormatConfig) *FlowAggregationConfig {
 		if v == nil {
@@ -11223,7 +10708,6 @@ func (o FlowUpsolverS3OutputFormatConfigPtrOutput) AggregationConfig() FlowAggre
 	}).(FlowAggregationConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-filetype
 func (o FlowUpsolverS3OutputFormatConfigPtrOutput) FileType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowUpsolverS3OutputFormatConfig) *string {
 		if v == nil {
@@ -11233,7 +10717,6 @@ func (o FlowUpsolverS3OutputFormatConfigPtrOutput) FileType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html#cfn-appflow-flow-upsolvers3outputformatconfig-prefixconfig
 func (o FlowUpsolverS3OutputFormatConfigPtrOutput) PrefixConfig() FlowPrefixConfigPtrOutput {
 	return o.ApplyT(func(v *FlowUpsolverS3OutputFormatConfig) *FlowPrefixConfig {
 		if v == nil {
@@ -11243,18 +10726,12 @@ func (o FlowUpsolverS3OutputFormatConfigPtrOutput) PrefixConfig() FlowPrefixConf
 	}).(FlowPrefixConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html
 type FlowVeevaSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-documenttype
-	DocumentType *string `pulumi:"documentType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includeallversions
-	IncludeAllVersions *bool `pulumi:"includeAllVersions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includerenditions
-	IncludeRenditions *bool `pulumi:"includeRenditions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includesourcefiles
-	IncludeSourceFiles *bool `pulumi:"includeSourceFiles"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-object
-	Object string `pulumi:"object"`
+	DocumentType       *string `pulumi:"documentType"`
+	IncludeAllVersions *bool   `pulumi:"includeAllVersions"`
+	IncludeRenditions  *bool   `pulumi:"includeRenditions"`
+	IncludeSourceFiles *bool   `pulumi:"includeSourceFiles"`
+	Object             string  `pulumi:"object"`
 }
 
 // FlowVeevaSourcePropertiesInput is an input type that accepts FlowVeevaSourcePropertiesArgs and FlowVeevaSourcePropertiesOutput values.
@@ -11268,18 +10745,12 @@ type FlowVeevaSourcePropertiesInput interface {
 	ToFlowVeevaSourcePropertiesOutputWithContext(context.Context) FlowVeevaSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html
 type FlowVeevaSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-documenttype
-	DocumentType pulumi.StringPtrInput `pulumi:"documentType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includeallversions
-	IncludeAllVersions pulumi.BoolPtrInput `pulumi:"includeAllVersions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includerenditions
-	IncludeRenditions pulumi.BoolPtrInput `pulumi:"includeRenditions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includesourcefiles
-	IncludeSourceFiles pulumi.BoolPtrInput `pulumi:"includeSourceFiles"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-object
-	Object pulumi.StringInput `pulumi:"object"`
+	DocumentType       pulumi.StringPtrInput `pulumi:"documentType"`
+	IncludeAllVersions pulumi.BoolPtrInput   `pulumi:"includeAllVersions"`
+	IncludeRenditions  pulumi.BoolPtrInput   `pulumi:"includeRenditions"`
+	IncludeSourceFiles pulumi.BoolPtrInput   `pulumi:"includeSourceFiles"`
+	Object             pulumi.StringInput    `pulumi:"object"`
 }
 
 func (FlowVeevaSourcePropertiesArgs) ElementType() reflect.Type {
@@ -11335,7 +10806,6 @@ func (i *flowVeevaSourcePropertiesPtrType) ToFlowVeevaSourcePropertiesPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(FlowVeevaSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html
 type FlowVeevaSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowVeevaSourcePropertiesOutput) ElementType() reflect.Type {
@@ -11360,27 +10830,22 @@ func (o FlowVeevaSourcePropertiesOutput) ToFlowVeevaSourcePropertiesPtrOutputWit
 	}).(FlowVeevaSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-documenttype
 func (o FlowVeevaSourcePropertiesOutput) DocumentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowVeevaSourceProperties) *string { return v.DocumentType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includeallversions
 func (o FlowVeevaSourcePropertiesOutput) IncludeAllVersions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowVeevaSourceProperties) *bool { return v.IncludeAllVersions }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includerenditions
 func (o FlowVeevaSourcePropertiesOutput) IncludeRenditions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowVeevaSourceProperties) *bool { return v.IncludeRenditions }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includesourcefiles
 func (o FlowVeevaSourcePropertiesOutput) IncludeSourceFiles() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlowVeevaSourceProperties) *bool { return v.IncludeSourceFiles }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-object
 func (o FlowVeevaSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowVeevaSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -11409,7 +10874,6 @@ func (o FlowVeevaSourcePropertiesPtrOutput) Elem() FlowVeevaSourcePropertiesOutp
 	}).(FlowVeevaSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-documenttype
 func (o FlowVeevaSourcePropertiesPtrOutput) DocumentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowVeevaSourceProperties) *string {
 		if v == nil {
@@ -11419,7 +10883,6 @@ func (o FlowVeevaSourcePropertiesPtrOutput) DocumentType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includeallversions
 func (o FlowVeevaSourcePropertiesPtrOutput) IncludeAllVersions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowVeevaSourceProperties) *bool {
 		if v == nil {
@@ -11429,7 +10892,6 @@ func (o FlowVeevaSourcePropertiesPtrOutput) IncludeAllVersions() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includerenditions
 func (o FlowVeevaSourcePropertiesPtrOutput) IncludeRenditions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowVeevaSourceProperties) *bool {
 		if v == nil {
@@ -11439,7 +10901,6 @@ func (o FlowVeevaSourcePropertiesPtrOutput) IncludeRenditions() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-includesourcefiles
 func (o FlowVeevaSourcePropertiesPtrOutput) IncludeSourceFiles() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlowVeevaSourceProperties) *bool {
 		if v == nil {
@@ -11449,7 +10910,6 @@ func (o FlowVeevaSourcePropertiesPtrOutput) IncludeSourceFiles() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html#cfn-appflow-flow-veevasourceproperties-object
 func (o FlowVeevaSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowVeevaSourceProperties) *string {
 		if v == nil {
@@ -11459,16 +10919,12 @@ func (o FlowVeevaSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html
 type FlowZendeskDestinationProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-errorhandlingconfig
 	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-idfieldnames
-	IdFieldNames []string `pulumi:"idFieldNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-object
-	Object string `pulumi:"object"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-writeoperationtype
-	WriteOperationType *string `pulumi:"writeOperationType"`
+	// List of fields used as ID when performing a write operation.
+	IdFieldNames       []string `pulumi:"idFieldNames"`
+	Object             string   `pulumi:"object"`
+	WriteOperationType *string  `pulumi:"writeOperationType"`
 }
 
 // FlowZendeskDestinationPropertiesInput is an input type that accepts FlowZendeskDestinationPropertiesArgs and FlowZendeskDestinationPropertiesOutput values.
@@ -11482,16 +10938,12 @@ type FlowZendeskDestinationPropertiesInput interface {
 	ToFlowZendeskDestinationPropertiesOutputWithContext(context.Context) FlowZendeskDestinationPropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html
 type FlowZendeskDestinationPropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-errorhandlingconfig
 	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-idfieldnames
-	IdFieldNames pulumi.StringArrayInput `pulumi:"idFieldNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-object
-	Object pulumi.StringInput `pulumi:"object"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-writeoperationtype
-	WriteOperationType pulumi.StringPtrInput `pulumi:"writeOperationType"`
+	// List of fields used as ID when performing a write operation.
+	IdFieldNames       pulumi.StringArrayInput `pulumi:"idFieldNames"`
+	Object             pulumi.StringInput      `pulumi:"object"`
+	WriteOperationType pulumi.StringPtrInput   `pulumi:"writeOperationType"`
 }
 
 func (FlowZendeskDestinationPropertiesArgs) ElementType() reflect.Type {
@@ -11547,7 +10999,6 @@ func (i *flowZendeskDestinationPropertiesPtrType) ToFlowZendeskDestinationProper
 	return pulumi.ToOutputWithContext(ctx, i).(FlowZendeskDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html
 type FlowZendeskDestinationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowZendeskDestinationPropertiesOutput) ElementType() reflect.Type {
@@ -11572,22 +11023,19 @@ func (o FlowZendeskDestinationPropertiesOutput) ToFlowZendeskDestinationProperti
 	}).(FlowZendeskDestinationPropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-errorhandlingconfig
 func (o FlowZendeskDestinationPropertiesOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowZendeskDestinationProperties) *FlowErrorHandlingConfig { return v.ErrorHandlingConfig }).(FlowErrorHandlingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-idfieldnames
+// List of fields used as ID when performing a write operation.
 func (o FlowZendeskDestinationPropertiesOutput) IdFieldNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlowZendeskDestinationProperties) []string { return v.IdFieldNames }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-object
 func (o FlowZendeskDestinationPropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowZendeskDestinationProperties) string { return v.Object }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-writeoperationtype
 func (o FlowZendeskDestinationPropertiesOutput) WriteOperationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowZendeskDestinationProperties) *string { return v.WriteOperationType }).(pulumi.StringPtrOutput)
 }
@@ -11616,7 +11064,6 @@ func (o FlowZendeskDestinationPropertiesPtrOutput) Elem() FlowZendeskDestination
 	}).(FlowZendeskDestinationPropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-errorhandlingconfig
 func (o FlowZendeskDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowZendeskDestinationProperties) *FlowErrorHandlingConfig {
 		if v == nil {
@@ -11626,7 +11073,7 @@ func (o FlowZendeskDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErr
 	}).(FlowErrorHandlingConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-idfieldnames
+// List of fields used as ID when performing a write operation.
 func (o FlowZendeskDestinationPropertiesPtrOutput) IdFieldNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlowZendeskDestinationProperties) []string {
 		if v == nil {
@@ -11636,7 +11083,6 @@ func (o FlowZendeskDestinationPropertiesPtrOutput) IdFieldNames() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-object
 func (o FlowZendeskDestinationPropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowZendeskDestinationProperties) *string {
 		if v == nil {
@@ -11646,7 +11092,6 @@ func (o FlowZendeskDestinationPropertiesPtrOutput) Object() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html#cfn-appflow-flow-zendeskdestinationproperties-writeoperationtype
 func (o FlowZendeskDestinationPropertiesPtrOutput) WriteOperationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowZendeskDestinationProperties) *string {
 		if v == nil {
@@ -11656,9 +11101,7 @@ func (o FlowZendeskDestinationPropertiesPtrOutput) WriteOperationType() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html
 type FlowZendeskSourceProperties struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html#cfn-appflow-flow-zendesksourceproperties-object
 	Object string `pulumi:"object"`
 }
 
@@ -11673,9 +11116,7 @@ type FlowZendeskSourcePropertiesInput interface {
 	ToFlowZendeskSourcePropertiesOutputWithContext(context.Context) FlowZendeskSourcePropertiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html
 type FlowZendeskSourcePropertiesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html#cfn-appflow-flow-zendesksourceproperties-object
 	Object pulumi.StringInput `pulumi:"object"`
 }
 
@@ -11732,7 +11173,6 @@ func (i *flowZendeskSourcePropertiesPtrType) ToFlowZendeskSourcePropertiesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(FlowZendeskSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html
 type FlowZendeskSourcePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FlowZendeskSourcePropertiesOutput) ElementType() reflect.Type {
@@ -11757,7 +11197,6 @@ func (o FlowZendeskSourcePropertiesOutput) ToFlowZendeskSourcePropertiesPtrOutpu
 	}).(FlowZendeskSourcePropertiesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html#cfn-appflow-flow-zendesksourceproperties-object
 func (o FlowZendeskSourcePropertiesOutput) Object() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowZendeskSourceProperties) string { return v.Object }).(pulumi.StringOutput)
 }
@@ -11786,7 +11225,6 @@ func (o FlowZendeskSourcePropertiesPtrOutput) Elem() FlowZendeskSourceProperties
 	}).(FlowZendeskSourcePropertiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html#cfn-appflow-flow-zendesksourceproperties-object
 func (o FlowZendeskSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowZendeskSourceProperties) *string {
 		if v == nil {
@@ -11912,6 +11350,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowSourceConnectorPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowSourceFlowConfigOutput{})
 	pulumi.RegisterOutputType(FlowSourceFlowConfigPtrOutput{})
+	pulumi.RegisterOutputType(FlowTagOutput{})
+	pulumi.RegisterOutputType(FlowTagArrayOutput{})
 	pulumi.RegisterOutputType(FlowTaskOutput{})
 	pulumi.RegisterOutputType(FlowTaskArrayOutput{})
 	pulumi.RegisterOutputType(FlowTaskPropertiesObjectOutput{})

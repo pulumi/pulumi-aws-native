@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html
+    /// The Network Load Balancer resource that a DNS target resource points to.
     /// </summary>
     [OutputType]
     public sealed class ResourceSetNLBResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html#cfn-route53recoveryreadiness-resourceset-nlbresource-arn
+        /// A Network Load Balancer resource Amazon Resource Name (ARN).
         /// </summary>
         public readonly string? Arn;
 

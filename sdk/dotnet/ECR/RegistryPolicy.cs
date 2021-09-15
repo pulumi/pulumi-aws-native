@@ -10,16 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECR
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html
+    /// The AWS::ECR::RegistryPolicy is used to specify permissions for another AWS account and is used when configuring cross-account replication. For more information, see Registry permissions in the Amazon Elastic Container Registry User Guide: https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html
     /// </summary>
     [AwsNativeResourceType("aws-native:ecr:RegistryPolicy")]
     public partial class RegistryPolicy : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html#cfn-ecr-registrypolicy-policytext
+        /// The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
         /// </summary>
         [Output("policyText")]
-        public Output<Union<System.Text.Json.JsonElement, string>> PolicyText { get; private set; } = null!;
+        public Output<object> PolicyText { get; private set; } = null!;
 
         [Output("registryId")]
         public Output<string> RegistryId { get; private set; } = null!;
@@ -70,10 +70,10 @@ namespace Pulumi.AwsNative.ECR
     public sealed class RegistryPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html#cfn-ecr-registrypolicy-policytext
+        /// The JSON policy text to apply to your registry. The policy text follows the same format as IAM policy text. For more information, see Registry permissions (https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the Amazon Elastic Container Registry User Guide.
         /// </summary>
         [Input("policyText", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> PolicyText { get; set; } = null!;
+        public Input<object> PolicyText { get; set; } = null!;
 
         public RegistryPolicyArgs()
         {

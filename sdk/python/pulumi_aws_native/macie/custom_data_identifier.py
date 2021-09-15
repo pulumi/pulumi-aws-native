@@ -21,12 +21,12 @@ class CustomDataIdentifierArgs:
                  maximum_match_distance: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a CustomDataIdentifier resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-name
-        :param pulumi.Input[str] regex: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-regex
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-description
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ignore_words: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-ignorewords
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] keywords: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-keywords
-        :param pulumi.Input[int] maximum_match_distance: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-maximummatchdistance
+        :param pulumi.Input[str] name: Name of custom data identifier.
+        :param pulumi.Input[str] regex: Regular expression for custom data identifier.
+        :param pulumi.Input[str] description: Description of custom data identifier.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ignore_words: Words to be ignored.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keywords: Keywords to be matched against.
+        :param pulumi.Input[int] maximum_match_distance: Maximum match distance.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "regex", regex)
@@ -43,7 +43,7 @@ class CustomDataIdentifierArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-name
+        Name of custom data identifier.
         """
         return pulumi.get(self, "name")
 
@@ -55,7 +55,7 @@ class CustomDataIdentifierArgs:
     @pulumi.getter
     def regex(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-regex
+        Regular expression for custom data identifier.
         """
         return pulumi.get(self, "regex")
 
@@ -67,7 +67,7 @@ class CustomDataIdentifierArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-description
+        Description of custom data identifier.
         """
         return pulumi.get(self, "description")
 
@@ -79,7 +79,7 @@ class CustomDataIdentifierArgs:
     @pulumi.getter(name="ignoreWords")
     def ignore_words(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-ignorewords
+        Words to be ignored.
         """
         return pulumi.get(self, "ignore_words")
 
@@ -91,7 +91,7 @@ class CustomDataIdentifierArgs:
     @pulumi.getter
     def keywords(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-keywords
+        Keywords to be matched against.
         """
         return pulumi.get(self, "keywords")
 
@@ -103,7 +103,7 @@ class CustomDataIdentifierArgs:
     @pulumi.getter(name="maximumMatchDistance")
     def maximum_match_distance(self) -> Optional[pulumi.Input[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-maximummatchdistance
+        Maximum match distance.
         """
         return pulumi.get(self, "maximum_match_distance")
 
@@ -125,16 +125,16 @@ class CustomDataIdentifier(pulumi.CustomResource):
                  regex: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html
+        Macie CustomDataIdentifier resource schema
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-description
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ignore_words: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-ignorewords
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] keywords: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-keywords
-        :param pulumi.Input[int] maximum_match_distance: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-maximummatchdistance
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-name
-        :param pulumi.Input[str] regex: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-regex
+        :param pulumi.Input[str] description: Description of custom data identifier.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ignore_words: Words to be ignored.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keywords: Keywords to be matched against.
+        :param pulumi.Input[int] maximum_match_distance: Maximum match distance.
+        :param pulumi.Input[str] name: Name of custom data identifier.
+        :param pulumi.Input[str] regex: Regular expression for custom data identifier.
         """
         ...
     @overload
@@ -143,7 +143,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
                  args: CustomDataIdentifierArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html
+        Macie CustomDataIdentifier resource schema
 
         :param str resource_name: The name of the resource.
         :param CustomDataIdentifierArgs args: The arguments to use to populate this resource's properties.
@@ -189,7 +189,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
                 raise TypeError("Missing required property 'regex'")
             __props__.__dict__["regex"] = regex
             __props__.__dict__["arn"] = None
-            __props__.__dict__["id"] = None
         super(CustomDataIdentifier, __self__).__init__(
             'aws-native:macie:CustomDataIdentifier',
             resource_name,
@@ -214,7 +213,6 @@ class CustomDataIdentifier(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["ignore_words"] = None
         __props__.__dict__["keywords"] = None
         __props__.__dict__["maximum_match_distance"] = None
@@ -225,26 +223,24 @@ class CustomDataIdentifier(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Custom data identifier ARN.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-description
+        Description of custom data identifier.
         """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ignoreWords")
     def ignore_words(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-ignorewords
+        Words to be ignored.
         """
         return pulumi.get(self, "ignore_words")
 
@@ -252,7 +248,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
     @pulumi.getter
     def keywords(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-keywords
+        Keywords to be matched against.
         """
         return pulumi.get(self, "keywords")
 
@@ -260,7 +256,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
     @pulumi.getter(name="maximumMatchDistance")
     def maximum_match_distance(self) -> pulumi.Output[Optional[int]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-maximummatchdistance
+        Maximum match distance.
         """
         return pulumi.get(self, "maximum_match_distance")
 
@@ -268,7 +264,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-name
+        Name of custom data identifier.
         """
         return pulumi.get(self, "name")
 
@@ -276,7 +272,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
     @pulumi.getter
     def regex(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-customdataidentifier.html#cfn-macie-customdataidentifier-regex
+        Regular expression for custom data identifier.
         """
         return pulumi.get(self, "regex")
 

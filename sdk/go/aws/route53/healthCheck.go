@@ -11,14 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
+// Resource schema for AWS::Route53::HealthCheck.
 type HealthCheck struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
+	// A complex type that contains information about the health check.
 	HealthCheckConfig pulumi.AnyOutput    `pulumi:"healthCheckConfig"`
 	HealthCheckId     pulumi.StringOutput `pulumi:"healthCheckId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
+	// An array of key-value pairs to apply to this resource.
 	HealthCheckTags HealthCheckHealthCheckTagArrayOutput `pulumi:"healthCheckTags"`
 }
 
@@ -64,17 +64,17 @@ func (HealthCheckState) ElementType() reflect.Type {
 }
 
 type healthCheckArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
+	// A complex type that contains information about the health check.
 	HealthCheckConfig interface{} `pulumi:"healthCheckConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
+	// An array of key-value pairs to apply to this resource.
 	HealthCheckTags []HealthCheckHealthCheckTag `pulumi:"healthCheckTags"`
 }
 
 // The set of arguments for constructing a HealthCheck resource.
 type HealthCheckArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
+	// A complex type that contains information about the health check.
 	HealthCheckConfig pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
+	// An array of key-value pairs to apply to this resource.
 	HealthCheckTags HealthCheckHealthCheckTagArrayInput
 }
 

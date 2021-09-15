@@ -15,6 +15,7 @@ __all__ = [
     'RepositoryEncryptionConfigurationArgs',
     'RepositoryImageScanningConfigurationArgs',
     'RepositoryLifecyclePolicyArgs',
+    'RepositoryTagArgs',
 ]
 
 @pulumi.input_type
@@ -22,8 +23,8 @@ class ReplicationConfigurationReplicationConfigurationArgs:
     def __init__(__self__, *,
                  rules: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]] rules: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules
+        An object representing the replication configuration for a registry.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]] rules: An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
         """
         pulumi.set(__self__, "rules", rules)
 
@@ -31,7 +32,7 @@ class ReplicationConfigurationReplicationConfigurationArgs:
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationRuleArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules
+        An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
         """
         return pulumi.get(self, "rules")
 
@@ -46,9 +47,7 @@ class ReplicationConfigurationReplicationDestinationArgs:
                  region: pulumi.Input[str],
                  registry_id: pulumi.Input[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html
-        :param pulumi.Input[str] region: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-region
-        :param pulumi.Input[str] registry_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-registryid
+        An array of objects representing the details of a replication destination.
         """
         pulumi.set(__self__, "region", region)
         pulumi.set(__self__, "registry_id", registry_id)
@@ -56,9 +55,6 @@ class ReplicationConfigurationReplicationDestinationArgs:
     @property
     @pulumi.getter
     def region(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-region
-        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -68,9 +64,6 @@ class ReplicationConfigurationReplicationDestinationArgs:
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-registryid
-        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
@@ -83,8 +76,8 @@ class ReplicationConfigurationReplicationRuleArgs:
     def __init__(__self__, *,
                  destinations: pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]] destinations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-destinations
+        An array of objects representing the details of a replication destination.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]] destinations: An array of objects representing the details of a replication destination.
         """
         pulumi.set(__self__, "destinations", destinations)
 
@@ -92,7 +85,7 @@ class ReplicationConfigurationReplicationRuleArgs:
     @pulumi.getter
     def destinations(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationReplicationDestinationArgs']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-destinations
+        An array of objects representing the details of a replication destination.
         """
         return pulumi.get(self, "destinations")
 
@@ -107,9 +100,11 @@ class RepositoryEncryptionConfigurationArgs:
                  encryption_type: pulumi.Input[str],
                  kms_key: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html
-        :param pulumi.Input[str] encryption_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-encryptiontype
-        :param pulumi.Input[str] kms_key: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-kmskey
+        The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+
+        By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+
+        For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
         """
         pulumi.set(__self__, "encryption_type", encryption_type)
         if kms_key is not None:
@@ -118,9 +113,6 @@ class RepositoryEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-encryptiontype
-        """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
@@ -130,9 +122,6 @@ class RepositoryEncryptionConfigurationArgs:
     @property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-kmskey
-        """
         return pulumi.get(self, "kms_key")
 
     @kms_key.setter
@@ -145,8 +134,7 @@ class RepositoryImageScanningConfigurationArgs:
     def __init__(__self__, *,
                  scan_on_push: Optional[pulumi.Input[bool]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html
-        :param pulumi.Input[bool] scan_on_push: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html#cfn-ecr-repository-imagescanningconfiguration-scanonpush
+        The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.
         """
         if scan_on_push is not None:
             pulumi.set(__self__, "scan_on_push", scan_on_push)
@@ -154,9 +142,6 @@ class RepositoryImageScanningConfigurationArgs:
     @property
     @pulumi.getter(name="scanOnPush")
     def scan_on_push(self) -> Optional[pulumi.Input[bool]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html#cfn-ecr-repository-imagescanningconfiguration-scanonpush
-        """
         return pulumi.get(self, "scan_on_push")
 
     @scan_on_push.setter
@@ -170,9 +155,7 @@ class RepositoryLifecyclePolicyArgs:
                  lifecycle_policy_text: Optional[pulumi.Input[str]] = None,
                  registry_id: Optional[pulumi.Input[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html
-        :param pulumi.Input[str] lifecycle_policy_text: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-lifecyclepolicytext
-        :param pulumi.Input[str] registry_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-registryid
+        The LifecyclePolicy property type specifies a lifecycle policy. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
         """
         if lifecycle_policy_text is not None:
             pulumi.set(__self__, "lifecycle_policy_text", lifecycle_policy_text)
@@ -182,9 +165,6 @@ class RepositoryLifecyclePolicyArgs:
     @property
     @pulumi.getter(name="lifecyclePolicyText")
     def lifecycle_policy_text(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-lifecyclepolicytext
-        """
         return pulumi.get(self, "lifecycle_policy_text")
 
     @lifecycle_policy_text.setter
@@ -194,13 +174,48 @@ class RepositoryLifecyclePolicyArgs:
     @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-registryid
-        """
         return pulumi.get(self, "registry_id")
 
     @registry_id.setter
     def registry_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "registry_id", value)
+
+
+@pulumi.input_type
+class RepositoryTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 

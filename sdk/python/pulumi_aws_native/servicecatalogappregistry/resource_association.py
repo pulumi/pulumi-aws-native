@@ -18,9 +18,9 @@ class ResourceAssociationArgs:
                  resource_type: pulumi.Input[str]):
         """
         The set of arguments for constructing a ResourceAssociation resource.
-        :param pulumi.Input[str] application: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-application
-        :param pulumi.Input[str] resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resource
-        :param pulumi.Input[str] resource_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resourcetype
+        :param pulumi.Input[str] application: The name or the Id of the Application.
+        :param pulumi.Input[str] resource: The name or the Id of the Resource.
+        :param pulumi.Input[str] resource_type: The type of the CFN Resource for now it's enum CFN_STACK.
         """
         pulumi.set(__self__, "application", application)
         pulumi.set(__self__, "resource", resource)
@@ -30,7 +30,7 @@ class ResourceAssociationArgs:
     @pulumi.getter
     def application(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-application
+        The name or the Id of the Application.
         """
         return pulumi.get(self, "application")
 
@@ -42,7 +42,7 @@ class ResourceAssociationArgs:
     @pulumi.getter
     def resource(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resource
+        The name or the Id of the Resource.
         """
         return pulumi.get(self, "resource")
 
@@ -54,7 +54,7 @@ class ResourceAssociationArgs:
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resourcetype
+        The type of the CFN Resource for now it's enum CFN_STACK.
         """
         return pulumi.get(self, "resource_type")
 
@@ -73,13 +73,13 @@ class ResourceAssociation(pulumi.CustomResource):
                  resource_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html
+        Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-application
-        :param pulumi.Input[str] resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resource
-        :param pulumi.Input[str] resource_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resourcetype
+        :param pulumi.Input[str] application: The name or the Id of the Application.
+        :param pulumi.Input[str] resource: The name or the Id of the Resource.
+        :param pulumi.Input[str] resource_type: The type of the CFN Resource for now it's enum CFN_STACK.
         """
         ...
     @overload
@@ -88,7 +88,7 @@ class ResourceAssociation(pulumi.CustomResource):
                  args: ResourceAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html
+        Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
 
         :param str resource_name: The name of the resource.
         :param ResourceAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -130,7 +130,6 @@ class ResourceAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["application_arn"] = None
-            __props__.__dict__["id"] = None
             __props__.__dict__["resource_arn"] = None
         super(ResourceAssociation, __self__).__init__(
             'aws-native:servicecatalogappregistry:ResourceAssociation',
@@ -156,7 +155,6 @@ class ResourceAssociation(pulumi.CustomResource):
 
         __props__.__dict__["application"] = None
         __props__.__dict__["application_arn"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["resource"] = None
         __props__.__dict__["resource_arn"] = None
         __props__.__dict__["resource_type"] = None
@@ -166,7 +164,7 @@ class ResourceAssociation(pulumi.CustomResource):
     @pulumi.getter
     def application(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-application
+        The name or the Id of the Application.
         """
         return pulumi.get(self, "application")
 
@@ -177,14 +175,9 @@ class ResourceAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
     def resource(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resource
+        The name or the Id of the Resource.
         """
         return pulumi.get(self, "resource")
 
@@ -197,7 +190,7 @@ class ResourceAssociation(pulumi.CustomResource):
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resourcetype
+        The type of the CFN Resource for now it's enum CFN_STACK.
         """
         return pulumi.get(self, "resource_type")
 

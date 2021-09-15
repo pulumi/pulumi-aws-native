@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html
+ * Resource Type definition for AWS::EC2::SpotFleet
  */
 export class SpotFleet extends pulumi.CustomResource {
     /**
@@ -35,10 +35,6 @@ export class SpotFleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === SpotFleet.__pulumiType;
     }
 
-    public /*out*/ readonly id!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
-     */
     public readonly spotFleetRequestConfigData!: pulumi.Output<outputs.ec2.SpotFleetSpotFleetRequestConfigData>;
 
     /**
@@ -56,9 +52,7 @@ export class SpotFleet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'spotFleetRequestConfigData'");
             }
             inputs["spotFleetRequestConfigData"] = args ? args.spotFleetRequestConfigData : undefined;
-            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["id"] = undefined /*out*/;
             inputs["spotFleetRequestConfigData"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -72,8 +66,5 @@ export class SpotFleet extends pulumi.CustomResource {
  * The set of arguments for constructing a SpotFleet resource.
  */
 export interface SpotFleetArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
-     */
     spotFleetRequestConfigData: pulumi.Input<inputs.ec2.SpotFleetSpotFleetRequestConfigDataArgs>;
 }

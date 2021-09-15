@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html
+    /// Configuration details of the component.
     /// </summary>
     public sealed class ContainerRecipeComponentConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-componentarn
+        /// The Amazon Resource Name (ARN) of the component.
         /// </summary>
         [Input("componentArn")]
         public Input<string>? ComponentArn { get; set; }

@@ -11,12 +11,14 @@ namespace Pulumi.AwsNative.Route53.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html
+    /// A complex type that contains an optional comment.
+    /// 
+    /// If you don't want to specify a comment, omit the HostedZoneConfig and Comment elements.
     /// </summary>
     public sealed class HostedZoneHostedZoneConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html#cfn-route53-hostedzone-hostedzoneconfig-comment
+        /// Any comments that you want to include about the hosted zone.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }

@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.IoT.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html
+    /// The dimension of a metric.
     /// </summary>
     [OutputType]
     public sealed class SecurityProfileMetricDimension
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html#cfn-iot-securityprofile-metricdimension-dimensionname
+        /// A unique identifier for the dimension.
         /// </summary>
         public readonly string DimensionName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricdimension.html#cfn-iot-securityprofile-metricdimension-operator
+        /// Defines how the dimensionValues of a dimension are interpreted.
         /// </summary>
         public readonly string? Operator;
 

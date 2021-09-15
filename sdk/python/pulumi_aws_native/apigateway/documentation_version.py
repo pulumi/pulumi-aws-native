@@ -18,9 +18,9 @@ class DocumentationVersionArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DocumentationVersion resource.
-        :param pulumi.Input[str] documentation_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-documentationversion
-        :param pulumi.Input[str] rest_api_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-restapiid
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-description
+        :param pulumi.Input[str] documentation_version: The version identifier of the API documentation snapshot.
+        :param pulumi.Input[str] rest_api_id: The identifier of the API.
+        :param pulumi.Input[str] description: The description of the API documentation snapshot.
         """
         pulumi.set(__self__, "documentation_version", documentation_version)
         pulumi.set(__self__, "rest_api_id", rest_api_id)
@@ -31,7 +31,7 @@ class DocumentationVersionArgs:
     @pulumi.getter(name="documentationVersion")
     def documentation_version(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-documentationversion
+        The version identifier of the API documentation snapshot.
         """
         return pulumi.get(self, "documentation_version")
 
@@ -43,7 +43,7 @@ class DocumentationVersionArgs:
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-restapiid
+        The identifier of the API.
         """
         return pulumi.get(self, "rest_api_id")
 
@@ -55,7 +55,7 @@ class DocumentationVersionArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-description
+        The description of the API documentation snapshot.
         """
         return pulumi.get(self, "description")
 
@@ -74,13 +74,13 @@ class DocumentationVersion(pulumi.CustomResource):
                  rest_api_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html
+        A snapshot of the documentation of an API.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-description
-        :param pulumi.Input[str] documentation_version: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-documentationversion
-        :param pulumi.Input[str] rest_api_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-restapiid
+        :param pulumi.Input[str] description: The description of the API documentation snapshot.
+        :param pulumi.Input[str] documentation_version: The version identifier of the API documentation snapshot.
+        :param pulumi.Input[str] rest_api_id: The identifier of the API.
         """
         ...
     @overload
@@ -89,7 +89,7 @@ class DocumentationVersion(pulumi.CustomResource):
                  args: DocumentationVersionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html
+        A snapshot of the documentation of an API.
 
         :param str resource_name: The name of the resource.
         :param DocumentationVersionArgs args: The arguments to use to populate this resource's properties.
@@ -159,7 +159,7 @@ class DocumentationVersion(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-description
+        The description of the API documentation snapshot.
         """
         return pulumi.get(self, "description")
 
@@ -167,7 +167,7 @@ class DocumentationVersion(pulumi.CustomResource):
     @pulumi.getter(name="documentationVersion")
     def documentation_version(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-documentationversion
+        The version identifier of the API documentation snapshot.
         """
         return pulumi.get(self, "documentation_version")
 
@@ -175,7 +175,7 @@ class DocumentationVersion(pulumi.CustomResource):
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-restapiid
+        The identifier of the API.
         """
         return pulumi.get(self, "rest_api_id")
 

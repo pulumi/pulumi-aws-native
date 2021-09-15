@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.DevOpsGuru.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html
+    /// Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
     /// </summary>
     [OutputType]
     public sealed class NotificationChannelSnsChannelConfig
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html#cfn-devopsguru-notificationchannel-snschannelconfig-topicarn
-        /// </summary>
         public readonly string? TopicArn;
 
         [OutputConstructor]

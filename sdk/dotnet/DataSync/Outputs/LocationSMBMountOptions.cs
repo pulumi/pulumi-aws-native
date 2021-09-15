@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.DataSync.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html
+    /// The mount options used by DataSync to access the SMB server.
     /// </summary>
     [OutputType]
     public sealed class LocationSMBMountOptions
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html#cfn-datasync-locationsmb-mountoptions-version
+        /// The specific SMB version that you want DataSync to use to mount your SMB share.
         /// </summary>
         public readonly string? Version;
 

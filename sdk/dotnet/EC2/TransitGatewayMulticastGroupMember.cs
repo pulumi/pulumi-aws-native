@@ -10,49 +10,73 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupmember.html
+    /// The AWS::EC2::TransitGatewayMulticastGroupMember registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayMulticastGroupMember")]
     public partial class TransitGatewayMulticastGroupMember : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupmember.html#cfn-ec2-transitgatewaymulticastgroupmember-groupipaddress
+        /// The IP address assigned to the transit gateway multicast group.
         /// </summary>
         [Output("groupIpAddress")]
         public Output<string> GroupIpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates that the resource is a transit gateway multicast group member.
+        /// </summary>
         [Output("groupMember")]
         public Output<bool> GroupMember { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates that the resource is a transit gateway multicast group member.
+        /// </summary>
         [Output("groupSource")]
         public Output<bool> GroupSource { get; private set; } = null!;
 
+        /// <summary>
+        /// The member type (for example, static).
+        /// </summary>
         [Output("memberType")]
         public Output<string> MemberType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupmember.html#cfn-ec2-transitgatewaymulticastgroupmember-networkinterfaceid
+        /// The ID of the transit gateway attachment.
         /// </summary>
         [Output("networkInterfaceId")]
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the resource.
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of resource, for example a VPC attachment.
+        /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
+        /// <summary>
+        /// The source type.
+        /// </summary>
         [Output("sourceType")]
         public Output<string> SourceType { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the subnet.
+        /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the transit gateway attachment.
+        /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupmember.html#cfn-ec2-transitgatewaymulticastgroupmember-transitgatewaymulticastdomainid
+        /// The ID of the transit gateway multicast domain.
         /// </summary>
         [Output("transitGatewayMulticastDomainId")]
         public Output<string> TransitGatewayMulticastDomainId { get; private set; } = null!;
@@ -103,19 +127,19 @@ namespace Pulumi.AwsNative.EC2
     public sealed class TransitGatewayMulticastGroupMemberArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupmember.html#cfn-ec2-transitgatewaymulticastgroupmember-groupipaddress
+        /// The IP address assigned to the transit gateway multicast group.
         /// </summary>
         [Input("groupIpAddress", required: true)]
         public Input<string> GroupIpAddress { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupmember.html#cfn-ec2-transitgatewaymulticastgroupmember-networkinterfaceid
+        /// The ID of the transit gateway attachment.
         /// </summary>
         [Input("networkInterfaceId", required: true)]
         public Input<string> NetworkInterfaceId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastgroupmember.html#cfn-ec2-transitgatewaymulticastgroupmember-transitgatewaymulticastdomainid
+        /// The ID of the transit gateway multicast domain.
         /// </summary>
         [Input("transitGatewayMulticastDomainId", required: true)]
         public Input<string> TransitGatewayMulticastDomainId { get; set; } = null!;

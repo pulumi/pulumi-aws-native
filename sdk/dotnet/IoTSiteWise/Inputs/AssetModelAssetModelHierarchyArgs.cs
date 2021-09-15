@@ -11,24 +11,24 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html
+    /// Contains information about an asset model hierarchy.
     /// </summary>
     public sealed class AssetModelAssetModelHierarchyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-childassetmodelid
+        /// The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
         /// </summary>
         [Input("childAssetModelId", required: true)]
         public Input<string> ChildAssetModelId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-logicalid
+        /// Customer provided ID for hierarchy.
         /// </summary>
         [Input("logicalId", required: true)]
         public Input<string> LogicalId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-name
+        /// The name of the asset model hierarchy.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

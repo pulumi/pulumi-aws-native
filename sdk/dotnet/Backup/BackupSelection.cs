@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html
+    /// Resource Type definition for AWS::Backup::BackupSelection
     /// </summary>
     [AwsNativeResourceType("aws-native:backup:BackupSelection")]
     public partial class BackupSelection : Pulumi.CustomResource
@@ -18,14 +18,8 @@ namespace Pulumi.AwsNative.Backup
         [Output("backupPlanId")]
         public Output<string> BackupPlanId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
-        /// </summary>
         [Output("backupSelection")]
         public Output<Outputs.BackupSelectionBackupSelectionResourceType> BackupSelectionValue { get; private set; } = null!;
-
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
 
         [Output("selectionId")]
         public Output<string> SelectionId { get; private set; } = null!;
@@ -75,15 +69,6 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class BackupSelectionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupplanid
-        /// </summary>
-        [Input("backupPlanId", required: true)]
-        public Input<string> BackupPlanId { get; set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
-        /// </summary>
         [Input("backupSelection", required: true)]
         public Input<Inputs.BackupSelectionBackupSelectionResourceTypeArgs> BackupSelectionValue { get; set; } = null!;
 

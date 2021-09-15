@@ -11,24 +11,24 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html
+    /// The JMX Prometheus Exporter settings.
     /// </summary>
     public sealed class ApplicationJMXPrometheusExporterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-hostport
+        /// Java agent host port
         /// </summary>
         [Input("hostPort")]
         public Input<string>? HostPort { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-jmxurl
+        /// JMX service URL.
         /// </summary>
         [Input("jMXURL")]
         public Input<string>? JMXURL { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-prometheusport
+        /// Prometheus exporter port
         /// </summary>
         [Input("prometheusPort")]
         public Input<string>? PrometheusPort { get; set; }

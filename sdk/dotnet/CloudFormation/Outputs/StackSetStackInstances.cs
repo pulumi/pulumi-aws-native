@@ -11,21 +11,18 @@ namespace Pulumi.AwsNative.CloudFormation.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html
+    /// Stack instances in some specific accounts and Regions.
     /// </summary>
     [OutputType]
     public sealed class StackSetStackInstances
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
-        /// </summary>
         public readonly Outputs.StackSetDeploymentTargets DeploymentTargets;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
+        /// A list of stack set parameters whose values you want to override in the selected stack instances.
         /// </summary>
         public readonly ImmutableArray<Outputs.StackSetParameter> ParameterOverrides;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
+        /// The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
         /// </summary>
         public readonly ImmutableArray<string> Regions;
 

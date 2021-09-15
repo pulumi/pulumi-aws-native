@@ -11,21 +11,18 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html
+    /// Custom response.
     /// </summary>
     [OutputType]
     public sealed class WebACLCustomResponse
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-customresponsebodykey
+        /// Custom response body key.
         /// </summary>
         public readonly string? CustomResponseBodyKey;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responsecode
-        /// </summary>
         public readonly int ResponseCode;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responseheaders
+        /// Collection of HTTP headers.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebACLCustomHTTPHeader> ResponseHeaders;
 

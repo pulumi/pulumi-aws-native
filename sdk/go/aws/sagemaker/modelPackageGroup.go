@@ -8,25 +8,23 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html
+// Resource Type definition for AWS::SageMaker::ModelPackageGroup
 type ModelPackageGroup struct {
 	pulumi.CustomResourceState
 
-	CreationTime         pulumi.StringOutput `pulumi:"creationTime"`
-	ModelPackageGroupArn pulumi.StringOutput `pulumi:"modelPackageGroupArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
+	// The time at which the model package group was created.
+	CreationTime                 pulumi.StringOutput    `pulumi:"creationTime"`
+	ModelPackageGroupArn         pulumi.StringOutput    `pulumi:"modelPackageGroupArn"`
 	ModelPackageGroupDescription pulumi.StringPtrOutput `pulumi:"modelPackageGroupDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
-	ModelPackageGroupName pulumi.StringOutput `pulumi:"modelPackageGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
-	ModelPackageGroupPolicy pulumi.AnyOutput    `pulumi:"modelPackageGroupPolicy"`
+	ModelPackageGroupName        pulumi.StringOutput    `pulumi:"modelPackageGroupName"`
+	ModelPackageGroupPolicy      pulumi.AnyOutput       `pulumi:"modelPackageGroupPolicy"`
+	// The status of a modelpackage group job.
 	ModelPackageGroupStatus pulumi.StringOutput `pulumi:"modelPackageGroupStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags ModelPackageGroupTagArrayOutput `pulumi:"tags"`
 }
 
 // NewModelPackageGroup registers a new resource with the given unique name, arguments, and options.
@@ -71,26 +69,20 @@ func (ModelPackageGroupState) ElementType() reflect.Type {
 }
 
 type modelPackageGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
-	ModelPackageGroupDescription *string `pulumi:"modelPackageGroupDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
-	ModelPackageGroupName string `pulumi:"modelPackageGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
-	ModelPackageGroupPolicy interface{} `pulumi:"modelPackageGroupPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	ModelPackageGroupDescription *string     `pulumi:"modelPackageGroupDescription"`
+	ModelPackageGroupName        string      `pulumi:"modelPackageGroupName"`
+	ModelPackageGroupPolicy      interface{} `pulumi:"modelPackageGroupPolicy"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []ModelPackageGroupTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ModelPackageGroup resource.
 type ModelPackageGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
 	ModelPackageGroupDescription pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
-	ModelPackageGroupName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
-	ModelPackageGroupPolicy pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
-	Tags aws.TagArrayInput
+	ModelPackageGroupName        pulumi.StringInput
+	ModelPackageGroupPolicy      pulumi.Input
+	// An array of key-value pairs to apply to this resource.
+	Tags ModelPackageGroupTagArrayInput
 }
 
 func (ModelPackageGroupArgs) ElementType() reflect.Type {

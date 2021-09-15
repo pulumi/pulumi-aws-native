@@ -11,24 +11,24 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html
+    /// The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
     /// </summary>
     public sealed class AppImageConfigFileSystemConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultgid
+        /// The default POSIX group ID (GID). If not specified, defaults to 100.
         /// </summary>
         [Input("defaultGid")]
         public Input<int>? DefaultGid { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-defaultuid
+        /// The default POSIX user ID (UID). If not specified, defaults to 1000.
         /// </summary>
         [Input("defaultUid")]
         public Input<int>? DefaultUid { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html#cfn-sagemaker-appimageconfig-filesystemconfig-mountpath
+        /// The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /home/sagemaker-user.
         /// </summary>
         [Input("mountPath")]
         public Input<string>? MountPath { get; set; }

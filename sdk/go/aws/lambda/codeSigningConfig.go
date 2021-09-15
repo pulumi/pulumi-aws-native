@@ -11,17 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html
+// Resource Type definition for AWS::Lambda::CodeSigningConfig.
 type CodeSigningConfig struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
-	AllowedPublishers    CodeSigningConfigAllowedPublishersOutput `pulumi:"allowedPublishers"`
-	CodeSigningConfigArn pulumi.StringOutput                      `pulumi:"codeSigningConfigArn"`
-	CodeSigningConfigId  pulumi.StringOutput                      `pulumi:"codeSigningConfigId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
+	// When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
+	AllowedPublishers CodeSigningConfigAllowedPublishersOutput `pulumi:"allowedPublishers"`
+	// A unique Arn for CodeSigningConfig resource
+	CodeSigningConfigArn pulumi.StringOutput `pulumi:"codeSigningConfigArn"`
+	// A unique identifier for CodeSigningConfig resource
+	CodeSigningConfigId pulumi.StringOutput `pulumi:"codeSigningConfigId"`
+	// Policies to control how to act if a signature is invalid
 	CodeSigningPolicies CodeSigningConfigCodeSigningPoliciesPtrOutput `pulumi:"codeSigningPolicies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
+	// A description of the CodeSigningConfig
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 }
 
@@ -67,21 +69,21 @@ func (CodeSigningConfigState) ElementType() reflect.Type {
 }
 
 type codeSigningConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
+	// When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
 	AllowedPublishers CodeSigningConfigAllowedPublishers `pulumi:"allowedPublishers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
+	// Policies to control how to act if a signature is invalid
 	CodeSigningPolicies *CodeSigningConfigCodeSigningPolicies `pulumi:"codeSigningPolicies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
+	// A description of the CodeSigningConfig
 	Description *string `pulumi:"description"`
 }
 
 // The set of arguments for constructing a CodeSigningConfig resource.
 type CodeSigningConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
+	// When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
 	AllowedPublishers CodeSigningConfigAllowedPublishersInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
+	// Policies to control how to act if a signature is invalid
 	CodeSigningPolicies CodeSigningConfigCodeSigningPoliciesPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
+	// A description of the CodeSigningConfig
 	Description pulumi.StringPtrInput
 }
 

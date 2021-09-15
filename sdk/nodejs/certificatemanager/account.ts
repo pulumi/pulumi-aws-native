@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html
+ * Resource schema for AWS::CertificateManager::Account.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -36,9 +36,6 @@ export class Account extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly accountId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration
-     */
     public readonly expiryEventsConfiguration!: pulumi.Output<outputs.certificatemanager.AccountExpiryEventsConfiguration>;
 
     /**
@@ -72,8 +69,5 @@ export class Account extends pulumi.CustomResource {
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration
-     */
     expiryEventsConfiguration: pulumi.Input<inputs.certificatemanager.AccountExpiryEventsConfigurationArgs>;
 }

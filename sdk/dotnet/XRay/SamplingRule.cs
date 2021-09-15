@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.XRay
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html
+    /// This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
     /// </summary>
     [AwsNativeResourceType("aws-native:xray:SamplingRule")]
     public partial class SamplingRule : Pulumi.CustomResource
@@ -18,35 +18,20 @@ namespace Pulumi.AwsNative.XRay
         [Output("ruleARN")]
         public Output<string> RuleARN { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-rulename
-        /// </summary>
         [Output("ruleName")]
         public Output<string?> RuleName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrule
-        /// </summary>
         [Output("samplingRule")]
         public Output<Outputs.SamplingRuleSamplingRule?> SamplingRuleValue { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrulerecord
-        /// </summary>
         [Output("samplingRuleRecord")]
         public Output<Outputs.SamplingRuleSamplingRuleRecord?> SamplingRuleRecord { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingruleupdate
-        /// </summary>
         [Output("samplingRuleUpdate")]
         public Output<Outputs.SamplingRuleSamplingRuleUpdate?> SamplingRuleUpdate { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Union<System.Text.Json.JsonElement, string>>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<object>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -93,39 +78,23 @@ namespace Pulumi.AwsNative.XRay
 
     public sealed class SamplingRuleArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-rulename
-        /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrule
-        /// </summary>
         [Input("samplingRule")]
         public Input<Inputs.SamplingRuleSamplingRuleArgs>? SamplingRuleValue { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrulerecord
-        /// </summary>
         [Input("samplingRuleRecord")]
         public Input<Inputs.SamplingRuleSamplingRuleRecordArgs>? SamplingRuleRecord { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingruleupdate
-        /// </summary>
         [Input("samplingRuleUpdate")]
         public Input<Inputs.SamplingRuleSamplingRuleUpdateArgs>? SamplingRuleUpdate { get; set; }
 
         [Input("tags")]
-        private InputList<Union<System.Text.Json.JsonElement, string>>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags
-        /// </summary>
-        public InputList<Union<System.Text.Json.JsonElement, string>> Tags
+        private InputList<object>? _tags;
+        public InputList<object> Tags
         {
-            get => _tags ?? (_tags = new InputList<Union<System.Text.Json.JsonElement, string>>());
+            get => _tags ?? (_tags = new InputList<object>());
             set => _tags = value;
         }
 

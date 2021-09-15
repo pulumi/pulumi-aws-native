@@ -22,13 +22,14 @@ __all__ = [
     'ApplicationLogPatternSet',
     'ApplicationSubComponentConfigurationDetails',
     'ApplicationSubComponentTypeConfiguration',
+    'ApplicationTag',
     'ApplicationWindowsEvent',
 ]
 
 @pulumi.output_type
 class ApplicationAlarm(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html
+    A CloudWatch alarm to be monitored for the component.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -51,9 +52,9 @@ class ApplicationAlarm(dict):
                  alarm_name: str,
                  severity: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html
-        :param str alarm_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-alarmname
-        :param str severity: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-severity
+        A CloudWatch alarm to be monitored for the component.
+        :param str alarm_name: The name of the CloudWatch alarm to be monitored for the component.
+        :param str severity: Indicates the degree of outage when the alarm goes off.
         """
         pulumi.set(__self__, "alarm_name", alarm_name)
         if severity is not None:
@@ -63,7 +64,7 @@ class ApplicationAlarm(dict):
     @pulumi.getter(name="alarmName")
     def alarm_name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-alarmname
+        The name of the CloudWatch alarm to be monitored for the component.
         """
         return pulumi.get(self, "alarm_name")
 
@@ -71,7 +72,7 @@ class ApplicationAlarm(dict):
     @pulumi.getter
     def severity(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-severity
+        Indicates the degree of outage when the alarm goes off.
         """
         return pulumi.get(self, "severity")
 
@@ -79,7 +80,7 @@ class ApplicationAlarm(dict):
 @pulumi.output_type
 class ApplicationAlarmMetric(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html
+    A metric to be monitored for the component.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -101,8 +102,8 @@ class ApplicationAlarmMetric(dict):
     def __init__(__self__, *,
                  alarm_metric_name: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html
-        :param str alarm_metric_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname
+        A metric to be monitored for the component.
+        :param str alarm_metric_name: The name of the metric to be monitored for the component.
         """
         pulumi.set(__self__, "alarm_metric_name", alarm_metric_name)
 
@@ -110,7 +111,7 @@ class ApplicationAlarmMetric(dict):
     @pulumi.getter(name="alarmMetricName")
     def alarm_metric_name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname
+        The name of the metric to be monitored for the component.
         """
         return pulumi.get(self, "alarm_metric_name")
 
@@ -118,7 +119,7 @@ class ApplicationAlarmMetric(dict):
 @pulumi.output_type
 class ApplicationComponentConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html
+    The configuration settings of the component.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -143,9 +144,9 @@ class ApplicationComponentConfiguration(dict):
                  configuration_details: Optional['outputs.ApplicationConfigurationDetails'] = None,
                  sub_component_type_configurations: Optional[Sequence['outputs.ApplicationSubComponentTypeConfiguration']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html
-        :param 'ApplicationConfigurationDetails' configuration_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-configurationdetails
-        :param Sequence['ApplicationSubComponentTypeConfiguration'] sub_component_type_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-subcomponenttypeconfigurations
+        The configuration settings of the component.
+        :param 'ApplicationConfigurationDetails' configuration_details: The configuration settings
+        :param Sequence['ApplicationSubComponentTypeConfiguration'] sub_component_type_configurations: Sub component configurations of the component.
         """
         if configuration_details is not None:
             pulumi.set(__self__, "configuration_details", configuration_details)
@@ -156,7 +157,7 @@ class ApplicationComponentConfiguration(dict):
     @pulumi.getter(name="configurationDetails")
     def configuration_details(self) -> Optional['outputs.ApplicationConfigurationDetails']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-configurationdetails
+        The configuration settings
         """
         return pulumi.get(self, "configuration_details")
 
@@ -164,7 +165,7 @@ class ApplicationComponentConfiguration(dict):
     @pulumi.getter(name="subComponentTypeConfigurations")
     def sub_component_type_configurations(self) -> Optional[Sequence['outputs.ApplicationSubComponentTypeConfiguration']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-subcomponenttypeconfigurations
+        Sub component configurations of the component.
         """
         return pulumi.get(self, "sub_component_type_configurations")
 
@@ -172,7 +173,7 @@ class ApplicationComponentConfiguration(dict):
 @pulumi.output_type
 class ApplicationComponentMonitoringSetting(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html
+    The monitoring setting of the component.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -207,13 +208,13 @@ class ApplicationComponentMonitoringSetting(dict):
                  custom_component_configuration: Optional['outputs.ApplicationComponentConfiguration'] = None,
                  default_overwrite_component_configuration: Optional['outputs.ApplicationComponentConfiguration'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html
-        :param str component_configuration_mode: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
-        :param str tier: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
-        :param str component_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentarn
-        :param str component_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentname
-        :param 'ApplicationComponentConfiguration' custom_component_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-customcomponentconfiguration
-        :param 'ApplicationComponentConfiguration' default_overwrite_component_configuration: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-defaultoverwritecomponentconfiguration
+        The monitoring setting of the component.
+        :param str component_configuration_mode: The component monitoring configuration mode.
+        :param str tier: The tier of the application component.
+        :param str component_arn: The ARN of the compnonent.
+        :param str component_name: The name of the component.
+        :param 'ApplicationComponentConfiguration' custom_component_configuration: The monitoring configuration of the component.
+        :param 'ApplicationComponentConfiguration' default_overwrite_component_configuration: The overwritten settings on default component monitoring configuration.
         """
         pulumi.set(__self__, "component_configuration_mode", component_configuration_mode)
         pulumi.set(__self__, "tier", tier)
@@ -230,7 +231,7 @@ class ApplicationComponentMonitoringSetting(dict):
     @pulumi.getter(name="componentConfigurationMode")
     def component_configuration_mode(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
+        The component monitoring configuration mode.
         """
         return pulumi.get(self, "component_configuration_mode")
 
@@ -238,7 +239,7 @@ class ApplicationComponentMonitoringSetting(dict):
     @pulumi.getter
     def tier(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
+        The tier of the application component.
         """
         return pulumi.get(self, "tier")
 
@@ -246,7 +247,7 @@ class ApplicationComponentMonitoringSetting(dict):
     @pulumi.getter(name="componentARN")
     def component_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentarn
+        The ARN of the compnonent.
         """
         return pulumi.get(self, "component_arn")
 
@@ -254,7 +255,7 @@ class ApplicationComponentMonitoringSetting(dict):
     @pulumi.getter(name="componentName")
     def component_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentname
+        The name of the component.
         """
         return pulumi.get(self, "component_name")
 
@@ -262,7 +263,7 @@ class ApplicationComponentMonitoringSetting(dict):
     @pulumi.getter(name="customComponentConfiguration")
     def custom_component_configuration(self) -> Optional['outputs.ApplicationComponentConfiguration']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-customcomponentconfiguration
+        The monitoring configuration of the component.
         """
         return pulumi.get(self, "custom_component_configuration")
 
@@ -270,7 +271,7 @@ class ApplicationComponentMonitoringSetting(dict):
     @pulumi.getter(name="defaultOverwriteComponentConfiguration")
     def default_overwrite_component_configuration(self) -> Optional['outputs.ApplicationComponentConfiguration']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-defaultoverwritecomponentconfiguration
+        The overwritten settings on default component monitoring configuration.
         """
         return pulumi.get(self, "default_overwrite_component_configuration")
 
@@ -278,7 +279,7 @@ class ApplicationComponentMonitoringSetting(dict):
 @pulumi.output_type
 class ApplicationConfigurationDetails(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html
+    The configuration settings.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -308,12 +309,12 @@ class ApplicationConfigurationDetails(dict):
                  logs: Optional[Sequence['outputs.ApplicationLog']] = None,
                  windows_events: Optional[Sequence['outputs.ApplicationWindowsEvent']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html
-        :param Sequence['ApplicationAlarmMetric'] alarm_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarmmetrics
-        :param Sequence['ApplicationAlarm'] alarms: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarms
-        :param 'ApplicationJMXPrometheusExporter' j_mx_prometheus_exporter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-jmxprometheusexporter
-        :param Sequence['ApplicationLog'] logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs
-        :param Sequence['ApplicationWindowsEvent'] windows_events: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents
+        The configuration settings.
+        :param Sequence['ApplicationAlarmMetric'] alarm_metrics: A list of metrics to monitor for the component.
+        :param Sequence['ApplicationAlarm'] alarms: A list of alarms to monitor for the component.
+        :param 'ApplicationJMXPrometheusExporter' j_mx_prometheus_exporter: The JMX Prometheus Exporter settings.
+        :param Sequence['ApplicationLog'] logs: A list of logs to monitor for the component.
+        :param Sequence['ApplicationWindowsEvent'] windows_events: A list of Windows Events to log.
         """
         if alarm_metrics is not None:
             pulumi.set(__self__, "alarm_metrics", alarm_metrics)
@@ -330,7 +331,7 @@ class ApplicationConfigurationDetails(dict):
     @pulumi.getter(name="alarmMetrics")
     def alarm_metrics(self) -> Optional[Sequence['outputs.ApplicationAlarmMetric']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarmmetrics
+        A list of metrics to monitor for the component.
         """
         return pulumi.get(self, "alarm_metrics")
 
@@ -338,7 +339,7 @@ class ApplicationConfigurationDetails(dict):
     @pulumi.getter
     def alarms(self) -> Optional[Sequence['outputs.ApplicationAlarm']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarms
+        A list of alarms to monitor for the component.
         """
         return pulumi.get(self, "alarms")
 
@@ -346,7 +347,7 @@ class ApplicationConfigurationDetails(dict):
     @pulumi.getter(name="jMXPrometheusExporter")
     def j_mx_prometheus_exporter(self) -> Optional['outputs.ApplicationJMXPrometheusExporter']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-jmxprometheusexporter
+        The JMX Prometheus Exporter settings.
         """
         return pulumi.get(self, "j_mx_prometheus_exporter")
 
@@ -354,7 +355,7 @@ class ApplicationConfigurationDetails(dict):
     @pulumi.getter
     def logs(self) -> Optional[Sequence['outputs.ApplicationLog']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs
+        A list of logs to monitor for the component.
         """
         return pulumi.get(self, "logs")
 
@@ -362,7 +363,7 @@ class ApplicationConfigurationDetails(dict):
     @pulumi.getter(name="windowsEvents")
     def windows_events(self) -> Optional[Sequence['outputs.ApplicationWindowsEvent']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents
+        A list of Windows Events to log.
         """
         return pulumi.get(self, "windows_events")
 
@@ -370,7 +371,7 @@ class ApplicationConfigurationDetails(dict):
 @pulumi.output_type
 class ApplicationCustomComponent(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html
+    The custom grouped component.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -395,9 +396,9 @@ class ApplicationCustomComponent(dict):
                  component_name: str,
                  resource_list: Sequence[str]):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html
-        :param str component_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-componentname
-        :param Sequence[str] resource_list: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-resourcelist
+        The custom grouped component.
+        :param str component_name: The name of the component.
+        :param Sequence[str] resource_list: The list of resource ARNs that belong to the component.
         """
         pulumi.set(__self__, "component_name", component_name)
         pulumi.set(__self__, "resource_list", resource_list)
@@ -406,7 +407,7 @@ class ApplicationCustomComponent(dict):
     @pulumi.getter(name="componentName")
     def component_name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-componentname
+        The name of the component.
         """
         return pulumi.get(self, "component_name")
 
@@ -414,7 +415,7 @@ class ApplicationCustomComponent(dict):
     @pulumi.getter(name="resourceList")
     def resource_list(self) -> Sequence[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-resourcelist
+        The list of resource ARNs that belong to the component.
         """
         return pulumi.get(self, "resource_list")
 
@@ -422,7 +423,7 @@ class ApplicationCustomComponent(dict):
 @pulumi.output_type
 class ApplicationJMXPrometheusExporter(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html
+    The JMX Prometheus Exporter settings.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -450,10 +451,10 @@ class ApplicationJMXPrometheusExporter(dict):
                  j_mxurl: Optional[str] = None,
                  prometheus_port: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html
-        :param str host_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-hostport
-        :param str j_mxurl: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-jmxurl
-        :param str prometheus_port: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-prometheusport
+        The JMX Prometheus Exporter settings.
+        :param str host_port: Java agent host port
+        :param str j_mxurl: JMX service URL.
+        :param str prometheus_port: Prometheus exporter port
         """
         if host_port is not None:
             pulumi.set(__self__, "host_port", host_port)
@@ -466,7 +467,7 @@ class ApplicationJMXPrometheusExporter(dict):
     @pulumi.getter(name="hostPort")
     def host_port(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-hostport
+        Java agent host port
         """
         return pulumi.get(self, "host_port")
 
@@ -474,7 +475,7 @@ class ApplicationJMXPrometheusExporter(dict):
     @pulumi.getter(name="jMXURL")
     def j_mxurl(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-jmxurl
+        JMX service URL.
         """
         return pulumi.get(self, "j_mxurl")
 
@@ -482,7 +483,7 @@ class ApplicationJMXPrometheusExporter(dict):
     @pulumi.getter(name="prometheusPort")
     def prometheus_port(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-prometheusport
+        Prometheus exporter port
         """
         return pulumi.get(self, "prometheus_port")
 
@@ -490,7 +491,7 @@ class ApplicationJMXPrometheusExporter(dict):
 @pulumi.output_type
 class ApplicationLog(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html
+    A log to be monitored for the component.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -522,12 +523,12 @@ class ApplicationLog(dict):
                  log_path: Optional[str] = None,
                  pattern_set: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html
-        :param str log_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logtype
-        :param str encoding: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-encoding
-        :param str log_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-loggroupname
-        :param str log_path: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logpath
-        :param str pattern_set: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-patternset
+        A log to be monitored for the component.
+        :param str log_type: The log type decides the log patterns against which Application Insights analyzes the log.
+        :param str encoding: The type of encoding of the logs to be monitored.
+        :param str log_group_name: The CloudWatch log group name to be associated to the monitored log.
+        :param str log_path: The path of the logs to be monitored.
+        :param str pattern_set: The name of the log pattern set.
         """
         pulumi.set(__self__, "log_type", log_type)
         if encoding is not None:
@@ -543,7 +544,7 @@ class ApplicationLog(dict):
     @pulumi.getter(name="logType")
     def log_type(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logtype
+        The log type decides the log patterns against which Application Insights analyzes the log.
         """
         return pulumi.get(self, "log_type")
 
@@ -551,7 +552,7 @@ class ApplicationLog(dict):
     @pulumi.getter
     def encoding(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-encoding
+        The type of encoding of the logs to be monitored.
         """
         return pulumi.get(self, "encoding")
 
@@ -559,7 +560,7 @@ class ApplicationLog(dict):
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-loggroupname
+        The CloudWatch log group name to be associated to the monitored log.
         """
         return pulumi.get(self, "log_group_name")
 
@@ -567,7 +568,7 @@ class ApplicationLog(dict):
     @pulumi.getter(name="logPath")
     def log_path(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logpath
+        The path of the logs to be monitored.
         """
         return pulumi.get(self, "log_path")
 
@@ -575,7 +576,7 @@ class ApplicationLog(dict):
     @pulumi.getter(name="patternSet")
     def pattern_set(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-patternset
+        The name of the log pattern set.
         """
         return pulumi.get(self, "pattern_set")
 
@@ -583,7 +584,7 @@ class ApplicationLog(dict):
 @pulumi.output_type
 class ApplicationLogPattern(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html
+    The log pattern.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -607,10 +608,10 @@ class ApplicationLogPattern(dict):
                  pattern_name: str,
                  rank: int):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html
-        :param str pattern: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-pattern
-        :param str pattern_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-patternname
-        :param int rank: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-rank
+        The log pattern.
+        :param str pattern: The log pattern.
+        :param str pattern_name: The name of the log pattern.
+        :param int rank: Rank of the log pattern.
         """
         pulumi.set(__self__, "pattern", pattern)
         pulumi.set(__self__, "pattern_name", pattern_name)
@@ -620,7 +621,7 @@ class ApplicationLogPattern(dict):
     @pulumi.getter
     def pattern(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-pattern
+        The log pattern.
         """
         return pulumi.get(self, "pattern")
 
@@ -628,7 +629,7 @@ class ApplicationLogPattern(dict):
     @pulumi.getter(name="patternName")
     def pattern_name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-patternname
+        The name of the log pattern.
         """
         return pulumi.get(self, "pattern_name")
 
@@ -636,7 +637,7 @@ class ApplicationLogPattern(dict):
     @pulumi.getter
     def rank(self) -> int:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-rank
+        Rank of the log pattern.
         """
         return pulumi.get(self, "rank")
 
@@ -644,7 +645,7 @@ class ApplicationLogPattern(dict):
 @pulumi.output_type
 class ApplicationLogPatternSet(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html
+    The log pattern set.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -669,9 +670,9 @@ class ApplicationLogPatternSet(dict):
                  log_patterns: Sequence['outputs.ApplicationLogPattern'],
                  pattern_set_name: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html
-        :param Sequence['ApplicationLogPattern'] log_patterns: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns
-        :param str pattern_set_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname
+        The log pattern set.
+        :param Sequence['ApplicationLogPattern'] log_patterns: The log patterns of a set.
+        :param str pattern_set_name: The name of the log pattern set.
         """
         pulumi.set(__self__, "log_patterns", log_patterns)
         pulumi.set(__self__, "pattern_set_name", pattern_set_name)
@@ -680,7 +681,7 @@ class ApplicationLogPatternSet(dict):
     @pulumi.getter(name="logPatterns")
     def log_patterns(self) -> Sequence['outputs.ApplicationLogPattern']:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns
+        The log patterns of a set.
         """
         return pulumi.get(self, "log_patterns")
 
@@ -688,7 +689,7 @@ class ApplicationLogPatternSet(dict):
     @pulumi.getter(name="patternSetName")
     def pattern_set_name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname
+        The name of the log pattern set.
         """
         return pulumi.get(self, "pattern_set_name")
 
@@ -696,7 +697,7 @@ class ApplicationLogPatternSet(dict):
 @pulumi.output_type
 class ApplicationSubComponentConfigurationDetails(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html
+    The configuration settings of sub components.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -722,10 +723,10 @@ class ApplicationSubComponentConfigurationDetails(dict):
                  logs: Optional[Sequence['outputs.ApplicationLog']] = None,
                  windows_events: Optional[Sequence['outputs.ApplicationWindowsEvent']] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html
-        :param Sequence['ApplicationAlarmMetric'] alarm_metrics: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-alarmmetrics
-        :param Sequence['ApplicationLog'] logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-logs
-        :param Sequence['ApplicationWindowsEvent'] windows_events: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-windowsevents
+        The configuration settings of sub components.
+        :param Sequence['ApplicationAlarmMetric'] alarm_metrics: A list of metrics to monitor for the component.
+        :param Sequence['ApplicationLog'] logs: A list of logs to monitor for the component.
+        :param Sequence['ApplicationWindowsEvent'] windows_events: A list of Windows Events to log.
         """
         if alarm_metrics is not None:
             pulumi.set(__self__, "alarm_metrics", alarm_metrics)
@@ -738,7 +739,7 @@ class ApplicationSubComponentConfigurationDetails(dict):
     @pulumi.getter(name="alarmMetrics")
     def alarm_metrics(self) -> Optional[Sequence['outputs.ApplicationAlarmMetric']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-alarmmetrics
+        A list of metrics to monitor for the component.
         """
         return pulumi.get(self, "alarm_metrics")
 
@@ -746,7 +747,7 @@ class ApplicationSubComponentConfigurationDetails(dict):
     @pulumi.getter
     def logs(self) -> Optional[Sequence['outputs.ApplicationLog']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-logs
+        A list of logs to monitor for the component.
         """
         return pulumi.get(self, "logs")
 
@@ -754,7 +755,7 @@ class ApplicationSubComponentConfigurationDetails(dict):
     @pulumi.getter(name="windowsEvents")
     def windows_events(self) -> Optional[Sequence['outputs.ApplicationWindowsEvent']]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-windowsevents
+        A list of Windows Events to log.
         """
         return pulumi.get(self, "windows_events")
 
@@ -762,7 +763,7 @@ class ApplicationSubComponentConfigurationDetails(dict):
 @pulumi.output_type
 class ApplicationSubComponentTypeConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html
+    One type sub component configurations for the component.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -787,9 +788,9 @@ class ApplicationSubComponentTypeConfiguration(dict):
                  sub_component_configuration_details: 'outputs.ApplicationSubComponentConfigurationDetails',
                  sub_component_type: str):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html
-        :param 'ApplicationSubComponentConfigurationDetails' sub_component_configuration_details: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponentconfigurationdetails
-        :param str sub_component_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponenttype
+        One type sub component configurations for the component.
+        :param 'ApplicationSubComponentConfigurationDetails' sub_component_configuration_details: The configuration settings of sub components.
+        :param str sub_component_type: The sub component type.
         """
         pulumi.set(__self__, "sub_component_configuration_details", sub_component_configuration_details)
         pulumi.set(__self__, "sub_component_type", sub_component_type)
@@ -798,7 +799,7 @@ class ApplicationSubComponentTypeConfiguration(dict):
     @pulumi.getter(name="subComponentConfigurationDetails")
     def sub_component_configuration_details(self) -> 'outputs.ApplicationSubComponentConfigurationDetails':
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponentconfigurationdetails
+        The configuration settings of sub components.
         """
         return pulumi.get(self, "sub_component_configuration_details")
 
@@ -806,15 +807,48 @@ class ApplicationSubComponentTypeConfiguration(dict):
     @pulumi.getter(name="subComponentType")
     def sub_component_type(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponenttype
+        The sub component type.
         """
         return pulumi.get(self, "sub_component_type")
 
 
 @pulumi.output_type
+class ApplicationTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class ApplicationWindowsEvent(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html
+    A Windows Event to be monitored for the component.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -845,11 +879,11 @@ class ApplicationWindowsEvent(dict):
                  log_group_name: str,
                  pattern_set: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html
-        :param Sequence[str] event_levels: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventlevels
-        :param str event_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventname
-        :param str log_group_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-loggroupname
-        :param str pattern_set: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-patternset
+        A Windows Event to be monitored for the component.
+        :param Sequence[str] event_levels: The levels of event to log. 
+        :param str event_name: The type of Windows Events to log.
+        :param str log_group_name: The CloudWatch log group name to be associated to the monitored log.
+        :param str pattern_set: The name of the log pattern set.
         """
         pulumi.set(__self__, "event_levels", event_levels)
         pulumi.set(__self__, "event_name", event_name)
@@ -861,7 +895,7 @@ class ApplicationWindowsEvent(dict):
     @pulumi.getter(name="eventLevels")
     def event_levels(self) -> Sequence[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventlevels
+        The levels of event to log. 
         """
         return pulumi.get(self, "event_levels")
 
@@ -869,7 +903,7 @@ class ApplicationWindowsEvent(dict):
     @pulumi.getter(name="eventName")
     def event_name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventname
+        The type of Windows Events to log.
         """
         return pulumi.get(self, "event_name")
 
@@ -877,7 +911,7 @@ class ApplicationWindowsEvent(dict):
     @pulumi.getter(name="logGroupName")
     def log_group_name(self) -> str:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-loggroupname
+        The CloudWatch log group name to be associated to the monitored log.
         """
         return pulumi.get(self, "log_group_name")
 
@@ -885,7 +919,7 @@ class ApplicationWindowsEvent(dict):
     @pulumi.getter(name="patternSet")
     def pattern_set(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-patternset
+        The name of the log pattern set.
         """
         return pulumi.get(self, "pattern_set")
 

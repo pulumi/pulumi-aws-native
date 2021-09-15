@@ -8,26 +8,25 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html
+// Resource schema for AWS::IoTSiteWise::Asset
 type Asset struct {
 	pulumi.CustomResourceState
 
-	AssetArn pulumi.StringOutput `pulumi:"assetArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
+	// The ARN of the asset
+	AssetArn         pulumi.StringOutput            `pulumi:"assetArn"`
 	AssetHierarchies AssetAssetHierarchyArrayOutput `pulumi:"assetHierarchies"`
-	AssetId          pulumi.StringOutput            `pulumi:"assetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
+	// The ID of the asset
+	AssetId pulumi.StringOutput `pulumi:"assetId"`
+	// The ID of the asset model from which to create the asset.
 	AssetModelId pulumi.StringOutput `pulumi:"assetModelId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
-	AssetName pulumi.StringOutput `pulumi:"assetName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
+	// A unique, friendly name for the asset.
+	AssetName       pulumi.StringOutput           `pulumi:"assetName"`
 	AssetProperties AssetAssetPropertyArrayOutput `pulumi:"assetProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the asset.
+	Tags AssetTagArrayOutput `pulumi:"tags"`
 }
 
 // NewAsset registers a new resource with the given unique name, arguments, and options.
@@ -75,30 +74,26 @@ func (AssetState) ElementType() reflect.Type {
 }
 
 type assetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
 	AssetHierarchies []AssetAssetHierarchy `pulumi:"assetHierarchies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
+	// The ID of the asset model from which to create the asset.
 	AssetModelId string `pulumi:"assetModelId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
-	AssetName string `pulumi:"assetName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
+	// A unique, friendly name for the asset.
+	AssetName       string               `pulumi:"assetName"`
 	AssetProperties []AssetAssetProperty `pulumi:"assetProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the asset.
+	Tags []AssetTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Asset resource.
 type AssetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
 	AssetHierarchies AssetAssetHierarchyArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
+	// The ID of the asset model from which to create the asset.
 	AssetModelId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
-	AssetName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
+	// A unique, friendly name for the asset.
+	AssetName       pulumi.StringInput
 	AssetProperties AssetAssetPropertyArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
-	Tags aws.TagArrayInput
+	// A list of key-value pairs that contain metadata for the asset.
+	Tags AssetTagArrayInput
 }
 
 func (AssetArgs) ElementType() reflect.Type {

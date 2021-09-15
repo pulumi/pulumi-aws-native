@@ -10,17 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html
+    /// Resource Type definition for AWS::EC2::SpotFleet
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:SpotFleet")]
     public partial class SpotFleet : Pulumi.CustomResource
     {
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
-        /// </summary>
         [Output("spotFleetRequestConfigData")]
         public Output<Outputs.SpotFleetSpotFleetRequestConfigData> SpotFleetRequestConfigData { get; private set; } = null!;
 
@@ -69,9 +63,6 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class SpotFleetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
-        /// </summary>
         [Input("spotFleetRequestConfigData", required: true)]
         public Input<Inputs.SpotFleetSpotFleetRequestConfigDataArgs> SpotFleetRequestConfigData { get; set; } = null!;
 

@@ -10,32 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html
-    /// </summary>
     public sealed class LoggingConfigurationLogDestinationConfigArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A key-value pair to configure the logDestinations.
+        /// </summary>
         [Input("logDestination", required: true)]
-        private InputMap<string>? _logDestination;
+        public Input<object> LogDestination { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfig-logdestination
-        /// </summary>
-        public InputMap<string> LogDestination
-        {
-            get => _logDestination ?? (_logDestination = new InputMap<string>());
-            set => _logDestination = value;
-        }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfig-logdestinationtype
-        /// </summary>
         [Input("logDestinationType", required: true)]
         public Input<string> LogDestinationType { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-logdestinationconfig.html#cfn-networkfirewall-loggingconfiguration-logdestinationconfig-logtype
-        /// </summary>
         [Input("logType", required: true)]
         public Input<string> LogType { get; set; } = null!;
 

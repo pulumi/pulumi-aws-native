@@ -8,21 +8,22 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html
+// An example resource schema demonstrating some basic constructs and validation rules.
 type SuiteDefinition struct {
 	pulumi.CustomResourceState
 
-	SuiteDefinitionArn pulumi.StringOutput `pulumi:"suiteDefinitionArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration
+	// The Amazon Resource name for the suite definition.
+	SuiteDefinitionArn           pulumi.StringOutput `pulumi:"suiteDefinitionArn"`
 	SuiteDefinitionConfiguration pulumi.AnyOutput    `pulumi:"suiteDefinitionConfiguration"`
-	SuiteDefinitionId            pulumi.StringOutput `pulumi:"suiteDefinitionId"`
-	SuiteDefinitionVersion       pulumi.StringOutput `pulumi:"suiteDefinitionVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The unique identifier for the suite definition.
+	SuiteDefinitionId pulumi.StringOutput `pulumi:"suiteDefinitionId"`
+	// The suite definition version of a test suite.
+	SuiteDefinitionVersion pulumi.StringOutput `pulumi:"suiteDefinitionVersion"`
+	// An array of key-value pairs to apply to this resource.
+	Tags SuiteDefinitionTagArrayOutput `pulumi:"tags"`
 }
 
 // NewSuiteDefinition registers a new resource with the given unique name, arguments, and options.
@@ -67,18 +68,16 @@ func (SuiteDefinitionState) ElementType() reflect.Type {
 }
 
 type suiteDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration
 	SuiteDefinitionConfiguration interface{} `pulumi:"suiteDefinitionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []SuiteDefinitionTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SuiteDefinition resource.
 type SuiteDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration
 	SuiteDefinitionConfiguration pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-tags
-	Tags aws.TagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags SuiteDefinitionTagArrayInput
 }
 
 func (SuiteDefinitionArgs) ElementType() reflect.Type {

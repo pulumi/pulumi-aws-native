@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WAFv2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html
+    /// Contains the Rules that identify the requests that you want to allow, block, or count. In a RuleGroup, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a RuleGroup, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the RuleGroup with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a RuleGroup, a request needs to match only one of the specifications to be allowed, blocked, or counted.
     /// </summary>
     [AwsNativeResourceType("aws-native:wafv2:RuleGroup")]
     public partial class RuleGroup : Pulumi.CustomResource
@@ -18,63 +18,45 @@ namespace Pulumi.AwsNative.WAFv2
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Collection of Available Labels.
+        /// </summary>
         [Output("availableLabels")]
         public Output<ImmutableArray<Outputs.RuleGroupLabelSummary>> AvailableLabels { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
-        /// </summary>
         [Output("capacity")]
         public Output<int> Capacity { get; private set; } = null!;
 
+        /// <summary>
+        /// Collection of Consumed Labels.
+        /// </summary>
         [Output("consumedLabels")]
         public Output<ImmutableArray<Outputs.RuleGroupLabelSummary>> ConsumedLabels { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
-        /// </summary>
         [Output("customResponseBodies")]
-        public Output<ImmutableDictionary<string, Outputs.RuleGroupCustomResponseBody>?> CustomResponseBodies { get; private set; } = null!;
+        public Output<Outputs.RuleGroupCustomResponseBodies?> CustomResponseBodies { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
-
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
 
         [Output("labelNamespace")]
         public Output<string> LabelNamespace { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
-        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
+        /// Collection of Rules.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.RuleGroupRule>> Rules { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
-        /// </summary>
         [Output("scope")]
         public Output<string> Scope { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RuleGroupTag>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
-        /// </summary>
         [Output("visibilityConfig")]
         public Output<Outputs.RuleGroupVisibilityConfig> VisibilityConfig { get; private set; } = null!;
 
@@ -123,33 +105,15 @@ namespace Pulumi.AwsNative.WAFv2
 
     public sealed class RuleGroupArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
-        /// </summary>
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
 
         [Input("customResponseBodies")]
-        private InputMap<Inputs.RuleGroupCustomResponseBodyArgs>? _customResponseBodies;
+        public Input<Inputs.RuleGroupCustomResponseBodiesArgs>? CustomResponseBodies { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
-        /// </summary>
-        public InputMap<Inputs.RuleGroupCustomResponseBodyArgs> CustomResponseBodies
-        {
-            get => _customResponseBodies ?? (_customResponseBodies = new InputMap<Inputs.RuleGroupCustomResponseBodyArgs>());
-            set => _customResponseBodies = value;
-        }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
-        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -157,7 +121,7 @@ namespace Pulumi.AwsNative.WAFv2
         private InputList<Inputs.RuleGroupRuleArgs>? _rules;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
+        /// Collection of Rules.
         /// </summary>
         public InputList<Inputs.RuleGroupRuleArgs> Rules
         {
@@ -165,27 +129,17 @@ namespace Pulumi.AwsNative.WAFv2
             set => _rules = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
-        /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.RuleGroupTagArgs>? _tags;
+        public InputList<Inputs.RuleGroupTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.RuleGroupTagArgs>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
-        /// </summary>
         [Input("visibilityConfig", required: true)]
         public Input<Inputs.RuleGroupVisibilityConfigArgs> VisibilityConfig { get; set; } = null!;
 

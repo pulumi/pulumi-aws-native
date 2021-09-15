@@ -10,94 +10,94 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFormation
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html
+    /// StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudformation:StackSet")]
     public partial class StackSet : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
+        /// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
         /// </summary>
         [Output("administrationRoleARN")]
         public Output<string?> AdministrationRoleARN { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
+        /// Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
         /// </summary>
         [Output("autoDeployment")]
         public Output<Outputs.StackSetAutoDeployment?> AutoDeployment { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
+        /// Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
         /// </summary>
         [Output("callAs")]
         public Output<string?> CallAs { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
+        /// In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
         /// </summary>
         [Output("capabilities")]
         public Output<ImmutableArray<string>> Capabilities { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
+        /// A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
+        /// The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
         /// </summary>
         [Output("executionRoleName")]
         public Output<string?> ExecutionRoleName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
-        /// </summary>
         [Output("operationPreferences")]
         public Output<Outputs.StackSetOperationPreferences?> OperationPreferences { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
+        /// The input parameters for the stack set template.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.StackSetParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
+        /// Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
         /// </summary>
         [Output("permissionModel")]
         public Output<string> PermissionModel { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
+        /// A group of stack instances with parameters in some specific accounts and regions.
         /// </summary>
         [Output("stackInstancesGroup")]
         public Output<ImmutableArray<Outputs.StackSetStackInstances>> StackInstancesGroup { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the stack set that you're creating.
+        /// </summary>
         [Output("stackSetId")]
         public Output<string> StackSetId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
+        /// The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
         /// </summary>
         [Output("stackSetName")]
         public Output<string> StackSetName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
+        /// The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.StackSetTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
+        /// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
         /// </summary>
         [Output("templateBody")]
         public Output<string?> TemplateBody { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
+        /// Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
         /// </summary>
         [Output("templateURL")]
         public Output<string?> TemplateURL { get; private set; } = null!;
@@ -148,19 +148,19 @@ namespace Pulumi.AwsNative.CloudFormation
     public sealed class StackSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-administrationrolearn
+        /// The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
         /// </summary>
         [Input("administrationRoleARN")]
         public Input<string>? AdministrationRoleARN { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-autodeployment
+        /// Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
         /// </summary>
         [Input("autoDeployment")]
         public Input<Inputs.StackSetAutoDeploymentArgs>? AutoDeployment { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-callas
+        /// Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
         /// </summary>
         [Input("callAs")]
         public Input<string>? CallAs { get; set; }
@@ -169,7 +169,7 @@ namespace Pulumi.AwsNative.CloudFormation
         private InputList<string>? _capabilities;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-capabilities
+        /// In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
         /// </summary>
         public InputList<string> Capabilities
         {
@@ -178,20 +178,17 @@ namespace Pulumi.AwsNative.CloudFormation
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-description
+        /// A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-executionrolename
+        /// The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
         /// </summary>
         [Input("executionRoleName")]
         public Input<string>? ExecutionRoleName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-operationpreferences
-        /// </summary>
         [Input("operationPreferences")]
         public Input<Inputs.StackSetOperationPreferencesArgs>? OperationPreferences { get; set; }
 
@@ -199,7 +196,7 @@ namespace Pulumi.AwsNative.CloudFormation
         private InputList<Inputs.StackSetParameterArgs>? _parameters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-parameters
+        /// The input parameters for the stack set template.
         /// </summary>
         public InputList<Inputs.StackSetParameterArgs> Parameters
         {
@@ -208,7 +205,7 @@ namespace Pulumi.AwsNative.CloudFormation
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-permissionmodel
+        /// Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
         /// </summary>
         [Input("permissionModel", required: true)]
         public Input<string> PermissionModel { get; set; } = null!;
@@ -217,7 +214,7 @@ namespace Pulumi.AwsNative.CloudFormation
         private InputList<Inputs.StackSetStackInstancesArgs>? _stackInstancesGroup;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stackinstancesgroup
+        /// A group of stack instances with parameters in some specific accounts and regions.
         /// </summary>
         public InputList<Inputs.StackSetStackInstancesArgs> StackInstancesGroup
         {
@@ -226,31 +223,31 @@ namespace Pulumi.AwsNative.CloudFormation
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-stacksetname
+        /// The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
         /// </summary>
         [Input("stackSetName", required: true)]
         public Input<string> StackSetName { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.StackSetTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-tags
+        /// The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.StackSetTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.StackSetTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templatebody
+        /// The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
         /// </summary>
         [Input("templateBody")]
         public Input<string>? TemplateBody { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-stackset.html#cfn-cloudformation-stackset-templateurl
+        /// Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
         /// </summary>
         [Input("templateURL")]
         public Input<string>? TemplateURL { get; set; }

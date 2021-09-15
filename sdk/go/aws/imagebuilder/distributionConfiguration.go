@@ -11,18 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html
+// Resource schema for AWS::ImageBuilder::DistributionConfiguration
 type DistributionConfiguration struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the distribution configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-description
+	// The description of the distribution configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-distributions
+	// The distributions of the distribution configuration.
 	Distributions DistributionConfigurationDistributionArrayOutput `pulumi:"distributions"`
-	Name          pulumi.StringOutput                              `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The name of the distribution configuration.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The tags associated with the component.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
 }
 
 // NewDistributionConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -70,26 +72,26 @@ func (DistributionConfigurationState) ElementType() reflect.Type {
 }
 
 type distributionConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-description
+	// The description of the distribution configuration.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-distributions
+	// The distributions of the distribution configuration.
 	Distributions []DistributionConfigurationDistribution `pulumi:"distributions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-name
+	// The name of the distribution configuration.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-tags
-	Tags map[string]string `pulumi:"tags"`
+	// The tags associated with the component.
+	Tags interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DistributionConfiguration resource.
 type DistributionConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-description
+	// The description of the distribution configuration.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-distributions
+	// The distributions of the distribution configuration.
 	Distributions DistributionConfigurationDistributionArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-name
+	// The name of the distribution configuration.
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-tags
-	Tags pulumi.StringMapInput
+	// The tags associated with the component.
+	Tags pulumi.Input
 }
 
 func (DistributionConfigurationArgs) ElementType() reflect.Type {

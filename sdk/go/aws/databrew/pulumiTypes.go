@@ -10,12 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html
+// Csv options
 type DatasetCsvOptions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-delimiter
 	Delimiter *string `pulumi:"delimiter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-headerrow
-	HeaderRow *bool `pulumi:"headerRow"`
+	HeaderRow *bool   `pulumi:"headerRow"`
 }
 
 // DatasetCsvOptionsInput is an input type that accepts DatasetCsvOptionsArgs and DatasetCsvOptionsOutput values.
@@ -29,12 +27,10 @@ type DatasetCsvOptionsInput interface {
 	ToDatasetCsvOptionsOutputWithContext(context.Context) DatasetCsvOptionsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html
+// Csv options
 type DatasetCsvOptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-delimiter
 	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-headerrow
-	HeaderRow pulumi.BoolPtrInput `pulumi:"headerRow"`
+	HeaderRow pulumi.BoolPtrInput   `pulumi:"headerRow"`
 }
 
 func (DatasetCsvOptionsArgs) ElementType() reflect.Type {
@@ -90,7 +86,7 @@ func (i *datasetCsvOptionsPtrType) ToDatasetCsvOptionsPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetCsvOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html
+// Csv options
 type DatasetCsvOptionsOutput struct{ *pulumi.OutputState }
 
 func (DatasetCsvOptionsOutput) ElementType() reflect.Type {
@@ -115,12 +111,10 @@ func (o DatasetCsvOptionsOutput) ToDatasetCsvOptionsPtrOutputWithContext(ctx con
 	}).(DatasetCsvOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-delimiter
 func (o DatasetCsvOptionsOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetCsvOptions) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-headerrow
 func (o DatasetCsvOptionsOutput) HeaderRow() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DatasetCsvOptions) *bool { return v.HeaderRow }).(pulumi.BoolPtrOutput)
 }
@@ -149,7 +143,6 @@ func (o DatasetCsvOptionsPtrOutput) Elem() DatasetCsvOptionsOutput {
 	}).(DatasetCsvOptionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-delimiter
 func (o DatasetCsvOptionsPtrOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetCsvOptions) *string {
 		if v == nil {
@@ -159,7 +152,6 @@ func (o DatasetCsvOptionsPtrOutput) Delimiter() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-csvoptions.html#cfn-databrew-dataset-csvoptions-headerrow
 func (o DatasetCsvOptionsPtrOutput) HeaderRow() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DatasetCsvOptions) *bool {
 		if v == nil {
@@ -169,15 +161,13 @@ func (o DatasetCsvOptionsPtrOutput) HeaderRow() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html
 type DatasetDataCatalogInputDefinition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-catalogid
+	// Catalog id
 	CatalogId *string `pulumi:"catalogId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-databasename
+	// Database name
 	DatabaseName *string `pulumi:"databaseName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tablename
-	TableName *string `pulumi:"tableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tempdirectory
+	// Table name
+	TableName     *string            `pulumi:"tableName"`
 	TempDirectory *DatasetS3Location `pulumi:"tempDirectory"`
 }
 
@@ -192,15 +182,13 @@ type DatasetDataCatalogInputDefinitionInput interface {
 	ToDatasetDataCatalogInputDefinitionOutputWithContext(context.Context) DatasetDataCatalogInputDefinitionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html
 type DatasetDataCatalogInputDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-catalogid
+	// Catalog id
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-databasename
+	// Database name
 	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tablename
-	TableName pulumi.StringPtrInput `pulumi:"tableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tempdirectory
+	// Table name
+	TableName     pulumi.StringPtrInput     `pulumi:"tableName"`
 	TempDirectory DatasetS3LocationPtrInput `pulumi:"tempDirectory"`
 }
 
@@ -257,7 +245,6 @@ func (i *datasetDataCatalogInputDefinitionPtrType) ToDatasetDataCatalogInputDefi
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDataCatalogInputDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html
 type DatasetDataCatalogInputDefinitionOutput struct{ *pulumi.OutputState }
 
 func (DatasetDataCatalogInputDefinitionOutput) ElementType() reflect.Type {
@@ -282,22 +269,21 @@ func (o DatasetDataCatalogInputDefinitionOutput) ToDatasetDataCatalogInputDefini
 	}).(DatasetDataCatalogInputDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-catalogid
+// Catalog id
 func (o DatasetDataCatalogInputDefinitionOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetDataCatalogInputDefinition) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-databasename
+// Database name
 func (o DatasetDataCatalogInputDefinitionOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetDataCatalogInputDefinition) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tablename
+// Table name
 func (o DatasetDataCatalogInputDefinitionOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetDataCatalogInputDefinition) *string { return v.TableName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tempdirectory
 func (o DatasetDataCatalogInputDefinitionOutput) TempDirectory() DatasetS3LocationPtrOutput {
 	return o.ApplyT(func(v DatasetDataCatalogInputDefinition) *DatasetS3Location { return v.TempDirectory }).(DatasetS3LocationPtrOutput)
 }
@@ -326,7 +312,7 @@ func (o DatasetDataCatalogInputDefinitionPtrOutput) Elem() DatasetDataCatalogInp
 	}).(DatasetDataCatalogInputDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-catalogid
+// Catalog id
 func (o DatasetDataCatalogInputDefinitionPtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetDataCatalogInputDefinition) *string {
 		if v == nil {
@@ -336,7 +322,7 @@ func (o DatasetDataCatalogInputDefinitionPtrOutput) CatalogId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-databasename
+// Database name
 func (o DatasetDataCatalogInputDefinitionPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetDataCatalogInputDefinition) *string {
 		if v == nil {
@@ -346,7 +332,7 @@ func (o DatasetDataCatalogInputDefinitionPtrOutput) DatabaseName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tablename
+// Table name
 func (o DatasetDataCatalogInputDefinitionPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetDataCatalogInputDefinition) *string {
 		if v == nil {
@@ -356,7 +342,6 @@ func (o DatasetDataCatalogInputDefinitionPtrOutput) TableName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datacataloginputdefinition.html#cfn-databrew-dataset-datacataloginputdefinition-tempdirectory
 func (o DatasetDataCatalogInputDefinitionPtrOutput) TempDirectory() DatasetS3LocationPtrOutput {
 	return o.ApplyT(func(v *DatasetDataCatalogInputDefinition) *DatasetS3Location {
 		if v == nil {
@@ -366,14 +351,12 @@ func (o DatasetDataCatalogInputDefinitionPtrOutput) TempDirectory() DatasetS3Loc
 	}).(DatasetS3LocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html
 type DatasetDatabaseInputDefinition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-databasetablename
+	// Database table name
 	DatabaseTableName *string `pulumi:"databaseTableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-glueconnectionname
-	GlueConnectionName *string `pulumi:"glueConnectionName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-tempdirectory
-	TempDirectory *DatasetS3Location `pulumi:"tempDirectory"`
+	// Glue connection name
+	GlueConnectionName *string            `pulumi:"glueConnectionName"`
+	TempDirectory      *DatasetS3Location `pulumi:"tempDirectory"`
 }
 
 // DatasetDatabaseInputDefinitionInput is an input type that accepts DatasetDatabaseInputDefinitionArgs and DatasetDatabaseInputDefinitionOutput values.
@@ -387,14 +370,12 @@ type DatasetDatabaseInputDefinitionInput interface {
 	ToDatasetDatabaseInputDefinitionOutputWithContext(context.Context) DatasetDatabaseInputDefinitionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html
 type DatasetDatabaseInputDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-databasetablename
+	// Database table name
 	DatabaseTableName pulumi.StringPtrInput `pulumi:"databaseTableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-glueconnectionname
-	GlueConnectionName pulumi.StringPtrInput `pulumi:"glueConnectionName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-tempdirectory
-	TempDirectory DatasetS3LocationPtrInput `pulumi:"tempDirectory"`
+	// Glue connection name
+	GlueConnectionName pulumi.StringPtrInput     `pulumi:"glueConnectionName"`
+	TempDirectory      DatasetS3LocationPtrInput `pulumi:"tempDirectory"`
 }
 
 func (DatasetDatabaseInputDefinitionArgs) ElementType() reflect.Type {
@@ -450,7 +431,6 @@ func (i *datasetDatabaseInputDefinitionPtrType) ToDatasetDatabaseInputDefinition
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatabaseInputDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html
 type DatasetDatabaseInputDefinitionOutput struct{ *pulumi.OutputState }
 
 func (DatasetDatabaseInputDefinitionOutput) ElementType() reflect.Type {
@@ -475,17 +455,16 @@ func (o DatasetDatabaseInputDefinitionOutput) ToDatasetDatabaseInputDefinitionPt
 	}).(DatasetDatabaseInputDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-databasetablename
+// Database table name
 func (o DatasetDatabaseInputDefinitionOutput) DatabaseTableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetDatabaseInputDefinition) *string { return v.DatabaseTableName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-glueconnectionname
+// Glue connection name
 func (o DatasetDatabaseInputDefinitionOutput) GlueConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetDatabaseInputDefinition) *string { return v.GlueConnectionName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-tempdirectory
 func (o DatasetDatabaseInputDefinitionOutput) TempDirectory() DatasetS3LocationPtrOutput {
 	return o.ApplyT(func(v DatasetDatabaseInputDefinition) *DatasetS3Location { return v.TempDirectory }).(DatasetS3LocationPtrOutput)
 }
@@ -514,7 +493,7 @@ func (o DatasetDatabaseInputDefinitionPtrOutput) Elem() DatasetDatabaseInputDefi
 	}).(DatasetDatabaseInputDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-databasetablename
+// Database table name
 func (o DatasetDatabaseInputDefinitionPtrOutput) DatabaseTableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetDatabaseInputDefinition) *string {
 		if v == nil {
@@ -524,7 +503,7 @@ func (o DatasetDatabaseInputDefinitionPtrOutput) DatabaseTableName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-glueconnectionname
+// Glue connection name
 func (o DatasetDatabaseInputDefinitionPtrOutput) GlueConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetDatabaseInputDefinition) *string {
 		if v == nil {
@@ -534,7 +513,6 @@ func (o DatasetDatabaseInputDefinitionPtrOutput) GlueConnectionName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html#cfn-databrew-dataset-databaseinputdefinition-tempdirectory
 func (o DatasetDatabaseInputDefinitionPtrOutput) TempDirectory() DatasetS3LocationPtrOutput {
 	return o.ApplyT(func(v *DatasetDatabaseInputDefinition) *DatasetS3Location {
 		if v == nil {
@@ -544,17 +522,13 @@ func (o DatasetDatabaseInputDefinitionPtrOutput) TempDirectory() DatasetS3Locati
 	}).(DatasetS3LocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html
 type DatasetDatasetParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-createcolumn
-	CreateColumn *bool `pulumi:"createColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-datetimeoptions
-	DatetimeOptions *DatasetDatetimeOptions `pulumi:"datetimeOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-filter
-	Filter *DatasetFilterExpression `pulumi:"filter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-type
+	// Add the value of this parameter as a column in a dataset.
+	CreateColumn    *bool                    `pulumi:"createColumn"`
+	DatetimeOptions *DatasetDatetimeOptions  `pulumi:"datetimeOptions"`
+	Filter          *DatasetFilterExpression `pulumi:"filter"`
+	Name            string                   `pulumi:"name"`
+	// Parameter type
 	Type string `pulumi:"type"`
 }
 
@@ -569,17 +543,13 @@ type DatasetDatasetParameterInput interface {
 	ToDatasetDatasetParameterOutputWithContext(context.Context) DatasetDatasetParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html
 type DatasetDatasetParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-createcolumn
-	CreateColumn pulumi.BoolPtrInput `pulumi:"createColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-datetimeoptions
-	DatetimeOptions DatasetDatetimeOptionsPtrInput `pulumi:"datetimeOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-filter
-	Filter DatasetFilterExpressionPtrInput `pulumi:"filter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-type
+	// Add the value of this parameter as a column in a dataset.
+	CreateColumn    pulumi.BoolPtrInput             `pulumi:"createColumn"`
+	DatetimeOptions DatasetDatetimeOptionsPtrInput  `pulumi:"datetimeOptions"`
+	Filter          DatasetFilterExpressionPtrInput `pulumi:"filter"`
+	Name            pulumi.StringInput              `pulumi:"name"`
+	// Parameter type
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -595,7 +565,6 @@ func (i DatasetDatasetParameterArgs) ToDatasetDatasetParameterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatasetParameterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html
 type DatasetDatasetParameterOutput struct{ *pulumi.OutputState }
 
 func (DatasetDatasetParameterOutput) ElementType() reflect.Type {
@@ -610,38 +579,34 @@ func (o DatasetDatasetParameterOutput) ToDatasetDatasetParameterOutputWithContex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-createcolumn
+// Add the value of this parameter as a column in a dataset.
 func (o DatasetDatasetParameterOutput) CreateColumn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DatasetDatasetParameter) *bool { return v.CreateColumn }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-datetimeoptions
 func (o DatasetDatasetParameterOutput) DatetimeOptions() DatasetDatetimeOptionsPtrOutput {
 	return o.ApplyT(func(v DatasetDatasetParameter) *DatasetDatetimeOptions { return v.DatetimeOptions }).(DatasetDatetimeOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-filter
 func (o DatasetDatasetParameterOutput) Filter() DatasetFilterExpressionPtrOutput {
 	return o.ApplyT(func(v DatasetDatasetParameter) *DatasetFilterExpression { return v.Filter }).(DatasetFilterExpressionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-name
 func (o DatasetDatasetParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetDatasetParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datasetparameter.html#cfn-databrew-dataset-datasetparameter-type
+// Parameter type
 func (o DatasetDatasetParameterOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetDatasetParameter) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html
 type DatasetDatetimeOptions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-format
+	// Date/time format of a date parameter
 	Format string `pulumi:"format"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-localecode
+	// Locale code for a date parameter
 	LocaleCode *string `pulumi:"localeCode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-timezoneoffset
+	// Timezone offset
 	TimezoneOffset *string `pulumi:"timezoneOffset"`
 }
 
@@ -656,13 +621,12 @@ type DatasetDatetimeOptionsInput interface {
 	ToDatasetDatetimeOptionsOutputWithContext(context.Context) DatasetDatetimeOptionsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html
 type DatasetDatetimeOptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-format
+	// Date/time format of a date parameter
 	Format pulumi.StringInput `pulumi:"format"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-localecode
+	// Locale code for a date parameter
 	LocaleCode pulumi.StringPtrInput `pulumi:"localeCode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-timezoneoffset
+	// Timezone offset
 	TimezoneOffset pulumi.StringPtrInput `pulumi:"timezoneOffset"`
 }
 
@@ -719,7 +683,6 @@ func (i *datasetDatetimeOptionsPtrType) ToDatasetDatetimeOptionsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDatetimeOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html
 type DatasetDatetimeOptionsOutput struct{ *pulumi.OutputState }
 
 func (DatasetDatetimeOptionsOutput) ElementType() reflect.Type {
@@ -744,17 +707,17 @@ func (o DatasetDatetimeOptionsOutput) ToDatasetDatetimeOptionsPtrOutputWithConte
 	}).(DatasetDatetimeOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-format
+// Date/time format of a date parameter
 func (o DatasetDatetimeOptionsOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetDatetimeOptions) string { return v.Format }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-localecode
+// Locale code for a date parameter
 func (o DatasetDatetimeOptionsOutput) LocaleCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetDatetimeOptions) *string { return v.LocaleCode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-timezoneoffset
+// Timezone offset
 func (o DatasetDatetimeOptionsOutput) TimezoneOffset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetDatetimeOptions) *string { return v.TimezoneOffset }).(pulumi.StringPtrOutput)
 }
@@ -783,7 +746,7 @@ func (o DatasetDatetimeOptionsPtrOutput) Elem() DatasetDatetimeOptionsOutput {
 	}).(DatasetDatetimeOptionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-format
+// Date/time format of a date parameter
 func (o DatasetDatetimeOptionsPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetDatetimeOptions) *string {
 		if v == nil {
@@ -793,7 +756,7 @@ func (o DatasetDatetimeOptionsPtrOutput) Format() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-localecode
+// Locale code for a date parameter
 func (o DatasetDatetimeOptionsPtrOutput) LocaleCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetDatetimeOptions) *string {
 		if v == nil {
@@ -803,7 +766,7 @@ func (o DatasetDatetimeOptionsPtrOutput) LocaleCode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-datetimeoptions.html#cfn-databrew-dataset-datetimeoptions-timezoneoffset
+// Timezone offset
 func (o DatasetDatetimeOptionsPtrOutput) TimezoneOffset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetDatetimeOptions) *string {
 		if v == nil {
@@ -813,14 +776,10 @@ func (o DatasetDatetimeOptionsPtrOutput) TimezoneOffset() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html
 type DatasetExcelOptions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-headerrow
-	HeaderRow *bool `pulumi:"headerRow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetindexes
-	SheetIndexes []int `pulumi:"sheetIndexes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetnames
-	SheetNames []string `pulumi:"sheetNames"`
+	HeaderRow    *bool    `pulumi:"headerRow"`
+	SheetIndexes []int    `pulumi:"sheetIndexes"`
+	SheetNames   []string `pulumi:"sheetNames"`
 }
 
 // DatasetExcelOptionsInput is an input type that accepts DatasetExcelOptionsArgs and DatasetExcelOptionsOutput values.
@@ -834,14 +793,10 @@ type DatasetExcelOptionsInput interface {
 	ToDatasetExcelOptionsOutputWithContext(context.Context) DatasetExcelOptionsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html
 type DatasetExcelOptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-headerrow
-	HeaderRow pulumi.BoolPtrInput `pulumi:"headerRow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetindexes
-	SheetIndexes pulumi.IntArrayInput `pulumi:"sheetIndexes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetnames
-	SheetNames pulumi.StringArrayInput `pulumi:"sheetNames"`
+	HeaderRow    pulumi.BoolPtrInput     `pulumi:"headerRow"`
+	SheetIndexes pulumi.IntArrayInput    `pulumi:"sheetIndexes"`
+	SheetNames   pulumi.StringArrayInput `pulumi:"sheetNames"`
 }
 
 func (DatasetExcelOptionsArgs) ElementType() reflect.Type {
@@ -897,7 +852,6 @@ func (i *datasetExcelOptionsPtrType) ToDatasetExcelOptionsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetExcelOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html
 type DatasetExcelOptionsOutput struct{ *pulumi.OutputState }
 
 func (DatasetExcelOptionsOutput) ElementType() reflect.Type {
@@ -922,17 +876,14 @@ func (o DatasetExcelOptionsOutput) ToDatasetExcelOptionsPtrOutputWithContext(ctx
 	}).(DatasetExcelOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-headerrow
 func (o DatasetExcelOptionsOutput) HeaderRow() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DatasetExcelOptions) *bool { return v.HeaderRow }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetindexes
 func (o DatasetExcelOptionsOutput) SheetIndexes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v DatasetExcelOptions) []int { return v.SheetIndexes }).(pulumi.IntArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetnames
 func (o DatasetExcelOptionsOutput) SheetNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DatasetExcelOptions) []string { return v.SheetNames }).(pulumi.StringArrayOutput)
 }
@@ -961,7 +912,6 @@ func (o DatasetExcelOptionsPtrOutput) Elem() DatasetExcelOptionsOutput {
 	}).(DatasetExcelOptionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-headerrow
 func (o DatasetExcelOptionsPtrOutput) HeaderRow() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DatasetExcelOptions) *bool {
 		if v == nil {
@@ -971,7 +921,6 @@ func (o DatasetExcelOptionsPtrOutput) HeaderRow() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetindexes
 func (o DatasetExcelOptionsPtrOutput) SheetIndexes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DatasetExcelOptions) []int {
 		if v == nil {
@@ -981,7 +930,6 @@ func (o DatasetExcelOptionsPtrOutput) SheetIndexes() pulumi.IntArrayOutput {
 	}).(pulumi.IntArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-exceloptions.html#cfn-databrew-dataset-exceloptions-sheetnames
 func (o DatasetExcelOptionsPtrOutput) SheetNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DatasetExcelOptions) []string {
 		if v == nil {
@@ -991,13 +939,12 @@ func (o DatasetExcelOptionsPtrOutput) SheetNames() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html
 type DatasetFilesLimit struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-maxfiles
+	// Maximum number of files
 	MaxFiles int `pulumi:"maxFiles"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-order
+	// Order
 	Order *string `pulumi:"order"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-orderedby
+	// Ordered by
 	OrderedBy *string `pulumi:"orderedBy"`
 }
 
@@ -1012,13 +959,12 @@ type DatasetFilesLimitInput interface {
 	ToDatasetFilesLimitOutputWithContext(context.Context) DatasetFilesLimitOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html
 type DatasetFilesLimitArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-maxfiles
+	// Maximum number of files
 	MaxFiles pulumi.IntInput `pulumi:"maxFiles"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-order
+	// Order
 	Order pulumi.StringPtrInput `pulumi:"order"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-orderedby
+	// Ordered by
 	OrderedBy pulumi.StringPtrInput `pulumi:"orderedBy"`
 }
 
@@ -1075,7 +1021,6 @@ func (i *datasetFilesLimitPtrType) ToDatasetFilesLimitPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetFilesLimitPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html
 type DatasetFilesLimitOutput struct{ *pulumi.OutputState }
 
 func (DatasetFilesLimitOutput) ElementType() reflect.Type {
@@ -1100,17 +1045,17 @@ func (o DatasetFilesLimitOutput) ToDatasetFilesLimitPtrOutputWithContext(ctx con
 	}).(DatasetFilesLimitPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-maxfiles
+// Maximum number of files
 func (o DatasetFilesLimitOutput) MaxFiles() pulumi.IntOutput {
 	return o.ApplyT(func(v DatasetFilesLimit) int { return v.MaxFiles }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-order
+// Order
 func (o DatasetFilesLimitOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetFilesLimit) *string { return v.Order }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-orderedby
+// Ordered by
 func (o DatasetFilesLimitOutput) OrderedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetFilesLimit) *string { return v.OrderedBy }).(pulumi.StringPtrOutput)
 }
@@ -1139,7 +1084,7 @@ func (o DatasetFilesLimitPtrOutput) Elem() DatasetFilesLimitOutput {
 	}).(DatasetFilesLimitOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-maxfiles
+// Maximum number of files
 func (o DatasetFilesLimitPtrOutput) MaxFiles() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DatasetFilesLimit) *int {
 		if v == nil {
@@ -1149,7 +1094,7 @@ func (o DatasetFilesLimitPtrOutput) MaxFiles() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-order
+// Order
 func (o DatasetFilesLimitPtrOutput) Order() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetFilesLimit) *string {
 		if v == nil {
@@ -1159,7 +1104,7 @@ func (o DatasetFilesLimitPtrOutput) Order() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-fileslimit.html#cfn-databrew-dataset-fileslimit-orderedby
+// Ordered by
 func (o DatasetFilesLimitPtrOutput) OrderedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetFilesLimit) *string {
 		if v == nil {
@@ -1169,12 +1114,10 @@ func (o DatasetFilesLimitPtrOutput) OrderedBy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html
 type DatasetFilterExpression struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-expression
-	Expression string `pulumi:"expression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-valuesmap
-	ValuesMap []DatasetFilterValue `pulumi:"valuesMap"`
+	// Filtering expression for a parameter
+	Expression string               `pulumi:"expression"`
+	ValuesMap  []DatasetFilterValue `pulumi:"valuesMap"`
 }
 
 // DatasetFilterExpressionInput is an input type that accepts DatasetFilterExpressionArgs and DatasetFilterExpressionOutput values.
@@ -1188,12 +1131,10 @@ type DatasetFilterExpressionInput interface {
 	ToDatasetFilterExpressionOutputWithContext(context.Context) DatasetFilterExpressionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html
 type DatasetFilterExpressionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-expression
-	Expression pulumi.StringInput `pulumi:"expression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-valuesmap
-	ValuesMap DatasetFilterValueArrayInput `pulumi:"valuesMap"`
+	// Filtering expression for a parameter
+	Expression pulumi.StringInput           `pulumi:"expression"`
+	ValuesMap  DatasetFilterValueArrayInput `pulumi:"valuesMap"`
 }
 
 func (DatasetFilterExpressionArgs) ElementType() reflect.Type {
@@ -1249,7 +1190,6 @@ func (i *datasetFilterExpressionPtrType) ToDatasetFilterExpressionPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetFilterExpressionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html
 type DatasetFilterExpressionOutput struct{ *pulumi.OutputState }
 
 func (DatasetFilterExpressionOutput) ElementType() reflect.Type {
@@ -1274,12 +1214,11 @@ func (o DatasetFilterExpressionOutput) ToDatasetFilterExpressionPtrOutputWithCon
 	}).(DatasetFilterExpressionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-expression
+// Filtering expression for a parameter
 func (o DatasetFilterExpressionOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetFilterExpression) string { return v.Expression }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-valuesmap
 func (o DatasetFilterExpressionOutput) ValuesMap() DatasetFilterValueArrayOutput {
 	return o.ApplyT(func(v DatasetFilterExpression) []DatasetFilterValue { return v.ValuesMap }).(DatasetFilterValueArrayOutput)
 }
@@ -1308,7 +1247,7 @@ func (o DatasetFilterExpressionPtrOutput) Elem() DatasetFilterExpressionOutput {
 	}).(DatasetFilterExpressionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-expression
+// Filtering expression for a parameter
 func (o DatasetFilterExpressionPtrOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetFilterExpression) *string {
 		if v == nil {
@@ -1318,7 +1257,6 @@ func (o DatasetFilterExpressionPtrOutput) Expression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-valuesmap
 func (o DatasetFilterExpressionPtrOutput) ValuesMap() DatasetFilterValueArrayOutput {
 	return o.ApplyT(func(v *DatasetFilterExpression) []DatasetFilterValue {
 		if v == nil {
@@ -1328,11 +1266,10 @@ func (o DatasetFilterExpressionPtrOutput) ValuesMap() DatasetFilterValueArrayOut
 	}).(DatasetFilterValueArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html
+// A key-value pair to associate expression variable names with their values
 type DatasetFilterValue struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-value
 	Value string `pulumi:"value"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-valuereference
+	// Variable name
 	ValueReference string `pulumi:"valueReference"`
 }
 
@@ -1347,11 +1284,10 @@ type DatasetFilterValueInput interface {
 	ToDatasetFilterValueOutputWithContext(context.Context) DatasetFilterValueOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html
+// A key-value pair to associate expression variable names with their values
 type DatasetFilterValueArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-value
 	Value pulumi.StringInput `pulumi:"value"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-valuereference
+	// Variable name
 	ValueReference pulumi.StringInput `pulumi:"valueReference"`
 }
 
@@ -1392,7 +1328,7 @@ func (i DatasetFilterValueArray) ToDatasetFilterValueArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetFilterValueArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html
+// A key-value pair to associate expression variable names with their values
 type DatasetFilterValueOutput struct{ *pulumi.OutputState }
 
 func (DatasetFilterValueOutput) ElementType() reflect.Type {
@@ -1407,12 +1343,11 @@ func (o DatasetFilterValueOutput) ToDatasetFilterValueOutputWithContext(ctx cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-value
 func (o DatasetFilterValueOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetFilterValue) string { return v.Value }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filtervalue.html#cfn-databrew-dataset-filtervalue-valuereference
+// Variable name
 func (o DatasetFilterValueOutput) ValueReference() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetFilterValue) string { return v.ValueReference }).(pulumi.StringOutput)
 }
@@ -1437,14 +1372,11 @@ func (o DatasetFilterValueArrayOutput) Index(i pulumi.IntInput) DatasetFilterVal
 	}).(DatasetFilterValueOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html
+// Format options for dataset
 type DatasetFormatOptions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-csv
-	Csv *DatasetCsvOptions `pulumi:"csv"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-excel
+	Csv   *DatasetCsvOptions   `pulumi:"csv"`
 	Excel *DatasetExcelOptions `pulumi:"excel"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-json
-	Json *DatasetJsonOptions `pulumi:"json"`
+	Json  *DatasetJsonOptions  `pulumi:"json"`
 }
 
 // DatasetFormatOptionsInput is an input type that accepts DatasetFormatOptionsArgs and DatasetFormatOptionsOutput values.
@@ -1458,14 +1390,11 @@ type DatasetFormatOptionsInput interface {
 	ToDatasetFormatOptionsOutputWithContext(context.Context) DatasetFormatOptionsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html
+// Format options for dataset
 type DatasetFormatOptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-csv
-	Csv DatasetCsvOptionsPtrInput `pulumi:"csv"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-excel
+	Csv   DatasetCsvOptionsPtrInput   `pulumi:"csv"`
 	Excel DatasetExcelOptionsPtrInput `pulumi:"excel"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-json
-	Json DatasetJsonOptionsPtrInput `pulumi:"json"`
+	Json  DatasetJsonOptionsPtrInput  `pulumi:"json"`
 }
 
 func (DatasetFormatOptionsArgs) ElementType() reflect.Type {
@@ -1521,7 +1450,7 @@ func (i *datasetFormatOptionsPtrType) ToDatasetFormatOptionsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetFormatOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html
+// Format options for dataset
 type DatasetFormatOptionsOutput struct{ *pulumi.OutputState }
 
 func (DatasetFormatOptionsOutput) ElementType() reflect.Type {
@@ -1546,17 +1475,14 @@ func (o DatasetFormatOptionsOutput) ToDatasetFormatOptionsPtrOutputWithContext(c
 	}).(DatasetFormatOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-csv
 func (o DatasetFormatOptionsOutput) Csv() DatasetCsvOptionsPtrOutput {
 	return o.ApplyT(func(v DatasetFormatOptions) *DatasetCsvOptions { return v.Csv }).(DatasetCsvOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-excel
 func (o DatasetFormatOptionsOutput) Excel() DatasetExcelOptionsPtrOutput {
 	return o.ApplyT(func(v DatasetFormatOptions) *DatasetExcelOptions { return v.Excel }).(DatasetExcelOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-json
 func (o DatasetFormatOptionsOutput) Json() DatasetJsonOptionsPtrOutput {
 	return o.ApplyT(func(v DatasetFormatOptions) *DatasetJsonOptions { return v.Json }).(DatasetJsonOptionsPtrOutput)
 }
@@ -1585,7 +1511,6 @@ func (o DatasetFormatOptionsPtrOutput) Elem() DatasetFormatOptionsOutput {
 	}).(DatasetFormatOptionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-csv
 func (o DatasetFormatOptionsPtrOutput) Csv() DatasetCsvOptionsPtrOutput {
 	return o.ApplyT(func(v *DatasetFormatOptions) *DatasetCsvOptions {
 		if v == nil {
@@ -1595,7 +1520,6 @@ func (o DatasetFormatOptionsPtrOutput) Csv() DatasetCsvOptionsPtrOutput {
 	}).(DatasetCsvOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-excel
 func (o DatasetFormatOptionsPtrOutput) Excel() DatasetExcelOptionsPtrOutput {
 	return o.ApplyT(func(v *DatasetFormatOptions) *DatasetExcelOptions {
 		if v == nil {
@@ -1605,7 +1529,6 @@ func (o DatasetFormatOptionsPtrOutput) Excel() DatasetExcelOptionsPtrOutput {
 	}).(DatasetExcelOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-formatoptions.html#cfn-databrew-dataset-formatoptions-json
 func (o DatasetFormatOptionsPtrOutput) Json() DatasetJsonOptionsPtrOutput {
 	return o.ApplyT(func(v *DatasetFormatOptions) *DatasetJsonOptions {
 		if v == nil {
@@ -1615,14 +1538,11 @@ func (o DatasetFormatOptionsPtrOutput) Json() DatasetJsonOptionsPtrOutput {
 	}).(DatasetJsonOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html
+// Input
 type DatasetInputType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-datacataloginputdefinition
 	DataCatalogInputDefinition *DatasetDataCatalogInputDefinition `pulumi:"dataCatalogInputDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-databaseinputdefinition
-	DatabaseInputDefinition *DatasetDatabaseInputDefinition `pulumi:"databaseInputDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-s3inputdefinition
-	S3InputDefinition *DatasetS3Location `pulumi:"s3InputDefinition"`
+	DatabaseInputDefinition    *DatasetDatabaseInputDefinition    `pulumi:"databaseInputDefinition"`
+	S3InputDefinition          *DatasetS3Location                 `pulumi:"s3InputDefinition"`
 }
 
 // DatasetInputTypeInput is an input type that accepts DatasetInputTypeArgs and DatasetInputTypeOutput values.
@@ -1636,14 +1556,11 @@ type DatasetInputTypeInput interface {
 	ToDatasetInputTypeOutputWithContext(context.Context) DatasetInputTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html
+// Input
 type DatasetInputTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-datacataloginputdefinition
 	DataCatalogInputDefinition DatasetDataCatalogInputDefinitionPtrInput `pulumi:"dataCatalogInputDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-databaseinputdefinition
-	DatabaseInputDefinition DatasetDatabaseInputDefinitionPtrInput `pulumi:"databaseInputDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-s3inputdefinition
-	S3InputDefinition DatasetS3LocationPtrInput `pulumi:"s3InputDefinition"`
+	DatabaseInputDefinition    DatasetDatabaseInputDefinitionPtrInput    `pulumi:"databaseInputDefinition"`
+	S3InputDefinition          DatasetS3LocationPtrInput                 `pulumi:"s3InputDefinition"`
 }
 
 func (DatasetInputTypeArgs) ElementType() reflect.Type {
@@ -1699,7 +1616,7 @@ func (i *datasetInputTypePtrType) ToDatasetInputTypePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetInputTypePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html
+// Input
 type DatasetInputTypeOutput struct{ *pulumi.OutputState }
 
 func (DatasetInputTypeOutput) ElementType() reflect.Type {
@@ -1724,17 +1641,14 @@ func (o DatasetInputTypeOutput) ToDatasetInputTypePtrOutputWithContext(ctx conte
 	}).(DatasetInputTypePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-datacataloginputdefinition
 func (o DatasetInputTypeOutput) DataCatalogInputDefinition() DatasetDataCatalogInputDefinitionPtrOutput {
 	return o.ApplyT(func(v DatasetInputType) *DatasetDataCatalogInputDefinition { return v.DataCatalogInputDefinition }).(DatasetDataCatalogInputDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-databaseinputdefinition
 func (o DatasetInputTypeOutput) DatabaseInputDefinition() DatasetDatabaseInputDefinitionPtrOutput {
 	return o.ApplyT(func(v DatasetInputType) *DatasetDatabaseInputDefinition { return v.DatabaseInputDefinition }).(DatasetDatabaseInputDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-s3inputdefinition
 func (o DatasetInputTypeOutput) S3InputDefinition() DatasetS3LocationPtrOutput {
 	return o.ApplyT(func(v DatasetInputType) *DatasetS3Location { return v.S3InputDefinition }).(DatasetS3LocationPtrOutput)
 }
@@ -1763,7 +1677,6 @@ func (o DatasetInputTypePtrOutput) Elem() DatasetInputTypeOutput {
 	}).(DatasetInputTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-datacataloginputdefinition
 func (o DatasetInputTypePtrOutput) DataCatalogInputDefinition() DatasetDataCatalogInputDefinitionPtrOutput {
 	return o.ApplyT(func(v *DatasetInputType) *DatasetDataCatalogInputDefinition {
 		if v == nil {
@@ -1773,7 +1686,6 @@ func (o DatasetInputTypePtrOutput) DataCatalogInputDefinition() DatasetDataCatal
 	}).(DatasetDataCatalogInputDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-databaseinputdefinition
 func (o DatasetInputTypePtrOutput) DatabaseInputDefinition() DatasetDatabaseInputDefinitionPtrOutput {
 	return o.ApplyT(func(v *DatasetInputType) *DatasetDatabaseInputDefinition {
 		if v == nil {
@@ -1783,7 +1695,6 @@ func (o DatasetInputTypePtrOutput) DatabaseInputDefinition() DatasetDatabaseInpu
 	}).(DatasetDatabaseInputDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-s3inputdefinition
 func (o DatasetInputTypePtrOutput) S3InputDefinition() DatasetS3LocationPtrOutput {
 	return o.ApplyT(func(v *DatasetInputType) *DatasetS3Location {
 		if v == nil {
@@ -1793,9 +1704,8 @@ func (o DatasetInputTypePtrOutput) S3InputDefinition() DatasetS3LocationPtrOutpu
 	}).(DatasetS3LocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html
+// Json options
 type DatasetJsonOptions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html#cfn-databrew-dataset-jsonoptions-multiline
 	MultiLine *bool `pulumi:"multiLine"`
 }
 
@@ -1810,9 +1720,8 @@ type DatasetJsonOptionsInput interface {
 	ToDatasetJsonOptionsOutputWithContext(context.Context) DatasetJsonOptionsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html
+// Json options
 type DatasetJsonOptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html#cfn-databrew-dataset-jsonoptions-multiline
 	MultiLine pulumi.BoolPtrInput `pulumi:"multiLine"`
 }
 
@@ -1869,7 +1778,7 @@ func (i *datasetJsonOptionsPtrType) ToDatasetJsonOptionsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html
+// Json options
 type DatasetJsonOptionsOutput struct{ *pulumi.OutputState }
 
 func (DatasetJsonOptionsOutput) ElementType() reflect.Type {
@@ -1894,7 +1803,6 @@ func (o DatasetJsonOptionsOutput) ToDatasetJsonOptionsPtrOutputWithContext(ctx c
 	}).(DatasetJsonOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html#cfn-databrew-dataset-jsonoptions-multiline
 func (o DatasetJsonOptionsOutput) MultiLine() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DatasetJsonOptions) *bool { return v.MultiLine }).(pulumi.BoolPtrOutput)
 }
@@ -1923,7 +1831,6 @@ func (o DatasetJsonOptionsPtrOutput) Elem() DatasetJsonOptionsOutput {
 	}).(DatasetJsonOptionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-jsonoptions.html#cfn-databrew-dataset-jsonoptions-multiline
 func (o DatasetJsonOptionsPtrOutput) MultiLine() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DatasetJsonOptions) *bool {
 		if v == nil {
@@ -1933,14 +1840,11 @@ func (o DatasetJsonOptionsPtrOutput) MultiLine() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html
+// Path options for dataset
 type DatasetPathOptions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-fileslimit
-	FilesLimit *DatasetFilesLimit `pulumi:"filesLimit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-lastmodifieddatecondition
+	FilesLimit                *DatasetFilesLimit       `pulumi:"filesLimit"`
 	LastModifiedDateCondition *DatasetFilterExpression `pulumi:"lastModifiedDateCondition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-parameters
-	Parameters []DatasetPathParameter `pulumi:"parameters"`
+	Parameters                []DatasetPathParameter   `pulumi:"parameters"`
 }
 
 // DatasetPathOptionsInput is an input type that accepts DatasetPathOptionsArgs and DatasetPathOptionsOutput values.
@@ -1954,14 +1858,11 @@ type DatasetPathOptionsInput interface {
 	ToDatasetPathOptionsOutputWithContext(context.Context) DatasetPathOptionsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html
+// Path options for dataset
 type DatasetPathOptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-fileslimit
-	FilesLimit DatasetFilesLimitPtrInput `pulumi:"filesLimit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-lastmodifieddatecondition
+	FilesLimit                DatasetFilesLimitPtrInput       `pulumi:"filesLimit"`
 	LastModifiedDateCondition DatasetFilterExpressionPtrInput `pulumi:"lastModifiedDateCondition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-parameters
-	Parameters DatasetPathParameterArrayInput `pulumi:"parameters"`
+	Parameters                DatasetPathParameterArrayInput  `pulumi:"parameters"`
 }
 
 func (DatasetPathOptionsArgs) ElementType() reflect.Type {
@@ -2017,7 +1918,7 @@ func (i *datasetPathOptionsPtrType) ToDatasetPathOptionsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetPathOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html
+// Path options for dataset
 type DatasetPathOptionsOutput struct{ *pulumi.OutputState }
 
 func (DatasetPathOptionsOutput) ElementType() reflect.Type {
@@ -2042,17 +1943,14 @@ func (o DatasetPathOptionsOutput) ToDatasetPathOptionsPtrOutputWithContext(ctx c
 	}).(DatasetPathOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-fileslimit
 func (o DatasetPathOptionsOutput) FilesLimit() DatasetFilesLimitPtrOutput {
 	return o.ApplyT(func(v DatasetPathOptions) *DatasetFilesLimit { return v.FilesLimit }).(DatasetFilesLimitPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-lastmodifieddatecondition
 func (o DatasetPathOptionsOutput) LastModifiedDateCondition() DatasetFilterExpressionPtrOutput {
 	return o.ApplyT(func(v DatasetPathOptions) *DatasetFilterExpression { return v.LastModifiedDateCondition }).(DatasetFilterExpressionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-parameters
 func (o DatasetPathOptionsOutput) Parameters() DatasetPathParameterArrayOutput {
 	return o.ApplyT(func(v DatasetPathOptions) []DatasetPathParameter { return v.Parameters }).(DatasetPathParameterArrayOutput)
 }
@@ -2081,7 +1979,6 @@ func (o DatasetPathOptionsPtrOutput) Elem() DatasetPathOptionsOutput {
 	}).(DatasetPathOptionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-fileslimit
 func (o DatasetPathOptionsPtrOutput) FilesLimit() DatasetFilesLimitPtrOutput {
 	return o.ApplyT(func(v *DatasetPathOptions) *DatasetFilesLimit {
 		if v == nil {
@@ -2091,7 +1988,6 @@ func (o DatasetPathOptionsPtrOutput) FilesLimit() DatasetFilesLimitPtrOutput {
 	}).(DatasetFilesLimitPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-lastmodifieddatecondition
 func (o DatasetPathOptionsPtrOutput) LastModifiedDateCondition() DatasetFilterExpressionPtrOutput {
 	return o.ApplyT(func(v *DatasetPathOptions) *DatasetFilterExpression {
 		if v == nil {
@@ -2101,7 +1997,6 @@ func (o DatasetPathOptionsPtrOutput) LastModifiedDateCondition() DatasetFilterEx
 	}).(DatasetFilterExpressionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-parameters
 func (o DatasetPathOptionsPtrOutput) Parameters() DatasetPathParameterArrayOutput {
 	return o.ApplyT(func(v *DatasetPathOptions) []DatasetPathParameter {
 		if v == nil {
@@ -2111,12 +2006,10 @@ func (o DatasetPathOptionsPtrOutput) Parameters() DatasetPathParameterArrayOutpu
 	}).(DatasetPathParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html
+// A key-value pair to associate dataset parameter name with its definition.
 type DatasetPathParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-datasetparameter
-	DatasetParameter DatasetDatasetParameter `pulumi:"datasetParameter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-pathparametername
-	PathParameterName string `pulumi:"pathParameterName"`
+	DatasetParameter  DatasetDatasetParameter `pulumi:"datasetParameter"`
+	PathParameterName string                  `pulumi:"pathParameterName"`
 }
 
 // DatasetPathParameterInput is an input type that accepts DatasetPathParameterArgs and DatasetPathParameterOutput values.
@@ -2130,12 +2023,10 @@ type DatasetPathParameterInput interface {
 	ToDatasetPathParameterOutputWithContext(context.Context) DatasetPathParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html
+// A key-value pair to associate dataset parameter name with its definition.
 type DatasetPathParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-datasetparameter
-	DatasetParameter DatasetDatasetParameterInput `pulumi:"datasetParameter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-pathparametername
-	PathParameterName pulumi.StringInput `pulumi:"pathParameterName"`
+	DatasetParameter  DatasetDatasetParameterInput `pulumi:"datasetParameter"`
+	PathParameterName pulumi.StringInput           `pulumi:"pathParameterName"`
 }
 
 func (DatasetPathParameterArgs) ElementType() reflect.Type {
@@ -2175,7 +2066,7 @@ func (i DatasetPathParameterArray) ToDatasetPathParameterArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetPathParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html
+// A key-value pair to associate dataset parameter name with its definition.
 type DatasetPathParameterOutput struct{ *pulumi.OutputState }
 
 func (DatasetPathParameterOutput) ElementType() reflect.Type {
@@ -2190,12 +2081,10 @@ func (o DatasetPathParameterOutput) ToDatasetPathParameterOutputWithContext(ctx 
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-datasetparameter
 func (o DatasetPathParameterOutput) DatasetParameter() DatasetDatasetParameterOutput {
 	return o.ApplyT(func(v DatasetPathParameter) DatasetDatasetParameter { return v.DatasetParameter }).(DatasetDatasetParameterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-pathparametername
 func (o DatasetPathParameterOutput) PathParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetPathParameter) string { return v.PathParameterName }).(pulumi.StringOutput)
 }
@@ -2220,12 +2109,10 @@ func (o DatasetPathParameterArrayOutput) Index(i pulumi.IntInput) DatasetPathPar
 	}).(DatasetPathParameterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html
+// Input location
 type DatasetS3Location struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-bucket
-	Bucket string `pulumi:"bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-key
-	Key *string `pulumi:"key"`
+	Bucket string  `pulumi:"bucket"`
+	Key    *string `pulumi:"key"`
 }
 
 // DatasetS3LocationInput is an input type that accepts DatasetS3LocationArgs and DatasetS3LocationOutput values.
@@ -2239,12 +2126,10 @@ type DatasetS3LocationInput interface {
 	ToDatasetS3LocationOutputWithContext(context.Context) DatasetS3LocationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html
+// Input location
 type DatasetS3LocationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-bucket
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-key
-	Key pulumi.StringPtrInput `pulumi:"key"`
+	Bucket pulumi.StringInput    `pulumi:"bucket"`
+	Key    pulumi.StringPtrInput `pulumi:"key"`
 }
 
 func (DatasetS3LocationArgs) ElementType() reflect.Type {
@@ -2300,7 +2185,7 @@ func (i *datasetS3LocationPtrType) ToDatasetS3LocationPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetS3LocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html
+// Input location
 type DatasetS3LocationOutput struct{ *pulumi.OutputState }
 
 func (DatasetS3LocationOutput) ElementType() reflect.Type {
@@ -2325,12 +2210,10 @@ func (o DatasetS3LocationOutput) ToDatasetS3LocationPtrOutputWithContext(ctx con
 	}).(DatasetS3LocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-bucket
 func (o DatasetS3LocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetS3Location) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-key
 func (o DatasetS3LocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetS3Location) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -2359,7 +2242,6 @@ func (o DatasetS3LocationPtrOutput) Elem() DatasetS3LocationOutput {
 	}).(DatasetS3LocationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-bucket
 func (o DatasetS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetS3Location) *string {
 		if v == nil {
@@ -2369,7 +2251,6 @@ func (o DatasetS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-s3location.html#cfn-databrew-dataset-s3location-key
 func (o DatasetS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetS3Location) *string {
 		if v == nil {
@@ -2379,11 +2260,111 @@ func (o DatasetS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html
+// A key-value pair to associate with a resource.
+type DatasetTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// DatasetTagInput is an input type that accepts DatasetTagArgs and DatasetTagOutput values.
+// You can construct a concrete instance of `DatasetTagInput` via:
+//
+//          DatasetTagArgs{...}
+type DatasetTagInput interface {
+	pulumi.Input
+
+	ToDatasetTagOutput() DatasetTagOutput
+	ToDatasetTagOutputWithContext(context.Context) DatasetTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type DatasetTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DatasetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetTag)(nil)).Elem()
+}
+
+func (i DatasetTagArgs) ToDatasetTagOutput() DatasetTagOutput {
+	return i.ToDatasetTagOutputWithContext(context.Background())
+}
+
+func (i DatasetTagArgs) ToDatasetTagOutputWithContext(ctx context.Context) DatasetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetTagOutput)
+}
+
+// DatasetTagArrayInput is an input type that accepts DatasetTagArray and DatasetTagArrayOutput values.
+// You can construct a concrete instance of `DatasetTagArrayInput` via:
+//
+//          DatasetTagArray{ DatasetTagArgs{...} }
+type DatasetTagArrayInput interface {
+	pulumi.Input
+
+	ToDatasetTagArrayOutput() DatasetTagArrayOutput
+	ToDatasetTagArrayOutputWithContext(context.Context) DatasetTagArrayOutput
+}
+
+type DatasetTagArray []DatasetTagInput
+
+func (DatasetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetTag)(nil)).Elem()
+}
+
+func (i DatasetTagArray) ToDatasetTagArrayOutput() DatasetTagArrayOutput {
+	return i.ToDatasetTagArrayOutputWithContext(context.Background())
+}
+
+func (i DatasetTagArray) ToDatasetTagArrayOutputWithContext(ctx context.Context) DatasetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasetTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DatasetTagOutput struct{ *pulumi.OutputState }
+
+func (DatasetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasetTag)(nil)).Elem()
+}
+
+func (o DatasetTagOutput) ToDatasetTagOutput() DatasetTagOutput {
+	return o
+}
+
+func (o DatasetTagOutput) ToDatasetTagOutputWithContext(ctx context.Context) DatasetTagOutput {
+	return o
+}
+
+func (o DatasetTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o DatasetTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasetTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DatasetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DatasetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DatasetTag)(nil)).Elem()
+}
+
+func (o DatasetTagArrayOutput) ToDatasetTagArrayOutput() DatasetTagArrayOutput {
+	return o
+}
+
+func (o DatasetTagArrayOutput) ToDatasetTagArrayOutputWithContext(ctx context.Context) DatasetTagArrayOutput {
+	return o
+}
+
+func (o DatasetTagArrayOutput) Index(i pulumi.IntInput) DatasetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatasetTag {
+		return vs[0].([]DatasetTag)[vs[1].(int)]
+	}).(DatasetTagOutput)
+}
+
 type JobColumnSelector struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html#cfn-databrew-job-columnselector-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html#cfn-databrew-job-columnselector-regex
+	Name  *string `pulumi:"name"`
 	Regex *string `pulumi:"regex"`
 }
 
@@ -2398,11 +2379,8 @@ type JobColumnSelectorInput interface {
 	ToJobColumnSelectorOutputWithContext(context.Context) JobColumnSelectorOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html
 type JobColumnSelectorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html#cfn-databrew-job-columnselector-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html#cfn-databrew-job-columnselector-regex
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Regex pulumi.StringPtrInput `pulumi:"regex"`
 }
 
@@ -2443,7 +2421,6 @@ func (i JobColumnSelectorArray) ToJobColumnSelectorArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(JobColumnSelectorArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html
 type JobColumnSelectorOutput struct{ *pulumi.OutputState }
 
 func (JobColumnSelectorOutput) ElementType() reflect.Type {
@@ -2458,12 +2435,10 @@ func (o JobColumnSelectorOutput) ToJobColumnSelectorOutputWithContext(ctx contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html#cfn-databrew-job-columnselector-name
 func (o JobColumnSelectorOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobColumnSelector) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnselector.html#cfn-databrew-job-columnselector-regex
 func (o JobColumnSelectorOutput) Regex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobColumnSelector) *string { return v.Regex }).(pulumi.StringPtrOutput)
 }
@@ -2488,11 +2463,8 @@ func (o JobColumnSelectorArrayOutput) Index(i pulumi.IntInput) JobColumnSelector
 	}).(JobColumnSelectorOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html
 type JobColumnStatisticsConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-selectors
-	Selectors []JobColumnSelector `pulumi:"selectors"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-statistics
+	Selectors  []JobColumnSelector        `pulumi:"selectors"`
 	Statistics JobStatisticsConfiguration `pulumi:"statistics"`
 }
 
@@ -2507,11 +2479,8 @@ type JobColumnStatisticsConfigurationInput interface {
 	ToJobColumnStatisticsConfigurationOutputWithContext(context.Context) JobColumnStatisticsConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html
 type JobColumnStatisticsConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-selectors
-	Selectors JobColumnSelectorArrayInput `pulumi:"selectors"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-statistics
+	Selectors  JobColumnSelectorArrayInput     `pulumi:"selectors"`
 	Statistics JobStatisticsConfigurationInput `pulumi:"statistics"`
 }
 
@@ -2552,7 +2521,6 @@ func (i JobColumnStatisticsConfigurationArray) ToJobColumnStatisticsConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(JobColumnStatisticsConfigurationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html
 type JobColumnStatisticsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (JobColumnStatisticsConfigurationOutput) ElementType() reflect.Type {
@@ -2567,12 +2535,10 @@ func (o JobColumnStatisticsConfigurationOutput) ToJobColumnStatisticsConfigurati
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-selectors
 func (o JobColumnStatisticsConfigurationOutput) Selectors() JobColumnSelectorArrayOutput {
 	return o.ApplyT(func(v JobColumnStatisticsConfiguration) []JobColumnSelector { return v.Selectors }).(JobColumnSelectorArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-statistics
 func (o JobColumnStatisticsConfigurationOutput) Statistics() JobStatisticsConfigurationOutput {
 	return o.ApplyT(func(v JobColumnStatisticsConfiguration) JobStatisticsConfiguration { return v.Statistics }).(JobStatisticsConfigurationOutput)
 }
@@ -2597,9 +2563,8 @@ func (o JobColumnStatisticsConfigurationArrayOutput) Index(i pulumi.IntInput) Jo
 	}).(JobColumnStatisticsConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html
+// Output Csv options
 type JobCsvOutputOptions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html#cfn-databrew-job-csvoutputoptions-delimiter
 	Delimiter *string `pulumi:"delimiter"`
 }
 
@@ -2614,9 +2579,8 @@ type JobCsvOutputOptionsInput interface {
 	ToJobCsvOutputOptionsOutputWithContext(context.Context) JobCsvOutputOptionsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html
+// Output Csv options
 type JobCsvOutputOptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html#cfn-databrew-job-csvoutputoptions-delimiter
 	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
 }
 
@@ -2673,7 +2637,7 @@ func (i *jobCsvOutputOptionsPtrType) ToJobCsvOutputOptionsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(JobCsvOutputOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html
+// Output Csv options
 type JobCsvOutputOptionsOutput struct{ *pulumi.OutputState }
 
 func (JobCsvOutputOptionsOutput) ElementType() reflect.Type {
@@ -2698,7 +2662,6 @@ func (o JobCsvOutputOptionsOutput) ToJobCsvOutputOptionsPtrOutputWithContext(ctx
 	}).(JobCsvOutputOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html#cfn-databrew-job-csvoutputoptions-delimiter
 func (o JobCsvOutputOptionsOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobCsvOutputOptions) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
 }
@@ -2727,7 +2690,6 @@ func (o JobCsvOutputOptionsPtrOutput) Elem() JobCsvOutputOptionsOutput {
 	}).(JobCsvOutputOptionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-csvoutputoptions.html#cfn-databrew-job-csvoutputoptions-delimiter
 func (o JobCsvOutputOptionsPtrOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobCsvOutputOptions) *string {
 		if v == nil {
@@ -2737,20 +2699,13 @@ func (o JobCsvOutputOptionsPtrOutput) Delimiter() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html
 type JobDataCatalogOutput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-catalogid
-	CatalogId *string `pulumi:"catalogId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databasename
-	DatabaseName string `pulumi:"databaseName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databaseoptions
+	CatalogId       *string                        `pulumi:"catalogId"`
+	DatabaseName    string                         `pulumi:"databaseName"`
 	DatabaseOptions *JobDatabaseTableOutputOptions `pulumi:"databaseOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-overwrite
-	Overwrite *bool `pulumi:"overwrite"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-s3options
-	S3Options *JobS3TableOutputOptions `pulumi:"s3Options"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-tablename
-	TableName string `pulumi:"tableName"`
+	Overwrite       *bool                          `pulumi:"overwrite"`
+	S3Options       *JobS3TableOutputOptions       `pulumi:"s3Options"`
+	TableName       string                         `pulumi:"tableName"`
 }
 
 // JobDataCatalogOutputInput is an input type that accepts JobDataCatalogOutputArgs and JobDataCatalogOutputOutput values.
@@ -2764,20 +2719,13 @@ type JobDataCatalogOutputInput interface {
 	ToJobDataCatalogOutputOutputWithContext(context.Context) JobDataCatalogOutputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html
 type JobDataCatalogOutputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-catalogid
-	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databasename
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databaseoptions
+	CatalogId       pulumi.StringPtrInput                 `pulumi:"catalogId"`
+	DatabaseName    pulumi.StringInput                    `pulumi:"databaseName"`
 	DatabaseOptions JobDatabaseTableOutputOptionsPtrInput `pulumi:"databaseOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-overwrite
-	Overwrite pulumi.BoolPtrInput `pulumi:"overwrite"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-s3options
-	S3Options JobS3TableOutputOptionsPtrInput `pulumi:"s3Options"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-tablename
-	TableName pulumi.StringInput `pulumi:"tableName"`
+	Overwrite       pulumi.BoolPtrInput                   `pulumi:"overwrite"`
+	S3Options       JobS3TableOutputOptionsPtrInput       `pulumi:"s3Options"`
+	TableName       pulumi.StringInput                    `pulumi:"tableName"`
 }
 
 func (JobDataCatalogOutputArgs) ElementType() reflect.Type {
@@ -2817,7 +2765,6 @@ func (i JobDataCatalogOutputArray) ToJobDataCatalogOutputArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(JobDataCatalogOutputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html
 type JobDataCatalogOutputOutput struct{ *pulumi.OutputState }
 
 func (JobDataCatalogOutputOutput) ElementType() reflect.Type {
@@ -2832,32 +2779,26 @@ func (o JobDataCatalogOutputOutput) ToJobDataCatalogOutputOutputWithContext(ctx 
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-catalogid
 func (o JobDataCatalogOutputOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDataCatalogOutput) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databasename
 func (o JobDataCatalogOutputOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDataCatalogOutput) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-databaseoptions
 func (o JobDataCatalogOutputOutput) DatabaseOptions() JobDatabaseTableOutputOptionsPtrOutput {
 	return o.ApplyT(func(v JobDataCatalogOutput) *JobDatabaseTableOutputOptions { return v.DatabaseOptions }).(JobDatabaseTableOutputOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-overwrite
 func (o JobDataCatalogOutputOutput) Overwrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDataCatalogOutput) *bool { return v.Overwrite }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-s3options
 func (o JobDataCatalogOutputOutput) S3Options() JobS3TableOutputOptionsPtrOutput {
 	return o.ApplyT(func(v JobDataCatalogOutput) *JobS3TableOutputOptions { return v.S3Options }).(JobS3TableOutputOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-datacatalogoutput.html#cfn-databrew-job-datacatalogoutput-tablename
 func (o JobDataCatalogOutputOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDataCatalogOutput) string { return v.TableName }).(pulumi.StringOutput)
 }
@@ -2882,13 +2823,11 @@ func (o JobDataCatalogOutputArrayOutput) Index(i pulumi.IntInput) JobDataCatalog
 	}).(JobDataCatalogOutputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html
 type JobDatabaseOutput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoptions
 	DatabaseOptions JobDatabaseTableOutputOptions `pulumi:"databaseOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoutputmode
+	// Database table name
 	DatabaseOutputMode *string `pulumi:"databaseOutputMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-glueconnectionname
+	// Glue connection name
 	GlueConnectionName string `pulumi:"glueConnectionName"`
 }
 
@@ -2903,13 +2842,11 @@ type JobDatabaseOutputInput interface {
 	ToJobDatabaseOutputOutputWithContext(context.Context) JobDatabaseOutputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html
 type JobDatabaseOutputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoptions
 	DatabaseOptions JobDatabaseTableOutputOptionsInput `pulumi:"databaseOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoutputmode
+	// Database table name
 	DatabaseOutputMode pulumi.StringPtrInput `pulumi:"databaseOutputMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-glueconnectionname
+	// Glue connection name
 	GlueConnectionName pulumi.StringInput `pulumi:"glueConnectionName"`
 }
 
@@ -2950,7 +2887,6 @@ func (i JobDatabaseOutputArray) ToJobDatabaseOutputArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(JobDatabaseOutputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html
 type JobDatabaseOutputOutput struct{ *pulumi.OutputState }
 
 func (JobDatabaseOutputOutput) ElementType() reflect.Type {
@@ -2965,17 +2901,16 @@ func (o JobDatabaseOutputOutput) ToJobDatabaseOutputOutputWithContext(ctx contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoptions
 func (o JobDatabaseOutputOutput) DatabaseOptions() JobDatabaseTableOutputOptionsOutput {
 	return o.ApplyT(func(v JobDatabaseOutput) JobDatabaseTableOutputOptions { return v.DatabaseOptions }).(JobDatabaseTableOutputOptionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoutputmode
+// Database table name
 func (o JobDatabaseOutputOutput) DatabaseOutputMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobDatabaseOutput) *string { return v.DatabaseOutputMode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-glueconnectionname
+// Glue connection name
 func (o JobDatabaseOutputOutput) GlueConnectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDatabaseOutput) string { return v.GlueConnectionName }).(pulumi.StringOutput)
 }
@@ -3000,11 +2935,8 @@ func (o JobDatabaseOutputArrayOutput) Index(i pulumi.IntInput) JobDatabaseOutput
 	}).(JobDatabaseOutputOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html
 type JobDatabaseTableOutputOptions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tablename
-	TableName string `pulumi:"tableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tempdirectory
+	TableName     string         `pulumi:"tableName"`
 	TempDirectory *JobS3Location `pulumi:"tempDirectory"`
 }
 
@@ -3019,11 +2951,8 @@ type JobDatabaseTableOutputOptionsInput interface {
 	ToJobDatabaseTableOutputOptionsOutputWithContext(context.Context) JobDatabaseTableOutputOptionsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html
 type JobDatabaseTableOutputOptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tablename
-	TableName pulumi.StringInput `pulumi:"tableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tempdirectory
+	TableName     pulumi.StringInput    `pulumi:"tableName"`
 	TempDirectory JobS3LocationPtrInput `pulumi:"tempDirectory"`
 }
 
@@ -3080,7 +3009,6 @@ func (i *jobDatabaseTableOutputOptionsPtrType) ToJobDatabaseTableOutputOptionsPt
 	return pulumi.ToOutputWithContext(ctx, i).(JobDatabaseTableOutputOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html
 type JobDatabaseTableOutputOptionsOutput struct{ *pulumi.OutputState }
 
 func (JobDatabaseTableOutputOptionsOutput) ElementType() reflect.Type {
@@ -3105,12 +3033,10 @@ func (o JobDatabaseTableOutputOptionsOutput) ToJobDatabaseTableOutputOptionsPtrO
 	}).(JobDatabaseTableOutputOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tablename
 func (o JobDatabaseTableOutputOptionsOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDatabaseTableOutputOptions) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tempdirectory
 func (o JobDatabaseTableOutputOptionsOutput) TempDirectory() JobS3LocationPtrOutput {
 	return o.ApplyT(func(v JobDatabaseTableOutputOptions) *JobS3Location { return v.TempDirectory }).(JobS3LocationPtrOutput)
 }
@@ -3139,7 +3065,6 @@ func (o JobDatabaseTableOutputOptionsPtrOutput) Elem() JobDatabaseTableOutputOpt
 	}).(JobDatabaseTableOutputOptionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tablename
 func (o JobDatabaseTableOutputOptionsPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobDatabaseTableOutputOptions) *string {
 		if v == nil {
@@ -3149,7 +3074,6 @@ func (o JobDatabaseTableOutputOptionsPtrOutput) TableName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databasetableoutputoptions.html#cfn-databrew-job-databasetableoutputoptions-tempdirectory
 func (o JobDatabaseTableOutputOptionsPtrOutput) TempDirectory() JobS3LocationPtrOutput {
 	return o.ApplyT(func(v *JobDatabaseTableOutputOptions) *JobS3Location {
 		if v == nil {
@@ -3159,12 +3083,10 @@ func (o JobDatabaseTableOutputOptionsPtrOutput) TempDirectory() JobS3LocationPtr
 	}).(JobS3LocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html
+// Job Sample
 type JobJobSample struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-mode
 	Mode *string `pulumi:"mode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-size
-	Size *int `pulumi:"size"`
+	Size *int    `pulumi:"size"`
 }
 
 // JobJobSampleInput is an input type that accepts JobJobSampleArgs and JobJobSampleOutput values.
@@ -3178,12 +3100,10 @@ type JobJobSampleInput interface {
 	ToJobJobSampleOutputWithContext(context.Context) JobJobSampleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html
+// Job Sample
 type JobJobSampleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-mode
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-size
-	Size pulumi.IntPtrInput `pulumi:"size"`
+	Size pulumi.IntPtrInput    `pulumi:"size"`
 }
 
 func (JobJobSampleArgs) ElementType() reflect.Type {
@@ -3239,7 +3159,7 @@ func (i *jobJobSamplePtrType) ToJobJobSamplePtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(JobJobSamplePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html
+// Job Sample
 type JobJobSampleOutput struct{ *pulumi.OutputState }
 
 func (JobJobSampleOutput) ElementType() reflect.Type {
@@ -3264,12 +3184,10 @@ func (o JobJobSampleOutput) ToJobJobSamplePtrOutputWithContext(ctx context.Conte
 	}).(JobJobSamplePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-mode
 func (o JobJobSampleOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobJobSample) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-size
 func (o JobJobSampleOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobJobSample) *int { return v.Size }).(pulumi.IntPtrOutput)
 }
@@ -3298,7 +3216,6 @@ func (o JobJobSamplePtrOutput) Elem() JobJobSampleOutput {
 	}).(JobJobSampleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-mode
 func (o JobJobSamplePtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobJobSample) *string {
 		if v == nil {
@@ -3308,7 +3225,6 @@ func (o JobJobSamplePtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-jobsample.html#cfn-databrew-job-jobsample-size
 func (o JobJobSamplePtrOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobJobSample) *int {
 		if v == nil {
@@ -3318,20 +3234,13 @@ func (o JobJobSamplePtrOutput) Size() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html
 type JobOutputType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-compressionformat
-	CompressionFormat *string `pulumi:"compressionFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-format
-	Format *string `pulumi:"format"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-formatoptions
-	FormatOptions *JobOutputFormatOptions `pulumi:"formatOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-location
-	Location JobS3Location `pulumi:"location"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-overwrite
-	Overwrite *bool `pulumi:"overwrite"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-partitioncolumns
-	PartitionColumns []string `pulumi:"partitionColumns"`
+	CompressionFormat *string                 `pulumi:"compressionFormat"`
+	Format            *string                 `pulumi:"format"`
+	FormatOptions     *JobOutputFormatOptions `pulumi:"formatOptions"`
+	Location          JobS3Location           `pulumi:"location"`
+	Overwrite         *bool                   `pulumi:"overwrite"`
+	PartitionColumns  []string                `pulumi:"partitionColumns"`
 }
 
 // JobOutputTypeInput is an input type that accepts JobOutputTypeArgs and JobOutputTypeOutput values.
@@ -3345,20 +3254,13 @@ type JobOutputTypeInput interface {
 	ToJobOutputTypeOutputWithContext(context.Context) JobOutputTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html
 type JobOutputTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-compressionformat
-	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-format
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-formatoptions
-	FormatOptions JobOutputFormatOptionsPtrInput `pulumi:"formatOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-location
-	Location JobS3LocationInput `pulumi:"location"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-overwrite
-	Overwrite pulumi.BoolPtrInput `pulumi:"overwrite"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-partitioncolumns
-	PartitionColumns pulumi.StringArrayInput `pulumi:"partitionColumns"`
+	CompressionFormat pulumi.StringPtrInput          `pulumi:"compressionFormat"`
+	Format            pulumi.StringPtrInput          `pulumi:"format"`
+	FormatOptions     JobOutputFormatOptionsPtrInput `pulumi:"formatOptions"`
+	Location          JobS3LocationInput             `pulumi:"location"`
+	Overwrite         pulumi.BoolPtrInput            `pulumi:"overwrite"`
+	PartitionColumns  pulumi.StringArrayInput        `pulumi:"partitionColumns"`
 }
 
 func (JobOutputTypeArgs) ElementType() reflect.Type {
@@ -3398,7 +3300,6 @@ func (i JobOutputTypeArray) ToJobOutputTypeArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(JobOutputTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html
 type JobOutputTypeOutput struct{ *pulumi.OutputState }
 
 func (JobOutputTypeOutput) ElementType() reflect.Type {
@@ -3413,32 +3314,26 @@ func (o JobOutputTypeOutput) ToJobOutputTypeOutputWithContext(ctx context.Contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-compressionformat
 func (o JobOutputTypeOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobOutputType) *string { return v.CompressionFormat }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-format
 func (o JobOutputTypeOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobOutputType) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-formatoptions
 func (o JobOutputTypeOutput) FormatOptions() JobOutputFormatOptionsPtrOutput {
 	return o.ApplyT(func(v JobOutputType) *JobOutputFormatOptions { return v.FormatOptions }).(JobOutputFormatOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-location
 func (o JobOutputTypeOutput) Location() JobS3LocationOutput {
 	return o.ApplyT(func(v JobOutputType) JobS3Location { return v.Location }).(JobS3LocationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-overwrite
 func (o JobOutputTypeOutput) Overwrite() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobOutputType) *bool { return v.Overwrite }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-output.html#cfn-databrew-job-output-partitioncolumns
 func (o JobOutputTypeOutput) PartitionColumns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobOutputType) []string { return v.PartitionColumns }).(pulumi.StringArrayOutput)
 }
@@ -3463,9 +3358,8 @@ func (o JobOutputTypeArrayOutput) Index(i pulumi.IntInput) JobOutputTypeOutput {
 	}).(JobOutputTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html
+// Format options for job Output
 type JobOutputFormatOptions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html#cfn-databrew-job-outputformatoptions-csv
 	Csv *JobCsvOutputOptions `pulumi:"csv"`
 }
 
@@ -3480,9 +3374,8 @@ type JobOutputFormatOptionsInput interface {
 	ToJobOutputFormatOptionsOutputWithContext(context.Context) JobOutputFormatOptionsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html
+// Format options for job Output
 type JobOutputFormatOptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html#cfn-databrew-job-outputformatoptions-csv
 	Csv JobCsvOutputOptionsPtrInput `pulumi:"csv"`
 }
 
@@ -3539,7 +3432,7 @@ func (i *jobOutputFormatOptionsPtrType) ToJobOutputFormatOptionsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(JobOutputFormatOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html
+// Format options for job Output
 type JobOutputFormatOptionsOutput struct{ *pulumi.OutputState }
 
 func (JobOutputFormatOptionsOutput) ElementType() reflect.Type {
@@ -3564,7 +3457,6 @@ func (o JobOutputFormatOptionsOutput) ToJobOutputFormatOptionsPtrOutputWithConte
 	}).(JobOutputFormatOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html#cfn-databrew-job-outputformatoptions-csv
 func (o JobOutputFormatOptionsOutput) Csv() JobCsvOutputOptionsPtrOutput {
 	return o.ApplyT(func(v JobOutputFormatOptions) *JobCsvOutputOptions { return v.Csv }).(JobCsvOutputOptionsPtrOutput)
 }
@@ -3593,7 +3485,6 @@ func (o JobOutputFormatOptionsPtrOutput) Elem() JobOutputFormatOptionsOutput {
 	}).(JobOutputFormatOptionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html#cfn-databrew-job-outputformatoptions-csv
 func (o JobOutputFormatOptionsPtrOutput) Csv() JobCsvOutputOptionsPtrOutput {
 	return o.ApplyT(func(v *JobOutputFormatOptions) *JobCsvOutputOptions {
 		if v == nil {
@@ -3603,12 +3494,10 @@ func (o JobOutputFormatOptionsPtrOutput) Csv() JobCsvOutputOptionsPtrOutput {
 	}).(JobCsvOutputOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html
+// Output location
 type JobOutputLocation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-bucket
-	Bucket string `pulumi:"bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-key
-	Key *string `pulumi:"key"`
+	Bucket string  `pulumi:"bucket"`
+	Key    *string `pulumi:"key"`
 }
 
 // JobOutputLocationInput is an input type that accepts JobOutputLocationArgs and JobOutputLocationOutput values.
@@ -3622,12 +3511,10 @@ type JobOutputLocationInput interface {
 	ToJobOutputLocationOutputWithContext(context.Context) JobOutputLocationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html
+// Output location
 type JobOutputLocationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-bucket
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-key
-	Key pulumi.StringPtrInput `pulumi:"key"`
+	Bucket pulumi.StringInput    `pulumi:"bucket"`
+	Key    pulumi.StringPtrInput `pulumi:"key"`
 }
 
 func (JobOutputLocationArgs) ElementType() reflect.Type {
@@ -3683,7 +3570,7 @@ func (i *jobOutputLocationPtrType) ToJobOutputLocationPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(JobOutputLocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html
+// Output location
 type JobOutputLocationOutput struct{ *pulumi.OutputState }
 
 func (JobOutputLocationOutput) ElementType() reflect.Type {
@@ -3708,12 +3595,10 @@ func (o JobOutputLocationOutput) ToJobOutputLocationPtrOutputWithContext(ctx con
 	}).(JobOutputLocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-bucket
 func (o JobOutputLocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v JobOutputLocation) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-key
 func (o JobOutputLocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobOutputLocation) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -3742,7 +3627,6 @@ func (o JobOutputLocationPtrOutput) Elem() JobOutputLocationOutput {
 	}).(JobOutputLocationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-bucket
 func (o JobOutputLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobOutputLocation) *string {
 		if v == nil {
@@ -3752,7 +3636,6 @@ func (o JobOutputLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputlocation.html#cfn-databrew-job-outputlocation-key
 func (o JobOutputLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobOutputLocation) *string {
 		if v == nil {
@@ -3762,7 +3645,6 @@ func (o JobOutputLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-parametermap.html
 type JobParameterMap struct {
 }
 
@@ -3777,7 +3659,6 @@ type JobParameterMapInput interface {
 	ToJobParameterMapOutputWithContext(context.Context) JobParameterMapOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-parametermap.html
 type JobParameterMapArgs struct {
 }
 
@@ -3793,7 +3674,6 @@ func (i JobParameterMapArgs) ToJobParameterMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(JobParameterMapOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-parametermap.html
 type JobParameterMapOutput struct{ *pulumi.OutputState }
 
 func (JobParameterMapOutput) ElementType() reflect.Type {
@@ -3808,14 +3688,10 @@ func (o JobParameterMapOutput) ToJobParameterMapOutputWithContext(ctx context.Co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html
 type JobProfileConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-columnstatisticsconfigurations
 	ColumnStatisticsConfigurations []JobColumnStatisticsConfiguration `pulumi:"columnStatisticsConfigurations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-datasetstatisticsconfiguration
-	DatasetStatisticsConfiguration *JobStatisticsConfiguration `pulumi:"datasetStatisticsConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-profilecolumns
-	ProfileColumns []JobColumnSelector `pulumi:"profileColumns"`
+	DatasetStatisticsConfiguration *JobStatisticsConfiguration        `pulumi:"datasetStatisticsConfiguration"`
+	ProfileColumns                 []JobColumnSelector                `pulumi:"profileColumns"`
 }
 
 // JobProfileConfigurationInput is an input type that accepts JobProfileConfigurationArgs and JobProfileConfigurationOutput values.
@@ -3829,14 +3705,10 @@ type JobProfileConfigurationInput interface {
 	ToJobProfileConfigurationOutputWithContext(context.Context) JobProfileConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html
 type JobProfileConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-columnstatisticsconfigurations
 	ColumnStatisticsConfigurations JobColumnStatisticsConfigurationArrayInput `pulumi:"columnStatisticsConfigurations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-datasetstatisticsconfiguration
-	DatasetStatisticsConfiguration JobStatisticsConfigurationPtrInput `pulumi:"datasetStatisticsConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-profilecolumns
-	ProfileColumns JobColumnSelectorArrayInput `pulumi:"profileColumns"`
+	DatasetStatisticsConfiguration JobStatisticsConfigurationPtrInput         `pulumi:"datasetStatisticsConfiguration"`
+	ProfileColumns                 JobColumnSelectorArrayInput                `pulumi:"profileColumns"`
 }
 
 func (JobProfileConfigurationArgs) ElementType() reflect.Type {
@@ -3892,7 +3764,6 @@ func (i *jobProfileConfigurationPtrType) ToJobProfileConfigurationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(JobProfileConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html
 type JobProfileConfigurationOutput struct{ *pulumi.OutputState }
 
 func (JobProfileConfigurationOutput) ElementType() reflect.Type {
@@ -3917,19 +3788,16 @@ func (o JobProfileConfigurationOutput) ToJobProfileConfigurationPtrOutputWithCon
 	}).(JobProfileConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-columnstatisticsconfigurations
 func (o JobProfileConfigurationOutput) ColumnStatisticsConfigurations() JobColumnStatisticsConfigurationArrayOutput {
 	return o.ApplyT(func(v JobProfileConfiguration) []JobColumnStatisticsConfiguration {
 		return v.ColumnStatisticsConfigurations
 	}).(JobColumnStatisticsConfigurationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-datasetstatisticsconfiguration
 func (o JobProfileConfigurationOutput) DatasetStatisticsConfiguration() JobStatisticsConfigurationPtrOutput {
 	return o.ApplyT(func(v JobProfileConfiguration) *JobStatisticsConfiguration { return v.DatasetStatisticsConfiguration }).(JobStatisticsConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-profilecolumns
 func (o JobProfileConfigurationOutput) ProfileColumns() JobColumnSelectorArrayOutput {
 	return o.ApplyT(func(v JobProfileConfiguration) []JobColumnSelector { return v.ProfileColumns }).(JobColumnSelectorArrayOutput)
 }
@@ -3958,7 +3826,6 @@ func (o JobProfileConfigurationPtrOutput) Elem() JobProfileConfigurationOutput {
 	}).(JobProfileConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-columnstatisticsconfigurations
 func (o JobProfileConfigurationPtrOutput) ColumnStatisticsConfigurations() JobColumnStatisticsConfigurationArrayOutput {
 	return o.ApplyT(func(v *JobProfileConfiguration) []JobColumnStatisticsConfiguration {
 		if v == nil {
@@ -3968,7 +3835,6 @@ func (o JobProfileConfigurationPtrOutput) ColumnStatisticsConfigurations() JobCo
 	}).(JobColumnStatisticsConfigurationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-datasetstatisticsconfiguration
 func (o JobProfileConfigurationPtrOutput) DatasetStatisticsConfiguration() JobStatisticsConfigurationPtrOutput {
 	return o.ApplyT(func(v *JobProfileConfiguration) *JobStatisticsConfiguration {
 		if v == nil {
@@ -3978,7 +3844,6 @@ func (o JobProfileConfigurationPtrOutput) DatasetStatisticsConfiguration() JobSt
 	}).(JobStatisticsConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-profilecolumns
 func (o JobProfileConfigurationPtrOutput) ProfileColumns() JobColumnSelectorArrayOutput {
 	return o.ApplyT(func(v *JobProfileConfiguration) []JobColumnSelector {
 		if v == nil {
@@ -3988,11 +3853,10 @@ func (o JobProfileConfigurationPtrOutput) ProfileColumns() JobColumnSelectorArra
 	}).(JobColumnSelectorArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html
 type JobRecipe struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html#cfn-databrew-job-recipe-name
+	// Recipe name
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html#cfn-databrew-job-recipe-version
+	// Recipe version
 	Version *string `pulumi:"version"`
 }
 
@@ -4007,11 +3871,10 @@ type JobRecipeInput interface {
 	ToJobRecipeOutputWithContext(context.Context) JobRecipeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html
 type JobRecipeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html#cfn-databrew-job-recipe-name
+	// Recipe name
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html#cfn-databrew-job-recipe-version
+	// Recipe version
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -4027,7 +3890,47 @@ func (i JobRecipeArgs) ToJobRecipeOutputWithContext(ctx context.Context) JobReci
 	return pulumi.ToOutputWithContext(ctx, i).(JobRecipeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html
+func (i JobRecipeArgs) ToJobRecipePtrOutput() JobRecipePtrOutput {
+	return i.ToJobRecipePtrOutputWithContext(context.Background())
+}
+
+func (i JobRecipeArgs) ToJobRecipePtrOutputWithContext(ctx context.Context) JobRecipePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRecipeOutput).ToJobRecipePtrOutputWithContext(ctx)
+}
+
+// JobRecipePtrInput is an input type that accepts JobRecipeArgs, JobRecipePtr and JobRecipePtrOutput values.
+// You can construct a concrete instance of `JobRecipePtrInput` via:
+//
+//          JobRecipeArgs{...}
+//
+//  or:
+//
+//          nil
+type JobRecipePtrInput interface {
+	pulumi.Input
+
+	ToJobRecipePtrOutput() JobRecipePtrOutput
+	ToJobRecipePtrOutputWithContext(context.Context) JobRecipePtrOutput
+}
+
+type jobRecipePtrType JobRecipeArgs
+
+func JobRecipePtr(v *JobRecipeArgs) JobRecipePtrInput {
+	return (*jobRecipePtrType)(v)
+}
+
+func (*jobRecipePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobRecipe)(nil)).Elem()
+}
+
+func (i *jobRecipePtrType) ToJobRecipePtrOutput() JobRecipePtrOutput {
+	return i.ToJobRecipePtrOutputWithContext(context.Background())
+}
+
+func (i *jobRecipePtrType) ToJobRecipePtrOutputWithContext(ctx context.Context) JobRecipePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobRecipePtrOutput)
+}
+
 type JobRecipeOutput struct{ *pulumi.OutputState }
 
 func (JobRecipeOutput) ElementType() reflect.Type {
@@ -4042,22 +3945,74 @@ func (o JobRecipeOutput) ToJobRecipeOutputWithContext(ctx context.Context) JobRe
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html#cfn-databrew-job-recipe-name
+func (o JobRecipeOutput) ToJobRecipePtrOutput() JobRecipePtrOutput {
+	return o.ToJobRecipePtrOutputWithContext(context.Background())
+}
+
+func (o JobRecipeOutput) ToJobRecipePtrOutputWithContext(ctx context.Context) JobRecipePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobRecipe) *JobRecipe {
+		return &v
+	}).(JobRecipePtrOutput)
+}
+
+// Recipe name
 func (o JobRecipeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v JobRecipe) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-recipe.html#cfn-databrew-job-recipe-version
+// Recipe version
 func (o JobRecipeOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobRecipe) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html
+type JobRecipePtrOutput struct{ *pulumi.OutputState }
+
+func (JobRecipePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobRecipe)(nil)).Elem()
+}
+
+func (o JobRecipePtrOutput) ToJobRecipePtrOutput() JobRecipePtrOutput {
+	return o
+}
+
+func (o JobRecipePtrOutput) ToJobRecipePtrOutputWithContext(ctx context.Context) JobRecipePtrOutput {
+	return o
+}
+
+func (o JobRecipePtrOutput) Elem() JobRecipeOutput {
+	return o.ApplyT(func(v *JobRecipe) JobRecipe {
+		if v != nil {
+			return *v
+		}
+		var ret JobRecipe
+		return ret
+	}).(JobRecipeOutput)
+}
+
+// Recipe name
+func (o JobRecipePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobRecipe) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Recipe version
+func (o JobRecipePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobRecipe) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 Output location
 type JobS3Location struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-bucket
-	Bucket string `pulumi:"bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-key
-	Key *string `pulumi:"key"`
+	Bucket string  `pulumi:"bucket"`
+	Key    *string `pulumi:"key"`
 }
 
 // JobS3LocationInput is an input type that accepts JobS3LocationArgs and JobS3LocationOutput values.
@@ -4071,12 +4026,10 @@ type JobS3LocationInput interface {
 	ToJobS3LocationOutputWithContext(context.Context) JobS3LocationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html
+// S3 Output location
 type JobS3LocationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-bucket
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-key
-	Key pulumi.StringPtrInput `pulumi:"key"`
+	Bucket pulumi.StringInput    `pulumi:"bucket"`
+	Key    pulumi.StringPtrInput `pulumi:"key"`
 }
 
 func (JobS3LocationArgs) ElementType() reflect.Type {
@@ -4132,7 +4085,7 @@ func (i *jobS3LocationPtrType) ToJobS3LocationPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(JobS3LocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html
+// S3 Output location
 type JobS3LocationOutput struct{ *pulumi.OutputState }
 
 func (JobS3LocationOutput) ElementType() reflect.Type {
@@ -4157,12 +4110,10 @@ func (o JobS3LocationOutput) ToJobS3LocationPtrOutputWithContext(ctx context.Con
 	}).(JobS3LocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-bucket
 func (o JobS3LocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v JobS3Location) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-key
 func (o JobS3LocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobS3Location) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -4191,7 +4142,6 @@ func (o JobS3LocationPtrOutput) Elem() JobS3LocationOutput {
 	}).(JobS3LocationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-bucket
 func (o JobS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobS3Location) *string {
 		if v == nil {
@@ -4201,7 +4151,6 @@ func (o JobS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html#cfn-databrew-job-s3location-key
 func (o JobS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobS3Location) *string {
 		if v == nil {
@@ -4211,9 +4160,7 @@ func (o JobS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html
 type JobS3TableOutputOptions struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html#cfn-databrew-job-s3tableoutputoptions-location
 	Location JobS3Location `pulumi:"location"`
 }
 
@@ -4228,9 +4175,7 @@ type JobS3TableOutputOptionsInput interface {
 	ToJobS3TableOutputOptionsOutputWithContext(context.Context) JobS3TableOutputOptionsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html
 type JobS3TableOutputOptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html#cfn-databrew-job-s3tableoutputoptions-location
 	Location JobS3LocationInput `pulumi:"location"`
 }
 
@@ -4287,7 +4232,6 @@ func (i *jobS3TableOutputOptionsPtrType) ToJobS3TableOutputOptionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(JobS3TableOutputOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html
 type JobS3TableOutputOptionsOutput struct{ *pulumi.OutputState }
 
 func (JobS3TableOutputOptionsOutput) ElementType() reflect.Type {
@@ -4312,7 +4256,6 @@ func (o JobS3TableOutputOptionsOutput) ToJobS3TableOutputOptionsPtrOutputWithCon
 	}).(JobS3TableOutputOptionsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html#cfn-databrew-job-s3tableoutputoptions-location
 func (o JobS3TableOutputOptionsOutput) Location() JobS3LocationOutput {
 	return o.ApplyT(func(v JobS3TableOutputOptions) JobS3Location { return v.Location }).(JobS3LocationOutput)
 }
@@ -4341,7 +4284,6 @@ func (o JobS3TableOutputOptionsPtrOutput) Elem() JobS3TableOutputOptionsOutput {
 	}).(JobS3TableOutputOptionsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html#cfn-databrew-job-s3tableoutputoptions-location
 func (o JobS3TableOutputOptionsPtrOutput) Location() JobS3LocationPtrOutput {
 	return o.ApplyT(func(v *JobS3TableOutputOptions) *JobS3Location {
 		if v == nil {
@@ -4351,12 +4293,9 @@ func (o JobS3TableOutputOptionsPtrOutput) Location() JobS3LocationPtrOutput {
 	}).(JobS3LocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html
 type JobStatisticOverride struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-parameters
 	Parameters JobParameterMap `pulumi:"parameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-statistic
-	Statistic string `pulumi:"statistic"`
+	Statistic  string          `pulumi:"statistic"`
 }
 
 // JobStatisticOverrideInput is an input type that accepts JobStatisticOverrideArgs and JobStatisticOverrideOutput values.
@@ -4370,12 +4309,9 @@ type JobStatisticOverrideInput interface {
 	ToJobStatisticOverrideOutputWithContext(context.Context) JobStatisticOverrideOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html
 type JobStatisticOverrideArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-parameters
 	Parameters JobParameterMapInput `pulumi:"parameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-statistic
-	Statistic pulumi.StringInput `pulumi:"statistic"`
+	Statistic  pulumi.StringInput   `pulumi:"statistic"`
 }
 
 func (JobStatisticOverrideArgs) ElementType() reflect.Type {
@@ -4415,7 +4351,6 @@ func (i JobStatisticOverrideArray) ToJobStatisticOverrideArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(JobStatisticOverrideArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html
 type JobStatisticOverrideOutput struct{ *pulumi.OutputState }
 
 func (JobStatisticOverrideOutput) ElementType() reflect.Type {
@@ -4430,12 +4365,10 @@ func (o JobStatisticOverrideOutput) ToJobStatisticOverrideOutputWithContext(ctx 
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-parameters
 func (o JobStatisticOverrideOutput) Parameters() JobParameterMapOutput {
 	return o.ApplyT(func(v JobStatisticOverride) JobParameterMap { return v.Parameters }).(JobParameterMapOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticoverride.html#cfn-databrew-job-statisticoverride-statistic
 func (o JobStatisticOverrideOutput) Statistic() pulumi.StringOutput {
 	return o.ApplyT(func(v JobStatisticOverride) string { return v.Statistic }).(pulumi.StringOutput)
 }
@@ -4460,12 +4393,9 @@ func (o JobStatisticOverrideArrayOutput) Index(i pulumi.IntInput) JobStatisticOv
 	}).(JobStatisticOverrideOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html
 type JobStatisticsConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-includedstatistics
-	IncludedStatistics []string `pulumi:"includedStatistics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-overrides
-	Overrides []JobStatisticOverride `pulumi:"overrides"`
+	IncludedStatistics []string               `pulumi:"includedStatistics"`
+	Overrides          []JobStatisticOverride `pulumi:"overrides"`
 }
 
 // JobStatisticsConfigurationInput is an input type that accepts JobStatisticsConfigurationArgs and JobStatisticsConfigurationOutput values.
@@ -4479,12 +4409,9 @@ type JobStatisticsConfigurationInput interface {
 	ToJobStatisticsConfigurationOutputWithContext(context.Context) JobStatisticsConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html
 type JobStatisticsConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-includedstatistics
-	IncludedStatistics pulumi.StringArrayInput `pulumi:"includedStatistics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-overrides
-	Overrides JobStatisticOverrideArrayInput `pulumi:"overrides"`
+	IncludedStatistics pulumi.StringArrayInput        `pulumi:"includedStatistics"`
+	Overrides          JobStatisticOverrideArrayInput `pulumi:"overrides"`
 }
 
 func (JobStatisticsConfigurationArgs) ElementType() reflect.Type {
@@ -4540,7 +4467,6 @@ func (i *jobStatisticsConfigurationPtrType) ToJobStatisticsConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(JobStatisticsConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html
 type JobStatisticsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (JobStatisticsConfigurationOutput) ElementType() reflect.Type {
@@ -4565,12 +4491,10 @@ func (o JobStatisticsConfigurationOutput) ToJobStatisticsConfigurationPtrOutputW
 	}).(JobStatisticsConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-includedstatistics
 func (o JobStatisticsConfigurationOutput) IncludedStatistics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobStatisticsConfiguration) []string { return v.IncludedStatistics }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-overrides
 func (o JobStatisticsConfigurationOutput) Overrides() JobStatisticOverrideArrayOutput {
 	return o.ApplyT(func(v JobStatisticsConfiguration) []JobStatisticOverride { return v.Overrides }).(JobStatisticOverrideArrayOutput)
 }
@@ -4599,7 +4523,6 @@ func (o JobStatisticsConfigurationPtrOutput) Elem() JobStatisticsConfigurationOu
 	}).(JobStatisticsConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-includedstatistics
 func (o JobStatisticsConfigurationPtrOutput) IncludedStatistics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JobStatisticsConfiguration) []string {
 		if v == nil {
@@ -4609,7 +4532,6 @@ func (o JobStatisticsConfigurationPtrOutput) IncludedStatistics() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-overrides
 func (o JobStatisticsConfigurationPtrOutput) Overrides() JobStatisticOverrideArrayOutput {
 	return o.ApplyT(func(v *JobStatisticsConfiguration) []JobStatisticOverride {
 		if v == nil {
@@ -4619,11 +4541,113 @@ func (o JobStatisticsConfigurationPtrOutput) Overrides() JobStatisticOverrideArr
 	}).(JobStatisticOverrideArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html
+// A key-value pair to associate with a resource.
+type JobTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// JobTagInput is an input type that accepts JobTagArgs and JobTagOutput values.
+// You can construct a concrete instance of `JobTagInput` via:
+//
+//          JobTagArgs{...}
+type JobTagInput interface {
+	pulumi.Input
+
+	ToJobTagOutput() JobTagOutput
+	ToJobTagOutputWithContext(context.Context) JobTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type JobTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (JobTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTag)(nil)).Elem()
+}
+
+func (i JobTagArgs) ToJobTagOutput() JobTagOutput {
+	return i.ToJobTagOutputWithContext(context.Background())
+}
+
+func (i JobTagArgs) ToJobTagOutputWithContext(ctx context.Context) JobTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTagOutput)
+}
+
+// JobTagArrayInput is an input type that accepts JobTagArray and JobTagArrayOutput values.
+// You can construct a concrete instance of `JobTagArrayInput` via:
+//
+//          JobTagArray{ JobTagArgs{...} }
+type JobTagArrayInput interface {
+	pulumi.Input
+
+	ToJobTagArrayOutput() JobTagArrayOutput
+	ToJobTagArrayOutputWithContext(context.Context) JobTagArrayOutput
+}
+
+type JobTagArray []JobTagInput
+
+func (JobTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTag)(nil)).Elem()
+}
+
+func (i JobTagArray) ToJobTagArrayOutput() JobTagArrayOutput {
+	return i.ToJobTagArrayOutputWithContext(context.Background())
+}
+
+func (i JobTagArray) ToJobTagArrayOutputWithContext(ctx context.Context) JobTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type JobTagOutput struct{ *pulumi.OutputState }
+
+func (JobTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobTag)(nil)).Elem()
+}
+
+func (o JobTagOutput) ToJobTagOutput() JobTagOutput {
+	return o
+}
+
+func (o JobTagOutput) ToJobTagOutputWithContext(ctx context.Context) JobTagOutput {
+	return o
+}
+
+func (o JobTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o JobTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v JobTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type JobTagArrayOutput struct{ *pulumi.OutputState }
+
+func (JobTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobTag)(nil)).Elem()
+}
+
+func (o JobTagArrayOutput) ToJobTagArrayOutput() JobTagArrayOutput {
+	return o
+}
+
+func (o JobTagArrayOutput) ToJobTagArrayOutputWithContext(ctx context.Context) JobTagArrayOutput {
+	return o
+}
+
+func (o JobTagArrayOutput) Index(i pulumi.IntInput) JobTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobTag {
+		return vs[0].([]JobTag)[vs[1].(int)]
+	}).(JobTagOutput)
+}
+
 type ProjectSample struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-size
+	// Sample size
 	Size *int `pulumi:"size"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-type
+	// Sample type
 	Type string `pulumi:"type"`
 }
 
@@ -4638,11 +4662,10 @@ type ProjectSampleInput interface {
 	ToProjectSampleOutputWithContext(context.Context) ProjectSampleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html
 type ProjectSampleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-size
+	// Sample size
 	Size pulumi.IntPtrInput `pulumi:"size"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-type
+	// Sample type
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4699,7 +4722,6 @@ func (i *projectSamplePtrType) ToProjectSamplePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectSamplePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html
 type ProjectSampleOutput struct{ *pulumi.OutputState }
 
 func (ProjectSampleOutput) ElementType() reflect.Type {
@@ -4724,12 +4746,12 @@ func (o ProjectSampleOutput) ToProjectSamplePtrOutputWithContext(ctx context.Con
 	}).(ProjectSamplePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-size
+// Sample size
 func (o ProjectSampleOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProjectSample) *int { return v.Size }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-type
+// Sample type
 func (o ProjectSampleOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProjectSample) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4758,7 +4780,7 @@ func (o ProjectSamplePtrOutput) Elem() ProjectSampleOutput {
 	}).(ProjectSampleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-size
+// Sample size
 func (o ProjectSamplePtrOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ProjectSample) *int {
 		if v == nil {
@@ -4768,7 +4790,7 @@ func (o ProjectSamplePtrOutput) Size() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-project-sample.html#cfn-databrew-project-sample-type
+// Sample type
 func (o ProjectSamplePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProjectSample) *string {
 		if v == nil {
@@ -4778,12 +4800,113 @@ func (o ProjectSamplePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html
+// A key-value pair to associate with a resource.
+type ProjectTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ProjectTagInput is an input type that accepts ProjectTagArgs and ProjectTagOutput values.
+// You can construct a concrete instance of `ProjectTagInput` via:
+//
+//          ProjectTagArgs{...}
+type ProjectTagInput interface {
+	pulumi.Input
+
+	ToProjectTagOutput() ProjectTagOutput
+	ToProjectTagOutputWithContext(context.Context) ProjectTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ProjectTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ProjectTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectTag)(nil)).Elem()
+}
+
+func (i ProjectTagArgs) ToProjectTagOutput() ProjectTagOutput {
+	return i.ToProjectTagOutputWithContext(context.Background())
+}
+
+func (i ProjectTagArgs) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagOutput)
+}
+
+// ProjectTagArrayInput is an input type that accepts ProjectTagArray and ProjectTagArrayOutput values.
+// You can construct a concrete instance of `ProjectTagArrayInput` via:
+//
+//          ProjectTagArray{ ProjectTagArgs{...} }
+type ProjectTagArrayInput interface {
+	pulumi.Input
+
+	ToProjectTagArrayOutput() ProjectTagArrayOutput
+	ToProjectTagArrayOutputWithContext(context.Context) ProjectTagArrayOutput
+}
+
+type ProjectTagArray []ProjectTagInput
+
+func (ProjectTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectTag)(nil)).Elem()
+}
+
+func (i ProjectTagArray) ToProjectTagArrayOutput() ProjectTagArrayOutput {
+	return i.ToProjectTagArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectTagArray) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ProjectTagOutput struct{ *pulumi.OutputState }
+
+func (ProjectTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectTag)(nil)).Elem()
+}
+
+func (o ProjectTagOutput) ToProjectTagOutput() ProjectTagOutput {
+	return o
+}
+
+func (o ProjectTagOutput) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
+	return o
+}
+
+func (o ProjectTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ProjectTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ProjectTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectTag)(nil)).Elem()
+}
+
+func (o ProjectTagArrayOutput) ToProjectTagArrayOutput() ProjectTagArrayOutput {
+	return o
+}
+
+func (o ProjectTagArrayOutput) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
+	return o
+}
+
+func (o ProjectTagArrayOutput) Index(i pulumi.IntInput) ProjectTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectTag {
+		return vs[0].([]ProjectTag)[vs[1].(int)]
+	}).(ProjectTagOutput)
+}
+
 type RecipeAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-operation
-	Operation string `pulumi:"operation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
-	Parameters *RecipeParameterMap `pulumi:"parameters"`
+	// Step action operation
+	Operation  string      `pulumi:"operation"`
+	Parameters interface{} `pulumi:"parameters"`
 }
 
 // RecipeActionInput is an input type that accepts RecipeActionArgs and RecipeActionOutput values.
@@ -4797,12 +4920,10 @@ type RecipeActionInput interface {
 	ToRecipeActionOutputWithContext(context.Context) RecipeActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html
 type RecipeActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-operation
-	Operation pulumi.StringInput `pulumi:"operation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
-	Parameters RecipeParameterMapPtrInput `pulumi:"parameters"`
+	// Step action operation
+	Operation  pulumi.StringInput `pulumi:"operation"`
+	Parameters pulumi.Input       `pulumi:"parameters"`
 }
 
 func (RecipeActionArgs) ElementType() reflect.Type {
@@ -4817,7 +4938,6 @@ func (i RecipeActionArgs) ToRecipeActionOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RecipeActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html
 type RecipeActionOutput struct{ *pulumi.OutputState }
 
 func (RecipeActionOutput) ElementType() reflect.Type {
@@ -4832,23 +4952,22 @@ func (o RecipeActionOutput) ToRecipeActionOutputWithContext(ctx context.Context)
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-operation
+// Step action operation
 func (o RecipeActionOutput) Operation() pulumi.StringOutput {
 	return o.ApplyT(func(v RecipeAction) string { return v.Operation }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
-func (o RecipeActionOutput) Parameters() RecipeParameterMapPtrOutput {
-	return o.ApplyT(func(v RecipeAction) *RecipeParameterMap { return v.Parameters }).(RecipeParameterMapPtrOutput)
+func (o RecipeActionOutput) Parameters() pulumi.AnyOutput {
+	return o.ApplyT(func(v RecipeAction) interface{} { return v.Parameters }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html
+// Condition expressions applied to the step action
 type RecipeConditionExpression struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-condition
+	// Input condition to be applied to the target column
 	Condition string `pulumi:"condition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-targetcolumn
+	// Name of the target column
 	TargetColumn string `pulumi:"targetColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-value
+	// Value of the condition
 	Value *string `pulumi:"value"`
 }
 
@@ -4863,13 +4982,13 @@ type RecipeConditionExpressionInput interface {
 	ToRecipeConditionExpressionOutputWithContext(context.Context) RecipeConditionExpressionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html
+// Condition expressions applied to the step action
 type RecipeConditionExpressionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-condition
+	// Input condition to be applied to the target column
 	Condition pulumi.StringInput `pulumi:"condition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-targetcolumn
+	// Name of the target column
 	TargetColumn pulumi.StringInput `pulumi:"targetColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-value
+	// Value of the condition
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -4910,7 +5029,7 @@ func (i RecipeConditionExpressionArray) ToRecipeConditionExpressionArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RecipeConditionExpressionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html
+// Condition expressions applied to the step action
 type RecipeConditionExpressionOutput struct{ *pulumi.OutputState }
 
 func (RecipeConditionExpressionOutput) ElementType() reflect.Type {
@@ -4925,17 +5044,17 @@ func (o RecipeConditionExpressionOutput) ToRecipeConditionExpressionOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-condition
+// Input condition to be applied to the target column
 func (o RecipeConditionExpressionOutput) Condition() pulumi.StringOutput {
 	return o.ApplyT(func(v RecipeConditionExpression) string { return v.Condition }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-targetcolumn
+// Name of the target column
 func (o RecipeConditionExpressionOutput) TargetColumn() pulumi.StringOutput {
 	return o.ApplyT(func(v RecipeConditionExpression) string { return v.TargetColumn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-conditionexpression.html#cfn-databrew-recipe-conditionexpression-value
+// Value of the condition
 func (o RecipeConditionExpressionOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeConditionExpression) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -4960,15 +5079,13 @@ func (o RecipeConditionExpressionArrayOutput) Index(i pulumi.IntInput) RecipeCon
 	}).(RecipeConditionExpressionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html
 type RecipeDataCatalogInputDefinition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-catalogid
+	// Catalog id
 	CatalogId *string `pulumi:"catalogId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-databasename
+	// Database name
 	DatabaseName *string `pulumi:"databaseName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-tablename
-	TableName *string `pulumi:"tableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-tempdirectory
+	// Table name
+	TableName     *string           `pulumi:"tableName"`
 	TempDirectory *RecipeS3Location `pulumi:"tempDirectory"`
 }
 
@@ -4983,15 +5100,13 @@ type RecipeDataCatalogInputDefinitionInput interface {
 	ToRecipeDataCatalogInputDefinitionOutputWithContext(context.Context) RecipeDataCatalogInputDefinitionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html
 type RecipeDataCatalogInputDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-catalogid
+	// Catalog id
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-databasename
+	// Database name
 	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-tablename
-	TableName pulumi.StringPtrInput `pulumi:"tableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-tempdirectory
+	// Table name
+	TableName     pulumi.StringPtrInput    `pulumi:"tableName"`
 	TempDirectory RecipeS3LocationPtrInput `pulumi:"tempDirectory"`
 }
 
@@ -5048,7 +5163,6 @@ func (i *recipeDataCatalogInputDefinitionPtrType) ToRecipeDataCatalogInputDefini
 	return pulumi.ToOutputWithContext(ctx, i).(RecipeDataCatalogInputDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html
 type RecipeDataCatalogInputDefinitionOutput struct{ *pulumi.OutputState }
 
 func (RecipeDataCatalogInputDefinitionOutput) ElementType() reflect.Type {
@@ -5073,22 +5187,21 @@ func (o RecipeDataCatalogInputDefinitionOutput) ToRecipeDataCatalogInputDefiniti
 	}).(RecipeDataCatalogInputDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-catalogid
+// Catalog id
 func (o RecipeDataCatalogInputDefinitionOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeDataCatalogInputDefinition) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-databasename
+// Database name
 func (o RecipeDataCatalogInputDefinitionOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeDataCatalogInputDefinition) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-tablename
+// Table name
 func (o RecipeDataCatalogInputDefinitionOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeDataCatalogInputDefinition) *string { return v.TableName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-tempdirectory
 func (o RecipeDataCatalogInputDefinitionOutput) TempDirectory() RecipeS3LocationPtrOutput {
 	return o.ApplyT(func(v RecipeDataCatalogInputDefinition) *RecipeS3Location { return v.TempDirectory }).(RecipeS3LocationPtrOutput)
 }
@@ -5117,7 +5230,7 @@ func (o RecipeDataCatalogInputDefinitionPtrOutput) Elem() RecipeDataCatalogInput
 	}).(RecipeDataCatalogInputDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-catalogid
+// Catalog id
 func (o RecipeDataCatalogInputDefinitionPtrOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecipeDataCatalogInputDefinition) *string {
 		if v == nil {
@@ -5127,7 +5240,7 @@ func (o RecipeDataCatalogInputDefinitionPtrOutput) CatalogId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-databasename
+// Database name
 func (o RecipeDataCatalogInputDefinitionPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecipeDataCatalogInputDefinition) *string {
 		if v == nil {
@@ -5137,7 +5250,7 @@ func (o RecipeDataCatalogInputDefinitionPtrOutput) DatabaseName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-tablename
+// Table name
 func (o RecipeDataCatalogInputDefinitionPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecipeDataCatalogInputDefinition) *string {
 		if v == nil {
@@ -5147,7 +5260,6 @@ func (o RecipeDataCatalogInputDefinitionPtrOutput) TableName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-datacataloginputdefinition.html#cfn-databrew-recipe-datacataloginputdefinition-tempdirectory
 func (o RecipeDataCatalogInputDefinitionPtrOutput) TempDirectory() RecipeS3LocationPtrOutput {
 	return o.ApplyT(func(v *RecipeDataCatalogInputDefinition) *RecipeS3Location {
 		if v == nil {
@@ -5157,7 +5269,6 @@ func (o RecipeDataCatalogInputDefinitionPtrOutput) TempDirectory() RecipeS3Locat
 	}).(RecipeS3LocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-parametermap.html
 type RecipeParameterMap struct {
 }
 
@@ -5172,7 +5283,6 @@ type RecipeParameterMapInput interface {
 	ToRecipeParameterMapOutputWithContext(context.Context) RecipeParameterMapOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-parametermap.html
 type RecipeParameterMapArgs struct {
 }
 
@@ -5188,48 +5298,6 @@ func (i RecipeParameterMapArgs) ToRecipeParameterMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RecipeParameterMapOutput)
 }
 
-func (i RecipeParameterMapArgs) ToRecipeParameterMapPtrOutput() RecipeParameterMapPtrOutput {
-	return i.ToRecipeParameterMapPtrOutputWithContext(context.Background())
-}
-
-func (i RecipeParameterMapArgs) ToRecipeParameterMapPtrOutputWithContext(ctx context.Context) RecipeParameterMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecipeParameterMapOutput).ToRecipeParameterMapPtrOutputWithContext(ctx)
-}
-
-// RecipeParameterMapPtrInput is an input type that accepts RecipeParameterMapArgs, RecipeParameterMapPtr and RecipeParameterMapPtrOutput values.
-// You can construct a concrete instance of `RecipeParameterMapPtrInput` via:
-//
-//          RecipeParameterMapArgs{...}
-//
-//  or:
-//
-//          nil
-type RecipeParameterMapPtrInput interface {
-	pulumi.Input
-
-	ToRecipeParameterMapPtrOutput() RecipeParameterMapPtrOutput
-	ToRecipeParameterMapPtrOutputWithContext(context.Context) RecipeParameterMapPtrOutput
-}
-
-type recipeParameterMapPtrType RecipeParameterMapArgs
-
-func RecipeParameterMapPtr(v *RecipeParameterMapArgs) RecipeParameterMapPtrInput {
-	return (*recipeParameterMapPtrType)(v)
-}
-
-func (*recipeParameterMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecipeParameterMap)(nil)).Elem()
-}
-
-func (i *recipeParameterMapPtrType) ToRecipeParameterMapPtrOutput() RecipeParameterMapPtrOutput {
-	return i.ToRecipeParameterMapPtrOutputWithContext(context.Background())
-}
-
-func (i *recipeParameterMapPtrType) ToRecipeParameterMapPtrOutputWithContext(ctx context.Context) RecipeParameterMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecipeParameterMapPtrOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-parametermap.html
 type RecipeParameterMapOutput struct{ *pulumi.OutputState }
 
 func (RecipeParameterMapOutput) ElementType() reflect.Type {
@@ -5244,244 +5312,109 @@ func (o RecipeParameterMapOutput) ToRecipeParameterMapOutputWithContext(ctx cont
 	return o
 }
 
-func (o RecipeParameterMapOutput) ToRecipeParameterMapPtrOutput() RecipeParameterMapPtrOutput {
-	return o.ToRecipeParameterMapPtrOutputWithContext(context.Background())
-}
-
-func (o RecipeParameterMapOutput) ToRecipeParameterMapPtrOutputWithContext(ctx context.Context) RecipeParameterMapPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecipeParameterMap) *RecipeParameterMap {
-		return &v
-	}).(RecipeParameterMapPtrOutput)
-}
-
-type RecipeParameterMapPtrOutput struct{ *pulumi.OutputState }
-
-func (RecipeParameterMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecipeParameterMap)(nil)).Elem()
-}
-
-func (o RecipeParameterMapPtrOutput) ToRecipeParameterMapPtrOutput() RecipeParameterMapPtrOutput {
-	return o
-}
-
-func (o RecipeParameterMapPtrOutput) ToRecipeParameterMapPtrOutputWithContext(ctx context.Context) RecipeParameterMapPtrOutput {
-	return o
-}
-
-func (o RecipeParameterMapPtrOutput) Elem() RecipeParameterMapOutput {
-	return o.ApplyT(func(v *RecipeParameterMap) RecipeParameterMap {
-		if v != nil {
-			return *v
-		}
-		var ret RecipeParameterMap
-		return ret
-	}).(RecipeParameterMapOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html
 type RecipeRecipeParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-aggregatefunction
-	AggregateFunction *string `pulumi:"aggregateFunction"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-base
-	Base *string `pulumi:"base"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-casestatement
-	CaseStatement *string `pulumi:"caseStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-categorymap
-	CategoryMap *string `pulumi:"categoryMap"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-charstoremove
-	CharsToRemove *string `pulumi:"charsToRemove"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-collapseconsecutivewhitespace
+	AggregateFunction             *string `pulumi:"aggregateFunction"`
+	Base                          *string `pulumi:"base"`
+	CaseStatement                 *string `pulumi:"caseStatement"`
+	CategoryMap                   *string `pulumi:"categoryMap"`
+	CharsToRemove                 *string `pulumi:"charsToRemove"`
 	CollapseConsecutiveWhitespace *string `pulumi:"collapseConsecutiveWhitespace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-columndatatype
-	ColumnDataType *string `pulumi:"columnDataType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-columnrange
-	ColumnRange *string `pulumi:"columnRange"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-count
-	Count *string `pulumi:"count"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-customcharacters
-	CustomCharacters *string `pulumi:"customCharacters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-customstopwords
-	CustomStopWords *string `pulumi:"customStopWords"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-customvalue
-	CustomValue *string `pulumi:"customValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-datasetscolumns
-	DatasetsColumns *string `pulumi:"datasetsColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-dateaddvalue
-	DateAddValue *string `pulumi:"dateAddValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-datetimeformat
-	DateTimeFormat *string `pulumi:"dateTimeFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-datetimeparameters
-	DateTimeParameters *string `pulumi:"dateTimeParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-deleteotherrows
-	DeleteOtherRows *string `pulumi:"deleteOtherRows"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-delimiter
-	Delimiter *string `pulumi:"delimiter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-endpattern
-	EndPattern *string `pulumi:"endPattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-endposition
-	EndPosition *string `pulumi:"endPosition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-endvalue
-	EndValue *string `pulumi:"endValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-expandcontractions
-	ExpandContractions *string `pulumi:"expandContractions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-exponent
-	Exponent *string `pulumi:"exponent"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-falsestring
-	FalseString *string `pulumi:"falseString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-groupbyaggfunctionoptions
-	GroupByAggFunctionOptions *string `pulumi:"groupByAggFunctionOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-groupbycolumns
-	GroupByColumns *string `pulumi:"groupByColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-hiddencolumns
-	HiddenColumns *string `pulumi:"hiddenColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-ignorecase
-	IgnoreCase *string `pulumi:"ignoreCase"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-includeinsplit
-	IncludeInSplit *string `pulumi:"includeInSplit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-input
-	Input interface{} `pulumi:"input"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-interval
-	Interval *string `pulumi:"interval"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-istext
-	IsText *string `pulumi:"isText"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-joinkeys
-	JoinKeys *string `pulumi:"joinKeys"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-jointype
-	JoinType *string `pulumi:"joinType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-leftcolumns
-	LeftColumns *string `pulumi:"leftColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-limit
-	Limit *string `pulumi:"limit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-lowerbound
-	LowerBound *string `pulumi:"lowerBound"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-maptype
-	MapType *string `pulumi:"mapType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-modetype
-	ModeType *string `pulumi:"modeType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-multiline
-	MultiLine *bool `pulumi:"multiLine"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-numrows
-	NumRows *string `pulumi:"numRows"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-numrowsafter
-	NumRowsAfter *string `pulumi:"numRowsAfter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-numrowsbefore
-	NumRowsBefore *string `pulumi:"numRowsBefore"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-orderbycolumn
-	OrderByColumn *string `pulumi:"orderByColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-orderbycolumns
-	OrderByColumns *string `pulumi:"orderByColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-other
-	Other *string `pulumi:"other"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-pattern
-	Pattern *string `pulumi:"pattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-patternoption1
-	PatternOption1 *string `pulumi:"patternOption1"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-patternoption2
-	PatternOption2 *string `pulumi:"patternOption2"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-patternoptions
-	PatternOptions *string `pulumi:"patternOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-period
-	Period *string `pulumi:"period"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-position
-	Position *string `pulumi:"position"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeallpunctuation
-	RemoveAllPunctuation *string `pulumi:"removeAllPunctuation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeallquotes
-	RemoveAllQuotes *string `pulumi:"removeAllQuotes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeallwhitespace
-	RemoveAllWhitespace *string `pulumi:"removeAllWhitespace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removecustomcharacters
-	RemoveCustomCharacters *string `pulumi:"removeCustomCharacters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removecustomvalue
-	RemoveCustomValue *string `pulumi:"removeCustomValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeleadingandtrailingpunctuation
-	RemoveLeadingAndTrailingPunctuation *string `pulumi:"removeLeadingAndTrailingPunctuation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeleadingandtrailingquotes
-	RemoveLeadingAndTrailingQuotes *string `pulumi:"removeLeadingAndTrailingQuotes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeleadingandtrailingwhitespace
-	RemoveLeadingAndTrailingWhitespace *string `pulumi:"removeLeadingAndTrailingWhitespace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeletters
-	RemoveLetters *string `pulumi:"removeLetters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removenumbers
-	RemoveNumbers *string `pulumi:"removeNumbers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removesourcecolumn
-	RemoveSourceColumn *string `pulumi:"removeSourceColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removespecialcharacters
-	RemoveSpecialCharacters *string `pulumi:"removeSpecialCharacters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-rightcolumns
-	RightColumns *string `pulumi:"rightColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-samplesize
-	SampleSize *string `pulumi:"sampleSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sampletype
-	SampleType *string `pulumi:"sampleType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-secondinput
-	SecondInput *string `pulumi:"secondInput"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-secondaryinputs
-	SecondaryInputs []RecipeSecondaryInput `pulumi:"secondaryInputs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sheetindexes
-	SheetIndexes []int `pulumi:"sheetIndexes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sheetnames
-	SheetNames []string `pulumi:"sheetNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sourcecolumn
-	SourceColumn *string `pulumi:"sourceColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sourcecolumn1
-	SourceColumn1 *string `pulumi:"sourceColumn1"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sourcecolumn2
-	SourceColumn2 *string `pulumi:"sourceColumn2"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sourcecolumns
-	SourceColumns *string `pulumi:"sourceColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-startcolumnindex
-	StartColumnIndex *string `pulumi:"startColumnIndex"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-startpattern
-	StartPattern *string `pulumi:"startPattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-startposition
-	StartPosition *string `pulumi:"startPosition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-startvalue
-	StartValue *string `pulumi:"startValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-stemmingmode
-	StemmingMode *string `pulumi:"stemmingMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-stepcount
-	StepCount *string `pulumi:"stepCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-stepindex
-	StepIndex *string `pulumi:"stepIndex"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-stopwordsmode
-	StopWordsMode *string `pulumi:"stopWordsMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-strategy
-	Strategy *string `pulumi:"strategy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-targetcolumn
-	TargetColumn *string `pulumi:"targetColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-targetcolumnnames
-	TargetColumnNames *string `pulumi:"targetColumnNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-targetdateformat
-	TargetDateFormat *string `pulumi:"targetDateFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-targetindex
-	TargetIndex *string `pulumi:"targetIndex"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-timezone
-	TimeZone *string `pulumi:"timeZone"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-tokenizerpattern
-	TokenizerPattern *string `pulumi:"tokenizerPattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-truestring
-	TrueString *string `pulumi:"trueString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-udflang
-	UdfLang *string `pulumi:"udfLang"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-units
-	Units *string `pulumi:"units"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-unpivotcolumn
-	UnpivotColumn *string `pulumi:"unpivotColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-upperbound
-	UpperBound *string `pulumi:"upperBound"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-usenewdataframe
-	UseNewDataFrame *string `pulumi:"useNewDataFrame"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-value
-	Value *string `pulumi:"value"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-value1
-	Value1 *string `pulumi:"value1"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-value2
-	Value2 *string `pulumi:"value2"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-valuecolumn
-	ValueColumn *string `pulumi:"valueColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-viewframe
-	ViewFrame *string `pulumi:"viewFrame"`
+	ColumnDataType                *string `pulumi:"columnDataType"`
+	ColumnRange                   *string `pulumi:"columnRange"`
+	Count                         *string `pulumi:"count"`
+	CustomCharacters              *string `pulumi:"customCharacters"`
+	CustomStopWords               *string `pulumi:"customStopWords"`
+	CustomValue                   *string `pulumi:"customValue"`
+	DatasetsColumns               *string `pulumi:"datasetsColumns"`
+	DateAddValue                  *string `pulumi:"dateAddValue"`
+	DateTimeFormat                *string `pulumi:"dateTimeFormat"`
+	DateTimeParameters            *string `pulumi:"dateTimeParameters"`
+	DeleteOtherRows               *string `pulumi:"deleteOtherRows"`
+	Delimiter                     *string `pulumi:"delimiter"`
+	EndPattern                    *string `pulumi:"endPattern"`
+	EndPosition                   *string `pulumi:"endPosition"`
+	EndValue                      *string `pulumi:"endValue"`
+	ExpandContractions            *string `pulumi:"expandContractions"`
+	Exponent                      *string `pulumi:"exponent"`
+	FalseString                   *string `pulumi:"falseString"`
+	GroupByAggFunctionOptions     *string `pulumi:"groupByAggFunctionOptions"`
+	GroupByColumns                *string `pulumi:"groupByColumns"`
+	HiddenColumns                 *string `pulumi:"hiddenColumns"`
+	IgnoreCase                    *string `pulumi:"ignoreCase"`
+	IncludeInSplit                *string `pulumi:"includeInSplit"`
+	// Input
+	Input                               interface{}            `pulumi:"input"`
+	Interval                            *string                `pulumi:"interval"`
+	IsText                              *string                `pulumi:"isText"`
+	JoinKeys                            *string                `pulumi:"joinKeys"`
+	JoinType                            *string                `pulumi:"joinType"`
+	LeftColumns                         *string                `pulumi:"leftColumns"`
+	Limit                               *string                `pulumi:"limit"`
+	LowerBound                          *string                `pulumi:"lowerBound"`
+	MapType                             *string                `pulumi:"mapType"`
+	ModeType                            *string                `pulumi:"modeType"`
+	MultiLine                           *bool                  `pulumi:"multiLine"`
+	NumRows                             *string                `pulumi:"numRows"`
+	NumRowsAfter                        *string                `pulumi:"numRowsAfter"`
+	NumRowsBefore                       *string                `pulumi:"numRowsBefore"`
+	OrderByColumn                       *string                `pulumi:"orderByColumn"`
+	OrderByColumns                      *string                `pulumi:"orderByColumns"`
+	Other                               *string                `pulumi:"other"`
+	Pattern                             *string                `pulumi:"pattern"`
+	PatternOption1                      *string                `pulumi:"patternOption1"`
+	PatternOption2                      *string                `pulumi:"patternOption2"`
+	PatternOptions                      *string                `pulumi:"patternOptions"`
+	Period                              *string                `pulumi:"period"`
+	Position                            *string                `pulumi:"position"`
+	RemoveAllPunctuation                *string                `pulumi:"removeAllPunctuation"`
+	RemoveAllQuotes                     *string                `pulumi:"removeAllQuotes"`
+	RemoveAllWhitespace                 *string                `pulumi:"removeAllWhitespace"`
+	RemoveCustomCharacters              *string                `pulumi:"removeCustomCharacters"`
+	RemoveCustomValue                   *string                `pulumi:"removeCustomValue"`
+	RemoveLeadingAndTrailingPunctuation *string                `pulumi:"removeLeadingAndTrailingPunctuation"`
+	RemoveLeadingAndTrailingQuotes      *string                `pulumi:"removeLeadingAndTrailingQuotes"`
+	RemoveLeadingAndTrailingWhitespace  *string                `pulumi:"removeLeadingAndTrailingWhitespace"`
+	RemoveLetters                       *string                `pulumi:"removeLetters"`
+	RemoveNumbers                       *string                `pulumi:"removeNumbers"`
+	RemoveSourceColumn                  *string                `pulumi:"removeSourceColumn"`
+	RemoveSpecialCharacters             *string                `pulumi:"removeSpecialCharacters"`
+	RightColumns                        *string                `pulumi:"rightColumns"`
+	SampleSize                          *string                `pulumi:"sampleSize"`
+	SampleType                          *string                `pulumi:"sampleType"`
+	SecondInput                         *string                `pulumi:"secondInput"`
+	SecondaryInputs                     []RecipeSecondaryInput `pulumi:"secondaryInputs"`
+	SheetIndexes                        []int                  `pulumi:"sheetIndexes"`
+	SheetNames                          []string               `pulumi:"sheetNames"`
+	SourceColumn                        *string                `pulumi:"sourceColumn"`
+	SourceColumn1                       *string                `pulumi:"sourceColumn1"`
+	SourceColumn2                       *string                `pulumi:"sourceColumn2"`
+	SourceColumns                       *string                `pulumi:"sourceColumns"`
+	StartColumnIndex                    *string                `pulumi:"startColumnIndex"`
+	StartPattern                        *string                `pulumi:"startPattern"`
+	StartPosition                       *string                `pulumi:"startPosition"`
+	StartValue                          *string                `pulumi:"startValue"`
+	StemmingMode                        *string                `pulumi:"stemmingMode"`
+	StepCount                           *string                `pulumi:"stepCount"`
+	StepIndex                           *string                `pulumi:"stepIndex"`
+	StopWordsMode                       *string                `pulumi:"stopWordsMode"`
+	Strategy                            *string                `pulumi:"strategy"`
+	TargetColumn                        *string                `pulumi:"targetColumn"`
+	TargetColumnNames                   *string                `pulumi:"targetColumnNames"`
+	TargetDateFormat                    *string                `pulumi:"targetDateFormat"`
+	TargetIndex                         *string                `pulumi:"targetIndex"`
+	TimeZone                            *string                `pulumi:"timeZone"`
+	TokenizerPattern                    *string                `pulumi:"tokenizerPattern"`
+	TrueString                          *string                `pulumi:"trueString"`
+	UdfLang                             *string                `pulumi:"udfLang"`
+	Units                               *string                `pulumi:"units"`
+	UnpivotColumn                       *string                `pulumi:"unpivotColumn"`
+	UpperBound                          *string                `pulumi:"upperBound"`
+	UseNewDataFrame                     *string                `pulumi:"useNewDataFrame"`
+	Value                               *string                `pulumi:"value"`
+	Value1                              *string                `pulumi:"value1"`
+	Value2                              *string                `pulumi:"value2"`
+	ValueColumn                         *string                `pulumi:"valueColumn"`
+	ViewFrame                           *string                `pulumi:"viewFrame"`
 }
 
 // RecipeRecipeParametersInput is an input type that accepts RecipeRecipeParametersArgs and RecipeRecipeParametersOutput values.
@@ -5495,210 +5428,109 @@ type RecipeRecipeParametersInput interface {
 	ToRecipeRecipeParametersOutputWithContext(context.Context) RecipeRecipeParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html
 type RecipeRecipeParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-aggregatefunction
-	AggregateFunction pulumi.StringPtrInput `pulumi:"aggregateFunction"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-base
-	Base pulumi.StringPtrInput `pulumi:"base"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-casestatement
-	CaseStatement pulumi.StringPtrInput `pulumi:"caseStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-categorymap
-	CategoryMap pulumi.StringPtrInput `pulumi:"categoryMap"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-charstoremove
-	CharsToRemove pulumi.StringPtrInput `pulumi:"charsToRemove"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-collapseconsecutivewhitespace
+	AggregateFunction             pulumi.StringPtrInput `pulumi:"aggregateFunction"`
+	Base                          pulumi.StringPtrInput `pulumi:"base"`
+	CaseStatement                 pulumi.StringPtrInput `pulumi:"caseStatement"`
+	CategoryMap                   pulumi.StringPtrInput `pulumi:"categoryMap"`
+	CharsToRemove                 pulumi.StringPtrInput `pulumi:"charsToRemove"`
 	CollapseConsecutiveWhitespace pulumi.StringPtrInput `pulumi:"collapseConsecutiveWhitespace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-columndatatype
-	ColumnDataType pulumi.StringPtrInput `pulumi:"columnDataType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-columnrange
-	ColumnRange pulumi.StringPtrInput `pulumi:"columnRange"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-count
-	Count pulumi.StringPtrInput `pulumi:"count"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-customcharacters
-	CustomCharacters pulumi.StringPtrInput `pulumi:"customCharacters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-customstopwords
-	CustomStopWords pulumi.StringPtrInput `pulumi:"customStopWords"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-customvalue
-	CustomValue pulumi.StringPtrInput `pulumi:"customValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-datasetscolumns
-	DatasetsColumns pulumi.StringPtrInput `pulumi:"datasetsColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-dateaddvalue
-	DateAddValue pulumi.StringPtrInput `pulumi:"dateAddValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-datetimeformat
-	DateTimeFormat pulumi.StringPtrInput `pulumi:"dateTimeFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-datetimeparameters
-	DateTimeParameters pulumi.StringPtrInput `pulumi:"dateTimeParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-deleteotherrows
-	DeleteOtherRows pulumi.StringPtrInput `pulumi:"deleteOtherRows"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-delimiter
-	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-endpattern
-	EndPattern pulumi.StringPtrInput `pulumi:"endPattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-endposition
-	EndPosition pulumi.StringPtrInput `pulumi:"endPosition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-endvalue
-	EndValue pulumi.StringPtrInput `pulumi:"endValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-expandcontractions
-	ExpandContractions pulumi.StringPtrInput `pulumi:"expandContractions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-exponent
-	Exponent pulumi.StringPtrInput `pulumi:"exponent"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-falsestring
-	FalseString pulumi.StringPtrInput `pulumi:"falseString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-groupbyaggfunctionoptions
-	GroupByAggFunctionOptions pulumi.StringPtrInput `pulumi:"groupByAggFunctionOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-groupbycolumns
-	GroupByColumns pulumi.StringPtrInput `pulumi:"groupByColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-hiddencolumns
-	HiddenColumns pulumi.StringPtrInput `pulumi:"hiddenColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-ignorecase
-	IgnoreCase pulumi.StringPtrInput `pulumi:"ignoreCase"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-includeinsplit
-	IncludeInSplit pulumi.StringPtrInput `pulumi:"includeInSplit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-input
-	Input pulumi.Input `pulumi:"input"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-interval
-	Interval pulumi.StringPtrInput `pulumi:"interval"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-istext
-	IsText pulumi.StringPtrInput `pulumi:"isText"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-joinkeys
-	JoinKeys pulumi.StringPtrInput `pulumi:"joinKeys"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-jointype
-	JoinType pulumi.StringPtrInput `pulumi:"joinType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-leftcolumns
-	LeftColumns pulumi.StringPtrInput `pulumi:"leftColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-limit
-	Limit pulumi.StringPtrInput `pulumi:"limit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-lowerbound
-	LowerBound pulumi.StringPtrInput `pulumi:"lowerBound"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-maptype
-	MapType pulumi.StringPtrInput `pulumi:"mapType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-modetype
-	ModeType pulumi.StringPtrInput `pulumi:"modeType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-multiline
-	MultiLine pulumi.BoolPtrInput `pulumi:"multiLine"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-numrows
-	NumRows pulumi.StringPtrInput `pulumi:"numRows"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-numrowsafter
-	NumRowsAfter pulumi.StringPtrInput `pulumi:"numRowsAfter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-numrowsbefore
-	NumRowsBefore pulumi.StringPtrInput `pulumi:"numRowsBefore"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-orderbycolumn
-	OrderByColumn pulumi.StringPtrInput `pulumi:"orderByColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-orderbycolumns
-	OrderByColumns pulumi.StringPtrInput `pulumi:"orderByColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-other
-	Other pulumi.StringPtrInput `pulumi:"other"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-pattern
-	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-patternoption1
-	PatternOption1 pulumi.StringPtrInput `pulumi:"patternOption1"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-patternoption2
-	PatternOption2 pulumi.StringPtrInput `pulumi:"patternOption2"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-patternoptions
-	PatternOptions pulumi.StringPtrInput `pulumi:"patternOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-period
-	Period pulumi.StringPtrInput `pulumi:"period"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-position
-	Position pulumi.StringPtrInput `pulumi:"position"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeallpunctuation
-	RemoveAllPunctuation pulumi.StringPtrInput `pulumi:"removeAllPunctuation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeallquotes
-	RemoveAllQuotes pulumi.StringPtrInput `pulumi:"removeAllQuotes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeallwhitespace
-	RemoveAllWhitespace pulumi.StringPtrInput `pulumi:"removeAllWhitespace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removecustomcharacters
-	RemoveCustomCharacters pulumi.StringPtrInput `pulumi:"removeCustomCharacters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removecustomvalue
-	RemoveCustomValue pulumi.StringPtrInput `pulumi:"removeCustomValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeleadingandtrailingpunctuation
-	RemoveLeadingAndTrailingPunctuation pulumi.StringPtrInput `pulumi:"removeLeadingAndTrailingPunctuation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeleadingandtrailingquotes
-	RemoveLeadingAndTrailingQuotes pulumi.StringPtrInput `pulumi:"removeLeadingAndTrailingQuotes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeleadingandtrailingwhitespace
-	RemoveLeadingAndTrailingWhitespace pulumi.StringPtrInput `pulumi:"removeLeadingAndTrailingWhitespace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeletters
-	RemoveLetters pulumi.StringPtrInput `pulumi:"removeLetters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removenumbers
-	RemoveNumbers pulumi.StringPtrInput `pulumi:"removeNumbers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removesourcecolumn
-	RemoveSourceColumn pulumi.StringPtrInput `pulumi:"removeSourceColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removespecialcharacters
-	RemoveSpecialCharacters pulumi.StringPtrInput `pulumi:"removeSpecialCharacters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-rightcolumns
-	RightColumns pulumi.StringPtrInput `pulumi:"rightColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-samplesize
-	SampleSize pulumi.StringPtrInput `pulumi:"sampleSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sampletype
-	SampleType pulumi.StringPtrInput `pulumi:"sampleType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-secondinput
-	SecondInput pulumi.StringPtrInput `pulumi:"secondInput"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-secondaryinputs
-	SecondaryInputs RecipeSecondaryInputArrayInput `pulumi:"secondaryInputs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sheetindexes
-	SheetIndexes pulumi.IntArrayInput `pulumi:"sheetIndexes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sheetnames
-	SheetNames pulumi.StringArrayInput `pulumi:"sheetNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sourcecolumn
-	SourceColumn pulumi.StringPtrInput `pulumi:"sourceColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sourcecolumn1
-	SourceColumn1 pulumi.StringPtrInput `pulumi:"sourceColumn1"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sourcecolumn2
-	SourceColumn2 pulumi.StringPtrInput `pulumi:"sourceColumn2"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sourcecolumns
-	SourceColumns pulumi.StringPtrInput `pulumi:"sourceColumns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-startcolumnindex
-	StartColumnIndex pulumi.StringPtrInput `pulumi:"startColumnIndex"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-startpattern
-	StartPattern pulumi.StringPtrInput `pulumi:"startPattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-startposition
-	StartPosition pulumi.StringPtrInput `pulumi:"startPosition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-startvalue
-	StartValue pulumi.StringPtrInput `pulumi:"startValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-stemmingmode
-	StemmingMode pulumi.StringPtrInput `pulumi:"stemmingMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-stepcount
-	StepCount pulumi.StringPtrInput `pulumi:"stepCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-stepindex
-	StepIndex pulumi.StringPtrInput `pulumi:"stepIndex"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-stopwordsmode
-	StopWordsMode pulumi.StringPtrInput `pulumi:"stopWordsMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-strategy
-	Strategy pulumi.StringPtrInput `pulumi:"strategy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-targetcolumn
-	TargetColumn pulumi.StringPtrInput `pulumi:"targetColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-targetcolumnnames
-	TargetColumnNames pulumi.StringPtrInput `pulumi:"targetColumnNames"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-targetdateformat
-	TargetDateFormat pulumi.StringPtrInput `pulumi:"targetDateFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-targetindex
-	TargetIndex pulumi.StringPtrInput `pulumi:"targetIndex"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-timezone
-	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-tokenizerpattern
-	TokenizerPattern pulumi.StringPtrInput `pulumi:"tokenizerPattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-truestring
-	TrueString pulumi.StringPtrInput `pulumi:"trueString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-udflang
-	UdfLang pulumi.StringPtrInput `pulumi:"udfLang"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-units
-	Units pulumi.StringPtrInput `pulumi:"units"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-unpivotcolumn
-	UnpivotColumn pulumi.StringPtrInput `pulumi:"unpivotColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-upperbound
-	UpperBound pulumi.StringPtrInput `pulumi:"upperBound"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-usenewdataframe
-	UseNewDataFrame pulumi.StringPtrInput `pulumi:"useNewDataFrame"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-value
-	Value pulumi.StringPtrInput `pulumi:"value"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-value1
-	Value1 pulumi.StringPtrInput `pulumi:"value1"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-value2
-	Value2 pulumi.StringPtrInput `pulumi:"value2"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-valuecolumn
-	ValueColumn pulumi.StringPtrInput `pulumi:"valueColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-viewframe
-	ViewFrame pulumi.StringPtrInput `pulumi:"viewFrame"`
+	ColumnDataType                pulumi.StringPtrInput `pulumi:"columnDataType"`
+	ColumnRange                   pulumi.StringPtrInput `pulumi:"columnRange"`
+	Count                         pulumi.StringPtrInput `pulumi:"count"`
+	CustomCharacters              pulumi.StringPtrInput `pulumi:"customCharacters"`
+	CustomStopWords               pulumi.StringPtrInput `pulumi:"customStopWords"`
+	CustomValue                   pulumi.StringPtrInput `pulumi:"customValue"`
+	DatasetsColumns               pulumi.StringPtrInput `pulumi:"datasetsColumns"`
+	DateAddValue                  pulumi.StringPtrInput `pulumi:"dateAddValue"`
+	DateTimeFormat                pulumi.StringPtrInput `pulumi:"dateTimeFormat"`
+	DateTimeParameters            pulumi.StringPtrInput `pulumi:"dateTimeParameters"`
+	DeleteOtherRows               pulumi.StringPtrInput `pulumi:"deleteOtherRows"`
+	Delimiter                     pulumi.StringPtrInput `pulumi:"delimiter"`
+	EndPattern                    pulumi.StringPtrInput `pulumi:"endPattern"`
+	EndPosition                   pulumi.StringPtrInput `pulumi:"endPosition"`
+	EndValue                      pulumi.StringPtrInput `pulumi:"endValue"`
+	ExpandContractions            pulumi.StringPtrInput `pulumi:"expandContractions"`
+	Exponent                      pulumi.StringPtrInput `pulumi:"exponent"`
+	FalseString                   pulumi.StringPtrInput `pulumi:"falseString"`
+	GroupByAggFunctionOptions     pulumi.StringPtrInput `pulumi:"groupByAggFunctionOptions"`
+	GroupByColumns                pulumi.StringPtrInput `pulumi:"groupByColumns"`
+	HiddenColumns                 pulumi.StringPtrInput `pulumi:"hiddenColumns"`
+	IgnoreCase                    pulumi.StringPtrInput `pulumi:"ignoreCase"`
+	IncludeInSplit                pulumi.StringPtrInput `pulumi:"includeInSplit"`
+	// Input
+	Input                               pulumi.Input                   `pulumi:"input"`
+	Interval                            pulumi.StringPtrInput          `pulumi:"interval"`
+	IsText                              pulumi.StringPtrInput          `pulumi:"isText"`
+	JoinKeys                            pulumi.StringPtrInput          `pulumi:"joinKeys"`
+	JoinType                            pulumi.StringPtrInput          `pulumi:"joinType"`
+	LeftColumns                         pulumi.StringPtrInput          `pulumi:"leftColumns"`
+	Limit                               pulumi.StringPtrInput          `pulumi:"limit"`
+	LowerBound                          pulumi.StringPtrInput          `pulumi:"lowerBound"`
+	MapType                             pulumi.StringPtrInput          `pulumi:"mapType"`
+	ModeType                            pulumi.StringPtrInput          `pulumi:"modeType"`
+	MultiLine                           pulumi.BoolPtrInput            `pulumi:"multiLine"`
+	NumRows                             pulumi.StringPtrInput          `pulumi:"numRows"`
+	NumRowsAfter                        pulumi.StringPtrInput          `pulumi:"numRowsAfter"`
+	NumRowsBefore                       pulumi.StringPtrInput          `pulumi:"numRowsBefore"`
+	OrderByColumn                       pulumi.StringPtrInput          `pulumi:"orderByColumn"`
+	OrderByColumns                      pulumi.StringPtrInput          `pulumi:"orderByColumns"`
+	Other                               pulumi.StringPtrInput          `pulumi:"other"`
+	Pattern                             pulumi.StringPtrInput          `pulumi:"pattern"`
+	PatternOption1                      pulumi.StringPtrInput          `pulumi:"patternOption1"`
+	PatternOption2                      pulumi.StringPtrInput          `pulumi:"patternOption2"`
+	PatternOptions                      pulumi.StringPtrInput          `pulumi:"patternOptions"`
+	Period                              pulumi.StringPtrInput          `pulumi:"period"`
+	Position                            pulumi.StringPtrInput          `pulumi:"position"`
+	RemoveAllPunctuation                pulumi.StringPtrInput          `pulumi:"removeAllPunctuation"`
+	RemoveAllQuotes                     pulumi.StringPtrInput          `pulumi:"removeAllQuotes"`
+	RemoveAllWhitespace                 pulumi.StringPtrInput          `pulumi:"removeAllWhitespace"`
+	RemoveCustomCharacters              pulumi.StringPtrInput          `pulumi:"removeCustomCharacters"`
+	RemoveCustomValue                   pulumi.StringPtrInput          `pulumi:"removeCustomValue"`
+	RemoveLeadingAndTrailingPunctuation pulumi.StringPtrInput          `pulumi:"removeLeadingAndTrailingPunctuation"`
+	RemoveLeadingAndTrailingQuotes      pulumi.StringPtrInput          `pulumi:"removeLeadingAndTrailingQuotes"`
+	RemoveLeadingAndTrailingWhitespace  pulumi.StringPtrInput          `pulumi:"removeLeadingAndTrailingWhitespace"`
+	RemoveLetters                       pulumi.StringPtrInput          `pulumi:"removeLetters"`
+	RemoveNumbers                       pulumi.StringPtrInput          `pulumi:"removeNumbers"`
+	RemoveSourceColumn                  pulumi.StringPtrInput          `pulumi:"removeSourceColumn"`
+	RemoveSpecialCharacters             pulumi.StringPtrInput          `pulumi:"removeSpecialCharacters"`
+	RightColumns                        pulumi.StringPtrInput          `pulumi:"rightColumns"`
+	SampleSize                          pulumi.StringPtrInput          `pulumi:"sampleSize"`
+	SampleType                          pulumi.StringPtrInput          `pulumi:"sampleType"`
+	SecondInput                         pulumi.StringPtrInput          `pulumi:"secondInput"`
+	SecondaryInputs                     RecipeSecondaryInputArrayInput `pulumi:"secondaryInputs"`
+	SheetIndexes                        pulumi.IntArrayInput           `pulumi:"sheetIndexes"`
+	SheetNames                          pulumi.StringArrayInput        `pulumi:"sheetNames"`
+	SourceColumn                        pulumi.StringPtrInput          `pulumi:"sourceColumn"`
+	SourceColumn1                       pulumi.StringPtrInput          `pulumi:"sourceColumn1"`
+	SourceColumn2                       pulumi.StringPtrInput          `pulumi:"sourceColumn2"`
+	SourceColumns                       pulumi.StringPtrInput          `pulumi:"sourceColumns"`
+	StartColumnIndex                    pulumi.StringPtrInput          `pulumi:"startColumnIndex"`
+	StartPattern                        pulumi.StringPtrInput          `pulumi:"startPattern"`
+	StartPosition                       pulumi.StringPtrInput          `pulumi:"startPosition"`
+	StartValue                          pulumi.StringPtrInput          `pulumi:"startValue"`
+	StemmingMode                        pulumi.StringPtrInput          `pulumi:"stemmingMode"`
+	StepCount                           pulumi.StringPtrInput          `pulumi:"stepCount"`
+	StepIndex                           pulumi.StringPtrInput          `pulumi:"stepIndex"`
+	StopWordsMode                       pulumi.StringPtrInput          `pulumi:"stopWordsMode"`
+	Strategy                            pulumi.StringPtrInput          `pulumi:"strategy"`
+	TargetColumn                        pulumi.StringPtrInput          `pulumi:"targetColumn"`
+	TargetColumnNames                   pulumi.StringPtrInput          `pulumi:"targetColumnNames"`
+	TargetDateFormat                    pulumi.StringPtrInput          `pulumi:"targetDateFormat"`
+	TargetIndex                         pulumi.StringPtrInput          `pulumi:"targetIndex"`
+	TimeZone                            pulumi.StringPtrInput          `pulumi:"timeZone"`
+	TokenizerPattern                    pulumi.StringPtrInput          `pulumi:"tokenizerPattern"`
+	TrueString                          pulumi.StringPtrInput          `pulumi:"trueString"`
+	UdfLang                             pulumi.StringPtrInput          `pulumi:"udfLang"`
+	Units                               pulumi.StringPtrInput          `pulumi:"units"`
+	UnpivotColumn                       pulumi.StringPtrInput          `pulumi:"unpivotColumn"`
+	UpperBound                          pulumi.StringPtrInput          `pulumi:"upperBound"`
+	UseNewDataFrame                     pulumi.StringPtrInput          `pulumi:"useNewDataFrame"`
+	Value                               pulumi.StringPtrInput          `pulumi:"value"`
+	Value1                              pulumi.StringPtrInput          `pulumi:"value1"`
+	Value2                              pulumi.StringPtrInput          `pulumi:"value2"`
+	ValueColumn                         pulumi.StringPtrInput          `pulumi:"valueColumn"`
+	ViewFrame                           pulumi.StringPtrInput          `pulumi:"viewFrame"`
 }
 
 func (RecipeRecipeParametersArgs) ElementType() reflect.Type {
@@ -5713,7 +5545,6 @@ func (i RecipeRecipeParametersArgs) ToRecipeRecipeParametersOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RecipeRecipeParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html
 type RecipeRecipeParametersOutput struct{ *pulumi.OutputState }
 
 func (RecipeRecipeParametersOutput) ElementType() reflect.Type {
@@ -5728,516 +5559,414 @@ func (o RecipeRecipeParametersOutput) ToRecipeRecipeParametersOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-aggregatefunction
 func (o RecipeRecipeParametersOutput) AggregateFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.AggregateFunction }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-base
 func (o RecipeRecipeParametersOutput) Base() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Base }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-casestatement
 func (o RecipeRecipeParametersOutput) CaseStatement() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.CaseStatement }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-categorymap
 func (o RecipeRecipeParametersOutput) CategoryMap() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.CategoryMap }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-charstoremove
 func (o RecipeRecipeParametersOutput) CharsToRemove() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.CharsToRemove }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-collapseconsecutivewhitespace
 func (o RecipeRecipeParametersOutput) CollapseConsecutiveWhitespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.CollapseConsecutiveWhitespace }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-columndatatype
 func (o RecipeRecipeParametersOutput) ColumnDataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.ColumnDataType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-columnrange
 func (o RecipeRecipeParametersOutput) ColumnRange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.ColumnRange }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-count
 func (o RecipeRecipeParametersOutput) Count() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Count }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-customcharacters
 func (o RecipeRecipeParametersOutput) CustomCharacters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.CustomCharacters }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-customstopwords
 func (o RecipeRecipeParametersOutput) CustomStopWords() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.CustomStopWords }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-customvalue
 func (o RecipeRecipeParametersOutput) CustomValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.CustomValue }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-datasetscolumns
 func (o RecipeRecipeParametersOutput) DatasetsColumns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.DatasetsColumns }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-dateaddvalue
 func (o RecipeRecipeParametersOutput) DateAddValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.DateAddValue }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-datetimeformat
 func (o RecipeRecipeParametersOutput) DateTimeFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.DateTimeFormat }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-datetimeparameters
 func (o RecipeRecipeParametersOutput) DateTimeParameters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.DateTimeParameters }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-deleteotherrows
 func (o RecipeRecipeParametersOutput) DeleteOtherRows() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.DeleteOtherRows }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-delimiter
 func (o RecipeRecipeParametersOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-endpattern
 func (o RecipeRecipeParametersOutput) EndPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.EndPattern }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-endposition
 func (o RecipeRecipeParametersOutput) EndPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.EndPosition }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-endvalue
 func (o RecipeRecipeParametersOutput) EndValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.EndValue }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-expandcontractions
 func (o RecipeRecipeParametersOutput) ExpandContractions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.ExpandContractions }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-exponent
 func (o RecipeRecipeParametersOutput) Exponent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Exponent }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-falsestring
 func (o RecipeRecipeParametersOutput) FalseString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.FalseString }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-groupbyaggfunctionoptions
 func (o RecipeRecipeParametersOutput) GroupByAggFunctionOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.GroupByAggFunctionOptions }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-groupbycolumns
 func (o RecipeRecipeParametersOutput) GroupByColumns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.GroupByColumns }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-hiddencolumns
 func (o RecipeRecipeParametersOutput) HiddenColumns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.HiddenColumns }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-ignorecase
 func (o RecipeRecipeParametersOutput) IgnoreCase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.IgnoreCase }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-includeinsplit
 func (o RecipeRecipeParametersOutput) IncludeInSplit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.IncludeInSplit }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-input
+// Input
 func (o RecipeRecipeParametersOutput) Input() pulumi.AnyOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) interface{} { return v.Input }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-interval
 func (o RecipeRecipeParametersOutput) Interval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Interval }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-istext
 func (o RecipeRecipeParametersOutput) IsText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.IsText }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-joinkeys
 func (o RecipeRecipeParametersOutput) JoinKeys() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.JoinKeys }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-jointype
 func (o RecipeRecipeParametersOutput) JoinType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.JoinType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-leftcolumns
 func (o RecipeRecipeParametersOutput) LeftColumns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.LeftColumns }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-limit
 func (o RecipeRecipeParametersOutput) Limit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Limit }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-lowerbound
 func (o RecipeRecipeParametersOutput) LowerBound() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.LowerBound }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-maptype
 func (o RecipeRecipeParametersOutput) MapType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.MapType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-modetype
 func (o RecipeRecipeParametersOutput) ModeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.ModeType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-multiline
 func (o RecipeRecipeParametersOutput) MultiLine() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *bool { return v.MultiLine }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-numrows
 func (o RecipeRecipeParametersOutput) NumRows() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.NumRows }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-numrowsafter
 func (o RecipeRecipeParametersOutput) NumRowsAfter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.NumRowsAfter }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-numrowsbefore
 func (o RecipeRecipeParametersOutput) NumRowsBefore() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.NumRowsBefore }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-orderbycolumn
 func (o RecipeRecipeParametersOutput) OrderByColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.OrderByColumn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-orderbycolumns
 func (o RecipeRecipeParametersOutput) OrderByColumns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.OrderByColumns }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-other
 func (o RecipeRecipeParametersOutput) Other() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Other }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-pattern
 func (o RecipeRecipeParametersOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Pattern }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-patternoption1
 func (o RecipeRecipeParametersOutput) PatternOption1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.PatternOption1 }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-patternoption2
 func (o RecipeRecipeParametersOutput) PatternOption2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.PatternOption2 }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-patternoptions
 func (o RecipeRecipeParametersOutput) PatternOptions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.PatternOptions }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-period
 func (o RecipeRecipeParametersOutput) Period() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Period }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-position
 func (o RecipeRecipeParametersOutput) Position() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Position }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeallpunctuation
 func (o RecipeRecipeParametersOutput) RemoveAllPunctuation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveAllPunctuation }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeallquotes
 func (o RecipeRecipeParametersOutput) RemoveAllQuotes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveAllQuotes }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeallwhitespace
 func (o RecipeRecipeParametersOutput) RemoveAllWhitespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveAllWhitespace }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removecustomcharacters
 func (o RecipeRecipeParametersOutput) RemoveCustomCharacters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveCustomCharacters }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removecustomvalue
 func (o RecipeRecipeParametersOutput) RemoveCustomValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveCustomValue }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeleadingandtrailingpunctuation
 func (o RecipeRecipeParametersOutput) RemoveLeadingAndTrailingPunctuation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveLeadingAndTrailingPunctuation }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeleadingandtrailingquotes
 func (o RecipeRecipeParametersOutput) RemoveLeadingAndTrailingQuotes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveLeadingAndTrailingQuotes }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeleadingandtrailingwhitespace
 func (o RecipeRecipeParametersOutput) RemoveLeadingAndTrailingWhitespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveLeadingAndTrailingWhitespace }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removeletters
 func (o RecipeRecipeParametersOutput) RemoveLetters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveLetters }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removenumbers
 func (o RecipeRecipeParametersOutput) RemoveNumbers() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveNumbers }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removesourcecolumn
 func (o RecipeRecipeParametersOutput) RemoveSourceColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveSourceColumn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-removespecialcharacters
 func (o RecipeRecipeParametersOutput) RemoveSpecialCharacters() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RemoveSpecialCharacters }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-rightcolumns
 func (o RecipeRecipeParametersOutput) RightColumns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.RightColumns }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-samplesize
 func (o RecipeRecipeParametersOutput) SampleSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.SampleSize }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sampletype
 func (o RecipeRecipeParametersOutput) SampleType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.SampleType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-secondinput
 func (o RecipeRecipeParametersOutput) SecondInput() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.SecondInput }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-secondaryinputs
 func (o RecipeRecipeParametersOutput) SecondaryInputs() RecipeSecondaryInputArrayOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) []RecipeSecondaryInput { return v.SecondaryInputs }).(RecipeSecondaryInputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sheetindexes
 func (o RecipeRecipeParametersOutput) SheetIndexes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) []int { return v.SheetIndexes }).(pulumi.IntArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sheetnames
 func (o RecipeRecipeParametersOutput) SheetNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) []string { return v.SheetNames }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sourcecolumn
 func (o RecipeRecipeParametersOutput) SourceColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.SourceColumn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sourcecolumn1
 func (o RecipeRecipeParametersOutput) SourceColumn1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.SourceColumn1 }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sourcecolumn2
 func (o RecipeRecipeParametersOutput) SourceColumn2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.SourceColumn2 }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-sourcecolumns
 func (o RecipeRecipeParametersOutput) SourceColumns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.SourceColumns }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-startcolumnindex
 func (o RecipeRecipeParametersOutput) StartColumnIndex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.StartColumnIndex }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-startpattern
 func (o RecipeRecipeParametersOutput) StartPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.StartPattern }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-startposition
 func (o RecipeRecipeParametersOutput) StartPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.StartPosition }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-startvalue
 func (o RecipeRecipeParametersOutput) StartValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.StartValue }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-stemmingmode
 func (o RecipeRecipeParametersOutput) StemmingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.StemmingMode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-stepcount
 func (o RecipeRecipeParametersOutput) StepCount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.StepCount }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-stepindex
 func (o RecipeRecipeParametersOutput) StepIndex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.StepIndex }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-stopwordsmode
 func (o RecipeRecipeParametersOutput) StopWordsMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.StopWordsMode }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-strategy
 func (o RecipeRecipeParametersOutput) Strategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Strategy }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-targetcolumn
 func (o RecipeRecipeParametersOutput) TargetColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.TargetColumn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-targetcolumnnames
 func (o RecipeRecipeParametersOutput) TargetColumnNames() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.TargetColumnNames }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-targetdateformat
 func (o RecipeRecipeParametersOutput) TargetDateFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.TargetDateFormat }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-targetindex
 func (o RecipeRecipeParametersOutput) TargetIndex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.TargetIndex }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-timezone
 func (o RecipeRecipeParametersOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-tokenizerpattern
 func (o RecipeRecipeParametersOutput) TokenizerPattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.TokenizerPattern }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-truestring
 func (o RecipeRecipeParametersOutput) TrueString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.TrueString }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-udflang
 func (o RecipeRecipeParametersOutput) UdfLang() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.UdfLang }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-units
 func (o RecipeRecipeParametersOutput) Units() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Units }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-unpivotcolumn
 func (o RecipeRecipeParametersOutput) UnpivotColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.UnpivotColumn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-upperbound
 func (o RecipeRecipeParametersOutput) UpperBound() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.UpperBound }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-usenewdataframe
 func (o RecipeRecipeParametersOutput) UseNewDataFrame() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.UseNewDataFrame }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-value
 func (o RecipeRecipeParametersOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-value1
 func (o RecipeRecipeParametersOutput) Value1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Value1 }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-value2
 func (o RecipeRecipeParametersOutput) Value2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.Value2 }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-valuecolumn
 func (o RecipeRecipeParametersOutput) ValueColumn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.ValueColumn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipeparameters.html#cfn-databrew-recipe-recipeparameters-viewframe
 func (o RecipeRecipeParametersOutput) ViewFrame() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeRecipeParameters) *string { return v.ViewFrame }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html
 type RecipeRecipeStep struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-action
 	Action RecipeAction `pulumi:"action"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-conditionexpressions
+	// Condition expressions applied to the step action
 	ConditionExpressions []RecipeConditionExpression `pulumi:"conditionExpressions"`
 }
 
@@ -6252,11 +5981,9 @@ type RecipeRecipeStepInput interface {
 	ToRecipeRecipeStepOutputWithContext(context.Context) RecipeRecipeStepOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html
 type RecipeRecipeStepArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-action
 	Action RecipeActionInput `pulumi:"action"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-conditionexpressions
+	// Condition expressions applied to the step action
 	ConditionExpressions RecipeConditionExpressionArrayInput `pulumi:"conditionExpressions"`
 }
 
@@ -6297,7 +6024,6 @@ func (i RecipeRecipeStepArray) ToRecipeRecipeStepArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RecipeRecipeStepArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html
 type RecipeRecipeStepOutput struct{ *pulumi.OutputState }
 
 func (RecipeRecipeStepOutput) ElementType() reflect.Type {
@@ -6312,12 +6038,11 @@ func (o RecipeRecipeStepOutput) ToRecipeRecipeStepOutputWithContext(ctx context.
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-action
 func (o RecipeRecipeStepOutput) Action() RecipeActionOutput {
 	return o.ApplyT(func(v RecipeRecipeStep) RecipeAction { return v.Action }).(RecipeActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-recipestep.html#cfn-databrew-recipe-recipestep-conditionexpressions
+// Condition expressions applied to the step action
 func (o RecipeRecipeStepOutput) ConditionExpressions() RecipeConditionExpressionArrayOutput {
 	return o.ApplyT(func(v RecipeRecipeStep) []RecipeConditionExpression { return v.ConditionExpressions }).(RecipeConditionExpressionArrayOutput)
 }
@@ -6342,12 +6067,10 @@ func (o RecipeRecipeStepArrayOutput) Index(i pulumi.IntInput) RecipeRecipeStepOu
 	}).(RecipeRecipeStepOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html
+// Input location
 type RecipeS3Location struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html#cfn-databrew-recipe-s3location-bucket
-	Bucket string `pulumi:"bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html#cfn-databrew-recipe-s3location-key
-	Key *string `pulumi:"key"`
+	Bucket string  `pulumi:"bucket"`
+	Key    *string `pulumi:"key"`
 }
 
 // RecipeS3LocationInput is an input type that accepts RecipeS3LocationArgs and RecipeS3LocationOutput values.
@@ -6361,12 +6084,10 @@ type RecipeS3LocationInput interface {
 	ToRecipeS3LocationOutputWithContext(context.Context) RecipeS3LocationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html
+// Input location
 type RecipeS3LocationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html#cfn-databrew-recipe-s3location-bucket
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html#cfn-databrew-recipe-s3location-key
-	Key pulumi.StringPtrInput `pulumi:"key"`
+	Bucket pulumi.StringInput    `pulumi:"bucket"`
+	Key    pulumi.StringPtrInput `pulumi:"key"`
 }
 
 func (RecipeS3LocationArgs) ElementType() reflect.Type {
@@ -6422,7 +6143,7 @@ func (i *recipeS3LocationPtrType) ToRecipeS3LocationPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RecipeS3LocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html
+// Input location
 type RecipeS3LocationOutput struct{ *pulumi.OutputState }
 
 func (RecipeS3LocationOutput) ElementType() reflect.Type {
@@ -6447,12 +6168,10 @@ func (o RecipeS3LocationOutput) ToRecipeS3LocationPtrOutputWithContext(ctx conte
 	}).(RecipeS3LocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html#cfn-databrew-recipe-s3location-bucket
 func (o RecipeS3LocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v RecipeS3Location) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html#cfn-databrew-recipe-s3location-key
 func (o RecipeS3LocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecipeS3Location) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -6481,7 +6200,6 @@ func (o RecipeS3LocationPtrOutput) Elem() RecipeS3LocationOutput {
 	}).(RecipeS3LocationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html#cfn-databrew-recipe-s3location-bucket
 func (o RecipeS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecipeS3Location) *string {
 		if v == nil {
@@ -6491,7 +6209,6 @@ func (o RecipeS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-s3location.html#cfn-databrew-recipe-s3location-key
 func (o RecipeS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RecipeS3Location) *string {
 		if v == nil {
@@ -6501,12 +6218,10 @@ func (o RecipeS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-secondaryinput.html
+// Secondary input
 type RecipeSecondaryInput struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-secondaryinput.html#cfn-databrew-recipe-secondaryinput-datacataloginputdefinition
 	DataCatalogInputDefinition *RecipeDataCatalogInputDefinition `pulumi:"dataCatalogInputDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-secondaryinput.html#cfn-databrew-recipe-secondaryinput-s3inputdefinition
-	S3InputDefinition *RecipeS3Location `pulumi:"s3InputDefinition"`
+	S3InputDefinition          *RecipeS3Location                 `pulumi:"s3InputDefinition"`
 }
 
 // RecipeSecondaryInputInput is an input type that accepts RecipeSecondaryInputArgs and RecipeSecondaryInputOutput values.
@@ -6520,12 +6235,10 @@ type RecipeSecondaryInputInput interface {
 	ToRecipeSecondaryInputOutputWithContext(context.Context) RecipeSecondaryInputOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-secondaryinput.html
+// Secondary input
 type RecipeSecondaryInputArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-secondaryinput.html#cfn-databrew-recipe-secondaryinput-datacataloginputdefinition
 	DataCatalogInputDefinition RecipeDataCatalogInputDefinitionPtrInput `pulumi:"dataCatalogInputDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-secondaryinput.html#cfn-databrew-recipe-secondaryinput-s3inputdefinition
-	S3InputDefinition RecipeS3LocationPtrInput `pulumi:"s3InputDefinition"`
+	S3InputDefinition          RecipeS3LocationPtrInput                 `pulumi:"s3InputDefinition"`
 }
 
 func (RecipeSecondaryInputArgs) ElementType() reflect.Type {
@@ -6565,7 +6278,7 @@ func (i RecipeSecondaryInputArray) ToRecipeSecondaryInputArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RecipeSecondaryInputArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-secondaryinput.html
+// Secondary input
 type RecipeSecondaryInputOutput struct{ *pulumi.OutputState }
 
 func (RecipeSecondaryInputOutput) ElementType() reflect.Type {
@@ -6580,12 +6293,10 @@ func (o RecipeSecondaryInputOutput) ToRecipeSecondaryInputOutputWithContext(ctx 
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-secondaryinput.html#cfn-databrew-recipe-secondaryinput-datacataloginputdefinition
 func (o RecipeSecondaryInputOutput) DataCatalogInputDefinition() RecipeDataCatalogInputDefinitionPtrOutput {
 	return o.ApplyT(func(v RecipeSecondaryInput) *RecipeDataCatalogInputDefinition { return v.DataCatalogInputDefinition }).(RecipeDataCatalogInputDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-secondaryinput.html#cfn-databrew-recipe-secondaryinput-s3inputdefinition
 func (o RecipeSecondaryInputOutput) S3InputDefinition() RecipeS3LocationPtrOutput {
 	return o.ApplyT(func(v RecipeSecondaryInput) *RecipeS3Location { return v.S3InputDefinition }).(RecipeS3LocationPtrOutput)
 }
@@ -6608,6 +6319,212 @@ func (o RecipeSecondaryInputArrayOutput) Index(i pulumi.IntInput) RecipeSecondar
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecipeSecondaryInput {
 		return vs[0].([]RecipeSecondaryInput)[vs[1].(int)]
 	}).(RecipeSecondaryInputOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RecipeTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// RecipeTagInput is an input type that accepts RecipeTagArgs and RecipeTagOutput values.
+// You can construct a concrete instance of `RecipeTagInput` via:
+//
+//          RecipeTagArgs{...}
+type RecipeTagInput interface {
+	pulumi.Input
+
+	ToRecipeTagOutput() RecipeTagOutput
+	ToRecipeTagOutputWithContext(context.Context) RecipeTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type RecipeTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RecipeTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecipeTag)(nil)).Elem()
+}
+
+func (i RecipeTagArgs) ToRecipeTagOutput() RecipeTagOutput {
+	return i.ToRecipeTagOutputWithContext(context.Background())
+}
+
+func (i RecipeTagArgs) ToRecipeTagOutputWithContext(ctx context.Context) RecipeTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecipeTagOutput)
+}
+
+// RecipeTagArrayInput is an input type that accepts RecipeTagArray and RecipeTagArrayOutput values.
+// You can construct a concrete instance of `RecipeTagArrayInput` via:
+//
+//          RecipeTagArray{ RecipeTagArgs{...} }
+type RecipeTagArrayInput interface {
+	pulumi.Input
+
+	ToRecipeTagArrayOutput() RecipeTagArrayOutput
+	ToRecipeTagArrayOutputWithContext(context.Context) RecipeTagArrayOutput
+}
+
+type RecipeTagArray []RecipeTagInput
+
+func (RecipeTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecipeTag)(nil)).Elem()
+}
+
+func (i RecipeTagArray) ToRecipeTagArrayOutput() RecipeTagArrayOutput {
+	return i.ToRecipeTagArrayOutputWithContext(context.Background())
+}
+
+func (i RecipeTagArray) ToRecipeTagArrayOutputWithContext(ctx context.Context) RecipeTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecipeTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RecipeTagOutput struct{ *pulumi.OutputState }
+
+func (RecipeTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecipeTag)(nil)).Elem()
+}
+
+func (o RecipeTagOutput) ToRecipeTagOutput() RecipeTagOutput {
+	return o
+}
+
+func (o RecipeTagOutput) ToRecipeTagOutputWithContext(ctx context.Context) RecipeTagOutput {
+	return o
+}
+
+func (o RecipeTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RecipeTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o RecipeTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RecipeTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RecipeTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RecipeTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecipeTag)(nil)).Elem()
+}
+
+func (o RecipeTagArrayOutput) ToRecipeTagArrayOutput() RecipeTagArrayOutput {
+	return o
+}
+
+func (o RecipeTagArrayOutput) ToRecipeTagArrayOutputWithContext(ctx context.Context) RecipeTagArrayOutput {
+	return o
+}
+
+func (o RecipeTagArrayOutput) Index(i pulumi.IntInput) RecipeTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecipeTag {
+		return vs[0].([]RecipeTag)[vs[1].(int)]
+	}).(RecipeTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ScheduleTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ScheduleTagInput is an input type that accepts ScheduleTagArgs and ScheduleTagOutput values.
+// You can construct a concrete instance of `ScheduleTagInput` via:
+//
+//          ScheduleTagArgs{...}
+type ScheduleTagInput interface {
+	pulumi.Input
+
+	ToScheduleTagOutput() ScheduleTagOutput
+	ToScheduleTagOutputWithContext(context.Context) ScheduleTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ScheduleTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ScheduleTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleTag)(nil)).Elem()
+}
+
+func (i ScheduleTagArgs) ToScheduleTagOutput() ScheduleTagOutput {
+	return i.ToScheduleTagOutputWithContext(context.Background())
+}
+
+func (i ScheduleTagArgs) ToScheduleTagOutputWithContext(ctx context.Context) ScheduleTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTagOutput)
+}
+
+// ScheduleTagArrayInput is an input type that accepts ScheduleTagArray and ScheduleTagArrayOutput values.
+// You can construct a concrete instance of `ScheduleTagArrayInput` via:
+//
+//          ScheduleTagArray{ ScheduleTagArgs{...} }
+type ScheduleTagArrayInput interface {
+	pulumi.Input
+
+	ToScheduleTagArrayOutput() ScheduleTagArrayOutput
+	ToScheduleTagArrayOutputWithContext(context.Context) ScheduleTagArrayOutput
+}
+
+type ScheduleTagArray []ScheduleTagInput
+
+func (ScheduleTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduleTag)(nil)).Elem()
+}
+
+func (i ScheduleTagArray) ToScheduleTagArrayOutput() ScheduleTagArrayOutput {
+	return i.ToScheduleTagArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduleTagArray) ToScheduleTagArrayOutputWithContext(ctx context.Context) ScheduleTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ScheduleTagOutput struct{ *pulumi.OutputState }
+
+func (ScheduleTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleTag)(nil)).Elem()
+}
+
+func (o ScheduleTagOutput) ToScheduleTagOutput() ScheduleTagOutput {
+	return o
+}
+
+func (o ScheduleTagOutput) ToScheduleTagOutputWithContext(ctx context.Context) ScheduleTagOutput {
+	return o
+}
+
+func (o ScheduleTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ScheduleTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ScheduleTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduleTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduleTag)(nil)).Elem()
+}
+
+func (o ScheduleTagArrayOutput) ToScheduleTagArrayOutput() ScheduleTagArrayOutput {
+	return o
+}
+
+func (o ScheduleTagArrayOutput) ToScheduleTagArrayOutputWithContext(ctx context.Context) ScheduleTagArrayOutput {
+	return o
+}
+
+func (o ScheduleTagArrayOutput) Index(i pulumi.IntInput) ScheduleTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleTag {
+		return vs[0].([]ScheduleTag)[vs[1].(int)]
+	}).(ScheduleTagOutput)
 }
 
 func init() {
@@ -6640,6 +6557,8 @@ func init() {
 	pulumi.RegisterOutputType(DatasetPathParameterArrayOutput{})
 	pulumi.RegisterOutputType(DatasetS3LocationOutput{})
 	pulumi.RegisterOutputType(DatasetS3LocationPtrOutput{})
+	pulumi.RegisterOutputType(DatasetTagOutput{})
+	pulumi.RegisterOutputType(DatasetTagArrayOutput{})
 	pulumi.RegisterOutputType(JobColumnSelectorOutput{})
 	pulumi.RegisterOutputType(JobColumnSelectorArrayOutput{})
 	pulumi.RegisterOutputType(JobColumnStatisticsConfigurationOutput{})
@@ -6664,6 +6583,7 @@ func init() {
 	pulumi.RegisterOutputType(JobProfileConfigurationOutput{})
 	pulumi.RegisterOutputType(JobProfileConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(JobRecipeOutput{})
+	pulumi.RegisterOutputType(JobRecipePtrOutput{})
 	pulumi.RegisterOutputType(JobS3LocationOutput{})
 	pulumi.RegisterOutputType(JobS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(JobS3TableOutputOptionsOutput{})
@@ -6672,15 +6592,18 @@ func init() {
 	pulumi.RegisterOutputType(JobStatisticOverrideArrayOutput{})
 	pulumi.RegisterOutputType(JobStatisticsConfigurationOutput{})
 	pulumi.RegisterOutputType(JobStatisticsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(JobTagOutput{})
+	pulumi.RegisterOutputType(JobTagArrayOutput{})
 	pulumi.RegisterOutputType(ProjectSampleOutput{})
 	pulumi.RegisterOutputType(ProjectSamplePtrOutput{})
+	pulumi.RegisterOutputType(ProjectTagOutput{})
+	pulumi.RegisterOutputType(ProjectTagArrayOutput{})
 	pulumi.RegisterOutputType(RecipeActionOutput{})
 	pulumi.RegisterOutputType(RecipeConditionExpressionOutput{})
 	pulumi.RegisterOutputType(RecipeConditionExpressionArrayOutput{})
 	pulumi.RegisterOutputType(RecipeDataCatalogInputDefinitionOutput{})
 	pulumi.RegisterOutputType(RecipeDataCatalogInputDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(RecipeParameterMapOutput{})
-	pulumi.RegisterOutputType(RecipeParameterMapPtrOutput{})
 	pulumi.RegisterOutputType(RecipeRecipeParametersOutput{})
 	pulumi.RegisterOutputType(RecipeRecipeStepOutput{})
 	pulumi.RegisterOutputType(RecipeRecipeStepArrayOutput{})
@@ -6688,4 +6611,8 @@ func init() {
 	pulumi.RegisterOutputType(RecipeS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(RecipeSecondaryInputOutput{})
 	pulumi.RegisterOutputType(RecipeSecondaryInputArrayOutput{})
+	pulumi.RegisterOutputType(RecipeTagOutput{})
+	pulumi.RegisterOutputType(RecipeTagArrayOutput{})
+	pulumi.RegisterOutputType(ScheduleTagOutput{})
+	pulumi.RegisterOutputType(ScheduleTagArrayOutput{})
 }

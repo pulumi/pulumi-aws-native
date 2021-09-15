@@ -11,43 +11,25 @@ namespace Pulumi.AwsNative.IoT.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html
+    /// The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
     /// </summary>
     public sealed class MitigationActionActionParamsArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-addthingstothinggroupparams
-        /// </summary>
         [Input("addThingsToThingGroupParams")]
         public Input<Inputs.MitigationActionAddThingsToThingGroupParamsArgs>? AddThingsToThingGroupParams { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-enableiotloggingparams
-        /// </summary>
         [Input("enableIoTLoggingParams")]
         public Input<Inputs.MitigationActionEnableIoTLoggingParamsArgs>? EnableIoTLoggingParams { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-publishfindingtosnsparams
-        /// </summary>
         [Input("publishFindingToSnsParams")]
         public Input<Inputs.MitigationActionPublishFindingToSnsParamsArgs>? PublishFindingToSnsParams { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-replacedefaultpolicyversionparams
-        /// </summary>
         [Input("replaceDefaultPolicyVersionParams")]
         public Input<Inputs.MitigationActionReplaceDefaultPolicyVersionParamsArgs>? ReplaceDefaultPolicyVersionParams { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatecacertificateparams
-        /// </summary>
         [Input("updateCACertificateParams")]
         public Input<Inputs.MitigationActionUpdateCACertificateParamsArgs>? UpdateCACertificateParams { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatedevicecertificateparams
-        /// </summary>
         [Input("updateDeviceCertificateParams")]
         public Input<Inputs.MitigationActionUpdateDeviceCertificateParamsArgs>? UpdateDeviceCertificateParams { get; set; }
 

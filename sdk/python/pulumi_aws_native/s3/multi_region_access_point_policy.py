@@ -14,11 +14,11 @@ __all__ = ['MultiRegionAccessPointPolicyArgs', 'MultiRegionAccessPointPolicy']
 class MultiRegionAccessPointPolicyArgs:
     def __init__(__self__, *,
                  mrap_name: pulumi.Input[str],
-                 policy: pulumi.Input[Union[Any, str]]):
+                 policy: Any):
         """
         The set of arguments for constructing a MultiRegionAccessPointPolicy resource.
-        :param pulumi.Input[str] mrap_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-mrapname
-        :param pulumi.Input[Union[Any, str]] policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-policy
+        :param pulumi.Input[str] mrap_name: The name of the Multi Region Access Point to apply policy
+        :param Any policy: Policy document to apply to a Multi Region Access Point
         """
         pulumi.set(__self__, "mrap_name", mrap_name)
         pulumi.set(__self__, "policy", policy)
@@ -27,7 +27,7 @@ class MultiRegionAccessPointPolicyArgs:
     @pulumi.getter(name="mrapName")
     def mrap_name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-mrapname
+        The name of the Multi Region Access Point to apply policy
         """
         return pulumi.get(self, "mrap_name")
 
@@ -37,14 +37,14 @@ class MultiRegionAccessPointPolicyArgs:
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Input[Union[Any, str]]:
+    def policy(self) -> Any:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-policy
+        Policy document to apply to a Multi Region Access Point
         """
         return pulumi.get(self, "policy")
 
     @policy.setter
-    def policy(self, value: pulumi.Input[Union[Any, str]]):
+    def policy(self, value: Any):
         pulumi.set(self, "policy", value)
 
 
@@ -54,15 +54,15 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mrap_name: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy: Optional[Any] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html
+        The policy to be attached to a Multi Region Access Point
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] mrap_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-mrapname
-        :param pulumi.Input[Union[Any, str]] policy: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-policy
+        :param pulumi.Input[str] mrap_name: The name of the Multi Region Access Point to apply policy
+        :param Any policy: Policy document to apply to a Multi Region Access Point
         """
         ...
     @overload
@@ -71,7 +71,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
                  args: MultiRegionAccessPointPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html
+        The policy to be attached to a Multi Region Access Point
 
         :param str resource_name: The name of the resource.
         :param MultiRegionAccessPointPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -89,7 +89,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mrap_name: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input[Union[Any, str]]] = None,
+                 policy: Optional[Any] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -108,6 +108,7 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["policy_status"] = None
         super(MultiRegionAccessPointPolicy, __self__).__init__(
             'aws-native:s3:MultiRegionAccessPointPolicy',
             resource_name,
@@ -132,21 +133,30 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
 
         __props__.__dict__["mrap_name"] = None
         __props__.__dict__["policy"] = None
+        __props__.__dict__["policy_status"] = None
         return MultiRegionAccessPointPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="mrapName")
     def mrap_name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-mrapname
+        The name of the Multi Region Access Point to apply policy
         """
         return pulumi.get(self, "mrap_name")
 
     @property
     @pulumi.getter
-    def policy(self) -> pulumi.Output[str]:
+    def policy(self) -> pulumi.Output[Any]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-policy
+        Policy document to apply to a Multi Region Access Point
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="policyStatus")
+    def policy_status(self) -> pulumi.Output[Any]:
+        """
+        The Policy Status associated with this Multi Region Access Point
+        """
+        return pulumi.get(self, "policy_status")
 

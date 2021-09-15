@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.WAFv2.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html
+    /// Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.
     /// </summary>
     [OutputType]
     public sealed class WebACLExcludedRule
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html#cfn-wafv2-webacl-excludedrule-name
-        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

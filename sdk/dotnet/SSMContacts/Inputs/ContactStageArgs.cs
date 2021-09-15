@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.SSMContacts.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html
+    /// A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
     /// </summary>
     public sealed class ContactStageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-durationinminutes
+        /// The time to wait until beginning the next stage.
         /// </summary>
         [Input("durationInMinutes", required: true)]
         public Input<int> DurationInMinutes { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SSMContacts.Inputs
         private InputList<Inputs.ContactTargetsArgs>? _targets;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-targets
+        /// The contacts or contact methods that the escalation plan or engagement plan is engaging.
         /// </summary>
         public InputList<Inputs.ContactTargetsArgs> Targets
         {

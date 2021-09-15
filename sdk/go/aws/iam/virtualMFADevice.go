@@ -8,23 +8,18 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html
+// Resource Type definition for AWS::IAM::VirtualMFADevice
 type VirtualMFADevice struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-path
-	Path         pulumi.StringPtrOutput `pulumi:"path"`
-	SerialNumber pulumi.StringOutput    `pulumi:"serialNumber"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-users
-	Users pulumi.StringArrayOutput `pulumi:"users"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-virtualmfadevicename
-	VirtualMfaDeviceName pulumi.StringPtrOutput `pulumi:"virtualMfaDeviceName"`
+	Path                 pulumi.StringPtrOutput         `pulumi:"path"`
+	SerialNumber         pulumi.StringOutput            `pulumi:"serialNumber"`
+	Tags                 VirtualMFADeviceTagArrayOutput `pulumi:"tags"`
+	Users                pulumi.StringArrayOutput       `pulumi:"users"`
+	VirtualMfaDeviceName pulumi.StringPtrOutput         `pulumi:"virtualMfaDeviceName"`
 }
 
 // NewVirtualMFADevice registers a new resource with the given unique name, arguments, and options.
@@ -69,25 +64,17 @@ func (VirtualMFADeviceState) ElementType() reflect.Type {
 }
 
 type virtualMFADeviceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-path
-	Path *string `pulumi:"path"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-users
-	Users []string `pulumi:"users"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-virtualmfadevicename
-	VirtualMfaDeviceName *string `pulumi:"virtualMfaDeviceName"`
+	Path                 *string               `pulumi:"path"`
+	Tags                 []VirtualMFADeviceTag `pulumi:"tags"`
+	Users                []string              `pulumi:"users"`
+	VirtualMfaDeviceName *string               `pulumi:"virtualMfaDeviceName"`
 }
 
 // The set of arguments for constructing a VirtualMFADevice resource.
 type VirtualMFADeviceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-path
-	Path pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-users
-	Users pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-virtualmfadevicename
+	Path                 pulumi.StringPtrInput
+	Tags                 VirtualMFADeviceTagArrayInput
+	Users                pulumi.StringArrayInput
 	VirtualMfaDeviceName pulumi.StringPtrInput
 }
 

@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html
+    /// A port range to support for connections from  clients to your accelerator.
     /// </summary>
     [OutputType]
     public sealed class ListenerPortRange
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-fromport
-        /// </summary>
         public readonly int FromPort;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-globalaccelerator-listener-portrange.html#cfn-globalaccelerator-listener-portrange-toport
-        /// </summary>
         public readonly int ToPort;
 
         [OutputConstructor]

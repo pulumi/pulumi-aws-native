@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GreengrassV2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html
+    /// Resource for Greengrass component version.
     /// </summary>
     [AwsNativeResourceType("aws-native:greengrassv2:ComponentVersion")]
     public partial class ComponentVersion : Pulumi.CustomResource
@@ -24,23 +24,14 @@ namespace Pulumi.AwsNative.GreengrassV2
         [Output("componentVersion")]
         public Output<string> ComponentVersionValue { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
-        /// </summary>
         [Output("inlineRecipe")]
         public Output<string?> InlineRecipe { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
-        /// </summary>
         [Output("lambdaFunction")]
         public Output<Outputs.ComponentVersionLambdaFunctionRecipeSource?> LambdaFunction { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<object?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -87,29 +78,14 @@ namespace Pulumi.AwsNative.GreengrassV2
 
     public sealed class ComponentVersionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-inlinerecipe
-        /// </summary>
         [Input("inlineRecipe")]
         public Input<string>? InlineRecipe { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-lambdafunction
-        /// </summary>
         [Input("lambdaFunction")]
         public Input<Inputs.ComponentVersionLambdaFunctionRecipeSourceArgs>? LambdaFunction { get; set; }
 
         [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-componentversion.html#cfn-greengrassv2-componentversion-tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
+        public Input<object>? Tags { get; set; }
 
         public ComponentVersionArgs()
         {

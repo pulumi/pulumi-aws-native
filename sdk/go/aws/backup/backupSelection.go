@@ -11,14 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html
+// Resource Type definition for AWS::Backup::BackupSelection
 type BackupSelection struct {
 	pulumi.CustomResourceState
 
-	BackupPlanId pulumi.StringOutput `pulumi:"backupPlanId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
+	BackupPlanId    pulumi.StringOutput                              `pulumi:"backupPlanId"`
 	BackupSelection BackupSelectionBackupSelectionResourceTypeOutput `pulumi:"backupSelection"`
-	Id              pulumi.StringOutput                              `pulumi:"id"`
 	SelectionId     pulumi.StringOutput                              `pulumi:"selectionId"`
 }
 
@@ -29,9 +27,6 @@ func NewBackupSelection(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BackupPlanId == nil {
-		return nil, errors.New("invalid value for required argument 'BackupPlanId'")
-	}
 	if args.BackupSelection == nil {
 		return nil, errors.New("invalid value for required argument 'BackupSelection'")
 	}
@@ -67,17 +62,11 @@ func (BackupSelectionState) ElementType() reflect.Type {
 }
 
 type backupSelectionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupplanid
-	BackupPlanId string `pulumi:"backupPlanId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
 	BackupSelection BackupSelectionBackupSelectionResourceType `pulumi:"backupSelection"`
 }
 
 // The set of arguments for constructing a BackupSelection resource.
 type BackupSelectionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupplanid
-	BackupPlanId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
 	BackupSelection BackupSelectionBackupSelectionResourceTypeInput
 }
 

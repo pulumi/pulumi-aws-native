@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
+    /// Specifies how Amazon S3 Storage Lens metrics should be exported.
     /// </summary>
     [OutputType]
     public sealed class StorageLensDataExport
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
-        /// </summary>
         public readonly Outputs.StorageLensS3BucketDestination S3BucketDestination;
 
         [OutputConstructor]

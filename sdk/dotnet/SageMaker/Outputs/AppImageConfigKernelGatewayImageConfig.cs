@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html
+    /// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app.
     /// </summary>
     [OutputType]
     public sealed class AppImageConfigKernelGatewayImageConfig
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-filesystemconfig
+        /// The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
         /// </summary>
         public readonly Outputs.AppImageConfigFileSystemConfig? FileSystemConfig;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig-kernelspecs
+        /// The specification of the Jupyter kernels in the image.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppImageConfigKernelSpec> KernelSpecs;
 

@@ -11,27 +11,20 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html
+    /// Configuration to define what content transformation will be applied on which S3 Action.
     /// </summary>
     public sealed class AccessPointTransformationConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<string>? _actions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-actions
-        /// </summary>
         public InputList<string> Actions
         {
             get => _actions ?? (_actions = new InputList<string>());
             set => _actions = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-contenttransformation
-        /// </summary>
         [Input("contentTransformation")]
-        public InputUnion<System.Text.Json.JsonElement, string>? ContentTransformation { get; set; }
+        public Input<object>? ContentTransformation { get; set; }
 
         public AccessPointTransformationConfigurationArgs()
         {

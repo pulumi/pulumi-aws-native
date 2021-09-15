@@ -10,37 +10,34 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html
+    /// Resource Type definition for AWS::Config::ConfigurationAggregator
     /// </summary>
     [AwsNativeResourceType("aws-native:configuration:ConfigurationAggregator")]
     public partial class ConfigurationAggregator : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-accountaggregationsources
-        /// </summary>
         [Output("accountAggregationSources")]
         public Output<ImmutableArray<Outputs.ConfigurationAggregatorAccountAggregationSource>> AccountAggregationSources { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the aggregator.
+        /// </summary>
         [Output("configurationAggregatorArn")]
         public Output<string> ConfigurationAggregatorArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
+        /// The name of the aggregator.
         /// </summary>
         [Output("configurationAggregatorName")]
         public Output<string?> ConfigurationAggregatorName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource
-        /// </summary>
         [Output("organizationAggregationSource")]
         public Output<Outputs.ConfigurationAggregatorOrganizationAggregationSource?> OrganizationAggregationSource { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-tags
+        /// The tags for the configuration aggregator.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ConfigurationAggregatorTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -89,10 +86,6 @@ namespace Pulumi.AwsNative.Configuration
     {
         [Input("accountAggregationSources")]
         private InputList<Inputs.ConfigurationAggregatorAccountAggregationSourceArgs>? _accountAggregationSources;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-accountaggregationsources
-        /// </summary>
         public InputList<Inputs.ConfigurationAggregatorAccountAggregationSourceArgs> AccountAggregationSources
         {
             get => _accountAggregationSources ?? (_accountAggregationSources = new InputList<Inputs.ConfigurationAggregatorAccountAggregationSourceArgs>());
@@ -100,26 +93,23 @@ namespace Pulumi.AwsNative.Configuration
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
+        /// The name of the aggregator.
         /// </summary>
         [Input("configurationAggregatorName")]
         public Input<string>? ConfigurationAggregatorName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource
-        /// </summary>
         [Input("organizationAggregationSource")]
         public Input<Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs>? OrganizationAggregationSource { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.ConfigurationAggregatorTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-tags
+        /// The tags for the configuration aggregator.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.ConfigurationAggregatorTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ConfigurationAggregatorTagArgs>());
             set => _tags = value;
         }
 

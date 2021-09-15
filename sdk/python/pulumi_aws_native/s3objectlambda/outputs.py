@@ -11,13 +11,14 @@ from . import outputs
 
 __all__ = [
     'AccessPointObjectLambdaConfiguration',
+    'AccessPointPublicAccessBlockConfiguration',
     'AccessPointTransformationConfiguration',
 ]
 
 @pulumi.output_type
 class AccessPointObjectLambdaConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html
+    Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -48,11 +49,7 @@ class AccessPointObjectLambdaConfiguration(dict):
                  allowed_features: Optional[Sequence[str]] = None,
                  cloud_watch_metrics_enabled: Optional[bool] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html
-        :param str supporting_access_point: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-supportingaccesspoint
-        :param Sequence['AccessPointTransformationConfiguration'] transformation_configurations: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-transformationconfigurations
-        :param Sequence[str] allowed_features: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-allowedfeatures
-        :param bool cloud_watch_metrics_enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-cloudwatchmetricsenabled
+        Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
         """
         pulumi.set(__self__, "supporting_access_point", supporting_access_point)
         pulumi.set(__self__, "transformation_configurations", transformation_configurations)
@@ -64,40 +61,120 @@ class AccessPointObjectLambdaConfiguration(dict):
     @property
     @pulumi.getter(name="supportingAccessPoint")
     def supporting_access_point(self) -> str:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-supportingaccesspoint
-        """
         return pulumi.get(self, "supporting_access_point")
 
     @property
     @pulumi.getter(name="transformationConfigurations")
     def transformation_configurations(self) -> Sequence['outputs.AccessPointTransformationConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-transformationconfigurations
-        """
         return pulumi.get(self, "transformation_configurations")
 
     @property
     @pulumi.getter(name="allowedFeatures")
     def allowed_features(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-allowedfeatures
-        """
         return pulumi.get(self, "allowed_features")
 
     @property
     @pulumi.getter(name="cloudWatchMetricsEnabled")
     def cloud_watch_metrics_enabled(self) -> Optional[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-objectlambdaconfiguration.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration-cloudwatchmetricsenabled
-        """
         return pulumi.get(self, "cloud_watch_metrics_enabled")
+
+
+@pulumi.output_type
+class AccessPointPublicAccessBlockConfiguration(dict):
+    """
+    The Public Access Block Configuration is used to block policies that would allow public access to this Object lambda Access Point. All public access to Object lambda Access Points are blocked by default, and any policy that would give public access to them will be also blocked. This behavior cannot be changed for Object lambda Access Points.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockPublicAcls":
+            suggest = "block_public_acls"
+        elif key == "blockPublicPolicy":
+            suggest = "block_public_policy"
+        elif key == "ignorePublicAcls":
+            suggest = "ignore_public_acls"
+        elif key == "restrictPublicBuckets":
+            suggest = "restrict_public_buckets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessPointPublicAccessBlockConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessPointPublicAccessBlockConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessPointPublicAccessBlockConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 block_public_acls: Optional[bool] = None,
+                 block_public_policy: Optional[bool] = None,
+                 ignore_public_acls: Optional[bool] = None,
+                 restrict_public_buckets: Optional[bool] = None):
+        """
+        The Public Access Block Configuration is used to block policies that would allow public access to this Object lambda Access Point. All public access to Object lambda Access Points are blocked by default, and any policy that would give public access to them will be also blocked. This behavior cannot be changed for Object lambda Access Points.
+        :param bool block_public_acls: Specifies whether Amazon S3 should block public access control lists (ACLs) to this object lambda access point. Setting this element to TRUE causes the following behavior:
+               - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+                - PUT Object calls fail if the request includes a public ACL.
+               . - PUT Bucket calls fail if the request includes a public ACL.
+               Enabling this setting doesn't affect existing policies or ACLs.
+        :param bool block_public_policy: Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+        :param bool ignore_public_acls: Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+        :param bool restrict_public_buckets: Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+               Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+        """
+        if block_public_acls is not None:
+            pulumi.set(__self__, "block_public_acls", block_public_acls)
+        if block_public_policy is not None:
+            pulumi.set(__self__, "block_public_policy", block_public_policy)
+        if ignore_public_acls is not None:
+            pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
+        if restrict_public_buckets is not None:
+            pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
+
+    @property
+    @pulumi.getter(name="blockPublicAcls")
+    def block_public_acls(self) -> Optional[bool]:
+        """
+        Specifies whether Amazon S3 should block public access control lists (ACLs) to this object lambda access point. Setting this element to TRUE causes the following behavior:
+        - PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+         - PUT Object calls fail if the request includes a public ACL.
+        . - PUT Bucket calls fail if the request includes a public ACL.
+        Enabling this setting doesn't affect existing policies or ACLs.
+        """
+        return pulumi.get(self, "block_public_acls")
+
+    @property
+    @pulumi.getter(name="blockPublicPolicy")
+    def block_public_policy(self) -> Optional[bool]:
+        """
+        Specifies whether Amazon S3 should block public bucket policies for buckets in this account. Setting this element to TRUE causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. Enabling this setting doesn't affect existing bucket policies.
+        """
+        return pulumi.get(self, "block_public_policy")
+
+    @property
+    @pulumi.getter(name="ignorePublicAcls")
+    def ignore_public_acls(self) -> Optional[bool]:
+        """
+        Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this element to TRUE causes Amazon S3 to ignore all public ACLs on buckets in this account and any objects that they contain. Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.
+        """
+        return pulumi.get(self, "ignore_public_acls")
+
+    @property
+    @pulumi.getter(name="restrictPublicBuckets")
+    def restrict_public_buckets(self) -> Optional[bool]:
+        """
+        Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to TRUE restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.
+        Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.
+        """
+        return pulumi.get(self, "restrict_public_buckets")
 
 
 @pulumi.output_type
 class AccessPointTransformationConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html
+    Configuration to define what content transformation will be applied on which S3 Action.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -118,11 +195,9 @@ class AccessPointTransformationConfiguration(dict):
 
     def __init__(__self__, *,
                  actions: Optional[Sequence[str]] = None,
-                 content_transformation: Optional[str] = None):
+                 content_transformation: Optional[Any] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html
-        :param Sequence[str] actions: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-actions
-        :param Union[Any, str] content_transformation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-contenttransformation
+        Configuration to define what content transformation will be applied on which S3 Action.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -132,17 +207,11 @@ class AccessPointTransformationConfiguration(dict):
     @property
     @pulumi.getter
     def actions(self) -> Optional[Sequence[str]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-actions
-        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="contentTransformation")
-    def content_transformation(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-contenttransformation
-        """
+    def content_transformation(self) -> Optional[Any]:
         return pulumi.get(self, "content_transformation")
 
 

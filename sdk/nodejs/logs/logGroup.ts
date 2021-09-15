@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
+ * Resource schema for AWS::Logs::LogGroup
  */
 export class LogGroup extends pulumi.CustomResource {
     /**
@@ -34,17 +34,20 @@ export class LogGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogGroup.__pulumiType;
     }
 
+    /**
+     * The CloudWatch log group ARN.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid
+     * The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
+     * The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
      */
     public readonly logGroupName!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays
+     * The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
      */
     public readonly retentionInDays!: pulumi.Output<number | undefined>;
 
@@ -81,15 +84,15 @@ export class LogGroup extends pulumi.CustomResource {
  */
 export interface LogGroupArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid
+     * The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
+     * The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
      */
     logGroupName?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays
+     * The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
      */
     retentionInDays?: pulumi.Input<number>;
 }

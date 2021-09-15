@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html
+    /// &lt;p&gt;The source entity of the template.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class TemplateTemplateSourceEntity
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourceanalysis
-        /// </summary>
         public readonly Outputs.TemplateTemplateSourceAnalysis? SourceAnalysis;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceentity.html#cfn-quicksight-template-templatesourceentity-sourcetemplate
-        /// </summary>
         public readonly Outputs.TemplateTemplateSourceTemplate? SourceTemplate;
 
         [OutputConstructor]

@@ -10,9 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html
+// Information about notification channels you have configured with DevOps Guru.
 type NotificationChannelNotificationChannelConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html#cfn-devopsguru-notificationchannel-notificationchannelconfig-sns
 	Sns *NotificationChannelSnsChannelConfig `pulumi:"sns"`
 }
 
@@ -27,9 +26,8 @@ type NotificationChannelNotificationChannelConfigInput interface {
 	ToNotificationChannelNotificationChannelConfigOutputWithContext(context.Context) NotificationChannelNotificationChannelConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html
+// Information about notification channels you have configured with DevOps Guru.
 type NotificationChannelNotificationChannelConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html#cfn-devopsguru-notificationchannel-notificationchannelconfig-sns
 	Sns NotificationChannelSnsChannelConfigPtrInput `pulumi:"sns"`
 }
 
@@ -86,7 +84,7 @@ func (i *notificationChannelNotificationChannelConfigPtrType) ToNotificationChan
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelNotificationChannelConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html
+// Information about notification channels you have configured with DevOps Guru.
 type NotificationChannelNotificationChannelConfigOutput struct{ *pulumi.OutputState }
 
 func (NotificationChannelNotificationChannelConfigOutput) ElementType() reflect.Type {
@@ -111,7 +109,6 @@ func (o NotificationChannelNotificationChannelConfigOutput) ToNotificationChanne
 	}).(NotificationChannelNotificationChannelConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html#cfn-devopsguru-notificationchannel-notificationchannelconfig-sns
 func (o NotificationChannelNotificationChannelConfigOutput) Sns() NotificationChannelSnsChannelConfigPtrOutput {
 	return o.ApplyT(func(v NotificationChannelNotificationChannelConfig) *NotificationChannelSnsChannelConfig {
 		return v.Sns
@@ -142,7 +139,6 @@ func (o NotificationChannelNotificationChannelConfigPtrOutput) Elem() Notificati
 	}).(NotificationChannelNotificationChannelConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html#cfn-devopsguru-notificationchannel-notificationchannelconfig-sns
 func (o NotificationChannelNotificationChannelConfigPtrOutput) Sns() NotificationChannelSnsChannelConfigPtrOutput {
 	return o.ApplyT(func(v *NotificationChannelNotificationChannelConfig) *NotificationChannelSnsChannelConfig {
 		if v == nil {
@@ -152,9 +148,8 @@ func (o NotificationChannelNotificationChannelConfigPtrOutput) Sns() Notificatio
 	}).(NotificationChannelSnsChannelConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html
+// Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
 type NotificationChannelSnsChannelConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html#cfn-devopsguru-notificationchannel-snschannelconfig-topicarn
 	TopicArn *string `pulumi:"topicArn"`
 }
 
@@ -169,9 +164,8 @@ type NotificationChannelSnsChannelConfigInput interface {
 	ToNotificationChannelSnsChannelConfigOutputWithContext(context.Context) NotificationChannelSnsChannelConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html
+// Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
 type NotificationChannelSnsChannelConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html#cfn-devopsguru-notificationchannel-snschannelconfig-topicarn
 	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
 }
 
@@ -228,7 +222,7 @@ func (i *notificationChannelSnsChannelConfigPtrType) ToNotificationChannelSnsCha
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelSnsChannelConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html
+// Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
 type NotificationChannelSnsChannelConfigOutput struct{ *pulumi.OutputState }
 
 func (NotificationChannelSnsChannelConfigOutput) ElementType() reflect.Type {
@@ -253,7 +247,6 @@ func (o NotificationChannelSnsChannelConfigOutput) ToNotificationChannelSnsChann
 	}).(NotificationChannelSnsChannelConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html#cfn-devopsguru-notificationchannel-snschannelconfig-topicarn
 func (o NotificationChannelSnsChannelConfigOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NotificationChannelSnsChannelConfig) *string { return v.TopicArn }).(pulumi.StringPtrOutput)
 }
@@ -282,7 +275,6 @@ func (o NotificationChannelSnsChannelConfigPtrOutput) Elem() NotificationChannel
 	}).(NotificationChannelSnsChannelConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html#cfn-devopsguru-notificationchannel-snschannelconfig-topicarn
 func (o NotificationChannelSnsChannelConfigPtrOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationChannelSnsChannelConfig) *string {
 		if v == nil {
@@ -292,9 +284,9 @@ func (o NotificationChannelSnsChannelConfigPtrOutput) TopicArn() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html
+// CloudFormation resource for DevOps Guru to monitor
 type ResourceCollectionCloudFormationCollectionFilter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames
+	// An array of CloudFormation stack names.
 	StackNames []string `pulumi:"stackNames"`
 }
 
@@ -309,9 +301,9 @@ type ResourceCollectionCloudFormationCollectionFilterInput interface {
 	ToResourceCollectionCloudFormationCollectionFilterOutputWithContext(context.Context) ResourceCollectionCloudFormationCollectionFilterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html
+// CloudFormation resource for DevOps Guru to monitor
 type ResourceCollectionCloudFormationCollectionFilterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames
+	// An array of CloudFormation stack names.
 	StackNames pulumi.StringArrayInput `pulumi:"stackNames"`
 }
 
@@ -368,7 +360,7 @@ func (i *resourceCollectionCloudFormationCollectionFilterPtrType) ToResourceColl
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceCollectionCloudFormationCollectionFilterPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html
+// CloudFormation resource for DevOps Guru to monitor
 type ResourceCollectionCloudFormationCollectionFilterOutput struct{ *pulumi.OutputState }
 
 func (ResourceCollectionCloudFormationCollectionFilterOutput) ElementType() reflect.Type {
@@ -393,7 +385,7 @@ func (o ResourceCollectionCloudFormationCollectionFilterOutput) ToResourceCollec
 	}).(ResourceCollectionCloudFormationCollectionFilterPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames
+// An array of CloudFormation stack names.
 func (o ResourceCollectionCloudFormationCollectionFilterOutput) StackNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceCollectionCloudFormationCollectionFilter) []string { return v.StackNames }).(pulumi.StringArrayOutput)
 }
@@ -422,7 +414,7 @@ func (o ResourceCollectionCloudFormationCollectionFilterPtrOutput) Elem() Resour
 	}).(ResourceCollectionCloudFormationCollectionFilterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames
+// An array of CloudFormation stack names.
 func (o ResourceCollectionCloudFormationCollectionFilterPtrOutput) StackNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceCollectionCloudFormationCollectionFilter) []string {
 		if v == nil {
@@ -432,9 +424,8 @@ func (o ResourceCollectionCloudFormationCollectionFilterPtrOutput) StackNames() 
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html
+// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 type ResourceCollectionResourceCollectionFilter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-cloudformation
 	CloudFormation *ResourceCollectionCloudFormationCollectionFilter `pulumi:"cloudFormation"`
 }
 
@@ -449,9 +440,8 @@ type ResourceCollectionResourceCollectionFilterInput interface {
 	ToResourceCollectionResourceCollectionFilterOutputWithContext(context.Context) ResourceCollectionResourceCollectionFilterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html
+// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 type ResourceCollectionResourceCollectionFilterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-cloudformation
 	CloudFormation ResourceCollectionCloudFormationCollectionFilterPtrInput `pulumi:"cloudFormation"`
 }
 
@@ -508,7 +498,7 @@ func (i *resourceCollectionResourceCollectionFilterPtrType) ToResourceCollection
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceCollectionResourceCollectionFilterPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html
+// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
 type ResourceCollectionResourceCollectionFilterOutput struct{ *pulumi.OutputState }
 
 func (ResourceCollectionResourceCollectionFilterOutput) ElementType() reflect.Type {
@@ -533,7 +523,6 @@ func (o ResourceCollectionResourceCollectionFilterOutput) ToResourceCollectionRe
 	}).(ResourceCollectionResourceCollectionFilterPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-cloudformation
 func (o ResourceCollectionResourceCollectionFilterOutput) CloudFormation() ResourceCollectionCloudFormationCollectionFilterPtrOutput {
 	return o.ApplyT(func(v ResourceCollectionResourceCollectionFilter) *ResourceCollectionCloudFormationCollectionFilter {
 		return v.CloudFormation
@@ -564,7 +553,6 @@ func (o ResourceCollectionResourceCollectionFilterPtrOutput) Elem() ResourceColl
 	}).(ResourceCollectionResourceCollectionFilterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-cloudformation
 func (o ResourceCollectionResourceCollectionFilterPtrOutput) CloudFormation() ResourceCollectionCloudFormationCollectionFilterPtrOutput {
 	return o.ApplyT(func(v *ResourceCollectionResourceCollectionFilter) *ResourceCollectionCloudFormationCollectionFilter {
 		if v == nil {

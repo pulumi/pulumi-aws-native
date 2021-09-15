@@ -10,31 +10,37 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html
+    /// Resource Type definition for AWS::IoT::TopicRuleDestination
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:TopicRuleDestination")]
     public partial class TopicRuleDestination : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN).
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
+        /// HTTP URL destination properties.
         /// </summary>
         [Output("httpUrlProperties")]
         public Output<Outputs.TopicRuleDestinationHttpUrlDestinationSummary?> HttpUrlProperties { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
+        /// The status of the TopicRuleDestination.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The reasoning for the current status of the TopicRuleDestination.
+        /// </summary>
         [Output("statusReason")]
         public Output<string> StatusReason { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
+        /// VPC destination properties.
         /// </summary>
         [Output("vpcProperties")]
         public Output<Outputs.TopicRuleDestinationVpcDestinationProperties?> VpcProperties { get; private set; } = null!;
@@ -85,19 +91,19 @@ namespace Pulumi.AwsNative.IoT
     public sealed class TopicRuleDestinationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-httpurlproperties
+        /// HTTP URL destination properties.
         /// </summary>
         [Input("httpUrlProperties")]
         public Input<Inputs.TopicRuleDestinationHttpUrlDestinationSummaryArgs>? HttpUrlProperties { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-status
+        /// The status of the TopicRuleDestination.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicruledestination.html#cfn-iot-topicruledestination-vpcproperties
+        /// VPC destination properties.
         /// </summary>
         [Input("vpcProperties")]
         public Input<Inputs.TopicRuleDestinationVpcDestinationPropertiesArgs>? VpcProperties { get; set; }

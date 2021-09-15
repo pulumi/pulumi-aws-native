@@ -11,18 +11,15 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html
+    /// Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
     /// </summary>
     [OutputType]
     public sealed class DetectorModelIotEvents
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-inputname
+        /// The name of the AWS IoT Events input where the data is sent.
         /// </summary>
         public readonly string InputName;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotevents.html#cfn-iotevents-detectormodel-iotevents-payload
-        /// </summary>
         public readonly Outputs.DetectorModelPayload? Payload;
 
         [OutputConstructor]

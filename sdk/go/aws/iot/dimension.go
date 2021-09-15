@@ -8,22 +8,22 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html
+// A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
 type Dimension struct {
 	pulumi.CustomResourceState
 
+	// The ARN (Amazon resource name) of the created dimension.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-name
+	// A unique identifier for the dimension.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-stringvalues
+	// Specifies the value or list of values for the dimension.
 	StringValues pulumi.StringArrayOutput `pulumi:"stringValues"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-type
+	// Metadata that can be used to manage the dimension.
+	Tags DimensionTagArrayOutput `pulumi:"tags"`
+	// Specifies the type of the dimension.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -72,25 +72,25 @@ func (DimensionState) ElementType() reflect.Type {
 }
 
 type dimensionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-name
+	// A unique identifier for the dimension.
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-stringvalues
+	// Specifies the value or list of values for the dimension.
 	StringValues []string `pulumi:"stringValues"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-type
+	// Metadata that can be used to manage the dimension.
+	Tags []DimensionTag `pulumi:"tags"`
+	// Specifies the type of the dimension.
 	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Dimension resource.
 type DimensionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-name
+	// A unique identifier for the dimension.
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-stringvalues
+	// Specifies the value or list of values for the dimension.
 	StringValues pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-type
+	// Metadata that can be used to manage the dimension.
+	Tags DimensionTagArrayInput
+	// Specifies the type of the dimension.
 	Type pulumi.StringInput
 }
 

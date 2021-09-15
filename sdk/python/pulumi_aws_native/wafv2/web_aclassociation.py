@@ -17,8 +17,6 @@ class WebACLAssociationArgs:
                  web_acl_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a WebACLAssociation resource.
-        :param pulumi.Input[str] resource_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
-        :param pulumi.Input[str] web_acl_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
         pulumi.set(__self__, "web_acl_arn", web_acl_arn)
@@ -26,9 +24,6 @@ class WebACLAssociationArgs:
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
-        """
         return pulumi.get(self, "resource_arn")
 
     @resource_arn.setter
@@ -38,9 +33,6 @@ class WebACLAssociationArgs:
     @property
     @pulumi.getter(name="webACLArn")
     def web_acl_arn(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
-        """
         return pulumi.get(self, "web_acl_arn")
 
     @web_acl_arn.setter
@@ -57,12 +49,10 @@ class WebACLAssociation(pulumi.CustomResource):
                  web_acl_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html
+        Associates WebACL to Application Load Balancer, CloudFront or API Gateway.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] resource_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
-        :param pulumi.Input[str] web_acl_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
         """
         ...
     @overload
@@ -71,7 +61,7 @@ class WebACLAssociation(pulumi.CustomResource):
                  args: WebACLAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html
+        Associates WebACL to Application Load Balancer, CloudFront or API Gateway.
 
         :param str resource_name: The name of the resource.
         :param WebACLAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -137,16 +127,10 @@ class WebACLAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
-        """
         return pulumi.get(self, "resource_arn")
 
     @property
     @pulumi.getter(name="webACLArn")
     def web_acl_arn(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
-        """
         return pulumi.get(self, "web_acl_arn")
 

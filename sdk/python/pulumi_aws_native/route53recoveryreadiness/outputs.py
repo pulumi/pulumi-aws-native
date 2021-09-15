@@ -10,17 +10,78 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'CellTag',
+    'ReadinessCheckTag',
+    'RecoveryGroupTag',
     'ResourceSetDNSTargetResource',
     'ResourceSetNLBResource',
     'ResourceSetR53ResourceRecord',
     'ResourceSetResource',
+    'ResourceSetTag',
     'ResourceSetTargetResource',
 ]
 
 @pulumi.output_type
+class CellTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: Sequence[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Sequence[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ReadinessCheckTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: Sequence[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Sequence[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RecoveryGroupTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: Sequence[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Sequence[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class ResourceSetDNSTargetResource(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html
+    A component for DNS/routing control readiness checks.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -54,12 +115,11 @@ class ResourceSetDNSTargetResource(dict):
                  record_type: Optional[str] = None,
                  target_resource: Optional['outputs.ResourceSetTargetResource'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html
-        :param str domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-domainname
-        :param str hosted_zone_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-hostedzonearn
-        :param str record_set_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordsetid
-        :param str record_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordtype
-        :param 'ResourceSetTargetResource' target_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-targetresource
+        A component for DNS/routing control readiness checks.
+        :param str domain_name: The domain name that acts as an ingress point to a portion of the customer application.
+        :param str hosted_zone_arn: The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
+        :param str record_set_id: The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
+        :param str record_type: The type of DNS record of the target resource.
         """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
@@ -76,7 +136,7 @@ class ResourceSetDNSTargetResource(dict):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-domainname
+        The domain name that acts as an ingress point to a portion of the customer application.
         """
         return pulumi.get(self, "domain_name")
 
@@ -84,7 +144,7 @@ class ResourceSetDNSTargetResource(dict):
     @pulumi.getter(name="hostedZoneArn")
     def hosted_zone_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-hostedzonearn
+        The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
         """
         return pulumi.get(self, "hosted_zone_arn")
 
@@ -92,7 +152,7 @@ class ResourceSetDNSTargetResource(dict):
     @pulumi.getter(name="recordSetId")
     def record_set_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordsetid
+        The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
         """
         return pulumi.get(self, "record_set_id")
 
@@ -100,29 +160,26 @@ class ResourceSetDNSTargetResource(dict):
     @pulumi.getter(name="recordType")
     def record_type(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordtype
+        The type of DNS record of the target resource.
         """
         return pulumi.get(self, "record_type")
 
     @property
     @pulumi.getter(name="targetResource")
     def target_resource(self) -> Optional['outputs.ResourceSetTargetResource']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-targetresource
-        """
         return pulumi.get(self, "target_resource")
 
 
 @pulumi.output_type
 class ResourceSetNLBResource(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html
+    The Network Load Balancer resource that a DNS target resource points to.
     """
     def __init__(__self__, *,
                  arn: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html
-        :param str arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html#cfn-route53recoveryreadiness-resourceset-nlbresource-arn
+        The Network Load Balancer resource that a DNS target resource points to.
+        :param str arn: A Network Load Balancer resource Amazon Resource Name (ARN).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -131,7 +188,7 @@ class ResourceSetNLBResource(dict):
     @pulumi.getter
     def arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html#cfn-route53recoveryreadiness-resourceset-nlbresource-arn
+        A Network Load Balancer resource Amazon Resource Name (ARN).
         """
         return pulumi.get(self, "arn")
 
@@ -139,7 +196,7 @@ class ResourceSetNLBResource(dict):
 @pulumi.output_type
 class ResourceSetR53ResourceRecord(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html
+    The Route 53 resource that a DNS target resource record points to.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -164,9 +221,9 @@ class ResourceSetR53ResourceRecord(dict):
                  domain_name: Optional[str] = None,
                  record_set_id: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html
-        :param str domain_name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-domainname
-        :param str record_set_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-recordsetid
+        The Route 53 resource that a DNS target resource record points to.
+        :param str domain_name: The DNS target domain name.
+        :param str record_set_id: The Resource Record set id.
         """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
@@ -177,7 +234,7 @@ class ResourceSetR53ResourceRecord(dict):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-domainname
+        The DNS target domain name.
         """
         return pulumi.get(self, "domain_name")
 
@@ -185,7 +242,7 @@ class ResourceSetR53ResourceRecord(dict):
     @pulumi.getter(name="recordSetId")
     def record_set_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-recordsetid
+        The Resource Record set id.
         """
         return pulumi.get(self, "record_set_id")
 
@@ -193,7 +250,7 @@ class ResourceSetR53ResourceRecord(dict):
 @pulumi.output_type
 class ResourceSetResource(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html
+    The resource element of a ResourceSet
     """
     @staticmethod
     def __key_warning(key: str):
@@ -224,11 +281,10 @@ class ResourceSetResource(dict):
                  readiness_scopes: Optional[Sequence[str]] = None,
                  resource_arn: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html
-        :param str component_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-componentid
-        :param 'ResourceSetDNSTargetResource' dns_target_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-dnstargetresource
-        :param Sequence[str] readiness_scopes: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-readinessscopes
-        :param str resource_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-resourcearn
+        The resource element of a ResourceSet
+        :param str component_id: The component identifier of the resource, generated when DNS target resource is used.
+        :param Sequence[str] readiness_scopes: A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
+        :param str resource_arn: The Amazon Resource Name (ARN) of the AWS resource.
         """
         if component_id is not None:
             pulumi.set(__self__, "component_id", component_id)
@@ -243,23 +299,20 @@ class ResourceSetResource(dict):
     @pulumi.getter(name="componentId")
     def component_id(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-componentid
+        The component identifier of the resource, generated when DNS target resource is used.
         """
         return pulumi.get(self, "component_id")
 
     @property
     @pulumi.getter(name="dnsTargetResource")
     def dns_target_resource(self) -> Optional['outputs.ResourceSetDNSTargetResource']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-dnstargetresource
-        """
         return pulumi.get(self, "dns_target_resource")
 
     @property
     @pulumi.getter(name="readinessScopes")
     def readiness_scopes(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-readinessscopes
+        A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
         """
         return pulumi.get(self, "readiness_scopes")
 
@@ -267,15 +320,34 @@ class ResourceSetResource(dict):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-resourcearn
+        The Amazon Resource Name (ARN) of the AWS resource.
         """
         return pulumi.get(self, "resource_arn")
 
 
 @pulumi.output_type
+class ResourceSetTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: Sequence[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Sequence[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class ResourceSetTargetResource(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html
+    The target resource that the Route 53 record points to.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -300,9 +372,7 @@ class ResourceSetTargetResource(dict):
                  n_lb_resource: Optional['outputs.ResourceSetNLBResource'] = None,
                  r53_resource: Optional['outputs.ResourceSetR53ResourceRecord'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html
-        :param 'ResourceSetNLBResource' n_lb_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-nlbresource
-        :param 'ResourceSetR53ResourceRecord' r53_resource: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-r53resource
+        The target resource that the Route 53 record points to.
         """
         if n_lb_resource is not None:
             pulumi.set(__self__, "n_lb_resource", n_lb_resource)
@@ -312,17 +382,11 @@ class ResourceSetTargetResource(dict):
     @property
     @pulumi.getter(name="nLBResource")
     def n_lb_resource(self) -> Optional['outputs.ResourceSetNLBResource']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-nlbresource
-        """
         return pulumi.get(self, "n_lb_resource")
 
     @property
     @pulumi.getter(name="r53Resource")
     def r53_resource(self) -> Optional['outputs.ResourceSetR53ResourceRecord']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-r53resource
-        """
         return pulumi.get(self, "r53_resource")
 
 

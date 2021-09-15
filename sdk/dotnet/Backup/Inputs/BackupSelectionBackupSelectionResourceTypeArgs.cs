@@ -10,23 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html
-    /// </summary>
     public sealed class BackupSelectionBackupSelectionResourceTypeArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-iamrolearn
-        /// </summary>
         [Input("iamRoleArn", required: true)]
         public Input<string> IamRoleArn { get; set; } = null!;
 
         [Input("listOfTags")]
         private InputList<Inputs.BackupSelectionConditionResourceTypeArgs>? _listOfTags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-listoftags
-        /// </summary>
         public InputList<Inputs.BackupSelectionConditionResourceTypeArgs> ListOfTags
         {
             get => _listOfTags ?? (_listOfTags = new InputList<Inputs.BackupSelectionConditionResourceTypeArgs>());
@@ -35,19 +25,12 @@ namespace Pulumi.AwsNative.Backup.Inputs
 
         [Input("resources")]
         private InputList<string>? _resources;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-resources
-        /// </summary>
         public InputList<string> Resources
         {
             get => _resources ?? (_resources = new InputList<string>());
             set => _resources = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-selectionname
-        /// </summary>
         [Input("selectionName", required: true)]
         public Input<string> SelectionName { get; set; } = null!;
 

@@ -19,7 +19,7 @@ __all__ = [
 @pulumi.output_type
 class EnvironmentLoggingConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html
+    Logging configuration for the environment.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -53,12 +53,7 @@ class EnvironmentLoggingConfiguration(dict):
                  webserver_logs: Optional['outputs.EnvironmentModuleLoggingConfiguration'] = None,
                  worker_logs: Optional['outputs.EnvironmentModuleLoggingConfiguration'] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html
-        :param 'EnvironmentModuleLoggingConfiguration' dag_processing_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-dagprocessinglogs
-        :param 'EnvironmentModuleLoggingConfiguration' scheduler_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-schedulerlogs
-        :param 'EnvironmentModuleLoggingConfiguration' task_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-tasklogs
-        :param 'EnvironmentModuleLoggingConfiguration' webserver_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-webserverlogs
-        :param 'EnvironmentModuleLoggingConfiguration' worker_logs: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-workerlogs
+        Logging configuration for the environment.
         """
         if dag_processing_logs is not None:
             pulumi.set(__self__, "dag_processing_logs", dag_processing_logs)
@@ -74,48 +69,33 @@ class EnvironmentLoggingConfiguration(dict):
     @property
     @pulumi.getter(name="dagProcessingLogs")
     def dag_processing_logs(self) -> Optional['outputs.EnvironmentModuleLoggingConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-dagprocessinglogs
-        """
         return pulumi.get(self, "dag_processing_logs")
 
     @property
     @pulumi.getter(name="schedulerLogs")
     def scheduler_logs(self) -> Optional['outputs.EnvironmentModuleLoggingConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-schedulerlogs
-        """
         return pulumi.get(self, "scheduler_logs")
 
     @property
     @pulumi.getter(name="taskLogs")
     def task_logs(self) -> Optional['outputs.EnvironmentModuleLoggingConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-tasklogs
-        """
         return pulumi.get(self, "task_logs")
 
     @property
     @pulumi.getter(name="webserverLogs")
     def webserver_logs(self) -> Optional['outputs.EnvironmentModuleLoggingConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-webserverlogs
-        """
         return pulumi.get(self, "webserver_logs")
 
     @property
     @pulumi.getter(name="workerLogs")
     def worker_logs(self) -> Optional['outputs.EnvironmentModuleLoggingConfiguration']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-workerlogs
-        """
         return pulumi.get(self, "worker_logs")
 
 
 @pulumi.output_type
 class EnvironmentModuleLoggingConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html
+    Logging configuration for a specific airflow component.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -141,10 +121,7 @@ class EnvironmentModuleLoggingConfiguration(dict):
                  enabled: Optional[bool] = None,
                  log_level: Optional[str] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html
-        :param str cloud_watch_log_group_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-cloudwatchloggrouparn
-        :param bool enabled: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-enabled
-        :param str log_level: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-loglevel
+        Logging configuration for a specific airflow component.
         """
         if cloud_watch_log_group_arn is not None:
             pulumi.set(__self__, "cloud_watch_log_group_arn", cloud_watch_log_group_arn)
@@ -156,32 +133,23 @@ class EnvironmentModuleLoggingConfiguration(dict):
     @property
     @pulumi.getter(name="cloudWatchLogGroupArn")
     def cloud_watch_log_group_arn(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-cloudwatchloggrouparn
-        """
         return pulumi.get(self, "cloud_watch_log_group_arn")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-enabled
-        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-loglevel
-        """
         return pulumi.get(self, "log_level")
 
 
 @pulumi.output_type
 class EnvironmentNetworkConfiguration(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html
+    Configures the network resources of the environment.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -206,9 +174,9 @@ class EnvironmentNetworkConfiguration(dict):
                  security_group_ids: Optional[Sequence[str]] = None,
                  subnet_ids: Optional[Sequence[str]] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html
-        :param Sequence[str] security_group_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
-        :param Sequence[str] subnet_ids: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
+        Configures the network resources of the environment.
+        :param Sequence[str] security_group_ids: A list of security groups to use for the environment.
+        :param Sequence[str] subnet_ids: A list of subnets to use for the environment. These must be private subnets, in the same VPC, in two different availability zones.
         """
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -219,7 +187,7 @@ class EnvironmentNetworkConfiguration(dict):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
+        A list of security groups to use for the environment.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -227,7 +195,7 @@ class EnvironmentNetworkConfiguration(dict):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
+        A list of subnets to use for the environment. These must be private subnets, in the same VPC, in two different availability zones.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -235,11 +203,11 @@ class EnvironmentNetworkConfiguration(dict):
 @pulumi.output_type
 class EnvironmentTagMap(dict):
     """
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-tagmap.html
+    A map of tags for the environment.
     """
     def __init__(__self__):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-tagmap.html
+        A map of tags for the environment.
         """
         pass
 

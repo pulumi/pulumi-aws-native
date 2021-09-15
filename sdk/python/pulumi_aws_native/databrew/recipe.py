@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['RecipeArgs', 'Recipe']
@@ -20,13 +18,11 @@ class RecipeArgs:
                  name: pulumi.Input[str],
                  steps: pulumi.Input[Sequence[pulumi.Input['RecipeRecipeStepArgs']]],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeTagArgs']]]] = None):
         """
         The set of arguments for constructing a Recipe resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-name
-        :param pulumi.Input[Sequence[pulumi.Input['RecipeRecipeStepArgs']]] steps: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-steps
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-description
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-tags
+        :param pulumi.Input[str] name: Recipe name
+        :param pulumi.Input[str] description: Description of the recipe
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "steps", steps)
@@ -39,7 +35,7 @@ class RecipeArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-name
+        Recipe name
         """
         return pulumi.get(self, "name")
 
@@ -50,9 +46,6 @@ class RecipeArgs:
     @property
     @pulumi.getter
     def steps(self) -> pulumi.Input[Sequence[pulumi.Input['RecipeRecipeStepArgs']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-steps
-        """
         return pulumi.get(self, "steps")
 
     @steps.setter
@@ -63,7 +56,7 @@ class RecipeArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-description
+        Description of the recipe
         """
         return pulumi.get(self, "description")
 
@@ -73,14 +66,11 @@ class RecipeArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-tags
-        """
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecipeTagArgs']]]]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -92,17 +82,15 @@ class Recipe(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeRecipeStepArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html
+        Resource schema for AWS::DataBrew::Recipe.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-description
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeRecipeStepArgs']]]] steps: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-steps
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-tags
+        :param pulumi.Input[str] description: Description of the recipe
+        :param pulumi.Input[str] name: Recipe name
         """
         ...
     @overload
@@ -111,7 +99,7 @@ class Recipe(pulumi.CustomResource):
                  args: RecipeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html
+        Resource schema for AWS::DataBrew::Recipe.
 
         :param str resource_name: The name of the resource.
         :param RecipeArgs args: The arguments to use to populate this resource's properties.
@@ -131,7 +119,7 @@ class Recipe(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeRecipeStepArgs']]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -184,7 +172,7 @@ class Recipe(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-description
+        Description of the recipe
         """
         return pulumi.get(self, "description")
 
@@ -192,23 +180,17 @@ class Recipe(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-name
+        Recipe name
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def steps(self) -> pulumi.Output[Sequence['outputs.RecipeRecipeStep']]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-steps
-        """
         return pulumi.get(self, "steps")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-recipe.html#cfn-databrew-recipe-tags
-        """
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RecipeTag']]]:
         return pulumi.get(self, "tags")
 

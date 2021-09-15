@@ -11,19 +11,13 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html
+    /// Structure that contains X.509 Policy qualifier information.
     /// </summary>
     public sealed class CertificatePolicyQualifierInfoArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-policyqualifierid
-        /// </summary>
         [Input("policyQualifierId", required: true)]
         public Input<string> PolicyQualifierId { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html#cfn-acmpca-certificate-policyqualifierinfo-qualifier
-        /// </summary>
         [Input("qualifier", required: true)]
         public Input<Inputs.CertificateQualifierArgs> Qualifier { get; set; } = null!;
 

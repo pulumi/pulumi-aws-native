@@ -10,83 +10,47 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html
+    /// Resource Type definition for AWS::EC2::EC2Fleet
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:EC2Fleet")]
     public partial class EC2Fleet : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
-        /// </summary>
         [Output("context")]
         public Output<string?> Context { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
-        /// </summary>
         [Output("excessCapacityTerminationPolicy")]
         public Output<string?> ExcessCapacityTerminationPolicy { get; private set; } = null!;
 
         [Output("fleetId")]
         public Output<string> FleetId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
-        /// </summary>
         [Output("launchTemplateConfigs")]
         public Output<ImmutableArray<Outputs.EC2FleetFleetLaunchTemplateConfigRequest>> LaunchTemplateConfigs { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
-        /// </summary>
         [Output("onDemandOptions")]
         public Output<Outputs.EC2FleetOnDemandOptionsRequest?> OnDemandOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
-        /// </summary>
         [Output("replaceUnhealthyInstances")]
         public Output<bool?> ReplaceUnhealthyInstances { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
-        /// </summary>
         [Output("spotOptions")]
         public Output<Outputs.EC2FleetSpotOptionsRequest?> SpotOptions { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
-        /// </summary>
         [Output("tagSpecifications")]
         public Output<ImmutableArray<Outputs.EC2FleetTagSpecification>> TagSpecifications { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
-        /// </summary>
         [Output("targetCapacitySpecification")]
         public Output<Outputs.EC2FleetTargetCapacitySpecificationRequest> TargetCapacitySpecification { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
-        /// </summary>
         [Output("terminateInstancesWithExpiration")]
         public Output<bool?> TerminateInstancesWithExpiration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type
-        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
-        /// </summary>
         [Output("validFrom")]
         public Output<string?> ValidFrom { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
-        /// </summary>
         [Output("validUntil")]
         public Output<string?> ValidUntil { get; private set; } = null!;
 
@@ -135,87 +99,49 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class EC2FleetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
-        /// </summary>
         [Input("context")]
         public Input<string>? Context { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
-        /// </summary>
         [Input("excessCapacityTerminationPolicy")]
         public Input<string>? ExcessCapacityTerminationPolicy { get; set; }
 
         [Input("launchTemplateConfigs", required: true)]
         private InputList<Inputs.EC2FleetFleetLaunchTemplateConfigRequestArgs>? _launchTemplateConfigs;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
-        /// </summary>
         public InputList<Inputs.EC2FleetFleetLaunchTemplateConfigRequestArgs> LaunchTemplateConfigs
         {
             get => _launchTemplateConfigs ?? (_launchTemplateConfigs = new InputList<Inputs.EC2FleetFleetLaunchTemplateConfigRequestArgs>());
             set => _launchTemplateConfigs = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
-        /// </summary>
         [Input("onDemandOptions")]
         public Input<Inputs.EC2FleetOnDemandOptionsRequestArgs>? OnDemandOptions { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
-        /// </summary>
         [Input("replaceUnhealthyInstances")]
         public Input<bool>? ReplaceUnhealthyInstances { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
-        /// </summary>
         [Input("spotOptions")]
         public Input<Inputs.EC2FleetSpotOptionsRequestArgs>? SpotOptions { get; set; }
 
         [Input("tagSpecifications")]
         private InputList<Inputs.EC2FleetTagSpecificationArgs>? _tagSpecifications;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
-        /// </summary>
         public InputList<Inputs.EC2FleetTagSpecificationArgs> TagSpecifications
         {
             get => _tagSpecifications ?? (_tagSpecifications = new InputList<Inputs.EC2FleetTagSpecificationArgs>());
             set => _tagSpecifications = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
-        /// </summary>
         [Input("targetCapacitySpecification", required: true)]
         public Input<Inputs.EC2FleetTargetCapacitySpecificationRequestArgs> TargetCapacitySpecification { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
-        /// </summary>
         [Input("terminateInstancesWithExpiration")]
         public Input<bool>? TerminateInstancesWithExpiration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
-        /// </summary>
         [Input("validFrom")]
         public Input<string>? ValidFrom { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
-        /// </summary>
         [Input("validUntil")]
         public Input<string>? ValidUntil { get; set; }
 

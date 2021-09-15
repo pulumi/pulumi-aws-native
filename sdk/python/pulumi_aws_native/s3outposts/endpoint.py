@@ -21,11 +21,11 @@ class EndpointArgs:
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
-        :param pulumi.Input[str] outpost_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-outpostid
-        :param pulumi.Input[str] security_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-securitygroupid
-        :param pulumi.Input[str] subnet_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-subnetid
-        :param pulumi.Input[str] access_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-accesstype
-        :param pulumi.Input[str] customer_owned_ipv4_pool: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-customerownedipv4pool
+        :param pulumi.Input[str] outpost_id: The id of the customer outpost on which the bucket resides.
+        :param pulumi.Input[str] security_group_id: The ID of the security group to use with the endpoint.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
+        :param pulumi.Input[str] access_type: The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
+        :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
         """
         pulumi.set(__self__, "outpost_id", outpost_id)
         pulumi.set(__self__, "security_group_id", security_group_id)
@@ -39,7 +39,7 @@ class EndpointArgs:
     @pulumi.getter(name="outpostId")
     def outpost_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-outpostid
+        The id of the customer outpost on which the bucket resides.
         """
         return pulumi.get(self, "outpost_id")
 
@@ -51,7 +51,7 @@ class EndpointArgs:
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-securitygroupid
+        The ID of the security group to use with the endpoint.
         """
         return pulumi.get(self, "security_group_id")
 
@@ -63,7 +63,7 @@ class EndpointArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-subnetid
+        The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -75,7 +75,7 @@ class EndpointArgs:
     @pulumi.getter(name="accessType")
     def access_type(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-accesstype
+        The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
         """
         return pulumi.get(self, "access_type")
 
@@ -87,7 +87,7 @@ class EndpointArgs:
     @pulumi.getter(name="customerOwnedIpv4Pool")
     def customer_owned_ipv4_pool(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-customerownedipv4pool
+        The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
         """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
@@ -108,15 +108,15 @@ class Endpoint(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html
+        Resource Type Definition for AWS::S3Outposts::Endpoint
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_type: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-accesstype
-        :param pulumi.Input[str] customer_owned_ipv4_pool: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-customerownedipv4pool
-        :param pulumi.Input[str] outpost_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-outpostid
-        :param pulumi.Input[str] security_group_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-securitygroupid
-        :param pulumi.Input[str] subnet_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-subnetid
+        :param pulumi.Input[str] access_type: The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
+        :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
+        :param pulumi.Input[str] outpost_id: The id of the customer outpost on which the bucket resides.
+        :param pulumi.Input[str] security_group_id: The ID of the security group to use with the endpoint.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
         """
         ...
     @overload
@@ -125,7 +125,7 @@ class Endpoint(pulumi.CustomResource):
                  args: EndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html
+        Resource Type Definition for AWS::S3Outposts::Endpoint
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.
@@ -173,7 +173,6 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["cidr_block"] = None
             __props__.__dict__["creation_time"] = None
-            __props__.__dict__["id"] = None
             __props__.__dict__["network_interfaces"] = None
             __props__.__dict__["status"] = None
         super(Endpoint, __self__).__init__(
@@ -203,7 +202,6 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["cidr_block"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["customer_owned_ipv4_pool"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["network_interfaces"] = None
         __props__.__dict__["outpost_id"] = None
         __props__.__dict__["security_group_id"] = None
@@ -215,48 +213,55 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="accessType")
     def access_type(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-accesstype
+        The type of access for the on-premise network connectivity for the Outpost endpoint. To access endpoint from an on-premises network, you must specify the access type and provide the customer owned Ipv4 pool.
         """
         return pulumi.get(self, "access_type")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the endpoint.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="cidrBlock")
     def cidr_block(self) -> pulumi.Output[str]:
+        """
+        The VPC CIDR committed by this endpoint.
+        """
         return pulumi.get(self, "cidr_block")
 
     @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
+        """
+        The time the endpoint was created.
+        """
         return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="customerOwnedIpv4Pool")
     def customer_owned_ipv4_pool(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-customerownedipv4pool
+        The ID of the customer-owned IPv4 pool for the Endpoint. IP addresses will be allocated from this pool for the endpoint.
         """
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> pulumi.Output[Sequence['outputs.EndpointNetworkInterface']]:
+        """
+        The network interfaces of the endpoint.
+        """
         return pulumi.get(self, "network_interfaces")
 
     @property
     @pulumi.getter(name="outpostId")
     def outpost_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-outpostid
+        The id of the customer outpost on which the bucket resides.
         """
         return pulumi.get(self, "outpost_id")
 
@@ -264,7 +269,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-securitygroupid
+        The ID of the security group to use with the endpoint.
         """
         return pulumi.get(self, "security_group_id")
 
@@ -277,7 +282,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html#cfn-s3outposts-endpoint-subnetid
+        The ID of the subnet in the selected VPC. The subnet must belong to the Outpost.
         """
         return pulumi.get(self, "subnet_id")
 

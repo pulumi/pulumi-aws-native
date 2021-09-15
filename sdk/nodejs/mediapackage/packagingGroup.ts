@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html
+ * Resource schema for AWS::MediaPackage::PackagingGroup
  */
 export class PackagingGroup extends pulumi.CustomResource {
     /**
@@ -35,24 +35,26 @@ export class PackagingGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === PackagingGroup.__pulumiType;
     }
 
+    /**
+     * The ARN of the PackagingGroup.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
+     * CDN Authorization
      */
     public readonly authorization!: pulumi.Output<outputs.mediapackage.PackagingGroupAuthorization | undefined>;
+    /**
+     * The fully qualified domain name for Assets in the PackagingGroup.
+     */
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
+     * The configuration parameters for egress access logging.
      */
     public readonly egressAccessLogs!: pulumi.Output<outputs.mediapackage.PackagingGroupLogConfiguration | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
+     * A collection of tags associated with a resource
      */
-    public readonly id!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.mediapackage.PackagingGroupTag[] | undefined>;
 
     /**
      * Create a PackagingGroup resource with the given unique name, arguments, and options.
@@ -61,16 +63,12 @@ export class PackagingGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PackagingGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: PackagingGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.id === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'id'");
-            }
             inputs["authorization"] = args ? args.authorization : undefined;
             inputs["egressAccessLogs"] = args ? args.egressAccessLogs : undefined;
-            inputs["id"] = args ? args.id : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
@@ -79,7 +77,6 @@ export class PackagingGroup extends pulumi.CustomResource {
             inputs["authorization"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
             inputs["egressAccessLogs"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -94,19 +91,15 @@ export class PackagingGroup extends pulumi.CustomResource {
  */
 export interface PackagingGroupArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
+     * CDN Authorization
      */
     authorization?: pulumi.Input<inputs.mediapackage.PackagingGroupAuthorizationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
+     * The configuration parameters for egress access logging.
      */
     egressAccessLogs?: pulumi.Input<inputs.mediapackage.PackagingGroupLogConfigurationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
+     * A collection of tags associated with a resource
      */
-    id: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.mediapackage.PackagingGroupTagArgs>[]>;
 }

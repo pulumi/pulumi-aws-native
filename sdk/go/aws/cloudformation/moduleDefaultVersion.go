@@ -10,15 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html
+// A module that has been registered in the CloudFormation registry as the default version
 type ModuleDefaultVersion struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
+	// The Amazon Resource Name (ARN) of the module version to set as the default version.
 	Arn pulumi.StringPtrOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
+	// The name of a module existing in the registry.
 	ModuleName pulumi.StringPtrOutput `pulumi:"moduleName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+	// The ID of an existing version of the named module to set as the default.
 	VersionId pulumi.StringPtrOutput `pulumi:"versionId"`
 }
 
@@ -61,21 +61,21 @@ func (ModuleDefaultVersionState) ElementType() reflect.Type {
 }
 
 type moduleDefaultVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
+	// The Amazon Resource Name (ARN) of the module version to set as the default version.
 	Arn *string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
+	// The name of a module existing in the registry.
 	ModuleName *string `pulumi:"moduleName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+	// The ID of an existing version of the named module to set as the default.
 	VersionId *string `pulumi:"versionId"`
 }
 
 // The set of arguments for constructing a ModuleDefaultVersion resource.
 type ModuleDefaultVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-arn
+	// The Amazon Resource Name (ARN) of the module version to set as the default version.
 	Arn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-modulename
+	// The name of a module existing in the registry.
 	ModuleName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-moduledefaultversion.html#cfn-cloudformation-moduledefaultversion-versionid
+	// The ID of an existing version of the named module to set as the default.
 	VersionId pulumi.StringPtrInput
 }
 

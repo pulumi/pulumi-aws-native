@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html
+    /// Configuration options for a Lambda alert action.
     /// </summary>
     [OutputType]
     public sealed class AlertLambdaConfiguration
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-lambdaarn
+        /// ARN of a Lambda to send alert notifications to.
         /// </summary>
         public readonly string LambdaArn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-rolearn
+        /// ARN of an IAM role that LookoutMetrics should assume to access the Lambda function.
         /// </summary>
         public readonly string RoleArn;
 

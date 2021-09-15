@@ -10,35 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IAM
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html
+    /// Resource Type definition for AWS::IAM::VirtualMFADevice
     /// </summary>
     [AwsNativeResourceType("aws-native:iam:VirtualMFADevice")]
     public partial class VirtualMFADevice : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-path
-        /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
 
         [Output("serialNumber")]
         public Output<string> SerialNumber { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VirtualMFADeviceTag>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-users
-        /// </summary>
         [Output("users")]
         public Output<ImmutableArray<string>> Users { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-virtualmfadevicename
-        /// </summary>
         [Output("virtualMfaDeviceName")]
         public Output<string?> VirtualMfaDeviceName { get; private set; } = null!;
 
@@ -87,39 +75,25 @@ namespace Pulumi.AwsNative.IAM
 
     public sealed class VirtualMFADeviceArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-path
-        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.VirtualMFADeviceTagArgs>? _tags;
+        public InputList<Inputs.VirtualMFADeviceTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.VirtualMFADeviceTagArgs>());
             set => _tags = value;
         }
 
         [Input("users", required: true)]
         private InputList<string>? _users;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-users
-        /// </summary>
         public InputList<string> Users
         {
             get => _users ?? (_users = new InputList<string>());
             set => _users = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-virtualmfadevicename
-        /// </summary>
         [Input("virtualMfaDeviceName")]
         public Input<string>? VirtualMfaDeviceName { get; set; }
 

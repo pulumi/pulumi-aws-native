@@ -17,8 +17,8 @@ class ControlPanelArgs:
                  cluster_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ControlPanel resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-name
-        :param pulumi.Input[str] cluster_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-clusterarn
+        :param pulumi.Input[str] name: The name of the control panel. You can use any non-white space character in the name.
+        :param pulumi.Input[str] cluster_arn: Cluster to associate with the Control Panel
         """
         pulumi.set(__self__, "name", name)
         if cluster_arn is not None:
@@ -28,7 +28,7 @@ class ControlPanelArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-name
+        The name of the control panel. You can use any non-white space character in the name.
         """
         return pulumi.get(self, "name")
 
@@ -40,7 +40,7 @@ class ControlPanelArgs:
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-clusterarn
+        Cluster to associate with the Control Panel
         """
         return pulumi.get(self, "cluster_arn")
 
@@ -58,12 +58,12 @@ class ControlPanel(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html
+        AWS Route53 Recovery Control Control Panel resource schema .
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-clusterarn
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-name
+        :param pulumi.Input[str] cluster_arn: Cluster to associate with the Control Panel
+        :param pulumi.Input[str] name: The name of the control panel. You can use any non-white space character in the name.
         """
         ...
     @overload
@@ -72,7 +72,7 @@ class ControlPanel(pulumi.CustomResource):
                  args: ControlPanelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html
+        AWS Route53 Recovery Control Control Panel resource schema .
 
         :param str resource_name: The name of the resource.
         :param ControlPanelArgs args: The arguments to use to populate this resource's properties.
@@ -145,35 +145,47 @@ class ControlPanel(pulumi.CustomResource):
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-clusterarn
+        Cluster to associate with the Control Panel
         """
         return pulumi.get(self, "cluster_arn")
 
     @property
     @pulumi.getter(name="controlPanelArn")
     def control_panel_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the cluster.
+        """
         return pulumi.get(self, "control_panel_arn")
 
     @property
     @pulumi.getter(name="defaultControlPanel")
     def default_control_panel(self) -> pulumi.Output[bool]:
+        """
+        A flag that Amazon Route 53 Application Recovery Controller sets to true to designate the default control panel for a cluster. When you create a cluster, Amazon Route 53 Application Recovery Controller creates a control panel, and sets this flag for that control panel. If you create a control panel yourself, this flag is set to false.
+        """
         return pulumi.get(self, "default_control_panel")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-name
+        The name of the control panel. You can use any non-white space character in the name.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="routingControlCount")
     def routing_control_count(self) -> pulumi.Output[int]:
+        """
+        Count of associated routing controls
+        """
         return pulumi.get(self, "routing_control_count")
 
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output[str]:
+        """
+        The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+        """
         return pulumi.get(self, "status")
 

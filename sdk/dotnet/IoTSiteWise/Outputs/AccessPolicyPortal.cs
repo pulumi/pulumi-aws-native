@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.IoTSiteWise.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html
+    /// A portal resource.
     /// </summary>
     [OutputType]
     public sealed class AccessPolicyPortal
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html#cfn-iotsitewise-accesspolicy-portal-id
+        /// The ID of the portal.
         /// </summary>
         public readonly string? Id;
 

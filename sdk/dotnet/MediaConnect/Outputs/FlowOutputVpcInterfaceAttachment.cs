@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-vpcinterfaceattachment.html
+    /// The settings for attaching a VPC interface to an output.
     /// </summary>
     [OutputType]
     public sealed class FlowOutputVpcInterfaceAttachment
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-vpcinterfaceattachment.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment-vpcinterfacename
+        /// The name of the VPC interface to use for this output.
         /// </summary>
         public readonly string? VpcInterfaceName;
 

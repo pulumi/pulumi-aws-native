@@ -8,21 +8,21 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html
+// Resource Type definition for AWS::SageMaker::AppImageConfig
 type AppImageConfig struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the AppImageConfig.
 	AppImageConfigArn pulumi.StringOutput `pulumi:"appImageConfigArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
+	// The Name of the AppImageConfig.
 	AppImageConfigName pulumi.StringOutput `pulumi:"appImageConfigName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig
+	// The KernelGatewayImageConfig.
 	KernelGatewayImageConfig AppImageConfigKernelGatewayImageConfigPtrOutput `pulumi:"kernelGatewayImageConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A list of tags to apply to the AppImageConfig.
+	Tags AppImageConfigTagArrayOutput `pulumi:"tags"`
 }
 
 // NewAppImageConfig registers a new resource with the given unique name, arguments, and options.
@@ -67,22 +67,22 @@ func (AppImageConfigState) ElementType() reflect.Type {
 }
 
 type appImageConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
+	// The Name of the AppImageConfig.
 	AppImageConfigName string `pulumi:"appImageConfigName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig
+	// The KernelGatewayImageConfig.
 	KernelGatewayImageConfig *AppImageConfigKernelGatewayImageConfig `pulumi:"kernelGatewayImageConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A list of tags to apply to the AppImageConfig.
+	Tags []AppImageConfigTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AppImageConfig resource.
 type AppImageConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
+	// The Name of the AppImageConfig.
 	AppImageConfigName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig
+	// The KernelGatewayImageConfig.
 	KernelGatewayImageConfig AppImageConfigKernelGatewayImageConfigPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-tags
-	Tags aws.TagArrayInput
+	// A list of tags to apply to the AppImageConfig.
+	Tags AppImageConfigTagArrayInput
 }
 
 func (AppImageConfigArgs) ElementType() reflect.Type {

@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.SSMContacts.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html
+    /// Information about the contact channel that SSM Incident Manager uses to engage the contact.
     /// </summary>
     public sealed class ContactChannelTargetInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-channelid
+        /// The Amazon Resource Name (ARN) of the contact channel.
         /// </summary>
         [Input("channelId", required: true)]
         public Input<string> ChannelId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-retryintervalinminutes
+        /// The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
         /// </summary>
         [Input("retryIntervalInMinutes", required: true)]
         public Input<int> RetryIntervalInMinutes { get; set; } = null!;

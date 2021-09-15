@@ -11,22 +11,13 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html
+    /// Path options for dataset
     /// </summary>
     [OutputType]
     public sealed class DatasetPathOptions
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-fileslimit
-        /// </summary>
         public readonly Outputs.DatasetFilesLimit? FilesLimit;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-lastmodifieddatecondition
-        /// </summary>
         public readonly Outputs.DatasetFilterExpression? LastModifiedDateCondition;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-parameters
-        /// </summary>
         public readonly ImmutableArray<Outputs.DatasetPathParameter> Parameters;
 
         [OutputConstructor]

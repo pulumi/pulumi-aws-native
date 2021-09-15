@@ -18,9 +18,9 @@ class QueryDefinitionArgs:
                  log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a QueryDefinition resource.
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-name
-        :param pulumi.Input[str] query_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querystring
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_group_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames
+        :param pulumi.Input[str] name: A name for the saved query definition
+        :param pulumi.Input[str] query_string: The query string to use for this definition
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_group_names: Optionally define specific log groups as part of your query definition
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query_string", query_string)
@@ -31,7 +31,7 @@ class QueryDefinitionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-name
+        A name for the saved query definition
         """
         return pulumi.get(self, "name")
 
@@ -43,7 +43,7 @@ class QueryDefinitionArgs:
     @pulumi.getter(name="queryString")
     def query_string(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querystring
+        The query string to use for this definition
         """
         return pulumi.get(self, "query_string")
 
@@ -55,7 +55,7 @@ class QueryDefinitionArgs:
     @pulumi.getter(name="logGroupNames")
     def log_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames
+        Optionally define specific log groups as part of your query definition
         """
         return pulumi.get(self, "log_group_names")
 
@@ -74,13 +74,13 @@ class QueryDefinition(pulumi.CustomResource):
                  query_string: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html
+        The resource schema for AWSLogs QueryDefinition
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_group_names: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-name
-        :param pulumi.Input[str] query_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querystring
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_group_names: Optionally define specific log groups as part of your query definition
+        :param pulumi.Input[str] name: A name for the saved query definition
+        :param pulumi.Input[str] query_string: The query string to use for this definition
         """
         ...
     @overload
@@ -89,7 +89,7 @@ class QueryDefinition(pulumi.CustomResource):
                  args: QueryDefinitionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html
+        The resource schema for AWSLogs QueryDefinition
 
         :param str resource_name: The name of the resource.
         :param QueryDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -161,7 +161,7 @@ class QueryDefinition(pulumi.CustomResource):
     @pulumi.getter(name="logGroupNames")
     def log_group_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames
+        Optionally define specific log groups as part of your query definition
         """
         return pulumi.get(self, "log_group_names")
 
@@ -169,20 +169,23 @@ class QueryDefinition(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-name
+        A name for the saved query definition
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="queryDefinitionId")
     def query_definition_id(self) -> pulumi.Output[str]:
+        """
+        Unique identifier of a query definition
+        """
         return pulumi.get(self, "query_definition_id")
 
     @property
     @pulumi.getter(name="queryString")
     def query_string(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querystring
+        The query string to use for this definition
         """
         return pulumi.get(self, "query_string")
 

@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.ECS.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html
+    /// The VPC subnets and security groups associated with a task. All specified subnets and security groups must be from the same VPC.
     /// </summary>
     public sealed class TaskSetAwsVpcConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-assignpublicip
+        /// Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
         /// </summary>
         [Input("assignPublicIp")]
         public Input<string>? AssignPublicIp { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-securitygroups
+        /// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per AwsVpcConfiguration.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
         private InputList<string>? _subnets;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-awsvpcconfiguration.html#cfn-ecs-taskset-awsvpcconfiguration-subnets
+        /// The subnets associated with the task or service. There is a limit of 16 subnets that can be specified per AwsVpcConfiguration.
         /// </summary>
         public InputList<string> Subnets
         {

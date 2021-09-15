@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html
+ * Resource schema for AWS::DataSync::LocationNFS
  */
 export class LocationNFS extends pulumi.CustomResource {
     /**
@@ -35,28 +35,28 @@ export class LocationNFS extends pulumi.CustomResource {
         return obj['__pulumiType'] === LocationNFS.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the NFS location.
+     */
     public /*out*/ readonly locationArn!: pulumi.Output<string>;
+    /**
+     * The URL of the NFS location that was described.
+     */
     public /*out*/ readonly locationUri!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-mountoptions
-     */
     public readonly mountOptions!: pulumi.Output<outputs.datasync.LocationNFSMountOptions | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-onpremconfig
-     */
     public readonly onPremConfig!: pulumi.Output<outputs.datasync.LocationNFSOnPremConfig>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-serverhostname
+     * The name of the NFS server. This value is the IP address or DNS name of the NFS server.
      */
     public readonly serverHostname!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-subdirectory
+     * The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
      */
     public readonly subdirectory!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.datasync.LocationNFSTag[] | undefined>;
 
     /**
      * Create a LocationNFS resource with the given unique name, arguments, and options.
@@ -105,24 +105,18 @@ export class LocationNFS extends pulumi.CustomResource {
  * The set of arguments for constructing a LocationNFS resource.
  */
 export interface LocationNFSArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-mountoptions
-     */
     mountOptions?: pulumi.Input<inputs.datasync.LocationNFSMountOptionsArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-onpremconfig
-     */
     onPremConfig: pulumi.Input<inputs.datasync.LocationNFSOnPremConfigArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-serverhostname
+     * The name of the NFS server. This value is the IP address or DNS name of the NFS server.
      */
     serverHostname: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-subdirectory
+     * The subdirectory in the NFS file system that is used to read data from the NFS source location or write data to the NFS destination.
      */
     subdirectory: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationnfs.html#cfn-datasync-locationnfs-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.datasync.LocationNFSTagArgs>[]>;
 }

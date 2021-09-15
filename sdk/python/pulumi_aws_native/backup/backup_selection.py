@@ -15,34 +15,15 @@ __all__ = ['BackupSelectionArgs', 'BackupSelection']
 @pulumi.input_type
 class BackupSelectionArgs:
     def __init__(__self__, *,
-                 backup_plan_id: pulumi.Input[str],
                  backup_selection: pulumi.Input['BackupSelectionBackupSelectionResourceTypeArgs']):
         """
         The set of arguments for constructing a BackupSelection resource.
-        :param pulumi.Input[str] backup_plan_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupplanid
-        :param pulumi.Input['BackupSelectionBackupSelectionResourceTypeArgs'] backup_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
         """
-        pulumi.set(__self__, "backup_plan_id", backup_plan_id)
         pulumi.set(__self__, "backup_selection", backup_selection)
-
-    @property
-    @pulumi.getter(name="backupPlanId")
-    def backup_plan_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupplanid
-        """
-        return pulumi.get(self, "backup_plan_id")
-
-    @backup_plan_id.setter
-    def backup_plan_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "backup_plan_id", value)
 
     @property
     @pulumi.getter(name="backupSelection")
     def backup_selection(self) -> pulumi.Input['BackupSelectionBackupSelectionResourceTypeArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
-        """
         return pulumi.get(self, "backup_selection")
 
     @backup_selection.setter
@@ -55,16 +36,13 @@ class BackupSelection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_plan_id: Optional[pulumi.Input[str]] = None,
                  backup_selection: Optional[pulumi.Input[pulumi.InputType['BackupSelectionBackupSelectionResourceTypeArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html
+        Resource Type definition for AWS::Backup::BackupSelection
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] backup_plan_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupplanid
-        :param pulumi.Input[pulumi.InputType['BackupSelectionBackupSelectionResourceTypeArgs']] backup_selection: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
         """
         ...
     @overload
@@ -73,7 +51,7 @@ class BackupSelection(pulumi.CustomResource):
                  args: BackupSelectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html
+        Resource Type definition for AWS::Backup::BackupSelection
 
         :param str resource_name: The name of the resource.
         :param BackupSelectionArgs args: The arguments to use to populate this resource's properties.
@@ -90,7 +68,6 @@ class BackupSelection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_plan_id: Optional[pulumi.Input[str]] = None,
                  backup_selection: Optional[pulumi.Input[pulumi.InputType['BackupSelectionBackupSelectionResourceTypeArgs']]] = None,
                  __props__=None):
         if opts is None:
@@ -104,13 +81,10 @@ class BackupSelection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BackupSelectionArgs.__new__(BackupSelectionArgs)
 
-            if backup_plan_id is None and not opts.urn:
-                raise TypeError("Missing required property 'backup_plan_id'")
-            __props__.__dict__["backup_plan_id"] = backup_plan_id
             if backup_selection is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_selection'")
             __props__.__dict__["backup_selection"] = backup_selection
-            __props__.__dict__["id"] = None
+            __props__.__dict__["backup_plan_id"] = None
             __props__.__dict__["selection_id"] = None
         super(BackupSelection, __self__).__init__(
             'aws-native:backup:BackupSelection',
@@ -136,7 +110,6 @@ class BackupSelection(pulumi.CustomResource):
 
         __props__.__dict__["backup_plan_id"] = None
         __props__.__dict__["backup_selection"] = None
-        __props__.__dict__["id"] = None
         __props__.__dict__["selection_id"] = None
         return BackupSelection(resource_name, opts=opts, __props__=__props__)
 
@@ -148,15 +121,7 @@ class BackupSelection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="backupSelection")
     def backup_selection(self) -> pulumi.Output['outputs.BackupSelectionBackupSelectionResourceType']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
-        """
         return pulumi.get(self, "backup_selection")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="selectionId")

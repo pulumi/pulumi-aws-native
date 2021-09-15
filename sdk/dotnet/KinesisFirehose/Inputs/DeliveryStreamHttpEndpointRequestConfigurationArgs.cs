@@ -10,26 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html
-    /// </summary>
     public sealed class DeliveryStreamHttpEndpointRequestConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("commonAttributes")]
         private InputList<Inputs.DeliveryStreamHttpEndpointCommonAttributeArgs>? _commonAttributes;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-commonattributes
-        /// </summary>
         public InputList<Inputs.DeliveryStreamHttpEndpointCommonAttributeArgs> CommonAttributes
         {
             get => _commonAttributes ?? (_commonAttributes = new InputList<Inputs.DeliveryStreamHttpEndpointCommonAttributeArgs>());
             set => _commonAttributes = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointrequestconfiguration.html#cfn-kinesisfirehose-deliverystream-httpendpointrequestconfiguration-contentencoding
-        /// </summary>
         [Input("contentEncoding")]
         public Input<string>? ContentEncoding { get; set; }
 

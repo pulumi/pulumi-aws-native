@@ -10,17 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html
-    /// </summary>
     public sealed class DataSetColumnLevelPermissionRuleArgs : Pulumi.ResourceArgs
     {
         [Input("columnNames")]
         private InputList<string>? _columnNames;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-columnnames
-        /// </summary>
         public InputList<string> ColumnNames
         {
             get => _columnNames ?? (_columnNames = new InputList<string>());
@@ -29,10 +22,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("principals")]
         private InputList<string>? _principals;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-columnlevelpermissionrule.html#cfn-quicksight-dataset-columnlevelpermissionrule-principals
-        /// </summary>
         public InputList<string> Principals
         {
             get => _principals ?? (_principals = new InputList<string>());

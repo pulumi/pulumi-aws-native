@@ -18,9 +18,9 @@ class PrimaryTaskSetArgs:
                  task_set_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a PrimaryTaskSet resource.
-        :param pulumi.Input[str] cluster: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
-        :param pulumi.Input[str] service: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
-        :param pulumi.Input[str] task_set_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
+        :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
+        :param pulumi.Input[str] service: The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
+        :param pulumi.Input[str] task_set_id: The ID or full Amazon Resource Name (ARN) of the task set.
         """
         pulumi.set(__self__, "cluster", cluster)
         pulumi.set(__self__, "service", service)
@@ -30,7 +30,7 @@ class PrimaryTaskSetArgs:
     @pulumi.getter
     def cluster(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
+        The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         """
         return pulumi.get(self, "cluster")
 
@@ -42,7 +42,7 @@ class PrimaryTaskSetArgs:
     @pulumi.getter
     def service(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
+        The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
         """
         return pulumi.get(self, "service")
 
@@ -54,7 +54,7 @@ class PrimaryTaskSetArgs:
     @pulumi.getter(name="taskSetId")
     def task_set_id(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
+        The ID or full Amazon Resource Name (ARN) of the task set.
         """
         return pulumi.get(self, "task_set_id")
 
@@ -73,13 +73,13 @@ class PrimaryTaskSet(pulumi.CustomResource):
                  task_set_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html
+        A pseudo-resource that manages which of your ECS task sets is primary.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
-        :param pulumi.Input[str] service: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
-        :param pulumi.Input[str] task_set_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
+        :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
+        :param pulumi.Input[str] service: The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
+        :param pulumi.Input[str] task_set_id: The ID or full Amazon Resource Name (ARN) of the task set.
         """
         ...
     @overload
@@ -88,7 +88,7 @@ class PrimaryTaskSet(pulumi.CustomResource):
                  args: PrimaryTaskSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html
+        A pseudo-resource that manages which of your ECS task sets is primary.
 
         :param str resource_name: The name of the resource.
         :param PrimaryTaskSetArgs args: The arguments to use to populate this resource's properties.
@@ -160,7 +160,7 @@ class PrimaryTaskSet(pulumi.CustomResource):
     @pulumi.getter
     def cluster(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
+        The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         """
         return pulumi.get(self, "cluster")
 
@@ -168,7 +168,7 @@ class PrimaryTaskSet(pulumi.CustomResource):
     @pulumi.getter
     def service(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
+        The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
         """
         return pulumi.get(self, "service")
 
@@ -176,7 +176,7 @@ class PrimaryTaskSet(pulumi.CustomResource):
     @pulumi.getter(name="taskSetId")
     def task_set_id(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
+        The ID or full Amazon Resource Name (ARN) of the task set.
         """
         return pulumi.get(self, "task_set_id")
 

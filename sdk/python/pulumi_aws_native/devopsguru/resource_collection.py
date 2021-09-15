@@ -18,16 +18,12 @@ class ResourceCollectionArgs:
                  resource_collection_filter: pulumi.Input['ResourceCollectionResourceCollectionFilterArgs']):
         """
         The set of arguments for constructing a ResourceCollection resource.
-        :param pulumi.Input['ResourceCollectionResourceCollectionFilterArgs'] resource_collection_filter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
         """
         pulumi.set(__self__, "resource_collection_filter", resource_collection_filter)
 
     @property
     @pulumi.getter(name="resourceCollectionFilter")
     def resource_collection_filter(self) -> pulumi.Input['ResourceCollectionResourceCollectionFilterArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
-        """
         return pulumi.get(self, "resource_collection_filter")
 
     @resource_collection_filter.setter
@@ -43,11 +39,10 @@ class ResourceCollection(pulumi.CustomResource):
                  resource_collection_filter: Optional[pulumi.Input[pulumi.InputType['ResourceCollectionResourceCollectionFilterArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html
+        This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ResourceCollectionResourceCollectionFilterArgs']] resource_collection_filter: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
         """
         ...
     @overload
@@ -56,7 +51,7 @@ class ResourceCollection(pulumi.CustomResource):
                  args: ResourceCollectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html
+        This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
 
         :param str resource_name: The name of the resource.
         :param ResourceCollectionArgs args: The arguments to use to populate this resource's properties.
@@ -119,13 +114,13 @@ class ResourceCollection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceCollectionFilter")
     def resource_collection_filter(self) -> pulumi.Output['outputs.ResourceCollectionResourceCollectionFilter']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
-        """
         return pulumi.get(self, "resource_collection_filter")
 
     @property
     @pulumi.getter(name="resourceCollectionType")
     def resource_collection_type(self) -> pulumi.Output[str]:
+        """
+        The type of ResourceCollection
+        """
         return pulumi.get(self, "resource_collection_type")
 

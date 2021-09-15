@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.ECS.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html
+    /// An object representing the network configuration for a task or service.
     /// </summary>
     [OutputType]
     public sealed class TaskSetNetworkConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-networkconfiguration.html#cfn-ecs-taskset-networkconfiguration-awsvpcconfiguration
-        /// </summary>
         public readonly Outputs.TaskSetAwsVpcConfiguration? AwsVpcConfiguration;
 
         [OutputConstructor]

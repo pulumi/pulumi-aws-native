@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html
+ * Resource Type definition for AWS::IVS::PlaybackKeyPair
  */
 export class PlaybackKeyPair extends pulumi.CustomResource {
     /**
@@ -35,20 +35,26 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
         return obj['__pulumiType'] === PlaybackKeyPair.__pulumiType;
     }
 
+    /**
+     * Key-pair identifier.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Key-pair identifier.
+     */
     public /*out*/ readonly fingerprint!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-name
+     * An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-publickeymaterial
+     * The public portion of a customer-generated key pair.
      */
     public readonly publicKeyMaterial!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-tags
+     * A list of key-value pairs that contain metadata for the asset model.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.ivs.PlaybackKeyPairTag[] | undefined>;
 
     /**
      * Create a PlaybackKeyPair resource with the given unique name, arguments, and options.
@@ -88,15 +94,15 @@ export class PlaybackKeyPair extends pulumi.CustomResource {
  */
 export interface PlaybackKeyPairArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-name
+     * An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
      */
     name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-publickeymaterial
+     * The public portion of a customer-generated key pair.
      */
     publicKeyMaterial: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-tags
+     * A list of key-value pairs that contain metadata for the asset model.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ivs.PlaybackKeyPairTagArgs>[]>;
 }

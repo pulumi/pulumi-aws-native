@@ -8,29 +8,28 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html
+// A resource schema for an EventType in Amazon Fraud Detector.
 type EventType struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput `pulumi:"arn"`
+	// The ARN of the event type.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The time when the event type was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-entitytypes
-	EntityTypes EventTypeEntityTypeArrayOutput `pulumi:"entityTypes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-eventvariables
+	// The description of the event type.
+	Description    pulumi.StringPtrOutput            `pulumi:"description"`
+	EntityTypes    EventTypeEntityTypeArrayOutput    `pulumi:"entityTypes"`
 	EventVariables EventTypeEventVariableArrayOutput `pulumi:"eventVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-labels
-	Labels          EventTypeLabelArrayOutput `pulumi:"labels"`
-	LastUpdatedTime pulumi.StringOutput       `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-name
+	Labels         EventTypeLabelArrayOutput         `pulumi:"labels"`
+	// The time when the event type was last updated.
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// The name for the event type
 	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Tags associated with this event type.
+	Tags EventTypeTagArrayOutput `pulumi:"tags"`
 }
 
 // NewEventType registers a new resource with the given unique name, arguments, and options.
@@ -84,34 +83,28 @@ func (EventTypeState) ElementType() reflect.Type {
 }
 
 type eventTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-entitytypes
-	EntityTypes []EventTypeEntityType `pulumi:"entityTypes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-eventvariables
+	// The description of the event type.
+	Description    *string                  `pulumi:"description"`
+	EntityTypes    []EventTypeEntityType    `pulumi:"entityTypes"`
 	EventVariables []EventTypeEventVariable `pulumi:"eventVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-labels
-	Labels []EventTypeLabel `pulumi:"labels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-name
+	Labels         []EventTypeLabel         `pulumi:"labels"`
+	// The name for the event type
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// Tags associated with this event type.
+	Tags []EventTypeTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventType resource.
 type EventTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-entitytypes
-	EntityTypes EventTypeEntityTypeArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-eventvariables
+	// The description of the event type.
+	Description    pulumi.StringPtrInput
+	EntityTypes    EventTypeEntityTypeArrayInput
 	EventVariables EventTypeEventVariableArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-labels
-	Labels EventTypeLabelArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-name
+	Labels         EventTypeLabelArrayInput
+	// The name for the event type
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-tags
-	Tags aws.TagArrayInput
+	// Tags associated with this event type.
+	Tags EventTypeTagArrayInput
 }
 
 func (EventTypeArgs) ElementType() reflect.Type {

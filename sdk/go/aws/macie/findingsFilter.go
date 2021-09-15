@@ -11,22 +11,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html
+// Macie FindingsFilter resource schema.
 type FindingsFilter struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-action
+	// Findings filter action.
 	Action pulumi.StringPtrOutput `pulumi:"action"`
-	Arn    pulumi.StringOutput    `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description
+	// Findings filter ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Findings filter description
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
-	FindingCriteria         FindingsFilterFindingCriteriaOutput             `pulumi:"findingCriteria"`
+	// Findings filter criteria.
+	FindingCriteria FindingsFilterFindingCriteriaOutput `pulumi:"findingCriteria"`
+	// Findings filters list.
 	FindingsFilterListItems FindingsFilterFindingsFilterListItemArrayOutput `pulumi:"findingsFilterListItems"`
-	Id                      pulumi.StringOutput                             `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
+	// Findings filter name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
+	// Findings filter position.
 	Position pulumi.IntPtrOutput `pulumi:"position"`
 }
 
@@ -75,29 +76,29 @@ func (FindingsFilterState) ElementType() reflect.Type {
 }
 
 type findingsFilterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-action
+	// Findings filter action.
 	Action *string `pulumi:"action"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description
+	// Findings filter description
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
+	// Findings filter criteria.
 	FindingCriteria FindingsFilterFindingCriteria `pulumi:"findingCriteria"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
+	// Findings filter name
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
+	// Findings filter position.
 	Position *int `pulumi:"position"`
 }
 
 // The set of arguments for constructing a FindingsFilter resource.
 type FindingsFilterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-action
+	// Findings filter action.
 	Action pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-description
+	// Findings filter description
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-findingcriteria
+	// Findings filter criteria.
 	FindingCriteria FindingsFilterFindingCriteriaInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
+	// Findings filter name
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position
+	// Findings filter position.
 	Position pulumi.IntPtrInput
 }
 

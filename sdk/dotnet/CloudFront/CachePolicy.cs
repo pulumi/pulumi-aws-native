@@ -10,19 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html
+    /// Resource Type definition for AWS::CloudFront::CachePolicy
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:CachePolicy")]
     public partial class CachePolicy : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
-        /// </summary>
         [Output("cachePolicyConfig")]
         public Output<Outputs.CachePolicyCachePolicyConfig> CachePolicyConfig { get; private set; } = null!;
-
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
 
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
@@ -72,9 +66,6 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class CachePolicyArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
-        /// </summary>
         [Input("cachePolicyConfig", required: true)]
         public Input<Inputs.CachePolicyCachePolicyConfigArgs> CachePolicyConfig { get; set; } = null!;
 

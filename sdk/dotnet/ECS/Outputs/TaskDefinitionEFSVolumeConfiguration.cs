@@ -10,36 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ECS.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html
-    /// </summary>
     [OutputType]
     public sealed class TaskDefinitionEFSVolumeConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-authorizationconfig
-        /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? AuthorizationConfig;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-filesystemid
-        /// </summary>
+        public readonly Outputs.TaskDefinitionAuthorizationConfig? AuthorizationConfig;
         public readonly string FilesystemId;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-rootdirectory
-        /// </summary>
         public readonly string? RootDirectory;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryption
-        /// </summary>
         public readonly string? TransitEncryption;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-transitencryptionport
-        /// </summary>
         public readonly int? TransitEncryptionPort;
 
         [OutputConstructor]
         private TaskDefinitionEFSVolumeConfiguration(
-            Union<System.Text.Json.JsonElement, string>? authorizationConfig,
+            Outputs.TaskDefinitionAuthorizationConfig? authorizationConfig,
 
             string filesystemId,
 

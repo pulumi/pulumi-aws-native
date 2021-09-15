@@ -8,29 +8,32 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html
+// The resource schema to create a CodeArtifact repository.
 type Repository struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the repository.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
+	// A text description of the repository.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	DomainName  pulumi.StringOutput    `pulumi:"domainName"`
-	DomainOwner pulumi.StringOutput    `pulumi:"domainOwner"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
+	// The name of the domain that contains the repository.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The 12-digit account ID of the AWS account that owns the domain.
+	DomainOwner pulumi.StringOutput `pulumi:"domainOwner"`
+	// A list of external connections associated with the repository.
 	ExternalConnections pulumi.StringArrayOutput `pulumi:"externalConnections"`
-	Name                pulumi.StringOutput      `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
+	// The name of the repository. This is used for GetAtt
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The access control resource policy on the provided repository.
 	PermissionsPolicyDocument pulumi.AnyOutput `pulumi:"permissionsPolicyDocument"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
+	// The name of the repository.
 	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
+	// An array of key-value pairs to apply to this resource.
+	Tags RepositoryTagArrayOutput `pulumi:"tags"`
+	// A list of upstream repositories associated with the repository.
 	Upstreams pulumi.StringArrayOutput `pulumi:"upstreams"`
 }
 
@@ -41,9 +44,6 @@ func NewRepository(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DomainName == nil {
-		return nil, errors.New("invalid value for required argument 'DomainName'")
-	}
 	if args.RepositoryName == nil {
 		return nil, errors.New("invalid value for required argument 'RepositoryName'")
 	}
@@ -79,41 +79,33 @@ func (RepositoryState) ElementType() reflect.Type {
 }
 
 type repositoryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
+	// A text description of the repository.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainname
-	DomainName string `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainowner
-	DomainOwner *string `pulumi:"domainOwner"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
+	// A list of external connections associated with the repository.
 	ExternalConnections []string `pulumi:"externalConnections"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
+	// The access control resource policy on the provided repository.
 	PermissionsPolicyDocument interface{} `pulumi:"permissionsPolicyDocument"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
+	// The name of the repository.
 	RepositoryName string `pulumi:"repositoryName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
+	// An array of key-value pairs to apply to this resource.
+	Tags []RepositoryTag `pulumi:"tags"`
+	// A list of upstream repositories associated with the repository.
 	Upstreams []string `pulumi:"upstreams"`
 }
 
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
+	// A text description of the repository.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainname
-	DomainName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainowner
-	DomainOwner pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
+	// A list of external connections associated with the repository.
 	ExternalConnections pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
+	// The access control resource policy on the provided repository.
 	PermissionsPolicyDocument pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
+	// The name of the repository.
 	RepositoryName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
+	// An array of key-value pairs to apply to this resource.
+	Tags RepositoryTagArrayInput
+	// A list of upstream repositories associated with the repository.
 	Upstreams pulumi.StringArrayInput
 }
 

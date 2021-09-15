@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.ApplicationInsights.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html
+    /// The configuration settings of sub components.
     /// </summary>
     [OutputType]
     public sealed class ApplicationSubComponentConfigurationDetails
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-alarmmetrics
+        /// A list of metrics to monitor for the component.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationAlarmMetric> AlarmMetrics;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-logs
+        /// A list of logs to monitor for the component.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationLog> Logs;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-windowsevents
+        /// A list of Windows Events to log.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationWindowsEvent> WindowsEvents;
 

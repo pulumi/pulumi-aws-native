@@ -11,25 +11,19 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html
+    /// An HTTP Live Streaming (HLS) packaging configuration.
     /// </summary>
     [OutputType]
     public sealed class PackagingConfigurationHlsPackage
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-encryption
-        /// </summary>
         public readonly Outputs.PackagingConfigurationHlsEncryption? Encryption;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-hlsmanifests
+        /// A list of HLS manifest configurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.PackagingConfigurationHlsManifest> HlsManifests;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-segmentdurationseconds
-        /// </summary>
         public readonly int? SegmentDurationSeconds;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-useaudiorenditiongroup
+        /// When enabled, audio streams will be placed in rendition groups in the output.
         /// </summary>
         public readonly bool? UseAudioRenditionGroup;
 

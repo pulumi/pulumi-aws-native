@@ -10,11 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html
+// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
 type StreamStreamEncryption struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-encryptiontype
+	// The encryption type to use. The only valid value is KMS.
 	EncryptionType string `pulumi:"encryptionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-keyid
+	// The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
 	KeyId string `pulumi:"keyId"`
 }
 
@@ -29,11 +29,11 @@ type StreamStreamEncryptionInput interface {
 	ToStreamStreamEncryptionOutputWithContext(context.Context) StreamStreamEncryptionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html
+// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
 type StreamStreamEncryptionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-encryptiontype
+	// The encryption type to use. The only valid value is KMS.
 	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-keyid
+	// The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 }
 
@@ -90,7 +90,7 @@ func (i *streamStreamEncryptionPtrType) ToStreamStreamEncryptionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StreamStreamEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html
+// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
 type StreamStreamEncryptionOutput struct{ *pulumi.OutputState }
 
 func (StreamStreamEncryptionOutput) ElementType() reflect.Type {
@@ -115,12 +115,12 @@ func (o StreamStreamEncryptionOutput) ToStreamStreamEncryptionPtrOutputWithConte
 	}).(StreamStreamEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-encryptiontype
+// The encryption type to use. The only valid value is KMS.
 func (o StreamStreamEncryptionOutput) EncryptionType() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamStreamEncryption) string { return v.EncryptionType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-keyid
+// The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
 func (o StreamStreamEncryptionOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamStreamEncryption) string { return v.KeyId }).(pulumi.StringOutput)
 }
@@ -149,7 +149,7 @@ func (o StreamStreamEncryptionPtrOutput) Elem() StreamStreamEncryptionOutput {
 	}).(StreamStreamEncryptionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-encryptiontype
+// The encryption type to use. The only valid value is KMS.
 func (o StreamStreamEncryptionPtrOutput) EncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamStreamEncryption) *string {
 		if v == nil {
@@ -159,7 +159,7 @@ func (o StreamStreamEncryptionPtrOutput) EncryptionType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-keyid
+// The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
 func (o StreamStreamEncryptionPtrOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamStreamEncryption) *string {
 		if v == nil {
@@ -169,7 +169,118 @@ func (o StreamStreamEncryptionPtrOutput) KeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
+type StreamTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// StreamTagInput is an input type that accepts StreamTagArgs and StreamTagOutput values.
+// You can construct a concrete instance of `StreamTagInput` via:
+//
+//          StreamTagArgs{...}
+type StreamTagInput interface {
+	pulumi.Input
+
+	ToStreamTagOutput() StreamTagOutput
+	ToStreamTagOutputWithContext(context.Context) StreamTagOutput
+}
+
+// An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
+type StreamTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (StreamTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamTag)(nil)).Elem()
+}
+
+func (i StreamTagArgs) ToStreamTagOutput() StreamTagOutput {
+	return i.ToStreamTagOutputWithContext(context.Background())
+}
+
+func (i StreamTagArgs) ToStreamTagOutputWithContext(ctx context.Context) StreamTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamTagOutput)
+}
+
+// StreamTagArrayInput is an input type that accepts StreamTagArray and StreamTagArrayOutput values.
+// You can construct a concrete instance of `StreamTagArrayInput` via:
+//
+//          StreamTagArray{ StreamTagArgs{...} }
+type StreamTagArrayInput interface {
+	pulumi.Input
+
+	ToStreamTagArrayOutput() StreamTagArrayOutput
+	ToStreamTagArrayOutputWithContext(context.Context) StreamTagArrayOutput
+}
+
+type StreamTagArray []StreamTagInput
+
+func (StreamTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamTag)(nil)).Elem()
+}
+
+func (i StreamTagArray) ToStreamTagArrayOutput() StreamTagArrayOutput {
+	return i.ToStreamTagArrayOutputWithContext(context.Background())
+}
+
+func (i StreamTagArray) ToStreamTagArrayOutputWithContext(ctx context.Context) StreamTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamTagArrayOutput)
+}
+
+// An arbitrary set of tags (key-value pairs) to associate with the Kinesis stream.
+type StreamTagOutput struct{ *pulumi.OutputState }
+
+func (StreamTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamTag)(nil)).Elem()
+}
+
+func (o StreamTagOutput) ToStreamTagOutput() StreamTagOutput {
+	return o
+}
+
+func (o StreamTagOutput) ToStreamTagOutputWithContext(ctx context.Context) StreamTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o StreamTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o StreamTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StreamTagArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamTag)(nil)).Elem()
+}
+
+func (o StreamTagArrayOutput) ToStreamTagArrayOutput() StreamTagArrayOutput {
+	return o
+}
+
+func (o StreamTagArrayOutput) ToStreamTagArrayOutputWithContext(ctx context.Context) StreamTagArrayOutput {
+	return o
+}
+
+func (o StreamTagArrayOutput) Index(i pulumi.IntInput) StreamTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamTag {
+		return vs[0].([]StreamTag)[vs[1].(int)]
+	}).(StreamTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(StreamStreamEncryptionOutput{})
 	pulumi.RegisterOutputType(StreamStreamEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(StreamTagOutput{})
+	pulumi.RegisterOutputType(StreamTagArrayOutput{})
 }

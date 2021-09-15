@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html
-    /// </summary>
     [OutputType]
     public sealed class DataSourceConfluenceBlogConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceblogconfiguration.html#cfn-kendra-datasource-confluenceblogconfiguration-blogfieldmappings
-        /// </summary>
         public readonly ImmutableArray<Outputs.DataSourceConfluenceBlogToIndexFieldMapping> BlogFieldMappings;
 
         [OutputConstructor]

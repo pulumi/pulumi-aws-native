@@ -8,29 +8,21 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html
+// Creates an authorizer.
 type Authorizer struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
-	AuthorizerFunctionArn pulumi.StringOutput `pulumi:"authorizerFunctionArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
-	AuthorizerName pulumi.StringPtrOutput `pulumi:"authorizerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
-	SigningDisabled pulumi.BoolPtrOutput `pulumi:"signingDisabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
-	TokenKeyName pulumi.StringPtrOutput `pulumi:"tokenKeyName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
-	TokenSigningPublicKeys pulumi.StringMapOutput `pulumi:"tokenSigningPublicKeys"`
+	Arn                    pulumi.StringOutput      `pulumi:"arn"`
+	AuthorizerFunctionArn  pulumi.StringOutput      `pulumi:"authorizerFunctionArn"`
+	AuthorizerName         pulumi.StringPtrOutput   `pulumi:"authorizerName"`
+	SigningDisabled        pulumi.BoolPtrOutput     `pulumi:"signingDisabled"`
+	Status                 pulumi.StringPtrOutput   `pulumi:"status"`
+	Tags                   AuthorizerTagArrayOutput `pulumi:"tags"`
+	TokenKeyName           pulumi.StringPtrOutput   `pulumi:"tokenKeyName"`
+	TokenSigningPublicKeys pulumi.AnyOutput         `pulumi:"tokenSigningPublicKeys"`
 }
 
 // NewAuthorizer registers a new resource with the given unique name, arguments, and options.
@@ -75,38 +67,24 @@ func (AuthorizerState) ElementType() reflect.Type {
 }
 
 type authorizerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
-	AuthorizerFunctionArn string `pulumi:"authorizerFunctionArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
-	AuthorizerName *string `pulumi:"authorizerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
-	SigningDisabled *bool `pulumi:"signingDisabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
-	Status *string `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
-	TokenKeyName *string `pulumi:"tokenKeyName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
-	TokenSigningPublicKeys map[string]string `pulumi:"tokenSigningPublicKeys"`
+	AuthorizerFunctionArn  string          `pulumi:"authorizerFunctionArn"`
+	AuthorizerName         *string         `pulumi:"authorizerName"`
+	SigningDisabled        *bool           `pulumi:"signingDisabled"`
+	Status                 *string         `pulumi:"status"`
+	Tags                   []AuthorizerTag `pulumi:"tags"`
+	TokenKeyName           *string         `pulumi:"tokenKeyName"`
+	TokenSigningPublicKeys interface{}     `pulumi:"tokenSigningPublicKeys"`
 }
 
 // The set of arguments for constructing a Authorizer resource.
 type AuthorizerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizerfunctionarn
-	AuthorizerFunctionArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-authorizername
-	AuthorizerName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-signingdisabled
-	SigningDisabled pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-status
-	Status pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokenkeyname
-	TokenKeyName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-authorizer.html#cfn-iot-authorizer-tokensigningpublickeys
-	TokenSigningPublicKeys pulumi.StringMapInput
+	AuthorizerFunctionArn  pulumi.StringInput
+	AuthorizerName         pulumi.StringPtrInput
+	SigningDisabled        pulumi.BoolPtrInput
+	Status                 pulumi.StringPtrInput
+	Tags                   AuthorizerTagArrayInput
+	TokenKeyName           pulumi.StringPtrInput
+	TokenSigningPublicKeys pulumi.Input
 }
 
 func (AuthorizerArgs) ElementType() reflect.Type {

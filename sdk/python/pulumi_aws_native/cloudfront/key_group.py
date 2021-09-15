@@ -18,16 +18,12 @@ class KeyGroupArgs:
                  key_group_config: pulumi.Input['KeyGroupKeyGroupConfigArgs']):
         """
         The set of arguments for constructing a KeyGroup resource.
-        :param pulumi.Input['KeyGroupKeyGroupConfigArgs'] key_group_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
         """
         pulumi.set(__self__, "key_group_config", key_group_config)
 
     @property
     @pulumi.getter(name="keyGroupConfig")
     def key_group_config(self) -> pulumi.Input['KeyGroupKeyGroupConfigArgs']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
-        """
         return pulumi.get(self, "key_group_config")
 
     @key_group_config.setter
@@ -43,11 +39,10 @@ class KeyGroup(pulumi.CustomResource):
                  key_group_config: Optional[pulumi.Input[pulumi.InputType['KeyGroupKeyGroupConfigArgs']]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
+        Resource Type definition for AWS::CloudFront::KeyGroup
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['KeyGroupKeyGroupConfigArgs']] key_group_config: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
         """
         ...
     @overload
@@ -56,7 +51,7 @@ class KeyGroup(pulumi.CustomResource):
                  args: KeyGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
+        Resource Type definition for AWS::CloudFront::KeyGroup
 
         :param str resource_name: The name of the resource.
         :param KeyGroupArgs args: The arguments to use to populate this resource's properties.
@@ -89,7 +84,6 @@ class KeyGroup(pulumi.CustomResource):
             if key_group_config is None and not opts.urn:
                 raise TypeError("Missing required property 'key_group_config'")
             __props__.__dict__["key_group_config"] = key_group_config
-            __props__.__dict__["id"] = None
             __props__.__dict__["last_modified_time"] = None
         super(KeyGroup, __self__).__init__(
             'aws-native:cloudfront:KeyGroup',
@@ -113,22 +107,13 @@ class KeyGroup(pulumi.CustomResource):
 
         __props__ = KeyGroupArgs.__new__(KeyGroupArgs)
 
-        __props__.__dict__["id"] = None
         __props__.__dict__["key_group_config"] = None
         __props__.__dict__["last_modified_time"] = None
         return KeyGroup(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="keyGroupConfig")
     def key_group_config(self) -> pulumi.Output['outputs.KeyGroupKeyGroupConfig']:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
-        """
         return pulumi.get(self, "key_group_config")
 
     @property

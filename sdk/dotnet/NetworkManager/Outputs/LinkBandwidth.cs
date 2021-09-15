@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.NetworkManager.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html
+    /// The bandwidth for the link.
     /// </summary>
     [OutputType]
     public sealed class LinkBandwidth
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-downloadspeed
+        /// Download speed in Mbps.
         /// </summary>
         public readonly int? DownloadSpeed;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-uploadspeed
+        /// Upload speed in Mbps.
         /// </summary>
         public readonly int? UploadSpeed;
 

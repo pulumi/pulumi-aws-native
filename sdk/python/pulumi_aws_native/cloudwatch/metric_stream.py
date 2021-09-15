@@ -8,8 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from .. import _inputs as _root_inputs
-from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['MetricStreamArgs', 'MetricStream']
@@ -23,16 +21,16 @@ class MetricStreamArgs:
                  exclude_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]]] = None,
                  include_filters: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamTagArgs']]]] = None):
         """
         The set of arguments for constructing a MetricStream resource.
-        :param pulumi.Input[str] firehose_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
-        :param pulumi.Input[str] output_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]] exclude_filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
-        :param pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]] include_filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
+        :param pulumi.Input[str] firehose_arn: The ARN of the Kinesis Firehose where to stream the data.
+        :param pulumi.Input[str] output_format: The output format of the data streamed to the Kinesis Firehose.
+        :param pulumi.Input[str] role_arn: The ARN of the role that provides access to the Kinesis Firehose.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]] exclude_filters: Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]] include_filters: Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
+        :param pulumi.Input[str] name: Name of the metric stream.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricStreamTagArgs']]] tags: A set of tags to assign to the delivery stream.
         """
         pulumi.set(__self__, "firehose_arn", firehose_arn)
         pulumi.set(__self__, "output_format", output_format)
@@ -50,7 +48,7 @@ class MetricStreamArgs:
     @pulumi.getter(name="firehoseArn")
     def firehose_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
+        The ARN of the Kinesis Firehose where to stream the data.
         """
         return pulumi.get(self, "firehose_arn")
 
@@ -62,7 +60,7 @@ class MetricStreamArgs:
     @pulumi.getter(name="outputFormat")
     def output_format(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
+        The output format of the data streamed to the Kinesis Firehose.
         """
         return pulumi.get(self, "output_format")
 
@@ -74,7 +72,7 @@ class MetricStreamArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+        The ARN of the role that provides access to the Kinesis Firehose.
         """
         return pulumi.get(self, "role_arn")
 
@@ -86,7 +84,7 @@ class MetricStreamArgs:
     @pulumi.getter(name="excludeFilters")
     def exclude_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
+        Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         """
         return pulumi.get(self, "exclude_filters")
 
@@ -98,7 +96,7 @@ class MetricStreamArgs:
     @pulumi.getter(name="includeFilters")
     def include_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamMetricStreamFilterArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
+        Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         """
         return pulumi.get(self, "include_filters")
 
@@ -110,7 +108,7 @@ class MetricStreamArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
+        Name of the metric stream.
         """
         return pulumi.get(self, "name")
 
@@ -120,14 +118,14 @@ class MetricStreamArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamTagArgs']]]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
+        A set of tags to assign to the delivery stream.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricStreamTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -142,20 +140,20 @@ class MetricStream(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  output_format: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamTagArgs']]]]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html
+        Resource Type definition for Metric Stream
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamMetricStreamFilterArgs']]]] exclude_filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
-        :param pulumi.Input[str] firehose_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamMetricStreamFilterArgs']]]] include_filters: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
-        :param pulumi.Input[str] output_format: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
-        :param pulumi.Input[str] role_arn: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamMetricStreamFilterArgs']]]] exclude_filters: Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
+        :param pulumi.Input[str] firehose_arn: The ARN of the Kinesis Firehose where to stream the data.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamMetricStreamFilterArgs']]]] include_filters: Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
+        :param pulumi.Input[str] name: Name of the metric stream.
+        :param pulumi.Input[str] output_format: The output format of the data streamed to the Kinesis Firehose.
+        :param pulumi.Input[str] role_arn: The ARN of the role that provides access to the Kinesis Firehose.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamTagArgs']]]] tags: A set of tags to assign to the delivery stream.
         """
         ...
     @overload
@@ -164,7 +162,7 @@ class MetricStream(pulumi.CustomResource):
                  args: MetricStreamArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html
+        Resource Type definition for Metric Stream
 
         :param str resource_name: The name of the resource.
         :param MetricStreamArgs args: The arguments to use to populate this resource's properties.
@@ -187,7 +185,7 @@ class MetricStream(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  output_format: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricStreamTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -255,18 +253,24 @@ class MetricStream(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        Amazon Resource Name of the metric stream.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[str]:
+        """
+        The date of creation of the metric stream.
+        """
         return pulumi.get(self, "creation_date")
 
     @property
     @pulumi.getter(name="excludeFilters")
     def exclude_filters(self) -> pulumi.Output[Optional[Sequence['outputs.MetricStreamMetricStreamFilter']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-excludefilters
+        Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         """
         return pulumi.get(self, "exclude_filters")
 
@@ -274,7 +278,7 @@ class MetricStream(pulumi.CustomResource):
     @pulumi.getter(name="firehoseArn")
     def firehose_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-firehosearn
+        The ARN of the Kinesis Firehose where to stream the data.
         """
         return pulumi.get(self, "firehose_arn")
 
@@ -282,20 +286,23 @@ class MetricStream(pulumi.CustomResource):
     @pulumi.getter(name="includeFilters")
     def include_filters(self) -> pulumi.Output[Optional[Sequence['outputs.MetricStreamMetricStreamFilter']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-includefilters
+        Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         """
         return pulumi.get(self, "include_filters")
 
     @property
     @pulumi.getter(name="lastUpdateDate")
     def last_update_date(self) -> pulumi.Output[str]:
+        """
+        The date of the last update of the metric stream.
+        """
         return pulumi.get(self, "last_update_date")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-name
+        Name of the metric stream.
         """
         return pulumi.get(self, "name")
 
@@ -303,7 +310,7 @@ class MetricStream(pulumi.CustomResource):
     @pulumi.getter(name="outputFormat")
     def output_format(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-outputformat
+        The output format of the data streamed to the Kinesis Firehose.
         """
         return pulumi.get(self, "output_format")
 
@@ -311,20 +318,23 @@ class MetricStream(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-rolearn
+        The ARN of the role that provides access to the Kinesis Firehose.
         """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter
     def state(self) -> pulumi.Output[str]:
+        """
+        Displays the state of the Metric Stream.
+        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MetricStreamTag']]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-metricstream.html#cfn-cloudwatch-metricstream-tags
+        A set of tags to assign to the delivery stream.
         """
         return pulumi.get(self, "tags")
 

@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html
+    /// The target resource that the Route 53 record points to.
     /// </summary>
     [OutputType]
     public sealed class ResourceSetTargetResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-nlbresource
-        /// </summary>
         public readonly Outputs.ResourceSetNLBResource? NLBResource;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-r53resource
-        /// </summary>
         public readonly Outputs.ResourceSetR53ResourceRecord? R53Resource;
 
         [OutputConstructor]

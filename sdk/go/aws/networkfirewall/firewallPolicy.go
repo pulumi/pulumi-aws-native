@@ -8,24 +8,19 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html
+// Resource type definition for AWS::NetworkFirewall::FirewallPolicy
 type FirewallPolicy struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
-	FirewallPolicy    FirewallPolicyFirewallPolicyOutput `pulumi:"firewallPolicy"`
-	FirewallPolicyArn pulumi.StringOutput                `pulumi:"firewallPolicyArn"`
-	FirewallPolicyId  pulumi.StringOutput                `pulumi:"firewallPolicyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
-	FirewallPolicyName pulumi.StringOutput `pulumi:"firewallPolicyName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Description        pulumi.StringPtrOutput             `pulumi:"description"`
+	FirewallPolicy     FirewallPolicyFirewallPolicyOutput `pulumi:"firewallPolicy"`
+	FirewallPolicyArn  pulumi.StringOutput                `pulumi:"firewallPolicyArn"`
+	FirewallPolicyId   pulumi.StringOutput                `pulumi:"firewallPolicyId"`
+	FirewallPolicyName pulumi.StringOutput                `pulumi:"firewallPolicyName"`
+	Tags               FirewallPolicyTagArrayOutput       `pulumi:"tags"`
 }
 
 // NewFirewallPolicy registers a new resource with the given unique name, arguments, and options.
@@ -73,26 +68,18 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 }
 
 type firewallPolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
-	FirewallPolicy FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
-	FirewallPolicyName string `pulumi:"firewallPolicyName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	Description        *string                      `pulumi:"description"`
+	FirewallPolicy     FirewallPolicyFirewallPolicy `pulumi:"firewallPolicy"`
+	FirewallPolicyName string                       `pulumi:"firewallPolicyName"`
+	Tags               []FirewallPolicyTag          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FirewallPolicy resource.
 type FirewallPolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
-	FirewallPolicy FirewallPolicyFirewallPolicyInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
+	Description        pulumi.StringPtrInput
+	FirewallPolicy     FirewallPolicyFirewallPolicyInput
 	FirewallPolicyName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
-	Tags aws.TagArrayInput
+	Tags               FirewallPolicyTagArrayInput
 }
 
 func (FirewallPolicyArgs) ElementType() reflect.Type {

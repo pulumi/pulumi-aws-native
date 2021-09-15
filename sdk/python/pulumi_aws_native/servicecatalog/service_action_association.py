@@ -18,9 +18,6 @@ class ServiceActionAssociationArgs:
                  service_action_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a ServiceActionAssociation resource.
-        :param pulumi.Input[str] product_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-productid
-        :param pulumi.Input[str] provisioning_artifact_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-provisioningartifactid
-        :param pulumi.Input[str] service_action_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-serviceactionid
         """
         pulumi.set(__self__, "product_id", product_id)
         pulumi.set(__self__, "provisioning_artifact_id", provisioning_artifact_id)
@@ -29,9 +26,6 @@ class ServiceActionAssociationArgs:
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-productid
-        """
         return pulumi.get(self, "product_id")
 
     @product_id.setter
@@ -41,9 +35,6 @@ class ServiceActionAssociationArgs:
     @property
     @pulumi.getter(name="provisioningArtifactId")
     def provisioning_artifact_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-provisioningartifactid
-        """
         return pulumi.get(self, "provisioning_artifact_id")
 
     @provisioning_artifact_id.setter
@@ -53,9 +44,6 @@ class ServiceActionAssociationArgs:
     @property
     @pulumi.getter(name="serviceActionId")
     def service_action_id(self) -> pulumi.Input[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-serviceactionid
-        """
         return pulumi.get(self, "service_action_id")
 
     @service_action_id.setter
@@ -73,13 +61,10 @@ class ServiceActionAssociation(pulumi.CustomResource):
                  service_action_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html
+        Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] product_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-productid
-        :param pulumi.Input[str] provisioning_artifact_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-provisioningartifactid
-        :param pulumi.Input[str] service_action_id: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-serviceactionid
         """
         ...
     @overload
@@ -88,7 +73,7 @@ class ServiceActionAssociation(pulumi.CustomResource):
                  args: ServiceActionAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html
+        Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation
 
         :param str resource_name: The name of the resource.
         :param ServiceActionAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -159,24 +144,15 @@ class ServiceActionAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="productId")
     def product_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-productid
-        """
         return pulumi.get(self, "product_id")
 
     @property
     @pulumi.getter(name="provisioningArtifactId")
     def provisioning_artifact_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-provisioningartifactid
-        """
         return pulumi.get(self, "provisioning_artifact_id")
 
     @property
     @pulumi.getter(name="serviceActionId")
     def service_action_id(self) -> pulumi.Output[str]:
-        """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-serviceactionid
-        """
         return pulumi.get(self, "service_action_id")
 

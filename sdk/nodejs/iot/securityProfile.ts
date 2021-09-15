@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html
+ * A security profile defines a set of expected behaviors for devices in your account.
  */
 export class SecurityProfile extends pulumi.CustomResource {
     /**
@@ -36,32 +36,35 @@ export class SecurityProfile extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-additionalmetricstoretainv2
+     * A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
      */
     public readonly additionalMetricsToRetainV2!: pulumi.Output<outputs.iot.SecurityProfileMetricToRetain[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-alerttargets
+     * Specifies the destinations to which alerts are sent.
      */
-    public readonly alertTargets!: pulumi.Output<{[key: string]: outputs.iot.SecurityProfileAlertTarget} | undefined>;
+    public readonly alertTargets!: pulumi.Output<any | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-behaviors
+     * Specifies the behaviors that, when violated by a device (thing), cause an alert.
      */
     public readonly behaviors!: pulumi.Output<outputs.iot.SecurityProfileBehavior[] | undefined>;
+    /**
+     * The ARN (Amazon resource name) of the created security profile.
+     */
     public /*out*/ readonly securityProfileArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofiledescription
+     * A description of the security profile.
      */
     public readonly securityProfileDescription!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofilename
+     * A unique identifier for the security profile.
      */
     public readonly securityProfileName!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-tags
+     * Metadata that can be used to manage the security profile.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.iot.SecurityProfileTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-targetarns
+     * A set of target ARNs that the security profile is attached to.
      */
     public readonly targetArns!: pulumi.Output<string[] | undefined>;
 
@@ -106,31 +109,31 @@ export class SecurityProfile extends pulumi.CustomResource {
  */
 export interface SecurityProfileArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-additionalmetricstoretainv2
+     * A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
      */
     additionalMetricsToRetainV2?: pulumi.Input<pulumi.Input<inputs.iot.SecurityProfileMetricToRetainArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-alerttargets
+     * Specifies the destinations to which alerts are sent.
      */
-    alertTargets?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iot.SecurityProfileAlertTargetArgs>}>;
+    alertTargets?: any;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-behaviors
+     * Specifies the behaviors that, when violated by a device (thing), cause an alert.
      */
     behaviors?: pulumi.Input<pulumi.Input<inputs.iot.SecurityProfileBehaviorArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofiledescription
+     * A description of the security profile.
      */
     securityProfileDescription?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-securityprofilename
+     * A unique identifier for the security profile.
      */
     securityProfileName?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-tags
+     * Metadata that can be used to manage the security profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.iot.SecurityProfileTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-securityprofile.html#cfn-iot-securityprofile-targetarns
+     * A set of target ARNs that the security profile is attached to.
      */
     targetArns?: pulumi.Input<pulumi.Input<string>[]>;
 }

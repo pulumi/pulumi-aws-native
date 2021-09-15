@@ -11,13 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
+// Resource Type definition for AWS::CloudFront::OriginRequestPolicy
 type OriginRequestPolicy struct {
 	pulumi.CustomResourceState
 
-	Id               pulumi.StringOutput `pulumi:"id"`
-	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
+	LastModifiedTime          pulumi.StringOutput                                `pulumi:"lastModifiedTime"`
 	OriginRequestPolicyConfig OriginRequestPolicyOriginRequestPolicyConfigOutput `pulumi:"originRequestPolicyConfig"`
 }
 
@@ -63,13 +61,11 @@ func (OriginRequestPolicyState) ElementType() reflect.Type {
 }
 
 type originRequestPolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
 	OriginRequestPolicyConfig OriginRequestPolicyOriginRequestPolicyConfig `pulumi:"originRequestPolicyConfig"`
 }
 
 // The set of arguments for constructing a OriginRequestPolicy resource.
 type OriginRequestPolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
 	OriginRequestPolicyConfig OriginRequestPolicyOriginRequestPolicyConfigInput
 }
 

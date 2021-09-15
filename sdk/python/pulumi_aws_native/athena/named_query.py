@@ -20,11 +20,11 @@ class NamedQueryArgs:
                  work_group: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NamedQuery resource.
-        :param pulumi.Input[str] database: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database
-        :param pulumi.Input[str] query_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name
-        :param pulumi.Input[str] work_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
+        :param pulumi.Input[str] database: The database to which the query belongs.
+        :param pulumi.Input[str] query_string: The contents of the query with all query statements.
+        :param pulumi.Input[str] description: The query description.
+        :param pulumi.Input[str] name: The query name.
+        :param pulumi.Input[str] work_group: The name of the workgroup that contains the named query.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "query_string", query_string)
@@ -39,7 +39,7 @@ class NamedQueryArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database
+        The database to which the query belongs.
         """
         return pulumi.get(self, "database")
 
@@ -51,7 +51,7 @@ class NamedQueryArgs:
     @pulumi.getter(name="queryString")
     def query_string(self) -> pulumi.Input[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
+        The contents of the query with all query statements.
         """
         return pulumi.get(self, "query_string")
 
@@ -63,7 +63,7 @@ class NamedQueryArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description
+        The query description.
         """
         return pulumi.get(self, "description")
 
@@ -75,7 +75,7 @@ class NamedQueryArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name
+        The query name.
         """
         return pulumi.get(self, "name")
 
@@ -87,7 +87,7 @@ class NamedQueryArgs:
     @pulumi.getter(name="workGroup")
     def work_group(self) -> Optional[pulumi.Input[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
+        The name of the workgroup that contains the named query.
         """
         return pulumi.get(self, "work_group")
 
@@ -108,15 +108,15 @@ class NamedQuery(pulumi.CustomResource):
                  work_group: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html
+        Resource schema for AWS::Athena::NamedQuery
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] database: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database
-        :param pulumi.Input[str] description: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description
-        :param pulumi.Input[str] name: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name
-        :param pulumi.Input[str] query_string: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
-        :param pulumi.Input[str] work_group: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
+        :param pulumi.Input[str] database: The database to which the query belongs.
+        :param pulumi.Input[str] description: The query description.
+        :param pulumi.Input[str] name: The query name.
+        :param pulumi.Input[str] query_string: The contents of the query with all query statements.
+        :param pulumi.Input[str] work_group: The name of the workgroup that contains the named query.
         """
         ...
     @overload
@@ -125,7 +125,7 @@ class NamedQuery(pulumi.CustomResource):
                  args: NamedQueryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html
+        Resource schema for AWS::Athena::NamedQuery
 
         :param str resource_name: The name of the resource.
         :param NamedQueryArgs args: The arguments to use to populate this resource's properties.
@@ -203,7 +203,7 @@ class NamedQuery(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-database
+        The database to which the query belongs.
         """
         return pulumi.get(self, "database")
 
@@ -211,7 +211,7 @@ class NamedQuery(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-description
+        The query description.
         """
         return pulumi.get(self, "description")
 
@@ -219,20 +219,23 @@ class NamedQuery(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-name
+        The query name.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="namedQueryId")
     def named_query_id(self) -> pulumi.Output[str]:
+        """
+        The unique ID of the query.
+        """
         return pulumi.get(self, "named_query_id")
 
     @property
     @pulumi.getter(name="queryString")
     def query_string(self) -> pulumi.Output[str]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-querystring
+        The contents of the query with all query statements.
         """
         return pulumi.get(self, "query_string")
 
@@ -240,7 +243,7 @@ class NamedQuery(pulumi.CustomResource):
     @pulumi.getter(name="workGroup")
     def work_group(self) -> pulumi.Output[Optional[str]]:
         """
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html#cfn-athena-namedquery-workgroup
+        The name of the workgroup that contains the named query.
         """
         return pulumi.get(self, "work_group")
 

@@ -11,25 +11,16 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html
+    /// The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
     /// </summary>
     public sealed class AccessPolicyAccessPolicyIdentityArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamrole
-        /// </summary>
         [Input("iamRole")]
         public Input<Inputs.AccessPolicyIamRoleArgs>? IamRole { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamuser
-        /// </summary>
         [Input("iamUser")]
         public Input<Inputs.AccessPolicyIamUserArgs>? IamUser { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
-        /// </summary>
         [Input("user")]
         public Input<Inputs.AccessPolicyUserArgs>? User { get; set; }
 
