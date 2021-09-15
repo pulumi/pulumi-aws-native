@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Codestarnotifications.Inputs
+namespace Pulumi.AwsNative.CodeStarNotifications.Inputs
 {
 
     public sealed class NotificationRuleTargetArgs : Pulumi.ResourceArgs

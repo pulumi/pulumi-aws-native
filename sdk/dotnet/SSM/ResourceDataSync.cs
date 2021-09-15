@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ssm
+namespace Pulumi.AwsNative.SSM
 {
     /// <summary>
     /// Resource Type definition for AWS::SSM::ResourceDataSync

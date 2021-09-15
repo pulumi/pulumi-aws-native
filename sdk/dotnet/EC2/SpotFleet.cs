@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ec2
+namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
     /// Resource Type definition for AWS::EC2::SpotFleet

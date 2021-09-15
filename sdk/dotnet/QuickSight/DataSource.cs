@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Quicksight
+namespace Pulumi.AwsNative.QuickSight
 {
     /// <summary>
     /// Definition of the AWS::QuickSight::DataSource Resource Type.

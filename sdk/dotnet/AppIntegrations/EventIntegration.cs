@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Appintegrations
+namespace Pulumi.AwsNative.AppIntegrations
 {
     /// <summary>
     /// Resource Type definition for AWS::AppIntegrations::EventIntegration

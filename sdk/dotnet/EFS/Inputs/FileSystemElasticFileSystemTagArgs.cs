@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Efs.Inputs
+namespace Pulumi.AwsNative.EFS.Inputs
 {
 
     public sealed class FileSystemElasticFileSystemTagArgs : Pulumi.ResourceArgs

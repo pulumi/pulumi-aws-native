@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Appflow
+namespace Pulumi.AwsNative.AppFlow
 {
     /// <summary>
     /// Resource Type definition for AWS::AppFlow::ConnectorProfile

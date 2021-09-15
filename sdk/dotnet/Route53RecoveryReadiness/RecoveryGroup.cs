@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53recoveryreadiness
+namespace Pulumi.AwsNative.Route53RecoveryReadiness
 {
     /// <summary>
     /// AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.

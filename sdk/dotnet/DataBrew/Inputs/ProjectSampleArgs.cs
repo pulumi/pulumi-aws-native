@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Databrew.Inputs
+namespace Pulumi.AwsNative.DataBrew.Inputs
 {
 
     public sealed class ProjectSampleArgs : Pulumi.ResourceArgs

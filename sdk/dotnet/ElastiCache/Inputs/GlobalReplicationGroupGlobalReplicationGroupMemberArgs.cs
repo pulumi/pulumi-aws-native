@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Elasticache.Inputs
+namespace Pulumi.AwsNative.ElastiCache.Inputs
 {
 
     public sealed class GlobalReplicationGroupGlobalReplicationGroupMemberArgs : Pulumi.ResourceArgs

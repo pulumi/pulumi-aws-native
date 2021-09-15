@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Accessanalyzer
+namespace Pulumi.AwsNative.AccessAnalyzer
 {
     /// <summary>
     /// The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Gamelift.Inputs
+namespace Pulumi.AwsNative.GameLift.Inputs
 {
 
     public sealed class AliasRoutingStrategyArgs : Pulumi.ResourceArgs

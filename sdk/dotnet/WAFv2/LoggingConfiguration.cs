@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Wafv2
+namespace Pulumi.AwsNative.WAFv2
 {
     /// <summary>
     /// A WAFv2 Logging Configuration Resource Provider

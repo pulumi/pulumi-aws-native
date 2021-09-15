@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Workspaces.Inputs
+namespace Pulumi.AwsNative.WorkSpaces.Inputs
 {
 
     public sealed class ConnectionAliasTagArgs : Pulumi.ResourceArgs

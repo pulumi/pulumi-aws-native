@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Iotsitewise
+namespace Pulumi.AwsNative.IoTSiteWise
 {
     /// <summary>
     /// Resource schema for AWS::IoTSiteWise::Project

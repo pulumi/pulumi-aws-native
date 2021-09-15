@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Emr
+namespace Pulumi.AwsNative.EMR
 {
     /// <summary>
     /// Resource schema for AWS::EMR::Studio

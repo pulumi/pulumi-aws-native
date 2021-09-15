@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Wafv2.Inputs
+namespace Pulumi.AwsNative.WAFv2.Inputs
 {
 
     public sealed class RegexPatternSetTagArgs : Pulumi.ResourceArgs

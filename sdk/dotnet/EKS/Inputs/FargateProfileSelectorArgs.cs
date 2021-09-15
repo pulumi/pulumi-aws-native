@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Eks.Inputs
+namespace Pulumi.AwsNative.EKS.Inputs
 {
 
     public sealed class FargateProfileSelectorArgs : Pulumi.ResourceArgs

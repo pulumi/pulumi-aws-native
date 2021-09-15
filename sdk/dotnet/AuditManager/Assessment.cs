@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Auditmanager
+namespace Pulumi.AwsNative.AuditManager
 {
     /// <summary>
     /// An entity that defines the scope of audit evidence collected by AWS Audit Manager.

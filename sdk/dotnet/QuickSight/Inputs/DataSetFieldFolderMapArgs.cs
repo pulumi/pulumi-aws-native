@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Quicksight.Inputs
+namespace Pulumi.AwsNative.QuickSight.Inputs
 {
 
     public sealed class DataSetFieldFolderMapArgs : Pulumi.ResourceArgs

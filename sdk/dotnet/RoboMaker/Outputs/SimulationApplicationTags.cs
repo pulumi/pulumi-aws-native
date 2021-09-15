@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Robomaker.Outputs
+namespace Pulumi.AwsNative.RoboMaker.Outputs
 {
 
     /// <summary>

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Networkmanager
+namespace Pulumi.AwsNative.NetworkManager
 {
     /// <summary>
     /// The AWS::NetworkManager::Link type describes a link.

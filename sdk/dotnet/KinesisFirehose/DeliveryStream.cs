@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Kinesisfirehose
+namespace Pulumi.AwsNative.KinesisFirehose
 {
     /// <summary>
     /// Resource Type definition for AWS::KinesisFirehose::DeliveryStream

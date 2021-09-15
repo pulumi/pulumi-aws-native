@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Iot
+namespace Pulumi.AwsNative.IoT
 {
     /// <summary>
     /// A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.

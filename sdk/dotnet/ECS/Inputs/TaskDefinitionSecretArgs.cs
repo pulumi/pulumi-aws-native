@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ecs.Inputs
+namespace Pulumi.AwsNative.ECS.Inputs
 {
 
     public sealed class TaskDefinitionSecretArgs : Pulumi.ResourceArgs

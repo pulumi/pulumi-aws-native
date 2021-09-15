@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Iot.Inputs
+namespace Pulumi.AwsNative.IoT.Inputs
 {
 
     public sealed class TopicRuleFirehoseActionArgs : Pulumi.ResourceArgs

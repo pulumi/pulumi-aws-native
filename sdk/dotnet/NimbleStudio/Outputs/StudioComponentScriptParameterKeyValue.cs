@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Nimblestudio.Outputs
+namespace Pulumi.AwsNative.NimbleStudio.Outputs
 {
 
     [OutputType]

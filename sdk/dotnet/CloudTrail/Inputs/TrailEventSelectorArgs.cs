@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Cloudtrail.Inputs
+namespace Pulumi.AwsNative.CloudTrail.Inputs
 {
 
     /// <summary>

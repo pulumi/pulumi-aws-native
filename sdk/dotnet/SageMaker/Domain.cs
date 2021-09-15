@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Sagemaker
+namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
     /// Resource Type definition for AWS::SageMaker::Domain

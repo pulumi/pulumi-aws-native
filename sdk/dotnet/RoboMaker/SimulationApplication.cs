@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Robomaker
+namespace Pulumi.AwsNative.RoboMaker
 {
     /// <summary>
     /// An example resource schema demonstrating some basic constructs and validation rules.

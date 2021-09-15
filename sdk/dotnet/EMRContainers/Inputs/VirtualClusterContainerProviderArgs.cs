@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Emrcontainers.Inputs
+namespace Pulumi.AwsNative.EMRContainers.Inputs
 {
 
     public sealed class VirtualClusterContainerProviderArgs : Pulumi.ResourceArgs

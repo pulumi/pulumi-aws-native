@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Accessanalyzer.Inputs
+namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
 {
 
     public sealed class AnalyzerFilterArgs : Pulumi.ResourceArgs

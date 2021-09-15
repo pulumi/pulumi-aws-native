@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Groundstation
+namespace Pulumi.AwsNative.GroundStation
 {
     /// <summary>
     /// AWS Ground Station config resource type for CloudFormation.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53recoverycontrol.Outputs
+namespace Pulumi.AwsNative.Route53RecoveryControl.Outputs
 {
 
     /// <summary>

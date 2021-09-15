@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Mediapackage.Inputs
+namespace Pulumi.AwsNative.MediaPackage.Inputs
 {
 
     public sealed class PackagingGroupLogConfigurationArgs : Pulumi.ResourceArgs

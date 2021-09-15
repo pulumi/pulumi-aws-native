@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Licensemanager
+namespace Pulumi.AwsNative.LicenseManager
 {
     /// <summary>
     /// Resource Type definition for AWS::LicenseManager::License

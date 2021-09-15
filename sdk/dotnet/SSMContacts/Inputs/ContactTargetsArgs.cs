@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ssmcontacts.Inputs
+namespace Pulumi.AwsNative.SSMContacts.Inputs
 {
 
     /// <summary>

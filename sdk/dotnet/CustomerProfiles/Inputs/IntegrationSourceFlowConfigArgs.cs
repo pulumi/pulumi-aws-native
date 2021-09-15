@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Customerprofiles.Inputs
+namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 {
 
     public sealed class IntegrationSourceFlowConfigArgs : Pulumi.ResourceArgs

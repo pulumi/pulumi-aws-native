@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ec2
+namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
     /// Describes an association between a local gateway route table and a VPC.

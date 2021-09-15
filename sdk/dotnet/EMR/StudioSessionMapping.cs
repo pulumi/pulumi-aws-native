@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Emr
+namespace Pulumi.AwsNative.EMR
 {
     /// <summary>
     /// An example resource schema demonstrating some basic constructs and validation rules.

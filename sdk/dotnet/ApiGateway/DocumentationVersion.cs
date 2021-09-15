@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Apigateway
+namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
     /// A snapshot of the documentation of an API.

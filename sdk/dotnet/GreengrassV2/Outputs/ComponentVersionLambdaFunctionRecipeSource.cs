@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Greengrassv2.Outputs
+namespace Pulumi.AwsNative.GreengrassV2.Outputs
 {
 
     [OutputType]

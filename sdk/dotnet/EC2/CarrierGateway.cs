@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ec2
+namespace Pulumi.AwsNative.EC2
 {
     /// <summary>
     /// An example resource schema demonstrating some basic constructs and validation rules.

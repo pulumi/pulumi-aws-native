@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ssm.Inputs
+namespace Pulumi.AwsNative.SSM.Inputs
 {
 
     public sealed class ResourceDataSyncS3DestinationArgs : Pulumi.ResourceArgs

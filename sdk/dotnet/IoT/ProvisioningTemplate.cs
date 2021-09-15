@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Iot
+namespace Pulumi.AwsNative.IoT
 {
     /// <summary>
     /// Creates a fleet provisioning template.

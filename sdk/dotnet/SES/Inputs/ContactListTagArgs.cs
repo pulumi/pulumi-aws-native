@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ses.Inputs
+namespace Pulumi.AwsNative.SES.Inputs
 {
 
     public sealed class ContactListTagArgs : Pulumi.ResourceArgs

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Apigateway
+namespace Pulumi.AwsNative.ApiGateway
 {
     /// <summary>
     /// Resource Type definition for AWS::ApiGateway::Account

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Eventschemas
+namespace Pulumi.AwsNative.EventSchemas
 {
     /// <summary>
     /// Resource Type definition for AWS::EventSchemas::RegistryPolicy

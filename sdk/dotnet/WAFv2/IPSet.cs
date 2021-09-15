@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Wafv2
+namespace Pulumi.AwsNative.WAFv2
 {
     /// <summary>
     /// Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually

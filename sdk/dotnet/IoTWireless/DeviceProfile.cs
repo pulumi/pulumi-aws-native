@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Iotwireless
+namespace Pulumi.AwsNative.IoTWireless
 {
     /// <summary>
     /// Device Profile's resource schema demonstrating some basic constructs and validation rules.

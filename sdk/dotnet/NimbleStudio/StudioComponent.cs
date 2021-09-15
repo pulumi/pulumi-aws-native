@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Nimblestudio
+namespace Pulumi.AwsNative.NimbleStudio
 {
     /// <summary>
     /// Resource schema for AWS::NimbleStudio::StudioComponent.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ecs
+namespace Pulumi.AwsNative.ECS
 {
     /// <summary>
     /// Associate a set of ECS Capacity Providers with a specified ECS Cluster

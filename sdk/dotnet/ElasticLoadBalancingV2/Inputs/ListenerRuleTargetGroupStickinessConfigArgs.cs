@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Elasticloadbalancingv2.Inputs
+namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
     public sealed class ListenerRuleTargetGroupStickinessConfigArgs : Pulumi.ResourceArgs

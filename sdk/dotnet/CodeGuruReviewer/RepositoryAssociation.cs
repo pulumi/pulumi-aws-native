@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Codegurureviewer
+namespace Pulumi.AwsNative.CodeGuruReviewer
 {
     /// <summary>
     /// This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.

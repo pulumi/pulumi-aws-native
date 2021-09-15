@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Cloudfront.Inputs
+namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
     public sealed class DistributionOriginCustomHeaderArgs : Pulumi.ResourceArgs

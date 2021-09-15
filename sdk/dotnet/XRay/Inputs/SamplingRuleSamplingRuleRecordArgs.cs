@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Xray.Inputs
+namespace Pulumi.AwsNative.XRay.Inputs
 {
 
     public sealed class SamplingRuleSamplingRuleRecordArgs : Pulumi.ResourceArgs

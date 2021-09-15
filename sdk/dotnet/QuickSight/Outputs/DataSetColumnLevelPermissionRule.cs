@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Quicksight.Outputs
+namespace Pulumi.AwsNative.QuickSight.Outputs
 {
 
     [OutputType]

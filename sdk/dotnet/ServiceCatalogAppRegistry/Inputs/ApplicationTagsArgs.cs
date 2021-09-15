@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Servicecatalogappregistry.Inputs
+namespace Pulumi.AwsNative.ServiceCatalogAppRegistry.Inputs
 {
 
     public sealed class ApplicationTagsArgs : Pulumi.ResourceArgs

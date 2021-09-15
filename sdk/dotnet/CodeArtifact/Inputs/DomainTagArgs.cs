@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Codeartifact.Inputs
+namespace Pulumi.AwsNative.CodeArtifact.Inputs
 {
 
     /// <summary>

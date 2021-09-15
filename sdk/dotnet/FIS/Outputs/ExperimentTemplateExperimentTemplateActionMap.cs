@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Fis.Outputs
+namespace Pulumi.AwsNative.FIS.Outputs
 {
 
     /// <summary>

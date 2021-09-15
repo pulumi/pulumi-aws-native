@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Cloudfront.Outputs
+namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
     [OutputType]

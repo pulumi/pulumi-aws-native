@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Greengrassv2.Inputs
+namespace Pulumi.AwsNative.GreengrassV2.Inputs
 {
 
     public sealed class ComponentVersionLambdaContainerParamsArgs : Pulumi.ResourceArgs

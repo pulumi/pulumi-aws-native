@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Mwaa
+namespace Pulumi.AwsNative.MWAA
 {
     /// <summary>
     /// Resource schema for AWS::MWAA::Environment

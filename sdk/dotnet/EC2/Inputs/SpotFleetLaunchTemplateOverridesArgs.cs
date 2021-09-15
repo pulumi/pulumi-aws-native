@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ec2.Inputs
+namespace Pulumi.AwsNative.EC2.Inputs
 {
 
     public sealed class SpotFleetLaunchTemplateOverridesArgs : Pulumi.ResourceArgs

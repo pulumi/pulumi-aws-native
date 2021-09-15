@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Mediaconnect.Outputs
+namespace Pulumi.AwsNative.MediaConnect.Outputs
 {
 
     /// <summary>

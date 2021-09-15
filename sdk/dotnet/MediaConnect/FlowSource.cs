@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Mediaconnect
+namespace Pulumi.AwsNative.MediaConnect
 {
     /// <summary>
     /// Resource schema for AWS::MediaConnect::FlowSource

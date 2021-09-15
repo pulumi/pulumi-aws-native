@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Iotwireless.Inputs
+namespace Pulumi.AwsNative.IoTWireless.Inputs
 {
 
     public sealed class WirelessGatewayTagArgs : Pulumi.ResourceArgs

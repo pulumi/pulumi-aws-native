@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Iot
+namespace Pulumi.AwsNative.IoT
 {
     /// <summary>
     /// Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.

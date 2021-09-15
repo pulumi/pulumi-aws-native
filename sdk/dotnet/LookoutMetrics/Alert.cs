@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Lookoutmetrics
+namespace Pulumi.AwsNative.LookoutMetrics
 {
     /// <summary>
     /// Resource Type definition for AWS::LookoutMetrics::Alert

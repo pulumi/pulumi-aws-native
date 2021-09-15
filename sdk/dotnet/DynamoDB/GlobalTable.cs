@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Dynamodb
+namespace Pulumi.AwsNative.DynamoDB
 {
     /// <summary>
     /// Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable

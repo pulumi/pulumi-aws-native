@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Efs
+namespace Pulumi.AwsNative.EFS
 {
     /// <summary>
     /// Resource Type definition for AWS::EFS::MountTarget

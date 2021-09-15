@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Databrew
+namespace Pulumi.AwsNative.DataBrew
 {
     /// <summary>
     /// Resource schema for AWS::DataBrew::Recipe.

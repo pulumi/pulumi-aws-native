@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Xray.Outputs
+namespace Pulumi.AwsNative.XRay.Outputs
 {
 
     [OutputType]

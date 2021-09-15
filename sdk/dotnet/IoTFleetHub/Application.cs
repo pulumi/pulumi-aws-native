@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Iotfleethub
+namespace Pulumi.AwsNative.IoTFleetHub
 {
     /// <summary>
     /// Resource schema for AWS::IoTFleetHub::Application

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Kinesisfirehose.Outputs
+namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 {
 
     [OutputType]

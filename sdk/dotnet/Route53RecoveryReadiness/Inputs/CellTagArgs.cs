@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53recoveryreadiness.Inputs
+namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
 {
 
     public sealed class CellTagArgs : Pulumi.ResourceArgs

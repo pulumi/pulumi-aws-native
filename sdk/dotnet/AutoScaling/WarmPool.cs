@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Autoscaling
+namespace Pulumi.AwsNative.AutoScaling
 {
     /// <summary>
     /// Resource schema for AWS::AutoScaling::WarmPool.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ses
+namespace Pulumi.AwsNative.SES
 {
     /// <summary>
     /// Resource schema for AWS::SES::ConfigurationSet.

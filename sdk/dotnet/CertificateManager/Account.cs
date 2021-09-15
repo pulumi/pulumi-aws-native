@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Certificatemanager
+namespace Pulumi.AwsNative.CertificateManager
 {
     /// <summary>
     /// Resource schema for AWS::CertificateManager::Account.

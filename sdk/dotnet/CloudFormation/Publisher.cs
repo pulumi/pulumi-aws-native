@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Cloudformation
+namespace Pulumi.AwsNative.CloudFormation
 {
     /// <summary>
     /// Register as a publisher in the CloudFormation Registry.

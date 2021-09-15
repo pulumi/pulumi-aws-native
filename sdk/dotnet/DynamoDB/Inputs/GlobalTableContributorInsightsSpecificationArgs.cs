@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Dynamodb.Inputs
+namespace Pulumi.AwsNative.DynamoDB.Inputs
 {
 
     public sealed class GlobalTableContributorInsightsSpecificationArgs : Pulumi.ResourceArgs

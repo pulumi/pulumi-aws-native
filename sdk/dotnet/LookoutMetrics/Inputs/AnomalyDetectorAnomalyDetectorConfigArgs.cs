@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Lookoutmetrics.Inputs
+namespace Pulumi.AwsNative.LookoutMetrics.Inputs
 {
 
     public sealed class AnomalyDetectorAnomalyDetectorConfigArgs : Pulumi.ResourceArgs

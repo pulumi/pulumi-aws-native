@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Nimblestudio.Inputs
+namespace Pulumi.AwsNative.NimbleStudio.Inputs
 {
 
     public sealed class LaunchProfileStreamConfigurationArgs : Pulumi.ResourceArgs

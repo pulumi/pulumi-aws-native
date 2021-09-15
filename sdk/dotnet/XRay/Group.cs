@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Xray
+namespace Pulumi.AwsNative.XRay
 {
     /// <summary>
     /// This schema provides construct and validation rules for AWS-XRay Group resource parameters.

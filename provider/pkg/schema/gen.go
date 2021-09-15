@@ -123,6 +123,8 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []jsschema.Schem
 			if err != nil {
 				return nil, err
 			}
+			module := moduleName(resourceName)
+			csharpNamespaces[strings.ToLower(module)] = module
 			resourceCount++
 		}
 	}
@@ -265,24 +267,13 @@ func (ctx *context) gatherResourceType() error {
 		if sdkName == "id" {
 			continue
 		}
-		typeSpec, err := ctx.propertyTypeSpec(spec)
+		propertySpec, err := ctx.propertySpec(prop, resourceTypeName, spec)
 		if err != nil {
 			return err
 		}
-		propertySpec := pschema.PropertySpec{
-			TypeSpec:    *typeSpec,
-			Description: spec.Description,
-		}
-		if resourceTypeName == prop {
-			propertySpec.Language = map[string]pschema.RawMessage{
-				"csharp": rawMessage(dotnetgen.CSharpPropertyInfo{
-					Name: prop + "Value",
-				}),
-			}
-		}
-		properties[sdkName] = propertySpec
+		properties[sdkName] = *propertySpec
 		if !readOnlyProperties.Has(prop) {
-			inputProperties[sdkName] = propertySpec
+			inputProperties[sdkName] = *propertySpec
 		}
 	}
 
@@ -313,6 +304,25 @@ func (ctx *context) gatherResourceType() error {
 		RequiredInputs:  requiredInputs.SortedValues(),
 	}
 	return nil
+}
+
+func (ctx *context) propertySpec(name, resourceTypeName string, spec *jsschema.Schema) (*pschema.PropertySpec, error) {
+	typeSpec, err := ctx.propertyTypeSpec(spec)
+	if err != nil {
+		return nil, err
+	}
+	propertySpec := pschema.PropertySpec{
+		TypeSpec:    *typeSpec,
+		Description: spec.Description,
+	}
+	if resourceTypeName == name {
+		propertySpec.Language = map[string]pschema.RawMessage{
+			"csharp": rawMessage(dotnetgen.CSharpPropertyInfo{
+				Name: name + "Value",
+			}),
+		}
+	}
+	return &propertySpec, nil
 }
 
 // propertyTypeSpec converts a JSON type definition to a Pulumi type definition.

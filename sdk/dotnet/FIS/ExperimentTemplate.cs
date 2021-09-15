@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Fis
+namespace Pulumi.AwsNative.FIS
 {
     /// <summary>
     /// Resource schema for AWS::FIS::ExperimentTemplate

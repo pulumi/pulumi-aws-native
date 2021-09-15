@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Cloudwatch
+namespace Pulumi.AwsNative.CloudWatch
 {
     /// <summary>
     /// Resource Type definition for Metric Stream

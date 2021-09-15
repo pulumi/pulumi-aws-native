@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Apigateway.Inputs
+namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
     public sealed class ApiKeyStageKeyArgs : Pulumi.ResourceArgs

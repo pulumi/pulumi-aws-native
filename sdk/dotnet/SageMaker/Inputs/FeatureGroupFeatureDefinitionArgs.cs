@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Sagemaker.Inputs
+namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
     public sealed class FeatureGroupFeatureDefinitionArgs : Pulumi.ResourceArgs

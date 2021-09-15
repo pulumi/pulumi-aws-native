@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Qldb
+namespace Pulumi.AwsNative.QLDB
 {
     /// <summary>
     /// Resource schema for AWS::QLDB::Stream.

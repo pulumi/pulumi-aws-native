@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Applicationinsights
+namespace Pulumi.AwsNative.ApplicationInsights
 {
     /// <summary>
     /// Resource schema for AWS::ApplicationInsights::Application

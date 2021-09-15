@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Codeguruprofiler
+namespace Pulumi.AwsNative.CodeGuruProfiler
 {
     /// <summary>
     /// This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.

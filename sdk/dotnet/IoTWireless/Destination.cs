@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Iotwireless
+namespace Pulumi.AwsNative.IoTWireless
 {
     /// <summary>
     /// Destination's resource schema demonstrating some basic constructs and validation rules.

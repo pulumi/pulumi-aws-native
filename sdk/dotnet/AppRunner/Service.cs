@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Apprunner
+namespace Pulumi.AwsNative.AppRunner
 {
     /// <summary>
     /// The AWS::AppRunner::Service resource specifies an AppRunner Service.

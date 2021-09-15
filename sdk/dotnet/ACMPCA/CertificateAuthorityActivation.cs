@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Acmpca
+namespace Pulumi.AwsNative.ACMPCA
 {
     /// <summary>
     /// Used to install the certificate authority certificate and update the certificate authority status.

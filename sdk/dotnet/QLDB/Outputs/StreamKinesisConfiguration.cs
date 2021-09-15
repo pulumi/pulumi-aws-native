@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Qldb.Outputs
+namespace Pulumi.AwsNative.QLDB.Outputs
 {
 
     [OutputType]

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Kinesisfirehose.Inputs
+namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 {
 
     public sealed class DeliveryStreamKMSEncryptionConfigArgs : Pulumi.ResourceArgs

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Cloudformation
+namespace Pulumi.AwsNative.CloudFormation
 {
     /// <summary>
     /// StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances

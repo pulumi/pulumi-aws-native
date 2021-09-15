@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ecs
+namespace Pulumi.AwsNative.ECS
 {
     /// <summary>
     /// Resource Schema describing various properties for ECS TaskDefinition

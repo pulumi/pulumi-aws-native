@@ -111,6 +111,7 @@ func readJsonSchemas(schemaDir string) (res []jsschema.Schema) {
 		panic(err)
 	}
 
+	sort.Strings(fileNames)
 	for _, fileName := range fileNames {
 		res = append(res, readJsonSchema(fileName))
 	}

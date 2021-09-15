@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Licensemanager.Inputs
+namespace Pulumi.AwsNative.LicenseManager.Inputs
 {
 
     public sealed class LicenseMetadataArgs : Pulumi.ResourceArgs

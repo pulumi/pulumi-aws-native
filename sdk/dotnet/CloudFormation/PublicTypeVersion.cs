@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Cloudformation
+namespace Pulumi.AwsNative.CloudFormation
 {
     /// <summary>
     /// Test and Publish a resource that has been registered in the CloudFormation Registry.

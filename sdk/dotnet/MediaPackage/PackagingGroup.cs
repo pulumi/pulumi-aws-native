@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Mediapackage
+namespace Pulumi.AwsNative.MediaPackage
 {
     /// <summary>
     /// Resource schema for AWS::MediaPackage::PackagingGroup

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Efs.Outputs
+namespace Pulumi.AwsNative.EFS.Outputs
 {
 
     [OutputType]

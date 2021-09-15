@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Codestarnotifications.Outputs
+namespace Pulumi.AwsNative.CodeStarNotifications.Outputs
 {
 
     [OutputType]

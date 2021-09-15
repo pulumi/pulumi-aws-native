@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.S3outposts.Inputs
+namespace Pulumi.AwsNative.S3Outposts.Inputs
 {
 
     public sealed class BucketTagArgs : Pulumi.ResourceArgs

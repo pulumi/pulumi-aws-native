@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Rds
+namespace Pulumi.AwsNative.RDS
 {
     /// <summary>
     /// Resource schema for AWS::RDS::DBProxyTargetGroup

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Acmpca
+namespace Pulumi.AwsNative.ACMPCA
 {
     /// <summary>
     /// A certificate issued via a private certificate authority

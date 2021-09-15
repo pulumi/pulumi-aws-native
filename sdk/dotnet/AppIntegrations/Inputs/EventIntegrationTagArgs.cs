@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Appintegrations.Inputs
+namespace Pulumi.AwsNative.AppIntegrations.Inputs
 {
 
     public sealed class EventIntegrationTagArgs : Pulumi.ResourceArgs

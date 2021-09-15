@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Customerprofiles
+namespace Pulumi.AwsNative.CustomerProfiles
 {
     /// <summary>
     /// The resource schema for creating an Amazon Connect Customer Profiles Integration.

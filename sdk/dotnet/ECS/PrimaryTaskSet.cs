@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ecs
+namespace Pulumi.AwsNative.ECS
 {
     /// <summary>
     /// A pseudo-resource that manages which of your ECS task sets is primary.

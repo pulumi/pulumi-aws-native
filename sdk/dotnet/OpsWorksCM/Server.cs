@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Opsworkscm
+namespace Pulumi.AwsNative.OpsWorksCM
 {
     /// <summary>
     /// Resource Type definition for AWS::OpsWorksCM::Server

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Elasticloadbalancingv2
+namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 {
     /// <summary>
     /// Resource Type definition for AWS::ElasticLoadBalancingV2::Listener

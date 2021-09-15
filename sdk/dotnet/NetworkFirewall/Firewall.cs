@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Networkfirewall
+namespace Pulumi.AwsNative.NetworkFirewall
 {
     /// <summary>
     /// Resource type definition for AWS::NetworkFirewall::Firewall

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Auditmanager.Inputs
+namespace Pulumi.AwsNative.AuditManager.Inputs
 {
 
     /// <summary>

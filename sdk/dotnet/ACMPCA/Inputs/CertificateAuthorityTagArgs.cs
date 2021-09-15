@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Acmpca.Inputs
+namespace Pulumi.AwsNative.ACMPCA.Inputs
 {
 
     public sealed class CertificateAuthorityTagArgs : Pulumi.ResourceArgs

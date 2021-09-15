@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Elasticache
+namespace Pulumi.AwsNative.ElastiCache
 {
     /// <summary>
     /// Resource Type definition for AWS::ElastiCache::UserGroup

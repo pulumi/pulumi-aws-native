@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Globalaccelerator
+namespace Pulumi.AwsNative.GlobalAccelerator
 {
     /// <summary>
     /// Resource Type definition for AWS::GlobalAccelerator::EndpointGroup

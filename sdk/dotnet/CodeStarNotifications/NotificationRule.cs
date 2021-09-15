@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Codestarnotifications
+namespace Pulumi.AwsNative.CodeStarNotifications
 {
     /// <summary>
     /// Resource Type definition for AWS::CodeStarNotifications::NotificationRule

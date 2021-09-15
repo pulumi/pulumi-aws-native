@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Stepfunctions
+namespace Pulumi.AwsNative.StepFunctions
 {
     /// <summary>
     /// Resource schema for StateMachine

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Workspaces
+namespace Pulumi.AwsNative.WorkSpaces
 {
     /// <summary>
     /// Resource Type definition for AWS::WorkSpaces::ConnectionAlias

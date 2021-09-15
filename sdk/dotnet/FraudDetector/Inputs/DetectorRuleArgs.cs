@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Frauddetector.Inputs
+namespace Pulumi.AwsNative.FraudDetector.Inputs
 {
 
     public sealed class DetectorRuleArgs : Pulumi.ResourceArgs

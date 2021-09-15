@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Cloudformation.Inputs
+namespace Pulumi.AwsNative.CloudFormation.Inputs
 {
 
     public sealed class ResourceVersionLoggingConfigArgs : Pulumi.ResourceArgs

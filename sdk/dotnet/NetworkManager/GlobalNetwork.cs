@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Networkmanager
+namespace Pulumi.AwsNative.NetworkManager
 {
     /// <summary>
     /// The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Stepfunctions.Inputs
+namespace Pulumi.AwsNative.StepFunctions.Inputs
 {
 
     public sealed class StateMachineS3LocationArgs : Pulumi.ResourceArgs

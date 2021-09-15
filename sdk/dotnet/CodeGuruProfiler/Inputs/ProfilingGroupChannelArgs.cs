@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Codeguruprofiler.Inputs
+namespace Pulumi.AwsNative.CodeGuruProfiler.Inputs
 {
 
     /// <summary>

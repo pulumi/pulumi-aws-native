@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Servicecatalogappregistry.Outputs
+namespace Pulumi.AwsNative.ServiceCatalogAppRegistry.Outputs
 {
 
     [OutputType]

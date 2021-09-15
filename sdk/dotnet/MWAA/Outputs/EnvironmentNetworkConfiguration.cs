@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Mwaa.Outputs
+namespace Pulumi.AwsNative.MWAA.Outputs
 {
 
     /// <summary>

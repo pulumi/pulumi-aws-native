@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53resolver
+namespace Pulumi.AwsNative.Route53Resolver
 {
     /// <summary>
     /// Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.

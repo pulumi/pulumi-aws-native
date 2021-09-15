@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.S3outposts
+namespace Pulumi.AwsNative.S3Outposts
 {
     /// <summary>
     /// Resource Type Definition for AWS::S3Outposts::BucketPolicy

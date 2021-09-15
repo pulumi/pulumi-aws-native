@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Datasync
+namespace Pulumi.AwsNative.DataSync
 {
     /// <summary>
     /// Resource schema for AWS::DataSync::LocationEFS.

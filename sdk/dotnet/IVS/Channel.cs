@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ivs
+namespace Pulumi.AwsNative.IVS
 {
     /// <summary>
     /// Resource Type definition for AWS::IVS::Channel

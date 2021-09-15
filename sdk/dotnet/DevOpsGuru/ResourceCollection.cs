@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Devopsguru
+namespace Pulumi.AwsNative.DevOpsGuru
 {
     /// <summary>
     /// This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.

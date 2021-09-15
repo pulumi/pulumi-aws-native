@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Networkfirewall.Inputs
+namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 {
 
     public sealed class RuleGroupStatelessRulesAndCustomActionsArgs : Pulumi.ResourceArgs

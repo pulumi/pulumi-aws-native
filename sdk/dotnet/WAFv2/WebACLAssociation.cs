@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Wafv2
+namespace Pulumi.AwsNative.WAFv2
 {
     /// <summary>
     /// Associates WebACL to Application Load Balancer, CloudFront or API Gateway.

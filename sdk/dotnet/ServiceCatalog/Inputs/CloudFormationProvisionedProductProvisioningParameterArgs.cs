@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Servicecatalog.Inputs
+namespace Pulumi.AwsNative.ServiceCatalog.Inputs
 {
 
     public sealed class CloudFormationProvisionedProductProvisioningParameterArgs : Pulumi.ResourceArgs

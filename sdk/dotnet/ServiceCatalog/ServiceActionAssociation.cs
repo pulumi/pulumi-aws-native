@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Servicecatalog
+namespace Pulumi.AwsNative.ServiceCatalog
 {
     /// <summary>
     /// Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation

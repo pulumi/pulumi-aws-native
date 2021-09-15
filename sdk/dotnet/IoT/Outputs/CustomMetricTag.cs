@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Iot.Outputs
+namespace Pulumi.AwsNative.IoT.Outputs
 {
 
     /// <summary>

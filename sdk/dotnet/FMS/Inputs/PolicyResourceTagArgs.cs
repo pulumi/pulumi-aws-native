@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Fms.Inputs
+namespace Pulumi.AwsNative.FMS.Inputs
 {
 
     /// <summary>

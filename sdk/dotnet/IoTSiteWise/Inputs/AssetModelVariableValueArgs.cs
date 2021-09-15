@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Iotsitewise.Inputs
+namespace Pulumi.AwsNative.IoTSiteWise.Inputs
 {
 
     public sealed class AssetModelVariableValueArgs : Pulumi.ResourceArgs

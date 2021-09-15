@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Iotcoredeviceadvisor.Inputs
+namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor.Inputs
 {
 
     /// <summary>

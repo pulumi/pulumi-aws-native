@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.S3objectlambda.Outputs
+namespace Pulumi.AwsNative.S3ObjectLambda.Outputs
 {
 
     /// <summary>

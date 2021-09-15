@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Gamelift
+namespace Pulumi.AwsNative.GameLift
 {
     /// <summary>
     /// The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Appflow.Outputs
+namespace Pulumi.AwsNative.AppFlow.Outputs
 {
 
     /// <summary>

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Sso
+namespace Pulumi.AwsNative.SSO
 {
     /// <summary>
     /// Resource Type definition for SSO PermissionSet

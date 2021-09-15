@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ivs.Inputs
+namespace Pulumi.AwsNative.IVS.Inputs
 {
 
     public sealed class RecordingConfigurationTagArgs : Pulumi.ResourceArgs

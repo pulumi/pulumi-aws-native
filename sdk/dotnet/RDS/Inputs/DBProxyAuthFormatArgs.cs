@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Rds.Inputs
+namespace Pulumi.AwsNative.RDS.Inputs
 {
 
     public sealed class DBProxyAuthFormatArgs : Pulumi.ResourceArgs

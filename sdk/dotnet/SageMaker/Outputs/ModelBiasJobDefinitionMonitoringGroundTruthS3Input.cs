@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Sagemaker.Outputs
+namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>

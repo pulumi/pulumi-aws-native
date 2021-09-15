@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ssmincidents
+namespace Pulumi.AwsNative.SSMIncidents
 {
     /// <summary>
     /// Resource type definition for AWS::SSMIncidents::ReplicationSet

@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Certificatemanager.Inputs
+namespace Pulumi.AwsNative.CertificateManager.Inputs
 {
 
     public sealed class AccountExpiryEventsConfigurationArgs : Pulumi.ResourceArgs

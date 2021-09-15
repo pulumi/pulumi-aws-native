@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Ssmcontacts
+namespace Pulumi.AwsNative.SSMContacts
 {
     /// <summary>
     /// Resource Type definition for AWS::SSMContacts::Contact

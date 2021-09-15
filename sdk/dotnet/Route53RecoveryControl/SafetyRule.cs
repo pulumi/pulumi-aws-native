@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53recoverycontrol
+namespace Pulumi.AwsNative.Route53RecoveryControl
 {
     /// <summary>
     /// Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.

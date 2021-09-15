@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Frauddetector
+namespace Pulumi.AwsNative.FraudDetector
 {
     /// <summary>
     /// A resource schema for a Variable in Amazon Fraud Detector.

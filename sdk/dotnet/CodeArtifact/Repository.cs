@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Codeartifact
+namespace Pulumi.AwsNative.CodeArtifact
 {
     /// <summary>
     /// The resource schema to create a CodeArtifact repository.
