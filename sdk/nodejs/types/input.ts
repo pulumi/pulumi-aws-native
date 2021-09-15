@@ -4,6 +4,709 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 
+/**
+ * The configuration for a Provider to assume a role.
+ */
+export interface ProviderAssumeRoleArgs {
+    /**
+     * Number of seconds to restrict the assume role session duration.
+     */
+    durationSeconds?: pulumi.Input<number>;
+    /**
+     * External identifier to use when assuming the role.
+     */
+    externalId?: pulumi.Input<string>;
+    /**
+     * IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+     */
+    policy?: pulumi.Input<string>;
+    /**
+     * Set of Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the role.
+     */
+    policyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Amazon Resource Name (ARN) of the IAM Role to assume.
+     */
+    roleArn?: pulumi.Input<string>;
+    /**
+     * Session name to use when assuming the role.
+     */
+    sessionName?: pulumi.Input<string>;
+    /**
+     * Map of assume role session tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive, the corresponding key and value passes to subsequent sessions in a role chain.
+     */
+    transitiveTagKeys?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+/**
+ * The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
+ */
+export interface ProviderDefaultTagsArgs {
+    /**
+     * A group of tags to set across all resources.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}
+
+/**
+ * The configuration for for customizing service endpoints.
+ */
+export interface ProviderEndpointArgs {
+    /**
+     * Override the default endpoint for AWS Access Analyzer
+     */
+    accessanalyzer?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Certificate Manager
+     */
+    acm?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Certificate Manager Private Certificate Authority
+     */
+    acmpca?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Amplify Console
+     */
+    amplify?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS AppConfig
+     */
+    appconfig?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Application Auto Scaling
+     */
+    applicationautoscaling?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS CloudWatch Application Insights
+     */
+    applicationinsights?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS App Mesh
+     */
+    appmesh?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS App Runner
+     */
+    apprunner?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS AppStream 2.0
+     */
+    appstream?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS AppSync
+     */
+    appsync?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Athena
+     */
+    athena?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Audit Manager
+     */
+    auditmanager?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Auto Scaling
+     */
+    autoscaling?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Backup
+     */
+    backup?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Batch
+     */
+    batch?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Budgets
+     */
+    budgets?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Chime
+     */
+    chime?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Cloud9
+     */
+    cloud9?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS CloudFormation
+     */
+    cloudformation?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS CloudFront
+     */
+    cloudfront?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS CloudHSM
+     */
+    cloudhsm?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS CloudSearch
+     */
+    cloudsearch?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS CloudTrail
+     */
+    cloudtrail?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS CloudWatch
+     */
+    cloudwatch?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS CloudWatch Events
+     */
+    cloudwatchevents?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS CloudWatch Logs
+     */
+    cloudwatchlogs?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS CodeArtifact
+     */
+    codeartifact?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS CodeBuild
+     */
+    codebuild?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS CodeCommit
+     */
+    codecommit?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS CodeDeploy
+     */
+    codedeploy?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS CodePipeline
+     */
+    codepipeline?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS CodeStart Connections
+     */
+    codestarconnections?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Cognito
+     */
+    cognitoidentity?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Config
+     */
+    configservice?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Connect
+     */
+    connect?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Cost and Usage Reports
+     */
+    cur?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Data Exchange
+     */
+    dataexchange?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Data Pipeline
+     */
+    datapipeline?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS DataSync
+     */
+    datasync?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS DynamoDB Accelerator
+     */
+    dax?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Detective
+     */
+    detective?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Device Farm
+     */
+    devicefarm?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Direct Connect
+     */
+    directconnect?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Data Lifecycle Manager
+     */
+    dlm?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Database Migration Service
+     */
+    dms?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS DocumentDB
+     */
+    docdb?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Directory Service
+     */
+    ds?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS DynamoDB
+     */
+    dynamodb?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Elastic Compute Cloud (EC2)
+     */
+    ec2?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Elastic Container Registry (ECR)
+     */
+    ecr?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Elastic Container Registry (ECR) Public
+     */
+    ecrpublic?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Elastic Container Service (ECS)
+     */
+    ecs?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Elastic File System (EFS)
+     */
+    efs?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Elastic Kubernetes Service (EKS)
+     */
+    eks?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS ElastiCache
+     */
+    elasticache?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Elastic Beanstalk
+     */
+    elasticbeanstalk?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Elastic Transcoder
+     */
+    elastictranscoder?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Elastic Load Balancing
+     */
+    elb?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Elastic Load Balancing V2
+     */
+    elbv2?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS EMR
+     */
+    emr?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS EMR on EKS
+     */
+    emrcontainers?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS OpenSearch Service (formerly Elasticsearch)
+     */
+    es?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Kinesis Data Firehose
+     */
+    firehose?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Firewall Manager
+     */
+    fms?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Forecast
+     */
+    forecast?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS FSx
+     */
+    fsx?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS GameLift
+     */
+    gamelift?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon S3 Glacier
+     */
+    glacier?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Global Accelerator
+     */
+    globalaccelerator?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Glue
+     */
+    glue?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS IoT Greengrass
+     */
+    greengrass?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS GuardDuty
+     */
+    guardduty?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Identity and Access Management
+     */
+    iam?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Single Sign-On (SSO) Identity Store
+     */
+    identitystore?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Image Builder
+     */
+    imagebuilder?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Inspector
+     */
+    inspector?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS IoT
+     */
+    iot?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS IoT Analytics
+     */
+    iotanalytics?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS IoT Events
+     */
+    iotevents?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Managed Streaming for Apache Kafka (MSK)
+     */
+    kafka?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Kinesis
+     */
+    kinesis?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Kinesis Data Analytics
+     */
+    kinesisanalytics?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Kinesis Data Analytics V2
+     */
+    kinesisanalyticsv2?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Kinesis Video Streams
+     */
+    kinesisvideo?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Key Management Service
+     */
+    kms?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Lake Formation
+     */
+    lakeformation?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Lambda
+     */
+    lambda?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Lex
+     */
+    lexmodels?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS License Manager
+     */
+    licensemanager?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Lightsail
+     */
+    lightsail?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Location
+     */
+    location?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Macie
+     */
+    macie?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Macie V2
+     */
+    macie2?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Managed Blockchain
+     */
+    managedblockchain?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Marketplace Catalog
+     */
+    marketplacecatalog?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS MediaConnect
+     */
+    mediaconnect?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS MediaConvert
+     */
+    mediaconvert?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS MediaLive
+     */
+    medialive?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS MediaPackage
+     */
+    mediapackage?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Elemental MediaStore container
+     */
+    mediastore?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Elemental MediaStore asset
+     */
+    mediastoredata?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS MemoryDB for Redis
+     */
+    memorydb?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon MQ
+     */
+    mq?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Managed Workflows for Apache Airflow
+     */
+    mwaa?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Neptune
+     */
+    neptune?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Network Firewall
+     */
+    networkfirewall?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Network Manager
+     */
+    networkmanager?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS OpsWorks
+     */
+    opsworks?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Organizations
+     */
+    organizations?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Outposts
+     */
+    outposts?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Personalize
+     */
+    personalize?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Pinpoint
+     */
+    pinpoint?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Web Services Price List Service
+     */
+    pricing?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon QLDB
+     */
+    qldb?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon QuickSight
+     */
+    quicksight?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Resource Access Manager
+     */
+    ram?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Relational Database Service
+     */
+    rds?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Redshift
+     */
+    redshift?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Resource Groups
+     */
+    resourcegroups?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Resource Groups Tagging API
+     */
+    resourcegroupstaggingapi?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Route 53
+     */
+    route53?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Route 53 Domains
+     */
+    route53domains?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Route 53 Recovery Control
+     */
+    route53recoverycontrolconfig?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Route 53 Recovery Readiness
+     */
+    route53recoveryreadiness?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Route 53 Resolver
+     */
+    route53resolver?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Simple Storage Service (S3)
+     */
+    s3?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Simple Storage Service (S3) Control
+     */
+    s3control?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon S3 on Outposts
+     */
+    s3outposts?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS SageMaker
+     */
+    sagemaker?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon EventBridge Schema Registry
+     */
+    schemas?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon SimpleDB
+     */
+    sdb?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Secrets Manager
+     */
+    secretsmanager?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Security Hub
+     */
+    securityhub?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Serverless Application Repository
+     */
+    serverlessrepo?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Service Catalog
+     */
+    servicecatalog?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Cloud Map
+     */
+    servicediscovery?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Service Quotas
+     */
+    servicequotas?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Simple Email Service (SES)
+     */
+    ses?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Shield Advanced API
+     */
+    shield?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Signer
+     */
+    signer?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Simple Notification Service (SNS)
+     */
+    sns?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Simple Queue Service (SQS)
+     */
+    sqs?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Systems Manager
+     */
+    ssm?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Single Sign On (SSO)
+     */
+    ssoadmin?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Step Functions
+     */
+    stepfunctions?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Storage Gateway
+     */
+    storagegateway?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Security Token Service (STS)
+     */
+    sts?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Simple Workflow Service (SWF)
+     */
+    swf?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon CloudWatch Synthetics
+     */
+    synthetics?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon Timestream
+     */
+    timestreamwrite?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS Transfer Family
+     */
+    transfer?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS WAF Classic
+     */
+    waf?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS WAF Regional Classic
+     */
+    wafregional?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS WAF V2
+     */
+    wafv2?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon WorkLink
+     */
+    worklink?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon WorkMail
+     */
+    workmail?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for Amazon WorkSpaces
+     */
+    workspaces?: pulumi.Input<string>;
+    /**
+     * Override the default endpoint for AWS X-Ray
+     */
+    xray?: pulumi.Input<string>;
+}
+
+/**
+ * The configuration with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `ec2.Tag`) for situations where external systems are managing certain resource tags.
+ */
+export interface ProviderIgnoreTagsArgs {
+    /**
+     * List of exact resource tag keys to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning the tag in any `tags` attributes and displaying any configuration difference for the tag value. If any resource configuration still has this tag key configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.
+     */
+    keyPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of resource tag key prefixes to ignore across all resources handled by this provider. This configuration prevents Pulumi from returning any tag key matching the prefixes in any `tags` attributes and displaying any configuration difference for those tag values. If any resource configuration still has a tag matching one of the prefixes configured in the `tags` argument, it will display a perpetual difference until the tag is removed from the argument or `ignoreChanges` is also used.
+     */
+    keys?: pulumi.Input<pulumi.Input<string>[]>;
+}
 export namespace accessanalyzer {
     /**
      * An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
@@ -2436,6 +3139,9 @@ export namespace codestarnotifications {
         targetAddress: pulumi.Input<string>;
         targetType: pulumi.Input<string>;
     }
+}
+
+export namespace config {
 }
 
 export namespace configuration {
