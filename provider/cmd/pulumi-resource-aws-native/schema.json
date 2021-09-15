@@ -1,6 +1,6 @@
 {
     "name": "aws-native",
-    "description": "A Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
+    "description": "A native Pulumi package for creating and managing Amazon Web Services (AWS) resources.",
     "keywords": [
         "pulumi",
         "aws",
