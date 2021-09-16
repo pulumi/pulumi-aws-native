@@ -601,13 +601,18 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		return nil, errors.Wrapf(err, "calculating diff patch")
 	}
 
+	doc, err := json.Marshal(ops)
+	if err != nil {
+		return nil, errors.Wrapf(err, "serializing patch as json")
+	}
+	docAsString := string(doc)
 	clientToken := uuid.New().String()
 	glog.V(9).Infof("%s.UpdateResource %q id %q token %q state %+v", label, resourceType, id, clientToken, ops)
 	res, err := p.cctl.UpdateResource(ctx, &cloudcontrol.UpdateResourceInput{
-		ClientToken:     aws.String(clientToken),
-		TypeName:        aws.String(resourceType),
-		Identifier:      aws.String(id),
-		PatchOperations: ops,
+		ClientToken:   aws.String(clientToken),
+		TypeName:      aws.String(resourceType),
+		Identifier:    aws.String(id),
+		PatchDocument: &docAsString,
 	})
 	if err != nil {
 		return nil, err

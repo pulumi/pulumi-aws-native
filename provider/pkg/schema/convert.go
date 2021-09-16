@@ -6,8 +6,7 @@ import (
 	"encoding/json"
 	"reflect"
 
-	"github.com/aws/aws-sdk-go-v2/aws"
-	"github.com/aws/aws-sdk-go-v2/service/cloudformation/types"
+	"github.com/mattbaird/jsonpatch"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -26,13 +25,12 @@ func SdkToCfn(schema CloudFormationSchema, resourceType string, properties map[s
 
 // DiffToPatch converts a Pulumi object diff to a CloudFormation-shaped patch operation slice. Update/add/delete operations are
 // mapped to corresponding patch terms, and SDK properties are translated to respective CFN names.
-func DiffToPatch(schema CloudFormationSchema, resourceType string, diff *resource.ObjectDiff) ([]types.PatchOperation, error) {
+func DiffToPatch(schema CloudFormationSchema, resourceType string, diff *resource.ObjectDiff) ([]jsonpatch.JsonPatchOperation, error) {
 	if _, ok := schema.ResourceTypes[resourceType]; !ok {
 		return nil, errors.Errorf("unknown resource type %v", resourceType)
 	}
 	converter := sdkToCfnConverter{schema, resourceType}
-	result := converter.diffToPatch(diff)
-	return result, nil
+	return converter.diffToPatch(diff), nil
 }
 
 type sdkToCfnConverter struct {
@@ -106,9 +104,9 @@ func (c *sdkToCfnConverter) convertPropertyValue(propertyType string, value inte
 	return result
 }
 
-func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) []types.PatchOperation {
+func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) []jsonpatch.JsonPatchOperation {
 	resourceSpec := c.schema.ResourceTypes[c.resourceType]
-	var ops []types.PatchOperation
+	var ops []jsonpatch.JsonPatchOperation
 	for cfnName, prop := range resourceSpec.Properties {
 		sdkName := resource.PropertyKey(ToPropertyName(cfnName))
 		if v, ok := diff.Updates[sdkName]; ok {
@@ -120,37 +118,31 @@ func (c *sdkToCfnConverter) diffToPatch(diff *resource.ObjectDiff) []types.Patch
 			ops = append(ops, op)
 		}
 		if _, ok := diff.Deletes[sdkName]; ok {
-			op := types.PatchOperation{
-				Op:   "remove",
-				Path: aws.String("/" + cfnName),
-			}
+			op := jsonpatch.NewPatch("remove", "/" + cfnName, nil)
 			ops = append(ops, op)
 		}
 	}
 	return ops
 }
 
-func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop PropertySpec, value resource.PropertyValue) types.PatchOperation {
-	op := types.PatchOperation{
-		Op:   types.Op(opName),
-		Path: aws.String("/" + propName),
-	}
+func (c *sdkToCfnConverter) valueToPatch(opName, propName string, prop PropertySpec, value resource.PropertyValue) jsonpatch.JsonPatchOperation {
+	op := jsonpatch.NewPatch(opName, "/" + propName, nil)
 	switch {
 	case value.IsNumber() && prop.PrimitiveType == "Integer":
 		i := int32(value.NumberValue())
-		op.IntegerValue = &i
+		op.Value = i
 	case value.IsNumber():
-		op.NumberValue = aws.Float64(value.NumberValue())
+		op.Value = value.NumberValue()
 	case value.IsBool():
-		op.BooleanValue = aws.Bool(value.BoolValue())
+		op.Value = value.BoolValue()
 	case value.IsString():
-		op.StringValue = aws.String(value.StringValue())
+		op.Value = value.StringValue()
 	default:
 		sdkObj := value.MapRepl(nil, nil)
 		cfnObj := c.convertTypedValue(prop.Type, prop.PrimitiveType, prop.ItemType, sdkObj)
 		jsonBytes, err := json.Marshal(cfnObj)
 		contract.AssertNoError(err)
-		op.ObjectValue = aws.String(string(jsonBytes))
+		op.Value = string(jsonBytes)
 	}
 	return op
 }
