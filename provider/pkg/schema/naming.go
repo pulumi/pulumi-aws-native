@@ -6,11 +6,20 @@ import (
 	"strings"
 )
 
-// ToPropertyName converts a Cloud Formation property or attribute name to the lowerCamelCase convention that
+// ToSdkName converts a Cloud Formation property or attribute name to the lowerCamelCase convention that
 // is used in Pulumi schema's properties.
-func ToPropertyName(s string) string {
+func ToSdkName(s string) string {
 	if r := rune(s[0]); r >= 'A' && r <= 'Z' {
 		s = strings.ToLower(string(r)) + s[1:]
+	}
+	return s
+}
+
+// ToCfnName converts a lowerCamelCase schema property name to the Cloud Formation property or attribute name
+// in PascalCase.
+func ToCfnName(s string) string {
+	if r := rune(s[0]); r >= 'a' && r <= 'z' {
+		s = strings.ToUpper(string(r)) + s[1:]
 	}
 	return s
 }

@@ -4,20 +4,18 @@ package schema
 
 import (
 	"fmt"
-	"math"
-	"time"
-
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"math"
+	"strings"
 )
 
 type ValidationFailure struct {
 	Path   string
 	Reason string
 }
-
-// TODO(pdg): should this just be time.RFC3339Nano?
-const timestampFormat = "2006-01-02T15:04:05.999Z07:00"
 
 func validatePrimitive(primitiveType string, path string, property resource.PropertyValue) ([]ValidationFailure, error) {
 	// If the property is secret, inspect its element.
@@ -31,69 +29,34 @@ func validatePrimitive(primitiveType string, path string, property resource.Prop
 	}
 
 	switch primitiveType {
-	case "String":
+	case "string":
 		if !property.IsString() {
 			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be a string", path)}}, nil
 		}
-	case "Long", "Integer":
+	case "integer":
 		if !property.IsNumber() || math.Trunc(property.NumberValue()) != property.NumberValue() {
 			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be an integer", path)}}, nil
 		}
-	case "Double":
+	case "number":
 		if !property.IsNumber() {
 			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be a number", path)}}, nil
 		}
-	case "Boolean":
+	case "boolean":
 		if !property.IsBool() {
 			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be a bool", path)}}, nil
 		}
-	case "Json":
-		// Nothing to do here.
-	case "Timestamp":
-		if !property.IsString() {
-			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be a valid Timestamp", path)}}, nil
-		}
-		if _, err := time.Parse(timestampFormat, property.StringValue()); err != nil {
-			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be a valid Timestamp (%v)", path, err)}}, nil
-		}
-	default:
-		return nil, errors.Errorf("unexpected primitive type '%v'", primitiveType)
 	}
 	return nil, nil
 }
 
-func validateItemType(schema CloudFormationSchema, primitiveItemType, itemType, resourceType, path string, item resource.PropertyValue) ([]ValidationFailure, error) {
-	// If the property is secret, inspect its element.
-	for item.IsSecret() {
-		item = item.SecretValue().Element
-	}
-
-	if primitiveItemType != "" {
-		return validatePrimitive(primitiveItemType, path, item)
-	}
-
-	if !item.IsObject() {
-		return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be an object", path)}}, nil
-	}
-	propertyTypeName := resourceType + "." + itemType
-	propertyTypeSpec, ok := schema.PropertyTypes[propertyTypeName]
-	if !ok {
-		propertyTypeSpec, ok = schema.PropertyTypes[itemType]
-		if !ok {
-			return nil, errors.Errorf("could not find property type %v in schema", propertyTypeName)
-		}
-	}
-	return validateProperties(schema, propertyTypeSpec, resourceType, path, item.ObjectValue())
-}
-
-func validateProperty(schema CloudFormationSchema, spec PropertySpec, resourceType, path string, property resource.PropertyValue) ([]ValidationFailure, error) {
+func validateProperty(types map[string]CloudAPIType, required codegen.StringSet, spec *pschema.TypeSpec, path string, property resource.PropertyValue) ([]ValidationFailure, error) {
 	// If the property is secret, inspect its element.
 	for property.IsSecret() {
 		property = property.SecretValue().Element
 	}
 
 	// If the property value is missing and the property is required, issue a "missing required property" error.
-	if spec.Required && property.IsNull() {
+	if required.Has(path) && property.IsNull() {
 		return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("missing required property %v", path)}}, nil
 	}
 
@@ -102,74 +65,73 @@ func validateProperty(schema CloudFormationSchema, spec PropertySpec, resourceTy
 		return nil, nil
 	}
 
-	// Check the type of the property.
-	if spec.PrimitiveType != "" {
-		return validatePrimitive(spec.PrimitiveType, path, property)
+	if spec.Ref != "" {
+		if spec.Ref == "pulumi.json#/Any" {
+			return nil, nil
+		}
+
+		typName := strings.TrimPrefix(spec.Ref, "#/types/")
+		if !property.IsObject() {
+			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be an object", path)}}, nil
+		}
+		typeSpec, ok := types[typName]
+		if !ok {
+			return nil, errors.Errorf("could not find property type %v in schema", typName)
+		}
+		return validateProperties(types, required, typeSpec.Properties, path, property.ObjectValue())
 	}
+
+	// Check the type of the property.
 	switch spec.Type {
-	case "List":
+	case "array":
 		if !property.IsArray() {
-			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be a list", path)}}, nil
+			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be an array", path)}}, nil
 		}
 		var failures []ValidationFailure
 		for i, item := range property.ArrayValue() {
 			itemPath := fmt.Sprintf("%s[%d]", path, i)
-			fs, err := validateItemType(schema, spec.PrimitiveItemType, spec.ItemType, resourceType, itemPath, item)
+			fs, err := validateProperty(types, required, spec.Items, itemPath, item)
 			if err != nil {
 				return nil, err
 			}
 			failures = append(failures, fs...)
 		}
 		return failures, nil
-	case "Map":
+	case "object":
 		if !property.IsObject() {
 			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be an object", path)}}, nil
 		}
 		var failures []ValidationFailure
 		for k, item := range property.ObjectValue() {
 			itemPath := fmt.Sprintf("%s.%s", path, k)
-			fs, err := validateItemType(schema, spec.PrimitiveItemType, spec.ItemType, resourceType, itemPath, item)
+			fs, err := validateProperty(types, required, spec.AdditionalProperties, itemPath, item)
 			if err != nil {
 				return nil, err
 			}
 			failures = append(failures, fs...)
 		}
 		return failures, nil
-	case "":
-		return nil, errors.Errorf("schema is missing type information for %v", path)
 	default:
-		if !property.IsObject() {
-			return []ValidationFailure{{Path: path, Reason: fmt.Sprintf("%v must be an object", path)}}, nil
-		}
-		propertyTypeName := fmt.Sprintf("%s.%s", resourceType, spec.Type)
-		propertyTypeSpec, ok := schema.PropertyTypes[propertyTypeName]
-		if !ok {
-			propertyTypeSpec, ok = schema.PropertyTypes[spec.Type]
-			if !ok {
-				return nil, errors.Errorf("could not find property type %v in schema", propertyTypeName)
-			}
-		}
-		return validateProperties(schema, propertyTypeSpec, resourceType, path, property.ObjectValue())
+		return validatePrimitive(spec.Type, path, property)
 	}
 }
 
-func validateProperties(schema CloudFormationSchema, spec PropertyTypeSpec, resourceType, path string, properties resource.PropertyMap) ([]ValidationFailure, error) {
+func validateProperties(types map[string]CloudAPIType, required codegen.StringSet, propertySpecs map[string]pschema.PropertySpec, path string, properties resource.PropertyMap) ([]ValidationFailure, error) {
 	// Do a schema-directed check first.
 	var failures []ValidationFailure
 	remainingProperties := properties.Mappable()
-	for k, propertySpec := range spec.Properties {
+	for k, propertySpec := range propertySpecs {
 		var propertyPath string
 		if path == "" {
 			propertyPath = k
 		} else {
-			propertyPath = fmt.Sprintf("%s.%s", path, k)
+			propertyPath = fmt.Sprintf("%s/%s", path, k)
 		}
-		sdkName := ToPropertyName(k)
-		fs, err := validateProperty(schema, propertySpec, resourceType, propertyPath, properties[resource.PropertyKey(sdkName)])
+		fs, err := validateProperty(types, required, &propertySpec.TypeSpec, propertyPath, properties[resource.PropertyKey(k)])
 		if err != nil {
 			return nil, err
 		}
-		delete(remainingProperties, sdkName)
+		delete(remainingProperties, k)
 		failures = append(failures, fs...)
 	}
 
@@ -187,12 +149,7 @@ func validateProperties(schema CloudFormationSchema, spec PropertyTypeSpec, reso
 	return failures, nil
 }
 
-func ValidateResource(schema CloudFormationSchema, resourceType string, properties resource.PropertyMap) ([]ValidationFailure, error) {
-	// Fetch the schema for the resource type.
-	resourceSpec, ok := schema.ResourceTypes[resourceType]
-	if !ok {
-		return nil, errors.Errorf("unknown resource type %v", resourceType)
-	}
-
-	return validateProperties(schema, resourceSpec.PropertyTypeSpec, resourceType, "", properties)
+func ValidateResource(res *CloudAPIResource, types map[string]CloudAPIType, properties resource.PropertyMap) ([]ValidationFailure, error) {
+	required := codegen.NewStringSet(res.Required...)
+	return validateProperties(types, required, res.Inputs, "", properties)
 }

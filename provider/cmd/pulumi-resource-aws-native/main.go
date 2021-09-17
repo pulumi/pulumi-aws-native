@@ -22,5 +22,5 @@ import (
 )
 
 func main() {
-	provider.Serve(version.Version, pulumiSchema)
+	provider.Serve(version.Version, pulumiSchema, cloudApiResources)
 }

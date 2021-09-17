@@ -449,11 +449,11 @@ func (ctx *renderContext) renderFunctionCall(name string, arg ast.Node) (model.E
 			}, nil
 		}
 
-		propName := schema.ToPropertyName(attrName)
+		sdkName := schema.ToSdkName(attrName)
 		return &model.ScopeTraversalExpression{
 			Traversal: hcl.Traversal{
 				hcl.TraverseRoot{Name: resourceVar.Name},
-				hcl.TraverseAttr{Name: strings.Replace(propName, ".", "", -1)},
+				hcl.TraverseAttr{Name: strings.Replace(sdkName, ".", "", -1)},
 			},
 			Parts: []model.Traversable{
 				resourceVar,

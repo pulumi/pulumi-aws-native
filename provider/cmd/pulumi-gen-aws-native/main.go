@@ -58,7 +58,7 @@ func main() {
 		return
 	}
 
-	pkgSpec, err := schema.GatherPackage(readSupportedResourceTypes(genDir), readJsonSchemas(schemaFolder))
+	pkgSpec, meta, err := schema.GatherPackage(readSupportedResourceTypes(genDir), readJsonSchemas(schemaFolder))
 	if err != nil {
 		panic(fmt.Sprintf("error generating schema: %v", err))
 	}
@@ -92,6 +92,11 @@ func main() {
 				panic(fmt.Sprintf("error generating examples: %v", err))
 			}
 			writePulumiSchema(*pkgSpec, providerDir, true)
+
+			// Also, emit the resource metadata for the provider.
+			if err = writeMetadata(meta, providerDir, "main", true); err != nil {
+				break
+			}
 		default:
 			panic(fmt.Sprintf("Unrecognized language '%s'", language))
 		}
@@ -237,6 +242,36 @@ var pulumiSchema = %#v
 		}
 		mustWriteFile(outdir, "schema.json", schemaJSON)
 	}
+}
+
+func writeMetadata(metadata *schema.CloudAPIMetadata, outDir string, goPackageName string, emitJSON bool) error {
+	compressedMeta := bytes.Buffer{}
+	compressedWriter := gzip.NewWriter(&compressedMeta)
+	err := json.NewEncoder(compressedWriter).Encode(metadata)
+	if err != nil {
+		return errors.Wrap(err, "marshaling metadata")
+	}
+
+	if err = compressedWriter.Close(); err != nil {
+		return err
+	}
+
+	formatted, err := json.MarshalIndent(metadata, "", "    ")
+	if err != nil {
+		return errors.Wrap(err, "marshaling metadata")
+	}
+
+	mustWriteFile(outDir, "metadata.go", []byte(fmt.Sprintf(`package %s
+var cloudApiResources = %#v
+`, goPackageName, compressedMeta.Bytes())))
+	if err != nil {
+		return err
+	}
+
+	if emitJSON {
+		mustWriteFile(outDir, "metadata.json", formatted)
+	}
+	return nil
 }
 
 func mustWriteFiles(rootDir string, files map[string][]byte) {
