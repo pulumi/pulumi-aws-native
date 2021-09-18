@@ -30,8 +30,9 @@ import (
 	awsmiddleware "github.com/aws/aws-sdk-go-v2/aws/middleware"
 	awshttp "github.com/aws/aws-sdk-go-v2/aws/transport/http"
 	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol"
+	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol/types"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
-	"github.com/aws/aws-sdk-go-v2/service/cloudformation/types"
 	"github.com/aws/aws-sdk-go-v2/service/ec2"
 	"github.com/aws/aws-sdk-go-v2/service/ssm"
 	"github.com/aws/aws-sdk-go-v2/service/sts"
@@ -81,9 +82,10 @@ type cfnProvider struct {
 	cfTypes      map[string]string
 	pulumiSchema []byte
 
-	cfn *cloudformation.Client
-	ec2 *ec2.Client
-	ssm *ssm.Client
+	cfn  *cloudformation.Client
+	cctl *cloudcontrol.Client
+	ec2  *ec2.Client
+	ssm  *ssm.Client
 }
 
 var _ pulumirpc.ResourceProviderServer = (*cfnProvider)(nil)
@@ -190,7 +192,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		return nil, errors.Wrapf(err, "could not load AWS config")
 	}
 
-	p.cfn, p.ec2, p.ssm = cloudformation.NewFromConfig(cfg), ec2.NewFromConfig(cfg), ssm.NewFromConfig(cfg)
+	p.cfn, p.cctl, p.ec2, p.ssm = cloudformation.NewFromConfig(cfg), cloudcontrol.NewFromConfig(cfg), ec2.NewFromConfig(cfg), ssm.NewFromConfig(cfg)
 
 	callerIdentityResp, err := sts.NewFromConfig(cfg).GetCallerIdentity(ctx, &sts.GetCallerIdentityInput{})
 	if err != nil {
@@ -450,7 +452,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	// Create the resource with Cloud API.
 	clientToken := uuid.New().String()
 	glog.V(9).Infof("%s.CreateResource %q token %q state %q", label, resourceType, clientToken, desiredState)
-	res, err := p.cfn.CreateResource(ctx, &cloudformation.CreateResourceInput{
+	res, err := p.cctl.CreateResource(ctx, &cloudcontrol.CreateResourceInput{
 		ClientToken:  aws.String(clientToken),
 		TypeName:     aws.String(resourceType),
 		DesiredState: aws.String(desiredState),
@@ -599,13 +601,18 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		return nil, errors.Wrapf(err, "calculating diff patch")
 	}
 
+	doc, err := json.Marshal(ops)
+	if err != nil {
+		return nil, errors.Wrapf(err, "serializing patch as json")
+	}
+	docAsString := string(doc)
 	clientToken := uuid.New().String()
 	glog.V(9).Infof("%s.UpdateResource %q id %q token %q state %+v", label, resourceType, id, clientToken, ops)
-	res, err := p.cfn.UpdateResource(ctx, &cloudformation.UpdateResourceInput{
-		ClientToken:     aws.String(clientToken),
-		TypeName:        aws.String(resourceType),
-		Identifier:      aws.String(id),
-		PatchOperations: ops,
+	res, err := p.cctl.UpdateResource(ctx, &cloudcontrol.UpdateResourceInput{
+		ClientToken:   aws.String(clientToken),
+		TypeName:      aws.String(resourceType),
+		Identifier:    aws.String(id),
+		PatchDocument: &docAsString,
 	})
 	if err != nil {
 		return nil, err
@@ -656,7 +663,7 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 
 	clientToken := uuid.New().String()
 	glog.V(9).Infof("%s.DeleteResource %q id %q token %q", label, resourceType, id, clientToken)
-	res, err := p.cfn.DeleteResource(ctx, &cloudformation.DeleteResourceInput{
+	res, err := p.cctl.DeleteResource(ctx, &cloudcontrol.DeleteResourceInput{
 		ClientToken: aws.String(clientToken),
 		TypeName:    aws.String(resourceType),
 		Identifier:  aws.String(id),
@@ -750,20 +757,20 @@ func (p *cfnProvider) resourceInfoFromURN(urn resource.URN) (string, string, err
 }
 
 func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
-	getRes, err := p.cfn.GetResource(ctx, &cloudformation.GetResourceInput{
+	getRes, err := p.cctl.GetResource(ctx, &cloudcontrol.GetResourceInput{
 		TypeName:   aws.String(typeName),
 		Identifier: aws.String(identifier),
 	})
 	if err != nil {
 		return nil, err
 	}
-	if getRes.ResourceDescription.ResourceModel == nil {
-		return nil, errors.New("received nil resource model")
+	if getRes.ResourceDescription.Properties == nil {
+		return nil, errors.New("received nil properties")
 	}
 
-	resourceModel := *getRes.ResourceDescription.ResourceModel
+	properties := *getRes.ResourceDescription.Properties
 	var outputs map[string]interface{}
-	if err = json.Unmarshal([]byte(resourceModel), &outputs); err != nil {
+	if err = json.Unmarshal([]byte(properties), &outputs); err != nil {
 		return nil, err
 	}
 
@@ -806,7 +813,7 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types
 			return nil, errors.Errorf("unknown status %q: %+v", status, pi)
 		}
 
-		output, err := p.cfn.GetResourceRequestStatus(ctx, &cloudformation.GetResourceRequestStatusInput{
+		output, err := p.cctl.GetResourceRequestStatus(ctx, &cloudcontrol.GetResourceRequestStatusInput{
 			RequestToken: pi.RequestToken,
 		})
 		if err != nil {

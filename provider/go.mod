@@ -4,14 +4,16 @@ go 1.15
 
 require (
 	github.com/apparentlymart/go-cidr v1.1.0
-	github.com/aws/aws-sdk-go-v2 v1.7.1
+	github.com/aws/aws-sdk-go-v2 v1.9.0
 	github.com/aws/aws-sdk-go-v2/config v1.5.0
-	github.com/aws/aws-sdk-go-v2/service/cloudformation v1.7.0
+	github.com/aws/aws-sdk-go-v2/service/cloudcontrol v1.9.0
+	github.com/aws/aws-sdk-go-v2/service/cloudformation v1.10.0
 	github.com/aws/aws-sdk-go-v2/service/ec2 v1.12.0
 	github.com/aws/aws-sdk-go-v2/service/ssm v1.8.0
 	github.com/aws/aws-sdk-go-v2/service/sts v1.6.0
-	github.com/aws/smithy-go v1.6.1-0.20210719175327-4970553d9934
+	github.com/aws/smithy-go v1.8.0
 	github.com/blang/semver v3.5.1+incompatible
+	github.com/evanphx/json-patch v0.5.2 // indirect
 	github.com/goccy/go-yaml v1.8.0
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	github.com/golang/protobuf v1.5.2
@@ -24,6 +26,7 @@ require (
 	github.com/lestrrat-go/jsval v0.0.0-20181205002323-20277e9befc0 // indirect
 	github.com/lestrrat-go/pdebug v0.0.0-20210111095411-35b07dbf089b // indirect
 	github.com/lestrrat-go/structinfo v0.0.0-20210312050401-7f8bd69d6acb // indirect
+	github.com/mattbaird/jsonpatch v0.0.0-20200820163806-098863c1fc24
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi/pkg/v3 v3.9.2-0.20210810055824-9c501b5bede1
 	github.com/pulumi/pulumi/sdk/v3 v3.9.1
@@ -32,4 +35,4 @@ require (
 	google.golang.org/grpc v1.37.0
 )
 
-replace github.com/aws/aws-sdk-go-v2/service/cloudformation => ../aws-sdk-go-v2-cf-preview
+replace github.com/aws/aws-sdk-go-v2/service/cloudcontrol => ../aws-sdk-go-v2-cloudcontrol-preview
