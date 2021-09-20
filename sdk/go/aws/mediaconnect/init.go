@@ -26,7 +26,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	case "aws-native:mediaconnect:FlowEntitlement":
 		r = &FlowEntitlement{}
 	case "aws-native:mediaconnect:FlowOutput":
-		r = &FlowOutput{}
+		r = &FlowOutputResource{}
 	case "aws-native:mediaconnect:FlowSource":
 		r = &FlowSource{}
 	case "aws-native:mediaconnect:FlowVpcInterface":

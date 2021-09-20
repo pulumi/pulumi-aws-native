@@ -12,6 +12,7 @@ __all__ = [
     'GetAzsResult',
     'AwaitableGetAzsResult',
     'get_azs',
+    'get_azs_output',
 ]
 
 @pulumi.output_type
@@ -51,3 +52,12 @@ def get_azs(region: Optional[str] = None,
 
     return AwaitableGetAzsResult(
         azs=__ret__.azs)
+
+
+@_utilities.lift_output_func(get_azs)
+def get_azs_output(region: Optional[pulumi.Input[Optional[str]]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzsResult]:
+    """
+    Use this data source to access information about an existing resource.
+    """
+    ...
