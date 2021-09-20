@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -38,7 +38,7 @@ export class Dataset extends pulumi.CustomResource {
     /**
      * Dataset format
      */
-    public readonly format!: pulumi.Output<string | undefined>;
+    public readonly format!: pulumi.Output<enums.databrew.DatasetFormat | undefined>;
     /**
      * Format options for dataset
      */
@@ -102,7 +102,7 @@ export interface DatasetArgs {
     /**
      * Dataset format
      */
-    format?: pulumi.Input<string>;
+    format?: pulumi.Input<enums.databrew.DatasetFormat>;
     /**
      * Format options for dataset
      */

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -59,7 +59,7 @@ export class EndpointGroup extends pulumi.CustomResource {
     /**
      * The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
      */
-    public readonly healthCheckProtocol!: pulumi.Output<string | undefined>;
+    public readonly healthCheckProtocol!: pulumi.Output<enums.globalaccelerator.EndpointGroupHealthCheckProtocol | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the listener
      */
@@ -146,7 +146,7 @@ export interface EndpointGroupArgs {
     /**
      * The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
      */
-    healthCheckProtocol?: pulumi.Input<string>;
+    healthCheckProtocol?: pulumi.Input<enums.globalaccelerator.EndpointGroupHealthCheckProtocol>;
     /**
      * The Amazon Resource Name (ARN) of the listener
      */

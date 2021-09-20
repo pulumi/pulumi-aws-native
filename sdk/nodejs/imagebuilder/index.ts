@@ -13,6 +13,9 @@ export * from "./imagePipeline";
 export * from "./imageRecipe";
 export * from "./infrastructureConfiguration";
 
+// Export enums:
+export * from "../types/enums/imagebuilder";
+
 // Import resources to register:
 import { Component } from "./component";
 import { ContainerRecipe } from "./containerRecipe";

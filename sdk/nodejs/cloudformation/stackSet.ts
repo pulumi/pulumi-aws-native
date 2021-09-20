@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -46,11 +46,11 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
      */
-    public readonly callAs!: pulumi.Output<string | undefined>;
+    public readonly callAs!: pulumi.Output<enums.cloudformation.StackSetCallAs | undefined>;
     /**
      * In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
      */
-    public readonly capabilities!: pulumi.Output<string[] | undefined>;
+    public readonly capabilities!: pulumi.Output<enums.cloudformation.StackSetCapability[] | undefined>;
     /**
      * A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
      */
@@ -67,7 +67,7 @@ export class StackSet extends pulumi.CustomResource {
     /**
      * Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
      */
-    public readonly permissionModel!: pulumi.Output<string>;
+    public readonly permissionModel!: pulumi.Output<enums.cloudformation.StackSetPermissionModel>;
     /**
      * A group of stack instances with parameters in some specific accounts and regions.
      */
@@ -164,11 +164,11 @@ export interface StackSetArgs {
     /**
      * Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
      */
-    callAs?: pulumi.Input<string>;
+    callAs?: pulumi.Input<enums.cloudformation.StackSetCallAs>;
     /**
      * In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
      */
-    capabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    capabilities?: pulumi.Input<pulumi.Input<enums.cloudformation.StackSetCapability>[]>;
     /**
      * A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
      */
@@ -185,7 +185,7 @@ export interface StackSetArgs {
     /**
      * Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
      */
-    permissionModel: pulumi.Input<string>;
+    permissionModel: pulumi.Input<enums.cloudformation.StackSetPermissionModel>;
     /**
      * A group of stack instances with parameters in some specific accounts and regions.
      */

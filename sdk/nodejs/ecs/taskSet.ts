@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +46,7 @@ export class TaskSet extends pulumi.CustomResource {
     /**
      * The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
      */
-    public readonly launchType!: pulumi.Output<string | undefined>;
+    public readonly launchType!: pulumi.Output<enums.ecs.TaskSetLaunchType | undefined>;
     public readonly loadBalancers!: pulumi.Output<outputs.ecs.TaskSetLoadBalancer[] | undefined>;
     public readonly networkConfiguration!: pulumi.Output<outputs.ecs.TaskSetNetworkConfiguration | undefined>;
     /**
@@ -134,7 +134,7 @@ export interface TaskSetArgs {
     /**
      * The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
      */
-    launchType?: pulumi.Input<string>;
+    launchType?: pulumi.Input<enums.ecs.TaskSetLaunchType>;
     loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetLoadBalancerArgs>[]>;
     networkConfiguration?: pulumi.Input<inputs.ecs.TaskSetNetworkConfigurationArgs>;
     /**

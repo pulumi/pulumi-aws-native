@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -50,7 +50,7 @@ export class Destination extends pulumi.CustomResource {
     /**
      * Must be RuleName
      */
-    public readonly expressionType!: pulumi.Output<string>;
+    public readonly expressionType!: pulumi.Output<enums.iotwireless.DestinationExpressionType>;
     /**
      * Unique name of destination
      */
@@ -125,7 +125,7 @@ export interface DestinationArgs {
     /**
      * Must be RuleName
      */
-    expressionType: pulumi.Input<string>;
+    expressionType: pulumi.Input<enums.iotwireless.DestinationExpressionType>;
     /**
      * Unique name of destination
      */

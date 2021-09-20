@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -38,7 +39,7 @@ export class Tracker extends pulumi.CustomResource {
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
-    public readonly pricingPlan!: pulumi.Output<string>;
+    public readonly pricingPlan!: pulumi.Output<enums.location.TrackerPricingPlan>;
     public readonly pricingPlanDataSource!: pulumi.Output<string | undefined>;
     public /*out*/ readonly trackerArn!: pulumi.Output<string>;
     public readonly trackerName!: pulumi.Output<string>;
@@ -94,7 +95,7 @@ export class Tracker extends pulumi.CustomResource {
 export interface TrackerArgs {
     description?: pulumi.Input<string>;
     kmsKeyId?: pulumi.Input<string>;
-    pricingPlan: pulumi.Input<string>;
+    pricingPlan: pulumi.Input<enums.location.TrackerPricingPlan>;
     pricingPlanDataSource?: pulumi.Input<string>;
     trackerName: pulumi.Input<string>;
 }

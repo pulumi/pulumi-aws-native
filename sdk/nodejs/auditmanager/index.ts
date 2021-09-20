@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./assessment";
 
+// Export enums:
+export * from "../types/enums/auditmanager";
+
 // Import resources to register:
 import { Assessment } from "./assessment";
 

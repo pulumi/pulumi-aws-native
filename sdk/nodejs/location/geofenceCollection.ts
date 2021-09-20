@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -40,7 +41,7 @@ export class GeofenceCollection extends pulumi.CustomResource {
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
-    public readonly pricingPlan!: pulumi.Output<string>;
+    public readonly pricingPlan!: pulumi.Output<enums.location.GeofenceCollectionPricingPlan>;
     public readonly pricingPlanDataSource!: pulumi.Output<string | undefined>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
@@ -95,6 +96,6 @@ export interface GeofenceCollectionArgs {
     collectionName: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     kmsKeyId?: pulumi.Input<string>;
-    pricingPlan: pulumi.Input<string>;
+    pricingPlan: pulumi.Input<enums.location.GeofenceCollectionPricingPlan>;
     pricingPlanDataSource?: pulumi.Input<string>;
 }

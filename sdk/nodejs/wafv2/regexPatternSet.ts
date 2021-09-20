@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -51,7 +51,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
     /**
      * Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
      */
-    public readonly scope!: pulumi.Output<string>;
+    public readonly scope!: pulumi.Output<enums.wafv2.RegexPatternSetScope>;
     public readonly tags!: pulumi.Output<outputs.wafv2.RegexPatternSetTag[] | undefined>;
 
     /**
@@ -108,6 +108,6 @@ export interface RegexPatternSetArgs {
     /**
      * Use CLOUDFRONT for CloudFront RegexPatternSet, use REGIONAL for Application Load Balancer and API Gateway.
      */
-    scope: pulumi.Input<string>;
+    scope: pulumi.Input<enums.wafv2.RegexPatternSetScope>;
     tags?: pulumi.Input<pulumi.Input<inputs.wafv2.RegexPatternSetTagArgs>[]>;
 }

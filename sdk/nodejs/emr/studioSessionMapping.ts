@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -41,7 +42,7 @@ export class StudioSessionMapping extends pulumi.CustomResource {
     /**
      * Specifies whether the identity to map to the Studio is a user or a group.
      */
-    public readonly identityType!: pulumi.Output<string>;
+    public readonly identityType!: pulumi.Output<enums.emr.StudioSessionMappingIdentityType>;
     /**
      * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
      */
@@ -102,7 +103,7 @@ export interface StudioSessionMappingArgs {
     /**
      * Specifies whether the identity to map to the Studio is a user or a group.
      */
-    identityType: pulumi.Input<string>;
+    identityType: pulumi.Input<enums.emr.StudioSessionMappingIdentityType>;
     /**
      * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
      */

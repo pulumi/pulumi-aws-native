@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -62,7 +62,7 @@ export class FirewallRuleGroupAssociation extends pulumi.CustomResource {
     /**
      * MutationProtectionStatus
      */
-    public readonly mutationProtection!: pulumi.Output<string | undefined>;
+    public readonly mutationProtection!: pulumi.Output<enums.route53resolver.FirewallRuleGroupAssociationMutationProtection | undefined>;
     /**
      * FirewallRuleGroupAssociationName
      */
@@ -74,7 +74,7 @@ export class FirewallRuleGroupAssociation extends pulumi.CustomResource {
     /**
      * ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<enums.route53resolver.FirewallRuleGroupAssociationStatus>;
     /**
      * FirewallDomainListAssociationStatus
      */
@@ -154,7 +154,7 @@ export interface FirewallRuleGroupAssociationArgs {
     /**
      * MutationProtectionStatus
      */
-    mutationProtection?: pulumi.Input<string>;
+    mutationProtection?: pulumi.Input<enums.route53resolver.FirewallRuleGroupAssociationMutationProtection>;
     /**
      * FirewallRuleGroupAssociationName
      */

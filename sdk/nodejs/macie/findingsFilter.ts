@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -38,7 +38,7 @@ export class FindingsFilter extends pulumi.CustomResource {
     /**
      * Findings filter action.
      */
-    public readonly action!: pulumi.Output<string | undefined>;
+    public readonly action!: pulumi.Output<enums.macie.FindingsFilterFindingFilterAction | undefined>;
     /**
      * Findings filter ARN.
      */
@@ -111,7 +111,7 @@ export interface FindingsFilterArgs {
     /**
      * Findings filter action.
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<enums.macie.FindingsFilterFindingFilterAction>;
     /**
      * Findings filter description
      */

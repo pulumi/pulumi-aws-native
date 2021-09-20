@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./service";
 
+// Export enums:
+export * from "../types/enums/apprunner";
+
 // Import resources to register:
 import { Service } from "./service";
 

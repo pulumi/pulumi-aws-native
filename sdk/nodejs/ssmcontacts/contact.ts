@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -54,7 +54,7 @@ export class Contact extends pulumi.CustomResource {
     /**
      * Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
      */
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<enums.ssmcontacts.ContactType>;
 
     /**
      * Create a Contact resource with the given unique name, arguments, and options.
@@ -117,5 +117,5 @@ export interface ContactArgs {
     /**
      * Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
      */
-    type: pulumi.Input<string>;
+    type: pulumi.Input<enums.ssmcontacts.ContactType>;
 }

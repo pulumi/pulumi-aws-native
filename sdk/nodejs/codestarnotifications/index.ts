@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./notificationRule";
 
+// Export enums:
+export * from "../types/enums/codestarnotifications";
+
 // Import resources to register:
 import { NotificationRule } from "./notificationRule";
 

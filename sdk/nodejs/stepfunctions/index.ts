@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./stateMachine";
 
+// Export enums:
+export * from "../types/enums/stepfunctions";
+
 // Import resources to register:
 import { StateMachine } from "./stateMachine";
 

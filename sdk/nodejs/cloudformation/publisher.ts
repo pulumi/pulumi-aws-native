@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -45,7 +46,7 @@ export class Publisher extends pulumi.CustomResource {
     /**
      * The type of account used as the identity provider when registering this publisher with CloudFormation.
      */
-    public /*out*/ readonly identityProvider!: pulumi.Output<string>;
+    public /*out*/ readonly identityProvider!: pulumi.Output<enums.cloudformation.PublisherIdentityProvider>;
     /**
      * The publisher id assigned by CloudFormation for publishing in this region.
      */
@@ -57,7 +58,7 @@ export class Publisher extends pulumi.CustomResource {
     /**
      * Whether the publisher is verified.
      */
-    public /*out*/ readonly publisherStatus!: pulumi.Output<string>;
+    public /*out*/ readonly publisherStatus!: pulumi.Output<enums.cloudformation.PublisherPublisherStatus>;
 
     /**
      * Create a Publisher resource with the given unique name, arguments, and options.

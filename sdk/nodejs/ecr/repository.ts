@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -41,7 +41,7 @@ export class Repository extends pulumi.CustomResource {
     /**
      * The image tag mutability setting for the repository.
      */
-    public readonly imageTagMutability!: pulumi.Output<string | undefined>;
+    public readonly imageTagMutability!: pulumi.Output<enums.ecr.RepositoryImageTagMutability | undefined>;
     public readonly lifecyclePolicy!: pulumi.Output<outputs.ecr.RepositoryLifecyclePolicy | undefined>;
     /**
      * The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
@@ -104,7 +104,7 @@ export interface RepositoryArgs {
     /**
      * The image tag mutability setting for the repository.
      */
-    imageTagMutability?: pulumi.Input<string>;
+    imageTagMutability?: pulumi.Input<enums.ecr.RepositoryImageTagMutability>;
     lifecyclePolicy?: pulumi.Input<inputs.ecr.RepositoryLifecyclePolicyArgs>;
     /**
      * The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.

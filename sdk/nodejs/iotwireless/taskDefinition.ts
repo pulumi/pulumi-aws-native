@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -58,7 +58,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * A filter to list only the wireless gateway task definitions that use this task definition type
      */
-    public readonly taskDefinitionType!: pulumi.Output<string | undefined>;
+    public readonly taskDefinitionType!: pulumi.Output<enums.iotwireless.TaskDefinitionTaskDefinitionType | undefined>;
     /**
      * Information about the gateways to update.
      */
@@ -124,7 +124,7 @@ export interface TaskDefinitionArgs {
     /**
      * A filter to list only the wireless gateway task definitions that use this task definition type
      */
-    taskDefinitionType?: pulumi.Input<string>;
+    taskDefinitionType?: pulumi.Input<enums.iotwireless.TaskDefinitionTaskDefinitionType>;
     /**
      * Information about the gateways to update.
      */

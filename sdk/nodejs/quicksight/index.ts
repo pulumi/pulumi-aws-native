@@ -12,6 +12,9 @@ export * from "./dataSource";
 export * from "./template";
 export * from "./theme";
 
+// Export enums:
+export * from "../types/enums/quicksight";
+
 // Import resources to register:
 import { Analysis } from "./analysis";
 import { Dashboard } from "./dashboard";

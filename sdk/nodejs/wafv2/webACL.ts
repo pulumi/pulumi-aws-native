@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +46,7 @@ export class WebACL extends pulumi.CustomResource {
      * Collection of Rules.
      */
     public readonly rules!: pulumi.Output<outputs.wafv2.WebACLRule[] | undefined>;
-    public readonly scope!: pulumi.Output<string>;
+    public readonly scope!: pulumi.Output<enums.wafv2.WebACLScope>;
     public readonly tags!: pulumi.Output<outputs.wafv2.WebACLTag[] | undefined>;
     public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.WebACLVisibilityConfig>;
 
@@ -113,7 +113,7 @@ export interface WebACLArgs {
      * Collection of Rules.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLRuleArgs>[]>;
-    scope: pulumi.Input<string>;
+    scope: pulumi.Input<enums.wafv2.WebACLScope>;
     tags?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTagArgs>[]>;
     visibilityConfig: pulumi.Input<inputs.wafv2.WebACLVisibilityConfigArgs>;
 }

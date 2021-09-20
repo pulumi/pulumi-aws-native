@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -47,7 +47,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
     /**
      * Recording Configuration State.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<enums.ivs.RecordingConfigurationState>;
     /**
      * A list of key-value pairs that contain metadata for the asset model.
      */

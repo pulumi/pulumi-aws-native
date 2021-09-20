@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -37,12 +37,12 @@ export class BudgetsAction extends pulumi.CustomResource {
 
     public /*out*/ readonly actionId!: pulumi.Output<string>;
     public readonly actionThreshold!: pulumi.Output<outputs.budgets.BudgetsActionActionThreshold>;
-    public readonly actionType!: pulumi.Output<string>;
-    public readonly approvalModel!: pulumi.Output<string | undefined>;
+    public readonly actionType!: pulumi.Output<enums.budgets.BudgetsActionActionType>;
+    public readonly approvalModel!: pulumi.Output<enums.budgets.BudgetsActionApprovalModel | undefined>;
     public readonly budgetName!: pulumi.Output<string>;
     public readonly definition!: pulumi.Output<outputs.budgets.BudgetsActionDefinition>;
     public readonly executionRoleArn!: pulumi.Output<string>;
-    public readonly notificationType!: pulumi.Output<string>;
+    public readonly notificationType!: pulumi.Output<enums.budgets.BudgetsActionNotificationType>;
     public readonly subscribers!: pulumi.Output<outputs.budgets.BudgetsActionSubscriber[] | undefined>;
 
     /**
@@ -106,11 +106,11 @@ export class BudgetsAction extends pulumi.CustomResource {
  */
 export interface BudgetsActionArgs {
     actionThreshold: pulumi.Input<inputs.budgets.BudgetsActionActionThresholdArgs>;
-    actionType: pulumi.Input<string>;
-    approvalModel?: pulumi.Input<string>;
+    actionType: pulumi.Input<enums.budgets.BudgetsActionActionType>;
+    approvalModel?: pulumi.Input<enums.budgets.BudgetsActionApprovalModel>;
     budgetName: pulumi.Input<string>;
     definition: pulumi.Input<inputs.budgets.BudgetsActionDefinitionArgs>;
     executionRoleArn: pulumi.Input<string>;
-    notificationType: pulumi.Input<string>;
+    notificationType: pulumi.Input<enums.budgets.BudgetsActionNotificationType>;
     subscribers?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetsActionSubscriberArgs>[]>;
 }

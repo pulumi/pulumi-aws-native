@@ -9,6 +9,9 @@ export * from "./domain";
 export * from "./integration";
 export * from "./objectType";
 
+// Export enums:
+export * from "../types/enums/customerprofiles";
+
 // Import resources to register:
 import { Domain } from "./domain";
 import { Integration } from "./integration";

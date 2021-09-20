@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -35,7 +35,7 @@ export class ClusterCapacityProviderAssociations extends pulumi.CustomResource {
         return obj['__pulumiType'] === ClusterCapacityProviderAssociations.__pulumiType;
     }
 
-    public readonly capacityProviders!: pulumi.Output<string | string[]>;
+    public readonly capacityProviders!: pulumi.Output<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string[]>;
     public readonly cluster!: pulumi.Output<string>;
     public readonly defaultCapacityProviderStrategy!: pulumi.Output<outputs.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategy[]>;
 
@@ -78,7 +78,7 @@ export class ClusterCapacityProviderAssociations extends pulumi.CustomResource {
  * The set of arguments for constructing a ClusterCapacityProviderAssociations resource.
  */
 export interface ClusterCapacityProviderAssociationsArgs {
-    capacityProviders: pulumi.Input<pulumi.Input<string | string>[]>;
+    capacityProviders: pulumi.Input<pulumi.Input<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string>[]>;
     cluster: pulumi.Input<string>;
     defaultCapacityProviderStrategy: pulumi.Input<pulumi.Input<inputs.ecs.ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs>[]>;
 }

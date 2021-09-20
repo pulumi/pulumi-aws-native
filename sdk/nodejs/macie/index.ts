@@ -9,6 +9,9 @@ export * from "./customDataIdentifier";
 export * from "./findingsFilter";
 export * from "./session";
 
+// Export enums:
+export * from "../types/enums/macie";
+
 // Import resources to register:
 import { CustomDataIdentifier } from "./customDataIdentifier";
 import { FindingsFilter } from "./findingsFilter";

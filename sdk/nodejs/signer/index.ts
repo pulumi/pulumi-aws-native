@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./profilePermission";
 export * from "./signingProfile";
 
+// Export enums:
+export * from "../types/enums/signer";
+
 // Import resources to register:
 import { ProfilePermission } from "./profilePermission";
 import { SigningProfile } from "./signingProfile";

@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./studio";
 export * from "./studioSessionMapping";
 
+// Export enums:
+export * from "../types/enums/emr";
+
 // Import resources to register:
 import { Studio } from "./studio";
 import { StudioSessionMapping } from "./studioSessionMapping";

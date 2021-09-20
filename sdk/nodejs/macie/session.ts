@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -41,7 +42,7 @@ export class Session extends pulumi.CustomResource {
     /**
      * A enumeration value that specifies how frequently finding updates are published.
      */
-    public readonly findingPublishingFrequency!: pulumi.Output<string | undefined>;
+    public readonly findingPublishingFrequency!: pulumi.Output<enums.macie.SessionFindingPublishingFrequency | undefined>;
     /**
      * Service role used by Macie
      */
@@ -49,7 +50,7 @@ export class Session extends pulumi.CustomResource {
     /**
      * A enumeration value that specifies the status of the Macie Session.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<enums.macie.SessionStatus | undefined>;
 
     /**
      * Create a Session resource with the given unique name, arguments, and options.
@@ -86,9 +87,9 @@ export interface SessionArgs {
     /**
      * A enumeration value that specifies how frequently finding updates are published.
      */
-    findingPublishingFrequency?: pulumi.Input<string>;
+    findingPublishingFrequency?: pulumi.Input<enums.macie.SessionFindingPublishingFrequency>;
     /**
      * A enumeration value that specifies the status of the Macie Session.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<enums.macie.SessionStatus>;
 }

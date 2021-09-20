@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -76,7 +76,7 @@ export class Analysis extends pulumi.CustomResource {
      */
     public /*out*/ readonly sheets!: pulumi.Output<outputs.quicksight.AnalysisSheet[]>;
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisAnalysisSourceEntity | undefined>;
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<enums.quicksight.AnalysisResourceStatus>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
      *             analysis.</p>

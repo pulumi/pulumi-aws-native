@@ -19,6 +19,9 @@ export * from "./securityProfile";
 export * from "./topicRule";
 export * from "./topicRuleDestination";
 
+// Export enums:
+export * from "../types/enums/iot";
+
 // Import resources to register:
 import { AccountAuditConfiguration } from "./accountAuditConfiguration";
 import { Authorizer } from "./authorizer";

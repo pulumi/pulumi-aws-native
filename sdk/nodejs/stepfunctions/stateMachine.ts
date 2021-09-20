@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -44,7 +44,7 @@ export class StateMachine extends pulumi.CustomResource {
     public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly roleArn!: pulumi.Output<string>;
     public readonly stateMachineName!: pulumi.Output<string | undefined>;
-    public readonly stateMachineType!: pulumi.Output<string | undefined>;
+    public readonly stateMachineType!: pulumi.Output<enums.stepfunctions.StateMachineStateMachineType | undefined>;
     public readonly tags!: pulumi.Output<outputs.stepfunctions.StateMachineTagsEntry[] | undefined>;
     public readonly tracingConfiguration!: pulumi.Output<outputs.stepfunctions.StateMachineTracingConfiguration | undefined>;
 
@@ -106,7 +106,7 @@ export interface StateMachineArgs {
     loggingConfiguration?: pulumi.Input<inputs.stepfunctions.StateMachineLoggingConfigurationArgs>;
     roleArn: pulumi.Input<string>;
     stateMachineName?: pulumi.Input<string>;
-    stateMachineType?: pulumi.Input<string>;
+    stateMachineType?: pulumi.Input<enums.stepfunctions.StateMachineStateMachineType>;
     tags?: pulumi.Input<pulumi.Input<inputs.stepfunctions.StateMachineTagsEntryArgs>[]>;
     tracingConfiguration?: pulumi.Input<inputs.stepfunctions.StateMachineTracingConfigurationArgs>;
 }

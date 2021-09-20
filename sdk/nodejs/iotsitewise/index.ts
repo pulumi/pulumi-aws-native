@@ -13,6 +13,9 @@ export * from "./gateway";
 export * from "./portal";
 export * from "./project";
 
+// Export enums:
+export * from "../types/enums/iotsitewise";
+
 // Import resources to register:
 import { AccessPolicy } from "./accessPolicy";
 import { Asset } from "./asset";

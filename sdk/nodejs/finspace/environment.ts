@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -62,7 +62,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * Federation mode used with the Environment
      */
-    public readonly federationMode!: pulumi.Output<string | undefined>;
+    public readonly federationMode!: pulumi.Output<enums.finspace.EnvironmentFederationMode | undefined>;
     public readonly federationParameters!: pulumi.Output<outputs.finspace.EnvironmentFederationParameters | undefined>;
     /**
      * KMS key used to encrypt customer data within FinSpace Environment infrastructure
@@ -79,7 +79,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * State of the Environment
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<enums.finspace.EnvironmentStatus>;
 
     /**
      * Create a Environment resource with the given unique name, arguments, and options.
@@ -139,7 +139,7 @@ export interface EnvironmentArgs {
     /**
      * Federation mode used with the Environment
      */
-    federationMode?: pulumi.Input<string>;
+    federationMode?: pulumi.Input<enums.finspace.EnvironmentFederationMode>;
     federationParameters?: pulumi.Input<inputs.finspace.EnvironmentFederationParametersArgs>;
     /**
      * KMS key used to encrypt customer data within FinSpace Environment infrastructure

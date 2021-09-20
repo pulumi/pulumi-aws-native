@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -59,7 +59,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
     /**
      * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
      */
-    public readonly origination!: pulumi.Output<string | undefined>;
+    public readonly origination!: pulumi.Output<enums.mediapackage.OriginEndpointOrigination | undefined>;
     /**
      * Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
      */
@@ -158,7 +158,7 @@ export interface OriginEndpointArgs {
     /**
      * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
      */
-    origination?: pulumi.Input<string>;
+    origination?: pulumi.Input<enums.mediapackage.OriginEndpointOrigination>;
     /**
      * Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
      */

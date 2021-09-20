@@ -27,6 +27,9 @@ export * from "./transitGatewayMulticastGroupMember";
 export * from "./transitGatewayMulticastGroupSource";
 export * from "./transitGatewayPeeringAttachment";
 
+// Export enums:
+export * from "../types/enums/ec2";
+
 // Import resources to register:
 import { CarrierGateway } from "./carrierGateway";
 import { DHCPOptions } from "./dhcpoptions";

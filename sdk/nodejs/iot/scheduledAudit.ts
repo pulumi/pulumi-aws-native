@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -42,11 +42,11 @@ export class ScheduledAudit extends pulumi.CustomResource {
     /**
      * The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
      */
-    public readonly dayOfWeek!: pulumi.Output<string | undefined>;
+    public readonly dayOfWeek!: pulumi.Output<enums.iot.ScheduledAuditDayOfWeek | undefined>;
     /**
      * How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
      */
-    public readonly frequency!: pulumi.Output<string>;
+    public readonly frequency!: pulumi.Output<enums.iot.ScheduledAuditFrequency>;
     /**
      * The ARN (Amazon resource name) of the scheduled audit.
      */
@@ -115,11 +115,11 @@ export interface ScheduledAuditArgs {
     /**
      * The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
      */
-    dayOfWeek?: pulumi.Input<string>;
+    dayOfWeek?: pulumi.Input<enums.iot.ScheduledAuditDayOfWeek>;
     /**
      * How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
      */
-    frequency: pulumi.Input<string>;
+    frequency: pulumi.Input<enums.iot.ScheduledAuditFrequency>;
     /**
      * The name you want to give to the scheduled audit.
      */

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -35,9 +35,9 @@ export class ServiceAction extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceAction.__pulumiType;
     }
 
-    public readonly acceptLanguage!: pulumi.Output<string | undefined>;
+    public readonly acceptLanguage!: pulumi.Output<enums.servicecatalog.ServiceActionAcceptLanguage | undefined>;
     public readonly definition!: pulumi.Output<outputs.servicecatalog.ServiceActionDefinitionParameter[]>;
-    public readonly definitionType!: pulumi.Output<string>;
+    public readonly definitionType!: pulumi.Output<enums.servicecatalog.ServiceActionDefinitionType>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
 
@@ -84,9 +84,9 @@ export class ServiceAction extends pulumi.CustomResource {
  * The set of arguments for constructing a ServiceAction resource.
  */
 export interface ServiceActionArgs {
-    acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<enums.servicecatalog.ServiceActionAcceptLanguage>;
     definition: pulumi.Input<pulumi.Input<inputs.servicecatalog.ServiceActionDefinitionParameterArgs>[]>;
-    definitionType: pulumi.Input<string>;
+    definitionType: pulumi.Input<enums.servicecatalog.ServiceActionDefinitionType>;
     description?: pulumi.Input<string>;
     name: pulumi.Input<string>;
 }

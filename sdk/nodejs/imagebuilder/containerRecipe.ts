@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +46,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * Specifies the type of container, such as Docker.
      */
-    public readonly containerType!: pulumi.Output<string | undefined>;
+    public readonly containerType!: pulumi.Output<enums.imagebuilder.ContainerRecipeContainerType | undefined>;
     /**
      * The description of the container recipe.
      */
@@ -82,7 +82,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     /**
      * Specifies the operating system platform when you use a custom source image.
      */
-    public readonly platformOverride!: pulumi.Output<string | undefined>;
+    public readonly platformOverride!: pulumi.Output<enums.imagebuilder.ContainerRecipePlatformOverride | undefined>;
     /**
      * Tags that are attached to the container recipe.
      */
@@ -163,7 +163,7 @@ export interface ContainerRecipeArgs {
     /**
      * Specifies the type of container, such as Docker.
      */
-    containerType?: pulumi.Input<string>;
+    containerType?: pulumi.Input<enums.imagebuilder.ContainerRecipeContainerType>;
     /**
      * The description of the container recipe.
      */
@@ -199,7 +199,7 @@ export interface ContainerRecipeArgs {
     /**
      * Specifies the operating system platform when you use a custom source image.
      */
-    platformOverride?: pulumi.Input<string>;
+    platformOverride?: pulumi.Input<enums.imagebuilder.ContainerRecipePlatformOverride>;
     /**
      * Tags that are attached to the container recipe.
      */

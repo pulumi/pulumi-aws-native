@@ -10,6 +10,9 @@ export * from "./healthCheck";
 export * from "./hostedZone";
 export * from "./keySigningKey";
 
+// Export enums:
+export * from "../types/enums/route53";
+
 // Import resources to register:
 import { DNSSEC } from "./dnssec";
 import { HealthCheck } from "./healthCheck";

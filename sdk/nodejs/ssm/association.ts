@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +46,7 @@ export class Association extends pulumi.CustomResource {
     public readonly associationName!: pulumi.Output<string | undefined>;
     public readonly automationTargetParameterName!: pulumi.Output<string | undefined>;
     public readonly calendarNames!: pulumi.Output<string[] | undefined>;
-    public readonly complianceSeverity!: pulumi.Output<string | undefined>;
+    public readonly complianceSeverity!: pulumi.Output<enums.ssm.AssociationComplianceSeverity | undefined>;
     /**
      * The version of the SSM document to associate with the target.
      */
@@ -70,7 +70,7 @@ export class Association extends pulumi.CustomResource {
      * A Cron or Rate expression that specifies when the association is applied to the target.
      */
     public readonly scheduleExpression!: pulumi.Output<string | undefined>;
-    public readonly syncCompliance!: pulumi.Output<string | undefined>;
+    public readonly syncCompliance!: pulumi.Output<enums.ssm.AssociationSyncCompliance | undefined>;
     /**
      * The targets that the SSM document sends commands to.
      */
@@ -145,7 +145,7 @@ export interface AssociationArgs {
     associationName?: pulumi.Input<string>;
     automationTargetParameterName?: pulumi.Input<string>;
     calendarNames?: pulumi.Input<pulumi.Input<string>[]>;
-    complianceSeverity?: pulumi.Input<string>;
+    complianceSeverity?: pulumi.Input<enums.ssm.AssociationComplianceSeverity>;
     /**
      * The version of the SSM document to associate with the target.
      */
@@ -169,7 +169,7 @@ export interface AssociationArgs {
      * A Cron or Rate expression that specifies when the association is applied to the target.
      */
     scheduleExpression?: pulumi.Input<string>;
-    syncCompliance?: pulumi.Input<string>;
+    syncCompliance?: pulumi.Input<enums.ssm.AssociationSyncCompliance>;
     /**
      * The targets that the SSM document sends commands to.
      */

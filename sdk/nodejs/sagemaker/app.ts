@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +46,7 @@ export class App extends pulumi.CustomResource {
     /**
      * The type of app.
      */
-    public readonly appType!: pulumi.Output<string>;
+    public readonly appType!: pulumi.Output<enums.sagemaker.AppAppType>;
     /**
      * The domain ID.
      */
@@ -121,7 +121,7 @@ export interface AppArgs {
     /**
      * The type of app.
      */
-    appType: pulumi.Input<string>;
+    appType: pulumi.Input<enums.sagemaker.AppAppType>;
     /**
      * The domain ID.
      */

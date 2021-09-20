@@ -9,6 +9,9 @@ export * from "./assignment";
 export * from "./instanceAccessControlAttributeConfiguration";
 export * from "./permissionSet";
 
+// Export enums:
+export * from "../types/enums/sso";
+
 // Import resources to register:
 import { Assignment } from "./assignment";
 import { InstanceAccessControlAttributeConfiguration } from "./instanceAccessControlAttributeConfiguration";

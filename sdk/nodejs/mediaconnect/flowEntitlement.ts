@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -54,7 +54,7 @@ export class FlowEntitlement extends pulumi.CustomResource {
     /**
      *  An indication of whether the entitlement is enabled.
      */
-    public readonly entitlementStatus!: pulumi.Output<string | undefined>;
+    public readonly entitlementStatus!: pulumi.Output<enums.mediaconnect.FlowEntitlementEntitlementStatus | undefined>;
     /**
      * The ARN of the flow.
      */
@@ -135,7 +135,7 @@ export interface FlowEntitlementArgs {
     /**
      *  An indication of whether the entitlement is enabled.
      */
-    entitlementStatus?: pulumi.Input<string>;
+    entitlementStatus?: pulumi.Input<enums.mediaconnect.FlowEntitlementEntitlementStatus>;
     /**
      * The ARN of the flow.
      */

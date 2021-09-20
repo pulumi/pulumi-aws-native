@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -50,7 +50,7 @@ export class ProfilingGroup extends pulumi.CustomResource {
     /**
      * The compute platform of the profiling group.
      */
-    public readonly computePlatform!: pulumi.Output<string | undefined>;
+    public readonly computePlatform!: pulumi.Output<enums.codeguruprofiler.ProfilingGroupComputePlatform | undefined>;
     /**
      * The name of the profiling group.
      */
@@ -110,7 +110,7 @@ export interface ProfilingGroupArgs {
     /**
      * The compute platform of the profiling group.
      */
-    computePlatform?: pulumi.Input<string>;
+    computePlatform?: pulumi.Input<enums.codeguruprofiler.ProfilingGroupComputePlatform>;
     /**
      * The name of the profiling group.
      */

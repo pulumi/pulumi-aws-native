@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -50,7 +50,7 @@ export class Accelerator extends pulumi.CustomResource {
     /**
      * IP Address type.
      */
-    public readonly ipAddressType!: pulumi.Output<string | undefined>;
+    public readonly ipAddressType!: pulumi.Output<enums.globalaccelerator.AcceleratorIpAddressType | undefined>;
     /**
      * The IP addresses from BYOIP Prefix pool.
      */
@@ -109,7 +109,7 @@ export interface AcceleratorArgs {
     /**
      * IP Address type.
      */
-    ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<enums.globalaccelerator.AcceleratorIpAddressType>;
     /**
      * The IP addresses from BYOIP Prefix pool.
      */

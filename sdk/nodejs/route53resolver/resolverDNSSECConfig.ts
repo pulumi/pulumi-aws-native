@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -45,7 +46,7 @@ export class ResolverDNSSECConfig extends pulumi.CustomResource {
     /**
      * ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
      */
-    public /*out*/ readonly validationStatus!: pulumi.Output<string>;
+    public /*out*/ readonly validationStatus!: pulumi.Output<enums.route53resolver.ResolverDNSSECConfigValidationStatus>;
 
     /**
      * Create a ResolverDNSSECConfig resource with the given unique name, arguments, and options.

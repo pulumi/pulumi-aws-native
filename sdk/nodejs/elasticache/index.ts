@@ -9,6 +9,9 @@ export * from "./globalReplicationGroup";
 export * from "./user";
 export * from "./userGroup";
 
+// Export enums:
+export * from "../types/enums/elasticache";
+
 // Import resources to register:
 import { GlobalReplicationGroup } from "./globalReplicationGroup";
 import { User } from "./user";

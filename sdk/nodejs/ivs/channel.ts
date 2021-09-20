@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -50,7 +50,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * Channel latency mode.
      */
-    public readonly latencyMode!: pulumi.Output<string | undefined>;
+    public readonly latencyMode!: pulumi.Output<enums.ivs.ChannelLatencyMode | undefined>;
     /**
      * Channel
      */
@@ -70,7 +70,7 @@ export class Channel extends pulumi.CustomResource {
     /**
      * Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<enums.ivs.ChannelType | undefined>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -121,7 +121,7 @@ export interface ChannelArgs {
     /**
      * Channel latency mode.
      */
-    latencyMode?: pulumi.Input<string>;
+    latencyMode?: pulumi.Input<enums.ivs.ChannelLatencyMode>;
     /**
      * Channel
      */
@@ -137,5 +137,5 @@ export interface ChannelArgs {
     /**
      * Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<enums.ivs.ChannelType>;
 }

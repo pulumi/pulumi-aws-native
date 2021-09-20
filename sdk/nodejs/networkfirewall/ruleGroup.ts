@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -42,7 +42,7 @@ export class RuleGroup extends pulumi.CustomResource {
     public /*out*/ readonly ruleGroupId!: pulumi.Output<string>;
     public readonly ruleGroupName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.networkfirewall.RuleGroupTag[] | undefined>;
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<enums.networkfirewall.RuleGroupType>;
 
     /**
      * Create a RuleGroup resource with the given unique name, arguments, and options.
@@ -98,5 +98,5 @@ export interface RuleGroupArgs {
     ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupArgs>;
     ruleGroupName: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupTagArgs>[]>;
-    type: pulumi.Input<string>;
+    type: pulumi.Input<enums.networkfirewall.RuleGroupType>;
 }

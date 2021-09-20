@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -57,7 +58,7 @@ export class ControlPanel extends pulumi.CustomResource {
     /**
      * The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<enums.route53recoverycontrol.ControlPanelStatus>;
 
     /**
      * Create a ControlPanel resource with the given unique name, arguments, and options.

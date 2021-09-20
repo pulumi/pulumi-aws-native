@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -62,7 +62,7 @@ export class Detector extends pulumi.CustomResource {
     /**
      * The desired detector version status for the detector
      */
-    public readonly detectorVersionStatus!: pulumi.Output<string | undefined>;
+    public readonly detectorVersionStatus!: pulumi.Output<enums.frauddetector.DetectorDetectorVersionStatus | undefined>;
     /**
      * The event type to associate this detector with.
      */
@@ -71,7 +71,7 @@ export class Detector extends pulumi.CustomResource {
      * The time when the detector was last updated.
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
-    public readonly ruleExecutionMode!: pulumi.Output<string | undefined>;
+    public readonly ruleExecutionMode!: pulumi.Output<enums.frauddetector.DetectorRuleExecutionMode | undefined>;
     public readonly rules!: pulumi.Output<outputs.frauddetector.DetectorRule[]>;
     /**
      * Tags associated with this detector.
@@ -150,12 +150,12 @@ export interface DetectorArgs {
     /**
      * The desired detector version status for the detector
      */
-    detectorVersionStatus?: pulumi.Input<string>;
+    detectorVersionStatus?: pulumi.Input<enums.frauddetector.DetectorDetectorVersionStatus>;
     /**
      * The event type to associate this detector with.
      */
     eventType: pulumi.Input<inputs.frauddetector.DetectorEventTypeArgs>;
-    ruleExecutionMode?: pulumi.Input<string>;
+    ruleExecutionMode?: pulumi.Input<enums.frauddetector.DetectorRuleExecutionMode>;
     rules: pulumi.Input<pulumi.Input<inputs.frauddetector.DetectorRuleArgs>[]>;
     /**
      * Tags associated with this detector.

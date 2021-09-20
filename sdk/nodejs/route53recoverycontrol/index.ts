@@ -10,6 +10,9 @@ export * from "./controlPanel";
 export * from "./routingControl";
 export * from "./safetyRule";
 
+// Export enums:
+export * from "../types/enums/route53recoverycontrol";
+
 // Import resources to register:
 import { Cluster } from "./cluster";
 import { ControlPanel } from "./controlPanel";

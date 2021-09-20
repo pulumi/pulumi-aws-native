@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -53,7 +53,7 @@ export class RuleGroup extends pulumi.CustomResource {
      * Collection of Rules.
      */
     public readonly rules!: pulumi.Output<outputs.wafv2.RuleGroupRule[] | undefined>;
-    public readonly scope!: pulumi.Output<string>;
+    public readonly scope!: pulumi.Output<enums.wafv2.RuleGroupScope>;
     public readonly tags!: pulumi.Output<outputs.wafv2.RuleGroupTag[] | undefined>;
     public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.RuleGroupVisibilityConfig>;
 
@@ -122,7 +122,7 @@ export interface RuleGroupArgs {
      * Collection of Rules.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleArgs>[]>;
-    scope: pulumi.Input<string>;
+    scope: pulumi.Input<enums.wafv2.RuleGroupScope>;
     tags?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupTagArgs>[]>;
     visibilityConfig: pulumi.Input<inputs.wafv2.RuleGroupVisibilityConfigArgs>;
 }

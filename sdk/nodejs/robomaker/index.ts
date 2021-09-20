@@ -11,6 +11,9 @@ export * from "./robotApplicationVersion";
 export * from "./simulationApplication";
 export * from "./simulationApplicationVersion";
 
+// Export enums:
+export * from "../types/enums/robomaker";
+
 // Import resources to register:
 import { Fleet } from "./fleet";
 import { Robot } from "./robot";

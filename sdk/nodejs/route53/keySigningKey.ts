@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -49,7 +50,7 @@ export class KeySigningKey extends pulumi.CustomResource {
     /**
      * A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
      */
-    public readonly status!: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<enums.route53.KeySigningKeyStatus>;
 
     /**
      * Create a KeySigningKey resource with the given unique name, arguments, and options.
@@ -110,5 +111,5 @@ export interface KeySigningKeyArgs {
     /**
      * A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
      */
-    status: pulumi.Input<string>;
+    status: pulumi.Input<enums.route53.KeySigningKeyStatus>;
 }

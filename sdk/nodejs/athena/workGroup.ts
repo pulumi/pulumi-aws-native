@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -54,7 +54,7 @@ export class WorkGroup extends pulumi.CustomResource {
     /**
      * The state of the workgroup: ENABLED or DISABLED.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    public readonly state!: pulumi.Output<enums.athena.WorkGroupState | undefined>;
     /**
      * One or more tags, separated by commas, that you want to attach to the workgroup as you create it
      */
@@ -126,7 +126,7 @@ export interface WorkGroupArgs {
     /**
      * The state of the workgroup: ENABLED or DISABLED.
      */
-    state?: pulumi.Input<string>;
+    state?: pulumi.Input<enums.athena.WorkGroupState>;
     /**
      * One or more tags, separated by commas, that you want to attach to the workgroup as you create it
      */

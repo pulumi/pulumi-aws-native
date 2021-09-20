@@ -9,6 +9,9 @@ export * from "./codeSigningConfig";
 export * from "./eventSourceMapping";
 export * from "./function";
 
+// Export enums:
+export * from "../types/enums/lambda";
+
 // Import resources to register:
 import { CodeSigningConfig } from "./codeSigningConfig";
 import { EventSourceMapping } from "./eventSourceMapping";

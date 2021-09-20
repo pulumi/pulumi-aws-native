@@ -16,6 +16,9 @@ export * from "./resource";
 export * from "./usagePlan";
 export * from "./usagePlanKey";
 
+// Export enums:
+export * from "../types/enums/apigateway";
+
 // Import resources to register:
 import { Account } from "./account";
 import { ApiKey } from "./apiKey";

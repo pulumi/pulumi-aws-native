@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -46,7 +46,7 @@ export class TopicRuleDestination extends pulumi.CustomResource {
     /**
      * The status of the TopicRuleDestination.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<enums.iot.TopicRuleDestinationTopicRuleDestinationStatus | undefined>;
     /**
      * The reasoning for the current status of the TopicRuleDestination.
      */
@@ -97,7 +97,7 @@ export interface TopicRuleDestinationArgs {
     /**
      * The status of the TopicRuleDestination.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<enums.iot.TopicRuleDestinationTopicRuleDestinationStatus>;
     /**
      * VPC destination properties.
      */

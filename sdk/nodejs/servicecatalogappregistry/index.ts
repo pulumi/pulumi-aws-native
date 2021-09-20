@@ -10,6 +10,9 @@ export * from "./attributeGroup";
 export * from "./attributeGroupAssociation";
 export * from "./resourceAssociation";
 
+// Export enums:
+export * from "../types/enums/servicecatalogappregistry";
+
 // Import resources to register:
 import { Application } from "./application";
 import { AttributeGroup } from "./attributeGroup";

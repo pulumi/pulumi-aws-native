@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -49,7 +50,7 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * The assignee's type, user/group
      */
-    public readonly principalType!: pulumi.Output<string>;
+    public readonly principalType!: pulumi.Output<enums.sso.AssignmentPrincipalType>;
     /**
      * The account id to be provisioned.
      */
@@ -57,7 +58,7 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * The type of resource to be provsioned to, only aws account now
      */
-    public readonly targetType!: pulumi.Output<string>;
+    public readonly targetType!: pulumi.Output<enums.sso.AssignmentTargetType>;
 
     /**
      * Create a Assignment resource with the given unique name, arguments, and options.
@@ -128,7 +129,7 @@ export interface AssignmentArgs {
     /**
      * The assignee's type, user/group
      */
-    principalType: pulumi.Input<string>;
+    principalType: pulumi.Input<enums.sso.AssignmentPrincipalType>;
     /**
      * The account id to be provisioned.
      */
@@ -136,5 +137,5 @@ export interface AssignmentArgs {
     /**
      * The type of resource to be provsioned to, only aws account now
      */
-    targetType: pulumi.Input<string>;
+    targetType: pulumi.Input<enums.sso.AssignmentTargetType>;
 }

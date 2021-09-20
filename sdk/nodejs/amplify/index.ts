@@ -9,6 +9,9 @@ export * from "./app";
 export * from "./branch";
 export * from "./domain";
 
+// Export enums:
+export * from "../types/enums/amplify";
+
 // Import resources to register:
 import { App } from "./app";
 import { Branch } from "./branch";

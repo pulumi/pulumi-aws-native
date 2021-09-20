@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +65,7 @@ export class Environment extends pulumi.CustomResource {
     public readonly schedulers!: pulumi.Output<number | undefined>;
     public readonly sourceBucketArn!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.mwaa.EnvironmentTagMap | undefined>;
-    public readonly webserverAccessMode!: pulumi.Output<string | undefined>;
+    public readonly webserverAccessMode!: pulumi.Output<enums.mwaa.EnvironmentWebserverAccessMode | undefined>;
     public /*out*/ readonly webserverUrl!: pulumi.Output<string>;
     public readonly weeklyMaintenanceWindowStart!: pulumi.Output<string | undefined>;
 
@@ -169,6 +169,6 @@ export interface EnvironmentArgs {
     schedulers?: pulumi.Input<number>;
     sourceBucketArn?: pulumi.Input<string>;
     tags?: pulumi.Input<inputs.mwaa.EnvironmentTagMapArgs>;
-    webserverAccessMode?: pulumi.Input<string>;
+    webserverAccessMode?: pulumi.Input<enums.mwaa.EnvironmentWebserverAccessMode>;
     weeklyMaintenanceWindowStart?: pulumi.Input<string>;
 }

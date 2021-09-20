@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -47,7 +47,7 @@ export class DetectorModel extends pulumi.CustomResource {
     /**
      * Information about the order in which events are evaluated and how actions are executed.
      */
-    public readonly evaluationMethod!: pulumi.Output<string | undefined>;
+    public readonly evaluationMethod!: pulumi.Output<enums.iotevents.DetectorModelEvaluationMethod | undefined>;
     /**
      * The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding detector instance based on this identifying information.
      *
@@ -121,7 +121,7 @@ export interface DetectorModelArgs {
     /**
      * Information about the order in which events are evaluated and how actions are executed.
      */
-    evaluationMethod?: pulumi.Input<string>;
+    evaluationMethod?: pulumi.Input<enums.iotevents.DetectorModelEvaluationMethod>;
     /**
      * The value used to identify a detector instance. When a device or system sends input, a new detector instance with a unique key value is created. AWS IoT Events can continue to route input to its corresponding detector instance based on this identifying information.
      *

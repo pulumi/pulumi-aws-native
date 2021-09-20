@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -37,7 +37,7 @@ export class ConnectionAlias extends pulumi.CustomResource {
 
     public /*out*/ readonly aliasId!: pulumi.Output<string>;
     public /*out*/ readonly associations!: pulumi.Output<outputs.workspaces.ConnectionAliasConnectionAliasAssociation[]>;
-    public /*out*/ readonly connectionAliasState!: pulumi.Output<string>;
+    public /*out*/ readonly connectionAliasState!: pulumi.Output<enums.workspaces.ConnectionAliasConnectionAliasState>;
     public readonly connectionString!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.workspaces.ConnectionAliasTag[] | undefined>;
 

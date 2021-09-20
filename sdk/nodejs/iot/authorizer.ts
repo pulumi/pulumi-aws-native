@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -39,7 +39,7 @@ export class Authorizer extends pulumi.CustomResource {
     public readonly authorizerFunctionArn!: pulumi.Output<string>;
     public readonly authorizerName!: pulumi.Output<string | undefined>;
     public readonly signingDisabled!: pulumi.Output<boolean | undefined>;
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<enums.iot.AuthorizerStatus | undefined>;
     public readonly tags!: pulumi.Output<outputs.iot.AuthorizerTag[] | undefined>;
     public readonly tokenKeyName!: pulumi.Output<string | undefined>;
     public readonly tokenSigningPublicKeys!: pulumi.Output<any | undefined>;
@@ -90,7 +90,7 @@ export interface AuthorizerArgs {
     authorizerFunctionArn: pulumi.Input<string>;
     authorizerName?: pulumi.Input<string>;
     signingDisabled?: pulumi.Input<boolean>;
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<enums.iot.AuthorizerStatus>;
     tags?: pulumi.Input<pulumi.Input<inputs.iot.AuthorizerTagArgs>[]>;
     tokenKeyName?: pulumi.Input<string>;
     tokenSigningPublicKeys?: any;

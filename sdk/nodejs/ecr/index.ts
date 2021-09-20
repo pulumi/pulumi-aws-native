@@ -9,6 +9,9 @@ export * from "./registryPolicy";
 export * from "./replicationConfiguration";
 export * from "./repository";
 
+// Export enums:
+export * from "../types/enums/ecr";
+
 // Import resources to register:
 import { RegistryPolicy } from "./registryPolicy";
 import { ReplicationConfiguration } from "./replicationConfiguration";

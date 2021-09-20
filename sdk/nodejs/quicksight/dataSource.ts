@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -73,12 +73,12 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.DataSourceResourcePermission[] | undefined>;
     public readonly sslProperties!: pulumi.Output<outputs.quicksight.DataSourceSslProperties | undefined>;
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly status!: pulumi.Output<enums.quicksight.DataSourceResourceStatus>;
     /**
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
      */
     public readonly tags!: pulumi.Output<outputs.quicksight.DataSourceTag[] | undefined>;
-    public readonly type!: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<enums.quicksight.DataSourceDataSourceType | undefined>;
     public readonly vpcConnectionProperties!: pulumi.Output<outputs.quicksight.DataSourceVpcConnectionProperties | undefined>;
 
     /**
@@ -167,6 +167,6 @@ export interface DataSourceArgs {
      * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
      */
     tags?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceTagArgs>[]>;
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<enums.quicksight.DataSourceDataSourceType>;
     vpcConnectionProperties?: pulumi.Input<inputs.quicksight.DataSourceVpcConnectionPropertiesArgs>;
 }

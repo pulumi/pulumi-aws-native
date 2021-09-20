@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -38,11 +38,11 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
      */
-    public readonly appNetworkAccessType!: pulumi.Output<string | undefined>;
+    public readonly appNetworkAccessType!: pulumi.Output<enums.sagemaker.DomainAppNetworkAccessType | undefined>;
     /**
      * The mode of authentication that members use to access the domain.
      */
-    public readonly authMode!: pulumi.Output<string>;
+    public readonly authMode!: pulumi.Output<enums.sagemaker.DomainAuthMode>;
     /**
      * The default user settings.
      */
@@ -156,11 +156,11 @@ export interface DomainArgs {
     /**
      * Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
      */
-    appNetworkAccessType?: pulumi.Input<string>;
+    appNetworkAccessType?: pulumi.Input<enums.sagemaker.DomainAppNetworkAccessType>;
     /**
      * The mode of authentication that members use to access the domain.
      */
-    authMode: pulumi.Input<string>;
+    authMode: pulumi.Input<enums.sagemaker.DomainAuthMode>;
     /**
      * The default user settings.
      */

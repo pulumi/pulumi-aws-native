@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -62,7 +62,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     /**
      * (Streams) A list of response types supported by the function.
      */
-    public readonly functionResponseTypes!: pulumi.Output<string[] | undefined>;
+    public readonly functionResponseTypes!: pulumi.Output<enums.lambda.EventSourceMappingFunctionResponseTypesItem[] | undefined>;
     /**
      * (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
      */
@@ -198,7 +198,7 @@ export interface EventSourceMappingArgs {
     /**
      * (Streams) A list of response types supported by the function.
      */
-    functionResponseTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    functionResponseTypes?: pulumi.Input<pulumi.Input<enums.lambda.EventSourceMappingFunctionResponseTypesItem>[]>;
     /**
      * (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
      */

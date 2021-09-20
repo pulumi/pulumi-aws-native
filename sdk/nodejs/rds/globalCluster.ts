@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -42,7 +43,7 @@ export class GlobalCluster extends pulumi.CustomResource {
      * The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
      * If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */
-    public readonly engine!: pulumi.Output<string | undefined>;
+    public readonly engine!: pulumi.Output<enums.rds.GlobalClusterEngine | undefined>;
     /**
      * The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */
@@ -105,7 +106,7 @@ export interface GlobalClusterArgs {
      * The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
      * If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */
-    engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<enums.rds.GlobalClusterEngine>;
     /**
      * The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */

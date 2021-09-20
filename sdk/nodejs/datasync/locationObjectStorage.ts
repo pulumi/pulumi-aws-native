@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -70,7 +70,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
     /**
      * The protocol that the object storage server uses to communicate.
      */
-    public readonly serverProtocol!: pulumi.Output<string | undefined>;
+    public readonly serverProtocol!: pulumi.Output<enums.datasync.LocationObjectStorageServerProtocol | undefined>;
     /**
      * The subdirectory in the self-managed object storage server that is used to read data from.
      */
@@ -162,7 +162,7 @@ export interface LocationObjectStorageArgs {
     /**
      * The protocol that the object storage server uses to communicate.
      */
-    serverProtocol?: pulumi.Input<string>;
+    serverProtocol?: pulumi.Input<enums.datasync.LocationObjectStorageServerProtocol>;
     /**
      * The subdirectory in the self-managed object storage server that is used to read data from.
      */

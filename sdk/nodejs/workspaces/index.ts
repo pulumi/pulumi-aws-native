@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./connectionAlias";
 
+// Export enums:
+export * from "../types/enums/workspaces";
+
 // Import resources to register:
 import { ConnectionAlias } from "./connectionAlias";
 

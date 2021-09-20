@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -43,7 +44,7 @@ export class ApiDestination extends pulumi.CustomResource {
      */
     public readonly connectionArn!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly httpMethod!: pulumi.Output<string>;
+    public readonly httpMethod!: pulumi.Output<enums.events.ApiDestinationHttpMethod>;
     /**
      * Url endpoint to invoke.
      */
@@ -106,7 +107,7 @@ export interface ApiDestinationArgs {
      */
     connectionArn: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    httpMethod: pulumi.Input<string>;
+    httpMethod: pulumi.Input<enums.events.ApiDestinationHttpMethod>;
     /**
      * Url endpoint to invoke.
      */

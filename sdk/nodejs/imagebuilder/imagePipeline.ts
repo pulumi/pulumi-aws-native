@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +78,7 @@ export class ImagePipeline extends pulumi.CustomResource {
     /**
      * The status of the image pipeline.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly status!: pulumi.Output<enums.imagebuilder.ImagePipelineStatus | undefined>;
     /**
      * The tags of this image pipeline.
      */
@@ -171,7 +171,7 @@ export interface ImagePipelineArgs {
     /**
      * The status of the image pipeline.
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<enums.imagebuilder.ImagePipelineStatus>;
     /**
      * The tags of this image pipeline.
      */

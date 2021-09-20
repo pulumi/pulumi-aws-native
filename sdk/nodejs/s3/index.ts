@@ -10,6 +10,9 @@ export * from "./multiRegionAccessPoint";
 export * from "./multiRegionAccessPointPolicy";
 export * from "./storageLens";
 
+// Export enums:
+export * from "../types/enums/s3";
+
 // Import resources to register:
 import { AccessPoint } from "./accessPoint";
 import { MultiRegionAccessPoint } from "./multiRegionAccessPoint";

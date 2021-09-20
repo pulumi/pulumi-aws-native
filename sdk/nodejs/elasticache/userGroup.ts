@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -41,7 +42,7 @@ export class UserGroup extends pulumi.CustomResource {
     /**
      * Must be redis.
      */
-    public readonly engine!: pulumi.Output<string>;
+    public readonly engine!: pulumi.Output<enums.elasticache.UserGroupEngine>;
     /**
      * Indicates user group status. Can be "creating", "active", "modifying", "deleting".
      */
@@ -98,7 +99,7 @@ export interface UserGroupArgs {
     /**
      * Must be redis.
      */
-    engine: pulumi.Input<string>;
+    engine: pulumi.Input<enums.elasticache.UserGroupEngine>;
     /**
      * The ID of the user group.
      */

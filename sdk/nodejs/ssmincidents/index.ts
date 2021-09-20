@@ -8,6 +8,9 @@ import * as utilities from "../utilities";
 export * from "./replicationSet";
 export * from "./responsePlan";
 
+// Export enums:
+export * from "../types/enums/ssmincidents";
+
 // Import resources to register:
 import { ReplicationSet } from "./replicationSet";
 import { ResponsePlan } from "./responsePlan";

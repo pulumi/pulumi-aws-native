@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./stream";
 
+// Export enums:
+export * from "../types/enums/kinesis";
+
 // Import resources to register:
 import { Stream } from "./stream";
 

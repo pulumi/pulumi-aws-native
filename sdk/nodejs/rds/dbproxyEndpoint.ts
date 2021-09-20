@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -62,7 +62,7 @@ export class DBProxyEndpoint extends pulumi.CustomResource {
     /**
      * A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
      */
-    public readonly targetRole!: pulumi.Output<string | undefined>;
+    public readonly targetRole!: pulumi.Output<enums.rds.DBProxyEndpointTargetRole | undefined>;
     /**
      * VPC ID to associate with the new DB proxy endpoint.
      */
@@ -144,7 +144,7 @@ export interface DBProxyEndpointArgs {
     /**
      * A value that indicates whether the DB proxy endpoint can be used for read/write or read-only operations.
      */
-    targetRole?: pulumi.Input<string>;
+    targetRole?: pulumi.Input<enums.rds.DBProxyEndpointTargetRole>;
     /**
      * VPC security group IDs to associate with the new DB proxy endpoint.
      */

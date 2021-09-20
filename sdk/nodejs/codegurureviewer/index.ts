@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./repositoryAssociation";
 
+// Export enums:
+export * from "../types/enums/codegurureviewer";
+
 // Import resources to register:
 import { RepositoryAssociation } from "./repositoryAssociation";
 

@@ -10,6 +10,9 @@ export * from "./dbproxyEndpoint";
 export * from "./dbproxyTargetGroup";
 export * from "./globalCluster";
 
+// Export enums:
+export * from "../types/enums/rds";
+
 // Import resources to register:
 import { DBProxy } from "./dbproxy";
 import { DBProxyEndpoint } from "./dbproxyEndpoint";

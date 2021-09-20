@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -62,7 +62,7 @@ export class RepositoryAssociation extends pulumi.CustomResource {
     /**
      * The type of repository to be associated.
      */
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<enums.codegurureviewer.RepositoryAssociationType>;
 
     /**
      * Create a RepositoryAssociation resource with the given unique name, arguments, and options.
@@ -131,5 +131,5 @@ export interface RepositoryAssociationArgs {
     /**
      * The type of repository to be associated.
      */
-    type: pulumi.Input<string>;
+    type: pulumi.Input<enums.codegurureviewer.RepositoryAssociationType>;
 }

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -42,7 +42,7 @@ export class PlaceIndex extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly indexArn!: pulumi.Output<string>;
     public readonly indexName!: pulumi.Output<string>;
-    public readonly pricingPlan!: pulumi.Output<string>;
+    public readonly pricingPlan!: pulumi.Output<enums.location.PlaceIndexPricingPlan>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -100,5 +100,5 @@ export interface PlaceIndexArgs {
     dataSourceConfiguration?: pulumi.Input<inputs.location.PlaceIndexDataSourceConfigurationArgs>;
     description?: pulumi.Input<string>;
     indexName: pulumi.Input<string>;
-    pricingPlan: pulumi.Input<string>;
+    pricingPlan: pulumi.Input<enums.location.PlaceIndexPricingPlan>;
 }

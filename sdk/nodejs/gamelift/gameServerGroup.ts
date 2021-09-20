@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -46,11 +46,11 @@ export class GameServerGroup extends pulumi.CustomResource {
     /**
      * The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
      */
-    public readonly balancingStrategy!: pulumi.Output<string | undefined>;
+    public readonly balancingStrategy!: pulumi.Output<enums.gamelift.GameServerGroupBalancingStrategy | undefined>;
     /**
      * The type of delete to perform.
      */
-    public readonly deleteOption!: pulumi.Output<string | undefined>;
+    public readonly deleteOption!: pulumi.Output<enums.gamelift.GameServerGroupDeleteOption | undefined>;
     /**
      * A generated unique ID for the game server group.
      */
@@ -62,7 +62,7 @@ export class GameServerGroup extends pulumi.CustomResource {
     /**
      * A flag that indicates whether instances in the game server group are protected from early termination.
      */
-    public readonly gameServerProtectionPolicy!: pulumi.Output<string | undefined>;
+    public readonly gameServerProtectionPolicy!: pulumi.Output<enums.gamelift.GameServerGroupGameServerProtectionPolicy | undefined>;
     /**
      * A set of EC2 instance types to use when creating instances in the group.
      */
@@ -163,11 +163,11 @@ export interface GameServerGroupArgs {
     /**
      * The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
      */
-    balancingStrategy?: pulumi.Input<string>;
+    balancingStrategy?: pulumi.Input<enums.gamelift.GameServerGroupBalancingStrategy>;
     /**
      * The type of delete to perform.
      */
-    deleteOption?: pulumi.Input<string>;
+    deleteOption?: pulumi.Input<enums.gamelift.GameServerGroupDeleteOption>;
     /**
      * An identifier for the new game server group.
      */
@@ -175,7 +175,7 @@ export interface GameServerGroupArgs {
     /**
      * A flag that indicates whether instances in the game server group are protected from early termination.
      */
-    gameServerProtectionPolicy?: pulumi.Input<string>;
+    gameServerProtectionPolicy?: pulumi.Input<enums.gamelift.GameServerGroupGameServerProtectionPolicy>;
     /**
      * A set of EC2 instance types to use when creating instances in the group.
      */

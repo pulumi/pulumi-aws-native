@@ -14,6 +14,9 @@ export * from "./locationS3";
 export * from "./locationSMB";
 export * from "./task";
 
+// Export enums:
+export * from "../types/enums/datasync";
+
 // Import resources to register:
 import { Agent } from "./agent";
 import { LocationEFS } from "./locationEFS";

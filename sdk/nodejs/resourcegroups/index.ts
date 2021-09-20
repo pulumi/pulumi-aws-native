@@ -7,6 +7,9 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./group";
 
+// Export enums:
+export * from "../types/enums/resourcegroups";
+
 // Import resources to register:
 import { Group } from "./group";
 

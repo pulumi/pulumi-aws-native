@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 
 export namespace accessanalyzer {
     /**
@@ -295,7 +295,7 @@ export namespace amplify {
         enablePullRequestPreview?: pulumi.Input<boolean>;
         environmentVariables?: pulumi.Input<pulumi.Input<inputs.amplify.AppEnvironmentVariableArgs>[]>;
         pullRequestEnvironmentName?: pulumi.Input<string>;
-        stage?: pulumi.Input<string>;
+        stage?: pulumi.Input<enums.amplify.AppAutoBranchCreationConfigStage>;
     }
 
     export interface AppBasicAuthConfigArgs {
@@ -815,7 +815,7 @@ export namespace appflow {
     }
 
     export interface FlowAggregationConfigArgs {
-        aggregationType?: pulumi.Input<string>;
+        aggregationType?: pulumi.Input<enums.appflow.FlowAggregationType>;
     }
 
     export interface FlowAmplitudeSourcePropertiesArgs {
@@ -826,20 +826,20 @@ export namespace appflow {
      * Operation to be performed on provided source fields
      */
     export interface FlowConnectorOperatorArgs {
-        amplitude?: pulumi.Input<string>;
-        datadog?: pulumi.Input<string>;
-        dynatrace?: pulumi.Input<string>;
-        googleAnalytics?: pulumi.Input<string>;
-        inforNexus?: pulumi.Input<string>;
-        marketo?: pulumi.Input<string>;
-        s3?: pulumi.Input<string>;
-        salesforce?: pulumi.Input<string>;
-        serviceNow?: pulumi.Input<string>;
-        singular?: pulumi.Input<string>;
-        slack?: pulumi.Input<string>;
-        trendmicro?: pulumi.Input<string>;
-        veeva?: pulumi.Input<string>;
-        zendesk?: pulumi.Input<string>;
+        amplitude?: pulumi.Input<enums.appflow.FlowAmplitudeConnectorOperator>;
+        datadog?: pulumi.Input<enums.appflow.FlowDatadogConnectorOperator>;
+        dynatrace?: pulumi.Input<enums.appflow.FlowDynatraceConnectorOperator>;
+        googleAnalytics?: pulumi.Input<enums.appflow.FlowGoogleAnalyticsConnectorOperator>;
+        inforNexus?: pulumi.Input<enums.appflow.FlowInforNexusConnectorOperator>;
+        marketo?: pulumi.Input<enums.appflow.FlowMarketoConnectorOperator>;
+        s3?: pulumi.Input<enums.appflow.FlowS3ConnectorOperator>;
+        salesforce?: pulumi.Input<enums.appflow.FlowSalesforceConnectorOperator>;
+        serviceNow?: pulumi.Input<enums.appflow.FlowServiceNowConnectorOperator>;
+        singular?: pulumi.Input<enums.appflow.FlowSingularConnectorOperator>;
+        slack?: pulumi.Input<enums.appflow.FlowSlackConnectorOperator>;
+        trendmicro?: pulumi.Input<enums.appflow.FlowTrendmicroConnectorOperator>;
+        veeva?: pulumi.Input<enums.appflow.FlowVeevaConnectorOperator>;
+        zendesk?: pulumi.Input<enums.appflow.FlowZendeskConnectorOperator>;
     }
 
     export interface FlowDatadogSourcePropertiesArgs {
@@ -871,7 +871,7 @@ export namespace appflow {
         /**
          * Destination connector type
          */
-        connectorType: pulumi.Input<string>;
+        connectorType: pulumi.Input<enums.appflow.FlowConnectorType>;
         /**
          * Destination connector details
          */
@@ -917,8 +917,8 @@ export namespace appflow {
     }
 
     export interface FlowPrefixConfigArgs {
-        prefixFormat?: pulumi.Input<string>;
-        prefixType?: pulumi.Input<string>;
+        prefixFormat?: pulumi.Input<enums.appflow.FlowPrefixFormat>;
+        prefixType?: pulumi.Input<enums.appflow.FlowPrefixType>;
     }
 
     export interface FlowRedshiftDestinationPropertiesArgs {
@@ -936,7 +936,7 @@ export namespace appflow {
 
     export interface FlowS3OutputFormatConfigArgs {
         aggregationConfig?: pulumi.Input<inputs.appflow.FlowAggregationConfigArgs>;
-        fileType?: pulumi.Input<string>;
+        fileType?: pulumi.Input<enums.appflow.FlowFileType>;
         prefixConfig?: pulumi.Input<inputs.appflow.FlowPrefixConfigArgs>;
     }
 
@@ -952,7 +952,7 @@ export namespace appflow {
          */
         idFieldNames?: pulumi.Input<pulumi.Input<string>[]>;
         object: pulumi.Input<string>;
-        writeOperationType?: pulumi.Input<string>;
+        writeOperationType?: pulumi.Input<enums.appflow.FlowWriteOperationType>;
     }
 
     export interface FlowSalesforceSourcePropertiesArgs {
@@ -965,7 +965,7 @@ export namespace appflow {
      * Details required for scheduled trigger type
      */
     export interface FlowScheduledTriggerPropertiesArgs {
-        dataPullMode?: pulumi.Input<string>;
+        dataPullMode?: pulumi.Input<enums.appflow.FlowScheduledTriggerPropertiesDataPullMode>;
         scheduleEndTime?: pulumi.Input<number>;
         scheduleExpression: pulumi.Input<string>;
         scheduleOffset?: pulumi.Input<number>;
@@ -1023,7 +1023,7 @@ export namespace appflow {
         /**
          * Type of source connector
          */
-        connectorType: pulumi.Input<string>;
+        connectorType: pulumi.Input<enums.appflow.FlowConnectorType>;
         /**
          * Configuration for scheduled incremental data pull
          */
@@ -1068,14 +1068,14 @@ export namespace appflow {
         /**
          * Type of task
          */
-        taskType: pulumi.Input<string>;
+        taskType: pulumi.Input<enums.appflow.FlowTaskType>;
     }
 
     /**
      * An object used to store task related info
      */
     export interface FlowTaskPropertiesObjectArgs {
-        key: pulumi.Input<string>;
+        key: pulumi.Input<enums.appflow.FlowOperatorPropertiesKeys>;
         value: pulumi.Input<string>;
     }
 
@@ -1094,7 +1094,7 @@ export namespace appflow {
         /**
          * Trigger type of the flow
          */
-        triggerType: pulumi.Input<string>;
+        triggerType: pulumi.Input<enums.appflow.FlowTriggerType>;
     }
 
     export interface FlowUpsolverDestinationPropertiesArgs {
@@ -1105,7 +1105,7 @@ export namespace appflow {
 
     export interface FlowUpsolverS3OutputFormatConfigArgs {
         aggregationConfig?: pulumi.Input<inputs.appflow.FlowAggregationConfigArgs>;
-        fileType?: pulumi.Input<string>;
+        fileType?: pulumi.Input<enums.appflow.FlowFileType>;
         prefixConfig: pulumi.Input<inputs.appflow.FlowPrefixConfigArgs>;
     }
 
@@ -1124,7 +1124,7 @@ export namespace appflow {
          */
         idFieldNames?: pulumi.Input<pulumi.Input<string>[]>;
         object: pulumi.Input<string>;
-        writeOperationType?: pulumi.Input<string>;
+        writeOperationType?: pulumi.Input<enums.appflow.FlowWriteOperationType>;
     }
 
     export interface FlowZendeskSourcePropertiesArgs {
@@ -1165,7 +1165,7 @@ export namespace applicationinsights {
         /**
          * Indicates the degree of outage when the alarm goes off.
          */
-        severity?: pulumi.Input<string>;
+        severity?: pulumi.Input<enums.applicationinsights.ApplicationAlarmSeverity>;
     }
 
     /**
@@ -1203,7 +1203,7 @@ export namespace applicationinsights {
         /**
          * The component monitoring configuration mode.
          */
-        componentConfigurationMode: pulumi.Input<string>;
+        componentConfigurationMode: pulumi.Input<enums.applicationinsights.ApplicationComponentMonitoringSettingComponentConfigurationMode>;
         /**
          * The name of the component.
          */
@@ -1287,7 +1287,7 @@ export namespace applicationinsights {
         /**
          * The type of encoding of the logs to be monitored.
          */
-        encoding?: pulumi.Input<string>;
+        encoding?: pulumi.Input<enums.applicationinsights.ApplicationLogEncoding>;
         /**
          * The CloudWatch log group name to be associated to the monitored log.
          */
@@ -1367,7 +1367,7 @@ export namespace applicationinsights {
         /**
          * The sub component type.
          */
-        subComponentType: pulumi.Input<string>;
+        subComponentType: pulumi.Input<enums.applicationinsights.ApplicationSubComponentTypeConfigurationSubComponentType>;
     }
 
     /**
@@ -1391,7 +1391,7 @@ export namespace applicationinsights {
         /**
          * The levels of event to log. 
          */
-        eventLevels: pulumi.Input<pulumi.Input<string>[]>;
+        eventLevels: pulumi.Input<pulumi.Input<enums.applicationinsights.ApplicationEventLevel>[]>;
         /**
          * The type of Windows Events to log.
          */
@@ -1430,7 +1430,7 @@ export namespace apprunner {
         /**
          * Configuration Source
          */
-        configurationSource: pulumi.Input<string>;
+        configurationSource: pulumi.Input<enums.apprunner.ServiceCodeConfigurationConfigurationSource>;
     }
 
     /**
@@ -1448,7 +1448,7 @@ export namespace apprunner {
         /**
          * Runtime
          */
-        runtime: pulumi.Input<string>;
+        runtime: pulumi.Input<enums.apprunner.ServiceCodeConfigurationValuesRuntime>;
         runtimeEnvironmentVariables?: pulumi.Input<pulumi.Input<inputs.apprunner.ServiceKeyValuePairArgs>[]>;
         /**
          * Start Command
@@ -1497,7 +1497,7 @@ export namespace apprunner {
         /**
          * Health Check Protocol
          */
-        protocol?: pulumi.Input<string>;
+        protocol?: pulumi.Input<enums.apprunner.ServiceHealthCheckConfigurationProtocol>;
         /**
          * Health check Timeout
          */
@@ -1535,7 +1535,7 @@ export namespace apprunner {
         /**
          * Image Repository Type
          */
-        imageRepositoryType: pulumi.Input<string>;
+        imageRepositoryType: pulumi.Input<enums.apprunner.ServiceImageRepositoryImageRepositoryType>;
     }
 
     /**
@@ -1568,7 +1568,7 @@ export namespace apprunner {
         /**
          * Source Code Version Type
          */
-        type: pulumi.Input<string>;
+        type: pulumi.Input<enums.apprunner.ServiceSourceCodeVersionType>;
         /**
          * Source Code Version Value
          */
@@ -1604,7 +1604,7 @@ export namespace athena {
      * If query results are encrypted in Amazon S3, indicates the encryption option used (for example, SSE-KMS or CSE-KMS) and key information.
      */
     export interface WorkGroupEncryptionConfigurationArgs {
-        encryptionOption: pulumi.Input<string>;
+        encryptionOption: pulumi.Input<enums.athena.WorkGroupEncryptionOption>;
         kmsKey?: pulumi.Input<string>;
     }
 
@@ -1684,7 +1684,7 @@ export namespace auditmanager {
      */
     export interface AssessmentAssessmentReportsDestinationArgs {
         destination?: pulumi.Input<string>;
-        destinationType?: pulumi.Input<string>;
+        destinationType?: pulumi.Input<enums.auditmanager.AssessmentAssessmentReportDestinationType>;
     }
 
     /**
@@ -1692,7 +1692,7 @@ export namespace auditmanager {
      */
     export interface AssessmentRoleArgs {
         roleArn?: pulumi.Input<string>;
-        roleType?: pulumi.Input<string>;
+        roleType?: pulumi.Input<enums.auditmanager.AssessmentRoleType>;
     }
 
     /**
@@ -1779,7 +1779,7 @@ export namespace backup {
 
 export namespace budgets {
     export interface BudgetsActionActionThresholdArgs {
-        type: pulumi.Input<string>;
+        type: pulumi.Input<enums.budgets.BudgetsActionActionThresholdType>;
         value: pulumi.Input<number>;
     }
 
@@ -1804,12 +1804,12 @@ export namespace budgets {
     export interface BudgetsActionSsmActionDefinitionArgs {
         instanceIds: pulumi.Input<pulumi.Input<string>[]>;
         region: pulumi.Input<string>;
-        subtype: pulumi.Input<string>;
+        subtype: pulumi.Input<enums.budgets.BudgetsActionSsmActionDefinitionSubtype>;
     }
 
     export interface BudgetsActionSubscriberArgs {
         address: pulumi.Input<string>;
-        type: pulumi.Input<string>;
+        type: pulumi.Input<enums.budgets.BudgetsActionSubscriberType>;
     }
 }
 
@@ -1820,13 +1820,13 @@ export namespace cassandra {
     }
 
     export interface TableBillingModeArgs {
-        mode: pulumi.Input<string>;
+        mode: pulumi.Input<enums.cassandra.TableMode>;
         provisionedThroughput?: pulumi.Input<inputs.cassandra.TableProvisionedThroughputArgs>;
     }
 
     export interface TableClusteringKeyColumnArgs {
         column: pulumi.Input<inputs.cassandra.TableColumnArgs>;
-        orderBy?: pulumi.Input<string>;
+        orderBy?: pulumi.Input<enums.cassandra.TableClusteringKeyColumnOrderBy>;
     }
 
     export interface TableColumnArgs {
@@ -1838,7 +1838,7 @@ export namespace cassandra {
      * Represents the settings used to enable server-side encryption
      */
     export interface TableEncryptionSpecificationArgs {
-        encryptionType: pulumi.Input<string>;
+        encryptionType: pulumi.Input<enums.cassandra.TableEncryptionType>;
         kmsKeyIdentifier?: pulumi.Input<string>;
     }
 
@@ -1910,7 +1910,7 @@ export namespace cloudformation {
         failureTolerancePercentage?: pulumi.Input<number>;
         maxConcurrentCount?: pulumi.Input<number>;
         maxConcurrentPercentage?: pulumi.Input<number>;
-        regionConcurrencyType?: pulumi.Input<string>;
+        regionConcurrencyType?: pulumi.Input<enums.cloudformation.StackSetRegionConcurrencyType>;
         regionOrder?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -2291,7 +2291,7 @@ export namespace cloudtrail {
         /**
          * Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
          */
-        readWriteType?: pulumi.Input<string>;
+        readWriteType?: pulumi.Input<enums.cloudtrail.TrailEventSelectorReadWriteType>;
     }
 
     /**
@@ -2518,7 +2518,7 @@ export namespace connect {
     export interface QuickConnectQuickConnectConfigArgs {
         phoneConfig?: pulumi.Input<inputs.connect.QuickConnectPhoneNumberQuickConnectConfigArgs>;
         queueConfig?: pulumi.Input<inputs.connect.QuickConnectQueueQuickConnectConfigArgs>;
-        quickConnectType: pulumi.Input<string>;
+        quickConnectType: pulumi.Input<enums.connect.QuickConnectQuickConnectType>;
         userConfig?: pulumi.Input<inputs.connect.QuickConnectUserQuickConnectConfigArgs>;
     }
 
@@ -2552,11 +2552,11 @@ export namespace customerprofiles {
     }
 
     export interface IntegrationConnectorOperatorArgs {
-        marketo?: pulumi.Input<string>;
-        s3?: pulumi.Input<string>;
-        salesforce?: pulumi.Input<string>;
-        serviceNow?: pulumi.Input<string>;
-        zendesk?: pulumi.Input<string>;
+        marketo?: pulumi.Input<enums.customerprofiles.IntegrationMarketoConnectorOperator>;
+        s3?: pulumi.Input<enums.customerprofiles.IntegrationS3ConnectorOperator>;
+        salesforce?: pulumi.Input<enums.customerprofiles.IntegrationSalesforceConnectorOperator>;
+        serviceNow?: pulumi.Input<enums.customerprofiles.IntegrationServiceNowConnectorOperator>;
+        zendesk?: pulumi.Input<enums.customerprofiles.IntegrationZendeskConnectorOperator>;
     }
 
     export interface IntegrationFlowDefinitionArgs {
@@ -2588,7 +2588,7 @@ export namespace customerprofiles {
     }
 
     export interface IntegrationScheduledTriggerPropertiesArgs {
-        dataPullMode?: pulumi.Input<string>;
+        dataPullMode?: pulumi.Input<enums.customerprofiles.IntegrationScheduledTriggerPropertiesDataPullMode>;
         firstExecutionFrom?: pulumi.Input<number>;
         scheduleEndTime?: pulumi.Input<number>;
         scheduleExpression: pulumi.Input<string>;
@@ -2611,7 +2611,7 @@ export namespace customerprofiles {
 
     export interface IntegrationSourceFlowConfigArgs {
         connectorProfileName?: pulumi.Input<string>;
-        connectorType: pulumi.Input<string>;
+        connectorType: pulumi.Input<enums.customerprofiles.IntegrationConnectorType>;
         incrementalPullConfig?: pulumi.Input<inputs.customerprofiles.IntegrationIncrementalPullConfigArgs>;
         sourceConnectorProperties: pulumi.Input<inputs.customerprofiles.IntegrationSourceConnectorPropertiesArgs>;
     }
@@ -2626,17 +2626,17 @@ export namespace customerprofiles {
         destinationField?: pulumi.Input<string>;
         sourceFields: pulumi.Input<pulumi.Input<string>[]>;
         taskProperties?: pulumi.Input<pulumi.Input<inputs.customerprofiles.IntegrationTaskPropertiesMapArgs>[]>;
-        taskType: pulumi.Input<string>;
+        taskType: pulumi.Input<enums.customerprofiles.IntegrationTaskType>;
     }
 
     export interface IntegrationTaskPropertiesMapArgs {
-        operatorPropertyKey: pulumi.Input<string>;
+        operatorPropertyKey: pulumi.Input<enums.customerprofiles.IntegrationOperatorPropertiesKeys>;
         property: pulumi.Input<string>;
     }
 
     export interface IntegrationTriggerConfigArgs {
         triggerProperties?: pulumi.Input<inputs.customerprofiles.IntegrationTriggerPropertiesArgs>;
-        triggerType: pulumi.Input<string>;
+        triggerType: pulumi.Input<enums.customerprofiles.IntegrationTriggerType>;
     }
 
     export interface IntegrationTriggerPropertiesArgs {
@@ -2664,7 +2664,7 @@ export namespace customerprofiles {
         /**
          * The content type of the field. Used for determining equality when searching.
          */
-        contentType?: pulumi.Input<string>;
+        contentType?: pulumi.Input<enums.customerprofiles.ObjectTypeObjectTypeFieldContentType>;
         /**
          * A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
          */
@@ -2686,7 +2686,7 @@ export namespace customerprofiles {
         /**
          * The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
          */
-        standardIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+        standardIdentifiers?: pulumi.Input<pulumi.Input<enums.customerprofiles.ObjectTypeObjectTypeKeyStandardIdentifiersItem>[]>;
     }
 
     export interface ObjectTypeTagArgs {
@@ -2744,7 +2744,7 @@ export namespace databrew {
         /**
          * Parameter type
          */
-        type: pulumi.Input<string>;
+        type: pulumi.Input<enums.databrew.DatasetDatasetParameterType>;
     }
 
     export interface DatasetDatetimeOptionsArgs {
@@ -2776,11 +2776,11 @@ export namespace databrew {
         /**
          * Order
          */
-        order?: pulumi.Input<string>;
+        order?: pulumi.Input<enums.databrew.DatasetFilesLimitOrder>;
         /**
          * Ordered by
          */
-        orderedBy?: pulumi.Input<string>;
+        orderedBy?: pulumi.Input<enums.databrew.DatasetFilesLimitOrderedBy>;
     }
 
     export interface DatasetFilterExpressionArgs {
@@ -2891,7 +2891,7 @@ export namespace databrew {
         /**
          * Database table name
          */
-        databaseOutputMode?: pulumi.Input<string>;
+        databaseOutputMode?: pulumi.Input<enums.databrew.JobDatabaseOutputDatabaseOutputMode>;
         /**
          * Glue connection name
          */
@@ -2907,13 +2907,13 @@ export namespace databrew {
      * Job Sample
      */
     export interface JobJobSampleArgs {
-        mode?: pulumi.Input<string>;
+        mode?: pulumi.Input<enums.databrew.JobSampleMode>;
         size?: pulumi.Input<number>;
     }
 
     export interface JobOutputArgs {
-        compressionFormat?: pulumi.Input<string>;
-        format?: pulumi.Input<string>;
+        compressionFormat?: pulumi.Input<enums.databrew.JobOutputCompressionFormat>;
+        format?: pulumi.Input<enums.databrew.JobOutputFormat>;
         formatOptions?: pulumi.Input<inputs.databrew.JobOutputFormatOptionsArgs>;
         location: pulumi.Input<inputs.databrew.JobS3LocationArgs>;
         overwrite?: pulumi.Input<boolean>;
@@ -2993,7 +2993,7 @@ export namespace databrew {
         /**
          * Sample type
          */
-        type: pulumi.Input<string>;
+        type: pulumi.Input<enums.databrew.ProjectSampleType>;
     }
 
     /**
@@ -3262,7 +3262,7 @@ export namespace datasync {
         /**
          * The specific NFS version that you want DataSync to use to mount your NFS share.
          */
-        version?: pulumi.Input<string>;
+        version?: pulumi.Input<enums.datasync.LocationNFSMountOptionsVersion>;
     }
 
     /**
@@ -3334,7 +3334,7 @@ export namespace datasync {
         /**
          * The specific SMB version that you want DataSync to use to mount your SMB share.
          */
-        version?: pulumi.Input<string>;
+        version?: pulumi.Input<enums.datasync.LocationSMBMountOptionsVersion>;
     }
 
     /**
@@ -3358,7 +3358,7 @@ export namespace datasync {
         /**
          * The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
          */
-        filterType?: pulumi.Input<string>;
+        filterType?: pulumi.Input<enums.datasync.TaskFilterRuleFilterType>;
         /**
          * A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|".
          */
@@ -3372,7 +3372,7 @@ export namespace datasync {
         /**
          * A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
          */
-        atime?: pulumi.Input<string>;
+        atime?: pulumi.Input<enums.datasync.TaskOptionsAtime>;
         /**
          * A value that limits the bandwidth used by AWS DataSync.
          */
@@ -3380,51 +3380,51 @@ export namespace datasync {
         /**
          * The group ID (GID) of the file's owners.
          */
-        gid?: pulumi.Input<string>;
+        gid?: pulumi.Input<enums.datasync.TaskOptionsGid>;
         /**
          * A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
          */
-        logLevel?: pulumi.Input<string>;
+        logLevel?: pulumi.Input<enums.datasync.TaskOptionsLogLevel>;
         /**
          * A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
          */
-        mtime?: pulumi.Input<string>;
+        mtime?: pulumi.Input<enums.datasync.TaskOptionsMtime>;
         /**
          * A value that determines whether files at the destination should be overwritten or preserved when copying files.
          */
-        overwriteMode?: pulumi.Input<string>;
+        overwriteMode?: pulumi.Input<enums.datasync.TaskOptionsOverwriteMode>;
         /**
          * A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
          */
-        posixPermissions?: pulumi.Input<string>;
+        posixPermissions?: pulumi.Input<enums.datasync.TaskOptionsPosixPermissions>;
         /**
          * A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
          */
-        preserveDeletedFiles?: pulumi.Input<string>;
+        preserveDeletedFiles?: pulumi.Input<enums.datasync.TaskOptionsPreserveDeletedFiles>;
         /**
          * A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
          */
-        preserveDevices?: pulumi.Input<string>;
+        preserveDevices?: pulumi.Input<enums.datasync.TaskOptionsPreserveDevices>;
         /**
          * A value that determines which components of the SMB security descriptor are copied during transfer.
          */
-        securityDescriptorCopyFlags?: pulumi.Input<string>;
+        securityDescriptorCopyFlags?: pulumi.Input<enums.datasync.TaskOptionsSecurityDescriptorCopyFlags>;
         /**
          * A value that determines whether tasks should be queued before executing the tasks.
          */
-        taskQueueing?: pulumi.Input<string>;
+        taskQueueing?: pulumi.Input<enums.datasync.TaskOptionsTaskQueueing>;
         /**
          * A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
          */
-        transferMode?: pulumi.Input<string>;
+        transferMode?: pulumi.Input<enums.datasync.TaskOptionsTransferMode>;
         /**
          * The user ID (UID) of the file's owner.
          */
-        uid?: pulumi.Input<string>;
+        uid?: pulumi.Input<enums.datasync.TaskOptionsUid>;
         /**
          * A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
          */
-        verifyMode?: pulumi.Input<string>;
+        verifyMode?: pulumi.Input<enums.datasync.TaskOptionsVerifyMode>;
     }
 
     /**
@@ -3613,7 +3613,7 @@ export namespace ec2 {
     }
 
     export interface EC2FleetCapacityReservationOptionsRequestArgs {
-        usageStrategy?: pulumi.Input<string>;
+        usageStrategy?: pulumi.Input<enums.ec2.EC2FleetCapacityReservationOptionsRequestUsageStrategy>;
     }
 
     export interface EC2FleetFleetLaunchTemplateConfigRequestArgs {
@@ -3658,8 +3658,8 @@ export namespace ec2 {
     }
 
     export interface EC2FleetSpotOptionsRequestArgs {
-        allocationStrategy?: pulumi.Input<string>;
-        instanceInterruptionBehavior?: pulumi.Input<string>;
+        allocationStrategy?: pulumi.Input<enums.ec2.EC2FleetSpotOptionsRequestAllocationStrategy>;
+        instanceInterruptionBehavior?: pulumi.Input<enums.ec2.EC2FleetSpotOptionsRequestInstanceInterruptionBehavior>;
         instancePoolsToUseCount?: pulumi.Input<number>;
         maxTotalPrice?: pulumi.Input<string>;
         minTargetCapacity?: pulumi.Input<number>;
@@ -3673,12 +3673,12 @@ export namespace ec2 {
     }
 
     export interface EC2FleetTagSpecificationArgs {
-        resourceType?: pulumi.Input<string>;
+        resourceType?: pulumi.Input<enums.ec2.EC2FleetTagSpecificationResourceType>;
         tags?: pulumi.Input<pulumi.Input<inputs.ec2.EC2FleetTagArgs>[]>;
     }
 
     export interface EC2FleetTargetCapacitySpecificationRequestArgs {
-        defaultTargetCapacityType?: pulumi.Input<string>;
+        defaultTargetCapacityType?: pulumi.Input<enums.ec2.EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType>;
         onDemandTargetCapacity?: pulumi.Input<number>;
         spotTargetCapacity?: pulumi.Input<number>;
         totalTargetCapacity: pulumi.Input<number>;
@@ -3740,7 +3740,7 @@ export namespace ec2 {
         iops?: pulumi.Input<number>;
         snapshotId?: pulumi.Input<string>;
         volumeSize?: pulumi.Input<number>;
-        volumeType?: pulumi.Input<string>;
+        volumeType?: pulumi.Input<enums.ec2.SpotFleetEbsBlockDeviceVolumeType>;
     }
 
     export interface SpotFleetFleetLaunchTemplateSpecificationArgs {
@@ -3799,7 +3799,7 @@ export namespace ec2 {
     }
 
     export interface SpotFleetSpotCapacityRebalanceArgs {
-        replacementStrategy?: pulumi.Input<string>;
+        replacementStrategy?: pulumi.Input<enums.ec2.SpotFleetSpotCapacityRebalanceReplacementStrategy>;
     }
 
     export interface SpotFleetSpotFleetLaunchSpecificationArgs {
@@ -3827,11 +3827,11 @@ export namespace ec2 {
     }
 
     export interface SpotFleetSpotFleetRequestConfigDataArgs {
-        allocationStrategy?: pulumi.Input<string>;
+        allocationStrategy?: pulumi.Input<enums.ec2.SpotFleetSpotFleetRequestConfigDataAllocationStrategy>;
         context?: pulumi.Input<string>;
-        excessCapacityTerminationPolicy?: pulumi.Input<string>;
+        excessCapacityTerminationPolicy?: pulumi.Input<enums.ec2.SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy>;
         iamFleetRole: pulumi.Input<string>;
-        instanceInterruptionBehavior?: pulumi.Input<string>;
+        instanceInterruptionBehavior?: pulumi.Input<enums.ec2.SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior>;
         instancePoolsToUseCount?: pulumi.Input<number>;
         launchSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetSpotFleetLaunchSpecificationArgs>[]>;
         launchTemplateConfigs?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetLaunchTemplateConfigArgs>[]>;
@@ -3845,13 +3845,13 @@ export namespace ec2 {
         spotPrice?: pulumi.Input<string>;
         targetCapacity: pulumi.Input<number>;
         terminateInstancesWithExpiration?: pulumi.Input<boolean>;
-        type?: pulumi.Input<string>;
+        type?: pulumi.Input<enums.ec2.SpotFleetSpotFleetRequestConfigDataType>;
         validFrom?: pulumi.Input<string>;
         validUntil?: pulumi.Input<string>;
     }
 
     export interface SpotFleetSpotFleetTagSpecificationArgs {
-        resourceType?: pulumi.Input<string>;
+        resourceType?: pulumi.Input<enums.ec2.SpotFleetSpotFleetTagSpecificationResourceType>;
         tags?: pulumi.Input<pulumi.Input<inputs.ec2.SpotFleetTagArgs>[]>;
     }
 
@@ -3862,7 +3862,7 @@ export namespace ec2 {
     export interface SpotFleetSpotPlacementArgs {
         availabilityZone?: pulumi.Input<string>;
         groupName?: pulumi.Input<string>;
-        tenancy?: pulumi.Input<string>;
+        tenancy?: pulumi.Input<enums.ec2.SpotFleetSpotPlacementTenancy>;
     }
 
     export interface SpotFleetTagArgs {
@@ -3962,7 +3962,7 @@ export namespace ecr {
      * For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
      */
     export interface RepositoryEncryptionConfigurationArgs {
-        encryptionType: pulumi.Input<string>;
+        encryptionType: pulumi.Input<enums.ecr.RepositoryEncryptionType>;
         kmsKey?: pulumi.Input<string>;
     }
 
@@ -4000,7 +4000,7 @@ export namespace ecs {
     export interface CapacityProviderAutoScalingGroupProviderArgs {
         autoScalingGroupArn: pulumi.Input<string>;
         managedScaling?: pulumi.Input<inputs.ecs.CapacityProviderManagedScalingArgs>;
-        managedTerminationProtection?: pulumi.Input<string>;
+        managedTerminationProtection?: pulumi.Input<enums.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection>;
     }
 
     /**
@@ -4010,7 +4010,7 @@ export namespace ecs {
         instanceWarmupPeriod?: pulumi.Input<number>;
         maximumScalingStepSize?: pulumi.Input<number>;
         minimumScalingStepSize?: pulumi.Input<number>;
-        status?: pulumi.Input<string>;
+        status?: pulumi.Input<enums.ecs.CapacityProviderManagedScalingStatus>;
         targetCapacity?: pulumi.Input<number>;
     }
 
@@ -4021,7 +4021,7 @@ export namespace ecs {
 
     export interface ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs {
         base?: pulumi.Input<number>;
-        capacityProvider: pulumi.Input<string | string>;
+        capacityProvider: pulumi.Input<enums.ecs.ClusterCapacityProviderAssociationsCapacityProvider | string>;
         weight?: pulumi.Input<number>;
     }
 
@@ -4078,7 +4078,7 @@ export namespace ecs {
     }
 
     export interface ServiceAwsVpcConfigurationArgs {
-        assignPublicIp?: pulumi.Input<string>;
+        assignPublicIp?: pulumi.Input<enums.ecs.ServiceAwsVpcConfigurationAssignPublicIp>;
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
         subnets?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -4101,7 +4101,7 @@ export namespace ecs {
     }
 
     export interface ServiceDeploymentControllerArgs {
-        type?: pulumi.Input<string>;
+        type?: pulumi.Input<enums.ecs.ServiceDeploymentControllerType>;
     }
 
     export interface ServiceLoadBalancerArgs {
@@ -4117,12 +4117,12 @@ export namespace ecs {
 
     export interface ServicePlacementConstraintArgs {
         expression?: pulumi.Input<string>;
-        type: pulumi.Input<string>;
+        type: pulumi.Input<enums.ecs.ServicePlacementConstraintType>;
     }
 
     export interface ServicePlacementStrategyArgs {
         field?: pulumi.Input<string>;
-        type: pulumi.Input<string>;
+        type: pulumi.Input<enums.ecs.ServicePlacementStrategyType>;
     }
 
     export interface ServiceServiceRegistryArgs {
@@ -4139,7 +4139,7 @@ export namespace ecs {
 
     export interface TaskDefinitionAuthorizationConfigArgs {
         accessPointId?: pulumi.Input<string>;
-        iAM?: pulumi.Input<string>;
+        iAM?: pulumi.Input<enums.ecs.TaskDefinitionAuthorizationConfigIAM>;
     }
 
     /**
@@ -4228,7 +4228,7 @@ export namespace ecs {
         authorizationConfig?: pulumi.Input<inputs.ecs.TaskDefinitionAuthorizationConfigArgs>;
         filesystemId: pulumi.Input<string>;
         rootDirectory?: pulumi.Input<string>;
-        transitEncryption?: pulumi.Input<string>;
+        transitEncryption?: pulumi.Input<enums.ecs.TaskDefinitionEFSVolumeConfigurationTransitEncryption>;
         transitEncryptionPort?: pulumi.Input<number>;
     }
 
@@ -4390,7 +4390,7 @@ export namespace ecs {
         /**
          * Whether the task's elastic network interface receives a public IP address. The default value is DISABLED.
          */
-        assignPublicIp?: pulumi.Input<string>;
+        assignPublicIp?: pulumi.Input<enums.ecs.TaskSetAwsVpcConfigurationAssignPublicIp>;
         /**
          * The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. There is a limit of 5 security groups that can be specified per AwsVpcConfiguration.
          */
@@ -4434,7 +4434,7 @@ export namespace ecs {
         /**
          * The unit of measure for the scale value.
          */
-        unit?: pulumi.Input<string>;
+        unit?: pulumi.Input<enums.ecs.TaskSetScaleUnit>;
         /**
          * The value, specified as a percent total of a service's desiredCount, to scale the task set. Accepted values are numbers between 0 and 100.
          */
@@ -4585,7 +4585,7 @@ export namespace elasticache {
         /**
          * Indicates the role of the member, primary or secondary.
          */
-        role?: pulumi.Input<string>;
+        role?: pulumi.Input<enums.elasticache.GlobalReplicationGroupGlobalReplicationGroupMemberRole>;
     }
 
     export interface GlobalReplicationGroupRegionalConfigurationArgs {
@@ -4984,8 +4984,8 @@ export namespace frauddetector {
          * The time when the event variable was created.
          */
         createdTime?: pulumi.Input<string>;
-        dataSource?: pulumi.Input<string>;
-        dataType?: pulumi.Input<string>;
+        dataSource?: pulumi.Input<enums.frauddetector.DetectorEventVariableDataSource>;
+        dataType?: pulumi.Input<enums.frauddetector.DetectorEventVariableDataType>;
         defaultValue?: pulumi.Input<string>;
         /**
          * The description.
@@ -5001,7 +5001,7 @@ export namespace frauddetector {
          * Tags associated with this event variable.
          */
         tags?: pulumi.Input<pulumi.Input<inputs.frauddetector.DetectorTagArgs>[]>;
-        variableType?: pulumi.Input<string>;
+        variableType?: pulumi.Input<enums.frauddetector.DetectorEventVariableVariableType>;
     }
 
     export interface DetectorLabelArgs {
@@ -5067,7 +5067,7 @@ export namespace frauddetector {
         description?: pulumi.Input<string>;
         detectorId?: pulumi.Input<string>;
         expression?: pulumi.Input<string>;
-        language?: pulumi.Input<string>;
+        language?: pulumi.Input<enums.frauddetector.DetectorRuleLanguage>;
         /**
          * The time when the event type was last updated.
          */
@@ -5119,8 +5119,8 @@ export namespace frauddetector {
          * The time when the event type was created.
          */
         createdTime?: pulumi.Input<string>;
-        dataSource?: pulumi.Input<string>;
-        dataType?: pulumi.Input<string>;
+        dataSource?: pulumi.Input<enums.frauddetector.EventTypeEventVariableDataSource>;
+        dataType?: pulumi.Input<enums.frauddetector.EventTypeEventVariableDataType>;
         defaultValue?: pulumi.Input<string>;
         /**
          * The description.
@@ -5136,7 +5136,7 @@ export namespace frauddetector {
          * Tags associated with this event type.
          */
         tags?: pulumi.Input<pulumi.Input<inputs.frauddetector.EventTypeTagArgs>[]>;
-        variableType?: pulumi.Input<string>;
+        variableType?: pulumi.Input<enums.frauddetector.EventTypeEventVariableVariableType>;
     }
 
     export interface EventTypeLabelArgs {
@@ -5195,14 +5195,14 @@ export namespace gamelift {
         /**
          * Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
          */
-        type: pulumi.Input<string>;
+        type: pulumi.Input<enums.gamelift.AliasRoutingStrategyType>;
     }
 
     /**
      * Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
      */
     export interface FleetCertificateConfigurationArgs {
-        certificateType: pulumi.Input<string>;
+        certificateType: pulumi.Input<enums.gamelift.FleetCertificateConfigurationCertificateType>;
     }
 
     /**
@@ -5220,7 +5220,7 @@ export namespace gamelift {
         /**
          * The network communication protocol used by the fleet.
          */
-        protocol: pulumi.Input<string>;
+        protocol: pulumi.Input<enums.gamelift.FleetIpPermissionProtocol>;
         /**
          * An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
          */
@@ -5493,19 +5493,19 @@ export namespace greengrassv2 {
     export interface ComponentVersionLambdaDeviceMountArgs {
         addGroupOwner?: pulumi.Input<boolean>;
         path?: pulumi.Input<string>;
-        permission?: pulumi.Input<string>;
+        permission?: pulumi.Input<enums.greengrassv2.ComponentVersionLambdaFilesystemPermission>;
     }
 
     export interface ComponentVersionLambdaEventSourceArgs {
         topic?: pulumi.Input<string>;
-        type?: pulumi.Input<string>;
+        type?: pulumi.Input<enums.greengrassv2.ComponentVersionLambdaEventSourceType>;
     }
 
     export interface ComponentVersionLambdaExecutionParametersArgs {
         environmentVariables?: any;
         eventSources?: pulumi.Input<pulumi.Input<inputs.greengrassv2.ComponentVersionLambdaEventSourceArgs>[]>;
         execArgs?: pulumi.Input<pulumi.Input<string>[]>;
-        inputPayloadEncodingType?: pulumi.Input<string>;
+        inputPayloadEncodingType?: pulumi.Input<enums.greengrassv2.ComponentVersionLambdaExecutionParametersInputPayloadEncodingType>;
         linuxProcessParams?: pulumi.Input<inputs.greengrassv2.ComponentVersionLambdaLinuxProcessParamsArgs>;
         maxIdleTimeInSeconds?: pulumi.Input<number>;
         maxInstancesCount?: pulumi.Input<number>;
@@ -5526,13 +5526,13 @@ export namespace greengrassv2 {
 
     export interface ComponentVersionLambdaLinuxProcessParamsArgs {
         containerParams?: pulumi.Input<inputs.greengrassv2.ComponentVersionLambdaContainerParamsArgs>;
-        isolationMode?: pulumi.Input<string>;
+        isolationMode?: pulumi.Input<enums.greengrassv2.ComponentVersionLambdaLinuxProcessParamsIsolationMode>;
     }
 
     export interface ComponentVersionLambdaVolumeMountArgs {
         addGroupOwner?: pulumi.Input<boolean>;
         destinationPath?: pulumi.Input<string>;
-        permission?: pulumi.Input<string>;
+        permission?: pulumi.Input<enums.greengrassv2.ComponentVersionLambdaFilesystemPermission>;
         sourcePath?: pulumi.Input<string>;
     }
 }
@@ -5578,17 +5578,17 @@ export namespace groundstation {
     }
 
     export interface ConfigEirpArgs {
-        units?: pulumi.Input<string>;
+        units?: pulumi.Input<enums.groundstation.ConfigEirpUnits>;
         value?: pulumi.Input<number>;
     }
 
     export interface ConfigFrequencyArgs {
-        units?: pulumi.Input<string>;
+        units?: pulumi.Input<enums.groundstation.ConfigFrequencyUnits>;
         value?: pulumi.Input<number>;
     }
 
     export interface ConfigFrequencyBandwidthArgs {
-        units?: pulumi.Input<string>;
+        units?: pulumi.Input<enums.groundstation.ConfigBandwidthUnits>;
         value?: pulumi.Input<number>;
     }
 
@@ -5601,7 +5601,7 @@ export namespace groundstation {
     export interface ConfigSpectrumConfigArgs {
         bandwidth?: pulumi.Input<inputs.groundstation.ConfigFrequencyBandwidthArgs>;
         centerFrequency?: pulumi.Input<inputs.groundstation.ConfigFrequencyArgs>;
-        polarization?: pulumi.Input<string>;
+        polarization?: pulumi.Input<enums.groundstation.ConfigPolarization>;
     }
 
     export interface ConfigTagArgs {
@@ -5610,7 +5610,7 @@ export namespace groundstation {
     }
 
     export interface ConfigTrackingConfigArgs {
-        autotrack?: pulumi.Input<string>;
+        autotrack?: pulumi.Input<enums.groundstation.ConfigTrackingConfigAutotrack>;
     }
 
     export interface ConfigUplinkEchoConfigArgs {
@@ -5620,7 +5620,7 @@ export namespace groundstation {
 
     export interface ConfigUplinkSpectrumConfigArgs {
         centerFrequency?: pulumi.Input<inputs.groundstation.ConfigFrequencyArgs>;
-        polarization?: pulumi.Input<string>;
+        polarization?: pulumi.Input<enums.groundstation.ConfigPolarization>;
     }
 
     export interface DataflowEndpointGroupDataflowEndpointArgs {
@@ -5761,7 +5761,7 @@ export namespace imagebuilder {
         /**
          * Use to override the device's volume type.
          */
-        volumeType?: pulumi.Input<string>;
+        volumeType?: pulumi.Input<enums.imagebuilder.ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType>;
     }
 
     /**
@@ -5811,7 +5811,7 @@ export namespace imagebuilder {
         /**
          * Specifies the service in which this image was registered.
          */
-        service?: pulumi.Input<string>;
+        service?: pulumi.Input<enums.imagebuilder.ContainerRecipeTargetContainerRepositoryService>;
     }
 
     /**
@@ -5893,7 +5893,7 @@ export namespace imagebuilder {
         /**
          * The condition configures when the pipeline should trigger a new image build.
          */
-        pipelineExecutionStartCondition?: pulumi.Input<string>;
+        pipelineExecutionStartCondition?: pulumi.Input<enums.imagebuilder.ImagePipelineSchedulePipelineExecutionStartCondition>;
         /**
          * The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
          */
@@ -5973,7 +5973,7 @@ export namespace imagebuilder {
         /**
          * Use to override the device's volume type.
          */
-        volumeType?: pulumi.Input<string>;
+        volumeType?: pulumi.Input<enums.imagebuilder.ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType>;
     }
 
     /**
@@ -6187,7 +6187,7 @@ export namespace iot {
         /**
          *  Specifies which types of information are logged.
          */
-        logLevel: pulumi.Input<string>;
+        logLevel: pulumi.Input<enums.iot.MitigationActionEnableIoTLoggingParamsLogLevel>;
         /**
          *  The ARN of the IAM role used for logging.
          */
@@ -6208,7 +6208,7 @@ export namespace iot {
      * Parameters to define a mitigation action that adds a blank policy to restrict permissions.
      */
     export interface MitigationActionReplaceDefaultPolicyVersionParamsArgs {
-        templateName: pulumi.Input<string>;
+        templateName: pulumi.Input<enums.iot.MitigationActionReplaceDefaultPolicyVersionParamsTemplateName>;
     }
 
     /**
@@ -6229,14 +6229,14 @@ export namespace iot {
      * Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
      */
     export interface MitigationActionUpdateCACertificateParamsArgs {
-        action: pulumi.Input<string>;
+        action: pulumi.Input<enums.iot.MitigationActionUpdateCACertificateParamsAction>;
     }
 
     /**
      * Parameters to define a mitigation action that changes the state of the device certificate to inactive.
      */
     export interface MitigationActionUpdateDeviceCertificateParamsArgs {
-        action: pulumi.Input<string>;
+        action: pulumi.Input<enums.iot.MitigationActionUpdateDeviceCertificateParamsAction>;
     }
 
     export interface ProvisioningTemplateProvisioningHookArgs {
@@ -6290,7 +6290,7 @@ export namespace iot {
         /**
          * The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
          */
-        comparisonOperator?: pulumi.Input<string>;
+        comparisonOperator?: pulumi.Input<enums.iot.SecurityProfileBehaviorCriteriaComparisonOperator>;
         /**
          * If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
          */
@@ -6315,7 +6315,7 @@ export namespace iot {
         /**
          * The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
          */
-        confidenceLevel?: pulumi.Input<string>;
+        confidenceLevel?: pulumi.Input<enums.iot.SecurityProfileMachineLearningDetectionConfigConfidenceLevel>;
     }
 
     /**
@@ -6329,7 +6329,7 @@ export namespace iot {
         /**
          * Defines how the dimensionValues of a dimension are interpreted.
          */
-        operator?: pulumi.Input<string>;
+        operator?: pulumi.Input<enums.iot.SecurityProfileMetricDimensionOperator>;
     }
 
     /**
@@ -6380,7 +6380,7 @@ export namespace iot {
         /**
          * The percentile which resolves to a threshold value by which compliance with a behavior is determined
          */
-        statistic?: pulumi.Input<string>;
+        statistic?: pulumi.Input<enums.iot.SecurityProfileStatisticalThresholdStatistic>;
     }
 
     /**
@@ -6574,7 +6574,7 @@ export namespace iot {
 
     export interface TopicRuleS3ActionArgs {
         bucketName: pulumi.Input<string>;
-        cannedAcl?: pulumi.Input<string>;
+        cannedAcl?: pulumi.Input<enums.iot.TopicRuleCannedAccessControlList>;
         key: pulumi.Input<string>;
         roleArn: pulumi.Input<string>;
     }
@@ -7221,7 +7221,7 @@ export namespace iotsitewise {
         /**
          * The MQTT notification state (ENABLED or DISABLED) for this asset property.
          */
-        notificationState?: pulumi.Input<string>;
+        notificationState?: pulumi.Input<enums.iotsitewise.AssetAssetPropertyNotificationState>;
     }
 
     /**
@@ -7271,11 +7271,11 @@ export namespace iotsitewise {
         /**
          * The data type of the asset model property.
          */
-        dataType: pulumi.Input<string>;
+        dataType: pulumi.Input<enums.iotsitewise.AssetModelDataType>;
         /**
          * The data type of the structure for this property.
          */
-        dataTypeSpec?: pulumi.Input<string>;
+        dataTypeSpec?: pulumi.Input<enums.iotsitewise.AssetModelDataTypeSpec>;
         /**
          * Customer provided ID for property.
          */
@@ -7338,7 +7338,7 @@ export namespace iotsitewise {
         attribute?: pulumi.Input<inputs.iotsitewise.AssetModelAttributeArgs>;
         metric?: pulumi.Input<inputs.iotsitewise.AssetModelMetricArgs>;
         transform?: pulumi.Input<inputs.iotsitewise.AssetModelTransformArgs>;
-        typeName: pulumi.Input<string>;
+        typeName: pulumi.Input<enums.iotsitewise.AssetModelTypeName>;
     }
 
     export interface AssetModelTagArgs {
@@ -7639,7 +7639,7 @@ export namespace kendra {
     }
 
     export interface DataSourceConfluenceAttachmentToIndexFieldMappingArgs {
-        dataSourceFieldName: pulumi.Input<string>;
+        dataSourceFieldName: pulumi.Input<enums.kendra.DataSourceConfluenceAttachmentFieldName>;
         dateFieldFormat?: pulumi.Input<string>;
         indexFieldName: pulumi.Input<string>;
     }
@@ -7649,7 +7649,7 @@ export namespace kendra {
     }
 
     export interface DataSourceConfluenceBlogToIndexFieldMappingArgs {
-        dataSourceFieldName: pulumi.Input<string>;
+        dataSourceFieldName: pulumi.Input<enums.kendra.DataSourceConfluenceBlogFieldName>;
         dateFieldFormat?: pulumi.Input<string>;
         indexFieldName: pulumi.Input<string>;
     }
@@ -7663,7 +7663,7 @@ export namespace kendra {
         secretArn: pulumi.Input<string>;
         serverUrl: pulumi.Input<string>;
         spaceConfiguration?: pulumi.Input<inputs.kendra.DataSourceConfluenceSpaceConfigurationArgs>;
-        version: pulumi.Input<string>;
+        version: pulumi.Input<enums.kendra.DataSourceConfluenceVersion>;
         vpcConfiguration?: pulumi.Input<inputs.kendra.DataSourceDataSourceVpcConfigurationArgs>;
     }
 
@@ -7672,7 +7672,7 @@ export namespace kendra {
     }
 
     export interface DataSourceConfluencePageToIndexFieldMappingArgs {
-        dataSourceFieldName: pulumi.Input<string>;
+        dataSourceFieldName: pulumi.Input<enums.kendra.DataSourceConfluencePageFieldName>;
         dateFieldFormat?: pulumi.Input<string>;
         indexFieldName: pulumi.Input<string>;
     }
@@ -7686,7 +7686,7 @@ export namespace kendra {
     }
 
     export interface DataSourceConfluenceSpaceToIndexFieldMappingArgs {
-        dataSourceFieldName: pulumi.Input<string>;
+        dataSourceFieldName: pulumi.Input<enums.kendra.DataSourceConfluenceSpaceFieldName>;
         dateFieldFormat?: pulumi.Input<string>;
         indexFieldName: pulumi.Input<string>;
     }
@@ -7725,7 +7725,7 @@ export namespace kendra {
         aclConfiguration?: pulumi.Input<inputs.kendra.DataSourceAclConfigurationArgs>;
         columnConfiguration: pulumi.Input<inputs.kendra.DataSourceColumnConfigurationArgs>;
         connectionConfiguration: pulumi.Input<inputs.kendra.DataSourceConnectionConfigurationArgs>;
-        databaseEngineType: pulumi.Input<string>;
+        databaseEngineType: pulumi.Input<enums.kendra.DataSourceDatabaseEngineType>;
         sqlConfiguration?: pulumi.Input<inputs.kendra.DataSourceSqlConfigurationArgs>;
         vpcConfiguration?: pulumi.Input<inputs.kendra.DataSourceDataSourceVpcConfigurationArgs>;
     }
@@ -7780,7 +7780,7 @@ export namespace kendra {
         documentDataFieldName: pulumi.Input<string>;
         documentTitleFieldName?: pulumi.Input<string>;
         fieldMappings?: pulumi.Input<pulumi.Input<inputs.kendra.DataSourceDataSourceToIndexFieldMappingArgs>[]>;
-        includeFilterTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        includeFilterTypes?: pulumi.Input<pulumi.Input<enums.kendra.DataSourceSalesforceChatterFeedIncludeFilterType>[]>;
     }
 
     export interface DataSourceSalesforceConfigurationArgs {
@@ -7804,7 +7804,7 @@ export namespace kendra {
 
     export interface DataSourceSalesforceKnowledgeArticleConfigurationArgs {
         customKnowledgeArticleTypeConfigurations?: pulumi.Input<pulumi.Input<inputs.kendra.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs>[]>;
-        includedStates: pulumi.Input<pulumi.Input<string>[]>;
+        includedStates: pulumi.Input<pulumi.Input<enums.kendra.DataSourceSalesforceKnowledgeArticleState>[]>;
         standardKnowledgeArticleTypeConfiguration?: pulumi.Input<inputs.kendra.DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs>;
     }
 
@@ -7823,7 +7823,7 @@ export namespace kendra {
         documentDataFieldName: pulumi.Input<string>;
         documentTitleFieldName?: pulumi.Input<string>;
         fieldMappings?: pulumi.Input<pulumi.Input<inputs.kendra.DataSourceDataSourceToIndexFieldMappingArgs>[]>;
-        name: pulumi.Input<string>;
+        name: pulumi.Input<enums.kendra.DataSourceSalesforceStandardObjectName>;
     }
 
     export interface DataSourceServiceNowConfigurationArgs {
@@ -7831,7 +7831,7 @@ export namespace kendra {
         knowledgeArticleConfiguration?: pulumi.Input<inputs.kendra.DataSourceServiceNowKnowledgeArticleConfigurationArgs>;
         secretArn: pulumi.Input<string>;
         serviceCatalogConfiguration?: pulumi.Input<inputs.kendra.DataSourceServiceNowServiceCatalogConfigurationArgs>;
-        serviceNowBuildVersion: pulumi.Input<string>;
+        serviceNowBuildVersion: pulumi.Input<enums.kendra.DataSourceServiceNowBuildVersionType>;
     }
 
     export interface DataSourceServiceNowKnowledgeArticleConfigurationArgs {
@@ -7863,14 +7863,14 @@ export namespace kendra {
         fieldMappings?: pulumi.Input<pulumi.Input<inputs.kendra.DataSourceDataSourceToIndexFieldMappingArgs>[]>;
         inclusionPatterns?: pulumi.Input<pulumi.Input<string>[]>;
         secretArn: pulumi.Input<string>;
-        sharePointVersion: pulumi.Input<string>;
+        sharePointVersion: pulumi.Input<enums.kendra.DataSourceSharePointConfigurationSharePointVersion>;
         urls: pulumi.Input<pulumi.Input<string>[]>;
         useChangeLog?: pulumi.Input<boolean>;
         vpcConfiguration?: pulumi.Input<inputs.kendra.DataSourceDataSourceVpcConfigurationArgs>;
     }
 
     export interface DataSourceSqlConfigurationArgs {
-        queryIdentifiersEnclosingOption?: pulumi.Input<string>;
+        queryIdentifiersEnclosingOption?: pulumi.Input<enums.kendra.DataSourceQueryIdentifiersEnclosingOption>;
     }
 
     /**
@@ -7915,7 +7915,7 @@ export namespace kendra {
         name: pulumi.Input<string>;
         relevance?: pulumi.Input<inputs.kendra.IndexRelevanceArgs>;
         search?: pulumi.Input<inputs.kendra.IndexSearchArgs>;
-        type: pulumi.Input<string>;
+        type: pulumi.Input<enums.kendra.IndexDocumentAttributeValueType>;
     }
 
     export interface IndexJsonTokenTypeConfigurationArgs {
@@ -7927,7 +7927,7 @@ export namespace kendra {
         claimRegex?: pulumi.Input<string>;
         groupAttributeField?: pulumi.Input<string>;
         issuer?: pulumi.Input<string>;
-        keyLocation: pulumi.Input<string>;
+        keyLocation: pulumi.Input<enums.kendra.IndexKeyLocation>;
         secretManagerArn?: pulumi.Input<string>;
         uRL?: pulumi.Input<string>;
         userNameAttributeField?: pulumi.Input<string>;
@@ -7937,7 +7937,7 @@ export namespace kendra {
         duration?: pulumi.Input<string>;
         freshness?: pulumi.Input<boolean>;
         importance?: pulumi.Input<number>;
-        rankOrder?: pulumi.Input<string>;
+        rankOrder?: pulumi.Input<enums.kendra.IndexOrder>;
         valueImportanceItems?: pulumi.Input<pulumi.Input<inputs.kendra.IndexValueImportanceItemArgs>[]>;
     }
 
@@ -7986,7 +7986,7 @@ export namespace kinesis {
         /**
          * The encryption type to use. The only valid value is KMS. 
          */
-        encryptionType: pulumi.Input<string>;
+        encryptionType: pulumi.Input<enums.kinesis.StreamStreamEncryptionEncryptionType>;
         /**
          * The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
          */
@@ -8035,7 +8035,7 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs {
         keyARN?: pulumi.Input<string>;
-        keyType: pulumi.Input<string>;
+        keyType: pulumi.Input<enums.kinesisfirehose.DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType>;
     }
 
     export interface DeliveryStreamDeserializerArgs {
@@ -8059,11 +8059,11 @@ export namespace kinesisfirehose {
         clusterEndpoint?: pulumi.Input<string>;
         domainARN?: pulumi.Input<string>;
         indexName: pulumi.Input<string>;
-        indexRotationPeriod?: pulumi.Input<string>;
+        indexRotationPeriod?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod>;
         processingConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamProcessingConfigurationArgs>;
         retryOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamElasticsearchRetryOptionsArgs>;
         roleARN: pulumi.Input<string>;
-        s3BackupMode?: pulumi.Input<string>;
+        s3BackupMode?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode>;
         s3Configuration: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
         typeName?: pulumi.Input<string>;
         vpcConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamVpcConfigurationArgs>;
@@ -8075,14 +8075,14 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamEncryptionConfigurationArgs {
         kMSEncryptionConfig?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamKMSEncryptionConfigArgs>;
-        noEncryptionConfig?: pulumi.Input<string>;
+        noEncryptionConfig?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamEncryptionConfigurationNoEncryptionConfig>;
     }
 
     export interface DeliveryStreamExtendedS3DestinationConfigurationArgs {
         bucketARN: pulumi.Input<string>;
         bufferingHints?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamBufferingHintsArgs>;
         cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
-        compressionFormat?: pulumi.Input<string>;
+        compressionFormat?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat>;
         dataFormatConversionConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamDataFormatConversionConfigurationArgs>;
         dynamicPartitioningConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamDynamicPartitioningConfigurationArgs>;
         encryptionConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamEncryptionConfigurationArgs>;
@@ -8091,7 +8091,7 @@ export namespace kinesisfirehose {
         processingConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamProcessingConfigurationArgs>;
         roleARN: pulumi.Input<string>;
         s3BackupConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
-        s3BackupMode?: pulumi.Input<string>;
+        s3BackupMode?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode>;
     }
 
     export interface DeliveryStreamHiveJsonSerDeArgs {
@@ -8123,7 +8123,7 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamHttpEndpointRequestConfigurationArgs {
         commonAttributes?: pulumi.Input<pulumi.Input<inputs.kinesisfirehose.DeliveryStreamHttpEndpointCommonAttributeArgs>[]>;
-        contentEncoding?: pulumi.Input<string>;
+        contentEncoding?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamHttpEndpointRequestConfigurationContentEncoding>;
     }
 
     export interface DeliveryStreamInputFormatConfigurationArgs {
@@ -8178,7 +8178,7 @@ export namespace kinesisfirehose {
 
     export interface DeliveryStreamProcessorArgs {
         parameters?: pulumi.Input<pulumi.Input<inputs.kinesisfirehose.DeliveryStreamProcessorParameterArgs>[]>;
-        type: pulumi.Input<string>;
+        type: pulumi.Input<enums.kinesisfirehose.DeliveryStreamProcessorType>;
     }
 
     export interface DeliveryStreamProcessorParameterArgs {
@@ -8195,7 +8195,7 @@ export namespace kinesisfirehose {
         retryOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamRedshiftRetryOptionsArgs>;
         roleARN: pulumi.Input<string>;
         s3BackupConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
-        s3BackupMode?: pulumi.Input<string>;
+        s3BackupMode?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamRedshiftDestinationConfigurationS3BackupMode>;
         s3Configuration: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
         username: pulumi.Input<string>;
     }
@@ -8212,7 +8212,7 @@ export namespace kinesisfirehose {
         bucketARN: pulumi.Input<string>;
         bufferingHints?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamBufferingHintsArgs>;
         cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
-        compressionFormat?: pulumi.Input<string>;
+        compressionFormat?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamS3DestinationConfigurationCompressionFormat>;
         encryptionConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamEncryptionConfigurationArgs>;
         errorOutputPrefix?: pulumi.Input<string>;
         prefix?: pulumi.Input<string>;
@@ -8237,7 +8237,7 @@ export namespace kinesisfirehose {
         cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         hECAcknowledgmentTimeoutInSeconds?: pulumi.Input<number>;
         hECEndpoint: pulumi.Input<string>;
-        hECEndpointType: pulumi.Input<string>;
+        hECEndpointType: pulumi.Input<enums.kinesisfirehose.DeliveryStreamSplunkDestinationConfigurationHECEndpointType>;
         hECToken: pulumi.Input<string>;
         processingConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamProcessingConfigurationArgs>;
         retryOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamSplunkRetryOptionsArgs>;
@@ -8310,7 +8310,7 @@ export namespace lambda {
         /**
          * Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
          */
-        untrustedArtifactOnDeployment: pulumi.Input<string>;
+        untrustedArtifactOnDeployment: pulumi.Input<enums.lambda.CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment>;
     }
 
     /**
@@ -8360,7 +8360,7 @@ export namespace lambda {
         /**
          * The type of source access configuration.
          */
-        type?: pulumi.Input<string>;
+        type?: pulumi.Input<enums.lambda.EventSourceMappingSourceAccessConfigurationType>;
         /**
          * The URI for the source access configuration resource.
          */
@@ -8454,7 +8454,7 @@ export namespace lambda {
         /**
          * The tracing mode.
          */
-        mode?: pulumi.Input<string>;
+        mode?: pulumi.Input<enums.lambda.FunctionTracingConfigMode>;
     }
 
     /**
@@ -8525,7 +8525,7 @@ export namespace location {
     }
 
     export interface PlaceIndexDataSourceConfigurationArgs {
-        intendedUse?: pulumi.Input<string>;
+        intendedUse?: pulumi.Input<enums.location.PlaceIndexIntendedUse>;
     }
 }
 
@@ -8567,7 +8567,7 @@ export namespace lookoutmetrics {
         /**
          * Frequency of anomaly detection
          */
-        anomalyDetectorFrequency: pulumi.Input<string>;
+        anomalyDetectorFrequency: pulumi.Input<enums.lookoutmetrics.AnomalyDetectorAnomalyDetectorFrequency>;
     }
 
     export interface AnomalyDetectorAppFlowConfigArgs {
@@ -8583,7 +8583,7 @@ export namespace lookoutmetrics {
         charset?: pulumi.Input<string>;
         containsHeader?: pulumi.Input<boolean>;
         delimiter?: pulumi.Input<string>;
-        fileCompression?: pulumi.Input<string>;
+        fileCompression?: pulumi.Input<enums.lookoutmetrics.AnomalyDetectorCsvFormatDescriptorFileCompression>;
         headerList?: pulumi.Input<pulumi.Input<string>[]>;
         quoteSymbol?: pulumi.Input<string>;
     }
@@ -8595,14 +8595,14 @@ export namespace lookoutmetrics {
 
     export interface AnomalyDetectorJsonFormatDescriptorArgs {
         charset?: pulumi.Input<string>;
-        fileCompression?: pulumi.Input<string>;
+        fileCompression?: pulumi.Input<enums.lookoutmetrics.AnomalyDetectorJsonFormatDescriptorFileCompression>;
     }
 
     export interface AnomalyDetectorMetricArgs {
         /**
          * Operator used to aggregate metric values
          */
-        aggregationFunction: pulumi.Input<string>;
+        aggregationFunction: pulumi.Input<enums.lookoutmetrics.AnomalyDetectorMetricAggregationFunction>;
         metricName: pulumi.Input<string>;
         namespace?: pulumi.Input<string>;
     }
@@ -8623,7 +8623,7 @@ export namespace lookoutmetrics {
         /**
          * A frequency period to aggregate the data
          */
-        metricSetFrequency?: pulumi.Input<string>;
+        metricSetFrequency?: pulumi.Input<enums.lookoutmetrics.AnomalyDetectorMetricSetMetricSetFrequency>;
         /**
          * The name of the MetricSet.
          */
@@ -8709,7 +8709,7 @@ export namespace mediaconnect {
         /**
          * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
          */
-        algorithm: pulumi.Input<string>;
+        algorithm: pulumi.Input<enums.mediaconnect.FlowEncryptionAlgorithm>;
         /**
          * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
          */
@@ -8721,7 +8721,7 @@ export namespace mediaconnect {
         /**
          * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
          */
-        keyType?: pulumi.Input<string>;
+        keyType?: pulumi.Input<enums.mediaconnect.FlowEncryptionKeyType>;
         /**
          * The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
          */
@@ -8751,7 +8751,7 @@ export namespace mediaconnect {
         /**
          * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
          */
-        algorithm: pulumi.Input<string>;
+        algorithm: pulumi.Input<enums.mediaconnect.FlowEntitlementEncryptionAlgorithm>;
         /**
          * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
          */
@@ -8763,7 +8763,7 @@ export namespace mediaconnect {
         /**
          * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
          */
-        keyType?: pulumi.Input<string>;
+        keyType?: pulumi.Input<enums.mediaconnect.FlowEntitlementEncryptionKeyType>;
         /**
          * The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
          */
@@ -8794,7 +8794,7 @@ export namespace mediaconnect {
          * Search window time to look for dash-7 packets
          */
         recoveryWindow?: pulumi.Input<number>;
-        state?: pulumi.Input<string>;
+        state?: pulumi.Input<enums.mediaconnect.FlowFailoverConfigState>;
     }
 
     /**
@@ -8804,11 +8804,11 @@ export namespace mediaconnect {
         /**
          * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
          */
-        algorithm: pulumi.Input<string>;
+        algorithm: pulumi.Input<enums.mediaconnect.FlowOutputEncryptionAlgorithm>;
         /**
          * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
          */
-        keyType?: pulumi.Input<string>;
+        keyType?: pulumi.Input<enums.mediaconnect.FlowOutputEncryptionKeyType>;
         /**
          * The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
          */
@@ -8868,7 +8868,7 @@ export namespace mediaconnect {
         /**
          * The protocol that is used by the source or output.
          */
-        protocol?: pulumi.Input<string>;
+        protocol?: pulumi.Input<enums.mediaconnect.FlowSourceProtocol>;
         /**
          * The ARN of the source.
          */
@@ -8894,7 +8894,7 @@ export namespace mediaconnect {
         /**
          * The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
          */
-        algorithm: pulumi.Input<string>;
+        algorithm: pulumi.Input<enums.mediaconnect.FlowSourceEncryptionAlgorithm>;
         /**
          * A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
          */
@@ -8906,7 +8906,7 @@ export namespace mediaconnect {
         /**
          * The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
          */
-        keyType?: pulumi.Input<string>;
+        keyType?: pulumi.Input<enums.mediaconnect.FlowSourceEncryptionKeyType>;
         /**
          * The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
          */
@@ -9015,13 +9015,13 @@ export namespace mediapackage {
         /**
          * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
          */
-        adTriggers?: pulumi.Input<pulumi.Input<string>[]>;
-        adsOnDeliveryRestrictions?: pulumi.Input<string>;
+        adTriggers?: pulumi.Input<pulumi.Input<enums.mediapackage.OriginEndpointDashPackageAdTriggersItem>[]>;
+        adsOnDeliveryRestrictions?: pulumi.Input<enums.mediapackage.OriginEndpointAdsOnDeliveryRestrictions>;
         encryption?: pulumi.Input<inputs.mediapackage.OriginEndpointDashEncryptionArgs>;
         /**
          * Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
          */
-        manifestLayout?: pulumi.Input<string>;
+        manifestLayout?: pulumi.Input<enums.mediapackage.OriginEndpointDashPackageManifestLayout>;
         /**
          * Time window (in seconds) contained in each manifest.
          */
@@ -9037,11 +9037,11 @@ export namespace mediapackage {
         /**
          * A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
          */
-        periodTriggers?: pulumi.Input<pulumi.Input<string>[]>;
+        periodTriggers?: pulumi.Input<pulumi.Input<enums.mediapackage.OriginEndpointDashPackagePeriodTriggersItem>[]>;
         /**
          * The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
          */
-        profile?: pulumi.Input<string>;
+        profile?: pulumi.Input<enums.mediapackage.OriginEndpointDashPackageProfile>;
         /**
          * Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
          */
@@ -9049,7 +9049,7 @@ export namespace mediapackage {
         /**
          * Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
          */
-        segmentTemplateFormat?: pulumi.Input<string>;
+        segmentTemplateFormat?: pulumi.Input<enums.mediapackage.OriginEndpointDashPackageSegmentTemplateFormat>;
         streamSelection?: pulumi.Input<inputs.mediapackage.OriginEndpointStreamSelectionArgs>;
         /**
          * Duration (in seconds) to delay live content before presentation.
@@ -9058,7 +9058,7 @@ export namespace mediapackage {
         /**
          * Determines the type of UTCTiming included in the Media Presentation Description (MPD)
          */
-        utcTiming?: pulumi.Input<string>;
+        utcTiming?: pulumi.Input<enums.mediapackage.OriginEndpointDashPackageUtcTiming>;
         /**
          * Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
          */
@@ -9076,7 +9076,7 @@ export namespace mediapackage {
         /**
          * The encryption method to use.
          */
-        encryptionMethod?: pulumi.Input<string>;
+        encryptionMethod?: pulumi.Input<enums.mediapackage.OriginEndpointHlsEncryptionEncryptionMethod>;
         /**
          * Interval (in seconds) between each encryption key rotation.
          */
@@ -9095,12 +9095,12 @@ export namespace mediapackage {
         /**
          * This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
          */
-        adMarkers?: pulumi.Input<string>;
+        adMarkers?: pulumi.Input<enums.mediapackage.OriginEndpointHlsManifestAdMarkers>;
         /**
          * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
          */
-        adTriggers?: pulumi.Input<pulumi.Input<string>[]>;
-        adsOnDeliveryRestrictions?: pulumi.Input<string>;
+        adTriggers?: pulumi.Input<pulumi.Input<enums.mediapackage.OriginEndpointHlsManifestAdTriggersItem>[]>;
+        adsOnDeliveryRestrictions?: pulumi.Input<enums.mediapackage.OriginEndpointAdsOnDeliveryRestrictions>;
         /**
          * The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
          */
@@ -9116,7 +9116,7 @@ export namespace mediapackage {
         /**
          * The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
          */
-        playlistType?: pulumi.Input<string>;
+        playlistType?: pulumi.Input<enums.mediapackage.OriginEndpointHlsManifestPlaylistType>;
         /**
          * Time window (in seconds) contained in each parent manifest.
          */
@@ -9138,12 +9138,12 @@ export namespace mediapackage {
         /**
          * This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
          */
-        adMarkers?: pulumi.Input<string>;
+        adMarkers?: pulumi.Input<enums.mediapackage.OriginEndpointHlsPackageAdMarkers>;
         /**
          * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
          */
-        adTriggers?: pulumi.Input<pulumi.Input<string>[]>;
-        adsOnDeliveryRestrictions?: pulumi.Input<string>;
+        adTriggers?: pulumi.Input<pulumi.Input<enums.mediapackage.OriginEndpointHlsPackageAdTriggersItem>[]>;
+        adsOnDeliveryRestrictions?: pulumi.Input<enums.mediapackage.OriginEndpointAdsOnDeliveryRestrictions>;
         encryption?: pulumi.Input<inputs.mediapackage.OriginEndpointHlsEncryptionArgs>;
         /**
          * When enabled, an I-Frame only stream will be included in the output.
@@ -9152,7 +9152,7 @@ export namespace mediapackage {
         /**
          * The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
          */
-        playlistType?: pulumi.Input<string>;
+        playlistType?: pulumi.Input<enums.mediapackage.OriginEndpointHlsPackagePlaylistType>;
         /**
          * Time window (in seconds) contained in each parent manifest.
          */
@@ -9236,7 +9236,7 @@ export namespace mediapackage {
         /**
          * A directive that determines the order of streams in the output.
          */
-        streamOrder?: pulumi.Input<string>;
+        streamOrder?: pulumi.Input<enums.mediapackage.OriginEndpointStreamSelectionStreamOrder>;
     }
 
     export interface OriginEndpointTagArgs {
@@ -9281,7 +9281,7 @@ export namespace mediapackage {
         /**
          * Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
          */
-        manifestLayout?: pulumi.Input<string>;
+        manifestLayout?: pulumi.Input<enums.mediapackage.PackagingConfigurationDashManifestManifestLayout>;
         manifestName?: pulumi.Input<string>;
         /**
          * Minimum duration (in seconds) that a player will buffer media before starting the presentation.
@@ -9290,7 +9290,7 @@ export namespace mediapackage {
         /**
          * The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
          */
-        profile?: pulumi.Input<string>;
+        profile?: pulumi.Input<enums.mediapackage.PackagingConfigurationDashManifestProfile>;
         streamSelection?: pulumi.Input<inputs.mediapackage.PackagingConfigurationStreamSelectionArgs>;
     }
 
@@ -9315,7 +9315,7 @@ export namespace mediapackage {
         /**
          * Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
          */
-        segmentTemplateFormat?: pulumi.Input<string>;
+        segmentTemplateFormat?: pulumi.Input<enums.mediapackage.PackagingConfigurationDashPackageSegmentTemplateFormat>;
     }
 
     /**
@@ -9329,7 +9329,7 @@ export namespace mediapackage {
         /**
          * The encryption method to use.
          */
-        encryptionMethod?: pulumi.Input<string>;
+        encryptionMethod?: pulumi.Input<enums.mediapackage.PackagingConfigurationHlsEncryptionEncryptionMethod>;
         spekeKeyProvider: pulumi.Input<inputs.mediapackage.PackagingConfigurationSpekeKeyProviderArgs>;
     }
 
@@ -9340,7 +9340,7 @@ export namespace mediapackage {
         /**
          * This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
          */
-        adMarkers?: pulumi.Input<string>;
+        adMarkers?: pulumi.Input<enums.mediapackage.PackagingConfigurationHlsManifestAdMarkers>;
         /**
          * When enabled, an I-Frame only stream will be included in the output.
          */
@@ -9430,7 +9430,7 @@ export namespace mediapackage {
         /**
          * A directive that determines the order of streams in the output.
          */
-        streamOrder?: pulumi.Input<string>;
+        streamOrder?: pulumi.Input<enums.mediapackage.PackagingConfigurationStreamSelectionStreamOrder>;
     }
 
     export interface PackagingConfigurationTagArgs {
@@ -9481,7 +9481,7 @@ export namespace mwaa {
     export interface EnvironmentModuleLoggingConfigurationArgs {
         cloudWatchLogGroupArn?: pulumi.Input<string>;
         enabled?: pulumi.Input<boolean>;
-        logLevel?: pulumi.Input<string>;
+        logLevel?: pulumi.Input<enums.mwaa.EnvironmentLoggingLevel>;
     }
 
     /**
@@ -9562,8 +9562,8 @@ export namespace networkfirewall {
          * A key-value pair to configure the logDestinations.
          */
         logDestination: any;
-        logDestinationType: pulumi.Input<string>;
-        logType: pulumi.Input<string>;
+        logDestinationType: pulumi.Input<enums.networkfirewall.LoggingConfigurationLogDestinationConfigLogDestinationType>;
+        logType: pulumi.Input<enums.networkfirewall.LoggingConfigurationLogDestinationConfigLogType>;
     }
 
     export interface LoggingConfigurationLoggingConfigurationArgs {
@@ -9590,8 +9590,8 @@ export namespace networkfirewall {
     export interface RuleGroupHeaderArgs {
         destination: pulumi.Input<string>;
         destinationPort: pulumi.Input<string>;
-        direction: pulumi.Input<string>;
-        protocol: pulumi.Input<string>;
+        direction: pulumi.Input<enums.networkfirewall.RuleGroupHeaderDirection>;
+        protocol: pulumi.Input<enums.networkfirewall.RuleGroupHeaderProtocol>;
         source: pulumi.Input<string>;
         sourcePort: pulumi.Input<string>;
     }
@@ -9642,13 +9642,13 @@ export namespace networkfirewall {
     }
 
     export interface RuleGroupRulesSourceListArgs {
-        generatedRulesType: pulumi.Input<string>;
-        targetTypes: pulumi.Input<pulumi.Input<string>[]>;
+        generatedRulesType: pulumi.Input<enums.networkfirewall.RuleGroupGeneratedRulesType>;
+        targetTypes: pulumi.Input<pulumi.Input<enums.networkfirewall.RuleGroupTargetType>[]>;
         targets: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface RuleGroupStatefulRuleArgs {
-        action: pulumi.Input<string>;
+        action: pulumi.Input<enums.networkfirewall.RuleGroupStatefulRuleAction>;
         header: pulumi.Input<inputs.networkfirewall.RuleGroupHeaderArgs>;
         ruleOptions: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupRuleOptionArgs>[]>;
     }
@@ -9664,8 +9664,8 @@ export namespace networkfirewall {
     }
 
     export interface RuleGroupTCPFlagFieldArgs {
-        flags: pulumi.Input<pulumi.Input<string>[]>;
-        masks?: pulumi.Input<pulumi.Input<string>[]>;
+        flags: pulumi.Input<pulumi.Input<enums.networkfirewall.RuleGroupTCPFlag>[]>;
+        masks?: pulumi.Input<pulumi.Input<enums.networkfirewall.RuleGroupTCPFlag>[]>;
     }
 
     export interface RuleGroupTagArgs {
@@ -9861,7 +9861,7 @@ export namespace quicksight {
          * <p>The message associated with the analysis error.</p>
          */
         message?: pulumi.Input<string>;
-        type?: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.AnalysisAnalysisErrorType>;
     }
 
     /**
@@ -10024,7 +10024,7 @@ export namespace quicksight {
      * <p>Ad hoc (one-time) filtering option.</p>
      */
     export interface DashboardAdHocFilteringOptionArgs {
-        availabilityStatus?: pulumi.Input<string>;
+        availabilityStatus?: pulumi.Input<enums.quicksight.DashboardDashboardBehavior>;
     }
 
     /**
@@ -10103,7 +10103,7 @@ export namespace quicksight {
      * <p>Export to .csv option.</p>
      */
     export interface DashboardExportToCSVOptionArgs {
-        availabilityStatus?: pulumi.Input<string>;
+        availabilityStatus?: pulumi.Input<enums.quicksight.DashboardDashboardBehavior>;
     }
 
     /**
@@ -10174,7 +10174,7 @@ export namespace quicksight {
      * <p>Sheet controls option.</p>
      */
     export interface DashboardSheetControlsOptionArgs {
-        visibilityState?: pulumi.Input<string>;
+        visibilityState?: pulumi.Input<enums.quicksight.DashboardDashboardUIState>;
     }
 
     /**
@@ -10231,7 +10231,7 @@ export namespace quicksight {
          * <p>Columns in this hierarchy.</p>
          */
         columns: pulumi.Input<pulumi.Input<string>[]>;
-        countryCode?: pulumi.Input<string>;
+        countryCode?: pulumi.Input<enums.quicksight.DataSetGeoSpatialCountryCode>;
         /**
          * <p>A display name for the hierarchy.</p>
          */
@@ -10296,12 +10296,12 @@ export namespace quicksight {
          * <p>The Amazon Resource Name (ARN) of the permission dataset.</p>
          */
         arn: pulumi.Input<string>;
-        formatVersion?: pulumi.Input<string>;
+        formatVersion?: pulumi.Input<enums.quicksight.DataSetRowLevelPermissionFormatVersion>;
         /**
          * <p>The namespace associated with the row-level permissions dataset.</p>
          */
         namespace?: pulumi.Input<string>;
-        permissionPolicy: pulumi.Input<string>;
+        permissionPolicy: pulumi.Input<enums.quicksight.DataSetRowLevelPermissionPolicy>;
     }
 
     /**
@@ -10424,7 +10424,7 @@ export namespace quicksight {
          * <p>Error message.</p>
          */
         message?: pulumi.Input<string>;
-        type?: pulumi.Input<string>;
+        type?: pulumi.Input<enums.quicksight.DataSourceDataSourceErrorInfoType>;
     }
 
     /**
@@ -11039,7 +11039,7 @@ export namespace rds {
         /**
          * The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
          */
-        authScheme?: pulumi.Input<string>;
+        authScheme?: pulumi.Input<enums.rds.DBProxyAuthFormatAuthScheme>;
         /**
          * A user-specified description about the authentication used by a proxy to log in as a specific database user. 
          */
@@ -11047,7 +11047,7 @@ export namespace rds {
         /**
          * Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
          */
-        iAMAuth?: pulumi.Input<string>;
+        iAMAuth?: pulumi.Input<enums.rds.DBProxyAuthFormatIAMAuth>;
         /**
          * The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
          */
@@ -11137,7 +11137,7 @@ export namespace resourcegroups {
 
     export interface GroupResourceQueryArgs {
         query?: pulumi.Input<inputs.resourcegroups.GroupQueryArgs>;
-        type?: pulumi.Input<string>;
+        type?: pulumi.Input<enums.resourcegroups.GroupResourceQueryType>;
     }
 
     export interface GroupTagArgs {
@@ -11171,7 +11171,7 @@ export namespace robomaker {
         /**
          * The name of the rendering engine.
          */
-        name: pulumi.Input<string>;
+        name: pulumi.Input<enums.robomaker.SimulationApplicationRenderingEngineName>;
         /**
          * The version of the rendering engine.
          */
@@ -11185,11 +11185,11 @@ export namespace robomaker {
         /**
          * The name of the robot software suite (ROS distribution).
          */
-        name: pulumi.Input<string>;
+        name: pulumi.Input<enums.robomaker.SimulationApplicationRobotSoftwareSuiteName>;
         /**
          * The version of the robot software suite (ROS distribution).
          */
-        version: pulumi.Input<string>;
+        version: pulumi.Input<enums.robomaker.SimulationApplicationRobotSoftwareSuiteVersion>;
     }
 
     /**
@@ -11199,11 +11199,11 @@ export namespace robomaker {
         /**
          * The name of the simulation software suite.
          */
-        name: pulumi.Input<string>;
+        name: pulumi.Input<enums.robomaker.SimulationApplicationSimulationSoftwareSuiteName>;
         /**
          * The version of the simulation software suite.
          */
-        version: pulumi.Input<string>;
+        version: pulumi.Input<enums.robomaker.SimulationApplicationSimulationSoftwareSuiteVersion>;
     }
 
     /**
@@ -11213,7 +11213,7 @@ export namespace robomaker {
         /**
          * The target processor architecture for the application.
          */
-        architecture: pulumi.Input<string>;
+        architecture: pulumi.Input<enums.robomaker.SimulationApplicationSourceConfigArchitecture>;
         /**
          * The Amazon S3 bucket name.
          */
@@ -11343,7 +11343,7 @@ export namespace route53recoverycontrol {
          * The value of N, when you specify an ATLEAST rule type. That is, Threshold is the number of controls that must be set when you specify an ATLEAST type.
          */
         threshold: pulumi.Input<number>;
-        type: pulumi.Input<string>;
+        type: pulumi.Input<enums.route53recoverycontrol.SafetyRuleRuleType>;
     }
 }
 
@@ -11479,11 +11479,11 @@ export namespace route53resolver {
         /**
          * Rule Action
          */
-        action: pulumi.Input<string>;
+        action: pulumi.Input<enums.route53resolver.FirewallRuleGroupFirewallRuleAction>;
         /**
          * BlockOverrideDnsType
          */
-        blockOverrideDnsType?: pulumi.Input<string>;
+        blockOverrideDnsType?: pulumi.Input<enums.route53resolver.FirewallRuleGroupFirewallRuleBlockOverrideDnsType>;
         /**
          * BlockOverrideDomain
          */
@@ -11495,7 +11495,7 @@ export namespace route53resolver {
         /**
          * BlockResponse
          */
-        blockResponse?: pulumi.Input<string>;
+        blockResponse?: pulumi.Input<enums.route53resolver.FirewallRuleGroupFirewallRuleBlockResponse>;
         /**
          * ResourceId
          */
@@ -11669,11 +11669,11 @@ export namespace s3 {
         /**
          * Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
          */
-        format: pulumi.Input<string>;
+        format: pulumi.Input<enums.s3.StorageLensS3BucketDestinationFormat>;
         /**
          * The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
          */
-        outputSchemaVersion: pulumi.Input<string>;
+        outputSchemaVersion: pulumi.Input<enums.s3.StorageLensS3BucketDestinationOutputSchemaVersion>;
         /**
          * The prefix to use for Amazon S3 Storage Lens export.
          */
@@ -11793,7 +11793,7 @@ export namespace s3outposts {
          * Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
          */
         id?: pulumi.Input<string>;
-        status?: pulumi.Input<string>;
+        status?: pulumi.Input<enums.s3outposts.BucketRuleStatus>;
     }
 
     export interface BucketTagArgs {
@@ -11856,7 +11856,7 @@ export namespace sagemaker {
         /**
          * The instance type that the image version runs on.
          */
-        instanceType?: pulumi.Input<string>;
+        instanceType?: pulumi.Input<enums.sagemaker.AppResourceSpecInstanceType>;
         /**
          * The ARN of the SageMaker image that the image version belongs to.
          */
@@ -11962,11 +11962,11 @@ export namespace sagemaker {
         /**
          * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
          */
-        s3DataDistributionType?: pulumi.Input<string>;
+        s3DataDistributionType?: pulumi.Input<enums.sagemaker.DataQualityJobDefinitionEndpointInputS3DataDistributionType>;
         /**
          * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
          */
-        s3InputMode?: pulumi.Input<string>;
+        s3InputMode?: pulumi.Input<enums.sagemaker.DataQualityJobDefinitionEndpointInputS3InputMode>;
     }
 
     /**
@@ -12023,7 +12023,7 @@ export namespace sagemaker {
         /**
          * Whether to upload the results of the monitoring job continuously or after the job completes.
          */
-        s3UploadMode?: pulumi.Input<string>;
+        s3UploadMode?: pulumi.Input<enums.sagemaker.DataQualityJobDefinitionS3OutputS3UploadMode>;
         /**
          * A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
          */
@@ -12175,7 +12175,7 @@ export namespace sagemaker {
         /**
          * The instance type that the image version runs on.
          */
-        instanceType?: pulumi.Input<string>;
+        instanceType?: pulumi.Input<enums.sagemaker.DomainResourceSpecInstanceType>;
         /**
          * The ARN of the SageMaker image that the image version belongs to.
          */
@@ -12193,7 +12193,7 @@ export namespace sagemaker {
         /**
          * Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
          */
-        notebookOutputOption?: pulumi.Input<string>;
+        notebookOutputOption?: pulumi.Input<enums.sagemaker.DomainSharingSettingsNotebookOutputOption>;
         /**
          * When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
          */
@@ -12237,7 +12237,7 @@ export namespace sagemaker {
 
     export interface FeatureGroupFeatureDefinitionArgs {
         featureName: pulumi.Input<string>;
-        featureType: pulumi.Input<string>;
+        featureType: pulumi.Input<enums.sagemaker.FeatureGroupFeatureDefinitionFeatureType>;
     }
 
     /**
@@ -12323,11 +12323,11 @@ export namespace sagemaker {
         /**
          * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
          */
-        s3DataDistributionType?: pulumi.Input<string>;
+        s3DataDistributionType?: pulumi.Input<enums.sagemaker.ModelBiasJobDefinitionEndpointInputS3DataDistributionType>;
         /**
          * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
          */
-        s3InputMode?: pulumi.Input<string>;
+        s3InputMode?: pulumi.Input<enums.sagemaker.ModelBiasJobDefinitionEndpointInputS3InputMode>;
         /**
          * Monitoring start time offset, e.g. -PT1H
          */
@@ -12432,7 +12432,7 @@ export namespace sagemaker {
         /**
          * Whether to upload the results of the monitoring job continuously or after the job completes.
          */
-        s3UploadMode?: pulumi.Input<string>;
+        s3UploadMode?: pulumi.Input<enums.sagemaker.ModelBiasJobDefinitionS3OutputS3UploadMode>;
         /**
          * A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
          */
@@ -12533,11 +12533,11 @@ export namespace sagemaker {
         /**
          * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
          */
-        s3DataDistributionType?: pulumi.Input<string>;
+        s3DataDistributionType?: pulumi.Input<enums.sagemaker.ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType>;
         /**
          * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
          */
-        s3InputMode?: pulumi.Input<string>;
+        s3InputMode?: pulumi.Input<enums.sagemaker.ModelExplainabilityJobDefinitionEndpointInputS3InputMode>;
     }
 
     /**
@@ -12627,7 +12627,7 @@ export namespace sagemaker {
         /**
          * Whether to upload the results of the monitoring job continuously or after the job completes.
          */
-        s3UploadMode?: pulumi.Input<string>;
+        s3UploadMode?: pulumi.Input<enums.sagemaker.ModelExplainabilityJobDefinitionS3OutputS3UploadMode>;
         /**
          * A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
          */
@@ -12743,11 +12743,11 @@ export namespace sagemaker {
         /**
          * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
          */
-        s3DataDistributionType?: pulumi.Input<string>;
+        s3DataDistributionType?: pulumi.Input<enums.sagemaker.ModelQualityJobDefinitionEndpointInputS3DataDistributionType>;
         /**
          * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
          */
-        s3InputMode?: pulumi.Input<string>;
+        s3InputMode?: pulumi.Input<enums.sagemaker.ModelQualityJobDefinitionEndpointInputS3InputMode>;
         /**
          * Monitoring start time offset, e.g. -PT1H
          */
@@ -12778,7 +12778,7 @@ export namespace sagemaker {
          * An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
          */
         postAnalyticsProcessorSourceUri?: pulumi.Input<string>;
-        problemType: pulumi.Input<string>;
+        problemType: pulumi.Input<enums.sagemaker.ModelQualityJobDefinitionProblemType>;
         /**
          * An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
          */
@@ -12865,7 +12865,7 @@ export namespace sagemaker {
         /**
          * Whether to upload the results of the monitoring job continuously or after the job completes.
          */
-        s3UploadMode?: pulumi.Input<string>;
+        s3UploadMode?: pulumi.Input<enums.sagemaker.ModelQualityJobDefinitionS3OutputS3UploadMode>;
         /**
          * A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
          */
@@ -12962,11 +12962,11 @@ export namespace sagemaker {
         /**
          * Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
          */
-        s3DataDistributionType?: pulumi.Input<string>;
+        s3DataDistributionType?: pulumi.Input<enums.sagemaker.MonitoringScheduleEndpointInputS3DataDistributionType>;
         /**
          * Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
          */
-        s3InputMode?: pulumi.Input<string>;
+        s3InputMode?: pulumi.Input<enums.sagemaker.MonitoringScheduleEndpointInputS3InputMode>;
     }
 
     /**
@@ -13015,7 +13015,7 @@ export namespace sagemaker {
         /**
          * The status of the monitoring job.
          */
-        monitoringExecutionStatus: pulumi.Input<string>;
+        monitoringExecutionStatus: pulumi.Input<enums.sagemaker.MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus>;
         monitoringScheduleName: pulumi.Input<string>;
         /**
          * The Amazon Resource Name (ARN) of the monitoring job.
@@ -13092,7 +13092,7 @@ export namespace sagemaker {
          * Name of the job definition
          */
         monitoringJobDefinitionName?: pulumi.Input<string>;
-        monitoringType?: pulumi.Input<string>;
+        monitoringType?: pulumi.Input<enums.sagemaker.MonitoringScheduleMonitoringType>;
         scheduleConfig?: pulumi.Input<inputs.sagemaker.MonitoringScheduleScheduleConfigArgs>;
     }
 
@@ -13122,7 +13122,7 @@ export namespace sagemaker {
         /**
          * Whether to upload the results of the monitoring job continuously or after the job completes.
          */
-        s3UploadMode?: pulumi.Input<string>;
+        s3UploadMode?: pulumi.Input<enums.sagemaker.MonitoringScheduleS3OutputS3UploadMode>;
         /**
          * A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
          */
@@ -13249,7 +13249,7 @@ export namespace sagemaker {
         /**
          * The instance type that the image version runs on.
          */
-        instanceType?: pulumi.Input<string>;
+        instanceType?: pulumi.Input<enums.sagemaker.UserProfileResourceSpecInstanceType>;
         /**
          * The ARN of the SageMaker image that the image version belongs to.
          */
@@ -13267,7 +13267,7 @@ export namespace sagemaker {
         /**
          * Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
          */
-        notebookOutputOption?: pulumi.Input<string>;
+        notebookOutputOption?: pulumi.Input<enums.sagemaker.UserProfileSharingSettingsNotebookOutputOption>;
         /**
          * When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
          */
@@ -13322,7 +13322,7 @@ export namespace servicecatalog {
         stackSetFailureTolerancePercentage?: pulumi.Input<number>;
         stackSetMaxConcurrencyCount?: pulumi.Input<number>;
         stackSetMaxConcurrencyPercentage?: pulumi.Input<number>;
-        stackSetOperationType?: pulumi.Input<string>;
+        stackSetOperationType?: pulumi.Input<enums.servicecatalog.CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType>;
         stackSetRegions?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -13370,7 +13370,7 @@ export namespace ses {
 
 export namespace signer {
     export interface SigningProfileSignatureValidityPeriodArgs {
-        type?: pulumi.Input<string>;
+        type?: pulumi.Input<enums.signer.SigningProfileSignatureValidityPeriodType>;
         value?: pulumi.Input<number>;
     }
 
@@ -13400,7 +13400,7 @@ export namespace ssm {
         /**
          * The key of a key-value pair that identifies the location of an attachment to a document.
          */
-        key?: pulumi.Input<string>;
+        key?: pulumi.Input<enums.ssm.DocumentAttachmentsSourceKey>;
         /**
          * The name of the document attachment file.
          */
@@ -13592,7 +13592,7 @@ export namespace ssmincidents {
         /**
          * The account type to use when starting the SSM automation document.
          */
-        targetAccount?: pulumi.Input<string>;
+        targetAccount?: pulumi.Input<enums.ssmincidents.ResponsePlanSsmAutomationTargetAccount>;
     }
 
     /**
@@ -13649,7 +13649,7 @@ export namespace stepfunctions {
     export interface StateMachineLoggingConfigurationArgs {
         destinations?: pulumi.Input<pulumi.Input<inputs.stepfunctions.StateMachineLogDestinationArgs>[]>;
         includeExecutionData?: pulumi.Input<boolean>;
-        level?: pulumi.Input<string>;
+        level?: pulumi.Input<enums.stepfunctions.StateMachineLoggingConfigurationLevel>;
     }
 
     export interface StateMachineS3LocationArgs {
@@ -13808,7 +13808,7 @@ export namespace wafv2 {
      */
     export interface RuleGroupByteMatchStatementArgs {
         fieldToMatch: pulumi.Input<inputs.wafv2.RuleGroupFieldToMatchArgs>;
-        positionalConstraint: pulumi.Input<string>;
+        positionalConstraint: pulumi.Input<enums.wafv2.RuleGroupPositionalConstraint>;
         searchString?: pulumi.Input<string>;
         searchStringBase64?: pulumi.Input<string>;
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupTextTransformationArgs>[]>;
@@ -13853,7 +13853,7 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupForwardedIPConfigurationArgs {
-        fallbackBehavior: pulumi.Input<string>;
+        fallbackBehavior: pulumi.Input<enums.wafv2.RuleGroupForwardedIPConfigurationFallbackBehavior>;
         headerName: pulumi.Input<string>;
     }
 
@@ -13863,9 +13863,9 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupIPSetForwardedIPConfigurationArgs {
-        fallbackBehavior: pulumi.Input<string>;
+        fallbackBehavior: pulumi.Input<enums.wafv2.RuleGroupIPSetForwardedIPConfigurationFallbackBehavior>;
         headerName: pulumi.Input<string>;
-        position: pulumi.Input<string>;
+        position: pulumi.Input<enums.wafv2.RuleGroupIPSetForwardedIPConfigurationPosition>;
     }
 
     export interface RuleGroupIPSetReferenceStatementArgs {
@@ -13877,9 +13877,9 @@ export namespace wafv2 {
      * Inspect the request body as JSON. The request body immediately follows the request headers.
      */
     export interface RuleGroupJsonBodyArgs {
-        invalidFallbackBehavior?: pulumi.Input<string>;
+        invalidFallbackBehavior?: pulumi.Input<enums.wafv2.RuleGroupBodyParsingFallbackBehavior>;
         matchPattern: pulumi.Input<inputs.wafv2.RuleGroupJsonMatchPatternArgs>;
-        matchScope: pulumi.Input<string>;
+        matchScope: pulumi.Input<enums.wafv2.RuleGroupJsonMatchScope>;
     }
 
     /**
@@ -13899,7 +13899,7 @@ export namespace wafv2 {
 
     export interface RuleGroupLabelMatchStatementArgs {
         key: pulumi.Input<string>;
-        scope: pulumi.Input<string>;
+        scope: pulumi.Input<enums.wafv2.RuleGroupLabelMatchScope>;
     }
 
     export interface RuleGroupNotStatementArgs {
@@ -13911,7 +13911,7 @@ export namespace wafv2 {
     }
 
     export interface RuleGroupRateBasedStatementArgs {
-        aggregateKeyType: pulumi.Input<string>;
+        aggregateKeyType: pulumi.Input<enums.wafv2.RuleGroupRateBasedStatementAggregateKeyType>;
         forwardedIPConfig?: pulumi.Input<inputs.wafv2.RuleGroupForwardedIPConfigurationArgs>;
         limit: pulumi.Input<number>;
         scopeDownStatement?: pulumi.Input<inputs.wafv2.RuleGroupStatementArgs>;
@@ -13960,7 +13960,7 @@ export namespace wafv2 {
      * Size Constraint statement.
      */
     export interface RuleGroupSizeConstraintStatementArgs {
-        comparisonOperator: pulumi.Input<string>;
+        comparisonOperator: pulumi.Input<enums.wafv2.RuleGroupSizeConstraintStatementComparisonOperator>;
         fieldToMatch: pulumi.Input<inputs.wafv2.RuleGroupFieldToMatchArgs>;
         size: pulumi.Input<number>;
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupTextTransformationArgs>[]>;
@@ -14002,7 +14002,7 @@ export namespace wafv2 {
      */
     export interface RuleGroupTextTransformationArgs {
         priority: pulumi.Input<number>;
-        type: pulumi.Input<string>;
+        type: pulumi.Input<enums.wafv2.RuleGroupTextTransformationType>;
     }
 
     /**
@@ -14045,7 +14045,7 @@ export namespace wafv2 {
      */
     export interface WebACLByteMatchStatementArgs {
         fieldToMatch: pulumi.Input<inputs.wafv2.WebACLFieldToMatchArgs>;
-        positionalConstraint: pulumi.Input<string>;
+        positionalConstraint: pulumi.Input<enums.wafv2.WebACLPositionalConstraint>;
         searchString?: pulumi.Input<string>;
         searchStringBase64?: pulumi.Input<string>;
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTextTransformationArgs>[]>;
@@ -14145,7 +14145,7 @@ export namespace wafv2 {
     }
 
     export interface WebACLForwardedIPConfigurationArgs {
-        fallbackBehavior: pulumi.Input<string>;
+        fallbackBehavior: pulumi.Input<enums.wafv2.WebACLForwardedIPConfigurationFallbackBehavior>;
         headerName: pulumi.Input<string>;
     }
 
@@ -14155,9 +14155,9 @@ export namespace wafv2 {
     }
 
     export interface WebACLIPSetForwardedIPConfigurationArgs {
-        fallbackBehavior: pulumi.Input<string>;
+        fallbackBehavior: pulumi.Input<enums.wafv2.WebACLIPSetForwardedIPConfigurationFallbackBehavior>;
         headerName: pulumi.Input<string>;
-        position: pulumi.Input<string>;
+        position: pulumi.Input<enums.wafv2.WebACLIPSetForwardedIPConfigurationPosition>;
     }
 
     export interface WebACLIPSetReferenceStatementArgs {
@@ -14169,9 +14169,9 @@ export namespace wafv2 {
      * Inspect the request body as JSON. The request body immediately follows the request headers.
      */
     export interface WebACLJsonBodyArgs {
-        invalidFallbackBehavior?: pulumi.Input<string>;
+        invalidFallbackBehavior?: pulumi.Input<enums.wafv2.WebACLBodyParsingFallbackBehavior>;
         matchPattern: pulumi.Input<inputs.wafv2.WebACLJsonMatchPatternArgs>;
-        matchScope: pulumi.Input<string>;
+        matchScope: pulumi.Input<enums.wafv2.WebACLJsonMatchScope>;
     }
 
     /**
@@ -14191,7 +14191,7 @@ export namespace wafv2 {
 
     export interface WebACLLabelMatchStatementArgs {
         key: pulumi.Input<string>;
-        scope: pulumi.Input<string>;
+        scope: pulumi.Input<enums.wafv2.WebACLLabelMatchScope>;
     }
 
     export interface WebACLManagedRuleGroupStatementArgs {
@@ -14225,7 +14225,7 @@ export namespace wafv2 {
     }
 
     export interface WebACLRateBasedStatementArgs {
-        aggregateKeyType: pulumi.Input<string>;
+        aggregateKeyType: pulumi.Input<enums.wafv2.WebACLRateBasedStatementAggregateKeyType>;
         forwardedIPConfig?: pulumi.Input<inputs.wafv2.WebACLForwardedIPConfigurationArgs>;
         limit: pulumi.Input<number>;
         scopeDownStatement?: pulumi.Input<inputs.wafv2.WebACLStatementArgs>;
@@ -14271,7 +14271,7 @@ export namespace wafv2 {
      * Size Constraint statement.
      */
     export interface WebACLSizeConstraintStatementArgs {
-        comparisonOperator: pulumi.Input<string>;
+        comparisonOperator: pulumi.Input<enums.wafv2.WebACLSizeConstraintStatementComparisonOperator>;
         fieldToMatch: pulumi.Input<inputs.wafv2.WebACLFieldToMatchArgs>;
         size: pulumi.Input<number>;
         textTransformations: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTextTransformationArgs>[]>;
@@ -14315,7 +14315,7 @@ export namespace wafv2 {
      */
     export interface WebACLTextTransformationArgs {
         priority: pulumi.Input<number>;
-        type: pulumi.Input<string>;
+        type: pulumi.Input<enums.wafv2.WebACLTextTransformationType>;
     }
 
     /**

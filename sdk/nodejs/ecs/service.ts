@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -43,16 +43,16 @@ export class Service extends pulumi.CustomResource {
     public readonly enableECSManagedTags!: pulumi.Output<boolean | undefined>;
     public readonly enableExecuteCommand!: pulumi.Output<boolean | undefined>;
     public readonly healthCheckGracePeriodSeconds!: pulumi.Output<number | undefined>;
-    public readonly launchType!: pulumi.Output<string | undefined>;
+    public readonly launchType!: pulumi.Output<enums.ecs.ServiceLaunchType | undefined>;
     public readonly loadBalancers!: pulumi.Output<outputs.ecs.ServiceLoadBalancer[] | undefined>;
     public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly networkConfiguration!: pulumi.Output<outputs.ecs.ServiceNetworkConfiguration | undefined>;
     public readonly placementConstraints!: pulumi.Output<outputs.ecs.ServicePlacementConstraint[] | undefined>;
     public readonly placementStrategies!: pulumi.Output<outputs.ecs.ServicePlacementStrategy[] | undefined>;
     public readonly platformVersion!: pulumi.Output<string | undefined>;
-    public readonly propagateTags!: pulumi.Output<string | undefined>;
+    public readonly propagateTags!: pulumi.Output<enums.ecs.ServicePropagateTags | undefined>;
     public readonly role!: pulumi.Output<string | undefined>;
-    public readonly schedulingStrategy!: pulumi.Output<string | undefined>;
+    public readonly schedulingStrategy!: pulumi.Output<enums.ecs.ServiceSchedulingStrategy | undefined>;
     public /*out*/ readonly serviceArn!: pulumi.Output<string>;
     public readonly serviceName!: pulumi.Output<string | undefined>;
     public readonly serviceRegistries!: pulumi.Output<outputs.ecs.ServiceServiceRegistry[] | undefined>;
@@ -137,15 +137,15 @@ export interface ServiceArgs {
     enableECSManagedTags?: pulumi.Input<boolean>;
     enableExecuteCommand?: pulumi.Input<boolean>;
     healthCheckGracePeriodSeconds?: pulumi.Input<number>;
-    launchType?: pulumi.Input<string>;
+    launchType?: pulumi.Input<enums.ecs.ServiceLaunchType>;
     loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceLoadBalancerArgs>[]>;
     networkConfiguration?: pulumi.Input<inputs.ecs.ServiceNetworkConfigurationArgs>;
     placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.ServicePlacementConstraintArgs>[]>;
     placementStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ServicePlacementStrategyArgs>[]>;
     platformVersion?: pulumi.Input<string>;
-    propagateTags?: pulumi.Input<string>;
+    propagateTags?: pulumi.Input<enums.ecs.ServicePropagateTags>;
     role?: pulumi.Input<string>;
-    schedulingStrategy?: pulumi.Input<string>;
+    schedulingStrategy?: pulumi.Input<enums.ecs.ServiceSchedulingStrategy>;
     serviceName?: pulumi.Input<string>;
     serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceServiceRegistryArgs>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceTagArgs>[]>;
