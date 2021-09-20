@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['LocationObjectStorageArgs', 'LocationObjectStorage']
@@ -21,7 +22,7 @@ class LocationObjectStorageArgs:
                  access_key: Optional[pulumi.Input[str]] = None,
                  secret_key: Optional[pulumi.Input[str]] = None,
                  server_port: Optional[pulumi.Input[int]] = None,
-                 server_protocol: Optional[pulumi.Input[str]] = None,
+                 server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['LocationObjectStorageTagArgs']]]] = None):
         """
@@ -32,7 +33,7 @@ class LocationObjectStorageArgs:
         :param pulumi.Input[str] access_key: Optional. The access key is used if credentials are required to access the self-managed object storage server.
         :param pulumi.Input[str] secret_key: Optional. The secret key is used if credentials are required to access the self-managed object storage server.
         :param pulumi.Input[int] server_port: The port that your self-managed server accepts inbound network traffic on.
-        :param pulumi.Input[str] server_protocol: The protocol that the object storage server uses to communicate.
+        :param pulumi.Input['LocationObjectStorageServerProtocol'] server_protocol: The protocol that the object storage server uses to communicate.
         :param pulumi.Input[str] subdirectory: The subdirectory in the self-managed object storage server that is used to read data from.
         :param pulumi.Input[Sequence[pulumi.Input['LocationObjectStorageTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -126,14 +127,14 @@ class LocationObjectStorageArgs:
 
     @property
     @pulumi.getter(name="serverProtocol")
-    def server_protocol(self) -> Optional[pulumi.Input[str]]:
+    def server_protocol(self) -> Optional[pulumi.Input['LocationObjectStorageServerProtocol']]:
         """
         The protocol that the object storage server uses to communicate.
         """
         return pulumi.get(self, "server_protocol")
 
     @server_protocol.setter
-    def server_protocol(self, value: Optional[pulumi.Input[str]]):
+    def server_protocol(self, value: Optional[pulumi.Input['LocationObjectStorageServerProtocol']]):
         pulumi.set(self, "server_protocol", value)
 
     @property
@@ -172,7 +173,7 @@ class LocationObjectStorage(pulumi.CustomResource):
                  secret_key: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  server_port: Optional[pulumi.Input[int]] = None,
-                 server_protocol: Optional[pulumi.Input[str]] = None,
+                 server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationObjectStorageTagArgs']]]]] = None,
                  __props__=None):
@@ -187,7 +188,7 @@ class LocationObjectStorage(pulumi.CustomResource):
         :param pulumi.Input[str] secret_key: Optional. The secret key is used if credentials are required to access the self-managed object storage server.
         :param pulumi.Input[str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
         :param pulumi.Input[int] server_port: The port that your self-managed server accepts inbound network traffic on.
-        :param pulumi.Input[str] server_protocol: The protocol that the object storage server uses to communicate.
+        :param pulumi.Input['LocationObjectStorageServerProtocol'] server_protocol: The protocol that the object storage server uses to communicate.
         :param pulumi.Input[str] subdirectory: The subdirectory in the self-managed object storage server that is used to read data from.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationObjectStorageTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -221,7 +222,7 @@ class LocationObjectStorage(pulumi.CustomResource):
                  secret_key: Optional[pulumi.Input[str]] = None,
                  server_hostname: Optional[pulumi.Input[str]] = None,
                  server_port: Optional[pulumi.Input[int]] = None,
-                 server_protocol: Optional[pulumi.Input[str]] = None,
+                 server_protocol: Optional[pulumi.Input['LocationObjectStorageServerProtocol']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationObjectStorageTagArgs']]]]] = None,
                  __props__=None):
@@ -354,7 +355,7 @@ class LocationObjectStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverProtocol")
-    def server_protocol(self) -> pulumi.Output[Optional[str]]:
+    def server_protocol(self) -> pulumi.Output[Optional['LocationObjectStorageServerProtocol']]:
         """
         The protocol that the object storage server uses to communicate.
         """

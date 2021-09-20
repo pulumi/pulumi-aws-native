@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['EventSourceMappingArgs', 'EventSourceMapping']
@@ -21,7 +22,7 @@ class EventSourceMappingArgs:
                  destination_config: Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
-                 function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
@@ -41,7 +42,7 @@ class EventSourceMappingArgs:
         :param pulumi.Input['EventSourceMappingDestinationConfigArgs'] destination_config: (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
         :param pulumi.Input[bool] enabled: Disables the event source mapping to pause polling and invocation.
         :param pulumi.Input[str] event_source_arn: The Amazon Resource Name (ARN) of the event source.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_response_types: (Streams) A list of response types supported by the function.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]] function_response_types: (Streams) A list of response types supported by the function.
         :param pulumi.Input[int] maximum_batching_window_in_seconds: (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
         :param pulumi.Input[int] maximum_record_age_in_seconds: (Streams) The maximum age of a record that Lambda sends to a function for processing.
         :param pulumi.Input[int] maximum_retry_attempts: (Streams) The maximum number of times to retry when the function returns an error.
@@ -164,14 +165,14 @@ class EventSourceMappingArgs:
 
     @property
     @pulumi.getter(name="functionResponseTypes")
-    def function_response_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def function_response_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]]:
         """
         (Streams) A list of response types supported by the function.
         """
         return pulumi.get(self, "function_response_types")
 
     @function_response_types.setter
-    def function_response_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def function_response_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]]):
         pulumi.set(self, "function_response_types", value)
 
     @property
@@ -318,7 +319,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
-                 function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
@@ -342,7 +343,7 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Disables the event source mapping to pause polling and invocation.
         :param pulumi.Input[str] event_source_arn: The Amazon Resource Name (ARN) of the event source.
         :param pulumi.Input[str] function_name: The name of the Lambda function.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] function_response_types: (Streams) A list of response types supported by the function.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]] function_response_types: (Streams) A list of response types supported by the function.
         :param pulumi.Input[int] maximum_batching_window_in_seconds: (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
         :param pulumi.Input[int] maximum_record_age_in_seconds: (Streams) The maximum age of a record that Lambda sends to a function for processing.
         :param pulumi.Input[int] maximum_retry_attempts: (Streams) The maximum number of times to retry when the function returns an error.
@@ -385,7 +386,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
-                 function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFunctionResponseTypesItem']]]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
@@ -521,7 +522,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="functionResponseTypes")
-    def function_response_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def function_response_types(self) -> pulumi.Output[Optional[Sequence['EventSourceMappingFunctionResponseTypesItem']]]:
         """
         (Streams) A list of response types supported by the function.
         """

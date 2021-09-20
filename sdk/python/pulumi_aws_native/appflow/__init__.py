@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .connector_profile import *
 from .flow import *
 from ._inputs import *

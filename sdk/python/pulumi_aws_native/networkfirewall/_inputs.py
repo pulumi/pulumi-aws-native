@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'FirewallPolicyActionDefinitionArgs',
@@ -304,8 +305,8 @@ class FirewallTagArgs:
 class LoggingConfigurationLogDestinationConfigArgs:
     def __init__(__self__, *,
                  log_destination: Any,
-                 log_destination_type: pulumi.Input[str],
-                 log_type: pulumi.Input[str]):
+                 log_destination_type: pulumi.Input['LoggingConfigurationLogDestinationConfigLogDestinationType'],
+                 log_type: pulumi.Input['LoggingConfigurationLogDestinationConfigLogType']):
         """
         :param Any log_destination: A key-value pair to configure the logDestinations.
         """
@@ -327,20 +328,20 @@ class LoggingConfigurationLogDestinationConfigArgs:
 
     @property
     @pulumi.getter(name="logDestinationType")
-    def log_destination_type(self) -> pulumi.Input[str]:
+    def log_destination_type(self) -> pulumi.Input['LoggingConfigurationLogDestinationConfigLogDestinationType']:
         return pulumi.get(self, "log_destination_type")
 
     @log_destination_type.setter
-    def log_destination_type(self, value: pulumi.Input[str]):
+    def log_destination_type(self, value: pulumi.Input['LoggingConfigurationLogDestinationConfigLogDestinationType']):
         pulumi.set(self, "log_destination_type", value)
 
     @property
     @pulumi.getter(name="logType")
-    def log_type(self) -> pulumi.Input[str]:
+    def log_type(self) -> pulumi.Input['LoggingConfigurationLogDestinationConfigLogType']:
         return pulumi.get(self, "log_type")
 
     @log_type.setter
-    def log_type(self, value: pulumi.Input[str]):
+    def log_type(self, value: pulumi.Input['LoggingConfigurationLogDestinationConfigLogType']):
         pulumi.set(self, "log_type", value)
 
 
@@ -441,8 +442,8 @@ class RuleGroupHeaderArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str],
                  destination_port: pulumi.Input[str],
-                 direction: pulumi.Input[str],
-                 protocol: pulumi.Input[str],
+                 direction: pulumi.Input['RuleGroupHeaderDirection'],
+                 protocol: pulumi.Input['RuleGroupHeaderProtocol'],
                  source: pulumi.Input[str],
                  source_port: pulumi.Input[str]):
         pulumi.set(__self__, "destination", destination)
@@ -472,20 +473,20 @@ class RuleGroupHeaderArgs:
 
     @property
     @pulumi.getter
-    def direction(self) -> pulumi.Input[str]:
+    def direction(self) -> pulumi.Input['RuleGroupHeaderDirection']:
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: pulumi.Input[str]):
+    def direction(self, value: pulumi.Input['RuleGroupHeaderDirection']):
         pulumi.set(self, "direction", value)
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Input[str]:
+    def protocol(self) -> pulumi.Input['RuleGroupHeaderProtocol']:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: pulumi.Input[str]):
+    def protocol(self, value: pulumi.Input['RuleGroupHeaderProtocol']):
         pulumi.set(self, "protocol", value)
 
     @property
@@ -742,8 +743,8 @@ class RuleGroupRuleVariablesArgs:
 @pulumi.input_type
 class RuleGroupRulesSourceListArgs:
     def __init__(__self__, *,
-                 generated_rules_type: pulumi.Input[str],
-                 target_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 generated_rules_type: pulumi.Input['RuleGroupGeneratedRulesType'],
+                 target_types: pulumi.Input[Sequence[pulumi.Input['RuleGroupTargetType']]],
                  targets: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(__self__, "generated_rules_type", generated_rules_type)
         pulumi.set(__self__, "target_types", target_types)
@@ -751,20 +752,20 @@ class RuleGroupRulesSourceListArgs:
 
     @property
     @pulumi.getter(name="generatedRulesType")
-    def generated_rules_type(self) -> pulumi.Input[str]:
+    def generated_rules_type(self) -> pulumi.Input['RuleGroupGeneratedRulesType']:
         return pulumi.get(self, "generated_rules_type")
 
     @generated_rules_type.setter
-    def generated_rules_type(self, value: pulumi.Input[str]):
+    def generated_rules_type(self, value: pulumi.Input['RuleGroupGeneratedRulesType']):
         pulumi.set(self, "generated_rules_type", value)
 
     @property
     @pulumi.getter(name="targetTypes")
-    def target_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def target_types(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupTargetType']]]:
         return pulumi.get(self, "target_types")
 
     @target_types.setter
-    def target_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def target_types(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupTargetType']]]):
         pulumi.set(self, "target_types", value)
 
     @property
@@ -833,7 +834,7 @@ class RuleGroupRulesSourceArgs:
 @pulumi.input_type
 class RuleGroupStatefulRuleArgs:
     def __init__(__self__, *,
-                 action: pulumi.Input[str],
+                 action: pulumi.Input['RuleGroupStatefulRuleAction'],
                  header: pulumi.Input['RuleGroupHeaderArgs'],
                  rule_options: pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgs']]]):
         pulumi.set(__self__, "action", action)
@@ -842,11 +843,11 @@ class RuleGroupStatefulRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Input[str]:
+    def action(self) -> pulumi.Input['RuleGroupStatefulRuleAction']:
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: pulumi.Input[str]):
+    def action(self, value: pulumi.Input['RuleGroupStatefulRuleAction']):
         pulumi.set(self, "action", value)
 
     @property
@@ -926,28 +927,28 @@ class RuleGroupStatelessRuleArgs:
 @pulumi.input_type
 class RuleGroupTCPFlagFieldArgs:
     def __init__(__self__, *,
-                 flags: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 masks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 flags: pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlag']]],
+                 masks: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlag']]]] = None):
         pulumi.set(__self__, "flags", flags)
         if masks is not None:
             pulumi.set(__self__, "masks", masks)
 
     @property
     @pulumi.getter
-    def flags(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def flags(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlag']]]:
         return pulumi.get(self, "flags")
 
     @flags.setter
-    def flags(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def flags(self, value: pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlag']]]):
         pulumi.set(self, "flags", value)
 
     @property
     @pulumi.getter
-    def masks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def masks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlag']]]]:
         return pulumi.get(self, "masks")
 
     @masks.setter
-    def masks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def masks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTCPFlag']]]]):
         pulumi.set(self, "masks", value)
 
 

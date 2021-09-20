@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FindingsFilterArgs', 'FindingsFilter']
@@ -17,14 +18,14 @@ class FindingsFilterArgs:
     def __init__(__self__, *,
                  finding_criteria: pulumi.Input['FindingsFilterFindingCriteriaArgs'],
                  name: pulumi.Input[str],
-                 action: Optional[pulumi.Input[str]] = None,
+                 action: Optional[pulumi.Input['FindingsFilterFindingFilterAction']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  position: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a FindingsFilter resource.
         :param pulumi.Input['FindingsFilterFindingCriteriaArgs'] finding_criteria: Findings filter criteria.
         :param pulumi.Input[str] name: Findings filter name
-        :param pulumi.Input[str] action: Findings filter action.
+        :param pulumi.Input['FindingsFilterFindingFilterAction'] action: Findings filter action.
         :param pulumi.Input[str] description: Findings filter description
         :param pulumi.Input[int] position: Findings filter position.
         """
@@ -63,14 +64,14 @@ class FindingsFilterArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[str]]:
+    def action(self) -> Optional[pulumi.Input['FindingsFilterFindingFilterAction']]:
         """
         Findings filter action.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[str]]):
+    def action(self, value: Optional[pulumi.Input['FindingsFilterFindingFilterAction']]):
         pulumi.set(self, "action", value)
 
     @property
@@ -103,7 +104,7 @@ class FindingsFilter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[str]] = None,
+                 action: Optional[pulumi.Input['FindingsFilterFindingFilterAction']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  finding_criteria: Optional[pulumi.Input[pulumi.InputType['FindingsFilterFindingCriteriaArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -114,7 +115,7 @@ class FindingsFilter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] action: Findings filter action.
+        :param pulumi.Input['FindingsFilterFindingFilterAction'] action: Findings filter action.
         :param pulumi.Input[str] description: Findings filter description
         :param pulumi.Input[pulumi.InputType['FindingsFilterFindingCriteriaArgs']] finding_criteria: Findings filter criteria.
         :param pulumi.Input[str] name: Findings filter name
@@ -144,7 +145,7 @@ class FindingsFilter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[str]] = None,
+                 action: Optional[pulumi.Input['FindingsFilterFindingFilterAction']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  finding_criteria: Optional[pulumi.Input[pulumi.InputType['FindingsFilterFindingCriteriaArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -205,7 +206,7 @@ class FindingsFilter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Output[Optional[str]]:
+    def action(self) -> pulumi.Output[Optional['FindingsFilterFindingFilterAction']]:
         """
         Findings filter action.
         """

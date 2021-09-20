@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['ComponentArgs', 'Component']
 
@@ -14,7 +15,7 @@ __all__ = ['ComponentArgs', 'Component']
 class ComponentArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 platform: pulumi.Input[str],
+                 platform: pulumi.Input['ComponentPlatform'],
                  version: pulumi.Input[str],
                  change_description: Optional[pulumi.Input[str]] = None,
                  data: Optional[pulumi.Input[str]] = None,
@@ -26,7 +27,7 @@ class ComponentArgs:
         """
         The set of arguments for constructing a Component resource.
         :param pulumi.Input[str] name: The name of the component.
-        :param pulumi.Input[str] platform: The platform of the component.
+        :param pulumi.Input['ComponentPlatform'] platform: The platform of the component.
         :param pulumi.Input[str] version: The version of the component.
         :param pulumi.Input[str] change_description: The change description of the component.
         :param pulumi.Input[str] data: The data of the component.
@@ -68,14 +69,14 @@ class ComponentArgs:
 
     @property
     @pulumi.getter
-    def platform(self) -> pulumi.Input[str]:
+    def platform(self) -> pulumi.Input['ComponentPlatform']:
         """
         The platform of the component.
         """
         return pulumi.get(self, "platform")
 
     @platform.setter
-    def platform(self, value: pulumi.Input[str]):
+    def platform(self, value: pulumi.Input['ComponentPlatform']):
         pulumi.set(self, "platform", value)
 
     @property
@@ -185,7 +186,7 @@ class Component(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input['ComponentPlatform']] = None,
                  supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[Any] = None,
                  uri: Optional[pulumi.Input[str]] = None,
@@ -201,7 +202,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the component.
         :param pulumi.Input[str] kms_key_id: The KMS key identifier used to encrypt the component.
         :param pulumi.Input[str] name: The name of the component.
-        :param pulumi.Input[str] platform: The platform of the component.
+        :param pulumi.Input['ComponentPlatform'] platform: The platform of the component.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_os_versions: The operating system (OS) version supported by the component.
         :param Any tags: The tags associated with the component.
         :param pulumi.Input[str] uri: The uri of the component.
@@ -236,7 +237,7 @@ class Component(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input['ComponentPlatform']] = None,
                  supported_os_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[Any] = None,
                  uri: Optional[pulumi.Input[str]] = None,
@@ -367,7 +368,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def platform(self) -> pulumi.Output[str]:
+    def platform(self) -> pulumi.Output['ComponentPlatform']:
         """
         The platform of the component.
         """
@@ -391,7 +392,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output['ComponentType']:
         """
         The type of the component denotes whether the component is used to build the image or only to test it. 
         """

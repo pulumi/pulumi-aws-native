@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'StateMachineCloudWatchLogsLogGroup',
@@ -114,7 +115,7 @@ class StateMachineLoggingConfiguration(dict):
     def __init__(__self__, *,
                  destinations: Optional[Sequence['outputs.StateMachineLogDestination']] = None,
                  include_execution_data: Optional[bool] = None,
-                 level: Optional[str] = None):
+                 level: Optional['StateMachineLoggingConfigurationLevel'] = None):
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
         if include_execution_data is not None:
@@ -134,7 +135,7 @@ class StateMachineLoggingConfiguration(dict):
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[str]:
+    def level(self) -> Optional['StateMachineLoggingConfigurationLevel']:
         return pulumi.get(self, "level")
 
 

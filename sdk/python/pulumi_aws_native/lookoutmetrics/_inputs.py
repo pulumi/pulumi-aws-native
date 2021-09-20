@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'AlertActionArgs',
@@ -136,22 +137,22 @@ class AlertSNSConfigurationArgs:
 @pulumi.input_type
 class AnomalyDetectorAnomalyDetectorConfigArgs:
     def __init__(__self__, *,
-                 anomaly_detector_frequency: pulumi.Input[str]):
+                 anomaly_detector_frequency: pulumi.Input['AnomalyDetectorAnomalyDetectorFrequency']):
         """
-        :param pulumi.Input[str] anomaly_detector_frequency: Frequency of anomaly detection
+        :param pulumi.Input['AnomalyDetectorAnomalyDetectorFrequency'] anomaly_detector_frequency: Frequency of anomaly detection
         """
         pulumi.set(__self__, "anomaly_detector_frequency", anomaly_detector_frequency)
 
     @property
     @pulumi.getter(name="anomalyDetectorFrequency")
-    def anomaly_detector_frequency(self) -> pulumi.Input[str]:
+    def anomaly_detector_frequency(self) -> pulumi.Input['AnomalyDetectorAnomalyDetectorFrequency']:
         """
         Frequency of anomaly detection
         """
         return pulumi.get(self, "anomaly_detector_frequency")
 
     @anomaly_detector_frequency.setter
-    def anomaly_detector_frequency(self, value: pulumi.Input[str]):
+    def anomaly_detector_frequency(self, value: pulumi.Input['AnomalyDetectorAnomalyDetectorFrequency']):
         pulumi.set(self, "anomaly_detector_frequency", value)
 
 
@@ -204,7 +205,7 @@ class AnomalyDetectorCsvFormatDescriptorArgs:
                  charset: Optional[pulumi.Input[str]] = None,
                  contains_header: Optional[pulumi.Input[bool]] = None,
                  delimiter: Optional[pulumi.Input[str]] = None,
-                 file_compression: Optional[pulumi.Input[str]] = None,
+                 file_compression: Optional[pulumi.Input['AnomalyDetectorCsvFormatDescriptorFileCompression']] = None,
                  header_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  quote_symbol: Optional[pulumi.Input[str]] = None):
         if charset is not None:
@@ -249,11 +250,11 @@ class AnomalyDetectorCsvFormatDescriptorArgs:
 
     @property
     @pulumi.getter(name="fileCompression")
-    def file_compression(self) -> Optional[pulumi.Input[str]]:
+    def file_compression(self) -> Optional[pulumi.Input['AnomalyDetectorCsvFormatDescriptorFileCompression']]:
         return pulumi.get(self, "file_compression")
 
     @file_compression.setter
-    def file_compression(self, value: Optional[pulumi.Input[str]]):
+    def file_compression(self, value: Optional[pulumi.Input['AnomalyDetectorCsvFormatDescriptorFileCompression']]):
         pulumi.set(self, "file_compression", value)
 
     @property
@@ -308,7 +309,7 @@ class AnomalyDetectorFileFormatDescriptorArgs:
 class AnomalyDetectorJsonFormatDescriptorArgs:
     def __init__(__self__, *,
                  charset: Optional[pulumi.Input[str]] = None,
-                 file_compression: Optional[pulumi.Input[str]] = None):
+                 file_compression: Optional[pulumi.Input['AnomalyDetectorJsonFormatDescriptorFileCompression']] = None):
         if charset is not None:
             pulumi.set(__self__, "charset", charset)
         if file_compression is not None:
@@ -325,11 +326,11 @@ class AnomalyDetectorJsonFormatDescriptorArgs:
 
     @property
     @pulumi.getter(name="fileCompression")
-    def file_compression(self) -> Optional[pulumi.Input[str]]:
+    def file_compression(self) -> Optional[pulumi.Input['AnomalyDetectorJsonFormatDescriptorFileCompression']]:
         return pulumi.get(self, "file_compression")
 
     @file_compression.setter
-    def file_compression(self, value: Optional[pulumi.Input[str]]):
+    def file_compression(self, value: Optional[pulumi.Input['AnomalyDetectorJsonFormatDescriptorFileCompression']]):
         pulumi.set(self, "file_compression", value)
 
 
@@ -341,7 +342,7 @@ class AnomalyDetectorMetricSetArgs:
                  metric_source: pulumi.Input['AnomalyDetectorMetricSourceArgs'],
                  dimension_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metric_set_description: Optional[pulumi.Input[str]] = None,
-                 metric_set_frequency: Optional[pulumi.Input[str]] = None,
+                 metric_set_frequency: Optional[pulumi.Input['AnomalyDetectorMetricSetMetricSetFrequency']] = None,
                  offset: Optional[pulumi.Input[int]] = None,
                  timestamp_column: Optional[pulumi.Input['AnomalyDetectorTimestampColumnArgs']] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
@@ -350,7 +351,7 @@ class AnomalyDetectorMetricSetArgs:
         :param pulumi.Input[str] metric_set_name: The name of the MetricSet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dimension_list: Dimensions for this MetricSet.
         :param pulumi.Input[str] metric_set_description: A description for the MetricSet.
-        :param pulumi.Input[str] metric_set_frequency: A frequency period to aggregate the data
+        :param pulumi.Input['AnomalyDetectorMetricSetMetricSetFrequency'] metric_set_frequency: A frequency period to aggregate the data
         :param pulumi.Input[int] offset: Offset, in seconds, between the frequency interval and the time at which the metrics are available.
         """
         pulumi.set(__self__, "metric_list", metric_list)
@@ -428,14 +429,14 @@ class AnomalyDetectorMetricSetArgs:
 
     @property
     @pulumi.getter(name="metricSetFrequency")
-    def metric_set_frequency(self) -> Optional[pulumi.Input[str]]:
+    def metric_set_frequency(self) -> Optional[pulumi.Input['AnomalyDetectorMetricSetMetricSetFrequency']]:
         """
         A frequency period to aggregate the data
         """
         return pulumi.get(self, "metric_set_frequency")
 
     @metric_set_frequency.setter
-    def metric_set_frequency(self, value: Optional[pulumi.Input[str]]):
+    def metric_set_frequency(self, value: Optional[pulumi.Input['AnomalyDetectorMetricSetMetricSetFrequency']]):
         pulumi.set(self, "metric_set_frequency", value)
 
     @property
@@ -537,11 +538,11 @@ class AnomalyDetectorMetricSourceArgs:
 @pulumi.input_type
 class AnomalyDetectorMetricArgs:
     def __init__(__self__, *,
-                 aggregation_function: pulumi.Input[str],
+                 aggregation_function: pulumi.Input['AnomalyDetectorMetricAggregationFunction'],
                  metric_name: pulumi.Input[str],
                  namespace: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] aggregation_function: Operator used to aggregate metric values
+        :param pulumi.Input['AnomalyDetectorMetricAggregationFunction'] aggregation_function: Operator used to aggregate metric values
         """
         pulumi.set(__self__, "aggregation_function", aggregation_function)
         pulumi.set(__self__, "metric_name", metric_name)
@@ -550,14 +551,14 @@ class AnomalyDetectorMetricArgs:
 
     @property
     @pulumi.getter(name="aggregationFunction")
-    def aggregation_function(self) -> pulumi.Input[str]:
+    def aggregation_function(self) -> pulumi.Input['AnomalyDetectorMetricAggregationFunction']:
         """
         Operator used to aggregate metric values
         """
         return pulumi.get(self, "aggregation_function")
 
     @aggregation_function.setter
-    def aggregation_function(self, value: pulumi.Input[str]):
+    def aggregation_function(self, value: pulumi.Input['AnomalyDetectorMetricAggregationFunction']):
         pulumi.set(self, "aggregation_function", value)
 
     @property

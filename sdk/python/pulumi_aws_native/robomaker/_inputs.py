@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'FleetTagsArgs',
@@ -39,11 +40,11 @@ class RobotTagsArgs:
 @pulumi.input_type
 class SimulationApplicationRenderingEngineArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: pulumi.Input['SimulationApplicationRenderingEngineName'],
                  version: pulumi.Input[str]):
         """
         Information about a rendering engine.
-        :param pulumi.Input[str] name: The name of the rendering engine.
+        :param pulumi.Input['SimulationApplicationRenderingEngineName'] name: The name of the rendering engine.
         :param pulumi.Input[str] version: The version of the rendering engine.
         """
         pulumi.set(__self__, "name", name)
@@ -51,14 +52,14 @@ class SimulationApplicationRenderingEngineArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input['SimulationApplicationRenderingEngineName']:
         """
         The name of the rendering engine.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input['SimulationApplicationRenderingEngineName']):
         pulumi.set(self, "name", value)
 
     @property
@@ -77,88 +78,88 @@ class SimulationApplicationRenderingEngineArgs:
 @pulumi.input_type
 class SimulationApplicationRobotSoftwareSuiteArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 version: pulumi.Input[str]):
+                 name: pulumi.Input['SimulationApplicationRobotSoftwareSuiteName'],
+                 version: pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']):
         """
         Information about a robot software suite (ROS distribution).
-        :param pulumi.Input[str] name: The name of the robot software suite (ROS distribution).
-        :param pulumi.Input[str] version: The version of the robot software suite (ROS distribution).
+        :param pulumi.Input['SimulationApplicationRobotSoftwareSuiteName'] name: The name of the robot software suite (ROS distribution).
+        :param pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion'] version: The version of the robot software suite (ROS distribution).
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input['SimulationApplicationRobotSoftwareSuiteName']:
         """
         The name of the robot software suite (ROS distribution).
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input['SimulationApplicationRobotSoftwareSuiteName']):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Input[str]:
+    def version(self) -> pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']:
         """
         The version of the robot software suite (ROS distribution).
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: pulumi.Input[str]):
+    def version(self, value: pulumi.Input['SimulationApplicationRobotSoftwareSuiteVersion']):
         pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
 class SimulationApplicationSimulationSoftwareSuiteArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 version: pulumi.Input[str]):
+                 name: pulumi.Input['SimulationApplicationSimulationSoftwareSuiteName'],
+                 version: pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']):
         """
         Information about a simulation software suite.
-        :param pulumi.Input[str] name: The name of the simulation software suite.
-        :param pulumi.Input[str] version: The version of the simulation software suite.
+        :param pulumi.Input['SimulationApplicationSimulationSoftwareSuiteName'] name: The name of the simulation software suite.
+        :param pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion'] version: The version of the simulation software suite.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input['SimulationApplicationSimulationSoftwareSuiteName']:
         """
         The name of the simulation software suite.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input['SimulationApplicationSimulationSoftwareSuiteName']):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Input[str]:
+    def version(self) -> pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']:
         """
         The version of the simulation software suite.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: pulumi.Input[str]):
+    def version(self, value: pulumi.Input['SimulationApplicationSimulationSoftwareSuiteVersion']):
         pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
 class SimulationApplicationSourceConfigArgs:
     def __init__(__self__, *,
-                 architecture: pulumi.Input[str],
+                 architecture: pulumi.Input['SimulationApplicationSourceConfigArchitecture'],
                  s3_bucket: pulumi.Input[str],
                  s3_key: pulumi.Input[str]):
         """
         Information about a source configuration.
-        :param pulumi.Input[str] architecture: The target processor architecture for the application.
+        :param pulumi.Input['SimulationApplicationSourceConfigArchitecture'] architecture: The target processor architecture for the application.
         :param pulumi.Input[str] s3_bucket: The Amazon S3 bucket name.
         :param pulumi.Input[str] s3_key: The s3 object key.
         """
@@ -168,14 +169,14 @@ class SimulationApplicationSourceConfigArgs:
 
     @property
     @pulumi.getter
-    def architecture(self) -> pulumi.Input[str]:
+    def architecture(self) -> pulumi.Input['SimulationApplicationSourceConfigArchitecture']:
         """
         The target processor architecture for the application.
         """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
-    def architecture(self, value: pulumi.Input[str]):
+    def architecture(self, value: pulumi.Input['SimulationApplicationSourceConfigArchitecture']):
         pulumi.set(self, "architecture", value)
 
     @property

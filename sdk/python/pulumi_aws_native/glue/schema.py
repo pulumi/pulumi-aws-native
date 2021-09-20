@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SchemaArgs', 'Schema']
@@ -15,8 +16,8 @@ __all__ = ['SchemaArgs', 'Schema']
 @pulumi.input_type
 class SchemaArgs:
     def __init__(__self__, *,
-                 compatibility: pulumi.Input[str],
-                 data_format: pulumi.Input[str],
+                 compatibility: pulumi.Input['SchemaCompatibility'],
+                 data_format: pulumi.Input['SchemaDataFormat'],
                  name: pulumi.Input[str],
                  schema_definition: pulumi.Input[str],
                  checkpoint_version: Optional[pulumi.Input['SchemaSchemaVersionArgs']] = None,
@@ -25,8 +26,8 @@ class SchemaArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagArgs']]]] = None):
         """
         The set of arguments for constructing a Schema resource.
-        :param pulumi.Input[str] compatibility: Compatibility setting for the schema.
-        :param pulumi.Input[str] data_format: Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
+        :param pulumi.Input['SchemaCompatibility'] compatibility: Compatibility setting for the schema.
+        :param pulumi.Input['SchemaDataFormat'] data_format: Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
         :param pulumi.Input[str] name: Name of the schema.
         :param pulumi.Input[str] schema_definition: Definition for the initial schema version in plain-text.
         :param pulumi.Input[str] description: A description of the schema. If description is not provided, there will not be any default value for this.
@@ -47,26 +48,26 @@ class SchemaArgs:
 
     @property
     @pulumi.getter
-    def compatibility(self) -> pulumi.Input[str]:
+    def compatibility(self) -> pulumi.Input['SchemaCompatibility']:
         """
         Compatibility setting for the schema.
         """
         return pulumi.get(self, "compatibility")
 
     @compatibility.setter
-    def compatibility(self, value: pulumi.Input[str]):
+    def compatibility(self, value: pulumi.Input['SchemaCompatibility']):
         pulumi.set(self, "compatibility", value)
 
     @property
     @pulumi.getter(name="dataFormat")
-    def data_format(self) -> pulumi.Input[str]:
+    def data_format(self) -> pulumi.Input['SchemaDataFormat']:
         """
         Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
         """
         return pulumi.get(self, "data_format")
 
     @data_format.setter
-    def data_format(self, value: pulumi.Input[str]):
+    def data_format(self, value: pulumi.Input['SchemaDataFormat']):
         pulumi.set(self, "data_format", value)
 
     @property
@@ -142,8 +143,8 @@ class Schema(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  checkpoint_version: Optional[pulumi.Input[pulumi.InputType['SchemaSchemaVersionArgs']]] = None,
-                 compatibility: Optional[pulumi.Input[str]] = None,
-                 data_format: Optional[pulumi.Input[str]] = None,
+                 compatibility: Optional[pulumi.Input['SchemaCompatibility']] = None,
+                 data_format: Optional[pulumi.Input['SchemaDataFormat']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  registry: Optional[pulumi.Input[pulumi.InputType['SchemaRegistryArgs']]] = None,
@@ -155,8 +156,8 @@ class Schema(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] compatibility: Compatibility setting for the schema.
-        :param pulumi.Input[str] data_format: Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
+        :param pulumi.Input['SchemaCompatibility'] compatibility: Compatibility setting for the schema.
+        :param pulumi.Input['SchemaDataFormat'] data_format: Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
         :param pulumi.Input[str] description: A description of the schema. If description is not provided, there will not be any default value for this.
         :param pulumi.Input[str] name: Name of the schema.
         :param pulumi.Input[str] schema_definition: Definition for the initial schema version in plain-text.
@@ -187,8 +188,8 @@ class Schema(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  checkpoint_version: Optional[pulumi.Input[pulumi.InputType['SchemaSchemaVersionArgs']]] = None,
-                 compatibility: Optional[pulumi.Input[str]] = None,
-                 data_format: Optional[pulumi.Input[str]] = None,
+                 compatibility: Optional[pulumi.Input['SchemaCompatibility']] = None,
+                 data_format: Optional[pulumi.Input['SchemaDataFormat']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  registry: Optional[pulumi.Input[pulumi.InputType['SchemaRegistryArgs']]] = None,
@@ -273,7 +274,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def compatibility(self) -> pulumi.Output[str]:
+    def compatibility(self) -> pulumi.Output['SchemaCompatibility']:
         """
         Compatibility setting for the schema.
         """
@@ -281,7 +282,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataFormat")
-    def data_format(self) -> pulumi.Output[str]:
+    def data_format(self) -> pulumi.Output['SchemaDataFormat']:
         """
         Data format name to use for the schema. Accepted values: 'AVRO', 'JSON'
         """

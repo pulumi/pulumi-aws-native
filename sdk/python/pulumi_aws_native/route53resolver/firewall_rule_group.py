@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FirewallRuleGroupArgs', 'FirewallRuleGroup']
@@ -239,7 +240,7 @@ class FirewallRuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="shareStatus")
-    def share_status(self) -> pulumi.Output[str]:
+    def share_status(self) -> pulumi.Output['FirewallRuleGroupShareStatus']:
         """
         ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
         """
@@ -247,7 +248,7 @@ class FirewallRuleGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output['FirewallRuleGroupStatus']:
         """
         ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
         """

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'DataSourceAccessControlListConfigurationArgs',
@@ -186,7 +187,7 @@ class DataSourceConfluenceAttachmentConfigurationArgs:
 @pulumi.input_type
 class DataSourceConfluenceAttachmentToIndexFieldMappingArgs:
     def __init__(__self__, *,
-                 data_source_field_name: pulumi.Input[str],
+                 data_source_field_name: pulumi.Input['DataSourceConfluenceAttachmentFieldName'],
                  index_field_name: pulumi.Input[str],
                  date_field_format: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source_field_name", data_source_field_name)
@@ -196,11 +197,11 @@ class DataSourceConfluenceAttachmentToIndexFieldMappingArgs:
 
     @property
     @pulumi.getter(name="dataSourceFieldName")
-    def data_source_field_name(self) -> pulumi.Input[str]:
+    def data_source_field_name(self) -> pulumi.Input['DataSourceConfluenceAttachmentFieldName']:
         return pulumi.get(self, "data_source_field_name")
 
     @data_source_field_name.setter
-    def data_source_field_name(self, value: pulumi.Input[str]):
+    def data_source_field_name(self, value: pulumi.Input['DataSourceConfluenceAttachmentFieldName']):
         pulumi.set(self, "data_source_field_name", value)
 
     @property
@@ -242,7 +243,7 @@ class DataSourceConfluenceBlogConfigurationArgs:
 @pulumi.input_type
 class DataSourceConfluenceBlogToIndexFieldMappingArgs:
     def __init__(__self__, *,
-                 data_source_field_name: pulumi.Input[str],
+                 data_source_field_name: pulumi.Input['DataSourceConfluenceBlogFieldName'],
                  index_field_name: pulumi.Input[str],
                  date_field_format: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source_field_name", data_source_field_name)
@@ -252,11 +253,11 @@ class DataSourceConfluenceBlogToIndexFieldMappingArgs:
 
     @property
     @pulumi.getter(name="dataSourceFieldName")
-    def data_source_field_name(self) -> pulumi.Input[str]:
+    def data_source_field_name(self) -> pulumi.Input['DataSourceConfluenceBlogFieldName']:
         return pulumi.get(self, "data_source_field_name")
 
     @data_source_field_name.setter
-    def data_source_field_name(self, value: pulumi.Input[str]):
+    def data_source_field_name(self, value: pulumi.Input['DataSourceConfluenceBlogFieldName']):
         pulumi.set(self, "data_source_field_name", value)
 
     @property
@@ -283,7 +284,7 @@ class DataSourceConfluenceConfigurationArgs:
     def __init__(__self__, *,
                  secret_arn: pulumi.Input[str],
                  server_url: pulumi.Input[str],
-                 version: pulumi.Input[str],
+                 version: pulumi.Input['DataSourceConfluenceVersion'],
                  attachment_configuration: Optional[pulumi.Input['DataSourceConfluenceAttachmentConfigurationArgs']] = None,
                  blog_configuration: Optional[pulumi.Input['DataSourceConfluenceBlogConfigurationArgs']] = None,
                  exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -329,11 +330,11 @@ class DataSourceConfluenceConfigurationArgs:
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Input[str]:
+    def version(self) -> pulumi.Input['DataSourceConfluenceVersion']:
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: pulumi.Input[str]):
+    def version(self, value: pulumi.Input['DataSourceConfluenceVersion']):
         pulumi.set(self, "version", value)
 
     @property
@@ -420,7 +421,7 @@ class DataSourceConfluencePageConfigurationArgs:
 @pulumi.input_type
 class DataSourceConfluencePageToIndexFieldMappingArgs:
     def __init__(__self__, *,
-                 data_source_field_name: pulumi.Input[str],
+                 data_source_field_name: pulumi.Input['DataSourceConfluencePageFieldName'],
                  index_field_name: pulumi.Input[str],
                  date_field_format: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source_field_name", data_source_field_name)
@@ -430,11 +431,11 @@ class DataSourceConfluencePageToIndexFieldMappingArgs:
 
     @property
     @pulumi.getter(name="dataSourceFieldName")
-    def data_source_field_name(self) -> pulumi.Input[str]:
+    def data_source_field_name(self) -> pulumi.Input['DataSourceConfluencePageFieldName']:
         return pulumi.get(self, "data_source_field_name")
 
     @data_source_field_name.setter
-    def data_source_field_name(self, value: pulumi.Input[str]):
+    def data_source_field_name(self, value: pulumi.Input['DataSourceConfluencePageFieldName']):
         pulumi.set(self, "data_source_field_name", value)
 
     @property
@@ -524,7 +525,7 @@ class DataSourceConfluenceSpaceConfigurationArgs:
 @pulumi.input_type
 class DataSourceConfluenceSpaceToIndexFieldMappingArgs:
     def __init__(__self__, *,
-                 data_source_field_name: pulumi.Input[str],
+                 data_source_field_name: pulumi.Input['DataSourceConfluenceSpaceFieldName'],
                  index_field_name: pulumi.Input[str],
                  date_field_format: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "data_source_field_name", data_source_field_name)
@@ -534,11 +535,11 @@ class DataSourceConfluenceSpaceToIndexFieldMappingArgs:
 
     @property
     @pulumi.getter(name="dataSourceFieldName")
-    def data_source_field_name(self) -> pulumi.Input[str]:
+    def data_source_field_name(self) -> pulumi.Input['DataSourceConfluenceSpaceFieldName']:
         return pulumi.get(self, "data_source_field_name")
 
     @data_source_field_name.setter
-    def data_source_field_name(self, value: pulumi.Input[str]):
+    def data_source_field_name(self, value: pulumi.Input['DataSourceConfluenceSpaceFieldName']):
         pulumi.set(self, "data_source_field_name", value)
 
     @property
@@ -792,7 +793,7 @@ class DataSourceDatabaseConfigurationArgs:
     def __init__(__self__, *,
                  column_configuration: pulumi.Input['DataSourceColumnConfigurationArgs'],
                  connection_configuration: pulumi.Input['DataSourceConnectionConfigurationArgs'],
-                 database_engine_type: pulumi.Input[str],
+                 database_engine_type: pulumi.Input['DataSourceDatabaseEngineType'],
                  acl_configuration: Optional[pulumi.Input['DataSourceAclConfigurationArgs']] = None,
                  sql_configuration: Optional[pulumi.Input['DataSourceSqlConfigurationArgs']] = None,
                  vpc_configuration: Optional[pulumi.Input['DataSourceDataSourceVpcConfigurationArgs']] = None):
@@ -826,11 +827,11 @@ class DataSourceDatabaseConfigurationArgs:
 
     @property
     @pulumi.getter(name="databaseEngineType")
-    def database_engine_type(self) -> pulumi.Input[str]:
+    def database_engine_type(self) -> pulumi.Input['DataSourceDatabaseEngineType']:
         return pulumi.get(self, "database_engine_type")
 
     @database_engine_type.setter
-    def database_engine_type(self, value: pulumi.Input[str]):
+    def database_engine_type(self, value: pulumi.Input['DataSourceDatabaseEngineType']):
         pulumi.set(self, "database_engine_type", value)
 
     @property
@@ -1193,7 +1194,7 @@ class DataSourceSalesforceChatterFeedConfigurationArgs:
                  document_data_field_name: pulumi.Input[str],
                  document_title_field_name: Optional[pulumi.Input[str]] = None,
                  field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]] = None,
-                 include_filter_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 include_filter_types: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]]] = None):
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
         if document_title_field_name is not None:
             pulumi.set(__self__, "document_title_field_name", document_title_field_name)
@@ -1231,11 +1232,11 @@ class DataSourceSalesforceChatterFeedConfigurationArgs:
 
     @property
     @pulumi.getter(name="includeFilterTypes")
-    def include_filter_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def include_filter_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]]]:
         return pulumi.get(self, "include_filter_types")
 
     @include_filter_types.setter
-    def include_filter_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def include_filter_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceChatterFeedIncludeFilterType']]]]):
         pulumi.set(self, "include_filter_types", value)
 
 
@@ -1404,7 +1405,7 @@ class DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs:
 @pulumi.input_type
 class DataSourceSalesforceKnowledgeArticleConfigurationArgs:
     def __init__(__self__, *,
-                 included_states: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 included_states: pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceKnowledgeArticleState']]],
                  custom_knowledge_article_type_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs']]]] = None,
                  standard_knowledge_article_type_configuration: Optional[pulumi.Input['DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs']] = None):
         pulumi.set(__self__, "included_states", included_states)
@@ -1415,11 +1416,11 @@ class DataSourceSalesforceKnowledgeArticleConfigurationArgs:
 
     @property
     @pulumi.getter(name="includedStates")
-    def included_states(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def included_states(self) -> pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceKnowledgeArticleState']]]:
         return pulumi.get(self, "included_states")
 
     @included_states.setter
-    def included_states(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def included_states(self, value: pulumi.Input[Sequence[pulumi.Input['DataSourceSalesforceKnowledgeArticleState']]]):
         pulumi.set(self, "included_states", value)
 
     @property
@@ -1514,7 +1515,7 @@ class DataSourceSalesforceStandardObjectAttachmentConfigurationArgs:
 class DataSourceSalesforceStandardObjectConfigurationArgs:
     def __init__(__self__, *,
                  document_data_field_name: pulumi.Input[str],
-                 name: pulumi.Input[str],
+                 name: pulumi.Input['DataSourceSalesforceStandardObjectName'],
                  document_title_field_name: Optional[pulumi.Input[str]] = None,
                  field_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceDataSourceToIndexFieldMappingArgs']]]] = None):
         pulumi.set(__self__, "document_data_field_name", document_data_field_name)
@@ -1535,11 +1536,11 @@ class DataSourceSalesforceStandardObjectConfigurationArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input['DataSourceSalesforceStandardObjectName']:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input['DataSourceSalesforceStandardObjectName']):
         pulumi.set(self, "name", value)
 
     @property
@@ -1566,7 +1567,7 @@ class DataSourceServiceNowConfigurationArgs:
     def __init__(__self__, *,
                  host_url: pulumi.Input[str],
                  secret_arn: pulumi.Input[str],
-                 service_now_build_version: pulumi.Input[str],
+                 service_now_build_version: pulumi.Input['DataSourceServiceNowBuildVersionType'],
                  knowledge_article_configuration: Optional[pulumi.Input['DataSourceServiceNowKnowledgeArticleConfigurationArgs']] = None,
                  service_catalog_configuration: Optional[pulumi.Input['DataSourceServiceNowServiceCatalogConfigurationArgs']] = None):
         pulumi.set(__self__, "host_url", host_url)
@@ -1597,11 +1598,11 @@ class DataSourceServiceNowConfigurationArgs:
 
     @property
     @pulumi.getter(name="serviceNowBuildVersion")
-    def service_now_build_version(self) -> pulumi.Input[str]:
+    def service_now_build_version(self) -> pulumi.Input['DataSourceServiceNowBuildVersionType']:
         return pulumi.get(self, "service_now_build_version")
 
     @service_now_build_version.setter
-    def service_now_build_version(self, value: pulumi.Input[str]):
+    def service_now_build_version(self, value: pulumi.Input['DataSourceServiceNowBuildVersionType']):
         pulumi.set(self, "service_now_build_version", value)
 
     @property
@@ -1779,7 +1780,7 @@ class DataSourceServiceNowServiceCatalogConfigurationArgs:
 class DataSourceSharePointConfigurationArgs:
     def __init__(__self__, *,
                  secret_arn: pulumi.Input[str],
-                 share_point_version: pulumi.Input[str],
+                 share_point_version: pulumi.Input['DataSourceSharePointConfigurationSharePointVersion'],
                  urls: pulumi.Input[Sequence[pulumi.Input[str]]],
                  crawl_attachments: Optional[pulumi.Input[bool]] = None,
                  disable_local_groups: Optional[pulumi.Input[bool]] = None,
@@ -1823,11 +1824,11 @@ class DataSourceSharePointConfigurationArgs:
 
     @property
     @pulumi.getter(name="sharePointVersion")
-    def share_point_version(self) -> pulumi.Input[str]:
+    def share_point_version(self) -> pulumi.Input['DataSourceSharePointConfigurationSharePointVersion']:
         return pulumi.get(self, "share_point_version")
 
     @share_point_version.setter
-    def share_point_version(self, value: pulumi.Input[str]):
+    def share_point_version(self, value: pulumi.Input['DataSourceSharePointConfigurationSharePointVersion']):
         pulumi.set(self, "share_point_version", value)
 
     @property
@@ -1915,17 +1916,17 @@ class DataSourceSharePointConfigurationArgs:
 @pulumi.input_type
 class DataSourceSqlConfigurationArgs:
     def __init__(__self__, *,
-                 query_identifiers_enclosing_option: Optional[pulumi.Input[str]] = None):
+                 query_identifiers_enclosing_option: Optional[pulumi.Input['DataSourceQueryIdentifiersEnclosingOption']] = None):
         if query_identifiers_enclosing_option is not None:
             pulumi.set(__self__, "query_identifiers_enclosing_option", query_identifiers_enclosing_option)
 
     @property
     @pulumi.getter(name="queryIdentifiersEnclosingOption")
-    def query_identifiers_enclosing_option(self) -> Optional[pulumi.Input[str]]:
+    def query_identifiers_enclosing_option(self) -> Optional[pulumi.Input['DataSourceQueryIdentifiersEnclosingOption']]:
         return pulumi.get(self, "query_identifiers_enclosing_option")
 
     @query_identifiers_enclosing_option.setter
-    def query_identifiers_enclosing_option(self, value: Optional[pulumi.Input[str]]):
+    def query_identifiers_enclosing_option(self, value: Optional[pulumi.Input['DataSourceQueryIdentifiersEnclosingOption']]):
         pulumi.set(self, "query_identifiers_enclosing_option", value)
 
 
@@ -2063,7 +2064,7 @@ class IndexCapacityUnitsConfigurationArgs:
 class IndexDocumentMetadataConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['IndexDocumentAttributeValueType'],
                  relevance: Optional[pulumi.Input['IndexRelevanceArgs']] = None,
                  search: Optional[pulumi.Input['IndexSearchArgs']] = None):
         pulumi.set(__self__, "name", name)
@@ -2084,11 +2085,11 @@ class IndexDocumentMetadataConfigurationArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['IndexDocumentAttributeValueType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['IndexDocumentAttributeValueType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -2140,7 +2141,7 @@ class IndexJsonTokenTypeConfigurationArgs:
 @pulumi.input_type
 class IndexJwtTokenTypeConfigurationArgs:
     def __init__(__self__, *,
-                 key_location: pulumi.Input[str],
+                 key_location: pulumi.Input['IndexKeyLocation'],
                  claim_regex: Optional[pulumi.Input[str]] = None,
                  group_attribute_field: Optional[pulumi.Input[str]] = None,
                  issuer: Optional[pulumi.Input[str]] = None,
@@ -2163,11 +2164,11 @@ class IndexJwtTokenTypeConfigurationArgs:
 
     @property
     @pulumi.getter(name="keyLocation")
-    def key_location(self) -> pulumi.Input[str]:
+    def key_location(self) -> pulumi.Input['IndexKeyLocation']:
         return pulumi.get(self, "key_location")
 
     @key_location.setter
-    def key_location(self, value: pulumi.Input[str]):
+    def key_location(self, value: pulumi.Input['IndexKeyLocation']):
         pulumi.set(self, "key_location", value)
 
     @property
@@ -2231,7 +2232,7 @@ class IndexRelevanceArgs:
                  duration: Optional[pulumi.Input[str]] = None,
                  freshness: Optional[pulumi.Input[bool]] = None,
                  importance: Optional[pulumi.Input[int]] = None,
-                 rank_order: Optional[pulumi.Input[str]] = None,
+                 rank_order: Optional[pulumi.Input['IndexOrder']] = None,
                  value_importance_items: Optional[pulumi.Input[Sequence[pulumi.Input['IndexValueImportanceItemArgs']]]] = None):
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
@@ -2273,11 +2274,11 @@ class IndexRelevanceArgs:
 
     @property
     @pulumi.getter(name="rankOrder")
-    def rank_order(self) -> Optional[pulumi.Input[str]]:
+    def rank_order(self) -> Optional[pulumi.Input['IndexOrder']]:
         return pulumi.get(self, "rank_order")
 
     @rank_order.setter
-    def rank_order(self, value: Optional[pulumi.Input[str]]):
+    def rank_order(self, value: Optional[pulumi.Input['IndexOrder']]):
         pulumi.set(self, "rank_order", value)
 
     @property

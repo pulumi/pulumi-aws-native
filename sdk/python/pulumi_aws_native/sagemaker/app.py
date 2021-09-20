@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AppArgs', 'App']
@@ -16,7 +17,7 @@ __all__ = ['AppArgs', 'App']
 class AppArgs:
     def __init__(__self__, *,
                  app_name: pulumi.Input[str],
-                 app_type: pulumi.Input[str],
+                 app_type: pulumi.Input['AppAppType'],
                  domain_id: pulumi.Input[str],
                  user_profile_name: pulumi.Input[str],
                  resource_spec: Optional[pulumi.Input['AppResourceSpecArgs']] = None,
@@ -24,7 +25,7 @@ class AppArgs:
         """
         The set of arguments for constructing a App resource.
         :param pulumi.Input[str] app_name: The name of the app.
-        :param pulumi.Input[str] app_type: The type of app.
+        :param pulumi.Input['AppAppType'] app_type: The type of app.
         :param pulumi.Input[str] domain_id: The domain ID.
         :param pulumi.Input[str] user_profile_name: The user profile name.
         :param pulumi.Input['AppResourceSpecArgs'] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
@@ -53,14 +54,14 @@ class AppArgs:
 
     @property
     @pulumi.getter(name="appType")
-    def app_type(self) -> pulumi.Input[str]:
+    def app_type(self) -> pulumi.Input['AppAppType']:
         """
         The type of app.
         """
         return pulumi.get(self, "app_type")
 
     @app_type.setter
-    def app_type(self, value: pulumi.Input[str]):
+    def app_type(self, value: pulumi.Input['AppAppType']):
         pulumi.set(self, "app_type", value)
 
     @property
@@ -118,7 +119,7 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_name: Optional[pulumi.Input[str]] = None,
-                 app_type: Optional[pulumi.Input[str]] = None,
+                 app_type: Optional[pulumi.Input['AppAppType']] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
                  resource_spec: Optional[pulumi.Input[pulumi.InputType['AppResourceSpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppTagArgs']]]]] = None,
@@ -130,7 +131,7 @@ class App(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_name: The name of the app.
-        :param pulumi.Input[str] app_type: The type of app.
+        :param pulumi.Input['AppAppType'] app_type: The type of app.
         :param pulumi.Input[str] domain_id: The domain ID.
         :param pulumi.Input[pulumi.InputType['AppResourceSpecArgs']] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppTagArgs']]]] tags: A list of tags to apply to the app.
@@ -161,7 +162,7 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_name: Optional[pulumi.Input[str]] = None,
-                 app_type: Optional[pulumi.Input[str]] = None,
+                 app_type: Optional[pulumi.Input['AppAppType']] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
                  resource_spec: Optional[pulumi.Input[pulumi.InputType['AppResourceSpecArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppTagArgs']]]]] = None,
@@ -242,7 +243,7 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appType")
-    def app_type(self) -> pulumi.Output[str]:
+    def app_type(self) -> pulumi.Output['AppAppType']:
         """
         The type of app.
         """

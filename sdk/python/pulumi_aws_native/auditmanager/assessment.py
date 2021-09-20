@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AssessmentArgs', 'Assessment']
@@ -22,7 +23,7 @@ class AssessmentArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]]] = None,
                  scope: Optional[pulumi.Input['AssessmentScopeArgs']] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['AssessmentAssessmentStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentTagArgs']]]] = None):
         """
         The set of arguments for constructing a Assessment resource.
@@ -116,11 +117,11 @@ class AssessmentArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input['AssessmentAssessmentStatus']]:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input['AssessmentAssessmentStatus']]):
         pulumi.set(self, "status", value)
 
     @property
@@ -148,7 +149,7 @@ class Assessment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArgs']]]]] = None,
                  scope: Optional[pulumi.Input[pulumi.InputType['AssessmentScopeArgs']]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['AssessmentAssessmentStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -190,7 +191,7 @@ class Assessment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArgs']]]]] = None,
                  scope: Optional[pulumi.Input[pulumi.InputType['AssessmentScopeArgs']]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['AssessmentAssessmentStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -317,7 +318,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional[str]]:
+    def status(self) -> pulumi.Output[Optional['AssessmentAssessmentStatus']]:
         return pulumi.get(self, "status")
 
     @property

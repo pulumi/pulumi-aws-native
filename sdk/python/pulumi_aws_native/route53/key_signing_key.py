@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['KeySigningKeyArgs', 'KeySigningKey']
 
@@ -16,13 +17,13 @@ class KeySigningKeyArgs:
                  hosted_zone_id: pulumi.Input[str],
                  key_management_service_arn: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 status: pulumi.Input[str]):
+                 status: pulumi.Input['KeySigningKeyStatus']):
         """
         The set of arguments for constructing a KeySigningKey resource.
         :param pulumi.Input[str] hosted_zone_id: The unique string (ID) used to identify a hosted zone.
         :param pulumi.Input[str] key_management_service_arn: The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management Service (KMS). The KeyManagementServiceArn must be unique for each key signing key (KSK) in a single hosted zone.
         :param pulumi.Input[str] name: An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
-        :param pulumi.Input[str] status: A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
+        :param pulumi.Input['KeySigningKeyStatus'] status: A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
         """
         pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
         pulumi.set(__self__, "key_management_service_arn", key_management_service_arn)
@@ -67,14 +68,14 @@ class KeySigningKeyArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input[str]:
+    def status(self) -> pulumi.Input['KeySigningKeyStatus']:
         """
         A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[str]):
+    def status(self, value: pulumi.Input['KeySigningKeyStatus']):
         pulumi.set(self, "status", value)
 
 
@@ -86,7 +87,7 @@ class KeySigningKey(pulumi.CustomResource):
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  key_management_service_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['KeySigningKeyStatus']] = None,
                  __props__=None):
         """
         Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
@@ -96,7 +97,7 @@ class KeySigningKey(pulumi.CustomResource):
         :param pulumi.Input[str] hosted_zone_id: The unique string (ID) used to identify a hosted zone.
         :param pulumi.Input[str] key_management_service_arn: The Amazon resource name (ARN) for a customer managed key (CMK) in AWS Key Management Service (KMS). The KeyManagementServiceArn must be unique for each key signing key (KSK) in a single hosted zone.
         :param pulumi.Input[str] name: An alphanumeric string used to identify a key signing key (KSK). Name must be unique for each key signing key in the same hosted zone.
-        :param pulumi.Input[str] status: A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
+        :param pulumi.Input['KeySigningKeyStatus'] status: A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
         """
         ...
     @overload
@@ -125,7 +126,7 @@ class KeySigningKey(pulumi.CustomResource):
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  key_management_service_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['KeySigningKeyStatus']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -204,7 +205,7 @@ class KeySigningKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output['KeySigningKeyStatus']:
         """
         A string specifying the initial status of the key signing key (KSK). You can set the value to ACTIVE or INACTIVE.
         """

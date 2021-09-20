@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .config import *
 from .dataflow_endpoint_group import *
 from .mission_profile import *

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ModelPackageGroupArgs', 'ModelPackageGroup']
@@ -198,7 +199,7 @@ class ModelPackageGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="modelPackageGroupStatus")
-    def model_package_group_status(self) -> pulumi.Output[str]:
+    def model_package_group_status(self) -> pulumi.Output['ModelPackageGroupModelPackageGroupStatus']:
         """
         The status of a modelpackage group job.
         """

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'AccessPolicyAccessPolicyIdentityArgs',
@@ -279,12 +280,12 @@ class AssetAssetPropertyArgs:
     def __init__(__self__, *,
                  logical_id: pulumi.Input[str],
                  alias: Optional[pulumi.Input[str]] = None,
-                 notification_state: Optional[pulumi.Input[str]] = None):
+                 notification_state: Optional[pulumi.Input['AssetAssetPropertyNotificationState']] = None):
         """
         The asset property's definition, alias, and notification state.
         :param pulumi.Input[str] logical_id: Customer provided ID for property.
         :param pulumi.Input[str] alias: The property alias that identifies the property.
-        :param pulumi.Input[str] notification_state: The MQTT notification state (ENABLED or DISABLED) for this asset property.
+        :param pulumi.Input['AssetAssetPropertyNotificationState'] notification_state: The MQTT notification state (ENABLED or DISABLED) for this asset property.
         """
         pulumi.set(__self__, "logical_id", logical_id)
         if alias is not None:
@@ -318,14 +319,14 @@ class AssetAssetPropertyArgs:
 
     @property
     @pulumi.getter(name="notificationState")
-    def notification_state(self) -> Optional[pulumi.Input[str]]:
+    def notification_state(self) -> Optional[pulumi.Input['AssetAssetPropertyNotificationState']]:
         """
         The MQTT notification state (ENABLED or DISABLED) for this asset property.
         """
         return pulumi.get(self, "notification_state")
 
     @notification_state.setter
-    def notification_state(self, value: Optional[pulumi.Input[str]]):
+    def notification_state(self, value: Optional[pulumi.Input['AssetAssetPropertyNotificationState']]):
         pulumi.set(self, "notification_state", value)
 
 
@@ -455,19 +456,19 @@ class AssetModelAssetModelHierarchyArgs:
 @pulumi.input_type
 class AssetModelAssetModelPropertyArgs:
     def __init__(__self__, *,
-                 data_type: pulumi.Input[str],
+                 data_type: pulumi.Input['AssetModelDataType'],
                  logical_id: pulumi.Input[str],
                  name: pulumi.Input[str],
                  type: pulumi.Input['AssetModelPropertyTypeArgs'],
-                 data_type_spec: Optional[pulumi.Input[str]] = None,
+                 data_type_spec: Optional[pulumi.Input['AssetModelDataTypeSpec']] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
         Contains information about an asset model property.
-        :param pulumi.Input[str] data_type: The data type of the asset model property.
+        :param pulumi.Input['AssetModelDataType'] data_type: The data type of the asset model property.
         :param pulumi.Input[str] logical_id: Customer provided ID for property.
         :param pulumi.Input[str] name: The name of the asset model property.
         :param pulumi.Input['AssetModelPropertyTypeArgs'] type: The property type
-        :param pulumi.Input[str] data_type_spec: The data type of the structure for this property.
+        :param pulumi.Input['AssetModelDataTypeSpec'] data_type_spec: The data type of the structure for this property.
         :param pulumi.Input[str] unit: The unit of the asset model property, such as Newtons or RPM.
         """
         pulumi.set(__self__, "data_type", data_type)
@@ -481,14 +482,14 @@ class AssetModelAssetModelPropertyArgs:
 
     @property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> pulumi.Input[str]:
+    def data_type(self) -> pulumi.Input['AssetModelDataType']:
         """
         The data type of the asset model property.
         """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
-    def data_type(self, value: pulumi.Input[str]):
+    def data_type(self, value: pulumi.Input['AssetModelDataType']):
         pulumi.set(self, "data_type", value)
 
     @property
@@ -529,14 +530,14 @@ class AssetModelAssetModelPropertyArgs:
 
     @property
     @pulumi.getter(name="dataTypeSpec")
-    def data_type_spec(self) -> Optional[pulumi.Input[str]]:
+    def data_type_spec(self) -> Optional[pulumi.Input['AssetModelDataTypeSpec']]:
         """
         The data type of the structure for this property.
         """
         return pulumi.get(self, "data_type_spec")
 
     @data_type_spec.setter
-    def data_type_spec(self, value: Optional[pulumi.Input[str]]):
+    def data_type_spec(self, value: Optional[pulumi.Input['AssetModelDataTypeSpec']]):
         pulumi.set(self, "data_type_spec", value)
 
     @property
@@ -681,7 +682,7 @@ class AssetModelMetricArgs:
 @pulumi.input_type
 class AssetModelPropertyTypeArgs:
     def __init__(__self__, *,
-                 type_name: pulumi.Input[str],
+                 type_name: pulumi.Input['AssetModelTypeName'],
                  attribute: Optional[pulumi.Input['AssetModelAttributeArgs']] = None,
                  metric: Optional[pulumi.Input['AssetModelMetricArgs']] = None,
                  transform: Optional[pulumi.Input['AssetModelTransformArgs']] = None):
@@ -698,11 +699,11 @@ class AssetModelPropertyTypeArgs:
 
     @property
     @pulumi.getter(name="typeName")
-    def type_name(self) -> pulumi.Input[str]:
+    def type_name(self) -> pulumi.Input['AssetModelTypeName']:
         return pulumi.get(self, "type_name")
 
     @type_name.setter
-    def type_name(self, value: pulumi.Input[str]):
+    def type_name(self, value: pulumi.Input['AssetModelTypeName']):
         pulumi.set(self, "type_name", value)
 
     @property

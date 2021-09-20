@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'AccessPointVpcConfigurationArgs',
@@ -92,7 +93,7 @@ class BucketRuleArgs:
                  expiration_in_days: Optional[pulumi.Input[int]] = None,
                  filter: Optional[Any] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input['BucketRuleStatus']] = None):
         """
         Specifies lifecycle rules for an Amazon S3Outposts bucket. You must specify at least one of the following: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays.
         :param pulumi.Input['BucketAbortIncompleteMultipartUploadArgs'] abort_incomplete_multipart_upload: Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3Outposts bucket.
@@ -176,11 +177,11 @@ class BucketRuleArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input['BucketRuleStatus']]:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input['BucketRuleStatus']]):
         pulumi.set(self, "status", value)
 
 

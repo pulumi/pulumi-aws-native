@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['JobArgs', 'Job']
@@ -17,14 +18,14 @@ class JobArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['JobType'],
                  data_catalog_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobDataCatalogOutputArgs']]]] = None,
                  database_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['JobDatabaseOutputArgs']]]] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
-                 encryption_mode: Optional[pulumi.Input[str]] = None,
+                 encryption_mode: Optional[pulumi.Input['JobEncryptionMode']] = None,
                  job_sample: Optional[pulumi.Input['JobJobSampleArgs']] = None,
-                 log_subscription: Optional[pulumi.Input[str]] = None,
+                 log_subscription: Optional[pulumi.Input['JobLogSubscription']] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  output_location: Optional[pulumi.Input['JobOutputLocationArgs']] = None,
@@ -38,12 +39,12 @@ class JobArgs:
         The set of arguments for constructing a Job resource.
         :param pulumi.Input[str] name: Job name
         :param pulumi.Input[str] role_arn: Role arn
-        :param pulumi.Input[str] type: Job type
+        :param pulumi.Input['JobType'] type: Job type
         :param pulumi.Input[str] dataset_name: Dataset name
         :param pulumi.Input[str] encryption_key_arn: Encryption Key Arn
-        :param pulumi.Input[str] encryption_mode: Encryption mode
+        :param pulumi.Input['JobEncryptionMode'] encryption_mode: Encryption mode
         :param pulumi.Input['JobJobSampleArgs'] job_sample: Job Sample
-        :param pulumi.Input[str] log_subscription: Log subscription
+        :param pulumi.Input['JobLogSubscription'] log_subscription: Log subscription
         :param pulumi.Input[int] max_capacity: Max capacity
         :param pulumi.Input[int] max_retries: Max retries
         :param pulumi.Input['JobOutputLocationArgs'] output_location: Output location
@@ -113,14 +114,14 @@ class JobArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['JobType']:
         """
         Job type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['JobType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -167,14 +168,14 @@ class JobArgs:
 
     @property
     @pulumi.getter(name="encryptionMode")
-    def encryption_mode(self) -> Optional[pulumi.Input[str]]:
+    def encryption_mode(self) -> Optional[pulumi.Input['JobEncryptionMode']]:
         """
         Encryption mode
         """
         return pulumi.get(self, "encryption_mode")
 
     @encryption_mode.setter
-    def encryption_mode(self, value: Optional[pulumi.Input[str]]):
+    def encryption_mode(self, value: Optional[pulumi.Input['JobEncryptionMode']]):
         pulumi.set(self, "encryption_mode", value)
 
     @property
@@ -191,14 +192,14 @@ class JobArgs:
 
     @property
     @pulumi.getter(name="logSubscription")
-    def log_subscription(self) -> Optional[pulumi.Input[str]]:
+    def log_subscription(self) -> Optional[pulumi.Input['JobLogSubscription']]:
         """
         Log subscription
         """
         return pulumi.get(self, "log_subscription")
 
     @log_subscription.setter
-    def log_subscription(self, value: Optional[pulumi.Input[str]]):
+    def log_subscription(self, value: Optional[pulumi.Input['JobLogSubscription']]):
         pulumi.set(self, "log_subscription", value)
 
     @property
@@ -310,9 +311,9 @@ class Job(pulumi.CustomResource):
                  database_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDatabaseOutputArgs']]]]] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
-                 encryption_mode: Optional[pulumi.Input[str]] = None,
+                 encryption_mode: Optional[pulumi.Input['JobEncryptionMode']] = None,
                  job_sample: Optional[pulumi.Input[pulumi.InputType['JobJobSampleArgs']]] = None,
-                 log_subscription: Optional[pulumi.Input[str]] = None,
+                 log_subscription: Optional[pulumi.Input['JobLogSubscription']] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -324,7 +325,7 @@ class Job(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTagArgs']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['JobType']] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataBrew::Job.
@@ -333,9 +334,9 @@ class Job(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dataset_name: Dataset name
         :param pulumi.Input[str] encryption_key_arn: Encryption Key Arn
-        :param pulumi.Input[str] encryption_mode: Encryption mode
+        :param pulumi.Input['JobEncryptionMode'] encryption_mode: Encryption mode
         :param pulumi.Input[pulumi.InputType['JobJobSampleArgs']] job_sample: Job Sample
-        :param pulumi.Input[str] log_subscription: Log subscription
+        :param pulumi.Input['JobLogSubscription'] log_subscription: Log subscription
         :param pulumi.Input[int] max_capacity: Max capacity
         :param pulumi.Input[int] max_retries: Max retries
         :param pulumi.Input[str] name: Job name
@@ -344,7 +345,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] project_name: Project name
         :param pulumi.Input[str] role_arn: Role arn
         :param pulumi.Input[int] timeout: Timeout
-        :param pulumi.Input[str] type: Job type
+        :param pulumi.Input['JobType'] type: Job type
         """
         ...
     @overload
@@ -374,9 +375,9 @@ class Job(pulumi.CustomResource):
                  database_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobDatabaseOutputArgs']]]]] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
                  encryption_key_arn: Optional[pulumi.Input[str]] = None,
-                 encryption_mode: Optional[pulumi.Input[str]] = None,
+                 encryption_mode: Optional[pulumi.Input['JobEncryptionMode']] = None,
                  job_sample: Optional[pulumi.Input[pulumi.InputType['JobJobSampleArgs']]] = None,
-                 log_subscription: Optional[pulumi.Input[str]] = None,
+                 log_subscription: Optional[pulumi.Input['JobLogSubscription']] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -388,7 +389,7 @@ class Job(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTagArgs']]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['JobType']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -497,7 +498,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionMode")
-    def encryption_mode(self) -> pulumi.Output[Optional[str]]:
+    def encryption_mode(self) -> pulumi.Output[Optional['JobEncryptionMode']]:
         """
         Encryption mode
         """
@@ -513,7 +514,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logSubscription")
-    def log_subscription(self) -> pulumi.Output[Optional[str]]:
+    def log_subscription(self) -> pulumi.Output[Optional['JobLogSubscription']]:
         """
         Log subscription
         """
@@ -600,7 +601,7 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output['JobType']:
         """
         Job type
         """

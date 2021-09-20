@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ResourceCollectionArgs', 'ResourceCollection']
@@ -118,7 +119,7 @@ class ResourceCollection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceCollectionType")
-    def resource_collection_type(self) -> pulumi.Output[str]:
+    def resource_collection_type(self) -> pulumi.Output['ResourceCollectionResourceCollectionType']:
         """
         The type of ResourceCollection
         """

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'ReplicationSetRegionConfiguration',
@@ -331,14 +332,14 @@ class ResponsePlanSsmAutomation(dict):
                  role_arn: str,
                  document_version: Optional[str] = None,
                  parameters: Optional[Sequence['outputs.ResponsePlanSsmParameter']] = None,
-                 target_account: Optional[str] = None):
+                 target_account: Optional['ResponsePlanSsmAutomationTargetAccount'] = None):
         """
         The configuration to use when starting the SSM automation document.
         :param str document_name: The document name to use when starting the SSM automation document.
         :param str role_arn: The role ARN to use when starting the SSM automation document.
         :param str document_version: The version of the document to use when starting the SSM automation document.
         :param Sequence['ResponsePlanSsmParameter'] parameters: The parameters to set when starting the SSM automation document.
-        :param str target_account: The account type to use when starting the SSM automation document.
+        :param 'ResponsePlanSsmAutomationTargetAccount' target_account: The account type to use when starting the SSM automation document.
         """
         pulumi.set(__self__, "document_name", document_name)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -383,7 +384,7 @@ class ResponsePlanSsmAutomation(dict):
 
     @property
     @pulumi.getter(name="targetAccount")
-    def target_account(self) -> Optional[str]:
+    def target_account(self) -> Optional['ResponsePlanSsmAutomationTargetAccount']:
         """
         The account type to use when starting the SSM automation document.
         """

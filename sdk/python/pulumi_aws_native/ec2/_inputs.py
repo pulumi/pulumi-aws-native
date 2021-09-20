@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'CarrierGatewayTagArgs',
@@ -117,17 +118,17 @@ class DHCPOptionsTagArgs:
 @pulumi.input_type
 class EC2FleetCapacityReservationOptionsRequestArgs:
     def __init__(__self__, *,
-                 usage_strategy: Optional[pulumi.Input[str]] = None):
+                 usage_strategy: Optional[pulumi.Input['EC2FleetCapacityReservationOptionsRequestUsageStrategy']] = None):
         if usage_strategy is not None:
             pulumi.set(__self__, "usage_strategy", usage_strategy)
 
     @property
     @pulumi.getter(name="usageStrategy")
-    def usage_strategy(self) -> Optional[pulumi.Input[str]]:
+    def usage_strategy(self) -> Optional[pulumi.Input['EC2FleetCapacityReservationOptionsRequestUsageStrategy']]:
         return pulumi.get(self, "usage_strategy")
 
     @usage_strategy.setter
-    def usage_strategy(self, value: Optional[pulumi.Input[str]]):
+    def usage_strategy(self, value: Optional[pulumi.Input['EC2FleetCapacityReservationOptionsRequestUsageStrategy']]):
         pulumi.set(self, "usage_strategy", value)
 
 
@@ -471,8 +472,8 @@ class EC2FleetPlacementArgs:
 @pulumi.input_type
 class EC2FleetSpotOptionsRequestArgs:
     def __init__(__self__, *,
-                 allocation_strategy: Optional[pulumi.Input[str]] = None,
-                 instance_interruption_behavior: Optional[pulumi.Input[str]] = None,
+                 allocation_strategy: Optional[pulumi.Input['EC2FleetSpotOptionsRequestAllocationStrategy']] = None,
+                 instance_interruption_behavior: Optional[pulumi.Input['EC2FleetSpotOptionsRequestInstanceInterruptionBehavior']] = None,
                  instance_pools_to_use_count: Optional[pulumi.Input[int]] = None,
                  max_total_price: Optional[pulumi.Input[str]] = None,
                  min_target_capacity: Optional[pulumi.Input[int]] = None,
@@ -495,20 +496,20 @@ class EC2FleetSpotOptionsRequestArgs:
 
     @property
     @pulumi.getter(name="allocationStrategy")
-    def allocation_strategy(self) -> Optional[pulumi.Input[str]]:
+    def allocation_strategy(self) -> Optional[pulumi.Input['EC2FleetSpotOptionsRequestAllocationStrategy']]:
         return pulumi.get(self, "allocation_strategy")
 
     @allocation_strategy.setter
-    def allocation_strategy(self, value: Optional[pulumi.Input[str]]):
+    def allocation_strategy(self, value: Optional[pulumi.Input['EC2FleetSpotOptionsRequestAllocationStrategy']]):
         pulumi.set(self, "allocation_strategy", value)
 
     @property
     @pulumi.getter(name="instanceInterruptionBehavior")
-    def instance_interruption_behavior(self) -> Optional[pulumi.Input[str]]:
+    def instance_interruption_behavior(self) -> Optional[pulumi.Input['EC2FleetSpotOptionsRequestInstanceInterruptionBehavior']]:
         return pulumi.get(self, "instance_interruption_behavior")
 
     @instance_interruption_behavior.setter
-    def instance_interruption_behavior(self, value: Optional[pulumi.Input[str]]):
+    def instance_interruption_behavior(self, value: Optional[pulumi.Input['EC2FleetSpotOptionsRequestInstanceInterruptionBehavior']]):
         pulumi.set(self, "instance_interruption_behavior", value)
 
     @property
@@ -560,7 +561,7 @@ class EC2FleetSpotOptionsRequestArgs:
 @pulumi.input_type
 class EC2FleetTagSpecificationArgs:
     def __init__(__self__, *,
-                 resource_type: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input['EC2FleetTagSpecificationResourceType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['EC2FleetTagArgs']]]] = None):
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
@@ -569,11 +570,11 @@ class EC2FleetTagSpecificationArgs:
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[str]]:
+    def resource_type(self) -> Optional[pulumi.Input['EC2FleetTagSpecificationResourceType']]:
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[str]]):
+    def resource_type(self, value: Optional[pulumi.Input['EC2FleetTagSpecificationResourceType']]):
         pulumi.set(self, "resource_type", value)
 
     @property
@@ -617,7 +618,7 @@ class EC2FleetTagArgs:
 class EC2FleetTargetCapacitySpecificationRequestArgs:
     def __init__(__self__, *,
                  total_target_capacity: pulumi.Input[int],
-                 default_target_capacity_type: Optional[pulumi.Input[str]] = None,
+                 default_target_capacity_type: Optional[pulumi.Input['EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType']] = None,
                  on_demand_target_capacity: Optional[pulumi.Input[int]] = None,
                  spot_target_capacity: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "total_target_capacity", total_target_capacity)
@@ -639,11 +640,11 @@ class EC2FleetTargetCapacitySpecificationRequestArgs:
 
     @property
     @pulumi.getter(name="defaultTargetCapacityType")
-    def default_target_capacity_type(self) -> Optional[pulumi.Input[str]]:
+    def default_target_capacity_type(self) -> Optional[pulumi.Input['EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType']]:
         return pulumi.get(self, "default_target_capacity_type")
 
     @default_target_capacity_type.setter
-    def default_target_capacity_type(self, value: Optional[pulumi.Input[str]]):
+    def default_target_capacity_type(self, value: Optional[pulumi.Input['EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType']]):
         pulumi.set(self, "default_target_capacity_type", value)
 
     @property
@@ -952,7 +953,7 @@ class SpotFleetEbsBlockDeviceArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
-                 volume_type: Optional[pulumi.Input[str]] = None):
+                 volume_type: Optional[pulumi.Input['SpotFleetEbsBlockDeviceVolumeType']] = None):
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -1013,11 +1014,11 @@ class SpotFleetEbsBlockDeviceArgs:
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[pulumi.Input[str]]:
+    def volume_type(self) -> Optional[pulumi.Input['SpotFleetEbsBlockDeviceVolumeType']]:
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
-    def volume_type(self, value: Optional[pulumi.Input[str]]):
+    def volume_type(self, value: Optional[pulumi.Input['SpotFleetEbsBlockDeviceVolumeType']]):
         pulumi.set(self, "volume_type", value)
 
 
@@ -1401,17 +1402,17 @@ class SpotFleetPrivateIpAddressSpecificationArgs:
 @pulumi.input_type
 class SpotFleetSpotCapacityRebalanceArgs:
     def __init__(__self__, *,
-                 replacement_strategy: Optional[pulumi.Input[str]] = None):
+                 replacement_strategy: Optional[pulumi.Input['SpotFleetSpotCapacityRebalanceReplacementStrategy']] = None):
         if replacement_strategy is not None:
             pulumi.set(__self__, "replacement_strategy", replacement_strategy)
 
     @property
     @pulumi.getter(name="replacementStrategy")
-    def replacement_strategy(self) -> Optional[pulumi.Input[str]]:
+    def replacement_strategy(self) -> Optional[pulumi.Input['SpotFleetSpotCapacityRebalanceReplacementStrategy']]:
         return pulumi.get(self, "replacement_strategy")
 
     @replacement_strategy.setter
-    def replacement_strategy(self, value: Optional[pulumi.Input[str]]):
+    def replacement_strategy(self, value: Optional[pulumi.Input['SpotFleetSpotCapacityRebalanceReplacementStrategy']]):
         pulumi.set(self, "replacement_strategy", value)
 
 
@@ -1644,10 +1645,10 @@ class SpotFleetSpotFleetRequestConfigDataArgs:
     def __init__(__self__, *,
                  iam_fleet_role: pulumi.Input[str],
                  target_capacity: pulumi.Input[int],
-                 allocation_strategy: Optional[pulumi.Input[str]] = None,
+                 allocation_strategy: Optional[pulumi.Input['SpotFleetSpotFleetRequestConfigDataAllocationStrategy']] = None,
                  context: Optional[pulumi.Input[str]] = None,
-                 excess_capacity_termination_policy: Optional[pulumi.Input[str]] = None,
-                 instance_interruption_behavior: Optional[pulumi.Input[str]] = None,
+                 excess_capacity_termination_policy: Optional[pulumi.Input['SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy']] = None,
+                 instance_interruption_behavior: Optional[pulumi.Input['SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior']] = None,
                  instance_pools_to_use_count: Optional[pulumi.Input[int]] = None,
                  launch_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetSpotFleetLaunchSpecificationArgs']]]] = None,
                  launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchTemplateConfigArgs']]]] = None,
@@ -1660,7 +1661,7 @@ class SpotFleetSpotFleetRequestConfigDataArgs:
                  spot_max_total_price: Optional[pulumi.Input[str]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['SpotFleetSpotFleetRequestConfigDataType']] = None,
                  valid_from: Optional[pulumi.Input[str]] = None,
                  valid_until: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "iam_fleet_role", iam_fleet_role)
@@ -1724,11 +1725,11 @@ class SpotFleetSpotFleetRequestConfigDataArgs:
 
     @property
     @pulumi.getter(name="allocationStrategy")
-    def allocation_strategy(self) -> Optional[pulumi.Input[str]]:
+    def allocation_strategy(self) -> Optional[pulumi.Input['SpotFleetSpotFleetRequestConfigDataAllocationStrategy']]:
         return pulumi.get(self, "allocation_strategy")
 
     @allocation_strategy.setter
-    def allocation_strategy(self, value: Optional[pulumi.Input[str]]):
+    def allocation_strategy(self, value: Optional[pulumi.Input['SpotFleetSpotFleetRequestConfigDataAllocationStrategy']]):
         pulumi.set(self, "allocation_strategy", value)
 
     @property
@@ -1742,20 +1743,20 @@ class SpotFleetSpotFleetRequestConfigDataArgs:
 
     @property
     @pulumi.getter(name="excessCapacityTerminationPolicy")
-    def excess_capacity_termination_policy(self) -> Optional[pulumi.Input[str]]:
+    def excess_capacity_termination_policy(self) -> Optional[pulumi.Input['SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy']]:
         return pulumi.get(self, "excess_capacity_termination_policy")
 
     @excess_capacity_termination_policy.setter
-    def excess_capacity_termination_policy(self, value: Optional[pulumi.Input[str]]):
+    def excess_capacity_termination_policy(self, value: Optional[pulumi.Input['SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy']]):
         pulumi.set(self, "excess_capacity_termination_policy", value)
 
     @property
     @pulumi.getter(name="instanceInterruptionBehavior")
-    def instance_interruption_behavior(self) -> Optional[pulumi.Input[str]]:
+    def instance_interruption_behavior(self) -> Optional[pulumi.Input['SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior']]:
         return pulumi.get(self, "instance_interruption_behavior")
 
     @instance_interruption_behavior.setter
-    def instance_interruption_behavior(self, value: Optional[pulumi.Input[str]]):
+    def instance_interruption_behavior(self, value: Optional[pulumi.Input['SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior']]):
         pulumi.set(self, "instance_interruption_behavior", value)
 
     @property
@@ -1868,11 +1869,11 @@ class SpotFleetSpotFleetRequestConfigDataArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['SpotFleetSpotFleetRequestConfigDataType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['SpotFleetSpotFleetRequestConfigDataType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -1897,7 +1898,7 @@ class SpotFleetSpotFleetRequestConfigDataArgs:
 @pulumi.input_type
 class SpotFleetSpotFleetTagSpecificationArgs:
     def __init__(__self__, *,
-                 resource_type: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input['SpotFleetSpotFleetTagSpecificationResourceType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetTagArgs']]]] = None):
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
@@ -1906,11 +1907,11 @@ class SpotFleetSpotFleetTagSpecificationArgs:
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> Optional[pulumi.Input[str]]:
+    def resource_type(self) -> Optional[pulumi.Input['SpotFleetSpotFleetTagSpecificationResourceType']]:
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: Optional[pulumi.Input[str]]):
+    def resource_type(self, value: Optional[pulumi.Input['SpotFleetSpotFleetTagSpecificationResourceType']]):
         pulumi.set(self, "resource_type", value)
 
     @property
@@ -1945,7 +1946,7 @@ class SpotFleetSpotPlacementArgs:
     def __init__(__self__, *,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 tenancy: Optional[pulumi.Input[str]] = None):
+                 tenancy: Optional[pulumi.Input['SpotFleetSpotPlacementTenancy']] = None):
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if group_name is not None:
@@ -1973,11 +1974,11 @@ class SpotFleetSpotPlacementArgs:
 
     @property
     @pulumi.getter
-    def tenancy(self) -> Optional[pulumi.Input[str]]:
+    def tenancy(self) -> Optional[pulumi.Input['SpotFleetSpotPlacementTenancy']]:
         return pulumi.get(self, "tenancy")
 
     @tenancy.setter
-    def tenancy(self, value: Optional[pulumi.Input[str]]):
+    def tenancy(self, value: Optional[pulumi.Input['SpotFleetSpotPlacementTenancy']]):
         pulumi.set(self, "tenancy", value)
 
 

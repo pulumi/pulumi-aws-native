@@ -7,13 +7,14 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['TrackerArgs', 'Tracker']
 
 @pulumi.input_type
 class TrackerArgs:
     def __init__(__self__, *,
-                 pricing_plan: pulumi.Input[str],
+                 pricing_plan: pulumi.Input['TrackerPricingPlan'],
                  tracker_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -32,11 +33,11 @@ class TrackerArgs:
 
     @property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Input[str]:
+    def pricing_plan(self) -> pulumi.Input['TrackerPricingPlan']:
         return pulumi.get(self, "pricing_plan")
 
     @pricing_plan.setter
-    def pricing_plan(self, value: pulumi.Input[str]):
+    def pricing_plan(self, value: pulumi.Input['TrackerPricingPlan']):
         pulumi.set(self, "pricing_plan", value)
 
     @property
@@ -83,7 +84,7 @@ class Tracker(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 pricing_plan: Optional[pulumi.Input[str]] = None,
+                 pricing_plan: Optional[pulumi.Input['TrackerPricingPlan']] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
                  tracker_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -119,7 +120,7 @@ class Tracker(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 pricing_plan: Optional[pulumi.Input[str]] = None,
+                 pricing_plan: Optional[pulumi.Input['TrackerPricingPlan']] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
                  tracker_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -202,7 +203,7 @@ class Tracker(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Output[str]:
+    def pricing_plan(self) -> pulumi.Output['TrackerPricingPlan']:
         return pulumi.get(self, "pricing_plan")
 
     @property

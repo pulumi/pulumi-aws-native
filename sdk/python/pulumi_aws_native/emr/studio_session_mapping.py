@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['StudioSessionMappingArgs', 'StudioSessionMapping']
 
@@ -14,13 +15,13 @@ __all__ = ['StudioSessionMappingArgs', 'StudioSessionMapping']
 class StudioSessionMappingArgs:
     def __init__(__self__, *,
                  identity_name: pulumi.Input[str],
-                 identity_type: pulumi.Input[str],
+                 identity_type: pulumi.Input['StudioSessionMappingIdentityType'],
                  session_policy_arn: pulumi.Input[str],
                  studio_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a StudioSessionMapping resource.
         :param pulumi.Input[str] identity_name: The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
-        :param pulumi.Input[str] identity_type: Specifies whether the identity to map to the Studio is a user or a group.
+        :param pulumi.Input['StudioSessionMappingIdentityType'] identity_type: Specifies whether the identity to map to the Studio is a user or a group.
         :param pulumi.Input[str] session_policy_arn: The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
         :param pulumi.Input[str] studio_id: The ID of the Amazon EMR Studio to which the user or group will be mapped.
         """
@@ -43,14 +44,14 @@ class StudioSessionMappingArgs:
 
     @property
     @pulumi.getter(name="identityType")
-    def identity_type(self) -> pulumi.Input[str]:
+    def identity_type(self) -> pulumi.Input['StudioSessionMappingIdentityType']:
         """
         Specifies whether the identity to map to the Studio is a user or a group.
         """
         return pulumi.get(self, "identity_type")
 
     @identity_type.setter
-    def identity_type(self, value: pulumi.Input[str]):
+    def identity_type(self, value: pulumi.Input['StudioSessionMappingIdentityType']):
         pulumi.set(self, "identity_type", value)
 
     @property
@@ -84,7 +85,7 @@ class StudioSessionMapping(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity_name: Optional[pulumi.Input[str]] = None,
-                 identity_type: Optional[pulumi.Input[str]] = None,
+                 identity_type: Optional[pulumi.Input['StudioSessionMappingIdentityType']] = None,
                  session_policy_arn: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -94,7 +95,7 @@ class StudioSessionMapping(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity_name: The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
-        :param pulumi.Input[str] identity_type: Specifies whether the identity to map to the Studio is a user or a group.
+        :param pulumi.Input['StudioSessionMappingIdentityType'] identity_type: Specifies whether the identity to map to the Studio is a user or a group.
         :param pulumi.Input[str] session_policy_arn: The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
         :param pulumi.Input[str] studio_id: The ID of the Amazon EMR Studio to which the user or group will be mapped.
         """
@@ -123,7 +124,7 @@ class StudioSessionMapping(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity_name: Optional[pulumi.Input[str]] = None,
-                 identity_type: Optional[pulumi.Input[str]] = None,
+                 identity_type: Optional[pulumi.Input['StudioSessionMappingIdentityType']] = None,
                  session_policy_arn: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -188,7 +189,7 @@ class StudioSessionMapping(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="identityType")
-    def identity_type(self) -> pulumi.Output[str]:
+    def identity_type(self) -> pulumi.Output['StudioSessionMappingIdentityType']:
         """
         Specifies whether the identity to map to the Studio is a user or a group.
         """

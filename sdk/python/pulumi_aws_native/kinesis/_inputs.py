@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'StreamStreamEncryptionArgs',
@@ -16,11 +17,11 @@ __all__ = [
 @pulumi.input_type
 class StreamStreamEncryptionArgs:
     def __init__(__self__, *,
-                 encryption_type: pulumi.Input[str],
+                 encryption_type: pulumi.Input['StreamStreamEncryptionEncryptionType'],
                  key_id: pulumi.Input[str]):
         """
         When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
-        :param pulumi.Input[str] encryption_type: The encryption type to use. The only valid value is KMS. 
+        :param pulumi.Input['StreamStreamEncryptionEncryptionType'] encryption_type: The encryption type to use. The only valid value is KMS. 
         :param pulumi.Input[str] key_id: The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias aws/kinesis.
         """
         pulumi.set(__self__, "encryption_type", encryption_type)
@@ -28,14 +29,14 @@ class StreamStreamEncryptionArgs:
 
     @property
     @pulumi.getter(name="encryptionType")
-    def encryption_type(self) -> pulumi.Input[str]:
+    def encryption_type(self) -> pulumi.Input['StreamStreamEncryptionEncryptionType']:
         """
         The encryption type to use. The only valid value is KMS. 
         """
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
-    def encryption_type(self, value: pulumi.Input[str]):
+    def encryption_type(self, value: pulumi.Input['StreamStreamEncryptionEncryptionType']):
         pulumi.set(self, "encryption_type", value)
 
     @property

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['ResolverDNSSECConfigArgs', 'ResolverDNSSECConfig']
 
@@ -133,7 +134,7 @@ class ResolverDNSSECConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="validationStatus")
-    def validation_status(self) -> pulumi.Output[str]:
+    def validation_status(self) -> pulumi.Output['ResolverDNSSECConfigValidationStatus']:
         """
         ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
         """

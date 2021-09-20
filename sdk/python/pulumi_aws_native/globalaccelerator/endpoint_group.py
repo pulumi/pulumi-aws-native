@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['EndpointGroupArgs', 'EndpointGroup']
@@ -21,7 +22,7 @@ class EndpointGroupArgs:
                  health_check_interval_seconds: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  health_check_port: Optional[pulumi.Input[int]] = None,
-                 health_check_protocol: Optional[pulumi.Input[str]] = None,
+                 health_check_protocol: Optional[pulumi.Input['EndpointGroupHealthCheckProtocol']] = None,
                  port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]] = None,
                  threshold_count: Optional[pulumi.Input[int]] = None,
                  traffic_dial_percentage: Optional[pulumi.Input[float]] = None):
@@ -32,7 +33,7 @@ class EndpointGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EndpointGroupEndpointConfigurationArgs']]] endpoint_configurations: The list of endpoint objects.
         :param pulumi.Input[int] health_check_interval_seconds: The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
         :param pulumi.Input[int] health_check_port: The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
-        :param pulumi.Input[str] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
+        :param pulumi.Input['EndpointGroupHealthCheckProtocol'] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of the endpoint to unhealthy.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to sent to an AWS Region
         """
@@ -126,14 +127,14 @@ class EndpointGroupArgs:
 
     @property
     @pulumi.getter(name="healthCheckProtocol")
-    def health_check_protocol(self) -> Optional[pulumi.Input[str]]:
+    def health_check_protocol(self) -> Optional[pulumi.Input['EndpointGroupHealthCheckProtocol']]:
         """
         The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         """
         return pulumi.get(self, "health_check_protocol")
 
     @health_check_protocol.setter
-    def health_check_protocol(self, value: Optional[pulumi.Input[str]]):
+    def health_check_protocol(self, value: Optional[pulumi.Input['EndpointGroupHealthCheckProtocol']]):
         pulumi.set(self, "health_check_protocol", value)
 
     @property
@@ -180,7 +181,7 @@ class EndpointGroup(pulumi.CustomResource):
                  health_check_interval_seconds: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  health_check_port: Optional[pulumi.Input[int]] = None,
-                 health_check_protocol: Optional[pulumi.Input[str]] = None,
+                 health_check_protocol: Optional[pulumi.Input['EndpointGroupHealthCheckProtocol']] = None,
                  listener_arn: Optional[pulumi.Input[str]] = None,
                  port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]]] = None,
                  threshold_count: Optional[pulumi.Input[int]] = None,
@@ -195,7 +196,7 @@ class EndpointGroup(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_group_region: The name of the AWS Region where the endpoint group is located
         :param pulumi.Input[int] health_check_interval_seconds: The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
         :param pulumi.Input[int] health_check_port: The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
-        :param pulumi.Input[str] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
+        :param pulumi.Input['EndpointGroupHealthCheckProtocol'] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener
         :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of the endpoint to unhealthy.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to sent to an AWS Region
@@ -229,7 +230,7 @@ class EndpointGroup(pulumi.CustomResource):
                  health_check_interval_seconds: Optional[pulumi.Input[int]] = None,
                  health_check_path: Optional[pulumi.Input[str]] = None,
                  health_check_port: Optional[pulumi.Input[int]] = None,
-                 health_check_protocol: Optional[pulumi.Input[str]] = None,
+                 health_check_protocol: Optional[pulumi.Input['EndpointGroupHealthCheckProtocol']] = None,
                  listener_arn: Optional[pulumi.Input[str]] = None,
                  port_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]]] = None,
                  threshold_count: Optional[pulumi.Input[int]] = None,
@@ -343,7 +344,7 @@ class EndpointGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="healthCheckProtocol")
-    def health_check_protocol(self) -> pulumi.Output[Optional[str]]:
+    def health_check_protocol(self) -> pulumi.Output[Optional['EndpointGroupHealthCheckProtocol']]:
         """
         The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         """

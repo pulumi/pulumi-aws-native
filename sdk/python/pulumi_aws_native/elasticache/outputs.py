@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GlobalReplicationGroupGlobalReplicationGroupMember',
@@ -39,11 +40,11 @@ class GlobalReplicationGroupGlobalReplicationGroupMember(dict):
     def __init__(__self__, *,
                  replication_group_id: Optional[str] = None,
                  replication_group_region: Optional[str] = None,
-                 role: Optional[str] = None):
+                 role: Optional['GlobalReplicationGroupGlobalReplicationGroupMemberRole'] = None):
         """
         :param str replication_group_id: Regionally unique identifier for the member i.e. ReplicationGroupId.
         :param str replication_group_region: The AWS region of the Global Datastore member.
-        :param str role: Indicates the role of the member, primary or secondary.
+        :param 'GlobalReplicationGroupGlobalReplicationGroupMemberRole' role: Indicates the role of the member, primary or secondary.
         """
         if replication_group_id is not None:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
@@ -70,7 +71,7 @@ class GlobalReplicationGroupGlobalReplicationGroupMember(dict):
 
     @property
     @pulumi.getter
-    def role(self) -> Optional[str]:
+    def role(self) -> Optional['GlobalReplicationGroupGlobalReplicationGroupMemberRole']:
         """
         Indicates the role of the member, primary or secondary.
         """

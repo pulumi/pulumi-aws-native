@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'AgentTagArgs',
@@ -182,24 +183,24 @@ class LocationFSxWindowsTagArgs:
 @pulumi.input_type
 class LocationNFSMountOptionsArgs:
     def __init__(__self__, *,
-                 version: Optional[pulumi.Input[str]] = None):
+                 version: Optional[pulumi.Input['LocationNFSMountOptionsVersion']] = None):
         """
         The NFS mount options that DataSync can use to mount your NFS share.
-        :param pulumi.Input[str] version: The specific NFS version that you want DataSync to use to mount your NFS share.
+        :param pulumi.Input['LocationNFSMountOptionsVersion'] version: The specific NFS version that you want DataSync to use to mount your NFS share.
         """
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[str]]:
+    def version(self) -> Optional[pulumi.Input['LocationNFSMountOptionsVersion']]:
         """
         The specific NFS version that you want DataSync to use to mount your NFS share.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[str]]):
+    def version(self, value: Optional[pulumi.Input['LocationNFSMountOptionsVersion']]):
         pulumi.set(self, "version", value)
 
 
@@ -366,24 +367,24 @@ class LocationS3TagArgs:
 @pulumi.input_type
 class LocationSMBMountOptionsArgs:
     def __init__(__self__, *,
-                 version: Optional[pulumi.Input[str]] = None):
+                 version: Optional[pulumi.Input['LocationSMBMountOptionsVersion']] = None):
         """
         The mount options used by DataSync to access the SMB server.
-        :param pulumi.Input[str] version: The specific SMB version that you want DataSync to use to mount your SMB share.
+        :param pulumi.Input['LocationSMBMountOptionsVersion'] version: The specific SMB version that you want DataSync to use to mount your SMB share.
         """
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[str]]:
+    def version(self) -> Optional[pulumi.Input['LocationSMBMountOptionsVersion']]:
         """
         The specific SMB version that you want DataSync to use to mount your SMB share.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[str]]):
+    def version(self, value: Optional[pulumi.Input['LocationSMBMountOptionsVersion']]):
         pulumi.set(self, "version", value)
 
 
@@ -428,11 +429,11 @@ class LocationSMBTagArgs:
 @pulumi.input_type
 class TaskFilterRuleArgs:
     def __init__(__self__, *,
-                 filter_type: Optional[pulumi.Input[str]] = None,
+                 filter_type: Optional[pulumi.Input['TaskFilterRuleFilterType']] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         Specifies which files folders and objects to include or exclude when transferring files from source to destination.
-        :param pulumi.Input[str] filter_type: The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
+        :param pulumi.Input['TaskFilterRuleFilterType'] filter_type: The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
         :param pulumi.Input[str] value: A single filter string that consists of the patterns to include or exclude. The patterns are delimited by "|".
         """
         if filter_type is not None:
@@ -442,14 +443,14 @@ class TaskFilterRuleArgs:
 
     @property
     @pulumi.getter(name="filterType")
-    def filter_type(self) -> Optional[pulumi.Input[str]]:
+    def filter_type(self) -> Optional[pulumi.Input['TaskFilterRuleFilterType']]:
         """
         The type of filter rule to apply. AWS DataSync only supports the SIMPLE_PATTERN rule type.
         """
         return pulumi.get(self, "filter_type")
 
     @filter_type.setter
-    def filter_type(self, value: Optional[pulumi.Input[str]]):
+    def filter_type(self, value: Optional[pulumi.Input['TaskFilterRuleFilterType']]):
         pulumi.set(self, "filter_type", value)
 
     @property
@@ -468,36 +469,36 @@ class TaskFilterRuleArgs:
 @pulumi.input_type
 class TaskOptionsArgs:
     def __init__(__self__, *,
-                 atime: Optional[pulumi.Input[str]] = None,
+                 atime: Optional[pulumi.Input['TaskOptionsAtime']] = None,
                  bytes_per_second: Optional[pulumi.Input[int]] = None,
-                 gid: Optional[pulumi.Input[str]] = None,
-                 log_level: Optional[pulumi.Input[str]] = None,
-                 mtime: Optional[pulumi.Input[str]] = None,
-                 overwrite_mode: Optional[pulumi.Input[str]] = None,
-                 posix_permissions: Optional[pulumi.Input[str]] = None,
-                 preserve_deleted_files: Optional[pulumi.Input[str]] = None,
-                 preserve_devices: Optional[pulumi.Input[str]] = None,
-                 security_descriptor_copy_flags: Optional[pulumi.Input[str]] = None,
-                 task_queueing: Optional[pulumi.Input[str]] = None,
-                 transfer_mode: Optional[pulumi.Input[str]] = None,
-                 uid: Optional[pulumi.Input[str]] = None,
-                 verify_mode: Optional[pulumi.Input[str]] = None):
+                 gid: Optional[pulumi.Input['TaskOptionsGid']] = None,
+                 log_level: Optional[pulumi.Input['TaskOptionsLogLevel']] = None,
+                 mtime: Optional[pulumi.Input['TaskOptionsMtime']] = None,
+                 overwrite_mode: Optional[pulumi.Input['TaskOptionsOverwriteMode']] = None,
+                 posix_permissions: Optional[pulumi.Input['TaskOptionsPosixPermissions']] = None,
+                 preserve_deleted_files: Optional[pulumi.Input['TaskOptionsPreserveDeletedFiles']] = None,
+                 preserve_devices: Optional[pulumi.Input['TaskOptionsPreserveDevices']] = None,
+                 security_descriptor_copy_flags: Optional[pulumi.Input['TaskOptionsSecurityDescriptorCopyFlags']] = None,
+                 task_queueing: Optional[pulumi.Input['TaskOptionsTaskQueueing']] = None,
+                 transfer_mode: Optional[pulumi.Input['TaskOptionsTransferMode']] = None,
+                 uid: Optional[pulumi.Input['TaskOptionsUid']] = None,
+                 verify_mode: Optional[pulumi.Input['TaskOptionsVerifyMode']] = None):
         """
         Represents the options that are available to control the behavior of a StartTaskExecution operation.
-        :param pulumi.Input[str] atime: A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
+        :param pulumi.Input['TaskOptionsAtime'] atime: A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
         :param pulumi.Input[int] bytes_per_second: A value that limits the bandwidth used by AWS DataSync.
-        :param pulumi.Input[str] gid: The group ID (GID) of the file's owners.
-        :param pulumi.Input[str] log_level: A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
-        :param pulumi.Input[str] mtime: A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
-        :param pulumi.Input[str] overwrite_mode: A value that determines whether files at the destination should be overwritten or preserved when copying files.
-        :param pulumi.Input[str] posix_permissions: A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
-        :param pulumi.Input[str] preserve_deleted_files: A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
-        :param pulumi.Input[str] preserve_devices: A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
-        :param pulumi.Input[str] security_descriptor_copy_flags: A value that determines which components of the SMB security descriptor are copied during transfer.
-        :param pulumi.Input[str] task_queueing: A value that determines whether tasks should be queued before executing the tasks.
-        :param pulumi.Input[str] transfer_mode: A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
-        :param pulumi.Input[str] uid: The user ID (UID) of the file's owner.
-        :param pulumi.Input[str] verify_mode: A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
+        :param pulumi.Input['TaskOptionsGid'] gid: The group ID (GID) of the file's owners.
+        :param pulumi.Input['TaskOptionsLogLevel'] log_level: A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
+        :param pulumi.Input['TaskOptionsMtime'] mtime: A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
+        :param pulumi.Input['TaskOptionsOverwriteMode'] overwrite_mode: A value that determines whether files at the destination should be overwritten or preserved when copying files.
+        :param pulumi.Input['TaskOptionsPosixPermissions'] posix_permissions: A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
+        :param pulumi.Input['TaskOptionsPreserveDeletedFiles'] preserve_deleted_files: A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
+        :param pulumi.Input['TaskOptionsPreserveDevices'] preserve_devices: A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
+        :param pulumi.Input['TaskOptionsSecurityDescriptorCopyFlags'] security_descriptor_copy_flags: A value that determines which components of the SMB security descriptor are copied during transfer.
+        :param pulumi.Input['TaskOptionsTaskQueueing'] task_queueing: A value that determines whether tasks should be queued before executing the tasks.
+        :param pulumi.Input['TaskOptionsTransferMode'] transfer_mode: A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
+        :param pulumi.Input['TaskOptionsUid'] uid: The user ID (UID) of the file's owner.
+        :param pulumi.Input['TaskOptionsVerifyMode'] verify_mode: A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
         """
         if atime is not None:
             pulumi.set(__self__, "atime", atime)
@@ -530,14 +531,14 @@ class TaskOptionsArgs:
 
     @property
     @pulumi.getter
-    def atime(self) -> Optional[pulumi.Input[str]]:
+    def atime(self) -> Optional[pulumi.Input['TaskOptionsAtime']]:
         """
         A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
         """
         return pulumi.get(self, "atime")
 
     @atime.setter
-    def atime(self, value: Optional[pulumi.Input[str]]):
+    def atime(self, value: Optional[pulumi.Input['TaskOptionsAtime']]):
         pulumi.set(self, "atime", value)
 
     @property
@@ -554,146 +555,146 @@ class TaskOptionsArgs:
 
     @property
     @pulumi.getter
-    def gid(self) -> Optional[pulumi.Input[str]]:
+    def gid(self) -> Optional[pulumi.Input['TaskOptionsGid']]:
         """
         The group ID (GID) of the file's owners.
         """
         return pulumi.get(self, "gid")
 
     @gid.setter
-    def gid(self, value: Optional[pulumi.Input[str]]):
+    def gid(self, value: Optional[pulumi.Input['TaskOptionsGid']]):
         pulumi.set(self, "gid", value)
 
     @property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input[str]]:
+    def log_level(self) -> Optional[pulumi.Input['TaskOptionsLogLevel']]:
         """
         A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input[str]]):
+    def log_level(self, value: Optional[pulumi.Input['TaskOptionsLogLevel']]):
         pulumi.set(self, "log_level", value)
 
     @property
     @pulumi.getter
-    def mtime(self) -> Optional[pulumi.Input[str]]:
+    def mtime(self) -> Optional[pulumi.Input['TaskOptionsMtime']]:
         """
         A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
         """
         return pulumi.get(self, "mtime")
 
     @mtime.setter
-    def mtime(self, value: Optional[pulumi.Input[str]]):
+    def mtime(self, value: Optional[pulumi.Input['TaskOptionsMtime']]):
         pulumi.set(self, "mtime", value)
 
     @property
     @pulumi.getter(name="overwriteMode")
-    def overwrite_mode(self) -> Optional[pulumi.Input[str]]:
+    def overwrite_mode(self) -> Optional[pulumi.Input['TaskOptionsOverwriteMode']]:
         """
         A value that determines whether files at the destination should be overwritten or preserved when copying files.
         """
         return pulumi.get(self, "overwrite_mode")
 
     @overwrite_mode.setter
-    def overwrite_mode(self, value: Optional[pulumi.Input[str]]):
+    def overwrite_mode(self, value: Optional[pulumi.Input['TaskOptionsOverwriteMode']]):
         pulumi.set(self, "overwrite_mode", value)
 
     @property
     @pulumi.getter(name="posixPermissions")
-    def posix_permissions(self) -> Optional[pulumi.Input[str]]:
+    def posix_permissions(self) -> Optional[pulumi.Input['TaskOptionsPosixPermissions']]:
         """
         A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
         """
         return pulumi.get(self, "posix_permissions")
 
     @posix_permissions.setter
-    def posix_permissions(self, value: Optional[pulumi.Input[str]]):
+    def posix_permissions(self, value: Optional[pulumi.Input['TaskOptionsPosixPermissions']]):
         pulumi.set(self, "posix_permissions", value)
 
     @property
     @pulumi.getter(name="preserveDeletedFiles")
-    def preserve_deleted_files(self) -> Optional[pulumi.Input[str]]:
+    def preserve_deleted_files(self) -> Optional[pulumi.Input['TaskOptionsPreserveDeletedFiles']]:
         """
         A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
         """
         return pulumi.get(self, "preserve_deleted_files")
 
     @preserve_deleted_files.setter
-    def preserve_deleted_files(self, value: Optional[pulumi.Input[str]]):
+    def preserve_deleted_files(self, value: Optional[pulumi.Input['TaskOptionsPreserveDeletedFiles']]):
         pulumi.set(self, "preserve_deleted_files", value)
 
     @property
     @pulumi.getter(name="preserveDevices")
-    def preserve_devices(self) -> Optional[pulumi.Input[str]]:
+    def preserve_devices(self) -> Optional[pulumi.Input['TaskOptionsPreserveDevices']]:
         """
         A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
         """
         return pulumi.get(self, "preserve_devices")
 
     @preserve_devices.setter
-    def preserve_devices(self, value: Optional[pulumi.Input[str]]):
+    def preserve_devices(self, value: Optional[pulumi.Input['TaskOptionsPreserveDevices']]):
         pulumi.set(self, "preserve_devices", value)
 
     @property
     @pulumi.getter(name="securityDescriptorCopyFlags")
-    def security_descriptor_copy_flags(self) -> Optional[pulumi.Input[str]]:
+    def security_descriptor_copy_flags(self) -> Optional[pulumi.Input['TaskOptionsSecurityDescriptorCopyFlags']]:
         """
         A value that determines which components of the SMB security descriptor are copied during transfer.
         """
         return pulumi.get(self, "security_descriptor_copy_flags")
 
     @security_descriptor_copy_flags.setter
-    def security_descriptor_copy_flags(self, value: Optional[pulumi.Input[str]]):
+    def security_descriptor_copy_flags(self, value: Optional[pulumi.Input['TaskOptionsSecurityDescriptorCopyFlags']]):
         pulumi.set(self, "security_descriptor_copy_flags", value)
 
     @property
     @pulumi.getter(name="taskQueueing")
-    def task_queueing(self) -> Optional[pulumi.Input[str]]:
+    def task_queueing(self) -> Optional[pulumi.Input['TaskOptionsTaskQueueing']]:
         """
         A value that determines whether tasks should be queued before executing the tasks.
         """
         return pulumi.get(self, "task_queueing")
 
     @task_queueing.setter
-    def task_queueing(self, value: Optional[pulumi.Input[str]]):
+    def task_queueing(self, value: Optional[pulumi.Input['TaskOptionsTaskQueueing']]):
         pulumi.set(self, "task_queueing", value)
 
     @property
     @pulumi.getter(name="transferMode")
-    def transfer_mode(self) -> Optional[pulumi.Input[str]]:
+    def transfer_mode(self) -> Optional[pulumi.Input['TaskOptionsTransferMode']]:
         """
         A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
         """
         return pulumi.get(self, "transfer_mode")
 
     @transfer_mode.setter
-    def transfer_mode(self, value: Optional[pulumi.Input[str]]):
+    def transfer_mode(self, value: Optional[pulumi.Input['TaskOptionsTransferMode']]):
         pulumi.set(self, "transfer_mode", value)
 
     @property
     @pulumi.getter
-    def uid(self) -> Optional[pulumi.Input[str]]:
+    def uid(self) -> Optional[pulumi.Input['TaskOptionsUid']]:
         """
         The user ID (UID) of the file's owner.
         """
         return pulumi.get(self, "uid")
 
     @uid.setter
-    def uid(self, value: Optional[pulumi.Input[str]]):
+    def uid(self, value: Optional[pulumi.Input['TaskOptionsUid']]):
         pulumi.set(self, "uid", value)
 
     @property
     @pulumi.getter(name="verifyMode")
-    def verify_mode(self) -> Optional[pulumi.Input[str]]:
+    def verify_mode(self) -> Optional[pulumi.Input['TaskOptionsVerifyMode']]:
         """
         A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
         """
         return pulumi.get(self, "verify_mode")
 
     @verify_mode.setter
-    def verify_mode(self, value: Optional[pulumi.Input[str]]):
+    def verify_mode(self, value: Optional[pulumi.Input['TaskOptionsVerifyMode']]):
         pulumi.set(self, "verify_mode", value)
 
 

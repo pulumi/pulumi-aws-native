@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'BudgetsActionActionThreshold',
@@ -21,14 +22,14 @@ __all__ = [
 @pulumi.output_type
 class BudgetsActionActionThreshold(dict):
     def __init__(__self__, *,
-                 type: str,
+                 type: 'BudgetsActionActionThresholdType',
                  value: float):
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> 'BudgetsActionActionThresholdType':
         return pulumi.get(self, "type")
 
     @property
@@ -200,7 +201,7 @@ class BudgetsActionSsmActionDefinition(dict):
     def __init__(__self__, *,
                  instance_ids: Sequence[str],
                  region: str,
-                 subtype: str):
+                 subtype: 'BudgetsActionSsmActionDefinitionSubtype'):
         pulumi.set(__self__, "instance_ids", instance_ids)
         pulumi.set(__self__, "region", region)
         pulumi.set(__self__, "subtype", subtype)
@@ -217,7 +218,7 @@ class BudgetsActionSsmActionDefinition(dict):
 
     @property
     @pulumi.getter
-    def subtype(self) -> str:
+    def subtype(self) -> 'BudgetsActionSsmActionDefinitionSubtype':
         return pulumi.get(self, "subtype")
 
 
@@ -225,7 +226,7 @@ class BudgetsActionSsmActionDefinition(dict):
 class BudgetsActionSubscriber(dict):
     def __init__(__self__, *,
                  address: str,
-                 type: str):
+                 type: 'BudgetsActionSubscriberType'):
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "type", type)
 
@@ -236,7 +237,7 @@ class BudgetsActionSubscriber(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> 'BudgetsActionSubscriberType':
         return pulumi.get(self, "type")
 
 

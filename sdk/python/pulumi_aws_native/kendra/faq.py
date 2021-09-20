@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FaqArgs', 'Faq']
@@ -20,7 +21,7 @@ class FaqArgs:
                  role_arn: pulumi.Input[str],
                  s3_path: pulumi.Input['FaqS3PathArgs'],
                  description: Optional[pulumi.Input[str]] = None,
-                 file_format: Optional[pulumi.Input[str]] = None,
+                 file_format: Optional[pulumi.Input['FaqFileFormat']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['FaqTagArgs']]]] = None):
         """
         The set of arguments for constructing a Faq resource.
@@ -29,7 +30,7 @@ class FaqArgs:
         :param pulumi.Input[str] role_arn: FAQ role ARN
         :param pulumi.Input['FaqS3PathArgs'] s3_path: FAQ S3 path
         :param pulumi.Input[str] description: FAQ description
-        :param pulumi.Input[str] file_format: FAQ file format
+        :param pulumi.Input['FaqFileFormat'] file_format: FAQ file format
         :param pulumi.Input[Sequence[pulumi.Input['FaqTagArgs']]] tags: Tags for labeling the FAQ
         """
         pulumi.set(__self__, "index_id", index_id)
@@ -105,14 +106,14 @@ class FaqArgs:
 
     @property
     @pulumi.getter(name="fileFormat")
-    def file_format(self) -> Optional[pulumi.Input[str]]:
+    def file_format(self) -> Optional[pulumi.Input['FaqFileFormat']]:
         """
         FAQ file format
         """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
-    def file_format(self, value: Optional[pulumi.Input[str]]):
+    def file_format(self, value: Optional[pulumi.Input['FaqFileFormat']]):
         pulumi.set(self, "file_format", value)
 
     @property
@@ -134,7 +135,7 @@ class Faq(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 file_format: Optional[pulumi.Input[str]] = None,
+                 file_format: Optional[pulumi.Input['FaqFileFormat']] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -147,7 +148,7 @@ class Faq(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: FAQ description
-        :param pulumi.Input[str] file_format: FAQ file format
+        :param pulumi.Input['FaqFileFormat'] file_format: FAQ file format
         :param pulumi.Input[str] index_id: Index ID
         :param pulumi.Input[str] name: FAQ name
         :param pulumi.Input[str] role_arn: FAQ role ARN
@@ -179,7 +180,7 @@ class Faq(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 file_format: Optional[pulumi.Input[str]] = None,
+                 file_format: Optional[pulumi.Input['FaqFileFormat']] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -260,7 +261,7 @@ class Faq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileFormat")
-    def file_format(self) -> pulumi.Output[Optional[str]]:
+    def file_format(self) -> pulumi.Output[Optional['FaqFileFormat']]:
         """
         FAQ file format
         """

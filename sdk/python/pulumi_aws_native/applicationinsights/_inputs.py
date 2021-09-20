@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ApplicationAlarmMetricArgs',
@@ -52,11 +53,11 @@ class ApplicationAlarmMetricArgs:
 class ApplicationAlarmArgs:
     def __init__(__self__, *,
                  alarm_name: pulumi.Input[str],
-                 severity: Optional[pulumi.Input[str]] = None):
+                 severity: Optional[pulumi.Input['ApplicationAlarmSeverity']] = None):
         """
         A CloudWatch alarm to be monitored for the component.
         :param pulumi.Input[str] alarm_name: The name of the CloudWatch alarm to be monitored for the component.
-        :param pulumi.Input[str] severity: Indicates the degree of outage when the alarm goes off.
+        :param pulumi.Input['ApplicationAlarmSeverity'] severity: Indicates the degree of outage when the alarm goes off.
         """
         pulumi.set(__self__, "alarm_name", alarm_name)
         if severity is not None:
@@ -76,14 +77,14 @@ class ApplicationAlarmArgs:
 
     @property
     @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input[str]]:
+    def severity(self) -> Optional[pulumi.Input['ApplicationAlarmSeverity']]:
         """
         Indicates the degree of outage when the alarm goes off.
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: Optional[pulumi.Input[str]]):
+    def severity(self, value: Optional[pulumi.Input['ApplicationAlarmSeverity']]):
         pulumi.set(self, "severity", value)
 
 
@@ -130,7 +131,7 @@ class ApplicationComponentConfigurationArgs:
 @pulumi.input_type
 class ApplicationComponentMonitoringSettingArgs:
     def __init__(__self__, *,
-                 component_configuration_mode: pulumi.Input[str],
+                 component_configuration_mode: pulumi.Input['ApplicationComponentMonitoringSettingComponentConfigurationMode'],
                  tier: pulumi.Input[str],
                  component_arn: Optional[pulumi.Input[str]] = None,
                  component_name: Optional[pulumi.Input[str]] = None,
@@ -138,7 +139,7 @@ class ApplicationComponentMonitoringSettingArgs:
                  default_overwrite_component_configuration: Optional[pulumi.Input['ApplicationComponentConfigurationArgs']] = None):
         """
         The monitoring setting of the component.
-        :param pulumi.Input[str] component_configuration_mode: The component monitoring configuration mode.
+        :param pulumi.Input['ApplicationComponentMonitoringSettingComponentConfigurationMode'] component_configuration_mode: The component monitoring configuration mode.
         :param pulumi.Input[str] tier: The tier of the application component.
         :param pulumi.Input[str] component_arn: The ARN of the compnonent.
         :param pulumi.Input[str] component_name: The name of the component.
@@ -158,14 +159,14 @@ class ApplicationComponentMonitoringSettingArgs:
 
     @property
     @pulumi.getter(name="componentConfigurationMode")
-    def component_configuration_mode(self) -> pulumi.Input[str]:
+    def component_configuration_mode(self) -> pulumi.Input['ApplicationComponentMonitoringSettingComponentConfigurationMode']:
         """
         The component monitoring configuration mode.
         """
         return pulumi.get(self, "component_configuration_mode")
 
     @component_configuration_mode.setter
-    def component_configuration_mode(self, value: pulumi.Input[str]):
+    def component_configuration_mode(self, value: pulumi.Input['ApplicationComponentMonitoringSettingComponentConfigurationMode']):
         pulumi.set(self, "component_configuration_mode", value)
 
     @property
@@ -506,14 +507,14 @@ class ApplicationLogPatternArgs:
 class ApplicationLogArgs:
     def __init__(__self__, *,
                  log_type: pulumi.Input[str],
-                 encoding: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input['ApplicationLogEncoding']] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  log_path: Optional[pulumi.Input[str]] = None,
                  pattern_set: Optional[pulumi.Input[str]] = None):
         """
         A log to be monitored for the component.
         :param pulumi.Input[str] log_type: The log type decides the log patterns against which Application Insights analyzes the log.
-        :param pulumi.Input[str] encoding: The type of encoding of the logs to be monitored.
+        :param pulumi.Input['ApplicationLogEncoding'] encoding: The type of encoding of the logs to be monitored.
         :param pulumi.Input[str] log_group_name: The CloudWatch log group name to be associated to the monitored log.
         :param pulumi.Input[str] log_path: The path of the logs to be monitored.
         :param pulumi.Input[str] pattern_set: The name of the log pattern set.
@@ -542,14 +543,14 @@ class ApplicationLogArgs:
 
     @property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[str]]:
+    def encoding(self) -> Optional[pulumi.Input['ApplicationLogEncoding']]:
         """
         The type of encoding of the logs to be monitored.
         """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[str]]):
+    def encoding(self, value: Optional[pulumi.Input['ApplicationLogEncoding']]):
         pulumi.set(self, "encoding", value)
 
     @property
@@ -649,11 +650,11 @@ class ApplicationSubComponentConfigurationDetailsArgs:
 class ApplicationSubComponentTypeConfigurationArgs:
     def __init__(__self__, *,
                  sub_component_configuration_details: pulumi.Input['ApplicationSubComponentConfigurationDetailsArgs'],
-                 sub_component_type: pulumi.Input[str]):
+                 sub_component_type: pulumi.Input['ApplicationSubComponentTypeConfigurationSubComponentType']):
         """
         One type sub component configurations for the component.
         :param pulumi.Input['ApplicationSubComponentConfigurationDetailsArgs'] sub_component_configuration_details: The configuration settings of sub components.
-        :param pulumi.Input[str] sub_component_type: The sub component type.
+        :param pulumi.Input['ApplicationSubComponentTypeConfigurationSubComponentType'] sub_component_type: The sub component type.
         """
         pulumi.set(__self__, "sub_component_configuration_details", sub_component_configuration_details)
         pulumi.set(__self__, "sub_component_type", sub_component_type)
@@ -672,14 +673,14 @@ class ApplicationSubComponentTypeConfigurationArgs:
 
     @property
     @pulumi.getter(name="subComponentType")
-    def sub_component_type(self) -> pulumi.Input[str]:
+    def sub_component_type(self) -> pulumi.Input['ApplicationSubComponentTypeConfigurationSubComponentType']:
         """
         The sub component type.
         """
         return pulumi.get(self, "sub_component_type")
 
     @sub_component_type.setter
-    def sub_component_type(self, value: pulumi.Input[str]):
+    def sub_component_type(self, value: pulumi.Input['ApplicationSubComponentTypeConfigurationSubComponentType']):
         pulumi.set(self, "sub_component_type", value)
 
 
@@ -724,13 +725,13 @@ class ApplicationTagArgs:
 @pulumi.input_type
 class ApplicationWindowsEventArgs:
     def __init__(__self__, *,
-                 event_levels: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 event_levels: pulumi.Input[Sequence[pulumi.Input['ApplicationEventLevel']]],
                  event_name: pulumi.Input[str],
                  log_group_name: pulumi.Input[str],
                  pattern_set: Optional[pulumi.Input[str]] = None):
         """
         A Windows Event to be monitored for the component.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_levels: The levels of event to log. 
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationEventLevel']]] event_levels: The levels of event to log. 
         :param pulumi.Input[str] event_name: The type of Windows Events to log.
         :param pulumi.Input[str] log_group_name: The CloudWatch log group name to be associated to the monitored log.
         :param pulumi.Input[str] pattern_set: The name of the log pattern set.
@@ -743,14 +744,14 @@ class ApplicationWindowsEventArgs:
 
     @property
     @pulumi.getter(name="eventLevels")
-    def event_levels(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def event_levels(self) -> pulumi.Input[Sequence[pulumi.Input['ApplicationEventLevel']]]:
         """
         The levels of event to log. 
         """
         return pulumi.get(self, "event_levels")
 
     @event_levels.setter
-    def event_levels(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def event_levels(self, value: pulumi.Input[Sequence[pulumi.Input['ApplicationEventLevel']]]):
         pulumi.set(self, "event_levels", value)
 
     @property

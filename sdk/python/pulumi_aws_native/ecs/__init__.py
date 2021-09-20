@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .capacity_provider import *
 from .cluster import *
 from .cluster_capacity_provider_associations import *

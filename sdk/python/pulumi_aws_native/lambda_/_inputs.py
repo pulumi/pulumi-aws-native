@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'CodeSigningConfigAllowedPublishersArgs',
@@ -52,23 +53,23 @@ class CodeSigningConfigAllowedPublishersArgs:
 @pulumi.input_type
 class CodeSigningConfigCodeSigningPoliciesArgs:
     def __init__(__self__, *,
-                 untrusted_artifact_on_deployment: pulumi.Input[str]):
+                 untrusted_artifact_on_deployment: pulumi.Input['CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment']):
         """
         Policies to control how to act if a signature is invalid
-        :param pulumi.Input[str] untrusted_artifact_on_deployment: Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
+        :param pulumi.Input['CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment'] untrusted_artifact_on_deployment: Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
         """
         pulumi.set(__self__, "untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
 
     @property
     @pulumi.getter(name="untrustedArtifactOnDeployment")
-    def untrusted_artifact_on_deployment(self) -> pulumi.Input[str]:
+    def untrusted_artifact_on_deployment(self) -> pulumi.Input['CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment']:
         """
         Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
         """
         return pulumi.get(self, "untrusted_artifact_on_deployment")
 
     @untrusted_artifact_on_deployment.setter
-    def untrusted_artifact_on_deployment(self, value: pulumi.Input[str]):
+    def untrusted_artifact_on_deployment(self, value: pulumi.Input['CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment']):
         pulumi.set(self, "untrusted_artifact_on_deployment", value)
 
 
@@ -171,11 +172,11 @@ class EventSourceMappingSelfManagedEventSourceArgs:
 @pulumi.input_type
 class EventSourceMappingSourceAccessConfigurationArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['EventSourceMappingSourceAccessConfigurationType']] = None,
                  u_ri: Optional[pulumi.Input[str]] = None):
         """
         The configuration used by AWS Lambda to access event source
-        :param pulumi.Input[str] type: The type of source access configuration.
+        :param pulumi.Input['EventSourceMappingSourceAccessConfigurationType'] type: The type of source access configuration.
         :param pulumi.Input[str] u_ri: The URI for the source access configuration resource.
         """
         if type is not None:
@@ -185,14 +186,14 @@ class EventSourceMappingSourceAccessConfigurationArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['EventSourceMappingSourceAccessConfigurationType']]:
         """
         The type of source access configuration.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['EventSourceMappingSourceAccessConfigurationType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -476,24 +477,24 @@ class FunctionTagArgs:
 @pulumi.input_type
 class FunctionTracingConfigArgs:
     def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[str]] = None):
+                 mode: Optional[pulumi.Input['FunctionTracingConfigMode']] = None):
         """
         The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
-        :param pulumi.Input[str] mode: The tracing mode.
+        :param pulumi.Input['FunctionTracingConfigMode'] mode: The tracing mode.
         """
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
+    def mode(self) -> Optional[pulumi.Input['FunctionTracingConfigMode']]:
         """
         The tracing mode.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
+    def mode(self, value: Optional[pulumi.Input['FunctionTracingConfigMode']]):
         pulumi.set(self, "mode", value)
 
 

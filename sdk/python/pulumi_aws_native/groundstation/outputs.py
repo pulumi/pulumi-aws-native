@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'ConfigAntennaDownlinkConfig',
@@ -358,7 +359,7 @@ class ConfigDemodulationConfig(dict):
 @pulumi.output_type
 class ConfigEirp(dict):
     def __init__(__self__, *,
-                 units: Optional[str] = None,
+                 units: Optional['ConfigEirpUnits'] = None,
                  value: Optional[float] = None):
         if units is not None:
             pulumi.set(__self__, "units", units)
@@ -367,7 +368,7 @@ class ConfigEirp(dict):
 
     @property
     @pulumi.getter
-    def units(self) -> Optional[str]:
+    def units(self) -> Optional['ConfigEirpUnits']:
         return pulumi.get(self, "units")
 
     @property
@@ -379,7 +380,7 @@ class ConfigEirp(dict):
 @pulumi.output_type
 class ConfigFrequency(dict):
     def __init__(__self__, *,
-                 units: Optional[str] = None,
+                 units: Optional['ConfigFrequencyUnits'] = None,
                  value: Optional[float] = None):
         if units is not None:
             pulumi.set(__self__, "units", units)
@@ -388,7 +389,7 @@ class ConfigFrequency(dict):
 
     @property
     @pulumi.getter
-    def units(self) -> Optional[str]:
+    def units(self) -> Optional['ConfigFrequencyUnits']:
         return pulumi.get(self, "units")
 
     @property
@@ -400,7 +401,7 @@ class ConfigFrequency(dict):
 @pulumi.output_type
 class ConfigFrequencyBandwidth(dict):
     def __init__(__self__, *,
-                 units: Optional[str] = None,
+                 units: Optional['ConfigBandwidthUnits'] = None,
                  value: Optional[float] = None):
         if units is not None:
             pulumi.set(__self__, "units", units)
@@ -409,7 +410,7 @@ class ConfigFrequencyBandwidth(dict):
 
     @property
     @pulumi.getter
-    def units(self) -> Optional[str]:
+    def units(self) -> Optional['ConfigBandwidthUnits']:
         return pulumi.get(self, "units")
 
     @property
@@ -488,7 +489,7 @@ class ConfigSpectrumConfig(dict):
     def __init__(__self__, *,
                  bandwidth: Optional['outputs.ConfigFrequencyBandwidth'] = None,
                  center_frequency: Optional['outputs.ConfigFrequency'] = None,
-                 polarization: Optional[str] = None):
+                 polarization: Optional['ConfigPolarization'] = None):
         if bandwidth is not None:
             pulumi.set(__self__, "bandwidth", bandwidth)
         if center_frequency is not None:
@@ -508,7 +509,7 @@ class ConfigSpectrumConfig(dict):
 
     @property
     @pulumi.getter
-    def polarization(self) -> Optional[str]:
+    def polarization(self) -> Optional['ConfigPolarization']:
         return pulumi.get(self, "polarization")
 
 
@@ -536,13 +537,13 @@ class ConfigTag(dict):
 @pulumi.output_type
 class ConfigTrackingConfig(dict):
     def __init__(__self__, *,
-                 autotrack: Optional[str] = None):
+                 autotrack: Optional['ConfigTrackingConfigAutotrack'] = None):
         if autotrack is not None:
             pulumi.set(__self__, "autotrack", autotrack)
 
     @property
     @pulumi.getter
-    def autotrack(self) -> Optional[str]:
+    def autotrack(self) -> Optional['ConfigTrackingConfigAutotrack']:
         return pulumi.get(self, "autotrack")
 
 
@@ -605,7 +606,7 @@ class ConfigUplinkSpectrumConfig(dict):
 
     def __init__(__self__, *,
                  center_frequency: Optional['outputs.ConfigFrequency'] = None,
-                 polarization: Optional[str] = None):
+                 polarization: Optional['ConfigPolarization'] = None):
         if center_frequency is not None:
             pulumi.set(__self__, "center_frequency", center_frequency)
         if polarization is not None:
@@ -618,7 +619,7 @@ class ConfigUplinkSpectrumConfig(dict):
 
     @property
     @pulumi.getter
-    def polarization(self) -> Optional[str]:
+    def polarization(self) -> Optional['ConfigPolarization']:
         return pulumi.get(self, "polarization")
 
 

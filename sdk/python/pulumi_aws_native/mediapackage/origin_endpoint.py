@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['OriginEndpointArgs', 'OriginEndpoint']
@@ -23,7 +24,7 @@ class OriginEndpointArgs:
                  hls_package: Optional[pulumi.Input['OriginEndpointHlsPackageArgs']] = None,
                  manifest_name: Optional[pulumi.Input[str]] = None,
                  mss_package: Optional[pulumi.Input['OriginEndpointMssPackageArgs']] = None,
-                 origination: Optional[pulumi.Input[str]] = None,
+                 origination: Optional[pulumi.Input['OriginEndpointOrigination']] = None,
                  startover_window_seconds: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]]] = None,
                  time_delay_seconds: Optional[pulumi.Input[int]] = None,
@@ -33,7 +34,7 @@ class OriginEndpointArgs:
         :param pulumi.Input[str] channel_id: The ID of the Channel the OriginEndpoint is associated with.
         :param pulumi.Input[str] description: A short text description of the OriginEndpoint.
         :param pulumi.Input[str] manifest_name: A short string appended to the end of the OriginEndpoint URL.
-        :param pulumi.Input[str] origination: Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
+        :param pulumi.Input['OriginEndpointOrigination'] origination: Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
         :param pulumi.Input[int] startover_window_seconds: Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointTagArgs']]] tags: A collection of tags associated with a resource
         :param pulumi.Input[int] time_delay_seconds: Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
@@ -148,14 +149,14 @@ class OriginEndpointArgs:
 
     @property
     @pulumi.getter
-    def origination(self) -> Optional[pulumi.Input[str]]:
+    def origination(self) -> Optional[pulumi.Input['OriginEndpointOrigination']]:
         """
         Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
         """
         return pulumi.get(self, "origination")
 
     @origination.setter
-    def origination(self, value: Optional[pulumi.Input[str]]):
+    def origination(self, value: Optional[pulumi.Input['OriginEndpointOrigination']]):
         pulumi.set(self, "origination", value)
 
     @property
@@ -220,7 +221,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  hls_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointHlsPackageArgs']]] = None,
                  manifest_name: Optional[pulumi.Input[str]] = None,
                  mss_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointMssPackageArgs']]] = None,
-                 origination: Optional[pulumi.Input[str]] = None,
+                 origination: Optional[pulumi.Input['OriginEndpointOrigination']] = None,
                  startover_window_seconds: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointTagArgs']]]]] = None,
                  time_delay_seconds: Optional[pulumi.Input[int]] = None,
@@ -234,7 +235,7 @@ class OriginEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] channel_id: The ID of the Channel the OriginEndpoint is associated with.
         :param pulumi.Input[str] description: A short text description of the OriginEndpoint.
         :param pulumi.Input[str] manifest_name: A short string appended to the end of the OriginEndpoint URL.
-        :param pulumi.Input[str] origination: Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
+        :param pulumi.Input['OriginEndpointOrigination'] origination: Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
         :param pulumi.Input[int] startover_window_seconds: Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointTagArgs']]]] tags: A collection of tags associated with a resource
         :param pulumi.Input[int] time_delay_seconds: Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
@@ -272,7 +273,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  hls_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointHlsPackageArgs']]] = None,
                  manifest_name: Optional[pulumi.Input[str]] = None,
                  mss_package: Optional[pulumi.Input[pulumi.InputType['OriginEndpointMssPackageArgs']]] = None,
-                 origination: Optional[pulumi.Input[str]] = None,
+                 origination: Optional[pulumi.Input['OriginEndpointOrigination']] = None,
                  startover_window_seconds: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointTagArgs']]]]] = None,
                  time_delay_seconds: Optional[pulumi.Input[int]] = None,
@@ -404,7 +405,7 @@ class OriginEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def origination(self) -> pulumi.Output[Optional[str]]:
+    def origination(self) -> pulumi.Output[Optional['OriginEndpointOrigination']]:
         """
         Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
         """

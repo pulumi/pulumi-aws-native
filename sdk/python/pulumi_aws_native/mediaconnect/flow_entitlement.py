@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FlowEntitlementArgs', 'FlowEntitlement']
@@ -21,7 +22,7 @@ class FlowEntitlementArgs:
                  subscribers: pulumi.Input[Sequence[pulumi.Input[str]]],
                  data_transfer_subscriber_fee_percent: Optional[pulumi.Input[int]] = None,
                  encryption: Optional[pulumi.Input['FlowEntitlementEncryptionArgs']] = None,
-                 entitlement_status: Optional[pulumi.Input[str]] = None):
+                 entitlement_status: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']] = None):
         """
         The set of arguments for constructing a FlowEntitlement resource.
         :param pulumi.Input[str] description: A description of the entitlement.
@@ -30,7 +31,7 @@ class FlowEntitlementArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subscribers: The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
         :param pulumi.Input[int] data_transfer_subscriber_fee_percent: Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
         :param pulumi.Input['FlowEntitlementEncryptionArgs'] encryption: The type of encryption that will be used on the output that is associated with this entitlement.
-        :param pulumi.Input[str] entitlement_status:  An indication of whether the entitlement is enabled.
+        :param pulumi.Input['FlowEntitlementEntitlementStatus'] entitlement_status:  An indication of whether the entitlement is enabled.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "flow_arn", flow_arn)
@@ -117,14 +118,14 @@ class FlowEntitlementArgs:
 
     @property
     @pulumi.getter(name="entitlementStatus")
-    def entitlement_status(self) -> Optional[pulumi.Input[str]]:
+    def entitlement_status(self) -> Optional[pulumi.Input['FlowEntitlementEntitlementStatus']]:
         """
          An indication of whether the entitlement is enabled.
         """
         return pulumi.get(self, "entitlement_status")
 
     @entitlement_status.setter
-    def entitlement_status(self, value: Optional[pulumi.Input[str]]):
+    def entitlement_status(self, value: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']]):
         pulumi.set(self, "entitlement_status", value)
 
 
@@ -136,7 +137,7 @@ class FlowEntitlement(pulumi.CustomResource):
                  data_transfer_subscriber_fee_percent: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['FlowEntitlementEncryptionArgs']]] = None,
-                 entitlement_status: Optional[pulumi.Input[str]] = None,
+                 entitlement_status: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']] = None,
                  flow_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -149,7 +150,7 @@ class FlowEntitlement(pulumi.CustomResource):
         :param pulumi.Input[int] data_transfer_subscriber_fee_percent: Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
         :param pulumi.Input[str] description: A description of the entitlement.
         :param pulumi.Input[pulumi.InputType['FlowEntitlementEncryptionArgs']] encryption: The type of encryption that will be used on the output that is associated with this entitlement.
-        :param pulumi.Input[str] entitlement_status:  An indication of whether the entitlement is enabled.
+        :param pulumi.Input['FlowEntitlementEntitlementStatus'] entitlement_status:  An indication of whether the entitlement is enabled.
         :param pulumi.Input[str] flow_arn: The ARN of the flow.
         :param pulumi.Input[str] name: The name of the entitlement.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subscribers: The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
@@ -181,7 +182,7 @@ class FlowEntitlement(pulumi.CustomResource):
                  data_transfer_subscriber_fee_percent: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['FlowEntitlementEncryptionArgs']]] = None,
-                 entitlement_status: Optional[pulumi.Input[str]] = None,
+                 entitlement_status: Optional[pulumi.Input['FlowEntitlementEntitlementStatus']] = None,
                  flow_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  subscribers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -279,7 +280,7 @@ class FlowEntitlement(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="entitlementStatus")
-    def entitlement_status(self) -> pulumi.Output[Optional[str]]:
+    def entitlement_status(self) -> pulumi.Output[Optional['FlowEntitlementEntitlementStatus']]:
         """
          An indication of whether the entitlement is enabled.
         """

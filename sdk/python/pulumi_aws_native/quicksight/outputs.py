@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'AnalysisAnalysisError',
@@ -113,7 +114,7 @@ class AnalysisAnalysisError(dict):
     """
     def __init__(__self__, *,
                  message: Optional[str] = None,
-                 type: Optional[str] = None):
+                 type: Optional['AnalysisAnalysisErrorType'] = None):
         """
         <p>A metadata error structure for an analysis.</p>
         :param str message: <p>The message associated with the analysis error.</p>
@@ -133,7 +134,7 @@ class AnalysisAnalysisError(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> Optional['AnalysisAnalysisErrorType']:
         return pulumi.get(self, "type")
 
 
@@ -670,7 +671,7 @@ class DashboardAdHocFilteringOption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 availability_status: Optional[str] = None):
+                 availability_status: Optional['DashboardDashboardBehavior'] = None):
         """
         <p>Ad hoc (one-time) filtering option.</p>
         """
@@ -679,7 +680,7 @@ class DashboardAdHocFilteringOption(dict):
 
     @property
     @pulumi.getter(name="availabilityStatus")
-    def availability_status(self) -> Optional[str]:
+    def availability_status(self) -> Optional['DashboardDashboardBehavior']:
         return pulumi.get(self, "availability_status")
 
 
@@ -690,7 +691,7 @@ class DashboardDashboardError(dict):
     """
     def __init__(__self__, *,
                  message: Optional[str] = None,
-                 type: Optional[str] = None):
+                 type: Optional['DashboardDashboardErrorType'] = None):
         """
         <p>Dashboard error.</p>
         :param str message: <p>Message.</p>
@@ -710,7 +711,7 @@ class DashboardDashboardError(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> Optional['DashboardDashboardErrorType']:
         return pulumi.get(self, "type")
 
 
@@ -894,7 +895,7 @@ class DashboardDashboardVersion(dict):
                  errors: Optional[Sequence['outputs.DashboardDashboardError']] = None,
                  sheets: Optional[Sequence['outputs.DashboardSheet']] = None,
                  source_entity_arn: Optional[str] = None,
-                 status: Optional[str] = None,
+                 status: Optional['DashboardResourceStatus'] = None,
                  theme_arn: Optional[str] = None,
                  version_number: Optional[float] = None):
         """
@@ -990,7 +991,7 @@ class DashboardDashboardVersion(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> Optional['DashboardResourceStatus']:
         return pulumi.get(self, "status")
 
     @property
@@ -1151,7 +1152,7 @@ class DashboardExportToCSVOption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 availability_status: Optional[str] = None):
+                 availability_status: Optional['DashboardDashboardBehavior'] = None):
         """
         <p>Export to .csv option.</p>
         """
@@ -1160,7 +1161,7 @@ class DashboardExportToCSVOption(dict):
 
     @property
     @pulumi.getter(name="availabilityStatus")
-    def availability_status(self) -> Optional[str]:
+    def availability_status(self) -> Optional['DashboardDashboardBehavior']:
         return pulumi.get(self, "availability_status")
 
 
@@ -1425,7 +1426,7 @@ class DashboardSheetControlsOption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 visibility_state: Optional[str] = None):
+                 visibility_state: Optional['DashboardDashboardUIState'] = None):
         """
         <p>Sheet controls option.</p>
         """
@@ -1434,7 +1435,7 @@ class DashboardSheetControlsOption(dict):
 
     @property
     @pulumi.getter(name="visibilityState")
-    def visibility_state(self) -> Optional[str]:
+    def visibility_state(self) -> Optional['DashboardDashboardUIState']:
         return pulumi.get(self, "visibility_state")
 
 
@@ -1615,7 +1616,7 @@ class DataSetGeoSpatialColumnGroup(dict):
     def __init__(__self__, *,
                  columns: Sequence[str],
                  name: str,
-                 country_code: Optional[str] = None):
+                 country_code: Optional['DataSetGeoSpatialCountryCode'] = None):
         """
         <p>Geospatial column group that denotes a hierarchy.</p>
         :param Sequence[str] columns: <p>Columns in this hierarchy.</p>
@@ -1644,7 +1645,7 @@ class DataSetGeoSpatialColumnGroup(dict):
 
     @property
     @pulumi.getter(name="countryCode")
-    def country_code(self) -> Optional[str]:
+    def country_code(self) -> Optional['DataSetGeoSpatialCountryCode']:
         return pulumi.get(self, "country_code")
 
 
@@ -1720,7 +1721,7 @@ class DataSetOutputColumn(dict):
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  name: Optional[str] = None,
-                 type: Optional[str] = None):
+                 type: Optional['DataSetColumnDataType'] = None):
         """
         <p>Output column.</p>
         :param str description: <p>A description for a column.</p>
@@ -1751,7 +1752,7 @@ class DataSetOutputColumn(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> Optional['DataSetColumnDataType']:
         return pulumi.get(self, "type")
 
 
@@ -1848,8 +1849,8 @@ class DataSetRowLevelPermissionDataSet(dict):
 
     def __init__(__self__, *,
                  arn: str,
-                 permission_policy: str,
-                 format_version: Optional[str] = None,
+                 permission_policy: 'DataSetRowLevelPermissionPolicy',
+                 format_version: Optional['DataSetRowLevelPermissionFormatVersion'] = None,
                  namespace: Optional[str] = None):
         """
         <p>The row-level security configuration for the dataset.</p>
@@ -1873,12 +1874,12 @@ class DataSetRowLevelPermissionDataSet(dict):
 
     @property
     @pulumi.getter(name="permissionPolicy")
-    def permission_policy(self) -> str:
+    def permission_policy(self) -> 'DataSetRowLevelPermissionPolicy':
         return pulumi.get(self, "permission_policy")
 
     @property
     @pulumi.getter(name="formatVersion")
-    def format_version(self) -> Optional[str]:
+    def format_version(self) -> Optional['DataSetRowLevelPermissionFormatVersion']:
         return pulumi.get(self, "format_version")
 
     @property
@@ -2218,7 +2219,7 @@ class DataSourceDataSourceErrorInfo(dict):
     """
     def __init__(__self__, *,
                  message: Optional[str] = None,
-                 type: Optional[str] = None):
+                 type: Optional['DataSourceDataSourceErrorInfoType'] = None):
         """
         <p>Error information for the data source creation or update.</p>
         :param str message: <p>Error message.</p>
@@ -2238,7 +2239,7 @@ class DataSourceDataSourceErrorInfo(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> Optional['DataSourceDataSourceErrorInfoType']:
         return pulumi.get(self, "type")
 
 
@@ -3635,7 +3636,7 @@ class TemplateTemplateError(dict):
     """
     def __init__(__self__, *,
                  message: Optional[str] = None,
-                 type: Optional[str] = None):
+                 type: Optional['TemplateTemplateErrorType'] = None):
         """
         <p>List of errors that occurred when the template version creation failed.</p>
         :param str message: <p>Description of the error type.</p>
@@ -3655,7 +3656,7 @@ class TemplateTemplateError(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> Optional['TemplateTemplateErrorType']:
         return pulumi.get(self, "type")
 
 
@@ -3816,7 +3817,7 @@ class TemplateTemplateVersion(dict):
                  errors: Optional[Sequence['outputs.TemplateTemplateError']] = None,
                  sheets: Optional[Sequence['outputs.TemplateSheet']] = None,
                  source_entity_arn: Optional[str] = None,
-                 status: Optional[str] = None,
+                 status: Optional['TemplateResourceStatus'] = None,
                  theme_arn: Optional[str] = None,
                  version_number: Optional[float] = None):
         """
@@ -3905,7 +3906,7 @@ class TemplateTemplateVersion(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> Optional['TemplateResourceStatus']:
         return pulumi.get(self, "status")
 
     @property
@@ -4309,7 +4310,7 @@ class ThemeThemeError(dict):
     """
     def __init__(__self__, *,
                  message: Optional[str] = None,
-                 type: Optional[str] = None):
+                 type: Optional['ThemeThemeErrorType'] = None):
         """
         <p>Theme error.</p>
         :param str message: <p>The error message.</p>
@@ -4329,7 +4330,7 @@ class ThemeThemeError(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> Optional['ThemeThemeErrorType']:
         return pulumi.get(self, "type")
 
 
@@ -4366,7 +4367,7 @@ class ThemeThemeVersion(dict):
                  created_time: Optional[str] = None,
                  description: Optional[str] = None,
                  errors: Optional[Sequence['outputs.ThemeThemeError']] = None,
-                 status: Optional[str] = None,
+                 status: Optional['ThemeResourceStatus'] = None,
                  version_number: Optional[float] = None):
         """
         <p>A version of a theme.</p>
@@ -4443,7 +4444,7 @@ class ThemeThemeVersion(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> Optional['ThemeResourceStatus']:
         return pulumi.get(self, "status")
 
     @property

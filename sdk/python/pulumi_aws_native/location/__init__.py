@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .geofence_collection import *
 from .map import *
 from .place_index import *

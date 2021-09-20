@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['WirelessDeviceArgs', 'WirelessDevice']
@@ -16,7 +17,7 @@ __all__ = ['WirelessDeviceArgs', 'WirelessDevice']
 class WirelessDeviceArgs:
     def __init__(__self__, *,
                  destination_name: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['WirelessDeviceType'],
                  description: Optional[pulumi.Input[str]] = None,
                  last_uplink_received_at: Optional[pulumi.Input[str]] = None,
                  lo_ra_wan: Optional[pulumi.Input['WirelessDeviceLoRaWANDeviceArgs']] = None,
@@ -26,7 +27,7 @@ class WirelessDeviceArgs:
         """
         The set of arguments for constructing a WirelessDevice resource.
         :param pulumi.Input[str] destination_name: Wireless device destination name
-        :param pulumi.Input[str] type: Wireless device type, currently only Sidewalk and LoRa
+        :param pulumi.Input['WirelessDeviceType'] type: Wireless device type, currently only Sidewalk and LoRa
         :param pulumi.Input[str] description: Wireless device description
         :param pulumi.Input[str] last_uplink_received_at: The date and time when the most recent uplink was received.
         :param pulumi.Input['WirelessDeviceLoRaWANDeviceArgs'] lo_ra_wan: The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
@@ -63,14 +64,14 @@ class WirelessDeviceArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['WirelessDeviceType']:
         """
         Wireless device type, currently only Sidewalk and LoRa
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['WirelessDeviceType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -158,7 +159,7 @@ class WirelessDevice(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WirelessDeviceTagArgs']]]]] = None,
                  thing_arn: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['WirelessDeviceType']] = None,
                  __props__=None):
         """
         Create and manage wireless gateways, including LoRa gateways.
@@ -172,7 +173,7 @@ class WirelessDevice(pulumi.CustomResource):
         :param pulumi.Input[str] name: Wireless device name
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WirelessDeviceTagArgs']]]] tags: A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
         :param pulumi.Input[str] thing_arn: Thing arn. Passed into update to associate Thing with Wireless device.
-        :param pulumi.Input[str] type: Wireless device type, currently only Sidewalk and LoRa
+        :param pulumi.Input['WirelessDeviceType'] type: Wireless device type, currently only Sidewalk and LoRa
         """
         ...
     @overload
@@ -205,7 +206,7 @@ class WirelessDevice(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WirelessDeviceTagArgs']]]]] = None,
                  thing_arn: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['WirelessDeviceType']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -340,7 +341,7 @@ class WirelessDevice(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output['WirelessDeviceType']:
         """
         Wireless device type, currently only Sidewalk and LoRa
         """

@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .access_policy import *
 from .asset import *
 from .asset_model import *

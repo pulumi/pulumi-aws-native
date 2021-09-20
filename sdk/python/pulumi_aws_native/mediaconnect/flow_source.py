@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FlowSourceInitArgs', 'FlowSource']
@@ -23,7 +24,7 @@ class FlowSourceInitArgs:
                  ingest_port: Optional[pulumi.Input[int]] = None,
                  max_bitrate: Optional[pulumi.Input[int]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input['FlowSourceProtocol']] = None,
                  stream_id: Optional[pulumi.Input[str]] = None,
                  vpc_interface_name: Optional[pulumi.Input[str]] = None,
                  whitelist_cidr: Optional[pulumi.Input[str]] = None):
@@ -37,7 +38,7 @@ class FlowSourceInitArgs:
         :param pulumi.Input[int] ingest_port: The port that the flow will be listening on for incoming content.
         :param pulumi.Input[int] max_bitrate: The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
-        :param pulumi.Input[str] protocol: The protocol that is used by the source.
+        :param pulumi.Input['FlowSourceProtocol'] protocol: The protocol that is used by the source.
         :param pulumi.Input[str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         :param pulumi.Input[str] vpc_interface_name: The name of the VPC Interface this Source is configured with.
         :param pulumi.Input[str] whitelist_cidr: The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -163,14 +164,14 @@ class FlowSourceInitArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[str]]:
+    def protocol(self) -> Optional[pulumi.Input['FlowSourceProtocol']]:
         """
         The protocol that is used by the source.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[str]]):
+    def protocol(self, value: Optional[pulumi.Input['FlowSourceProtocol']]):
         pulumi.set(self, "protocol", value)
 
     @property
@@ -223,7 +224,7 @@ class FlowSource(pulumi.CustomResource):
                  max_bitrate: Optional[pulumi.Input[int]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input['FlowSourceProtocol']] = None,
                  stream_id: Optional[pulumi.Input[str]] = None,
                  vpc_interface_name: Optional[pulumi.Input[str]] = None,
                  whitelist_cidr: Optional[pulumi.Input[str]] = None,
@@ -241,7 +242,7 @@ class FlowSource(pulumi.CustomResource):
         :param pulumi.Input[int] max_bitrate: The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         :param pulumi.Input[str] name: The name of the source.
-        :param pulumi.Input[str] protocol: The protocol that is used by the source.
+        :param pulumi.Input['FlowSourceProtocol'] protocol: The protocol that is used by the source.
         :param pulumi.Input[str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         :param pulumi.Input[str] vpc_interface_name: The name of the VPC Interface this Source is configured with.
         :param pulumi.Input[str] whitelist_cidr: The range of IP addresses that should be allowed to contribute content to your source. These IP addresses should be in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0/16.
@@ -278,7 +279,7 @@ class FlowSource(pulumi.CustomResource):
                  max_bitrate: Optional[pulumi.Input[int]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input['FlowSourceProtocol']] = None,
                  stream_id: Optional[pulumi.Input[str]] = None,
                  vpc_interface_name: Optional[pulumi.Input[str]] = None,
                  whitelist_cidr: Optional[pulumi.Input[str]] = None,
@@ -424,7 +425,7 @@ class FlowSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Output[Optional[str]]:
+    def protocol(self) -> pulumi.Output[Optional['FlowSourceProtocol']]:
         """
         The protocol that is used by the source.
         """

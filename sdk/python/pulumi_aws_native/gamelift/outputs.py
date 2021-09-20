@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'AliasRoutingStrategy',
@@ -45,11 +46,11 @@ class AliasRoutingStrategy(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 type: str,
+                 type: 'AliasRoutingStrategyType',
                  fleet_id: Optional[str] = None,
                  message: Optional[str] = None):
         """
-        :param str type: Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
+        :param 'AliasRoutingStrategyType' type: Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
         :param str fleet_id: A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.
         :param str message: The message text to be used with a terminal routing strategy. If you specify TERMINAL for the Type property, you must specify this property.
         """
@@ -61,7 +62,7 @@ class AliasRoutingStrategy(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> 'AliasRoutingStrategyType':
         """
         Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
         """
@@ -107,7 +108,7 @@ class FleetCertificateConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 certificate_type: str):
+                 certificate_type: 'FleetCertificateConfigurationCertificateType'):
         """
         Information about the use of a TLS/SSL certificate for a fleet. TLS certificate generation is enabled at the fleet level, with one certificate generated for the fleet. When this feature is enabled, the certificate can be retrieved using the GameLift Server SDK call GetInstanceCertificate. All instances in a fleet share the same certificate.
         """
@@ -115,7 +116,7 @@ class FleetCertificateConfiguration(dict):
 
     @property
     @pulumi.getter(name="certificateType")
-    def certificate_type(self) -> str:
+    def certificate_type(self) -> 'FleetCertificateConfigurationCertificateType':
         return pulumi.get(self, "certificate_type")
 
 
@@ -148,13 +149,13 @@ class FleetIpPermission(dict):
     def __init__(__self__, *,
                  from_port: int,
                  ip_range: str,
-                 protocol: str,
+                 protocol: 'FleetIpPermissionProtocol',
                  to_port: int):
         """
         A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
         :param int from_port: A starting value for a range of allowed port numbers.
         :param str ip_range: A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
-        :param str protocol: The network communication protocol used by the fleet.
+        :param 'FleetIpPermissionProtocol' protocol: The network communication protocol used by the fleet.
         :param int to_port: An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
         """
         pulumi.set(__self__, "from_port", from_port)
@@ -180,7 +181,7 @@ class FleetIpPermission(dict):
 
     @property
     @pulumi.getter
-    def protocol(self) -> str:
+    def protocol(self) -> 'FleetIpPermissionProtocol':
         """
         The network communication protocol used by the fleet.
         """

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FlowLogArgs', 'FlowLog']
@@ -16,11 +17,11 @@ __all__ = ['FlowLogArgs', 'FlowLog']
 class FlowLogArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[str],
-                 resource_type: pulumi.Input[str],
-                 traffic_type: pulumi.Input[str],
+                 resource_type: pulumi.Input['FlowLogResourceType'],
+                 traffic_type: pulumi.Input['FlowLogTrafficType'],
                  deliver_logs_permission_arn: Optional[pulumi.Input[str]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
-                 log_destination_type: Optional[pulumi.Input[str]] = None,
+                 log_destination_type: Optional[pulumi.Input['FlowLogLogDestinationType']] = None,
                  log_format: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  max_aggregation_interval: Optional[pulumi.Input[int]] = None,
@@ -28,11 +29,11 @@ class FlowLogArgs:
         """
         The set of arguments for constructing a FlowLog resource.
         :param pulumi.Input[str] resource_id: The ID of the subnet, network interface, or VPC for which you want to create a flow log.
-        :param pulumi.Input[str] resource_type: The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
-        :param pulumi.Input[str] traffic_type: The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
+        :param pulumi.Input['FlowLogResourceType'] resource_type: The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
+        :param pulumi.Input['FlowLogTrafficType'] traffic_type: The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         :param pulumi.Input[str] deliver_logs_permission_arn: The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
         :param pulumi.Input[str] log_destination: Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.
-        :param pulumi.Input[str] log_destination_type: Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
+        :param pulumi.Input['FlowLogLogDestinationType'] log_destination_type: Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
         :param pulumi.Input[str] log_group_name: The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).
@@ -70,26 +71,26 @@ class FlowLogArgs:
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> pulumi.Input[str]:
+    def resource_type(self) -> pulumi.Input['FlowLogResourceType']:
         """
         The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: pulumi.Input[str]):
+    def resource_type(self, value: pulumi.Input['FlowLogResourceType']):
         pulumi.set(self, "resource_type", value)
 
     @property
     @pulumi.getter(name="trafficType")
-    def traffic_type(self) -> pulumi.Input[str]:
+    def traffic_type(self) -> pulumi.Input['FlowLogTrafficType']:
         """
         The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         """
         return pulumi.get(self, "traffic_type")
 
     @traffic_type.setter
-    def traffic_type(self, value: pulumi.Input[str]):
+    def traffic_type(self, value: pulumi.Input['FlowLogTrafficType']):
         pulumi.set(self, "traffic_type", value)
 
     @property
@@ -118,14 +119,14 @@ class FlowLogArgs:
 
     @property
     @pulumi.getter(name="logDestinationType")
-    def log_destination_type(self) -> Optional[pulumi.Input[str]]:
+    def log_destination_type(self) -> Optional[pulumi.Input['FlowLogLogDestinationType']]:
         """
         Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
         """
         return pulumi.get(self, "log_destination_type")
 
     @log_destination_type.setter
-    def log_destination_type(self, value: Optional[pulumi.Input[str]]):
+    def log_destination_type(self, value: Optional[pulumi.Input['FlowLogLogDestinationType']]):
         pulumi.set(self, "log_destination_type", value)
 
     @property
@@ -184,14 +185,14 @@ class FlowLog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deliver_logs_permission_arn: Optional[pulumi.Input[str]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
-                 log_destination_type: Optional[pulumi.Input[str]] = None,
+                 log_destination_type: Optional[pulumi.Input['FlowLogLogDestinationType']] = None,
                  log_format: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  max_aggregation_interval: Optional[pulumi.Input[int]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 resource_type: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input['FlowLogResourceType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowLogTagArgs']]]]] = None,
-                 traffic_type: Optional[pulumi.Input[str]] = None,
+                 traffic_type: Optional[pulumi.Input['FlowLogTrafficType']] = None,
                  __props__=None):
         """
         Specifies a VPC flow log, which enables you to capture IP traffic for a specific network interface, subnet, or VPC.
@@ -200,14 +201,14 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deliver_logs_permission_arn: The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group in your account. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
         :param pulumi.Input[str] log_destination: Specifies the destination to which the flow log data is to be published. Flow log data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.
-        :param pulumi.Input[str] log_destination_type: Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
+        :param pulumi.Input['FlowLogLogDestinationType'] log_destination_type: Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
         :param pulumi.Input[str] log_format: The fields to include in the flow log record, in the order in which they should appear.
         :param pulumi.Input[str] log_group_name: The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs. If you specify LogDestinationType as s3, do not specify DeliverLogsPermissionArn or LogGroupName.
         :param pulumi.Input[int] max_aggregation_interval: The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).
         :param pulumi.Input[str] resource_id: The ID of the subnet, network interface, or VPC for which you want to create a flow log.
-        :param pulumi.Input[str] resource_type: The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
+        :param pulumi.Input['FlowLogResourceType'] resource_type: The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowLogTagArgs']]]] tags: The tags to apply to the flow logs.
-        :param pulumi.Input[str] traffic_type: The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
+        :param pulumi.Input['FlowLogTrafficType'] traffic_type: The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         """
         ...
     @overload
@@ -235,14 +236,14 @@ class FlowLog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deliver_logs_permission_arn: Optional[pulumi.Input[str]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
-                 log_destination_type: Optional[pulumi.Input[str]] = None,
+                 log_destination_type: Optional[pulumi.Input['FlowLogLogDestinationType']] = None,
                  log_format: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  max_aggregation_interval: Optional[pulumi.Input[int]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 resource_type: Optional[pulumi.Input[str]] = None,
+                 resource_type: Optional[pulumi.Input['FlowLogResourceType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FlowLogTagArgs']]]]] = None,
-                 traffic_type: Optional[pulumi.Input[str]] = None,
+                 traffic_type: Optional[pulumi.Input['FlowLogTrafficType']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -323,7 +324,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logDestinationType")
-    def log_destination_type(self) -> pulumi.Output[Optional[str]]:
+    def log_destination_type(self) -> pulumi.Output[Optional['FlowLogLogDestinationType']]:
         """
         Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3.
         """
@@ -363,7 +364,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> pulumi.Output[str]:
+    def resource_type(self) -> pulumi.Output['FlowLogResourceType']:
         """
         The type of resource for which to create the flow log. For example, if you specified a VPC ID for the ResourceId property, specify VPC for this property.
         """
@@ -379,7 +380,7 @@ class FlowLog(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficType")
-    def traffic_type(self) -> pulumi.Output[str]:
+    def traffic_type(self) -> pulumi.Output['FlowLogTrafficType']:
         """
         The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.
         """

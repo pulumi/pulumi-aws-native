@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AuthorizerArgs', 'Authorizer']
@@ -18,7 +19,7 @@ class AuthorizerArgs:
                  authorizer_function_arn: pulumi.Input[str],
                  authorizer_name: Optional[pulumi.Input[str]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['AuthorizerStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizerTagArgs']]]] = None,
                  token_key_name: Optional[pulumi.Input[str]] = None,
                  token_signing_public_keys: Optional[Any] = None):
@@ -68,11 +69,11 @@ class AuthorizerArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input['AuthorizerStatus']]:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input['AuthorizerStatus']]):
         pulumi.set(self, "status", value)
 
     @property
@@ -111,7 +112,7 @@ class Authorizer(pulumi.CustomResource):
                  authorizer_function_arn: Optional[pulumi.Input[str]] = None,
                  authorizer_name: Optional[pulumi.Input[str]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['AuthorizerStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizerTagArgs']]]]] = None,
                  token_key_name: Optional[pulumi.Input[str]] = None,
                  token_signing_public_keys: Optional[Any] = None,
@@ -149,7 +150,7 @@ class Authorizer(pulumi.CustomResource):
                  authorizer_function_arn: Optional[pulumi.Input[str]] = None,
                  authorizer_name: Optional[pulumi.Input[str]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['AuthorizerStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizerTagArgs']]]]] = None,
                  token_key_name: Optional[pulumi.Input[str]] = None,
                  token_signing_public_keys: Optional[Any] = None,
@@ -229,7 +230,7 @@ class Authorizer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional[str]]:
+    def status(self) -> pulumi.Output[Optional['AuthorizerStatus']]:
         return pulumi.get(self, "status")
 
     @property

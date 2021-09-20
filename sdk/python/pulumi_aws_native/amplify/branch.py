@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['BranchArgs', 'Branch']
@@ -25,7 +26,7 @@ class BranchArgs:
                  enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['BranchEnvironmentVariableArgs']]]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
-                 stage: Optional[pulumi.Input[str]] = None,
+                 stage: Optional[pulumi.Input['BranchStage']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['BranchTagArgs']]]] = None):
         """
         The set of arguments for constructing a Branch resource.
@@ -145,11 +146,11 @@ class BranchArgs:
 
     @property
     @pulumi.getter
-    def stage(self) -> Optional[pulumi.Input[str]]:
+    def stage(self) -> Optional[pulumi.Input['BranchStage']]:
         return pulumi.get(self, "stage")
 
     @stage.setter
-    def stage(self, value: Optional[pulumi.Input[str]]):
+    def stage(self, value: Optional[pulumi.Input['BranchStage']]):
         pulumi.set(self, "stage", value)
 
     @property
@@ -177,7 +178,7 @@ class Branch(pulumi.CustomResource):
                  enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchEnvironmentVariableArgs']]]]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
-                 stage: Optional[pulumi.Input[str]] = None,
+                 stage: Optional[pulumi.Input['BranchStage']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -220,7 +221,7 @@ class Branch(pulumi.CustomResource):
                  enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchEnvironmentVariableArgs']]]]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
-                 stage: Optional[pulumi.Input[str]] = None,
+                 stage: Optional[pulumi.Input['BranchStage']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchTagArgs']]]]] = None,
                  __props__=None):
         if opts is None:
@@ -345,7 +346,7 @@ class Branch(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def stage(self) -> pulumi.Output[Optional[str]]:
+    def stage(self) -> pulumi.Output[Optional['BranchStage']]:
         return pulumi.get(self, "stage")
 
     @property

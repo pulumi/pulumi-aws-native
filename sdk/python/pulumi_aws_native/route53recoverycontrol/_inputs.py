@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'SafetyRuleAssertionRuleArgs',
@@ -112,7 +113,7 @@ class SafetyRuleRuleConfigArgs:
     def __init__(__self__, *,
                  inverted: pulumi.Input[bool],
                  threshold: pulumi.Input[int],
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input['SafetyRuleRuleType']):
         """
         The rule configuration for an assertion rule or gating rule. This is the criteria that you set for specific assertion controls (routing controls) or gating controls. This configuration specifies how many controls must be enabled after a transaction completes.
         :param pulumi.Input[bool] inverted: Logical negation of the rule. If the rule would usually evaluate true, it's evaluated as false, and vice versa.
@@ -148,11 +149,11 @@ class SafetyRuleRuleConfigArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['SafetyRuleRuleType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['SafetyRuleRuleType']):
         pulumi.set(self, "type", value)
 
 

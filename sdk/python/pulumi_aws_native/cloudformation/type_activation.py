@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['TypeActivationArgs', 'TypeActivation']
@@ -21,10 +22,10 @@ class TypeActivationArgs:
                  major_version: Optional[pulumi.Input[str]] = None,
                  public_type_arn: Optional[pulumi.Input[str]] = None,
                  publisher_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['TypeActivationType']] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  type_name_alias: Optional[pulumi.Input[str]] = None,
-                 version_bump: Optional[pulumi.Input[str]] = None):
+                 version_bump: Optional[pulumi.Input['TypeActivationVersionBump']] = None):
         """
         The set of arguments for constructing a TypeActivation resource.
         :param pulumi.Input[bool] auto_update: Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
@@ -33,12 +34,12 @@ class TypeActivationArgs:
         :param pulumi.Input[str] major_version: The Major Version of the type you want to enable
         :param pulumi.Input[str] public_type_arn: The Amazon Resource Number (ARN) assigned to the public extension upon publication
         :param pulumi.Input[str] publisher_id: The publisher id assigned by CloudFormation for publishing in this region.
-        :param pulumi.Input[str] type: The kind of extension
+        :param pulumi.Input['TypeActivationType'] type: The kind of extension
         :param pulumi.Input[str] type_name: The name of the type being registered.
                
                We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         :param pulumi.Input[str] type_name_alias: An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
-        :param pulumi.Input[str] version_bump: Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
+        :param pulumi.Input['TypeActivationVersionBump'] version_bump: Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
         """
         if auto_update is not None:
             pulumi.set(__self__, "auto_update", auto_update)
@@ -135,14 +136,14 @@ class TypeActivationArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['TypeActivationType']]:
         """
         The kind of extension
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['TypeActivationType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -173,14 +174,14 @@ class TypeActivationArgs:
 
     @property
     @pulumi.getter(name="versionBump")
-    def version_bump(self) -> Optional[pulumi.Input[str]]:
+    def version_bump(self) -> Optional[pulumi.Input['TypeActivationVersionBump']]:
         """
         Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
         """
         return pulumi.get(self, "version_bump")
 
     @version_bump.setter
-    def version_bump(self, value: Optional[pulumi.Input[str]]):
+    def version_bump(self, value: Optional[pulumi.Input['TypeActivationVersionBump']]):
         pulumi.set(self, "version_bump", value)
 
 
@@ -195,10 +196,10 @@ class TypeActivation(pulumi.CustomResource):
                  major_version: Optional[pulumi.Input[str]] = None,
                  public_type_arn: Optional[pulumi.Input[str]] = None,
                  publisher_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['TypeActivationType']] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  type_name_alias: Optional[pulumi.Input[str]] = None,
-                 version_bump: Optional[pulumi.Input[str]] = None,
+                 version_bump: Optional[pulumi.Input['TypeActivationVersionBump']] = None,
                  __props__=None):
         """
         Enable a resource that has been published in the CloudFormation Registry.
@@ -211,12 +212,12 @@ class TypeActivation(pulumi.CustomResource):
         :param pulumi.Input[str] major_version: The Major Version of the type you want to enable
         :param pulumi.Input[str] public_type_arn: The Amazon Resource Number (ARN) assigned to the public extension upon publication
         :param pulumi.Input[str] publisher_id: The publisher id assigned by CloudFormation for publishing in this region.
-        :param pulumi.Input[str] type: The kind of extension
+        :param pulumi.Input['TypeActivationType'] type: The kind of extension
         :param pulumi.Input[str] type_name: The name of the type being registered.
                
                We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         :param pulumi.Input[str] type_name_alias: An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
-        :param pulumi.Input[str] version_bump: Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
+        :param pulumi.Input['TypeActivationVersionBump'] version_bump: Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
         """
         ...
     @overload
@@ -248,10 +249,10 @@ class TypeActivation(pulumi.CustomResource):
                  major_version: Optional[pulumi.Input[str]] = None,
                  public_type_arn: Optional[pulumi.Input[str]] = None,
                  publisher_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['TypeActivationType']] = None,
                  type_name: Optional[pulumi.Input[str]] = None,
                  type_name_alias: Optional[pulumi.Input[str]] = None,
-                 version_bump: Optional[pulumi.Input[str]] = None,
+                 version_bump: Optional[pulumi.Input['TypeActivationVersionBump']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -368,7 +369,7 @@ class TypeActivation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[str]]:
+    def type(self) -> pulumi.Output[Optional['TypeActivationType']]:
         """
         The kind of extension
         """
@@ -394,7 +395,7 @@ class TypeActivation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="versionBump")
-    def version_bump(self) -> pulumi.Output[Optional[str]]:
+    def version_bump(self) -> pulumi.Output[Optional['TypeActivationVersionBump']]:
         """
         Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
         """

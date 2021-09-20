@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ReplicationSetRegionConfigurationArgs',
@@ -224,14 +225,14 @@ class ResponsePlanSsmAutomationArgs:
                  role_arn: pulumi.Input[str],
                  document_version: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]]] = None,
-                 target_account: Optional[pulumi.Input[str]] = None):
+                 target_account: Optional[pulumi.Input['ResponsePlanSsmAutomationTargetAccount']] = None):
         """
         The configuration to use when starting the SSM automation document.
         :param pulumi.Input[str] document_name: The document name to use when starting the SSM automation document.
         :param pulumi.Input[str] role_arn: The role ARN to use when starting the SSM automation document.
         :param pulumi.Input[str] document_version: The version of the document to use when starting the SSM automation document.
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanSsmParameterArgs']]] parameters: The parameters to set when starting the SSM automation document.
-        :param pulumi.Input[str] target_account: The account type to use when starting the SSM automation document.
+        :param pulumi.Input['ResponsePlanSsmAutomationTargetAccount'] target_account: The account type to use when starting the SSM automation document.
         """
         pulumi.set(__self__, "document_name", document_name)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -292,14 +293,14 @@ class ResponsePlanSsmAutomationArgs:
 
     @property
     @pulumi.getter(name="targetAccount")
-    def target_account(self) -> Optional[pulumi.Input[str]]:
+    def target_account(self) -> Optional[pulumi.Input['ResponsePlanSsmAutomationTargetAccount']]:
         """
         The account type to use when starting the SSM automation document.
         """
         return pulumi.get(self, "target_account")
 
     @target_account.setter
-    def target_account(self, value: Optional[pulumi.Input[str]]):
+    def target_account(self, value: Optional[pulumi.Input['ResponsePlanSsmAutomationTargetAccount']]):
         pulumi.set(self, "target_account", value)
 
 

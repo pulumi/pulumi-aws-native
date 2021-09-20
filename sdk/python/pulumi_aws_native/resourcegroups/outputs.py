@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GroupConfigurationItem',
@@ -114,7 +115,7 @@ class GroupQuery(dict):
 class GroupResourceQuery(dict):
     def __init__(__self__, *,
                  query: Optional['outputs.GroupQuery'] = None,
-                 type: Optional[str] = None):
+                 type: Optional['GroupResourceQueryType'] = None):
         if query is not None:
             pulumi.set(__self__, "query", query)
         if type is not None:
@@ -127,7 +128,7 @@ class GroupResourceQuery(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> Optional['GroupResourceQueryType']:
         return pulumi.get(self, "type")
 
 

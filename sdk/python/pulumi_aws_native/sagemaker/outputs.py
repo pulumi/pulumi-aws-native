@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'AppImageConfigFileSystemConfig',
@@ -331,11 +332,11 @@ class AppResourceSpec(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 instance_type: Optional[str] = None,
+                 instance_type: Optional['AppResourceSpecInstanceType'] = None,
                  sage_maker_image_arn: Optional[str] = None,
                  sage_maker_image_version_arn: Optional[str] = None):
         """
-        :param str instance_type: The instance type that the image version runs on.
+        :param 'AppResourceSpecInstanceType' instance_type: The instance type that the image version runs on.
         :param str sage_maker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param str sage_maker_image_version_arn: The ARN of the image version created on the instance.
         """
@@ -348,7 +349,7 @@ class AppResourceSpec(dict):
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[str]:
+    def instance_type(self) -> Optional['AppResourceSpecInstanceType']:
         """
         The instance type that the image version runs on.
         """
@@ -738,13 +739,13 @@ class DataQualityJobDefinitionEndpointInput(dict):
     def __init__(__self__, *,
                  endpoint_name: str,
                  local_path: str,
-                 s3_data_distribution_type: Optional[str] = None,
-                 s3_input_mode: Optional[str] = None):
+                 s3_data_distribution_type: Optional['DataQualityJobDefinitionEndpointInputS3DataDistributionType'] = None,
+                 s3_input_mode: Optional['DataQualityJobDefinitionEndpointInputS3InputMode'] = None):
         """
         The endpoint for a monitoring job.
         :param str local_path: Path to the filesystem where the endpoint data is available to the container.
-        :param str s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-        :param str s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        :param 'DataQualityJobDefinitionEndpointInputS3DataDistributionType' s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        :param 'DataQualityJobDefinitionEndpointInputS3InputMode' s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "local_path", local_path)
@@ -768,7 +769,7 @@ class DataQualityJobDefinitionEndpointInput(dict):
 
     @property
     @pulumi.getter(name="s3DataDistributionType")
-    def s3_data_distribution_type(self) -> Optional[str]:
+    def s3_data_distribution_type(self) -> Optional['DataQualityJobDefinitionEndpointInputS3DataDistributionType']:
         """
         Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         """
@@ -776,7 +777,7 @@ class DataQualityJobDefinitionEndpointInput(dict):
 
     @property
     @pulumi.getter(name="s3InputMode")
-    def s3_input_mode(self) -> Optional[str]:
+    def s3_input_mode(self) -> Optional['DataQualityJobDefinitionEndpointInputS3InputMode']:
         """
         Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
@@ -999,12 +1000,12 @@ class DataQualityJobDefinitionS3Output(dict):
     def __init__(__self__, *,
                  local_path: str,
                  s3_uri: str,
-                 s3_upload_mode: Optional[str] = None):
+                 s3_upload_mode: Optional['DataQualityJobDefinitionS3OutputS3UploadMode'] = None):
         """
         Information about where and how to store the results of a monitoring job.
         :param str local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         :param str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-        :param str s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
+        :param 'DataQualityJobDefinitionS3OutputS3UploadMode' s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
         """
         pulumi.set(__self__, "local_path", local_path)
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -1029,7 +1030,7 @@ class DataQualityJobDefinitionS3Output(dict):
 
     @property
     @pulumi.getter(name="s3UploadMode")
-    def s3_upload_mode(self) -> Optional[str]:
+    def s3_upload_mode(self) -> Optional['DataQualityJobDefinitionS3OutputS3UploadMode']:
         """
         Whether to upload the results of the monitoring job continuously or after the job completes.
         """
@@ -1554,11 +1555,11 @@ class DomainResourceSpec(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 instance_type: Optional[str] = None,
+                 instance_type: Optional['DomainResourceSpecInstanceType'] = None,
                  sage_maker_image_arn: Optional[str] = None,
                  sage_maker_image_version_arn: Optional[str] = None):
         """
-        :param str instance_type: The instance type that the image version runs on.
+        :param 'DomainResourceSpecInstanceType' instance_type: The instance type that the image version runs on.
         :param str sage_maker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param str sage_maker_image_version_arn: The ARN of the image version created on the instance.
         """
@@ -1571,7 +1572,7 @@ class DomainResourceSpec(dict):
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[str]:
+    def instance_type(self) -> Optional['DomainResourceSpecInstanceType']:
         """
         The instance type that the image version runs on.
         """
@@ -1621,12 +1622,12 @@ class DomainSharingSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 notebook_output_option: Optional[str] = None,
+                 notebook_output_option: Optional['DomainSharingSettingsNotebookOutputOption'] = None,
                  s3_kms_key_id: Optional[str] = None,
                  s3_output_path: Optional[str] = None):
         """
         Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
-        :param str notebook_output_option: Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
+        :param 'DomainSharingSettingsNotebookOutputOption' notebook_output_option: Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
         :param str s3_kms_key_id: When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
         :param str s3_output_path: When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
         """
@@ -1639,7 +1640,7 @@ class DomainSharingSettings(dict):
 
     @property
     @pulumi.getter(name="notebookOutputOption")
-    def notebook_output_option(self) -> Optional[str]:
+    def notebook_output_option(self) -> Optional['DomainSharingSettingsNotebookOutputOption']:
         """
         Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
         """
@@ -1800,7 +1801,7 @@ class FeatureGroupFeatureDefinition(dict):
 
     def __init__(__self__, *,
                  feature_name: str,
-                 feature_type: str):
+                 feature_type: 'FeatureGroupFeatureDefinitionFeatureType'):
         pulumi.set(__self__, "feature_name", feature_name)
         pulumi.set(__self__, "feature_type", feature_type)
 
@@ -1811,7 +1812,7 @@ class FeatureGroupFeatureDefinition(dict):
 
     @property
     @pulumi.getter(name="featureType")
-    def feature_type(self) -> str:
+    def feature_type(self) -> 'FeatureGroupFeatureDefinitionFeatureType':
         return pulumi.get(self, "feature_type")
 
 
@@ -2040,8 +2041,8 @@ class ModelBiasJobDefinitionEndpointInput(dict):
                  inference_attribute: Optional[str] = None,
                  probability_attribute: Optional[str] = None,
                  probability_threshold_attribute: Optional[float] = None,
-                 s3_data_distribution_type: Optional[str] = None,
-                 s3_input_mode: Optional[str] = None,
+                 s3_data_distribution_type: Optional['ModelBiasJobDefinitionEndpointInputS3DataDistributionType'] = None,
+                 s3_input_mode: Optional['ModelBiasJobDefinitionEndpointInputS3InputMode'] = None,
                  start_time_offset: Optional[str] = None):
         """
         The endpoint for a monitoring job.
@@ -2050,8 +2051,8 @@ class ModelBiasJobDefinitionEndpointInput(dict):
         :param str features_attribute: JSONpath to locate features in JSONlines dataset
         :param str inference_attribute: Index or JSONpath to locate predicted label(s)
         :param str probability_attribute: Index or JSONpath to locate probabilities
-        :param str s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-        :param str s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        :param 'ModelBiasJobDefinitionEndpointInputS3DataDistributionType' s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        :param 'ModelBiasJobDefinitionEndpointInputS3InputMode' s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         :param str start_time_offset: Monitoring start time offset, e.g. -PT1H
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
@@ -2125,7 +2126,7 @@ class ModelBiasJobDefinitionEndpointInput(dict):
 
     @property
     @pulumi.getter(name="s3DataDistributionType")
-    def s3_data_distribution_type(self) -> Optional[str]:
+    def s3_data_distribution_type(self) -> Optional['ModelBiasJobDefinitionEndpointInputS3DataDistributionType']:
         """
         Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         """
@@ -2133,7 +2134,7 @@ class ModelBiasJobDefinitionEndpointInput(dict):
 
     @property
     @pulumi.getter(name="s3InputMode")
-    def s3_input_mode(self) -> Optional[str]:
+    def s3_input_mode(self) -> Optional['ModelBiasJobDefinitionEndpointInputS3InputMode']:
         """
         Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
@@ -2557,12 +2558,12 @@ class ModelBiasJobDefinitionS3Output(dict):
     def __init__(__self__, *,
                  local_path: str,
                  s3_uri: str,
-                 s3_upload_mode: Optional[str] = None):
+                 s3_upload_mode: Optional['ModelBiasJobDefinitionS3OutputS3UploadMode'] = None):
         """
         Information about where and how to store the results of a monitoring job.
         :param str local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         :param str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-        :param str s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
+        :param 'ModelBiasJobDefinitionS3OutputS3UploadMode' s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
         """
         pulumi.set(__self__, "local_path", local_path)
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -2587,7 +2588,7 @@ class ModelBiasJobDefinitionS3Output(dict):
 
     @property
     @pulumi.getter(name="s3UploadMode")
-    def s3_upload_mode(self) -> Optional[str]:
+    def s3_upload_mode(self) -> Optional['ModelBiasJobDefinitionS3OutputS3UploadMode']:
         """
         Whether to upload the results of the monitoring job continuously or after the job completes.
         """
@@ -2875,16 +2876,16 @@ class ModelExplainabilityJobDefinitionEndpointInput(dict):
                  features_attribute: Optional[str] = None,
                  inference_attribute: Optional[str] = None,
                  probability_attribute: Optional[str] = None,
-                 s3_data_distribution_type: Optional[str] = None,
-                 s3_input_mode: Optional[str] = None):
+                 s3_data_distribution_type: Optional['ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType'] = None,
+                 s3_input_mode: Optional['ModelExplainabilityJobDefinitionEndpointInputS3InputMode'] = None):
         """
         The endpoint for a monitoring job.
         :param str local_path: Path to the filesystem where the endpoint data is available to the container.
         :param str features_attribute: JSONpath to locate features in JSONlines dataset
         :param str inference_attribute: Index or JSONpath to locate predicted label(s)
         :param str probability_attribute: Index or JSONpath to locate probabilities
-        :param str s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-        :param str s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        :param 'ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType' s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        :param 'ModelExplainabilityJobDefinitionEndpointInputS3InputMode' s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "local_path", local_path)
@@ -2938,7 +2939,7 @@ class ModelExplainabilityJobDefinitionEndpointInput(dict):
 
     @property
     @pulumi.getter(name="s3DataDistributionType")
-    def s3_data_distribution_type(self) -> Optional[str]:
+    def s3_data_distribution_type(self) -> Optional['ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType']:
         """
         Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         """
@@ -2946,7 +2947,7 @@ class ModelExplainabilityJobDefinitionEndpointInput(dict):
 
     @property
     @pulumi.getter(name="s3InputMode")
-    def s3_input_mode(self) -> Optional[str]:
+    def s3_input_mode(self) -> Optional['ModelExplainabilityJobDefinitionEndpointInputS3InputMode']:
         """
         Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
@@ -3314,12 +3315,12 @@ class ModelExplainabilityJobDefinitionS3Output(dict):
     def __init__(__self__, *,
                  local_path: str,
                  s3_uri: str,
-                 s3_upload_mode: Optional[str] = None):
+                 s3_upload_mode: Optional['ModelExplainabilityJobDefinitionS3OutputS3UploadMode'] = None):
         """
         Information about where and how to store the results of a monitoring job.
         :param str local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         :param str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-        :param str s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
+        :param 'ModelExplainabilityJobDefinitionS3OutputS3UploadMode' s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
         """
         pulumi.set(__self__, "local_path", local_path)
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -3344,7 +3345,7 @@ class ModelExplainabilityJobDefinitionS3Output(dict):
 
     @property
     @pulumi.getter(name="s3UploadMode")
-    def s3_upload_mode(self) -> Optional[str]:
+    def s3_upload_mode(self) -> Optional['ModelExplainabilityJobDefinitionS3OutputS3UploadMode']:
         """
         Whether to upload the results of the monitoring job continuously or after the job completes.
         """
@@ -3670,8 +3671,8 @@ class ModelQualityJobDefinitionEndpointInput(dict):
                  inference_attribute: Optional[str] = None,
                  probability_attribute: Optional[str] = None,
                  probability_threshold_attribute: Optional[float] = None,
-                 s3_data_distribution_type: Optional[str] = None,
-                 s3_input_mode: Optional[str] = None,
+                 s3_data_distribution_type: Optional['ModelQualityJobDefinitionEndpointInputS3DataDistributionType'] = None,
+                 s3_input_mode: Optional['ModelQualityJobDefinitionEndpointInputS3InputMode'] = None,
                  start_time_offset: Optional[str] = None):
         """
         The endpoint for a monitoring job.
@@ -3679,8 +3680,8 @@ class ModelQualityJobDefinitionEndpointInput(dict):
         :param str end_time_offset: Monitoring end time offset, e.g. PT0H
         :param str inference_attribute: Index or JSONpath to locate predicted label(s)
         :param str probability_attribute: Index or JSONpath to locate probabilities
-        :param str s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-        :param str s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        :param 'ModelQualityJobDefinitionEndpointInputS3DataDistributionType' s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        :param 'ModelQualityJobDefinitionEndpointInputS3InputMode' s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         :param str start_time_offset: Monitoring start time offset, e.g. -PT1H
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
@@ -3744,7 +3745,7 @@ class ModelQualityJobDefinitionEndpointInput(dict):
 
     @property
     @pulumi.getter(name="s3DataDistributionType")
-    def s3_data_distribution_type(self) -> Optional[str]:
+    def s3_data_distribution_type(self) -> Optional['ModelQualityJobDefinitionEndpointInputS3DataDistributionType']:
         """
         Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         """
@@ -3752,7 +3753,7 @@ class ModelQualityJobDefinitionEndpointInput(dict):
 
     @property
     @pulumi.getter(name="s3InputMode")
-    def s3_input_mode(self) -> Optional[str]:
+    def s3_input_mode(self) -> Optional['ModelQualityJobDefinitionEndpointInputS3InputMode']:
         """
         Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
@@ -3801,7 +3802,7 @@ class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
 
     def __init__(__self__, *,
                  image_uri: str,
-                 problem_type: str,
+                 problem_type: 'ModelQualityJobDefinitionProblemType',
                  container_arguments: Optional[Sequence[str]] = None,
                  container_entrypoint: Optional[Sequence[str]] = None,
                  environment: Optional[Any] = None,
@@ -3839,7 +3840,7 @@ class ModelQualityJobDefinitionModelQualityAppSpecification(dict):
 
     @property
     @pulumi.getter(name="problemType")
-    def problem_type(self) -> str:
+    def problem_type(self) -> 'ModelQualityJobDefinitionProblemType':
         return pulumi.get(self, "problem_type")
 
     @property
@@ -4228,12 +4229,12 @@ class ModelQualityJobDefinitionS3Output(dict):
     def __init__(__self__, *,
                  local_path: str,
                  s3_uri: str,
-                 s3_upload_mode: Optional[str] = None):
+                 s3_upload_mode: Optional['ModelQualityJobDefinitionS3OutputS3UploadMode'] = None):
         """
         Information about where and how to store the results of a monitoring job.
         :param str local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         :param str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-        :param str s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
+        :param 'ModelQualityJobDefinitionS3OutputS3UploadMode' s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
         """
         pulumi.set(__self__, "local_path", local_path)
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -4258,7 +4259,7 @@ class ModelQualityJobDefinitionS3Output(dict):
 
     @property
     @pulumi.getter(name="s3UploadMode")
-    def s3_upload_mode(self) -> Optional[str]:
+    def s3_upload_mode(self) -> Optional['ModelQualityJobDefinitionS3OutputS3UploadMode']:
         """
         Whether to upload the results of the monitoring job continuously or after the job completes.
         """
@@ -4583,13 +4584,13 @@ class MonitoringScheduleEndpointInput(dict):
     def __init__(__self__, *,
                  endpoint_name: str,
                  local_path: str,
-                 s3_data_distribution_type: Optional[str] = None,
-                 s3_input_mode: Optional[str] = None):
+                 s3_data_distribution_type: Optional['MonitoringScheduleEndpointInputS3DataDistributionType'] = None,
+                 s3_input_mode: Optional['MonitoringScheduleEndpointInputS3InputMode'] = None):
         """
         The endpoint for a monitoring job.
         :param str local_path: Path to the filesystem where the endpoint data is available to the container.
-        :param str s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
-        :param str s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
+        :param 'MonitoringScheduleEndpointInputS3DataDistributionType' s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
+        :param 'MonitoringScheduleEndpointInputS3InputMode' s3_input_mode: Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "local_path", local_path)
@@ -4613,7 +4614,7 @@ class MonitoringScheduleEndpointInput(dict):
 
     @property
     @pulumi.getter(name="s3DataDistributionType")
-    def s3_data_distribution_type(self) -> Optional[str]:
+    def s3_data_distribution_type(self) -> Optional['MonitoringScheduleEndpointInputS3DataDistributionType']:
         """
         Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defauts to FullyReplicated
         """
@@ -4621,7 +4622,7 @@ class MonitoringScheduleEndpointInput(dict):
 
     @property
     @pulumi.getter(name="s3InputMode")
-    def s3_input_mode(self) -> Optional[str]:
+    def s3_input_mode(self) -> Optional['MonitoringScheduleEndpointInputS3InputMode']:
         """
         Whether the Pipe or File is used as the input mode for transfering data for the monitoring job. Pipe mode is recommended for large datasets. File mode is useful for small files that fit in memory. Defaults to File.
         """
@@ -4762,7 +4763,7 @@ class MonitoringScheduleMonitoringExecutionSummary(dict):
     def __init__(__self__, *,
                  creation_time: str,
                  last_modified_time: str,
-                 monitoring_execution_status: str,
+                 monitoring_execution_status: 'MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus',
                  monitoring_schedule_name: str,
                  scheduled_time: str,
                  endpoint_name: Optional[str] = None,
@@ -4772,7 +4773,7 @@ class MonitoringScheduleMonitoringExecutionSummary(dict):
         Summary of information about monitoring job
         :param str creation_time: The time at which the monitoring job was created.
         :param str last_modified_time: A timestamp that indicates the last time the monitoring job was modified.
-        :param str monitoring_execution_status: The status of the monitoring job.
+        :param 'MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus' monitoring_execution_status: The status of the monitoring job.
         :param str scheduled_time: The time the monitoring job was scheduled.
         :param str failure_reason: Contains the reason a monitoring job failed, if it failed.
         :param str processing_job_arn: The Amazon Resource Name (ARN) of the monitoring job.
@@ -4807,7 +4808,7 @@ class MonitoringScheduleMonitoringExecutionSummary(dict):
 
     @property
     @pulumi.getter(name="monitoringExecutionStatus")
-    def monitoring_execution_status(self) -> str:
+    def monitoring_execution_status(self) -> 'MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus':
         """
         The status of the monitoring job.
         """
@@ -5154,7 +5155,7 @@ class MonitoringScheduleMonitoringScheduleConfig(dict):
     def __init__(__self__, *,
                  monitoring_job_definition: Optional['outputs.MonitoringScheduleMonitoringJobDefinition'] = None,
                  monitoring_job_definition_name: Optional[str] = None,
-                 monitoring_type: Optional[str] = None,
+                 monitoring_type: Optional['MonitoringScheduleMonitoringType'] = None,
                  schedule_config: Optional['outputs.MonitoringScheduleScheduleConfig'] = None):
         """
         The configuration object that specifies the monitoring schedule and defines the monitoring job.
@@ -5184,7 +5185,7 @@ class MonitoringScheduleMonitoringScheduleConfig(dict):
 
     @property
     @pulumi.getter(name="monitoringType")
-    def monitoring_type(self) -> Optional[str]:
+    def monitoring_type(self) -> Optional['MonitoringScheduleMonitoringType']:
         return pulumi.get(self, "monitoring_type")
 
     @property
@@ -5286,12 +5287,12 @@ class MonitoringScheduleS3Output(dict):
     def __init__(__self__, *,
                  local_path: str,
                  s3_uri: str,
-                 s3_upload_mode: Optional[str] = None):
+                 s3_upload_mode: Optional['MonitoringScheduleS3OutputS3UploadMode'] = None):
         """
         Information about where and how to store the results of a monitoring job.
         :param str local_path: The local path to the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job. LocalPath is an absolute path for the output data.
         :param str s3_uri: A URI that identifies the Amazon S3 storage location where Amazon SageMaker saves the results of a monitoring job.
-        :param str s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
+        :param 'MonitoringScheduleS3OutputS3UploadMode' s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes.
         """
         pulumi.set(__self__, "local_path", local_path)
         pulumi.set(__self__, "s3_uri", s3_uri)
@@ -5316,7 +5317,7 @@ class MonitoringScheduleS3Output(dict):
 
     @property
     @pulumi.getter(name="s3UploadMode")
-    def s3_upload_mode(self) -> Optional[str]:
+    def s3_upload_mode(self) -> Optional['MonitoringScheduleS3OutputS3UploadMode']:
         """
         Whether to upload the results of the monitoring job continuously or after the job completes.
         """
@@ -5756,11 +5757,11 @@ class UserProfileResourceSpec(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 instance_type: Optional[str] = None,
+                 instance_type: Optional['UserProfileResourceSpecInstanceType'] = None,
                  sage_maker_image_arn: Optional[str] = None,
                  sage_maker_image_version_arn: Optional[str] = None):
         """
-        :param str instance_type: The instance type that the image version runs on.
+        :param 'UserProfileResourceSpecInstanceType' instance_type: The instance type that the image version runs on.
         :param str sage_maker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param str sage_maker_image_version_arn: The ARN of the image version created on the instance.
         """
@@ -5773,7 +5774,7 @@ class UserProfileResourceSpec(dict):
 
     @property
     @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[str]:
+    def instance_type(self) -> Optional['UserProfileResourceSpecInstanceType']:
         """
         The instance type that the image version runs on.
         """
@@ -5823,12 +5824,12 @@ class UserProfileSharingSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 notebook_output_option: Optional[str] = None,
+                 notebook_output_option: Optional['UserProfileSharingSettingsNotebookOutputOption'] = None,
                  s3_kms_key_id: Optional[str] = None,
                  s3_output_path: Optional[str] = None):
         """
         Specifies options when sharing an Amazon SageMaker Studio notebook. These settings are specified as part of DefaultUserSettings when the CreateDomain API is called, and as part of UserSettings when the CreateUserProfile API is called.
-        :param str notebook_output_option: Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
+        :param 'UserProfileSharingSettingsNotebookOutputOption' notebook_output_option: Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
         :param str s3_kms_key_id: When NotebookOutputOption is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
         :param str s3_output_path: When NotebookOutputOption is Allowed, the Amazon S3 bucket used to store the shared notebook snapshots.
         """
@@ -5841,7 +5842,7 @@ class UserProfileSharingSettings(dict):
 
     @property
     @pulumi.getter(name="notebookOutputOption")
-    def notebook_output_option(self) -> Optional[str]:
+    def notebook_output_option(self) -> Optional['UserProfileSharingSettingsNotebookOutputOption']:
         """
         Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
         """

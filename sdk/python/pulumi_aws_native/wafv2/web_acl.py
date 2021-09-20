@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['WebACLArgs', 'WebACL']
@@ -16,7 +17,7 @@ __all__ = ['WebACLArgs', 'WebACL']
 class WebACLArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input['WebACLDefaultActionArgs'],
-                 scope: pulumi.Input[str],
+                 scope: pulumi.Input['WebACLScope'],
                  visibility_config: pulumi.Input['WebACLVisibilityConfigArgs'],
                  custom_response_bodies: Optional[pulumi.Input['WebACLCustomResponseBodiesArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -52,11 +53,11 @@ class WebACLArgs:
 
     @property
     @pulumi.getter
-    def scope(self) -> pulumi.Input[str]:
+    def scope(self) -> pulumi.Input['WebACLScope']:
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: pulumi.Input[str]):
+    def scope(self, value: pulumi.Input['WebACLScope']):
         pulumi.set(self, "scope", value)
 
     @property
@@ -127,7 +128,7 @@ class WebACL(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebACLRuleArgs']]]]] = None,
-                 scope: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input['WebACLScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebACLTagArgs']]]]] = None,
                  visibility_config: Optional[pulumi.Input[pulumi.InputType['WebACLVisibilityConfigArgs']]] = None,
                  __props__=None):
@@ -167,7 +168,7 @@ class WebACL(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebACLRuleArgs']]]]] = None,
-                 scope: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input['WebACLScope']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebACLTagArgs']]]]] = None,
                  visibility_config: Optional[pulumi.Input[pulumi.InputType['WebACLVisibilityConfigArgs']]] = None,
                  __props__=None):
@@ -279,7 +280,7 @@ class WebACL(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def scope(self) -> pulumi.Output[str]:
+    def scope(self) -> pulumi.Output['WebACLScope']:
         return pulumi.get(self, "scope")
 
     @property

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['CloudFormationProvisionedProductArgs', 'CloudFormationProvisionedProduct']
@@ -15,7 +16,7 @@ __all__ = ['CloudFormationProvisionedProductArgs', 'CloudFormationProvisionedPro
 @pulumi.input_type
 class CloudFormationProvisionedProductArgs:
     def __init__(__self__, *,
-                 accept_language: Optional[pulumi.Input[str]] = None,
+                 accept_language: Optional[pulumi.Input['CloudFormationProvisionedProductAcceptLanguage']] = None,
                  notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  path_id: Optional[pulumi.Input[str]] = None,
                  path_name: Optional[pulumi.Input[str]] = None,
@@ -57,11 +58,11 @@ class CloudFormationProvisionedProductArgs:
 
     @property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[str]]:
+    def accept_language(self) -> Optional[pulumi.Input['CloudFormationProvisionedProductAcceptLanguage']]:
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[str]]):
+    def accept_language(self, value: Optional[pulumi.Input['CloudFormationProvisionedProductAcceptLanguage']]):
         pulumi.set(self, "accept_language", value)
 
     @property
@@ -169,7 +170,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[str]] = None,
+                 accept_language: Optional[pulumi.Input['CloudFormationProvisionedProductAcceptLanguage']] = None,
                  notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  path_id: Optional[pulumi.Input[str]] = None,
                  path_name: Optional[pulumi.Input[str]] = None,
@@ -212,7 +213,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[str]] = None,
+                 accept_language: Optional[pulumi.Input['CloudFormationProvisionedProductAcceptLanguage']] = None,
                  notification_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  path_id: Optional[pulumi.Input[str]] = None,
                  path_name: Optional[pulumi.Input[str]] = None,
@@ -294,7 +295,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> pulumi.Output[Optional[str]]:
+    def accept_language(self) -> pulumi.Output[Optional['CloudFormationProvisionedProductAcceptLanguage']]:
         return pulumi.get(self, "accept_language")
 
     @property

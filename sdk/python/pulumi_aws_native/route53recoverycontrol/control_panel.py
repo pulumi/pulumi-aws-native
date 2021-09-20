@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['ControlPanelArgs', 'ControlPanel']
 
@@ -183,7 +184,7 @@ class ControlPanel(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output['ControlPanelStatus']:
         """
         The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
         """

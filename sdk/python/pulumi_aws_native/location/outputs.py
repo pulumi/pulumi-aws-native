@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'MapMapConfiguration',
@@ -45,13 +46,13 @@ class PlaceIndexDataSourceConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 intended_use: Optional[str] = None):
+                 intended_use: Optional['PlaceIndexIntendedUse'] = None):
         if intended_use is not None:
             pulumi.set(__self__, "intended_use", intended_use)
 
     @property
     @pulumi.getter(name="intendedUse")
-    def intended_use(self) -> Optional[str]:
+    def intended_use(self) -> Optional['PlaceIndexIntendedUse']:
         return pulumi.get(self, "intended_use")
 
 

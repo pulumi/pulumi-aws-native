@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .module_default_version import *
 from .module_version import *
 from .public_type_version import *

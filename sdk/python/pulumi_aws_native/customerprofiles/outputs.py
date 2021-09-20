@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'DomainTag',
@@ -73,11 +74,11 @@ class IntegrationConnectorOperator(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 marketo: Optional[str] = None,
-                 s3: Optional[str] = None,
-                 salesforce: Optional[str] = None,
-                 service_now: Optional[str] = None,
-                 zendesk: Optional[str] = None):
+                 marketo: Optional['IntegrationMarketoConnectorOperator'] = None,
+                 s3: Optional['IntegrationS3ConnectorOperator'] = None,
+                 salesforce: Optional['IntegrationSalesforceConnectorOperator'] = None,
+                 service_now: Optional['IntegrationServiceNowConnectorOperator'] = None,
+                 zendesk: Optional['IntegrationZendeskConnectorOperator'] = None):
         if marketo is not None:
             pulumi.set(__self__, "marketo", marketo)
         if s3 is not None:
@@ -91,27 +92,27 @@ class IntegrationConnectorOperator(dict):
 
     @property
     @pulumi.getter
-    def marketo(self) -> Optional[str]:
+    def marketo(self) -> Optional['IntegrationMarketoConnectorOperator']:
         return pulumi.get(self, "marketo")
 
     @property
     @pulumi.getter
-    def s3(self) -> Optional[str]:
+    def s3(self) -> Optional['IntegrationS3ConnectorOperator']:
         return pulumi.get(self, "s3")
 
     @property
     @pulumi.getter
-    def salesforce(self) -> Optional[str]:
+    def salesforce(self) -> Optional['IntegrationSalesforceConnectorOperator']:
         return pulumi.get(self, "salesforce")
 
     @property
     @pulumi.getter(name="serviceNow")
-    def service_now(self) -> Optional[str]:
+    def service_now(self) -> Optional['IntegrationServiceNowConnectorOperator']:
         return pulumi.get(self, "service_now")
 
     @property
     @pulumi.getter
-    def zendesk(self) -> Optional[str]:
+    def zendesk(self) -> Optional['IntegrationZendeskConnectorOperator']:
         return pulumi.get(self, "zendesk")
 
 
@@ -345,7 +346,7 @@ class IntegrationScheduledTriggerProperties(dict):
 
     def __init__(__self__, *,
                  schedule_expression: str,
-                 data_pull_mode: Optional[str] = None,
+                 data_pull_mode: Optional['IntegrationScheduledTriggerPropertiesDataPullMode'] = None,
                  first_execution_from: Optional[float] = None,
                  schedule_end_time: Optional[float] = None,
                  schedule_offset: Optional[int] = None,
@@ -372,7 +373,7 @@ class IntegrationScheduledTriggerProperties(dict):
 
     @property
     @pulumi.getter(name="dataPullMode")
-    def data_pull_mode(self) -> Optional[str]:
+    def data_pull_mode(self) -> Optional['IntegrationScheduledTriggerPropertiesDataPullMode']:
         return pulumi.get(self, "data_pull_mode")
 
     @property
@@ -501,7 +502,7 @@ class IntegrationSourceFlowConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 connector_type: str,
+                 connector_type: 'IntegrationConnectorType',
                  source_connector_properties: 'outputs.IntegrationSourceConnectorProperties',
                  connector_profile_name: Optional[str] = None,
                  incremental_pull_config: Optional['outputs.IntegrationIncrementalPullConfig'] = None):
@@ -514,7 +515,7 @@ class IntegrationSourceFlowConfig(dict):
 
     @property
     @pulumi.getter(name="connectorType")
-    def connector_type(self) -> str:
+    def connector_type(self) -> 'IntegrationConnectorType':
         return pulumi.get(self, "connector_type")
 
     @property
@@ -581,7 +582,7 @@ class IntegrationTask(dict):
 
     def __init__(__self__, *,
                  source_fields: Sequence[str],
-                 task_type: str,
+                 task_type: 'IntegrationTaskType',
                  connector_operator: Optional['outputs.IntegrationConnectorOperator'] = None,
                  destination_field: Optional[str] = None,
                  task_properties: Optional[Sequence['outputs.IntegrationTaskPropertiesMap']] = None):
@@ -601,7 +602,7 @@ class IntegrationTask(dict):
 
     @property
     @pulumi.getter(name="taskType")
-    def task_type(self) -> str:
+    def task_type(self) -> 'IntegrationTaskType':
         return pulumi.get(self, "task_type")
 
     @property
@@ -640,14 +641,14 @@ class IntegrationTaskPropertiesMap(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 operator_property_key: str,
+                 operator_property_key: 'IntegrationOperatorPropertiesKeys',
                  property: str):
         pulumi.set(__self__, "operator_property_key", operator_property_key)
         pulumi.set(__self__, "property", property)
 
     @property
     @pulumi.getter(name="operatorPropertyKey")
-    def operator_property_key(self) -> str:
+    def operator_property_key(self) -> 'IntegrationOperatorPropertiesKeys':
         return pulumi.get(self, "operator_property_key")
 
     @property
@@ -678,7 +679,7 @@ class IntegrationTriggerConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 trigger_type: str,
+                 trigger_type: 'IntegrationTriggerType',
                  trigger_properties: Optional['outputs.IntegrationTriggerProperties'] = None):
         pulumi.set(__self__, "trigger_type", trigger_type)
         if trigger_properties is not None:
@@ -686,7 +687,7 @@ class IntegrationTriggerConfig(dict):
 
     @property
     @pulumi.getter(name="triggerType")
-    def trigger_type(self) -> str:
+    def trigger_type(self) -> 'IntegrationTriggerType':
         return pulumi.get(self, "trigger_type")
 
     @property
@@ -819,12 +820,12 @@ class ObjectTypeObjectTypeField(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 content_type: Optional[str] = None,
+                 content_type: Optional['ObjectTypeObjectTypeFieldContentType'] = None,
                  source: Optional[str] = None,
                  target: Optional[str] = None):
         """
         Represents a field in a ProfileObjectType.
-        :param str content_type: The content type of the field. Used for determining equality when searching.
+        :param 'ObjectTypeObjectTypeFieldContentType' content_type: The content type of the field. Used for determining equality when searching.
         :param str source: A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
         :param str target: The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
         """
@@ -837,7 +838,7 @@ class ObjectTypeObjectTypeField(dict):
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[str]:
+    def content_type(self) -> Optional['ObjectTypeObjectTypeFieldContentType']:
         """
         The content type of the field. Used for determining equality when searching.
         """
@@ -886,11 +887,11 @@ class ObjectTypeObjectTypeKey(dict):
 
     def __init__(__self__, *,
                  field_names: Optional[Sequence[str]] = None,
-                 standard_identifiers: Optional[Sequence[str]] = None):
+                 standard_identifiers: Optional[Sequence['ObjectTypeObjectTypeKeyStandardIdentifiersItem']] = None):
         """
         An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
         :param Sequence[str] field_names: The reference for the key name of the fields map. 
-        :param Sequence[str] standard_identifiers: The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
+        :param Sequence['ObjectTypeObjectTypeKeyStandardIdentifiersItem'] standard_identifiers: The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
         """
         if field_names is not None:
             pulumi.set(__self__, "field_names", field_names)
@@ -907,7 +908,7 @@ class ObjectTypeObjectTypeKey(dict):
 
     @property
     @pulumi.getter(name="standardIdentifiers")
-    def standard_identifiers(self) -> Optional[Sequence[str]]:
+    def standard_identifiers(self) -> Optional[Sequence['ObjectTypeObjectTypeKeyStandardIdentifiersItem']]:
         """
         The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
         """

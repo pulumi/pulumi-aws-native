@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DomainArgs', 'Domain']
@@ -15,22 +16,22 @@ __all__ = ['DomainArgs', 'Domain']
 @pulumi.input_type
 class DomainArgs:
     def __init__(__self__, *,
-                 auth_mode: pulumi.Input[str],
+                 auth_mode: pulumi.Input['DomainAuthMode'],
                  default_user_settings: pulumi.Input['DomainUserSettingsArgs'],
                  domain_name: pulumi.Input[str],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: pulumi.Input[str],
-                 app_network_access_type: Optional[pulumi.Input[str]] = None,
+                 app_network_access_type: Optional[pulumi.Input['DomainAppNetworkAccessType']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]]] = None):
         """
         The set of arguments for constructing a Domain resource.
-        :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain.
+        :param pulumi.Input['DomainAuthMode'] auth_mode: The mode of authentication that members use to access the domain.
         :param pulumi.Input['DomainUserSettingsArgs'] default_user_settings: The default user settings.
         :param pulumi.Input[str] domain_name: A name for the domain.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
-        :param pulumi.Input[str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
+        :param pulumi.Input['DomainAppNetworkAccessType'] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
         :param pulumi.Input[str] kms_key_id: SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
         :param pulumi.Input[Sequence[pulumi.Input['DomainTagArgs']]] tags: A list of tags to apply to the user profile.
         """
@@ -48,14 +49,14 @@ class DomainArgs:
 
     @property
     @pulumi.getter(name="authMode")
-    def auth_mode(self) -> pulumi.Input[str]:
+    def auth_mode(self) -> pulumi.Input['DomainAuthMode']:
         """
         The mode of authentication that members use to access the domain.
         """
         return pulumi.get(self, "auth_mode")
 
     @auth_mode.setter
-    def auth_mode(self, value: pulumi.Input[str]):
+    def auth_mode(self, value: pulumi.Input['DomainAuthMode']):
         pulumi.set(self, "auth_mode", value)
 
     @property
@@ -108,14 +109,14 @@ class DomainArgs:
 
     @property
     @pulumi.getter(name="appNetworkAccessType")
-    def app_network_access_type(self) -> Optional[pulumi.Input[str]]:
+    def app_network_access_type(self) -> Optional[pulumi.Input['DomainAppNetworkAccessType']]:
         """
         Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
         """
         return pulumi.get(self, "app_network_access_type")
 
     @app_network_access_type.setter
-    def app_network_access_type(self, value: Optional[pulumi.Input[str]]):
+    def app_network_access_type(self, value: Optional[pulumi.Input['DomainAppNetworkAccessType']]):
         pulumi.set(self, "app_network_access_type", value)
 
     @property
@@ -148,8 +149,8 @@ class Domain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_network_access_type: Optional[pulumi.Input[str]] = None,
-                 auth_mode: Optional[pulumi.Input[str]] = None,
+                 app_network_access_type: Optional[pulumi.Input['DomainAppNetworkAccessType']] = None,
+                 auth_mode: Optional[pulumi.Input['DomainAuthMode']] = None,
                  default_user_settings: Optional[pulumi.Input[pulumi.InputType['DomainUserSettingsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -162,8 +163,8 @@ class Domain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
-        :param pulumi.Input[str] auth_mode: The mode of authentication that members use to access the domain.
+        :param pulumi.Input['DomainAppNetworkAccessType'] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
+        :param pulumi.Input['DomainAuthMode'] auth_mode: The mode of authentication that members use to access the domain.
         :param pulumi.Input[pulumi.InputType['DomainUserSettingsArgs']] default_user_settings: The default user settings.
         :param pulumi.Input[str] domain_name: A name for the domain.
         :param pulumi.Input[str] kms_key_id: SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
@@ -195,8 +196,8 @@ class Domain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_network_access_type: Optional[pulumi.Input[str]] = None,
-                 auth_mode: Optional[pulumi.Input[str]] = None,
+                 app_network_access_type: Optional[pulumi.Input['DomainAppNetworkAccessType']] = None,
+                 auth_mode: Optional[pulumi.Input['DomainAuthMode']] = None,
                  default_user_settings: Optional[pulumi.Input[pulumi.InputType['DomainUserSettingsArgs']]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -277,7 +278,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appNetworkAccessType")
-    def app_network_access_type(self) -> pulumi.Output[Optional[str]]:
+    def app_network_access_type(self) -> pulumi.Output[Optional['DomainAppNetworkAccessType']]:
         """
         Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
         """
@@ -285,7 +286,7 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authMode")
-    def auth_mode(self) -> pulumi.Output[str]:
+    def auth_mode(self) -> pulumi.Output['DomainAuthMode']:
         """
         The mode of authentication that members use to access the domain.
         """

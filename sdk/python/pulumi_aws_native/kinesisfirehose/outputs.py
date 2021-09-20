@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'DeliveryStreamBufferingHints',
@@ -266,7 +267,7 @@ class DeliveryStreamDeliveryStreamEncryptionConfigurationInput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 key_type: str,
+                 key_type: 'DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType',
                  key_arn: Optional[str] = None):
         pulumi.set(__self__, "key_type", key_type)
         if key_arn is not None:
@@ -274,7 +275,7 @@ class DeliveryStreamDeliveryStreamEncryptionConfigurationInput(dict):
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> str:
+    def key_type(self) -> 'DeliveryStreamDeliveryStreamEncryptionConfigurationInputKeyType':
         return pulumi.get(self, "key_type")
 
     @property
@@ -452,10 +453,10 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
                  cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
                  cluster_endpoint: Optional[str] = None,
                  domain_arn: Optional[str] = None,
-                 index_rotation_period: Optional[str] = None,
+                 index_rotation_period: Optional['DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod'] = None,
                  processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
                  retry_options: Optional['outputs.DeliveryStreamElasticsearchRetryOptions'] = None,
-                 s3_backup_mode: Optional[str] = None,
+                 s3_backup_mode: Optional['DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode'] = None,
                  type_name: Optional[str] = None,
                  vpc_configuration: Optional['outputs.DeliveryStreamVpcConfiguration'] = None):
         pulumi.set(__self__, "index_name", index_name)
@@ -519,7 +520,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
 
     @property
     @pulumi.getter(name="indexRotationPeriod")
-    def index_rotation_period(self) -> Optional[str]:
+    def index_rotation_period(self) -> Optional['DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod']:
         return pulumi.get(self, "index_rotation_period")
 
     @property
@@ -534,7 +535,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
 
     @property
     @pulumi.getter(name="s3BackupMode")
-    def s3_backup_mode(self) -> Optional[str]:
+    def s3_backup_mode(self) -> Optional['DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode']:
         return pulumi.get(self, "s3_backup_mode")
 
     @property
@@ -601,7 +602,7 @@ class DeliveryStreamEncryptionConfiguration(dict):
 
     def __init__(__self__, *,
                  k_ms_encryption_config: Optional['outputs.DeliveryStreamKMSEncryptionConfig'] = None,
-                 no_encryption_config: Optional[str] = None):
+                 no_encryption_config: Optional['DeliveryStreamEncryptionConfigurationNoEncryptionConfig'] = None):
         if k_ms_encryption_config is not None:
             pulumi.set(__self__, "k_ms_encryption_config", k_ms_encryption_config)
         if no_encryption_config is not None:
@@ -614,7 +615,7 @@ class DeliveryStreamEncryptionConfiguration(dict):
 
     @property
     @pulumi.getter(name="noEncryptionConfig")
-    def no_encryption_config(self) -> Optional[str]:
+    def no_encryption_config(self) -> Optional['DeliveryStreamEncryptionConfigurationNoEncryptionConfig']:
         return pulumi.get(self, "no_encryption_config")
 
 
@@ -664,7 +665,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
                  role_arn: str,
                  buffering_hints: Optional['outputs.DeliveryStreamBufferingHints'] = None,
                  cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
-                 compression_format: Optional[str] = None,
+                 compression_format: Optional['DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat'] = None,
                  data_format_conversion_configuration: Optional['outputs.DeliveryStreamDataFormatConversionConfiguration'] = None,
                  dynamic_partitioning_configuration: Optional['outputs.DeliveryStreamDynamicPartitioningConfiguration'] = None,
                  encryption_configuration: Optional['outputs.DeliveryStreamEncryptionConfiguration'] = None,
@@ -672,7 +673,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
                  prefix: Optional[str] = None,
                  processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
                  s3_backup_configuration: Optional['outputs.DeliveryStreamS3DestinationConfiguration'] = None,
-                 s3_backup_mode: Optional[str] = None):
+                 s3_backup_mode: Optional['DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode'] = None):
         pulumi.set(__self__, "bucket_arn", bucket_arn)
         pulumi.set(__self__, "role_arn", role_arn)
         if buffering_hints is not None:
@@ -720,7 +721,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
 
     @property
     @pulumi.getter(name="compressionFormat")
-    def compression_format(self) -> Optional[str]:
+    def compression_format(self) -> Optional['DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat']:
         return pulumi.get(self, "compression_format")
 
     @property
@@ -760,7 +761,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
 
     @property
     @pulumi.getter(name="s3BackupMode")
-    def s3_backup_mode(self) -> Optional[str]:
+    def s3_backup_mode(self) -> Optional['DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode']:
         return pulumi.get(self, "s3_backup_mode")
 
 
@@ -1008,7 +1009,7 @@ class DeliveryStreamHttpEndpointRequestConfiguration(dict):
 
     def __init__(__self__, *,
                  common_attributes: Optional[Sequence['outputs.DeliveryStreamHttpEndpointCommonAttribute']] = None,
-                 content_encoding: Optional[str] = None):
+                 content_encoding: Optional['DeliveryStreamHttpEndpointRequestConfigurationContentEncoding'] = None):
         if common_attributes is not None:
             pulumi.set(__self__, "common_attributes", common_attributes)
         if content_encoding is not None:
@@ -1021,7 +1022,7 @@ class DeliveryStreamHttpEndpointRequestConfiguration(dict):
 
     @property
     @pulumi.getter(name="contentEncoding")
-    def content_encoding(self) -> Optional[str]:
+    def content_encoding(self) -> Optional['DeliveryStreamHttpEndpointRequestConfigurationContentEncoding']:
         return pulumi.get(self, "content_encoding")
 
 
@@ -1388,7 +1389,7 @@ class DeliveryStreamProcessingConfiguration(dict):
 @pulumi.output_type
 class DeliveryStreamProcessor(dict):
     def __init__(__self__, *,
-                 type: str,
+                 type: 'DeliveryStreamProcessorType',
                  parameters: Optional[Sequence['outputs.DeliveryStreamProcessorParameter']] = None):
         pulumi.set(__self__, "type", type)
         if parameters is not None:
@@ -1396,7 +1397,7 @@ class DeliveryStreamProcessor(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> 'DeliveryStreamProcessorType':
         return pulumi.get(self, "type")
 
     @property
@@ -1489,7 +1490,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
                  processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
                  retry_options: Optional['outputs.DeliveryStreamRedshiftRetryOptions'] = None,
                  s3_backup_configuration: Optional['outputs.DeliveryStreamS3DestinationConfiguration'] = None,
-                 s3_backup_mode: Optional[str] = None):
+                 s3_backup_mode: Optional['DeliveryStreamRedshiftDestinationConfigurationS3BackupMode'] = None):
         pulumi.set(__self__, "cluster_jdbcurl", cluster_jdbcurl)
         pulumi.set(__self__, "copy_command", copy_command)
         pulumi.set(__self__, "password", password)
@@ -1559,7 +1560,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
 
     @property
     @pulumi.getter(name="s3BackupMode")
-    def s3_backup_mode(self) -> Optional[str]:
+    def s3_backup_mode(self) -> Optional['DeliveryStreamRedshiftDestinationConfigurationS3BackupMode']:
         return pulumi.get(self, "s3_backup_mode")
 
 
@@ -1659,7 +1660,7 @@ class DeliveryStreamS3DestinationConfiguration(dict):
                  role_arn: str,
                  buffering_hints: Optional['outputs.DeliveryStreamBufferingHints'] = None,
                  cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
-                 compression_format: Optional[str] = None,
+                 compression_format: Optional['DeliveryStreamS3DestinationConfigurationCompressionFormat'] = None,
                  encryption_configuration: Optional['outputs.DeliveryStreamEncryptionConfiguration'] = None,
                  error_output_prefix: Optional[str] = None,
                  prefix: Optional[str] = None):
@@ -1700,7 +1701,7 @@ class DeliveryStreamS3DestinationConfiguration(dict):
 
     @property
     @pulumi.getter(name="compressionFormat")
-    def compression_format(self) -> Optional[str]:
+    def compression_format(self) -> Optional['DeliveryStreamS3DestinationConfigurationCompressionFormat']:
         return pulumi.get(self, "compression_format")
 
     @property
@@ -1874,7 +1875,7 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
 
     def __init__(__self__, *,
                  h_ec_endpoint: str,
-                 h_ec_endpoint_type: str,
+                 h_ec_endpoint_type: 'DeliveryStreamSplunkDestinationConfigurationHECEndpointType',
                  h_ec_token: str,
                  s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
                  cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
@@ -1904,7 +1905,7 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
 
     @property
     @pulumi.getter(name="hECEndpointType")
-    def h_ec_endpoint_type(self) -> str:
+    def h_ec_endpoint_type(self) -> 'DeliveryStreamSplunkDestinationConfigurationHECEndpointType':
         return pulumi.get(self, "h_ec_endpoint_type")
 
     @property

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ContainerRecipeComponentConfigurationArgs',
@@ -62,7 +63,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
-                 volume_type: Optional[pulumi.Input[str]] = None):
+                 volume_type: Optional[pulumi.Input['ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType']] = None):
         """
         Amazon EBS-specific block device mapping specifications. 
         :param pulumi.Input[bool] delete_on_termination: Use to configure delete on termination of the associated device.
@@ -71,7 +72,7 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs:
         :param pulumi.Input[str] kms_key_id: Use to configure the KMS key to use when encrypting the device.
         :param pulumi.Input[str] snapshot_id: The snapshot that defines the device contents.
         :param pulumi.Input[int] volume_size: Use to override the device's volume size.
-        :param pulumi.Input[str] volume_type: Use to override the device's volume type.
+        :param pulumi.Input['ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType'] volume_type: Use to override the device's volume type.
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -162,14 +163,14 @@ class ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs:
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[pulumi.Input[str]]:
+    def volume_type(self) -> Optional[pulumi.Input['ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType']]:
         """
         Use to override the device's volume type.
         """
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
-    def volume_type(self, value: Optional[pulumi.Input[str]]):
+    def volume_type(self, value: Optional[pulumi.Input['ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType']]):
         pulumi.set(self, "volume_type", value)
 
 
@@ -289,11 +290,11 @@ class ContainerRecipeInstanceConfigurationArgs:
 class ContainerRecipeTargetContainerRepositoryArgs:
     def __init__(__self__, *,
                  repository_name: Optional[pulumi.Input[str]] = None,
-                 service: Optional[pulumi.Input[str]] = None):
+                 service: Optional[pulumi.Input['ContainerRecipeTargetContainerRepositoryService']] = None):
         """
         The container repository where the output container image is stored.
         :param pulumi.Input[str] repository_name: The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
-        :param pulumi.Input[str] service: Specifies the service in which this image was registered.
+        :param pulumi.Input['ContainerRecipeTargetContainerRepositoryService'] service: Specifies the service in which this image was registered.
         """
         if repository_name is not None:
             pulumi.set(__self__, "repository_name", repository_name)
@@ -314,14 +315,14 @@ class ContainerRecipeTargetContainerRepositoryArgs:
 
     @property
     @pulumi.getter
-    def service(self) -> Optional[pulumi.Input[str]]:
+    def service(self) -> Optional[pulumi.Input['ContainerRecipeTargetContainerRepositoryService']]:
         """
         Specifies the service in which this image was registered.
         """
         return pulumi.get(self, "service")
 
     @service.setter
-    def service(self, value: Optional[pulumi.Input[str]]):
+    def service(self, value: Optional[pulumi.Input['ContainerRecipeTargetContainerRepositoryService']]):
         pulumi.set(self, "service", value)
 
 
@@ -551,11 +552,11 @@ class ImagePipelineImageTestsConfigurationArgs:
 @pulumi.input_type
 class ImagePipelineScheduleArgs:
     def __init__(__self__, *,
-                 pipeline_execution_start_condition: Optional[pulumi.Input[str]] = None,
+                 pipeline_execution_start_condition: Optional[pulumi.Input['ImagePipelineSchedulePipelineExecutionStartCondition']] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None):
         """
         The schedule of the image pipeline.
-        :param pulumi.Input[str] pipeline_execution_start_condition: The condition configures when the pipeline should trigger a new image build.
+        :param pulumi.Input['ImagePipelineSchedulePipelineExecutionStartCondition'] pipeline_execution_start_condition: The condition configures when the pipeline should trigger a new image build.
         :param pulumi.Input[str] schedule_expression: The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
         """
         if pipeline_execution_start_condition is not None:
@@ -565,14 +566,14 @@ class ImagePipelineScheduleArgs:
 
     @property
     @pulumi.getter(name="pipelineExecutionStartCondition")
-    def pipeline_execution_start_condition(self) -> Optional[pulumi.Input[str]]:
+    def pipeline_execution_start_condition(self) -> Optional[pulumi.Input['ImagePipelineSchedulePipelineExecutionStartCondition']]:
         """
         The condition configures when the pipeline should trigger a new image build.
         """
         return pulumi.get(self, "pipeline_execution_start_condition")
 
     @pipeline_execution_start_condition.setter
-    def pipeline_execution_start_condition(self, value: Optional[pulumi.Input[str]]):
+    def pipeline_execution_start_condition(self, value: Optional[pulumi.Input['ImagePipelineSchedulePipelineExecutionStartCondition']]):
         pulumi.set(self, "pipeline_execution_start_condition", value)
 
     @property
@@ -714,7 +715,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecificationArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
-                 volume_type: Optional[pulumi.Input[str]] = None):
+                 volume_type: Optional[pulumi.Input['ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType']] = None):
         """
         Amazon EBS-specific block device mapping specifications. 
         :param pulumi.Input[bool] delete_on_termination: Use to configure delete on termination of the associated device.
@@ -723,7 +724,7 @@ class ImageRecipeEbsInstanceBlockDeviceSpecificationArgs:
         :param pulumi.Input[str] kms_key_id: Use to configure the KMS key to use when encrypting the device.
         :param pulumi.Input[str] snapshot_id: The snapshot that defines the device contents.
         :param pulumi.Input[int] volume_size: Use to override the device's volume size.
-        :param pulumi.Input[str] volume_type: Use to override the device's volume type.
+        :param pulumi.Input['ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType'] volume_type: Use to override the device's volume type.
         """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -814,14 +815,14 @@ class ImageRecipeEbsInstanceBlockDeviceSpecificationArgs:
 
     @property
     @pulumi.getter(name="volumeType")
-    def volume_type(self) -> Optional[pulumi.Input[str]]:
+    def volume_type(self) -> Optional[pulumi.Input['ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType']]:
         """
         Use to override the device's volume type.
         """
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
-    def volume_type(self, value: Optional[pulumi.Input[str]]):
+    def volume_type(self, value: Optional[pulumi.Input['ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType']]):
         pulumi.set(self, "volume_type", value)
 
 

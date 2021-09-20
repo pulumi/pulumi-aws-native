@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'CodeSigningConfigAllowedPublishers',
@@ -89,16 +90,16 @@ class CodeSigningConfigCodeSigningPolicies(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 untrusted_artifact_on_deployment: str):
+                 untrusted_artifact_on_deployment: 'CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment'):
         """
         Policies to control how to act if a signature is invalid
-        :param str untrusted_artifact_on_deployment: Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
+        :param 'CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment' untrusted_artifact_on_deployment: Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
         """
         pulumi.set(__self__, "untrusted_artifact_on_deployment", untrusted_artifact_on_deployment)
 
     @property
     @pulumi.getter(name="untrustedArtifactOnDeployment")
-    def untrusted_artifact_on_deployment(self) -> str:
+    def untrusted_artifact_on_deployment(self) -> 'CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment':
         """
         Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
         """
@@ -254,11 +255,11 @@ class EventSourceMappingSourceAccessConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 type: Optional[str] = None,
+                 type: Optional['EventSourceMappingSourceAccessConfigurationType'] = None,
                  u_ri: Optional[str] = None):
         """
         The configuration used by AWS Lambda to access event source
-        :param str type: The type of source access configuration.
+        :param 'EventSourceMappingSourceAccessConfigurationType' type: The type of source access configuration.
         :param str u_ri: The URI for the source access configuration resource.
         """
         if type is not None:
@@ -268,7 +269,7 @@ class EventSourceMappingSourceAccessConfiguration(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> Optional['EventSourceMappingSourceAccessConfigurationType']:
         """
         The type of source access configuration.
         """
@@ -582,17 +583,17 @@ class FunctionTracingConfig(dict):
     The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
     """
     def __init__(__self__, *,
-                 mode: Optional[str] = None):
+                 mode: Optional['FunctionTracingConfigMode'] = None):
         """
         The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
-        :param str mode: The tracing mode.
+        :param 'FunctionTracingConfigMode' mode: The tracing mode.
         """
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[str]:
+    def mode(self) -> Optional['FunctionTracingConfigMode']:
         """
         The tracing mode.
         """

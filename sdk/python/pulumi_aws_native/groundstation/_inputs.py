@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ConfigAntennaDownlinkConfigArgs',
@@ -288,7 +289,7 @@ class ConfigDemodulationConfigArgs:
 @pulumi.input_type
 class ConfigEirpArgs:
     def __init__(__self__, *,
-                 units: Optional[pulumi.Input[str]] = None,
+                 units: Optional[pulumi.Input['ConfigEirpUnits']] = None,
                  value: Optional[pulumi.Input[float]] = None):
         if units is not None:
             pulumi.set(__self__, "units", units)
@@ -297,11 +298,11 @@ class ConfigEirpArgs:
 
     @property
     @pulumi.getter
-    def units(self) -> Optional[pulumi.Input[str]]:
+    def units(self) -> Optional[pulumi.Input['ConfigEirpUnits']]:
         return pulumi.get(self, "units")
 
     @units.setter
-    def units(self, value: Optional[pulumi.Input[str]]):
+    def units(self, value: Optional[pulumi.Input['ConfigEirpUnits']]):
         pulumi.set(self, "units", value)
 
     @property
@@ -317,7 +318,7 @@ class ConfigEirpArgs:
 @pulumi.input_type
 class ConfigFrequencyBandwidthArgs:
     def __init__(__self__, *,
-                 units: Optional[pulumi.Input[str]] = None,
+                 units: Optional[pulumi.Input['ConfigBandwidthUnits']] = None,
                  value: Optional[pulumi.Input[float]] = None):
         if units is not None:
             pulumi.set(__self__, "units", units)
@@ -326,11 +327,11 @@ class ConfigFrequencyBandwidthArgs:
 
     @property
     @pulumi.getter
-    def units(self) -> Optional[pulumi.Input[str]]:
+    def units(self) -> Optional[pulumi.Input['ConfigBandwidthUnits']]:
         return pulumi.get(self, "units")
 
     @units.setter
-    def units(self, value: Optional[pulumi.Input[str]]):
+    def units(self, value: Optional[pulumi.Input['ConfigBandwidthUnits']]):
         pulumi.set(self, "units", value)
 
     @property
@@ -346,7 +347,7 @@ class ConfigFrequencyBandwidthArgs:
 @pulumi.input_type
 class ConfigFrequencyArgs:
     def __init__(__self__, *,
-                 units: Optional[pulumi.Input[str]] = None,
+                 units: Optional[pulumi.Input['ConfigFrequencyUnits']] = None,
                  value: Optional[pulumi.Input[float]] = None):
         if units is not None:
             pulumi.set(__self__, "units", units)
@@ -355,11 +356,11 @@ class ConfigFrequencyArgs:
 
     @property
     @pulumi.getter
-    def units(self) -> Optional[pulumi.Input[str]]:
+    def units(self) -> Optional[pulumi.Input['ConfigFrequencyUnits']]:
         return pulumi.get(self, "units")
 
     @units.setter
-    def units(self, value: Optional[pulumi.Input[str]]):
+    def units(self, value: Optional[pulumi.Input['ConfigFrequencyUnits']]):
         pulumi.set(self, "units", value)
 
     @property
@@ -418,7 +419,7 @@ class ConfigSpectrumConfigArgs:
     def __init__(__self__, *,
                  bandwidth: Optional[pulumi.Input['ConfigFrequencyBandwidthArgs']] = None,
                  center_frequency: Optional[pulumi.Input['ConfigFrequencyArgs']] = None,
-                 polarization: Optional[pulumi.Input[str]] = None):
+                 polarization: Optional[pulumi.Input['ConfigPolarization']] = None):
         if bandwidth is not None:
             pulumi.set(__self__, "bandwidth", bandwidth)
         if center_frequency is not None:
@@ -446,11 +447,11 @@ class ConfigSpectrumConfigArgs:
 
     @property
     @pulumi.getter
-    def polarization(self) -> Optional[pulumi.Input[str]]:
+    def polarization(self) -> Optional[pulumi.Input['ConfigPolarization']]:
         return pulumi.get(self, "polarization")
 
     @polarization.setter
-    def polarization(self, value: Optional[pulumi.Input[str]]):
+    def polarization(self, value: Optional[pulumi.Input['ConfigPolarization']]):
         pulumi.set(self, "polarization", value)
 
 
@@ -486,17 +487,17 @@ class ConfigTagArgs:
 @pulumi.input_type
 class ConfigTrackingConfigArgs:
     def __init__(__self__, *,
-                 autotrack: Optional[pulumi.Input[str]] = None):
+                 autotrack: Optional[pulumi.Input['ConfigTrackingConfigAutotrack']] = None):
         if autotrack is not None:
             pulumi.set(__self__, "autotrack", autotrack)
 
     @property
     @pulumi.getter
-    def autotrack(self) -> Optional[pulumi.Input[str]]:
+    def autotrack(self) -> Optional[pulumi.Input['ConfigTrackingConfigAutotrack']]:
         return pulumi.get(self, "autotrack")
 
     @autotrack.setter
-    def autotrack(self, value: Optional[pulumi.Input[str]]):
+    def autotrack(self, value: Optional[pulumi.Input['ConfigTrackingConfigAutotrack']]):
         pulumi.set(self, "autotrack", value)
 
 
@@ -533,7 +534,7 @@ class ConfigUplinkEchoConfigArgs:
 class ConfigUplinkSpectrumConfigArgs:
     def __init__(__self__, *,
                  center_frequency: Optional[pulumi.Input['ConfigFrequencyArgs']] = None,
-                 polarization: Optional[pulumi.Input[str]] = None):
+                 polarization: Optional[pulumi.Input['ConfigPolarization']] = None):
         if center_frequency is not None:
             pulumi.set(__self__, "center_frequency", center_frequency)
         if polarization is not None:
@@ -550,11 +551,11 @@ class ConfigUplinkSpectrumConfigArgs:
 
     @property
     @pulumi.getter
-    def polarization(self) -> Optional[pulumi.Input[str]]:
+    def polarization(self) -> Optional[pulumi.Input['ConfigPolarization']]:
         return pulumi.get(self, "polarization")
 
     @polarization.setter
-    def polarization(self, value: Optional[pulumi.Input[str]]):
+    def polarization(self, value: Optional[pulumi.Input['ConfigPolarization']]):
         pulumi.set(self, "polarization", value)
 
 

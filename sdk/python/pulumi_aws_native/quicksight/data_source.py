@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DataSourceArgs', 'DataSource']
@@ -25,7 +26,7 @@ class DataSourceArgs:
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]]] = None,
                  ssl_properties: Optional[pulumi.Input['DataSourceSslPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceTagArgs']]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['DataSourceDataSourceType']] = None,
                  vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
@@ -179,11 +180,11 @@ class DataSourceArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['DataSourceDataSourceType']]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['DataSourceDataSourceType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -211,7 +212,7 @@ class DataSource(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceResourcePermissionArgs']]]]] = None,
                  ssl_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceSslPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceTagArgs']]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['DataSourceDataSourceType']] = None,
                  vpc_connection_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceVpcConnectionPropertiesArgs']]] = None,
                  __props__=None):
         """
@@ -266,7 +267,7 @@ class DataSource(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceResourcePermissionArgs']]]]] = None,
                  ssl_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceSslPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceTagArgs']]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['DataSourceDataSourceType']] = None,
                  vpc_connection_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceVpcConnectionPropertiesArgs']]] = None,
                  __props__=None):
         if opts is None:
@@ -424,7 +425,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output['DataSourceResourceStatus']:
         return pulumi.get(self, "status")
 
     @property
@@ -437,7 +438,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[str]]:
+    def type(self) -> pulumi.Output[Optional['DataSourceDataSourceType']]:
         return pulumi.get(self, "type")
 
     @property

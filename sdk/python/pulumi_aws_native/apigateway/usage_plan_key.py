@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['UsagePlanKeyArgs', 'UsagePlanKey']
 
@@ -14,12 +15,12 @@ __all__ = ['UsagePlanKeyArgs', 'UsagePlanKey']
 class UsagePlanKeyArgs:
     def __init__(__self__, *,
                  key_id: pulumi.Input[str],
-                 key_type: pulumi.Input[str],
+                 key_type: pulumi.Input['UsagePlanKeyKeyType'],
                  usage_plan_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a UsagePlanKey resource.
         :param pulumi.Input[str] key_id: The ID of the usage plan key.
-        :param pulumi.Input[str] key_type: The type of usage plan key. Currently, the only valid key type is API_KEY.
+        :param pulumi.Input['UsagePlanKeyKeyType'] key_type: The type of usage plan key. Currently, the only valid key type is API_KEY.
         :param pulumi.Input[str] usage_plan_id: The ID of the usage plan.
         """
         pulumi.set(__self__, "key_id", key_id)
@@ -40,14 +41,14 @@ class UsagePlanKeyArgs:
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> pulumi.Input[str]:
+    def key_type(self) -> pulumi.Input['UsagePlanKeyKeyType']:
         """
         The type of usage plan key. Currently, the only valid key type is API_KEY.
         """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
-    def key_type(self, value: pulumi.Input[str]):
+    def key_type(self, value: pulumi.Input['UsagePlanKeyKeyType']):
         pulumi.set(self, "key_type", value)
 
     @property
@@ -69,7 +70,7 @@ class UsagePlanKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
-                 key_type: Optional[pulumi.Input[str]] = None,
+                 key_type: Optional[pulumi.Input['UsagePlanKeyKeyType']] = None,
                  usage_plan_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -78,7 +79,7 @@ class UsagePlanKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_id: The ID of the usage plan key.
-        :param pulumi.Input[str] key_type: The type of usage plan key. Currently, the only valid key type is API_KEY.
+        :param pulumi.Input['UsagePlanKeyKeyType'] key_type: The type of usage plan key. Currently, the only valid key type is API_KEY.
         :param pulumi.Input[str] usage_plan_id: The ID of the usage plan.
         """
         ...
@@ -106,7 +107,7 @@ class UsagePlanKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
-                 key_type: Optional[pulumi.Input[str]] = None,
+                 key_type: Optional[pulumi.Input['UsagePlanKeyKeyType']] = None,
                  usage_plan_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -166,7 +167,7 @@ class UsagePlanKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> pulumi.Output[str]:
+    def key_type(self) -> pulumi.Output['UsagePlanKeyKeyType']:
         """
         The type of usage plan key. Currently, the only valid key type is API_KEY.
         """

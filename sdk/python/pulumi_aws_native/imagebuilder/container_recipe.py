@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ContainerRecipeArgs', 'ContainerRecipe']
@@ -16,7 +17,7 @@ __all__ = ['ContainerRecipeArgs', 'ContainerRecipe']
 class ContainerRecipeArgs:
     def __init__(__self__, *,
                  components: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]]] = None,
-                 container_type: Optional[pulumi.Input[str]] = None,
+                 container_type: Optional[pulumi.Input['ContainerRecipeContainerType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dockerfile_template_data: Optional[pulumi.Input[str]] = None,
                  dockerfile_template_uri: Optional[pulumi.Input[str]] = None,
@@ -25,7 +26,7 @@ class ContainerRecipeArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
-                 platform_override: Optional[pulumi.Input[str]] = None,
+                 platform_override: Optional[pulumi.Input['ContainerRecipePlatformOverride']] = None,
                  tags: Optional[Any] = None,
                  target_repository: Optional[pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -33,7 +34,7 @@ class ContainerRecipeArgs:
         """
         The set of arguments for constructing a ContainerRecipe resource.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentConfigurationArgs']]] components: Components for build and test that are included in the container recipe.
-        :param pulumi.Input[str] container_type: Specifies the type of container, such as Docker.
+        :param pulumi.Input['ContainerRecipeContainerType'] container_type: Specifies the type of container, such as Docker.
         :param pulumi.Input[str] description: The description of the container recipe.
         :param pulumi.Input[str] dockerfile_template_data: Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
         :param pulumi.Input[str] dockerfile_template_uri: The S3 URI for the Dockerfile that will be used to build your container image.
@@ -42,7 +43,7 @@ class ContainerRecipeArgs:
         :param pulumi.Input[str] kms_key_id: Identifies which KMS key is used to encrypt the container image.
         :param pulumi.Input[str] name: The name of the container recipe.
         :param pulumi.Input[str] parent_image: The source image for the container recipe.
-        :param pulumi.Input[str] platform_override: Specifies the operating system platform when you use a custom source image.
+        :param pulumi.Input['ContainerRecipePlatformOverride'] platform_override: Specifies the operating system platform when you use a custom source image.
         :param Any tags: Tags that are attached to the container recipe.
         :param pulumi.Input['ContainerRecipeTargetContainerRepositoryArgs'] target_repository: The destination repository for the container image.
         :param pulumi.Input[str] version: The semantic version of the container recipe (<major>.<minor>.<patch>).
@@ -93,14 +94,14 @@ class ContainerRecipeArgs:
 
     @property
     @pulumi.getter(name="containerType")
-    def container_type(self) -> Optional[pulumi.Input[str]]:
+    def container_type(self) -> Optional[pulumi.Input['ContainerRecipeContainerType']]:
         """
         Specifies the type of container, such as Docker.
         """
         return pulumi.get(self, "container_type")
 
     @container_type.setter
-    def container_type(self, value: Optional[pulumi.Input[str]]):
+    def container_type(self, value: Optional[pulumi.Input['ContainerRecipeContainerType']]):
         pulumi.set(self, "container_type", value)
 
     @property
@@ -201,14 +202,14 @@ class ContainerRecipeArgs:
 
     @property
     @pulumi.getter(name="platformOverride")
-    def platform_override(self) -> Optional[pulumi.Input[str]]:
+    def platform_override(self) -> Optional[pulumi.Input['ContainerRecipePlatformOverride']]:
         """
         Specifies the operating system platform when you use a custom source image.
         """
         return pulumi.get(self, "platform_override")
 
     @platform_override.setter
-    def platform_override(self, value: Optional[pulumi.Input[str]]):
+    def platform_override(self, value: Optional[pulumi.Input['ContainerRecipePlatformOverride']]):
         pulumi.set(self, "platform_override", value)
 
     @property
@@ -266,7 +267,7 @@ class ContainerRecipe(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  components: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerRecipeComponentConfigurationArgs']]]]] = None,
-                 container_type: Optional[pulumi.Input[str]] = None,
+                 container_type: Optional[pulumi.Input['ContainerRecipeContainerType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dockerfile_template_data: Optional[pulumi.Input[str]] = None,
                  dockerfile_template_uri: Optional[pulumi.Input[str]] = None,
@@ -275,7 +276,7 @@ class ContainerRecipe(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
-                 platform_override: Optional[pulumi.Input[str]] = None,
+                 platform_override: Optional[pulumi.Input['ContainerRecipePlatformOverride']] = None,
                  tags: Optional[Any] = None,
                  target_repository: Optional[pulumi.Input[pulumi.InputType['ContainerRecipeTargetContainerRepositoryArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -287,7 +288,7 @@ class ContainerRecipe(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerRecipeComponentConfigurationArgs']]]] components: Components for build and test that are included in the container recipe.
-        :param pulumi.Input[str] container_type: Specifies the type of container, such as Docker.
+        :param pulumi.Input['ContainerRecipeContainerType'] container_type: Specifies the type of container, such as Docker.
         :param pulumi.Input[str] description: The description of the container recipe.
         :param pulumi.Input[str] dockerfile_template_data: Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
         :param pulumi.Input[str] dockerfile_template_uri: The S3 URI for the Dockerfile that will be used to build your container image.
@@ -296,7 +297,7 @@ class ContainerRecipe(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: Identifies which KMS key is used to encrypt the container image.
         :param pulumi.Input[str] name: The name of the container recipe.
         :param pulumi.Input[str] parent_image: The source image for the container recipe.
-        :param pulumi.Input[str] platform_override: Specifies the operating system platform when you use a custom source image.
+        :param pulumi.Input['ContainerRecipePlatformOverride'] platform_override: Specifies the operating system platform when you use a custom source image.
         :param Any tags: Tags that are attached to the container recipe.
         :param pulumi.Input[pulumi.InputType['ContainerRecipeTargetContainerRepositoryArgs']] target_repository: The destination repository for the container image.
         :param pulumi.Input[str] version: The semantic version of the container recipe (<major>.<minor>.<patch>).
@@ -327,7 +328,7 @@ class ContainerRecipe(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  components: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerRecipeComponentConfigurationArgs']]]]] = None,
-                 container_type: Optional[pulumi.Input[str]] = None,
+                 container_type: Optional[pulumi.Input['ContainerRecipeContainerType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dockerfile_template_data: Optional[pulumi.Input[str]] = None,
                  dockerfile_template_uri: Optional[pulumi.Input[str]] = None,
@@ -336,7 +337,7 @@ class ContainerRecipe(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
-                 platform_override: Optional[pulumi.Input[str]] = None,
+                 platform_override: Optional[pulumi.Input['ContainerRecipePlatformOverride']] = None,
                  tags: Optional[Any] = None,
                  target_repository: Optional[pulumi.Input[pulumi.InputType['ContainerRecipeTargetContainerRepositoryArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -427,7 +428,7 @@ class ContainerRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="containerType")
-    def container_type(self) -> pulumi.Output[Optional[str]]:
+    def container_type(self) -> pulumi.Output[Optional['ContainerRecipeContainerType']]:
         """
         Specifies the type of container, such as Docker.
         """
@@ -499,7 +500,7 @@ class ContainerRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="platformOverride")
-    def platform_override(self) -> pulumi.Output[Optional[str]]:
+    def platform_override(self) -> pulumi.Output[Optional['ContainerRecipePlatformOverride']]:
         """
         Specifies the operating system platform when you use a custom source image.
         """

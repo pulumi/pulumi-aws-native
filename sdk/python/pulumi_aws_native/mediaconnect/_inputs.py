@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'FlowEncryptionArgs',
@@ -21,22 +22,22 @@ __all__ = [
 @pulumi.input_type
 class FlowEncryptionArgs:
     def __init__(__self__, *,
-                 algorithm: pulumi.Input[str],
+                 algorithm: pulumi.Input['FlowEncryptionAlgorithm'],
                  role_arn: pulumi.Input[str],
                  constant_initialization_vector: Optional[pulumi.Input[str]] = None,
                  device_id: Optional[pulumi.Input[str]] = None,
-                 key_type: Optional[pulumi.Input[str]] = None,
+                 key_type: Optional[pulumi.Input['FlowEncryptionKeyType']] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         Information about the encryption of the flow.
-        :param pulumi.Input[str] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        :param pulumi.Input['FlowEncryptionAlgorithm'] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param pulumi.Input[str] role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         :param pulumi.Input[str] constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
         :param pulumi.Input[str] device_id: The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        :param pulumi.Input[str] key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        :param pulumi.Input['FlowEncryptionKeyType'] key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         :param pulumi.Input[str] region: The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         :param pulumi.Input[str] resource_id: An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         :param pulumi.Input[str] secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
@@ -61,14 +62,14 @@ class FlowEncryptionArgs:
 
     @property
     @pulumi.getter
-    def algorithm(self) -> pulumi.Input[str]:
+    def algorithm(self) -> pulumi.Input['FlowEncryptionAlgorithm']:
         """
         The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
-    def algorithm(self, value: pulumi.Input[str]):
+    def algorithm(self, value: pulumi.Input['FlowEncryptionAlgorithm']):
         pulumi.set(self, "algorithm", value)
 
     @property
@@ -109,14 +110,14 @@ class FlowEncryptionArgs:
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> Optional[pulumi.Input[str]]:
+    def key_type(self) -> Optional[pulumi.Input['FlowEncryptionKeyType']]:
         """
         The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
-    def key_type(self, value: Optional[pulumi.Input[str]]):
+    def key_type(self, value: Optional[pulumi.Input['FlowEncryptionKeyType']]):
         pulumi.set(self, "key_type", value)
 
     @property
@@ -171,22 +172,22 @@ class FlowEncryptionArgs:
 @pulumi.input_type
 class FlowEntitlementEncryptionArgs:
     def __init__(__self__, *,
-                 algorithm: pulumi.Input[str],
+                 algorithm: pulumi.Input['FlowEntitlementEncryptionAlgorithm'],
                  role_arn: pulumi.Input[str],
                  constant_initialization_vector: Optional[pulumi.Input[str]] = None,
                  device_id: Optional[pulumi.Input[str]] = None,
-                 key_type: Optional[pulumi.Input[str]] = None,
+                 key_type: Optional[pulumi.Input['FlowEntitlementEncryptionKeyType']] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         Information about the encryption of the flow.
-        :param pulumi.Input[str] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        :param pulumi.Input['FlowEntitlementEncryptionAlgorithm'] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param pulumi.Input[str] role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         :param pulumi.Input[str] constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
         :param pulumi.Input[str] device_id: The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        :param pulumi.Input[str] key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        :param pulumi.Input['FlowEntitlementEncryptionKeyType'] key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         :param pulumi.Input[str] region: The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         :param pulumi.Input[str] resource_id: An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         :param pulumi.Input[str] secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
@@ -211,14 +212,14 @@ class FlowEntitlementEncryptionArgs:
 
     @property
     @pulumi.getter
-    def algorithm(self) -> pulumi.Input[str]:
+    def algorithm(self) -> pulumi.Input['FlowEntitlementEncryptionAlgorithm']:
         """
         The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
-    def algorithm(self, value: pulumi.Input[str]):
+    def algorithm(self, value: pulumi.Input['FlowEntitlementEncryptionAlgorithm']):
         pulumi.set(self, "algorithm", value)
 
     @property
@@ -259,14 +260,14 @@ class FlowEntitlementEncryptionArgs:
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> Optional[pulumi.Input[str]]:
+    def key_type(self) -> Optional[pulumi.Input['FlowEntitlementEncryptionKeyType']]:
         """
         The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
-    def key_type(self, value: Optional[pulumi.Input[str]]):
+    def key_type(self, value: Optional[pulumi.Input['FlowEntitlementEncryptionKeyType']]):
         pulumi.set(self, "key_type", value)
 
     @property
@@ -322,7 +323,7 @@ class FlowEntitlementEncryptionArgs:
 class FlowFailoverConfigArgs:
     def __init__(__self__, *,
                  recovery_window: Optional[pulumi.Input[int]] = None,
-                 state: Optional[pulumi.Input[str]] = None):
+                 state: Optional[pulumi.Input['FlowFailoverConfigState']] = None):
         """
         The settings for source failover
         :param pulumi.Input[int] recovery_window: Search window time to look for dash-7 packets
@@ -346,27 +347,27 @@ class FlowFailoverConfigArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[str]]:
+    def state(self) -> Optional[pulumi.Input['FlowFailoverConfigState']]:
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[str]]):
+    def state(self, value: Optional[pulumi.Input['FlowFailoverConfigState']]):
         pulumi.set(self, "state", value)
 
 
 @pulumi.input_type
 class FlowOutputEncryptionArgs:
     def __init__(__self__, *,
-                 algorithm: pulumi.Input[str],
+                 algorithm: pulumi.Input['FlowOutputEncryptionAlgorithm'],
                  role_arn: pulumi.Input[str],
                  secret_arn: pulumi.Input[str],
-                 key_type: Optional[pulumi.Input[str]] = None):
+                 key_type: Optional[pulumi.Input['FlowOutputEncryptionKeyType']] = None):
         """
         Information about the encryption of the flow.
-        :param pulumi.Input[str] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        :param pulumi.Input['FlowOutputEncryptionAlgorithm'] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param pulumi.Input[str] role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         :param pulumi.Input[str] secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
-        :param pulumi.Input[str] key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        :param pulumi.Input['FlowOutputEncryptionKeyType'] key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
         pulumi.set(__self__, "algorithm", algorithm)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -376,14 +377,14 @@ class FlowOutputEncryptionArgs:
 
     @property
     @pulumi.getter
-    def algorithm(self) -> pulumi.Input[str]:
+    def algorithm(self) -> pulumi.Input['FlowOutputEncryptionAlgorithm']:
         """
         The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
-    def algorithm(self, value: pulumi.Input[str]):
+    def algorithm(self, value: pulumi.Input['FlowOutputEncryptionAlgorithm']):
         pulumi.set(self, "algorithm", value)
 
     @property
@@ -412,14 +413,14 @@ class FlowOutputEncryptionArgs:
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> Optional[pulumi.Input[str]]:
+    def key_type(self) -> Optional[pulumi.Input['FlowOutputEncryptionKeyType']]:
         """
         The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
-    def key_type(self, value: Optional[pulumi.Input[str]]):
+    def key_type(self, value: Optional[pulumi.Input['FlowOutputEncryptionKeyType']]):
         pulumi.set(self, "key_type", value)
 
 
@@ -450,22 +451,22 @@ class FlowOutputVpcInterfaceAttachmentArgs:
 @pulumi.input_type
 class FlowSourceEncryptionArgs:
     def __init__(__self__, *,
-                 algorithm: pulumi.Input[str],
+                 algorithm: pulumi.Input['FlowSourceEncryptionAlgorithm'],
                  role_arn: pulumi.Input[str],
                  constant_initialization_vector: Optional[pulumi.Input[str]] = None,
                  device_id: Optional[pulumi.Input[str]] = None,
-                 key_type: Optional[pulumi.Input[str]] = None,
+                 key_type: Optional[pulumi.Input['FlowSourceEncryptionKeyType']] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         Information about the encryption of the flow.
-        :param pulumi.Input[str] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
+        :param pulumi.Input['FlowSourceEncryptionAlgorithm'] algorithm: The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         :param pulumi.Input[str] role_arn: The ARN of the role that you created during setup (when you set up AWS Elemental MediaConnect as a trusted entity).
         :param pulumi.Input[str] constant_initialization_vector: A 128-bit, 16-byte hex value represented by a 32-character string, to be used with the key for encrypting content. This parameter is not valid for static key encryption.
         :param pulumi.Input[str] device_id: The value of one of the devices that you configured with your digital rights management (DRM) platform key provider. This parameter is required for SPEKE encryption and is not valid for static key encryption.
-        :param pulumi.Input[str] key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
+        :param pulumi.Input['FlowSourceEncryptionKeyType'] key_type: The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         :param pulumi.Input[str] region: The AWS Region that the API Gateway proxy endpoint was created in. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         :param pulumi.Input[str] resource_id: An identifier for the content. The service sends this value to the key server to identify the current endpoint. The resource ID is also known as the content ID. This parameter is required for SPEKE encryption and is not valid for static key encryption.
         :param pulumi.Input[str] secret_arn:  The ARN of the secret that you created in AWS Secrets Manager to store the encryption key. This parameter is required for static key encryption and is not valid for SPEKE encryption.
@@ -490,14 +491,14 @@ class FlowSourceEncryptionArgs:
 
     @property
     @pulumi.getter
-    def algorithm(self) -> pulumi.Input[str]:
+    def algorithm(self) -> pulumi.Input['FlowSourceEncryptionAlgorithm']:
         """
         The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).
         """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
-    def algorithm(self, value: pulumi.Input[str]):
+    def algorithm(self, value: pulumi.Input['FlowSourceEncryptionAlgorithm']):
         pulumi.set(self, "algorithm", value)
 
     @property
@@ -538,14 +539,14 @@ class FlowSourceEncryptionArgs:
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> Optional[pulumi.Input[str]]:
+    def key_type(self) -> Optional[pulumi.Input['FlowSourceEncryptionKeyType']]:
         """
         The type of key that is used for the encryption. If no keyType is provided, the service will use the default setting (static-key).
         """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
-    def key_type(self, value: Optional[pulumi.Input[str]]):
+    def key_type(self, value: Optional[pulumi.Input['FlowSourceEncryptionKeyType']]):
         pulumi.set(self, "key_type", value)
 
     @property
@@ -608,7 +609,7 @@ class FlowSourceArgs:
                  max_bitrate: Optional[pulumi.Input[int]] = None,
                  max_latency: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input['FlowSourceProtocol']] = None,
                  source_arn: Optional[pulumi.Input[str]] = None,
                  stream_id: Optional[pulumi.Input[str]] = None,
                  vpc_interface_name: Optional[pulumi.Input[str]] = None,
@@ -623,7 +624,7 @@ class FlowSourceArgs:
         :param pulumi.Input[int] max_bitrate: The smoothing max bitrate for RIST, RTP, and RTP-FEC streams.
         :param pulumi.Input[int] max_latency: The maximum latency in milliseconds. This parameter applies only to RIST-based and Zixi-based streams.
         :param pulumi.Input[str] name: The name of the source.
-        :param pulumi.Input[str] protocol: The protocol that is used by the source or output.
+        :param pulumi.Input['FlowSourceProtocol'] protocol: The protocol that is used by the source or output.
         :param pulumi.Input[str] source_arn: The ARN of the source.
         :param pulumi.Input[str] stream_id: The stream ID that you want to use for this transport. This parameter applies only to Zixi-based streams.
         :param pulumi.Input[str] vpc_interface_name: The name of the VPC Interface this Source is configured with.
@@ -754,14 +755,14 @@ class FlowSourceArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[str]]:
+    def protocol(self) -> Optional[pulumi.Input['FlowSourceProtocol']]:
         """
         The protocol that is used by the source or output.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[str]]):
+    def protocol(self, value: Optional[pulumi.Input['FlowSourceProtocol']]):
         pulumi.set(self, "protocol", value)
 
     @property

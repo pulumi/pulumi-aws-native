@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .analysis import *
 from .dashboard import *
 from .data_set import *

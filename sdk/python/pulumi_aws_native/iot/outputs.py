@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'AccountAuditConfigurationAuditCheckConfiguration',
@@ -498,7 +499,7 @@ class DomainConfigurationServerCertificateSummary(dict):
 
     def __init__(__self__, *,
                  server_certificate_arn: Optional[str] = None,
-                 server_certificate_status: Optional[str] = None,
+                 server_certificate_status: Optional['DomainConfigurationServerCertificateSummaryServerCertificateStatus'] = None,
                  server_certificate_status_detail: Optional[str] = None):
         if server_certificate_arn is not None:
             pulumi.set(__self__, "server_certificate_arn", server_certificate_arn)
@@ -514,7 +515,7 @@ class DomainConfigurationServerCertificateSummary(dict):
 
     @property
     @pulumi.getter(name="serverCertificateStatus")
-    def server_certificate_status(self) -> Optional[str]:
+    def server_certificate_status(self) -> Optional['DomainConfigurationServerCertificateSummaryServerCertificateStatus']:
         return pulumi.get(self, "server_certificate_status")
 
     @property
@@ -772,11 +773,11 @@ class MitigationActionEnableIoTLoggingParams(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 log_level: str,
+                 log_level: 'MitigationActionEnableIoTLoggingParamsLogLevel',
                  role_arn_for_logging: str):
         """
         Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
-        :param str log_level:  Specifies which types of information are logged.
+        :param 'MitigationActionEnableIoTLoggingParamsLogLevel' log_level:  Specifies which types of information are logged.
         :param str role_arn_for_logging:  The ARN of the IAM role used for logging.
         """
         pulumi.set(__self__, "log_level", log_level)
@@ -784,7 +785,7 @@ class MitigationActionEnableIoTLoggingParams(dict):
 
     @property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> str:
+    def log_level(self) -> 'MitigationActionEnableIoTLoggingParamsLogLevel':
         """
          Specifies which types of information are logged.
         """
@@ -861,7 +862,7 @@ class MitigationActionReplaceDefaultPolicyVersionParams(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 template_name: str):
+                 template_name: 'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName'):
         """
         Parameters to define a mitigation action that adds a blank policy to restrict permissions.
         """
@@ -869,7 +870,7 @@ class MitigationActionReplaceDefaultPolicyVersionParams(dict):
 
     @property
     @pulumi.getter(name="templateName")
-    def template_name(self) -> str:
+    def template_name(self) -> 'MitigationActionReplaceDefaultPolicyVersionParamsTemplateName':
         return pulumi.get(self, "template_name")
 
 
@@ -912,7 +913,7 @@ class MitigationActionUpdateCACertificateParams(dict):
     Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
     """
     def __init__(__self__, *,
-                 action: str):
+                 action: 'MitigationActionUpdateCACertificateParamsAction'):
         """
         Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
         """
@@ -920,7 +921,7 @@ class MitigationActionUpdateCACertificateParams(dict):
 
     @property
     @pulumi.getter
-    def action(self) -> str:
+    def action(self) -> 'MitigationActionUpdateCACertificateParamsAction':
         return pulumi.get(self, "action")
 
 
@@ -930,7 +931,7 @@ class MitigationActionUpdateDeviceCertificateParams(dict):
     Parameters to define a mitigation action that changes the state of the device certificate to inactive.
     """
     def __init__(__self__, *,
-                 action: str):
+                 action: 'MitigationActionUpdateDeviceCertificateParamsAction'):
         """
         Parameters to define a mitigation action that changes the state of the device certificate to inactive.
         """
@@ -938,7 +939,7 @@ class MitigationActionUpdateDeviceCertificateParams(dict):
 
     @property
     @pulumi.getter
-    def action(self) -> str:
+    def action(self) -> 'MitigationActionUpdateDeviceCertificateParamsAction':
         return pulumi.get(self, "action")
 
 
@@ -1148,7 +1149,7 @@ class SecurityProfileBehaviorCriteria(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 comparison_operator: Optional[str] = None,
+                 comparison_operator: Optional['SecurityProfileBehaviorCriteriaComparisonOperator'] = None,
                  consecutive_datapoints_to_alarm: Optional[int] = None,
                  consecutive_datapoints_to_clear: Optional[int] = None,
                  duration_seconds: Optional[int] = None,
@@ -1157,7 +1158,7 @@ class SecurityProfileBehaviorCriteria(dict):
                  value: Optional['outputs.SecurityProfileMetricValue'] = None):
         """
         The criteria by which the behavior is determined to be normal.
-        :param str comparison_operator: The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
+        :param 'SecurityProfileBehaviorCriteriaComparisonOperator' comparison_operator: The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
         :param int consecutive_datapoints_to_alarm: If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
         :param int consecutive_datapoints_to_clear: If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
         :param int duration_seconds: Use this to specify the time duration over which the behavior is evaluated.
@@ -1179,7 +1180,7 @@ class SecurityProfileBehaviorCriteria(dict):
 
     @property
     @pulumi.getter(name="comparisonOperator")
-    def comparison_operator(self) -> Optional[str]:
+    def comparison_operator(self) -> Optional['SecurityProfileBehaviorCriteriaComparisonOperator']:
         """
         The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
         """
@@ -1248,17 +1249,17 @@ class SecurityProfileMachineLearningDetectionConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 confidence_level: Optional[str] = None):
+                 confidence_level: Optional['SecurityProfileMachineLearningDetectionConfigConfidenceLevel'] = None):
         """
         The configuration of an ML Detect Security Profile.
-        :param str confidence_level: The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
+        :param 'SecurityProfileMachineLearningDetectionConfigConfidenceLevel' confidence_level: The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
         """
         if confidence_level is not None:
             pulumi.set(__self__, "confidence_level", confidence_level)
 
     @property
     @pulumi.getter(name="confidenceLevel")
-    def confidence_level(self) -> Optional[str]:
+    def confidence_level(self) -> Optional['SecurityProfileMachineLearningDetectionConfigConfidenceLevel']:
         """
         The sensitivity of anomalous behavior evaluation. Can be Low, Medium, or High.
         """
@@ -1289,11 +1290,11 @@ class SecurityProfileMetricDimension(dict):
 
     def __init__(__self__, *,
                  dimension_name: str,
-                 operator: Optional[str] = None):
+                 operator: Optional['SecurityProfileMetricDimensionOperator'] = None):
         """
         The dimension of a metric.
         :param str dimension_name: A unique identifier for the dimension.
-        :param str operator: Defines how the dimensionValues of a dimension are interpreted.
+        :param 'SecurityProfileMetricDimensionOperator' operator: Defines how the dimensionValues of a dimension are interpreted.
         """
         pulumi.set(__self__, "dimension_name", dimension_name)
         if operator is not None:
@@ -1309,7 +1310,7 @@ class SecurityProfileMetricDimension(dict):
 
     @property
     @pulumi.getter
-    def operator(self) -> Optional[str]:
+    def operator(self) -> Optional['SecurityProfileMetricDimensionOperator']:
         """
         Defines how the dimensionValues of a dimension are interpreted.
         """
@@ -1452,17 +1453,17 @@ class SecurityProfileStatisticalThreshold(dict):
     A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
     """
     def __init__(__self__, *,
-                 statistic: Optional[str] = None):
+                 statistic: Optional['SecurityProfileStatisticalThresholdStatistic'] = None):
         """
         A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
-        :param str statistic: The percentile which resolves to a threshold value by which compliance with a behavior is determined
+        :param 'SecurityProfileStatisticalThresholdStatistic' statistic: The percentile which resolves to a threshold value by which compliance with a behavior is determined
         """
         if statistic is not None:
             pulumi.set(__self__, "statistic", statistic)
 
     @property
     @pulumi.getter
-    def statistic(self) -> Optional[str]:
+    def statistic(self) -> Optional['SecurityProfileStatisticalThresholdStatistic']:
         """
         The percentile which resolves to a threshold value by which compliance with a behavior is determined
         """
@@ -2883,7 +2884,7 @@ class TopicRuleS3Action(dict):
                  bucket_name: str,
                  key: str,
                  role_arn: str,
-                 canned_acl: Optional[str] = None):
+                 canned_acl: Optional['TopicRuleCannedAccessControlList'] = None):
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -2907,7 +2908,7 @@ class TopicRuleS3Action(dict):
 
     @property
     @pulumi.getter(name="cannedAcl")
-    def canned_acl(self) -> Optional[str]:
+    def canned_acl(self) -> Optional['TopicRuleCannedAccessControlList']:
         return pulumi.get(self, "canned_acl")
 
 

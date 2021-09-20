@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ConnectionAliasConnectionAliasAssociation',
@@ -40,7 +41,7 @@ class ConnectionAliasConnectionAliasAssociation(dict):
 
     def __init__(__self__, *,
                  associated_account_id: Optional[str] = None,
-                 association_status: Optional[str] = None,
+                 association_status: Optional['ConnectionAliasConnectionAliasAssociationAssociationStatus'] = None,
                  connection_identifier: Optional[str] = None,
                  resource_id: Optional[str] = None):
         if associated_account_id is not None:
@@ -59,7 +60,7 @@ class ConnectionAliasConnectionAliasAssociation(dict):
 
     @property
     @pulumi.getter(name="associationStatus")
-    def association_status(self) -> Optional[str]:
+    def association_status(self) -> Optional['ConnectionAliasConnectionAliasAssociationAssociationStatus']:
         return pulumi.get(self, "association_status")
 
     @property

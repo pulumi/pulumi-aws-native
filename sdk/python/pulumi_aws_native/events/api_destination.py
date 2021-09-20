@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['ApiDestinationArgs', 'ApiDestination']
 
@@ -14,7 +15,7 @@ __all__ = ['ApiDestinationArgs', 'ApiDestination']
 class ApiDestinationArgs:
     def __init__(__self__, *,
                  connection_arn: pulumi.Input[str],
-                 http_method: pulumi.Input[str],
+                 http_method: pulumi.Input['ApiDestinationHttpMethod'],
                  invocation_endpoint: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  invocation_rate_limit_per_second: Optional[pulumi.Input[int]] = None,
@@ -49,11 +50,11 @@ class ApiDestinationArgs:
 
     @property
     @pulumi.getter(name="httpMethod")
-    def http_method(self) -> pulumi.Input[str]:
+    def http_method(self) -> pulumi.Input['ApiDestinationHttpMethod']:
         return pulumi.get(self, "http_method")
 
     @http_method.setter
-    def http_method(self, value: pulumi.Input[str]):
+    def http_method(self, value: pulumi.Input['ApiDestinationHttpMethod']):
         pulumi.set(self, "http_method", value)
 
     @property
@@ -106,7 +107,7 @@ class ApiDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 http_method: Optional[pulumi.Input[str]] = None,
+                 http_method: Optional[pulumi.Input['ApiDestinationHttpMethod']] = None,
                  invocation_endpoint: Optional[pulumi.Input[str]] = None,
                  invocation_rate_limit_per_second: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -146,7 +147,7 @@ class ApiDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 http_method: Optional[pulumi.Input[str]] = None,
+                 http_method: Optional[pulumi.Input['ApiDestinationHttpMethod']] = None,
                  invocation_endpoint: Optional[pulumi.Input[str]] = None,
                  invocation_rate_limit_per_second: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -229,7 +230,7 @@ class ApiDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="httpMethod")
-    def http_method(self) -> pulumi.Output[str]:
+    def http_method(self) -> pulumi.Output['ApiDestinationHttpMethod']:
         return pulumi.get(self, "http_method")
 
     @property

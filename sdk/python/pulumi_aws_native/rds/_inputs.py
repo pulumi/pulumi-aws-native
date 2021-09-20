@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'DBProxyAuthFormatArgs',
@@ -18,15 +19,15 @@ __all__ = [
 @pulumi.input_type
 class DBProxyAuthFormatArgs:
     def __init__(__self__, *,
-                 auth_scheme: Optional[pulumi.Input[str]] = None,
+                 auth_scheme: Optional[pulumi.Input['DBProxyAuthFormatAuthScheme']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 i_am_auth: Optional[pulumi.Input[str]] = None,
+                 i_am_auth: Optional[pulumi.Input['DBProxyAuthFormatIAMAuth']] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
+        :param pulumi.Input['DBProxyAuthFormatAuthScheme'] auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
         :param pulumi.Input[str] description: A user-specified description about the authentication used by a proxy to log in as a specific database user. 
-        :param pulumi.Input[str] i_am_auth: Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
+        :param pulumi.Input['DBProxyAuthFormatIAMAuth'] i_am_auth: Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
         :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager. 
         :param pulumi.Input[str] user_name: The name of the database user to which the proxy connects.
         """
@@ -43,14 +44,14 @@ class DBProxyAuthFormatArgs:
 
     @property
     @pulumi.getter(name="authScheme")
-    def auth_scheme(self) -> Optional[pulumi.Input[str]]:
+    def auth_scheme(self) -> Optional[pulumi.Input['DBProxyAuthFormatAuthScheme']]:
         """
         The type of authentication that the proxy uses for connections from the proxy to the underlying database. 
         """
         return pulumi.get(self, "auth_scheme")
 
     @auth_scheme.setter
-    def auth_scheme(self, value: Optional[pulumi.Input[str]]):
+    def auth_scheme(self, value: Optional[pulumi.Input['DBProxyAuthFormatAuthScheme']]):
         pulumi.set(self, "auth_scheme", value)
 
     @property
@@ -67,14 +68,14 @@ class DBProxyAuthFormatArgs:
 
     @property
     @pulumi.getter(name="iAMAuth")
-    def i_am_auth(self) -> Optional[pulumi.Input[str]]:
+    def i_am_auth(self) -> Optional[pulumi.Input['DBProxyAuthFormatIAMAuth']]:
         """
         Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. 
         """
         return pulumi.get(self, "i_am_auth")
 
     @i_am_auth.setter
-    def i_am_auth(self, value: Optional[pulumi.Input[str]]):
+    def i_am_auth(self, value: Optional[pulumi.Input['DBProxyAuthFormatIAMAuth']]):
         pulumi.set(self, "i_am_auth", value)
 
     @property

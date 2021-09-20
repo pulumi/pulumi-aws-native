@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ScheduledAuditArgs', 'ScheduledAudit']
@@ -15,18 +16,18 @@ __all__ = ['ScheduledAuditArgs', 'ScheduledAudit']
 @pulumi.input_type
 class ScheduledAuditArgs:
     def __init__(__self__, *,
-                 frequency: pulumi.Input[str],
+                 frequency: pulumi.Input['ScheduledAuditFrequency'],
                  target_check_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  day_of_month: Optional[pulumi.Input[str]] = None,
-                 day_of_week: Optional[pulumi.Input[str]] = None,
+                 day_of_week: Optional[pulumi.Input['ScheduledAuditDayOfWeek']] = None,
                  scheduled_audit_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledAuditTagArgs']]]] = None):
         """
         The set of arguments for constructing a ScheduledAudit resource.
-        :param pulumi.Input[str] frequency: How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
+        :param pulumi.Input['ScheduledAuditFrequency'] frequency: How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_check_names: Which checks are performed during the scheduled audit. Checks must be enabled for your account.
         :param pulumi.Input[str] day_of_month: The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
-        :param pulumi.Input[str] day_of_week: The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
+        :param pulumi.Input['ScheduledAuditDayOfWeek'] day_of_week: The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
         :param pulumi.Input[str] scheduled_audit_name: The name you want to give to the scheduled audit.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledAuditTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -43,14 +44,14 @@ class ScheduledAuditArgs:
 
     @property
     @pulumi.getter
-    def frequency(self) -> pulumi.Input[str]:
+    def frequency(self) -> pulumi.Input['ScheduledAuditFrequency']:
         """
         How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: pulumi.Input[str]):
+    def frequency(self, value: pulumi.Input['ScheduledAuditFrequency']):
         pulumi.set(self, "frequency", value)
 
     @property
@@ -79,14 +80,14 @@ class ScheduledAuditArgs:
 
     @property
     @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> Optional[pulumi.Input[str]]:
+    def day_of_week(self) -> Optional[pulumi.Input['ScheduledAuditDayOfWeek']]:
         """
         The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
         """
         return pulumi.get(self, "day_of_week")
 
     @day_of_week.setter
-    def day_of_week(self, value: Optional[pulumi.Input[str]]):
+    def day_of_week(self, value: Optional[pulumi.Input['ScheduledAuditDayOfWeek']]):
         pulumi.set(self, "day_of_week", value)
 
     @property
@@ -120,8 +121,8 @@ class ScheduledAudit(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  day_of_month: Optional[pulumi.Input[str]] = None,
-                 day_of_week: Optional[pulumi.Input[str]] = None,
-                 frequency: Optional[pulumi.Input[str]] = None,
+                 day_of_week: Optional[pulumi.Input['ScheduledAuditDayOfWeek']] = None,
+                 frequency: Optional[pulumi.Input['ScheduledAuditFrequency']] = None,
                  scheduled_audit_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledAuditTagArgs']]]]] = None,
                  target_check_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -132,8 +133,8 @@ class ScheduledAudit(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] day_of_month: The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.
-        :param pulumi.Input[str] day_of_week: The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
-        :param pulumi.Input[str] frequency: How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
+        :param pulumi.Input['ScheduledAuditDayOfWeek'] day_of_week: The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
+        :param pulumi.Input['ScheduledAuditFrequency'] frequency: How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
         :param pulumi.Input[str] scheduled_audit_name: The name you want to give to the scheduled audit.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledAuditTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_check_names: Which checks are performed during the scheduled audit. Checks must be enabled for your account.
@@ -163,8 +164,8 @@ class ScheduledAudit(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  day_of_month: Optional[pulumi.Input[str]] = None,
-                 day_of_week: Optional[pulumi.Input[str]] = None,
-                 frequency: Optional[pulumi.Input[str]] = None,
+                 day_of_week: Optional[pulumi.Input['ScheduledAuditDayOfWeek']] = None,
+                 frequency: Optional[pulumi.Input['ScheduledAuditFrequency']] = None,
                  scheduled_audit_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledAuditTagArgs']]]]] = None,
                  target_check_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -232,7 +233,7 @@ class ScheduledAudit(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> pulumi.Output[Optional[str]]:
+    def day_of_week(self) -> pulumi.Output[Optional['ScheduledAuditDayOfWeek']]:
         """
         The day of the week on which the scheduled audit takes place. Can be one of SUN, MON, TUE,WED, THU, FRI, or SAT. This field is required if the frequency parameter is set to WEEKLY or BIWEEKLY.
         """
@@ -240,7 +241,7 @@ class ScheduledAudit(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def frequency(self) -> pulumi.Output[str]:
+    def frequency(self) -> pulumi.Output['ScheduledAuditFrequency']:
         """
         How often the scheduled audit takes place. Can be one of DAILY, WEEKLY, BIWEEKLY, or MONTHLY.
         """

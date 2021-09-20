@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'AppAutoBranchCreationConfigArgs',
@@ -32,7 +33,7 @@ class AppAutoBranchCreationConfigArgs:
                  enable_pull_request_preview: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[str]] = None,
-                 stage: Optional[pulumi.Input[str]] = None):
+                 stage: Optional[pulumi.Input['AppAutoBranchCreationConfigStage']] = None):
         if auto_branch_creation_patterns is not None:
             pulumi.set(__self__, "auto_branch_creation_patterns", auto_branch_creation_patterns)
         if basic_auth_config is not None:
@@ -137,11 +138,11 @@ class AppAutoBranchCreationConfigArgs:
 
     @property
     @pulumi.getter
-    def stage(self) -> Optional[pulumi.Input[str]]:
+    def stage(self) -> Optional[pulumi.Input['AppAutoBranchCreationConfigStage']]:
         return pulumi.get(self, "stage")
 
     @stage.setter
-    def stage(self, value: Optional[pulumi.Input[str]]):
+    def stage(self, value: Optional[pulumi.Input['AppAutoBranchCreationConfigStage']]):
         pulumi.set(self, "stage", value)
 
 

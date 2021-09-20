@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = ['ClusterArgs', 'Cluster']
 
@@ -144,7 +145,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output['ClusterStatus']:
         """
         Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
         """

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'DomainTagArgs',
@@ -63,11 +64,11 @@ class DomainTagArgs:
 @pulumi.input_type
 class IntegrationConnectorOperatorArgs:
     def __init__(__self__, *,
-                 marketo: Optional[pulumi.Input[str]] = None,
-                 s3: Optional[pulumi.Input[str]] = None,
-                 salesforce: Optional[pulumi.Input[str]] = None,
-                 service_now: Optional[pulumi.Input[str]] = None,
-                 zendesk: Optional[pulumi.Input[str]] = None):
+                 marketo: Optional[pulumi.Input['IntegrationMarketoConnectorOperator']] = None,
+                 s3: Optional[pulumi.Input['IntegrationS3ConnectorOperator']] = None,
+                 salesforce: Optional[pulumi.Input['IntegrationSalesforceConnectorOperator']] = None,
+                 service_now: Optional[pulumi.Input['IntegrationServiceNowConnectorOperator']] = None,
+                 zendesk: Optional[pulumi.Input['IntegrationZendeskConnectorOperator']] = None):
         if marketo is not None:
             pulumi.set(__self__, "marketo", marketo)
         if s3 is not None:
@@ -81,47 +82,47 @@ class IntegrationConnectorOperatorArgs:
 
     @property
     @pulumi.getter
-    def marketo(self) -> Optional[pulumi.Input[str]]:
+    def marketo(self) -> Optional[pulumi.Input['IntegrationMarketoConnectorOperator']]:
         return pulumi.get(self, "marketo")
 
     @marketo.setter
-    def marketo(self, value: Optional[pulumi.Input[str]]):
+    def marketo(self, value: Optional[pulumi.Input['IntegrationMarketoConnectorOperator']]):
         pulumi.set(self, "marketo", value)
 
     @property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input[str]]:
+    def s3(self) -> Optional[pulumi.Input['IntegrationS3ConnectorOperator']]:
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input[str]]):
+    def s3(self, value: Optional[pulumi.Input['IntegrationS3ConnectorOperator']]):
         pulumi.set(self, "s3", value)
 
     @property
     @pulumi.getter
-    def salesforce(self) -> Optional[pulumi.Input[str]]:
+    def salesforce(self) -> Optional[pulumi.Input['IntegrationSalesforceConnectorOperator']]:
         return pulumi.get(self, "salesforce")
 
     @salesforce.setter
-    def salesforce(self, value: Optional[pulumi.Input[str]]):
+    def salesforce(self, value: Optional[pulumi.Input['IntegrationSalesforceConnectorOperator']]):
         pulumi.set(self, "salesforce", value)
 
     @property
     @pulumi.getter(name="serviceNow")
-    def service_now(self) -> Optional[pulumi.Input[str]]:
+    def service_now(self) -> Optional[pulumi.Input['IntegrationServiceNowConnectorOperator']]:
         return pulumi.get(self, "service_now")
 
     @service_now.setter
-    def service_now(self, value: Optional[pulumi.Input[str]]):
+    def service_now(self, value: Optional[pulumi.Input['IntegrationServiceNowConnectorOperator']]):
         pulumi.set(self, "service_now", value)
 
     @property
     @pulumi.getter
-    def zendesk(self) -> Optional[pulumi.Input[str]]:
+    def zendesk(self) -> Optional[pulumi.Input['IntegrationZendeskConnectorOperator']]:
         return pulumi.get(self, "zendesk")
 
     @zendesk.setter
-    def zendesk(self, value: Optional[pulumi.Input[str]]):
+    def zendesk(self, value: Optional[pulumi.Input['IntegrationZendeskConnectorOperator']]):
         pulumi.set(self, "zendesk", value)
 
 
@@ -302,7 +303,7 @@ class IntegrationSalesforceSourcePropertiesArgs:
 class IntegrationScheduledTriggerPropertiesArgs:
     def __init__(__self__, *,
                  schedule_expression: pulumi.Input[str],
-                 data_pull_mode: Optional[pulumi.Input[str]] = None,
+                 data_pull_mode: Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesDataPullMode']] = None,
                  first_execution_from: Optional[pulumi.Input[float]] = None,
                  schedule_end_time: Optional[pulumi.Input[float]] = None,
                  schedule_offset: Optional[pulumi.Input[int]] = None,
@@ -333,11 +334,11 @@ class IntegrationScheduledTriggerPropertiesArgs:
 
     @property
     @pulumi.getter(name="dataPullMode")
-    def data_pull_mode(self) -> Optional[pulumi.Input[str]]:
+    def data_pull_mode(self) -> Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesDataPullMode']]:
         return pulumi.get(self, "data_pull_mode")
 
     @data_pull_mode.setter
-    def data_pull_mode(self, value: Optional[pulumi.Input[str]]):
+    def data_pull_mode(self, value: Optional[pulumi.Input['IntegrationScheduledTriggerPropertiesDataPullMode']]):
         pulumi.set(self, "data_pull_mode", value)
 
     @property
@@ -470,7 +471,7 @@ class IntegrationSourceConnectorPropertiesArgs:
 @pulumi.input_type
 class IntegrationSourceFlowConfigArgs:
     def __init__(__self__, *,
-                 connector_type: pulumi.Input[str],
+                 connector_type: pulumi.Input['IntegrationConnectorType'],
                  source_connector_properties: pulumi.Input['IntegrationSourceConnectorPropertiesArgs'],
                  connector_profile_name: Optional[pulumi.Input[str]] = None,
                  incremental_pull_config: Optional[pulumi.Input['IntegrationIncrementalPullConfigArgs']] = None):
@@ -483,11 +484,11 @@ class IntegrationSourceFlowConfigArgs:
 
     @property
     @pulumi.getter(name="connectorType")
-    def connector_type(self) -> pulumi.Input[str]:
+    def connector_type(self) -> pulumi.Input['IntegrationConnectorType']:
         return pulumi.get(self, "connector_type")
 
     @connector_type.setter
-    def connector_type(self, value: pulumi.Input[str]):
+    def connector_type(self, value: pulumi.Input['IntegrationConnectorType']):
         pulumi.set(self, "connector_type", value)
 
     @property
@@ -548,18 +549,18 @@ class IntegrationTagArgs:
 @pulumi.input_type
 class IntegrationTaskPropertiesMapArgs:
     def __init__(__self__, *,
-                 operator_property_key: pulumi.Input[str],
+                 operator_property_key: pulumi.Input['IntegrationOperatorPropertiesKeys'],
                  property: pulumi.Input[str]):
         pulumi.set(__self__, "operator_property_key", operator_property_key)
         pulumi.set(__self__, "property", property)
 
     @property
     @pulumi.getter(name="operatorPropertyKey")
-    def operator_property_key(self) -> pulumi.Input[str]:
+    def operator_property_key(self) -> pulumi.Input['IntegrationOperatorPropertiesKeys']:
         return pulumi.get(self, "operator_property_key")
 
     @operator_property_key.setter
-    def operator_property_key(self, value: pulumi.Input[str]):
+    def operator_property_key(self, value: pulumi.Input['IntegrationOperatorPropertiesKeys']):
         pulumi.set(self, "operator_property_key", value)
 
     @property
@@ -576,7 +577,7 @@ class IntegrationTaskPropertiesMapArgs:
 class IntegrationTaskArgs:
     def __init__(__self__, *,
                  source_fields: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 task_type: pulumi.Input[str],
+                 task_type: pulumi.Input['IntegrationTaskType'],
                  connector_operator: Optional[pulumi.Input['IntegrationConnectorOperatorArgs']] = None,
                  destination_field: Optional[pulumi.Input[str]] = None,
                  task_properties: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationTaskPropertiesMapArgs']]]] = None):
@@ -600,11 +601,11 @@ class IntegrationTaskArgs:
 
     @property
     @pulumi.getter(name="taskType")
-    def task_type(self) -> pulumi.Input[str]:
+    def task_type(self) -> pulumi.Input['IntegrationTaskType']:
         return pulumi.get(self, "task_type")
 
     @task_type.setter
-    def task_type(self, value: pulumi.Input[str]):
+    def task_type(self, value: pulumi.Input['IntegrationTaskType']):
         pulumi.set(self, "task_type", value)
 
     @property
@@ -638,7 +639,7 @@ class IntegrationTaskArgs:
 @pulumi.input_type
 class IntegrationTriggerConfigArgs:
     def __init__(__self__, *,
-                 trigger_type: pulumi.Input[str],
+                 trigger_type: pulumi.Input['IntegrationTriggerType'],
                  trigger_properties: Optional[pulumi.Input['IntegrationTriggerPropertiesArgs']] = None):
         pulumi.set(__self__, "trigger_type", trigger_type)
         if trigger_properties is not None:
@@ -646,11 +647,11 @@ class IntegrationTriggerConfigArgs:
 
     @property
     @pulumi.getter(name="triggerType")
-    def trigger_type(self) -> pulumi.Input[str]:
+    def trigger_type(self) -> pulumi.Input['IntegrationTriggerType']:
         return pulumi.get(self, "trigger_type")
 
     @trigger_type.setter
-    def trigger_type(self, value: pulumi.Input[str]):
+    def trigger_type(self, value: pulumi.Input['IntegrationTriggerType']):
         pulumi.set(self, "trigger_type", value)
 
     @property
@@ -757,12 +758,12 @@ class ObjectTypeKeyMapArgs:
 @pulumi.input_type
 class ObjectTypeObjectTypeFieldArgs:
     def __init__(__self__, *,
-                 content_type: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input['ObjectTypeObjectTypeFieldContentType']] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[str]] = None):
         """
         Represents a field in a ProfileObjectType.
-        :param pulumi.Input[str] content_type: The content type of the field. Used for determining equality when searching.
+        :param pulumi.Input['ObjectTypeObjectTypeFieldContentType'] content_type: The content type of the field. Used for determining equality when searching.
         :param pulumi.Input[str] source: A field of a ProfileObject. For example: _source.FirstName, where "_source" is a ProfileObjectType of a Zendesk user and "FirstName" is a field in that ObjectType.
         :param pulumi.Input[str] target: The location of the data in the standard ProfileObject model. For example: _profile.Address.PostalCode.
         """
@@ -775,14 +776,14 @@ class ObjectTypeObjectTypeFieldArgs:
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> Optional[pulumi.Input[str]]:
+    def content_type(self) -> Optional[pulumi.Input['ObjectTypeObjectTypeFieldContentType']]:
         """
         The content type of the field. Used for determining equality when searching.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: Optional[pulumi.Input[str]]):
+    def content_type(self, value: Optional[pulumi.Input['ObjectTypeObjectTypeFieldContentType']]):
         pulumi.set(self, "content_type", value)
 
     @property
@@ -814,11 +815,11 @@ class ObjectTypeObjectTypeFieldArgs:
 class ObjectTypeObjectTypeKeyArgs:
     def __init__(__self__, *,
                  field_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 standard_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 standard_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeObjectTypeKeyStandardIdentifiersItem']]]] = None):
         """
         An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] field_names: The reference for the key name of the fields map. 
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] standard_identifiers: The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
+        :param pulumi.Input[Sequence[pulumi.Input['ObjectTypeObjectTypeKeyStandardIdentifiersItem']]] standard_identifiers: The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
         """
         if field_names is not None:
             pulumi.set(__self__, "field_names", field_names)
@@ -839,14 +840,14 @@ class ObjectTypeObjectTypeKeyArgs:
 
     @property
     @pulumi.getter(name="standardIdentifiers")
-    def standard_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def standard_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeObjectTypeKeyStandardIdentifiersItem']]]]:
         """
         The types of keys that a ProfileObject can have. Each ProfileObject can have only 1 UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is only used to match a profile but is not persisted to be used for searching of the profile. A NEW_ONLY key is only used if the profile does not already exist before the object is ingested, otherwise it is only used for matching objects to profiles.
         """
         return pulumi.get(self, "standard_identifiers")
 
     @standard_identifiers.setter
-    def standard_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def standard_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectTypeObjectTypeKeyStandardIdentifiersItem']]]]):
         pulumi.set(self, "standard_identifiers", value)
 
 

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'DetectorEntityType',
@@ -292,15 +293,15 @@ class DetectorEventVariable(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  created_time: Optional[str] = None,
-                 data_source: Optional[str] = None,
-                 data_type: Optional[str] = None,
+                 data_source: Optional['DetectorEventVariableDataSource'] = None,
+                 data_type: Optional['DetectorEventVariableDataType'] = None,
                  default_value: Optional[str] = None,
                  description: Optional[str] = None,
                  inline: Optional[bool] = None,
                  last_updated_time: Optional[str] = None,
                  name: Optional[str] = None,
                  tags: Optional[Sequence['outputs.DetectorTag']] = None,
-                 variable_type: Optional[str] = None):
+                 variable_type: Optional['DetectorEventVariableVariableType'] = None):
         """
         :param str created_time: The time when the event variable was created.
         :param str description: The description.
@@ -345,12 +346,12 @@ class DetectorEventVariable(dict):
 
     @property
     @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional[str]:
+    def data_source(self) -> Optional['DetectorEventVariableDataSource']:
         return pulumi.get(self, "data_source")
 
     @property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[str]:
+    def data_type(self) -> Optional['DetectorEventVariableDataType']:
         return pulumi.get(self, "data_type")
 
     @property
@@ -394,7 +395,7 @@ class DetectorEventVariable(dict):
 
     @property
     @pulumi.getter(name="variableType")
-    def variable_type(self) -> Optional[str]:
+    def variable_type(self) -> Optional['DetectorEventVariableVariableType']:
         return pulumi.get(self, "variable_type")
 
 
@@ -646,7 +647,7 @@ class DetectorRule(dict):
                  description: Optional[str] = None,
                  detector_id: Optional[str] = None,
                  expression: Optional[str] = None,
-                 language: Optional[str] = None,
+                 language: Optional['DetectorRuleLanguage'] = None,
                  last_updated_time: Optional[str] = None,
                  outcomes: Optional[Sequence['outputs.DetectorOutcome']] = None,
                  rule_id: Optional[str] = None,
@@ -714,7 +715,7 @@ class DetectorRule(dict):
 
     @property
     @pulumi.getter
-    def language(self) -> Optional[str]:
+    def language(self) -> Optional['DetectorRuleLanguage']:
         return pulumi.get(self, "language")
 
     @property
@@ -917,15 +918,15 @@ class EventTypeEventVariable(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  created_time: Optional[str] = None,
-                 data_source: Optional[str] = None,
-                 data_type: Optional[str] = None,
+                 data_source: Optional['EventTypeEventVariableDataSource'] = None,
+                 data_type: Optional['EventTypeEventVariableDataType'] = None,
                  default_value: Optional[str] = None,
                  description: Optional[str] = None,
                  inline: Optional[bool] = None,
                  last_updated_time: Optional[str] = None,
                  name: Optional[str] = None,
                  tags: Optional[Sequence['outputs.EventTypeTag']] = None,
-                 variable_type: Optional[str] = None):
+                 variable_type: Optional['EventTypeEventVariableVariableType'] = None):
         """
         :param str created_time: The time when the event type was created.
         :param str description: The description.
@@ -970,12 +971,12 @@ class EventTypeEventVariable(dict):
 
     @property
     @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional[str]:
+    def data_source(self) -> Optional['EventTypeEventVariableDataSource']:
         return pulumi.get(self, "data_source")
 
     @property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[str]:
+    def data_type(self) -> Optional['EventTypeEventVariableDataType']:
         return pulumi.get(self, "data_type")
 
     @property
@@ -1019,7 +1020,7 @@ class EventTypeEventVariable(dict):
 
     @property
     @pulumi.getter(name="variableType")
-    def variable_type(self) -> Optional[str]:
+    def variable_type(self) -> Optional['EventTypeEventVariableVariableType']:
         return pulumi.get(self, "variable_type")
 
 

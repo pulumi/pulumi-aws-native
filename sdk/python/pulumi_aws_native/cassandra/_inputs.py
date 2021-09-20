@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'KeyspaceTagArgs',
@@ -48,7 +49,7 @@ class KeyspaceTagArgs:
 @pulumi.input_type
 class TableBillingModeArgs:
     def __init__(__self__, *,
-                 mode: pulumi.Input[str],
+                 mode: pulumi.Input['TableMode'],
                  provisioned_throughput: Optional[pulumi.Input['TableProvisionedThroughputArgs']] = None):
         pulumi.set(__self__, "mode", mode)
         if provisioned_throughput is not None:
@@ -56,11 +57,11 @@ class TableBillingModeArgs:
 
     @property
     @pulumi.getter
-    def mode(self) -> pulumi.Input[str]:
+    def mode(self) -> pulumi.Input['TableMode']:
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: pulumi.Input[str]):
+    def mode(self, value: pulumi.Input['TableMode']):
         pulumi.set(self, "mode", value)
 
     @property
@@ -77,7 +78,7 @@ class TableBillingModeArgs:
 class TableClusteringKeyColumnArgs:
     def __init__(__self__, *,
                  column: pulumi.Input['TableColumnArgs'],
-                 order_by: Optional[pulumi.Input[str]] = None):
+                 order_by: Optional[pulumi.Input['TableClusteringKeyColumnOrderBy']] = None):
         pulumi.set(__self__, "column", column)
         if order_by is not None:
             pulumi.set(__self__, "order_by", order_by)
@@ -93,11 +94,11 @@ class TableClusteringKeyColumnArgs:
 
     @property
     @pulumi.getter(name="orderBy")
-    def order_by(self) -> Optional[pulumi.Input[str]]:
+    def order_by(self) -> Optional[pulumi.Input['TableClusteringKeyColumnOrderBy']]:
         return pulumi.get(self, "order_by")
 
     @order_by.setter
-    def order_by(self, value: Optional[pulumi.Input[str]]):
+    def order_by(self, value: Optional[pulumi.Input['TableClusteringKeyColumnOrderBy']]):
         pulumi.set(self, "order_by", value)
 
 
@@ -131,7 +132,7 @@ class TableColumnArgs:
 @pulumi.input_type
 class TableEncryptionSpecificationArgs:
     def __init__(__self__, *,
-                 encryption_type: pulumi.Input[str],
+                 encryption_type: pulumi.Input['TableEncryptionType'],
                  kms_key_identifier: Optional[pulumi.Input[str]] = None):
         """
         Represents the settings used to enable server-side encryption
@@ -142,11 +143,11 @@ class TableEncryptionSpecificationArgs:
 
     @property
     @pulumi.getter(name="encryptionType")
-    def encryption_type(self) -> pulumi.Input[str]:
+    def encryption_type(self) -> pulumi.Input['TableEncryptionType']:
         return pulumi.get(self, "encryption_type")
 
     @encryption_type.setter
-    def encryption_type(self, value: pulumi.Input[str]):
+    def encryption_type(self, value: pulumi.Input['TableEncryptionType']):
         pulumi.set(self, "encryption_type", value)
 
     @property

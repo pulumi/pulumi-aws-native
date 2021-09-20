@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .code_signing_config import *
 from .event_source_mapping import *
 from .function import *

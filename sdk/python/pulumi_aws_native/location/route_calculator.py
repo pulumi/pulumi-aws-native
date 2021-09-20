@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['RouteCalculatorArgs', 'RouteCalculator']
 
@@ -15,7 +16,7 @@ class RouteCalculatorArgs:
     def __init__(__self__, *,
                  calculator_name: pulumi.Input[str],
                  data_source: pulumi.Input[str],
-                 pricing_plan: pulumi.Input[str],
+                 pricing_plan: pulumi.Input['RouteCalculatorPricingPlan'],
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RouteCalculator resource.
@@ -46,11 +47,11 @@ class RouteCalculatorArgs:
 
     @property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Input[str]:
+    def pricing_plan(self) -> pulumi.Input['RouteCalculatorPricingPlan']:
         return pulumi.get(self, "pricing_plan")
 
     @pricing_plan.setter
-    def pricing_plan(self, value: pulumi.Input[str]):
+    def pricing_plan(self, value: pulumi.Input['RouteCalculatorPricingPlan']):
         pulumi.set(self, "pricing_plan", value)
 
     @property
@@ -71,7 +72,7 @@ class RouteCalculator(pulumi.CustomResource):
                  calculator_name: Optional[pulumi.Input[str]] = None,
                  data_source: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 pricing_plan: Optional[pulumi.Input[str]] = None,
+                 pricing_plan: Optional[pulumi.Input['RouteCalculatorPricingPlan']] = None,
                  __props__=None):
         """
         Definition of AWS::Location::RouteCalculator Resource Type
@@ -106,7 +107,7 @@ class RouteCalculator(pulumi.CustomResource):
                  calculator_name: Optional[pulumi.Input[str]] = None,
                  data_source: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 pricing_plan: Optional[pulumi.Input[str]] = None,
+                 pricing_plan: Optional[pulumi.Input['RouteCalculatorPricingPlan']] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -197,7 +198,7 @@ class RouteCalculator(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="pricingPlan")
-    def pricing_plan(self) -> pulumi.Output[str]:
+    def pricing_plan(self) -> pulumi.Output['RouteCalculatorPricingPlan']:
         return pulumi.get(self, "pricing_plan")
 
     @property

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'StateMachineCloudWatchLogsLogGroupArgs',
@@ -70,7 +71,7 @@ class StateMachineLoggingConfigurationArgs:
     def __init__(__self__, *,
                  destinations: Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]]] = None,
                  include_execution_data: Optional[pulumi.Input[bool]] = None,
-                 level: Optional[pulumi.Input[str]] = None):
+                 level: Optional[pulumi.Input['StateMachineLoggingConfigurationLevel']] = None):
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
         if include_execution_data is not None:
@@ -98,11 +99,11 @@ class StateMachineLoggingConfigurationArgs:
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[str]]:
+    def level(self) -> Optional[pulumi.Input['StateMachineLoggingConfigurationLevel']]:
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[str]]):
+    def level(self, value: Optional[pulumi.Input['StateMachineLoggingConfigurationLevel']]):
         pulumi.set(self, "level", value)
 
 

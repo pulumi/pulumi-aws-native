@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['NotificationRuleArgs', 'NotificationRule']
@@ -15,12 +16,12 @@ __all__ = ['NotificationRuleArgs', 'NotificationRule']
 @pulumi.input_type
 class NotificationRuleArgs:
     def __init__(__self__, *,
-                 detail_type: pulumi.Input[str],
+                 detail_type: pulumi.Input['NotificationRuleDetailType'],
                  event_type_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
                  resource: pulumi.Input[str],
                  targets: pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]],
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['NotificationRuleStatus']] = None,
                  tags: Optional[Any] = None):
         """
         The set of arguments for constructing a NotificationRule resource.
@@ -37,11 +38,11 @@ class NotificationRuleArgs:
 
     @property
     @pulumi.getter(name="detailType")
-    def detail_type(self) -> pulumi.Input[str]:
+    def detail_type(self) -> pulumi.Input['NotificationRuleDetailType']:
         return pulumi.get(self, "detail_type")
 
     @detail_type.setter
-    def detail_type(self, value: pulumi.Input[str]):
+    def detail_type(self, value: pulumi.Input['NotificationRuleDetailType']):
         pulumi.set(self, "detail_type", value)
 
     @property
@@ -82,11 +83,11 @@ class NotificationRuleArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input['NotificationRuleStatus']]:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input['NotificationRuleStatus']]):
         pulumi.set(self, "status", value)
 
     @property
@@ -104,11 +105,11 @@ class NotificationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 detail_type: Optional[pulumi.Input[str]] = None,
+                 detail_type: Optional[pulumi.Input['NotificationRuleDetailType']] = None,
                  event_type_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['NotificationRuleStatus']] = None,
                  tags: Optional[Any] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]]] = None,
                  __props__=None):
@@ -142,11 +143,11 @@ class NotificationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 detail_type: Optional[pulumi.Input[str]] = None,
+                 detail_type: Optional[pulumi.Input['NotificationRuleDetailType']] = None,
                  event_type_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['NotificationRuleStatus']] = None,
                  tags: Optional[Any] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]]] = None,
                  __props__=None):
@@ -218,7 +219,7 @@ class NotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="detailType")
-    def detail_type(self) -> pulumi.Output[str]:
+    def detail_type(self) -> pulumi.Output['NotificationRuleDetailType']:
         return pulumi.get(self, "detail_type")
 
     @property
@@ -238,7 +239,7 @@ class NotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional[str]]:
+    def status(self) -> pulumi.Output[Optional['NotificationRuleStatus']]:
         return pulumi.get(self, "status")
 
     @property

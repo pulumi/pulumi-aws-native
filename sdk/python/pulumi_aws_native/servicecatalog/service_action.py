@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ServiceActionArgs', 'ServiceAction']
@@ -16,9 +17,9 @@ __all__ = ['ServiceActionArgs', 'ServiceAction']
 class ServiceActionArgs:
     def __init__(__self__, *,
                  definition: pulumi.Input[Sequence[pulumi.Input['ServiceActionDefinitionParameterArgs']]],
-                 definition_type: pulumi.Input[str],
+                 definition_type: pulumi.Input['ServiceActionDefinitionType'],
                  name: pulumi.Input[str],
-                 accept_language: Optional[pulumi.Input[str]] = None,
+                 accept_language: Optional[pulumi.Input['ServiceActionAcceptLanguage']] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceAction resource.
@@ -42,11 +43,11 @@ class ServiceActionArgs:
 
     @property
     @pulumi.getter(name="definitionType")
-    def definition_type(self) -> pulumi.Input[str]:
+    def definition_type(self) -> pulumi.Input['ServiceActionDefinitionType']:
         return pulumi.get(self, "definition_type")
 
     @definition_type.setter
-    def definition_type(self, value: pulumi.Input[str]):
+    def definition_type(self, value: pulumi.Input['ServiceActionDefinitionType']):
         pulumi.set(self, "definition_type", value)
 
     @property
@@ -60,11 +61,11 @@ class ServiceActionArgs:
 
     @property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[str]]:
+    def accept_language(self) -> Optional[pulumi.Input['ServiceActionAcceptLanguage']]:
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[str]]):
+    def accept_language(self, value: Optional[pulumi.Input['ServiceActionAcceptLanguage']]):
         pulumi.set(self, "accept_language", value)
 
     @property
@@ -82,9 +83,9 @@ class ServiceAction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[str]] = None,
+                 accept_language: Optional[pulumi.Input['ServiceActionAcceptLanguage']] = None,
                  definition: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceActionDefinitionParameterArgs']]]]] = None,
-                 definition_type: Optional[pulumi.Input[str]] = None,
+                 definition_type: Optional[pulumi.Input['ServiceActionDefinitionType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -118,9 +119,9 @@ class ServiceAction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accept_language: Optional[pulumi.Input[str]] = None,
+                 accept_language: Optional[pulumi.Input['ServiceActionAcceptLanguage']] = None,
                  definition: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceActionDefinitionParameterArgs']]]]] = None,
-                 definition_type: Optional[pulumi.Input[str]] = None,
+                 definition_type: Optional[pulumi.Input['ServiceActionDefinitionType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -177,7 +178,7 @@ class ServiceAction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> pulumi.Output[Optional[str]]:
+    def accept_language(self) -> pulumi.Output[Optional['ServiceActionAcceptLanguage']]:
         return pulumi.get(self, "accept_language")
 
     @property
@@ -187,7 +188,7 @@ class ServiceAction(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="definitionType")
-    def definition_type(self) -> pulumi.Output[str]:
+    def definition_type(self) -> pulumi.Output['ServiceActionDefinitionType']:
         return pulumi.get(self, "definition_type")
 
     @property

@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .cluster import *
 from .control_panel import *
 from .routing_control import *

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'ConnectorProfileAmplitudeConnectorProfileCredentials',
@@ -1762,13 +1763,13 @@ class FlowAggregationConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 aggregation_type: Optional[str] = None):
+                 aggregation_type: Optional['FlowAggregationType'] = None):
         if aggregation_type is not None:
             pulumi.set(__self__, "aggregation_type", aggregation_type)
 
     @property
     @pulumi.getter(name="aggregationType")
-    def aggregation_type(self) -> Optional[str]:
+    def aggregation_type(self) -> Optional['FlowAggregationType']:
         return pulumi.get(self, "aggregation_type")
 
 
@@ -1811,20 +1812,20 @@ class FlowConnectorOperator(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 amplitude: Optional[str] = None,
-                 datadog: Optional[str] = None,
-                 dynatrace: Optional[str] = None,
-                 google_analytics: Optional[str] = None,
-                 infor_nexus: Optional[str] = None,
-                 marketo: Optional[str] = None,
-                 s3: Optional[str] = None,
-                 salesforce: Optional[str] = None,
-                 service_now: Optional[str] = None,
-                 singular: Optional[str] = None,
-                 slack: Optional[str] = None,
-                 trendmicro: Optional[str] = None,
-                 veeva: Optional[str] = None,
-                 zendesk: Optional[str] = None):
+                 amplitude: Optional['FlowAmplitudeConnectorOperator'] = None,
+                 datadog: Optional['FlowDatadogConnectorOperator'] = None,
+                 dynatrace: Optional['FlowDynatraceConnectorOperator'] = None,
+                 google_analytics: Optional['FlowGoogleAnalyticsConnectorOperator'] = None,
+                 infor_nexus: Optional['FlowInforNexusConnectorOperator'] = None,
+                 marketo: Optional['FlowMarketoConnectorOperator'] = None,
+                 s3: Optional['FlowS3ConnectorOperator'] = None,
+                 salesforce: Optional['FlowSalesforceConnectorOperator'] = None,
+                 service_now: Optional['FlowServiceNowConnectorOperator'] = None,
+                 singular: Optional['FlowSingularConnectorOperator'] = None,
+                 slack: Optional['FlowSlackConnectorOperator'] = None,
+                 trendmicro: Optional['FlowTrendmicroConnectorOperator'] = None,
+                 veeva: Optional['FlowVeevaConnectorOperator'] = None,
+                 zendesk: Optional['FlowZendeskConnectorOperator'] = None):
         """
         Operation to be performed on provided source fields
         """
@@ -1859,72 +1860,72 @@ class FlowConnectorOperator(dict):
 
     @property
     @pulumi.getter
-    def amplitude(self) -> Optional[str]:
+    def amplitude(self) -> Optional['FlowAmplitudeConnectorOperator']:
         return pulumi.get(self, "amplitude")
 
     @property
     @pulumi.getter
-    def datadog(self) -> Optional[str]:
+    def datadog(self) -> Optional['FlowDatadogConnectorOperator']:
         return pulumi.get(self, "datadog")
 
     @property
     @pulumi.getter
-    def dynatrace(self) -> Optional[str]:
+    def dynatrace(self) -> Optional['FlowDynatraceConnectorOperator']:
         return pulumi.get(self, "dynatrace")
 
     @property
     @pulumi.getter(name="googleAnalytics")
-    def google_analytics(self) -> Optional[str]:
+    def google_analytics(self) -> Optional['FlowGoogleAnalyticsConnectorOperator']:
         return pulumi.get(self, "google_analytics")
 
     @property
     @pulumi.getter(name="inforNexus")
-    def infor_nexus(self) -> Optional[str]:
+    def infor_nexus(self) -> Optional['FlowInforNexusConnectorOperator']:
         return pulumi.get(self, "infor_nexus")
 
     @property
     @pulumi.getter
-    def marketo(self) -> Optional[str]:
+    def marketo(self) -> Optional['FlowMarketoConnectorOperator']:
         return pulumi.get(self, "marketo")
 
     @property
     @pulumi.getter
-    def s3(self) -> Optional[str]:
+    def s3(self) -> Optional['FlowS3ConnectorOperator']:
         return pulumi.get(self, "s3")
 
     @property
     @pulumi.getter
-    def salesforce(self) -> Optional[str]:
+    def salesforce(self) -> Optional['FlowSalesforceConnectorOperator']:
         return pulumi.get(self, "salesforce")
 
     @property
     @pulumi.getter(name="serviceNow")
-    def service_now(self) -> Optional[str]:
+    def service_now(self) -> Optional['FlowServiceNowConnectorOperator']:
         return pulumi.get(self, "service_now")
 
     @property
     @pulumi.getter
-    def singular(self) -> Optional[str]:
+    def singular(self) -> Optional['FlowSingularConnectorOperator']:
         return pulumi.get(self, "singular")
 
     @property
     @pulumi.getter
-    def slack(self) -> Optional[str]:
+    def slack(self) -> Optional['FlowSlackConnectorOperator']:
         return pulumi.get(self, "slack")
 
     @property
     @pulumi.getter
-    def trendmicro(self) -> Optional[str]:
+    def trendmicro(self) -> Optional['FlowTrendmicroConnectorOperator']:
         return pulumi.get(self, "trendmicro")
 
     @property
     @pulumi.getter
-    def veeva(self) -> Optional[str]:
+    def veeva(self) -> Optional['FlowVeevaConnectorOperator']:
         return pulumi.get(self, "veeva")
 
     @property
     @pulumi.getter
-    def zendesk(self) -> Optional[str]:
+    def zendesk(self) -> Optional['FlowZendeskConnectorOperator']:
         return pulumi.get(self, "zendesk")
 
 
@@ -2061,12 +2062,12 @@ class FlowDestinationFlowConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 connector_type: str,
+                 connector_type: 'FlowConnectorType',
                  destination_connector_properties: 'outputs.FlowDestinationConnectorProperties',
                  connector_profile_name: Optional[str] = None):
         """
         Configurations of destination connector.
-        :param str connector_type: Destination connector type
+        :param 'FlowConnectorType' connector_type: Destination connector type
         :param 'FlowDestinationConnectorProperties' destination_connector_properties: Destination connector details
         :param str connector_profile_name: Name of destination connector profile
         """
@@ -2077,7 +2078,7 @@ class FlowDestinationFlowConfig(dict):
 
     @property
     @pulumi.getter(name="connectorType")
-    def connector_type(self) -> str:
+    def connector_type(self) -> 'FlowConnectorType':
         """
         Destination connector type
         """
@@ -2306,8 +2307,8 @@ class FlowPrefixConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 prefix_format: Optional[str] = None,
-                 prefix_type: Optional[str] = None):
+                 prefix_format: Optional['FlowPrefixFormat'] = None,
+                 prefix_type: Optional['FlowPrefixType'] = None):
         if prefix_format is not None:
             pulumi.set(__self__, "prefix_format", prefix_format)
         if prefix_type is not None:
@@ -2315,12 +2316,12 @@ class FlowPrefixConfig(dict):
 
     @property
     @pulumi.getter(name="prefixFormat")
-    def prefix_format(self) -> Optional[str]:
+    def prefix_format(self) -> Optional['FlowPrefixFormat']:
         return pulumi.get(self, "prefix_format")
 
     @property
     @pulumi.getter(name="prefixType")
-    def prefix_type(self) -> Optional[str]:
+    def prefix_type(self) -> Optional['FlowPrefixType']:
         return pulumi.get(self, "prefix_type")
 
 
@@ -2454,7 +2455,7 @@ class FlowS3OutputFormatConfig(dict):
 
     def __init__(__self__, *,
                  aggregation_config: Optional['outputs.FlowAggregationConfig'] = None,
-                 file_type: Optional[str] = None,
+                 file_type: Optional['FlowFileType'] = None,
                  prefix_config: Optional['outputs.FlowPrefixConfig'] = None):
         if aggregation_config is not None:
             pulumi.set(__self__, "aggregation_config", aggregation_config)
@@ -2470,7 +2471,7 @@ class FlowS3OutputFormatConfig(dict):
 
     @property
     @pulumi.getter(name="fileType")
-    def file_type(self) -> Optional[str]:
+    def file_type(self) -> Optional['FlowFileType']:
         return pulumi.get(self, "file_type")
 
     @property
@@ -2544,7 +2545,7 @@ class FlowSalesforceDestinationProperties(dict):
                  object: str,
                  error_handling_config: Optional['outputs.FlowErrorHandlingConfig'] = None,
                  id_field_names: Optional[Sequence[str]] = None,
-                 write_operation_type: Optional[str] = None):
+                 write_operation_type: Optional['FlowWriteOperationType'] = None):
         """
         :param Sequence[str] id_field_names: List of fields used as ID when performing a write operation.
         """
@@ -2576,7 +2577,7 @@ class FlowSalesforceDestinationProperties(dict):
 
     @property
     @pulumi.getter(name="writeOperationType")
-    def write_operation_type(self) -> Optional[str]:
+    def write_operation_type(self) -> Optional['FlowWriteOperationType']:
         return pulumi.get(self, "write_operation_type")
 
 
@@ -2661,7 +2662,7 @@ class FlowScheduledTriggerProperties(dict):
 
     def __init__(__self__, *,
                  schedule_expression: str,
-                 data_pull_mode: Optional[str] = None,
+                 data_pull_mode: Optional['FlowScheduledTriggerPropertiesDataPullMode'] = None,
                  schedule_end_time: Optional[float] = None,
                  schedule_offset: Optional[float] = None,
                  schedule_start_time: Optional[float] = None,
@@ -2688,7 +2689,7 @@ class FlowScheduledTriggerProperties(dict):
 
     @property
     @pulumi.getter(name="dataPullMode")
-    def data_pull_mode(self) -> Optional[str]:
+    def data_pull_mode(self) -> Optional['FlowScheduledTriggerPropertiesDataPullMode']:
         return pulumi.get(self, "data_pull_mode")
 
     @property
@@ -2977,13 +2978,13 @@ class FlowSourceFlowConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 connector_type: str,
+                 connector_type: 'FlowConnectorType',
                  source_connector_properties: 'outputs.FlowSourceConnectorProperties',
                  connector_profile_name: Optional[str] = None,
                  incremental_pull_config: Optional['outputs.FlowIncrementalPullConfig'] = None):
         """
         Configurations of Source connector of the flow.
-        :param str connector_type: Type of source connector
+        :param 'FlowConnectorType' connector_type: Type of source connector
         :param 'FlowSourceConnectorProperties' source_connector_properties: Source connector details required to query a connector
         :param str connector_profile_name: Name of source connector profile
         :param 'FlowIncrementalPullConfig' incremental_pull_config: Configuration for scheduled incremental data pull
@@ -2997,7 +2998,7 @@ class FlowSourceFlowConfig(dict):
 
     @property
     @pulumi.getter(name="connectorType")
-    def connector_type(self) -> str:
+    def connector_type(self) -> 'FlowConnectorType':
         """
         Type of source connector
         """
@@ -3090,13 +3091,13 @@ class FlowTask(dict):
 
     def __init__(__self__, *,
                  source_fields: Sequence[str],
-                 task_type: str,
+                 task_type: 'FlowTaskType',
                  connector_operator: Optional['outputs.FlowConnectorOperator'] = None,
                  destination_field: Optional[str] = None,
                  task_properties: Optional[Sequence['outputs.FlowTaskPropertiesObject']] = None):
         """
         :param Sequence[str] source_fields: Source fields on which particular task will be applied
-        :param str task_type: Type of task
+        :param 'FlowTaskType' task_type: Type of task
         :param 'FlowConnectorOperator' connector_operator: Operation to be performed on provided source fields
         :param str destination_field: A field value on which source field should be validated
         :param Sequence['FlowTaskPropertiesObject'] task_properties: A Map used to store task related info
@@ -3120,7 +3121,7 @@ class FlowTask(dict):
 
     @property
     @pulumi.getter(name="taskType")
-    def task_type(self) -> str:
+    def task_type(self) -> 'FlowTaskType':
         """
         Type of task
         """
@@ -3157,7 +3158,7 @@ class FlowTaskPropertiesObject(dict):
     An object used to store task related info
     """
     def __init__(__self__, *,
-                 key: str,
+                 key: 'FlowOperatorPropertiesKeys',
                  value: str):
         """
         An object used to store task related info
@@ -3167,7 +3168,7 @@ class FlowTaskPropertiesObject(dict):
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> 'FlowOperatorPropertiesKeys':
         return pulumi.get(self, "key")
 
     @property
@@ -3213,11 +3214,11 @@ class FlowTriggerConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 trigger_type: str,
+                 trigger_type: 'FlowTriggerType',
                  trigger_properties: Optional['outputs.FlowScheduledTriggerProperties'] = None):
         """
         Trigger settings of the flow.
-        :param str trigger_type: Trigger type of the flow
+        :param 'FlowTriggerType' trigger_type: Trigger type of the flow
         :param 'FlowScheduledTriggerProperties' trigger_properties: Details required based on the type of trigger
         """
         pulumi.set(__self__, "trigger_type", trigger_type)
@@ -3226,7 +3227,7 @@ class FlowTriggerConfig(dict):
 
     @property
     @pulumi.getter(name="triggerType")
-    def trigger_type(self) -> str:
+    def trigger_type(self) -> 'FlowTriggerType':
         """
         Trigger type of the flow
         """
@@ -3315,7 +3316,7 @@ class FlowUpsolverS3OutputFormatConfig(dict):
     def __init__(__self__, *,
                  prefix_config: 'outputs.FlowPrefixConfig',
                  aggregation_config: Optional['outputs.FlowAggregationConfig'] = None,
-                 file_type: Optional[str] = None):
+                 file_type: Optional['FlowFileType'] = None):
         pulumi.set(__self__, "prefix_config", prefix_config)
         if aggregation_config is not None:
             pulumi.set(__self__, "aggregation_config", aggregation_config)
@@ -3334,7 +3335,7 @@ class FlowUpsolverS3OutputFormatConfig(dict):
 
     @property
     @pulumi.getter(name="fileType")
-    def file_type(self) -> Optional[str]:
+    def file_type(self) -> Optional['FlowFileType']:
         return pulumi.get(self, "file_type")
 
 
@@ -3432,7 +3433,7 @@ class FlowZendeskDestinationProperties(dict):
                  object: str,
                  error_handling_config: Optional['outputs.FlowErrorHandlingConfig'] = None,
                  id_field_names: Optional[Sequence[str]] = None,
-                 write_operation_type: Optional[str] = None):
+                 write_operation_type: Optional['FlowWriteOperationType'] = None):
         """
         :param Sequence[str] id_field_names: List of fields used as ID when performing a write operation.
         """
@@ -3464,7 +3465,7 @@ class FlowZendeskDestinationProperties(dict):
 
     @property
     @pulumi.getter(name="writeOperationType")
-    def write_operation_type(self) -> Optional[str]:
+    def write_operation_type(self) -> Optional['FlowWriteOperationType']:
         return pulumi.get(self, "write_operation_type")
 
 

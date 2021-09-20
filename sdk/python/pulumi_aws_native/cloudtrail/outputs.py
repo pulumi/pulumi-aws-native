@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'TrailDataResource',
@@ -82,12 +83,12 @@ class TrailEventSelector(dict):
                  data_resources: Optional[Sequence['outputs.TrailDataResource']] = None,
                  exclude_management_event_sources: Optional[Sequence[str]] = None,
                  include_management_events: Optional[bool] = None,
-                 read_write_type: Optional[str] = None):
+                 read_write_type: Optional['TrailEventSelectorReadWriteType'] = None):
         """
         The type of email sending events to publish to the event destination.
         :param Sequence[str] exclude_management_event_sources: An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing "kms.amazonaws.com". By default, ExcludeManagementEventSources is empty, and AWS KMS events are included in events that are logged to your trail.
         :param bool include_management_events: Specify if you want your event selector to include management events for your trail.
-        :param str read_write_type: Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
+        :param 'TrailEventSelectorReadWriteType' read_write_type: Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
         """
         if data_resources is not None:
             pulumi.set(__self__, "data_resources", data_resources)
@@ -121,7 +122,7 @@ class TrailEventSelector(dict):
 
     @property
     @pulumi.getter(name="readWriteType")
-    def read_write_type(self) -> Optional[str]:
+    def read_write_type(self) -> Optional['TrailEventSelectorReadWriteType']:
         """
         Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
         """
