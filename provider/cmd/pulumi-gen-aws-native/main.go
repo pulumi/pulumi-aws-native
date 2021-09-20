@@ -11,7 +11,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-	"path"
 	"path/filepath"
 	"sort"
 	"strings"
@@ -69,14 +68,14 @@ func main() {
 		fmt.Printf("Generating %s...\n", language)
 		switch language {
 		case "nodejs", "python", "dotnet", "go":
-			dir := path.Join(".", "sdk", language)
+			dir := filepath.Join(".", "sdk", language)
 			pkgSpec.Version = version
 			err = emitPackage(pkgSpec, language, dir)
 		case "schema":
 			cf2pulumiDir := filepath.Join(".", "provider", "cmd", "cf2pulumi")
 			writePulumiSchema(*pkgSpec, cf2pulumiDir, false)
 
-			err := generateExamples(pkgSpec, []string{"nodejs","python","dotnet","go"})
+			err := generateExamples(pkgSpec, []string{"nodejs", "python", "dotnet", "go"})
 			if err != nil {
 				panic(fmt.Sprintf("error generating examples: %v", err))
 			}
@@ -95,7 +94,7 @@ func main() {
 
 func readJsonSchemas(schemaDir string) (res []jsschema.Schema) {
 	var fileNames []string
-	root := path.Join(".", schemaDir)
+	root := filepath.Join(".", schemaDir)
 	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
 		if !info.IsDir() {
 			fileNames = append(fileNames, path)
@@ -143,7 +142,7 @@ func writeSupportedResourceTypes(outDir string) error {
 	cfn := cloudformation.NewFromConfig(cfg)
 
 	var result []string
-	for _, provisioningType := range []types.ProvisioningType {types.ProvisioningTypeFullyMutable, types.ProvisioningTypeImmutable} {
+	for _, provisioningType := range []types.ProvisioningType{types.ProvisioningTypeFullyMutable, types.ProvisioningTypeImmutable} {
 		var nextToken *string
 		for {
 			out, err := cfn.ListTypes(ctx.Background(), &cloudformation.ListTypesInput{
@@ -272,8 +271,8 @@ var cloudApiResources = %#v
 
 // emitFile creates a file in a given directory and writes the byte contents to it.
 func emitFile(outDir, relPath string, contents []byte) error {
-	p := path.Join(outDir, relPath)
-	if err := tools.EnsureDir(path.Dir(p)); err != nil {
+	p := filepath.Join(outDir, relPath)
+	if err := tools.EnsureDir(filepath.Dir(p)); err != nil {
 		return errors.Wrap(err, "creating directory")
 	}
 
