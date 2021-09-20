@@ -19,14 +19,15 @@ import (
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation/types"
-	"github.com/pkg/errors"
 	jsschema "github.com/lestrrat-go/jsschema"
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
 	nodejsgen "github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
 	pythongen "github.com/pulumi/pulumi/pkg/v3/codegen/python"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/tools"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
@@ -63,26 +64,14 @@ func main() {
 		panic(fmt.Sprintf("error generating schema: %v", err))
 	}
 	pkgSpec.Version = version
-	ppkg, err := pschema.ImportSpec(*pkgSpec, nil)
-	if err != nil {
-		panic(fmt.Sprintf("error importing schema: %v", err))
-	}
 
 	for _, language := range strings.Split(languages, ",") {
 		fmt.Printf("Generating %s...\n", language)
-
-		outdir := path.Join(".", "sdk", language)
-		providerDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
-
 		switch language {
-		case "nodejs":
-			writeNodeJSSDK(ppkg, outdir)
-		case "python":
-			writePythonSDK(ppkg, outdir)
-		case "dotnet":
-			writeDotnetSDK(ppkg, outdir)
-		case "go":
-			writeGoSDK(ppkg, outdir)
+		case "nodejs", "python", "dotnet", "go":
+			dir := path.Join(".", "sdk", language)
+			pkgSpec.Version = version
+			err = emitPackage(pkgSpec, language, dir)
 		case "schema":
 			cf2pulumiDir := filepath.Join(".", "provider", "cmd", "cf2pulumi")
 			writePulumiSchema(*pkgSpec, cf2pulumiDir, false)
@@ -91,6 +80,7 @@ func main() {
 			if err != nil {
 				panic(fmt.Sprintf("error generating examples: %v", err))
 			}
+			providerDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
 			writePulumiSchema(*pkgSpec, providerDir, true)
 
 			// Also, emit the resource metadata for the provider.
@@ -177,46 +167,47 @@ func writeSupportedResourceTypes(outDir string) error {
 	sort.Strings(result)
 
 	val := strings.Join(result, "\n")
-	mustWriteFile(outDir, supportedResourcesFile, []byte(val))
+	return emitFile(outDir, supportedResourcesFile, []byte(val))
+}
+
+func generate(ppkg *pschema.Package, language string) (map[string][]byte, error) {
+	toolDescription := "the Pulumi SDK Generator"
+	extraFiles := map[string][]byte{}
+	switch language {
+	case "nodejs":
+		return nodejsgen.GeneratePackage(toolDescription, ppkg, extraFiles)
+	case "python":
+		return pythongen.GeneratePackage(toolDescription, ppkg, extraFiles)
+	case "go":
+		return gogen.GeneratePackage(toolDescription, ppkg)
+	case "dotnet":
+		return dotnetgen.GeneratePackage(toolDescription, ppkg, extraFiles)
+	}
+
+	return nil, errors.Errorf("unknown language '%s'", language)
+}
+
+// emitPackage emits an entire package pack into the configured output directory with the configured settings.
+func emitPackage(pkgSpec *pschema.PackageSpec, language, outDir string) error {
+	ppkg, err := pschema.ImportSpec(*pkgSpec, nil)
+	if err != nil {
+		return errors.Wrap(err, "reading schema")
+	}
+
+	files, err := generate(ppkg, language)
+	if err != nil {
+		return errors.Wrapf(err, "generating %s package", language)
+	}
+
+	for f, contents := range files {
+		if err := emitFile(outDir, f, contents); err != nil {
+			return errors.Wrapf(err, "emitting file %v", f)
+		}
+	}
+
 	return nil
 }
-
-func writeNodeJSSDK(pkg *pschema.Package, outdir string) {
-	overlays := map[string][]byte{}
-	files, err := nodejsgen.GeneratePackage("pulumigen", pkg, overlays)
-	if err != nil {
-		panic(err)
-	}
-	mustWriteFiles(outdir, files)
-}
-
-func writePythonSDK(pkg *pschema.Package, outdir string) {
-	overlays := map[string][]byte{}
-	files, err := pythongen.GeneratePackage("pulumigen", pkg, overlays)
-	if err != nil {
-		panic(err)
-	}
-	mustWriteFiles(outdir, files)
-}
-
-func writeDotnetSDK(pkg *pschema.Package, outdir string) {
-	overlays := map[string][]byte{}
-	files, err := dotnetgen.GeneratePackage("pulumigen", pkg, overlays)
-	if err != nil {
-		panic(err)
-	}
-	mustWriteFiles(outdir, files)
-}
-
-func writeGoSDK(pkg *pschema.Package, outdir string) {
-	files, err := gogen.GeneratePackage("pulumigen", pkg)
-	if err != nil {
-		panic(err)
-	}
-	mustWriteFiles(outdir, files)
-}
-
-func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir string, emitJSON bool) {
+func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir string, emitJSON bool) error {
 	compressedSchema := bytes.Buffer{}
 	compressedWriter := gzip.NewWriter(&compressedSchema)
 	err := json.NewEncoder(compressedWriter).Encode(pkgSpec)
@@ -227,7 +218,7 @@ func writePulumiSchema(pkgSpec pschema.PackageSpec, outdir string, emitJSON bool
 		panic(err)
 	}
 
-	mustWriteFile(outdir, "schema.go", []byte(fmt.Sprintf(`package main
+	err = emitFile(outdir, "schema.go", []byte(fmt.Sprintf(`package main
 var pulumiSchema = %#v
 `, compressedSchema.Bytes())))
 	if err != nil {
@@ -240,8 +231,10 @@ var pulumiSchema = %#v
 		if err != nil {
 			panic(errors.Wrap(err, "marshaling Pulumi schema"))
 		}
-		mustWriteFile(outdir, "schema.json", schemaJSON)
+		return emitFile(outdir, "schema.json", schemaJSON)
 	}
+
+	return nil
 }
 
 func writeMetadata(metadata *schema.CloudAPIMetadata, outDir string, goPackageName string, emitJSON bool) error {
@@ -261,7 +254,7 @@ func writeMetadata(metadata *schema.CloudAPIMetadata, outDir string, goPackageNa
 		return errors.Wrap(err, "marshaling metadata")
 	}
 
-	mustWriteFile(outDir, "metadata.go", []byte(fmt.Sprintf(`package %s
+	err = emitFile(outDir, "metadata.go", []byte(fmt.Sprintf(`package %s
 var cloudApiResources = %#v
 `, goPackageName, compressedMeta.Bytes())))
 	if err != nil {
@@ -269,25 +262,27 @@ var cloudApiResources = %#v
 	}
 
 	if emitJSON {
-		mustWriteFile(outDir, "metadata.json", formatted)
+		err = emitFile(outDir, "metadata.json", formatted)
+		if err != nil {
+			return err
+		}
 	}
 	return nil
 }
 
-func mustWriteFiles(rootDir string, files map[string][]byte) {
-	for filename, contents := range files {
-		mustWriteFile(rootDir, filename, contents)
+// emitFile creates a file in a given directory and writes the byte contents to it.
+func emitFile(outDir, relPath string, contents []byte) error {
+	p := path.Join(outDir, relPath)
+	if err := tools.EnsureDir(path.Dir(p)); err != nil {
+		return errors.Wrap(err, "creating directory")
 	}
-}
 
-func mustWriteFile(rootDir, filename string, contents []byte) {
-	outPath := filepath.Join(rootDir, filename)
-
-	if err := os.MkdirAll(filepath.Dir(outPath), 0755); err != nil {
-		panic(err)
-	}
-	err := ioutil.WriteFile(outPath, contents, 0600)
+	f, err := os.Create(p)
 	if err != nil {
-		panic(err)
+		return errors.Wrap(err, "creating file")
 	}
+	defer contract.IgnoreClose(f)
+
+	_, err = f.Write(contents)
+	return err
 }
